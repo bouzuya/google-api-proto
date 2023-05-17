@@ -2186,7 +2186,7 @@ pub struct SearchRequest {
     /// Document](<https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements>)
     /// for more details.
     #[prost(btree_map = "string, string", tag = "22")]
-    pub user_label: ::prost::alloc::collections::BTreeMap<
+    pub user_labels: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
