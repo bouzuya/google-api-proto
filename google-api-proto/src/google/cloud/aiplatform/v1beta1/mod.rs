@@ -18647,6 +18647,22 @@ pub struct ResumeScheduleRequest {
     #[prost(bool, tag = "2")]
     pub catch_up: bool,
 }
+/// Request message for
+/// \[ScheduleService.UpdateSchedule][google.cloud.aiplatform.v1beta1.ScheduleService.UpdateSchedule\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateScheduleRequest {
+    /// Required. The Schedule which replaces the resource on the server.
+    /// The following restrictions will be applied:
+    ///    * The scheduled request type cannot be changed.
+    ///    * The output_only fields will be ignored if specified.
+    #[prost(message, optional, tag = "1")]
+    pub schedule: ::core::option::Option<Schedule>,
+    /// Required. The update mask applies to the resource. See
+    /// \[google.protobuf.FieldMask][google.protobuf.FieldMask\].
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
 /// Generated client implementations.
 pub mod schedule_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
@@ -18837,6 +18853,32 @@ pub mod schedule_service_client {
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.aiplatform.v1beta1.ScheduleService/ResumeSchedule",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+        /// Updates an active or paused Schedule.
+        ///
+        /// When the Schedule is updated, new runs will be scheduled starting from the
+        /// updated next execution time after the update time based on the
+        /// time_specification in the updated Schedule. All unstarted runs before the
+        /// update time will be skipped while already created runs will NOT be paused
+        /// or canceled.
+        pub async fn update_schedule(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateScheduleRequest>,
+        ) -> Result<tonic::Response<super::Schedule>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.ScheduleService/UpdateSchedule",
             );
             self.inner.unary(request.into_request(), path, codec).await
         }
