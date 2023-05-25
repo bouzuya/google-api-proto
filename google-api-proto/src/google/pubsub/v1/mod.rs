@@ -1206,6 +1206,10 @@ pub struct PushConfig {
     /// authenticated push.
     #[prost(oneof = "push_config::AuthenticationMethod", tags = "3")]
     pub authentication_method: ::core::option::Option<push_config::AuthenticationMethod>,
+    /// The format of the delivered message to the push endpoint is defined by
+    /// the chosen wrapper. When unset, `PubsubWrapper` is used.
+    #[prost(oneof = "push_config::Wrapper", tags = "4, 5")]
+    pub wrapper: ::core::option::Option<push_config::Wrapper>,
 }
 /// Nested message and enum types in `PushConfig`.
 pub mod push_config {
@@ -1231,6 +1235,22 @@ pub mod push_config {
         #[prost(string, tag = "2")]
         pub audience: ::prost::alloc::string::String,
     }
+    /// The payload to the push endpoint is in the form of the JSON representation
+    /// of a PubsubMessage
+    /// (<https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#pubsubmessage>).
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PubsubWrapper {}
+    /// Sets the `data` field as the HTTP body for delivery.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct NoWrapper {
+        /// When true, writes the Pub/Sub message metadata to
+        /// `x-goog-pubsub-<KEY>:<VAL>` headers of the HTTP request. Writes the
+        /// Pub/Sub message attributes to `<KEY>:<VAL>` headers of the HTTP request.
+        #[prost(bool, tag = "1")]
+        pub write_metadata: bool,
+    }
     /// An authentication method used by push endpoints to verify the source of
     /// push requests. This can be used with push endpoints that are private by
     /// default to allow requests only from the Cloud Pub/Sub system, for example.
@@ -1243,6 +1263,20 @@ pub mod push_config {
         /// `Authorization` header in the HTTP request for every pushed message.
         #[prost(message, tag = "3")]
         OidcToken(OidcToken),
+    }
+    /// The format of the delivered message to the push endpoint is defined by
+    /// the chosen wrapper. When unset, `PubsubWrapper` is used.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Wrapper {
+        /// When set, the payload to the push endpoint is in the form of the JSON
+        /// representation of a PubsubMessage
+        /// (<https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#pubsubmessage>).
+        #[prost(message, tag = "4")]
+        PubsubWrapper(PubsubWrapper),
+        /// When set, the payload to the push endpoint is not wrapped.
+        #[prost(message, tag = "5")]
+        NoWrapper(NoWrapper),
     }
 }
 /// Configuration for a BigQuery subscription.

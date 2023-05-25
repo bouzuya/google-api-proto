@@ -442,6 +442,8 @@ pub mod policytroubleshooter;
 pub mod privatecatalog;
 #[cfg(any(feature = "google-cloud-pubsublite-v1"))]
 pub mod pubsublite;
+#[cfg(any(feature = "google-cloud-rapidmigrationassessment-v1"))]
+pub mod rapidmigrationassessment;
 #[cfg(
     any(
         feature = "google-cloud-recaptchaenterprise-v1",

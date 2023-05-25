@@ -267,6 +267,7 @@ pub mod cloud;
         feature = "google-cloud-policytroubleshooter-v1",
         feature = "google-cloud-privatecatalog-v1beta1",
         feature = "google-cloud-pubsublite-v1",
+        feature = "google-cloud-rapidmigrationassessment-v1",
         feature = "google-cloud-recaptchaenterprise-v1",
         feature = "google-cloud-recaptchaenterprise-v1beta1",
         feature = "google-cloud-recommendationengine-v1beta1",
