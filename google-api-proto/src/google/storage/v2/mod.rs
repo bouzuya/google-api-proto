@@ -43,7 +43,7 @@ pub struct CreateBucketRequest {
     pub parent: ::prost::alloc::string::String,
     /// Properties of the new bucket being inserted.
     /// The name of the bucket is specified in the `bucket_id` field. Populating
-    /// `bucket.name` field will result in an error.
+    /// `bucket.name` field will be ignored.
     /// The project of the bucket must be specified in the `bucket.project` field.
     /// This field must be in `projects/{projectIdentifier}` format,
     /// {projectIdentifier} can be the project ID or project number. The `parent`
