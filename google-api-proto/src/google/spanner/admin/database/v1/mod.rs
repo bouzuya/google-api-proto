@@ -1088,6 +1088,29 @@ pub struct UpdateDatabaseDdlRequest {
     #[prost(string, tag = "3")]
     pub operation_id: ::prost::alloc::string::String,
 }
+/// Action information extracted from a DDL statement. This proto is used to
+/// display the brief info of the DDL statement for the operation
+/// \[UpdateDatabaseDdl][google.spanner.admin.database.v1.DatabaseAdmin.UpdateDatabaseDdl\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DdlStatementActionInfo {
+    /// The action for the DDL statement, e.g. CREATE, ALTER, DROP, GRANT, etc.
+    /// This field is a non-empty string.
+    #[prost(string, tag = "1")]
+    pub action: ::prost::alloc::string::String,
+    /// The entity type for the DDL statement, e.g. TABLE, INDEX, VIEW, etc.
+    /// This field can be empty string for some DDL statement,
+    /// e.g. for statement "ANALYZE", `entity_type` = "".
+    #[prost(string, tag = "2")]
+    pub entity_type: ::prost::alloc::string::String,
+    /// The entity name(s) being operated on the DDL statement.
+    /// E.g.
+    /// 1. For statement "CREATE TABLE t1(...)", `entity_names` = \["t1"\].
+    /// 2. For statement "GRANT ROLE r1, r2 ...", `entity_names` = ["r1", "r2"].
+    /// 3. For statement "ANALYZE", `entity_names` = [].
+    #[prost(string, repeated, tag = "3")]
+    pub entity_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
 /// Metadata type for the operation returned by
 /// \[UpdateDatabaseDdl][google.spanner.admin.database.v1.DatabaseAdmin.UpdateDatabaseDdl\].
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1105,21 +1128,24 @@ pub struct UpdateDatabaseDdlMetadata {
     /// timestamp for the statement `statements\[i\]`.
     #[prost(message, repeated, tag = "3")]
     pub commit_timestamps: ::prost::alloc::vec::Vec<::prost_types::Timestamp>,
-    /// Output only. When true, indicates that the operation is throttled e.g
+    /// Output only. When true, indicates that the operation is throttled e.g.
     /// due to resource constraints. When resources become available the operation
     /// will resume and this field will be false again.
     #[prost(bool, tag = "4")]
     pub throttled: bool,
     /// The progress of the
-    /// \[UpdateDatabaseDdl][google.spanner.admin.database.v1.DatabaseAdmin.UpdateDatabaseDdl\] operations.
-    /// Currently, only index creation statements will have a continuously
-    /// updating progress.
-    /// For non-index creation statements, `progress\[i\]` will have start time
-    /// and end time populated with commit timestamp of operation,
-    /// as well as a progress of 100% once the operation has completed.
-    /// `progress\[i\]` is the operation progress for `statements\[i\]`.
+    /// \[UpdateDatabaseDdl][google.spanner.admin.database.v1.DatabaseAdmin.UpdateDatabaseDdl\]
+    /// operations. All DDL statements will have continuously updating progress,
+    /// and `progress\[i\]` is the operation progress for `statements\[i\]`. Also,
+    /// `progress\[i\]` will have start time and end time populated with commit
+    /// timestamp of operation, as well as a progress of 100% once the operation
+    /// has completed.
     #[prost(message, repeated, tag = "5")]
     pub progress: ::prost::alloc::vec::Vec<OperationProgress>,
+    /// The brief action info for the DDL statements.
+    /// `actions\[i\]` is the brief info for `statements\[i\]`.
+    #[prost(message, repeated, tag = "6")]
+    pub actions: ::prost::alloc::vec::Vec<DdlStatementActionInfo>,
 }
 /// The request for \[DropDatabase][google.spanner.admin.database.v1.DatabaseAdmin.DropDatabase\].
 #[allow(clippy::derive_partial_eq_without_eq)]

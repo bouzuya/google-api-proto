@@ -398,6 +398,9 @@ pub struct NodeConfig {
     pub ephemeral_storage_local_ssd_config: ::core::option::Option<
         EphemeralStorageLocalSsdConfig,
     >,
+    /// Parameters for node pools to be backed by shared sole tenant node groups.
+    #[prost(message, optional, tag = "42")]
+    pub sole_tenant_config: ::core::option::Option<SoleTenantConfig>,
 }
 /// Specifies options for controlling advanced machine features.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -679,6 +682,81 @@ pub mod reservation_affinity {
                 "ANY_RESERVATION" => Some(Self::AnyReservation),
                 "SPECIFIC_RESERVATION" => Some(Self::SpecificReservation),
                 _ => None,
+            }
+        }
+    }
+}
+/// SoleTenantConfig contains the NodeAffinities to specify what shared sole
+/// tenant node groups should back the node pool.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SoleTenantConfig {
+    /// NodeAffinities used to match to a shared sole tenant node group.
+    #[prost(message, repeated, tag = "1")]
+    pub node_affinities: ::prost::alloc::vec::Vec<sole_tenant_config::NodeAffinity>,
+}
+/// Nested message and enum types in `SoleTenantConfig`.
+pub mod sole_tenant_config {
+    /// Specifies the NodeAffinity key, values, and affinity operator according to
+    /// [shared sole tenant node group
+    /// affinities](<https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes#node_affinity_and_anti-affinity>).
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct NodeAffinity {
+        /// Key for NodeAffinity.
+        #[prost(string, tag = "1")]
+        pub key: ::prost::alloc::string::String,
+        /// Operator for NodeAffinity.
+        #[prost(enumeration = "node_affinity::Operator", tag = "2")]
+        pub operator: i32,
+        /// Values for NodeAffinity.
+        #[prost(string, repeated, tag = "3")]
+        pub values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    /// Nested message and enum types in `NodeAffinity`.
+    pub mod node_affinity {
+        /// Operator allows user to specify affinity or anti-affinity for the
+        /// given key values.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum Operator {
+            /// Invalid or unspecified affinity operator.
+            Unspecified = 0,
+            /// Affinity operator.
+            In = 1,
+            /// Anti-affinity operator.
+            NotIn = 2,
+        }
+        impl Operator {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    Operator::Unspecified => "OPERATOR_UNSPECIFIED",
+                    Operator::In => "IN",
+                    Operator::NotIn => "NOT_IN",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "OPERATOR_UNSPECIFIED" => Some(Self::Unspecified),
+                    "IN" => Some(Self::In),
+                    "NOT_IN" => Some(Self::NotIn),
+                    _ => None,
+                }
             }
         }
     }
