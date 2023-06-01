@@ -1848,6 +1848,192 @@ pub mod test_execution_service_client {
         }
     }
 }
+/// Android application details based on application manifest and apk archive
+/// contents.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ApkDetail {
+    #[prost(message, optional, tag = "1")]
+    pub apk_manifest: ::core::option::Option<ApkManifest>,
+}
+/// An Android app manifest. See
+/// <http://developer.android.com/guide/topics/manifest/manifest-intro.html>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ApkManifest {
+    /// Full Java-style package name for this application, e.g.
+    /// "com.example.foo".
+    #[prost(string, tag = "1")]
+    pub package_name: ::prost::alloc::string::String,
+    /// Minimum API level required for the application to run.
+    #[prost(int32, tag = "2")]
+    pub min_sdk_version: i32,
+    /// Maximum API level on which the application is designed to run.
+    #[prost(int32, tag = "3")]
+    pub max_sdk_version: i32,
+    /// Specifies the API Level on which the application is designed to run.
+    #[prost(int32, tag = "6")]
+    pub target_sdk_version: i32,
+    /// User-readable name for the application.
+    #[prost(string, tag = "4")]
+    pub application_label: ::prost::alloc::string::String,
+    #[prost(message, repeated, tag = "5")]
+    pub intent_filters: ::prost::alloc::vec::Vec<IntentFilter>,
+    /// Permissions declared to be used by the application
+    #[prost(string, repeated, tag = "7")]
+    pub uses_permission: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Version number used internally by the app.
+    #[prost(int64, tag = "8")]
+    pub version_code: i64,
+    /// Version number shown to users.
+    #[prost(string, tag = "9")]
+    pub version_name: ::prost::alloc::string::String,
+    /// Meta-data tags defined in the manifest.
+    #[prost(message, repeated, tag = "10")]
+    pub metadata: ::prost::alloc::vec::Vec<Metadata>,
+    /// Feature usage tags defined in the manifest.
+    #[prost(message, repeated, tag = "11")]
+    pub uses_feature: ::prost::alloc::vec::Vec<UsesFeature>,
+}
+/// The <intent-filter> section of an <activity> tag.
+/// <https://developer.android.com/guide/topics/manifest/intent-filter-element.html>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct IntentFilter {
+    /// The android:name value of the <action> tag.
+    #[prost(string, repeated, tag = "1")]
+    pub action_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The android:name value of the <category> tag.
+    #[prost(string, repeated, tag = "2")]
+    pub category_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The android:mimeType value of the <data> tag.
+    #[prost(string, tag = "3")]
+    pub mime_type: ::prost::alloc::string::String,
+}
+/// A <meta-data> tag within a manifest.
+/// <https://developer.android.com/guide/topics/manifest/meta-data-element.html>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Metadata {
+    /// The android:name value
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The android:value value
+    #[prost(string, tag = "2")]
+    pub value: ::prost::alloc::string::String,
+}
+/// A <uses-feature> tag within a manifest.
+/// <https://developer.android.com/guide/topics/manifest/uses-feature-element.html>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UsesFeature {
+    /// The android:name value
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The android:required value
+    #[prost(bool, tag = "2")]
+    pub is_required: bool,
+}
+/// A request to get the details of an Android application APK.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetApkDetailsRequest {
+    /// The APK to be parsed for details.
+    #[prost(message, optional, tag = "1")]
+    pub location: ::core::option::Option<FileReference>,
+}
+/// Response containing the details of the specified Android application APK.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetApkDetailsResponse {
+    /// Details of the Android APK.
+    #[prost(message, optional, tag = "1")]
+    pub apk_detail: ::core::option::Option<ApkDetail>,
+}
+/// Generated client implementations.
+pub mod application_detail_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// A service which parses input applications and returns details that can be
+    /// useful in the context of testing.
+    #[derive(Debug, Clone)]
+    pub struct ApplicationDetailServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> ApplicationDetailServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> ApplicationDetailServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            ApplicationDetailServiceClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Gets the details of an Android application APK.
+        pub async fn get_apk_details(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetApkDetailsRequest>,
+        ) -> Result<tonic::Response<super::GetApkDetailsResponse>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.testing.v1.ApplicationDetailService/GetApkDetails",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+    }
+}
 /// A single device IP block
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2601,192 +2787,6 @@ pub mod test_environment_discovery_service_client {
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.testing.v1.TestEnvironmentDiscoveryService/GetTestEnvironmentCatalog",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-    }
-}
-/// Android application details based on application manifest and apk archive
-/// contents.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ApkDetail {
-    #[prost(message, optional, tag = "1")]
-    pub apk_manifest: ::core::option::Option<ApkManifest>,
-}
-/// An Android app manifest. See
-/// <http://developer.android.com/guide/topics/manifest/manifest-intro.html>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ApkManifest {
-    /// Full Java-style package name for this application, e.g.
-    /// "com.example.foo".
-    #[prost(string, tag = "1")]
-    pub package_name: ::prost::alloc::string::String,
-    /// Minimum API level required for the application to run.
-    #[prost(int32, tag = "2")]
-    pub min_sdk_version: i32,
-    /// Maximum API level on which the application is designed to run.
-    #[prost(int32, tag = "3")]
-    pub max_sdk_version: i32,
-    /// Specifies the API Level on which the application is designed to run.
-    #[prost(int32, tag = "6")]
-    pub target_sdk_version: i32,
-    /// User-readable name for the application.
-    #[prost(string, tag = "4")]
-    pub application_label: ::prost::alloc::string::String,
-    #[prost(message, repeated, tag = "5")]
-    pub intent_filters: ::prost::alloc::vec::Vec<IntentFilter>,
-    /// Permissions declared to be used by the application
-    #[prost(string, repeated, tag = "7")]
-    pub uses_permission: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Version number used internally by the app.
-    #[prost(int64, tag = "8")]
-    pub version_code: i64,
-    /// Version number shown to users.
-    #[prost(string, tag = "9")]
-    pub version_name: ::prost::alloc::string::String,
-    /// Meta-data tags defined in the manifest.
-    #[prost(message, repeated, tag = "10")]
-    pub metadata: ::prost::alloc::vec::Vec<Metadata>,
-    /// Feature usage tags defined in the manifest.
-    #[prost(message, repeated, tag = "11")]
-    pub uses_feature: ::prost::alloc::vec::Vec<UsesFeature>,
-}
-/// The <intent-filter> section of an <activity> tag.
-/// <https://developer.android.com/guide/topics/manifest/intent-filter-element.html>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct IntentFilter {
-    /// The android:name value of the <action> tag.
-    #[prost(string, repeated, tag = "1")]
-    pub action_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The android:name value of the <category> tag.
-    #[prost(string, repeated, tag = "2")]
-    pub category_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The android:mimeType value of the <data> tag.
-    #[prost(string, tag = "3")]
-    pub mime_type: ::prost::alloc::string::String,
-}
-/// A <meta-data> tag within a manifest.
-/// <https://developer.android.com/guide/topics/manifest/meta-data-element.html>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Metadata {
-    /// The android:name value
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The android:value value
-    #[prost(string, tag = "2")]
-    pub value: ::prost::alloc::string::String,
-}
-/// A <uses-feature> tag within a manifest.
-/// <https://developer.android.com/guide/topics/manifest/uses-feature-element.html>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UsesFeature {
-    /// The android:name value
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The android:required value
-    #[prost(bool, tag = "2")]
-    pub is_required: bool,
-}
-/// A request to get the details of an Android application APK.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetApkDetailsRequest {
-    /// The APK to be parsed for details.
-    #[prost(message, optional, tag = "1")]
-    pub location: ::core::option::Option<FileReference>,
-}
-/// Response containing the details of the specified Android application APK.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetApkDetailsResponse {
-    /// Details of the Android APK.
-    #[prost(message, optional, tag = "1")]
-    pub apk_detail: ::core::option::Option<ApkDetail>,
-}
-/// Generated client implementations.
-pub mod application_detail_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// A service which parses input applications and returns details that can be
-    /// useful in the context of testing.
-    #[derive(Debug, Clone)]
-    pub struct ApplicationDetailServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> ApplicationDetailServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> ApplicationDetailServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            ApplicationDetailServiceClient::new(
-                InterceptedService::new(inner, interceptor),
-            )
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Gets the details of an Android application APK.
-        pub async fn get_apk_details(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetApkDetailsRequest>,
-        ) -> Result<tonic::Response<super::GetApkDetailsResponse>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.testing.v1.ApplicationDetailService/GetApkDetails",
             );
             self.inner.unary(request.into_request(), path, codec).await
         }
