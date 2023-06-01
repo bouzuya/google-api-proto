@@ -20,6 +20,30 @@ pub struct Actor {
     #[prost(bool, tag = "4")]
     pub google_support: bool,
 }
+/// Represents a file attached to a support case.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Attachment {
+    /// Output only. The resource name of the attachment.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The time at which the attachment was created.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The user who uploaded the attachment. Note, the name and email
+    /// will be obfuscated if the attachment was uploaded by Google support.
+    #[prost(message, optional, tag = "3")]
+    pub creator: ::core::option::Option<Actor>,
+    /// The filename of the attachment (e.g. `"graph.jpg"`).
+    #[prost(string, tag = "4")]
+    pub filename: ::prost::alloc::string::String,
+    /// Output only. The MIME type of the attachment (e.g. text/plain).
+    #[prost(string, tag = "5")]
+    pub mime_type: ::prost::alloc::string::String,
+    /// Output only. The size of the attachment in bytes.
+    #[prost(int64, tag = "6")]
+    pub size_bytes: i64,
+}
 /// A support case.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -216,30 +240,6 @@ pub struct CaseClassification {
     /// The display name of the classification.
     #[prost(string, tag = "4")]
     pub display_name: ::prost::alloc::string::String,
-}
-/// Represents a file attached to a support case.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Attachment {
-    /// Output only. The resource name of the attachment.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The time at which the attachment was created.
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The user who uploaded the attachment. Note, the name and email
-    /// will be obfuscated if the attachment was uploaded by Google support.
-    #[prost(message, optional, tag = "3")]
-    pub creator: ::core::option::Option<Actor>,
-    /// The filename of the attachment (e.g. `"graph.jpg"`).
-    #[prost(string, tag = "4")]
-    pub filename: ::prost::alloc::string::String,
-    /// Output only. The MIME type of the attachment (e.g. text/plain).
-    #[prost(string, tag = "5")]
-    pub mime_type: ::prost::alloc::string::String,
-    /// Output only. The size of the attachment in bytes.
-    #[prost(int64, tag = "6")]
-    pub size_bytes: i64,
 }
 /// A comment associated with a support case.
 #[allow(clippy::derive_partial_eq_without_eq)]

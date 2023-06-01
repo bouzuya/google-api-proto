@@ -259,6 +259,9 @@ pub struct Node {
     /// Shielded Instance options.
     #[prost(message, optional, tag = "45")]
     pub shielded_instance_config: ::core::option::Option<ShieldedInstanceConfig>,
+    /// Output only. Whether the Node belongs to a Multislice group.
+    #[prost(bool, tag = "47")]
+    pub multislice_node: bool,
 }
 /// Nested message and enum types in `Node`.
 pub mod node {
@@ -909,6 +912,13 @@ pub struct DeleteQueuedResourceRequest {
     /// Idempotent request UUID.
     #[prost(string, tag = "2")]
     pub request_id: ::prost::alloc::string::String,
+    /// If set to true, all running nodes belonging to this queued resource will
+    /// be deleted first and then the queued resource will be deleted.
+    /// Otherwise (i.e. force=false), the queued resource will only be deleted if
+    /// its nodes have already been deleted or the queued resource is in the
+    /// ACCEPTED, FAILED, or SUSPENDED state.
+    #[prost(bool, tag = "3")]
+    pub force: bool,
 }
 /// The per-product per-project service identity for Cloud TPU service.
 #[allow(clippy::derive_partial_eq_without_eq)]
