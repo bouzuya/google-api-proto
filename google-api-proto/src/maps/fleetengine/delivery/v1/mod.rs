@@ -1176,7 +1176,6 @@ pub struct CreateDeliveryVehicleRequest {
     pub delivery_vehicle: ::core::option::Option<DeliveryVehicle>,
 }
 /// The `GetDeliveryVehicle` request message.
-/// Next id: 4
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetDeliveryVehicleRequest {

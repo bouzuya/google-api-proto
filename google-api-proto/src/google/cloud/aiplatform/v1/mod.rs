@@ -374,6 +374,8 @@ pub enum AcceleratorType {
     NvidiaTeslaT4 = 5,
     /// Nvidia Tesla A100 GPU.
     NvidiaTeslaA100 = 8,
+    /// Nvidia A100 80GB GPU.
+    NvidiaA10080gb = 9,
     /// Nvidia L4 GPU.
     NvidiaL4 = 11,
     /// TPU v2.
@@ -397,6 +399,7 @@ impl AcceleratorType {
             AcceleratorType::NvidiaTeslaP4 => "NVIDIA_TESLA_P4",
             AcceleratorType::NvidiaTeslaT4 => "NVIDIA_TESLA_T4",
             AcceleratorType::NvidiaTeslaA100 => "NVIDIA_TESLA_A100",
+            AcceleratorType::NvidiaA10080gb => "NVIDIA_A100_80GB",
             AcceleratorType::NvidiaL4 => "NVIDIA_L4",
             AcceleratorType::TpuV2 => "TPU_V2",
             AcceleratorType::TpuV3 => "TPU_V3",
@@ -413,6 +416,7 @@ impl AcceleratorType {
             "NVIDIA_TESLA_P4" => Some(Self::NvidiaTeslaP4),
             "NVIDIA_TESLA_T4" => Some(Self::NvidiaTeslaT4),
             "NVIDIA_TESLA_A100" => Some(Self::NvidiaTeslaA100),
+            "NVIDIA_A100_80GB" => Some(Self::NvidiaA10080gb),
             "NVIDIA_L4" => Some(Self::NvidiaL4),
             "TPU_V2" => Some(Self::TpuV2),
             "TPU_V3" => Some(Self::TpuV3),
@@ -747,17 +751,16 @@ pub struct DeployedIndex {
     /// Output only. The DeployedIndex may depend on various data on its original
     /// Index. Additionally when certain changes to the original Index are being
     /// done (e.g. when what the Index contains is being changed) the DeployedIndex
-    /// may be asynchronously updated in the background to reflect this changes. If
-    /// this timestamp's value is at least the
+    /// may be asynchronously updated in the background to reflect these changes.
+    /// If this timestamp's value is at least the
     /// \[Index.update_time][google.cloud.aiplatform.v1.Index.update_time\] of the
     /// original Index, it means that this DeployedIndex and the original Index are
     /// in sync. If this timestamp is older, then to see which updates this
-    /// DeployedIndex already contains (and which not), one must
-    /// \[list][Operations.ListOperations\] \[Operations][Operation\]
-    /// \[working][Operation.name\] on the original Index. Only
-    /// the successfully completed Operations with
-    /// \[Operations.metadata.generic_metadata.update_time\]
-    /// \[google.cloud.aiplatform.v1.GenericOperationMetadata.update_time\]
+    /// DeployedIndex already contains (and which it does not), one must
+    /// \[list][google.longrunning.Operations.ListOperations\] the operations that
+    /// are running on the original Index. Only the successfully completed
+    /// Operations with
+    /// \[update_time][google.cloud.aiplatform.v1.GenericOperationMetadata.update_time\]
     /// equal or before this sync time are contained in this DeployedIndex.
     #[prost(message, optional, tag = "6")]
     pub index_sync_time: ::core::option::Option<::prost_types::Timestamp>,
@@ -2385,7 +2388,8 @@ pub mod vizier_service_client {
         /// suggested by Vertex AI Vizier. Returns a long-running
         /// operation associated with the generation of Trial suggestions.
         /// When this long-running operation succeeds, it will contain
-        /// a [SuggestTrialsResponse][google.cloud.ml.v1.SuggestTrialsResponse].
+        /// a
+        /// [SuggestTrialsResponse][google.cloud.aiplatform.v1.SuggestTrialsResponse].
         pub async fn suggest_trials(
             &mut self,
             request: impl tonic::IntoRequest<super::SuggestTrialsRequest>,
@@ -6492,8 +6496,9 @@ pub struct ModelEvaluation {
     /// Output only. Timestamp when this ModelEvaluation was created.
     #[prost(message, optional, tag = "4")]
     pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// All possible \[dimensions][ModelEvaluationSlice.slice.dimension\] of
-    /// ModelEvaluationSlices. The dimensions can be used as the filter of the
+    /// All possible
+    /// \[dimensions][google.cloud.aiplatform.v1.ModelEvaluationSlice.Slice.dimension\]
+    /// of ModelEvaluationSlices. The dimensions can be used as the filter of the
     /// \[ModelService.ListModelEvaluationSlices][google.cloud.aiplatform.v1.ModelService.ListModelEvaluationSlices\]
     /// request, in the form of `slice.dimension = <dimension>`.
     #[prost(string, repeated, tag = "5")]
@@ -8592,8 +8597,7 @@ pub mod prediction_service_client {
         /// [deployed_model_id][google.cloud.aiplatform.v1.ExplainRequest.deployed_model_id]
         /// is not specified, all DeployedModels must have
         /// [explanation_spec][google.cloud.aiplatform.v1.DeployedModel.explanation_spec]
-        /// populated. Only deployed AutoML tabular Models have
-        /// explanation_spec.
+        /// populated.
         pub async fn explain(
             &mut self,
             request: impl tonic::IntoRequest<super::ExplainRequest>,
@@ -14247,7 +14251,7 @@ pub struct ImportFeatureValuesRequest {
     #[prost(string, tag = "1")]
     pub entity_type: ::prost::alloc::string::String,
     /// Source column that holds entity IDs. If not provided, entity IDs are
-    /// extracted from the column named `entity_id`.
+    /// extracted from the column named entity_id.
     #[prost(string, tag = "5")]
     pub entity_id_field: ::prost::alloc::string::String,
     /// Required. Specifications defining which Feature values to import from the
@@ -15075,6 +15079,10 @@ pub struct ImportFeatureValuesOperationMetadata {
     /// retention boundary.
     #[prost(int64, tag = "7")]
     pub timestamp_outside_retention_rows_count: i64,
+    /// List of ImportFeatureValues operations running under a single EntityType
+    /// that are blocking this operation.
+    #[prost(int64, repeated, tag = "8")]
+    pub blocking_operation_ids: ::prost::alloc::vec::Vec<i64>,
 }
 /// Details of operations that exports Features values.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -15257,7 +15265,7 @@ pub mod delete_feature_values_response {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct EntityIdSelector {
     /// Source column that holds entity IDs. If not provided, entity IDs are
-    /// extracted from the column named `entity_id`.
+    /// extracted from the column named entity_id.
     #[prost(string, tag = "5")]
     pub entity_id_field: ::prost::alloc::string::String,
     /// Details about the source data, including the location of the storage and
@@ -16975,6 +16983,9 @@ pub struct ListArtifactsRequest {
     ///      To filter on metadata fields use traversal operation as follows:
     ///      `metadata.<field_name>.<type_value>`.
     ///      For example: `metadata.field_1.number_value = 10.0`
+    ///      In case the field name contains special characters (such as colon), one
+    ///      can embed it inside double quote.
+    ///      For example: `metadata."field:1".number_value = 10.0`
     /// *   **Context based filtering**:
     ///      To filter Artifacts based on the contexts to which they belong, use the
     ///      function operator with the full resource name
@@ -17025,7 +17036,6 @@ pub struct UpdateArtifactRequest {
     #[prost(message, optional, tag = "1")]
     pub artifact: ::core::option::Option<Artifact>,
     /// Optional. A FieldMask indicating which fields should be updated.
-    /// Functionality of this field is not yet supported.
     #[prost(message, optional, tag = "2")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
     /// If set to true, and the \[Artifact][google.cloud.aiplatform.v1.Artifact\] is
@@ -17167,6 +17177,9 @@ pub struct ListContextsRequest {
     ///     To filter on metadata fields use traversal operation as follows:
     ///     `metadata.<field_name>.<type_value>`.
     ///     For example: `metadata.field_1.number_value = 10.0`.
+    ///     In case the field name contains special characters (such as colon), one
+    ///     can embed it inside double quote.
+    ///     For example: `metadata."field:1".number_value = 10.0`
     /// *  **Parent Child filtering**:
     ///     To filter Contexts based on parent-child relationship use the HAS
     ///     operator as follows:
@@ -17221,7 +17234,6 @@ pub struct UpdateContextRequest {
     #[prost(message, optional, tag = "1")]
     pub context: ::core::option::Option<Context>,
     /// Optional. A FieldMask indicating which fields should be updated.
-    /// Functionality of this field is not yet supported.
     #[prost(message, optional, tag = "2")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
     /// If set to true, and the \[Context][google.cloud.aiplatform.v1.Context\] is
@@ -17453,6 +17465,9 @@ pub struct ListExecutionsRequest {
     ///     To filter on metadata fields use traversal operation as follows:
     ///     `metadata.<field_name>.<type_value>`
     ///     For example: `metadata.field_1.number_value = 10.0`
+    ///     In case the field name contains special characters (such as colon), one
+    ///     can embed it inside double quote.
+    ///     For example: `metadata."field:1".number_value = 10.0`
     /// *  **Context based filtering**:
     ///     To filter Executions based on the contexts to which they belong use
     ///     the function operator with the full resource name:
@@ -17503,7 +17518,6 @@ pub struct UpdateExecutionRequest {
     #[prost(message, optional, tag = "1")]
     pub execution: ::core::option::Option<Execution>,
     /// Optional. A FieldMask indicating which fields should be updated.
-    /// Functionality of this field is not yet supported.
     #[prost(message, optional, tag = "2")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
     /// If set to true, and the \[Execution][google.cloud.aiplatform.v1.Execution\]
@@ -17719,6 +17733,9 @@ pub struct QueryArtifactLineageSubgraphRequest {
     ///     To filter on metadata fields use traversal operation as follows:
     ///     `metadata.<field_name>.<type_value>`.
     ///     For example: `metadata.field_1.number_value = 10.0`
+    ///     In case the field name contains special characters (such as colon), one
+    ///     can embed it inside double quote.
+    ///     For example: `metadata."field:1".number_value = 10.0`
     ///
     /// Each of the above supported filter types can be combined together using
     /// logical operators (`AND` & `OR`). Maximum nested expression depth allowed
@@ -20336,7 +20353,8 @@ pub struct TensorboardExperiment {
     /// Output only. Timestamp when this TensorboardExperiment was last updated.
     #[prost(message, optional, tag = "5")]
     pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The labels with user-defined metadata to organize your Datasets.
+    /// The labels with user-defined metadata to organize your
+    /// TensorboardExperiment.
     ///
     /// Label keys and values cannot be longer than 64 characters
     /// (Unicode codepoints), can only contain lowercase letters, numeric
