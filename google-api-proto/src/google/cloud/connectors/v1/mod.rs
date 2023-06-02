@@ -427,169 +427,88 @@ impl LaunchStage {
         }
     }
 }
-/// Ssl config details of a connector version
+/// Connectors indicates a specific connector type, e.x. Salesforce, SAP etc.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SslConfigTemplate {
-    /// Controls the ssl type for the given connector version
-    #[prost(enumeration = "SslType", tag = "1")]
-    pub ssl_type: i32,
-    /// Boolean for determining if the connector version mandates TLS.
-    #[prost(bool, tag = "2")]
-    pub is_tls_mandatory: bool,
-    /// List of supported Server Cert Types
-    #[prost(enumeration = "CertType", repeated, tag = "3")]
-    pub server_cert_type: ::prost::alloc::vec::Vec<i32>,
-    /// List of supported Client Cert Types
-    #[prost(enumeration = "CertType", repeated, tag = "4")]
-    pub client_cert_type: ::prost::alloc::vec::Vec<i32>,
-    /// Any additional fields that need to be rendered
-    #[prost(message, repeated, tag = "5")]
-    pub additional_variables: ::prost::alloc::vec::Vec<ConfigVariableTemplate>,
-}
-/// SSL Configuration of a connection
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SslConfig {
-    /// Controls the ssl type for the given connector version.
-    #[prost(enumeration = "SslType", tag = "1")]
-    pub r#type: i32,
-    /// Trust Model of the SSL connection
-    #[prost(enumeration = "ssl_config::TrustModel", tag = "2")]
-    pub trust_model: i32,
-    /// Private Server Certificate. Needs to be specified if trust model is
-    /// `PRIVATE`.
+pub struct Connector {
+    /// Output only. Resource name of the Connector.
+    /// Format:
+    /// projects/{project}/locations/{location}/providers/{provider}/connectors/{connector}
+    /// Only global location is supported for Connector resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Created time.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Updated time.
     #[prost(message, optional, tag = "3")]
-    pub private_server_certificate: ::core::option::Option<Secret>,
-    /// Client Certificate
-    #[prost(message, optional, tag = "4")]
-    pub client_certificate: ::core::option::Option<Secret>,
-    /// Client Private Key
-    #[prost(message, optional, tag = "5")]
-    pub client_private_key: ::core::option::Option<Secret>,
-    /// Secret containing the passphrase protecting the Client Private Key
-    #[prost(message, optional, tag = "6")]
-    pub client_private_key_pass: ::core::option::Option<Secret>,
-    /// Type of Server Cert (PEM/JKS/.. etc.)
-    #[prost(enumeration = "CertType", tag = "7")]
-    pub server_cert_type: i32,
-    /// Type of Client Cert (PEM/JKS/.. etc.)
-    #[prost(enumeration = "CertType", tag = "8")]
-    pub client_cert_type: i32,
-    /// Bool for enabling SSL
-    #[prost(bool, tag = "9")]
-    pub use_ssl: bool,
-    /// Additional SSL related field values
-    #[prost(message, repeated, tag = "10")]
-    pub additional_variables: ::prost::alloc::vec::Vec<ConfigVariable>,
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Resource labels to represent user-provided metadata.
+    /// Refer to cloud documentation on labels for more details.
+    /// <https://cloud.google.com/compute/docs/labeling-resources>
+    #[prost(btree_map = "string, string", tag = "4")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. Link to documentation page.
+    #[prost(string, tag = "6")]
+    pub documentation_uri: ::prost::alloc::string::String,
+    /// Output only. Link to external page.
+    #[prost(string, tag = "7")]
+    pub external_uri: ::prost::alloc::string::String,
+    /// Output only. Description of the resource.
+    #[prost(string, tag = "8")]
+    pub description: ::prost::alloc::string::String,
+    /// Output only. Cloud storage location of icons etc consumed by UI.
+    #[prost(string, tag = "9")]
+    pub web_assets_location: ::prost::alloc::string::String,
+    /// Output only. Display name.
+    #[prost(string, tag = "10")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Output only. Flag to mark the version indicating the launch stage.
+    #[prost(enumeration = "LaunchStage", tag = "11")]
+    pub launch_stage: i32,
 }
-/// Nested message and enum types in `SslConfig`.
-pub mod ssl_config {
-    /// Enum for Ttust Model
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum TrustModel {
-        /// Public Trust Model. Takes the Default Java trust store.
-        Public = 0,
-        /// Private Trust Model. Takes custom/private trust store.
-        Private = 1,
-        /// Insecure Trust Model. Accept all certificates.
-        Insecure = 2,
-    }
-    impl TrustModel {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                TrustModel::Public => "PUBLIC",
-                TrustModel::Private => "PRIVATE",
-                TrustModel::Insecure => "INSECURE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "PUBLIC" => Some(Self::Public),
-                "PRIVATE" => Some(Self::Private),
-                "INSECURE" => Some(Self::Insecure),
-                _ => None,
-            }
-        }
-    }
+/// Request message for Connectors.GetConnector.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetConnectorRequest {
+    /// Required. Resource name of the form:
+    /// `projects/*/locations/*/providers/*/connectors/*`
+    /// Only global location is supported for Connector resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
 }
-/// Enum for controlling the SSL Type (TLS/MTLS)
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum SslType {
-    /// No SSL configuration required.
-    Unspecified = 0,
-    /// TLS Handshake
-    Tls = 1,
-    /// mutual TLS (MTLS) Handshake
-    Mtls = 2,
+/// Request message for Connectors.ListConnectors.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListConnectorsRequest {
+    /// Required. Parent resource of the connectors, of the form:
+    /// `projects/*/locations/*/providers/*`
+    /// Only global location is supported for Connector resource.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Page size.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// Page token.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
 }
-impl SslType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            SslType::Unspecified => "SSL_TYPE_UNSPECIFIED",
-            SslType::Tls => "TLS",
-            SslType::Mtls => "MTLS",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "SSL_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "TLS" => Some(Self::Tls),
-            "MTLS" => Some(Self::Mtls),
-            _ => None,
-        }
-    }
-}
-/// Enum for Cert Types
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum CertType {
-    /// Cert type unspecified.
-    Unspecified = 0,
-    /// Privacy Enhanced Mail (PEM) Type
-    Pem = 1,
-}
-impl CertType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            CertType::Unspecified => "CERT_TYPE_UNSPECIFIED",
-            CertType::Pem => "PEM",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "CERT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "PEM" => Some(Self::Pem),
-            _ => None,
-        }
-    }
+/// Response message for Connectors.ListConnectors.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListConnectorsResponse {
+    /// A list of connectors.
+    #[prost(message, repeated, tag = "1")]
+    pub connectors: ::prost::alloc::vec::Vec<Connector>,
+    /// Next page token.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// AuthConfig defines details of a authentication type.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -793,6 +712,170 @@ pub mod destination {
         /// For publicly routable host.
         #[prost(string, tag = "2")]
         Host(::prost::alloc::string::String),
+    }
+}
+/// Ssl config details of a connector version
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SslConfigTemplate {
+    /// Controls the ssl type for the given connector version
+    #[prost(enumeration = "SslType", tag = "1")]
+    pub ssl_type: i32,
+    /// Boolean for determining if the connector version mandates TLS.
+    #[prost(bool, tag = "2")]
+    pub is_tls_mandatory: bool,
+    /// List of supported Server Cert Types
+    #[prost(enumeration = "CertType", repeated, tag = "3")]
+    pub server_cert_type: ::prost::alloc::vec::Vec<i32>,
+    /// List of supported Client Cert Types
+    #[prost(enumeration = "CertType", repeated, tag = "4")]
+    pub client_cert_type: ::prost::alloc::vec::Vec<i32>,
+    /// Any additional fields that need to be rendered
+    #[prost(message, repeated, tag = "5")]
+    pub additional_variables: ::prost::alloc::vec::Vec<ConfigVariableTemplate>,
+}
+/// SSL Configuration of a connection
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SslConfig {
+    /// Controls the ssl type for the given connector version.
+    #[prost(enumeration = "SslType", tag = "1")]
+    pub r#type: i32,
+    /// Trust Model of the SSL connection
+    #[prost(enumeration = "ssl_config::TrustModel", tag = "2")]
+    pub trust_model: i32,
+    /// Private Server Certificate. Needs to be specified if trust model is
+    /// `PRIVATE`.
+    #[prost(message, optional, tag = "3")]
+    pub private_server_certificate: ::core::option::Option<Secret>,
+    /// Client Certificate
+    #[prost(message, optional, tag = "4")]
+    pub client_certificate: ::core::option::Option<Secret>,
+    /// Client Private Key
+    #[prost(message, optional, tag = "5")]
+    pub client_private_key: ::core::option::Option<Secret>,
+    /// Secret containing the passphrase protecting the Client Private Key
+    #[prost(message, optional, tag = "6")]
+    pub client_private_key_pass: ::core::option::Option<Secret>,
+    /// Type of Server Cert (PEM/JKS/.. etc.)
+    #[prost(enumeration = "CertType", tag = "7")]
+    pub server_cert_type: i32,
+    /// Type of Client Cert (PEM/JKS/.. etc.)
+    #[prost(enumeration = "CertType", tag = "8")]
+    pub client_cert_type: i32,
+    /// Bool for enabling SSL
+    #[prost(bool, tag = "9")]
+    pub use_ssl: bool,
+    /// Additional SSL related field values
+    #[prost(message, repeated, tag = "10")]
+    pub additional_variables: ::prost::alloc::vec::Vec<ConfigVariable>,
+}
+/// Nested message and enum types in `SslConfig`.
+pub mod ssl_config {
+    /// Enum for Ttust Model
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum TrustModel {
+        /// Public Trust Model. Takes the Default Java trust store.
+        Public = 0,
+        /// Private Trust Model. Takes custom/private trust store.
+        Private = 1,
+        /// Insecure Trust Model. Accept all certificates.
+        Insecure = 2,
+    }
+    impl TrustModel {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                TrustModel::Public => "PUBLIC",
+                TrustModel::Private => "PRIVATE",
+                TrustModel::Insecure => "INSECURE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "PUBLIC" => Some(Self::Public),
+                "PRIVATE" => Some(Self::Private),
+                "INSECURE" => Some(Self::Insecure),
+                _ => None,
+            }
+        }
+    }
+}
+/// Enum for controlling the SSL Type (TLS/MTLS)
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum SslType {
+    /// No SSL configuration required.
+    Unspecified = 0,
+    /// TLS Handshake
+    Tls = 1,
+    /// mutual TLS (MTLS) Handshake
+    Mtls = 2,
+}
+impl SslType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            SslType::Unspecified => "SSL_TYPE_UNSPECIFIED",
+            SslType::Tls => "TLS",
+            SslType::Mtls => "MTLS",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "SSL_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "TLS" => Some(Self::Tls),
+            "MTLS" => Some(Self::Mtls),
+            _ => None,
+        }
+    }
+}
+/// Enum for Cert Types
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum CertType {
+    /// Cert type unspecified.
+    Unspecified = 0,
+    /// Privacy Enhanced Mail (PEM) Type
+    Pem = 1,
+}
+impl CertType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            CertType::Unspecified => "CERT_TYPE_UNSPECIFIED",
+            CertType::Pem => "PEM",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "CERT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "PEM" => Some(Self::Pem),
+            _ => None,
+        }
     }
 }
 /// Connection represents an instance of connector.
@@ -1583,89 +1666,6 @@ impl ConnectionView {
             _ => None,
         }
     }
-}
-/// Connectors indicates a specific connector type, e.x. Salesforce, SAP etc.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Connector {
-    /// Output only. Resource name of the Connector.
-    /// Format:
-    /// projects/{project}/locations/{location}/providers/{provider}/connectors/{connector}
-    /// Only global location is supported for Connector resource.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Created time.
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Updated time.
-    #[prost(message, optional, tag = "3")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Resource labels to represent user-provided metadata.
-    /// Refer to cloud documentation on labels for more details.
-    /// <https://cloud.google.com/compute/docs/labeling-resources>
-    #[prost(btree_map = "string, string", tag = "4")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. Link to documentation page.
-    #[prost(string, tag = "6")]
-    pub documentation_uri: ::prost::alloc::string::String,
-    /// Output only. Link to external page.
-    #[prost(string, tag = "7")]
-    pub external_uri: ::prost::alloc::string::String,
-    /// Output only. Description of the resource.
-    #[prost(string, tag = "8")]
-    pub description: ::prost::alloc::string::String,
-    /// Output only. Cloud storage location of icons etc consumed by UI.
-    #[prost(string, tag = "9")]
-    pub web_assets_location: ::prost::alloc::string::String,
-    /// Output only. Display name.
-    #[prost(string, tag = "10")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Output only. Flag to mark the version indicating the launch stage.
-    #[prost(enumeration = "LaunchStage", tag = "11")]
-    pub launch_stage: i32,
-}
-/// Request message for Connectors.GetConnector.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetConnectorRequest {
-    /// Required. Resource name of the form:
-    /// `projects/*/locations/*/providers/*/connectors/*`
-    /// Only global location is supported for Connector resource.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request message for Connectors.ListConnectors.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListConnectorsRequest {
-    /// Required. Parent resource of the connectors, of the form:
-    /// `projects/*/locations/*/providers/*`
-    /// Only global location is supported for Connector resource.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Page size.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// Page token.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// Response message for Connectors.ListConnectors.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListConnectorsResponse {
-    /// A list of connectors.
-    #[prost(message, repeated, tag = "1")]
-    pub connectors: ::prost::alloc::vec::Vec<Connector>,
-    /// Next page token.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// ConnectorVersion indicates a specific version of a connector.
 #[allow(clippy::derive_partial_eq_without_eq)]

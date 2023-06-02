@@ -24,6 +24,81 @@ pub mod servicemanagement;
     )
 )]
 pub mod serviceusage;
+/// An indicator of the behavior of a given field (for example, that a field
+/// is required in requests, or given as output but ignored as input).
+/// This **does not** change the behavior in protocol buffers itself; it only
+/// denotes the behavior and may affect how API tooling handles the field.
+///
+/// Note: This enum **may** receive new values in the future.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum FieldBehavior {
+    /// Conventional default for enums. Do not use this.
+    Unspecified = 0,
+    /// Specifically denotes a field as optional.
+    /// While all fields in protocol buffers are optional, this may be specified
+    /// for emphasis if appropriate.
+    Optional = 1,
+    /// Denotes a field as required.
+    /// This indicates that the field **must** be provided as part of the request,
+    /// and failure to do so will cause an error (usually `INVALID_ARGUMENT`).
+    Required = 2,
+    /// Denotes a field as output only.
+    /// This indicates that the field is provided in responses, but including the
+    /// field in a request does nothing (the server *must* ignore it and
+    /// *must not* throw an error as a result of the field's presence).
+    OutputOnly = 3,
+    /// Denotes a field as input only.
+    /// This indicates that the field is provided in requests, and the
+    /// corresponding field is not included in output.
+    InputOnly = 4,
+    /// Denotes a field as immutable.
+    /// This indicates that the field may be set once in a request to create a
+    /// resource, but may not be changed thereafter.
+    Immutable = 5,
+    /// Denotes that a (repeated) field is an unordered list.
+    /// This indicates that the service may provide the elements of the list
+    /// in any arbitrary  order, rather than the order the user originally
+    /// provided. Additionally, the list's order may or may not be stable.
+    UnorderedList = 6,
+    /// Denotes that this field returns a non-empty default value if not set.
+    /// This indicates that if the user provides the empty value in a request,
+    /// a non-empty value will be returned. The user will not be aware of what
+    /// non-empty value to expect.
+    NonEmptyDefault = 7,
+}
+impl FieldBehavior {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            FieldBehavior::Unspecified => "FIELD_BEHAVIOR_UNSPECIFIED",
+            FieldBehavior::Optional => "OPTIONAL",
+            FieldBehavior::Required => "REQUIRED",
+            FieldBehavior::OutputOnly => "OUTPUT_ONLY",
+            FieldBehavior::InputOnly => "INPUT_ONLY",
+            FieldBehavior::Immutable => "IMMUTABLE",
+            FieldBehavior::UnorderedList => "UNORDERED_LIST",
+            FieldBehavior::NonEmptyDefault => "NON_EMPTY_DEFAULT",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "FIELD_BEHAVIOR_UNSPECIFIED" => Some(Self::Unspecified),
+            "OPTIONAL" => Some(Self::Optional),
+            "REQUIRED" => Some(Self::Required),
+            "OUTPUT_ONLY" => Some(Self::OutputOnly),
+            "INPUT_ONLY" => Some(Self::InputOnly),
+            "IMMUTABLE" => Some(Self::Immutable),
+            "UNORDERED_LIST" => Some(Self::UnorderedList),
+            "NON_EMPTY_DEFAULT" => Some(Self::NonEmptyDefault),
+            _ => None,
+        }
+    }
+}
 /// A simple descriptor of a resource type.
 ///
 /// ResourceDescriptor annotates a resource message (either by means of a
@@ -1117,80 +1192,62 @@ impl ClientLibraryDestination {
         }
     }
 }
-/// An indicator of the behavior of a given field (for example, that a field
-/// is required in requests, or given as output but ignored as input).
-/// This **does not** change the behavior in protocol buffers itself; it only
-/// denotes the behavior and may affect how API tooling handles the field.
+/// Message that represents an arbitrary HTTP body. It should only be used for
+/// payload formats that can't be represented as JSON, such as raw binary or
+/// an HTML page.
 ///
-/// Note: This enum **may** receive new values in the future.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum FieldBehavior {
-    /// Conventional default for enums. Do not use this.
-    Unspecified = 0,
-    /// Specifically denotes a field as optional.
-    /// While all fields in protocol buffers are optional, this may be specified
-    /// for emphasis if appropriate.
-    Optional = 1,
-    /// Denotes a field as required.
-    /// This indicates that the field **must** be provided as part of the request,
-    /// and failure to do so will cause an error (usually `INVALID_ARGUMENT`).
-    Required = 2,
-    /// Denotes a field as output only.
-    /// This indicates that the field is provided in responses, but including the
-    /// field in a request does nothing (the server *must* ignore it and
-    /// *must not* throw an error as a result of the field's presence).
-    OutputOnly = 3,
-    /// Denotes a field as input only.
-    /// This indicates that the field is provided in requests, and the
-    /// corresponding field is not included in output.
-    InputOnly = 4,
-    /// Denotes a field as immutable.
-    /// This indicates that the field may be set once in a request to create a
-    /// resource, but may not be changed thereafter.
-    Immutable = 5,
-    /// Denotes that a (repeated) field is an unordered list.
-    /// This indicates that the service may provide the elements of the list
-    /// in any arbitrary  order, rather than the order the user originally
-    /// provided. Additionally, the list's order may or may not be stable.
-    UnorderedList = 6,
-    /// Denotes that this field returns a non-empty default value if not set.
-    /// This indicates that if the user provides the empty value in a request,
-    /// a non-empty value will be returned. The user will not be aware of what
-    /// non-empty value to expect.
-    NonEmptyDefault = 7,
-}
-impl FieldBehavior {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            FieldBehavior::Unspecified => "FIELD_BEHAVIOR_UNSPECIFIED",
-            FieldBehavior::Optional => "OPTIONAL",
-            FieldBehavior::Required => "REQUIRED",
-            FieldBehavior::OutputOnly => "OUTPUT_ONLY",
-            FieldBehavior::InputOnly => "INPUT_ONLY",
-            FieldBehavior::Immutable => "IMMUTABLE",
-            FieldBehavior::UnorderedList => "UNORDERED_LIST",
-            FieldBehavior::NonEmptyDefault => "NON_EMPTY_DEFAULT",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "FIELD_BEHAVIOR_UNSPECIFIED" => Some(Self::Unspecified),
-            "OPTIONAL" => Some(Self::Optional),
-            "REQUIRED" => Some(Self::Required),
-            "OUTPUT_ONLY" => Some(Self::OutputOnly),
-            "INPUT_ONLY" => Some(Self::InputOnly),
-            "IMMUTABLE" => Some(Self::Immutable),
-            "UNORDERED_LIST" => Some(Self::UnorderedList),
-            "NON_EMPTY_DEFAULT" => Some(Self::NonEmptyDefault),
-            _ => None,
-        }
-    }
+///
+/// This message can be used both in streaming and non-streaming API methods in
+/// the request as well as the response.
+///
+/// It can be used as a top-level request field, which is convenient if one
+/// wants to extract parameters from either the URL or HTTP template into the
+/// request fields and also want access to the raw HTTP body.
+///
+/// Example:
+///
+///      message GetResourceRequest {
+///        // A unique request id.
+///        string request_id = 1;
+///
+///        // The raw HTTP body is bound to this field.
+///        google.api.HttpBody http_body = 2;
+///
+///      }
+///
+///      service ResourceService {
+///        rpc GetResource(GetResourceRequest)
+///          returns (google.api.HttpBody);
+///        rpc UpdateResource(google.api.HttpBody)
+///          returns (google.protobuf.Empty);
+///
+///      }
+///
+/// Example with streaming methods:
+///
+///      service CaldavService {
+///        rpc GetCalendar(stream google.api.HttpBody)
+///          returns (stream google.api.HttpBody);
+///        rpc UpdateCalendar(stream google.api.HttpBody)
+///          returns (stream google.api.HttpBody);
+///
+///      }
+///
+/// Use of this type only changes how the request and response bodies are
+/// handled, all other features will continue to work unchanged.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct HttpBody {
+    /// The HTTP Content-Type header value specifying the content type of the body.
+    #[prost(string, tag = "1")]
+    pub content_type: ::prost::alloc::string::String,
+    /// The HTTP request/response body as raw binary.
+    #[prost(bytes = "bytes", tag = "2")]
+    pub data: ::prost::bytes::Bytes,
+    /// Application specific response metadata. Must be set in the first response
+    /// for streaming APIs.
+    #[prost(message, repeated, tag = "3")]
+    pub extensions: ::prost::alloc::vec::Vec<::prost_types::Any>,
 }
 /// Specifies the routing information that should be sent along with the request
 /// in the form of routing header.
@@ -1627,66 +1684,6 @@ pub struct RoutingParameter {
     #[prost(string, tag = "2")]
     pub path_template: ::prost::alloc::string::String,
 }
-/// A description of a label.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LabelDescriptor {
-    /// The label key.
-    #[prost(string, tag = "1")]
-    pub key: ::prost::alloc::string::String,
-    /// The type of data that can be assigned to the label.
-    #[prost(enumeration = "label_descriptor::ValueType", tag = "2")]
-    pub value_type: i32,
-    /// A human-readable description for the label.
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `LabelDescriptor`.
-pub mod label_descriptor {
-    /// Value types that can be used as label values.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ValueType {
-        /// A variable-length string. This is the default.
-        String = 0,
-        /// Boolean; true or false.
-        Bool = 1,
-        /// A 64-bit signed integer.
-        Int64 = 2,
-    }
-    impl ValueType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ValueType::String => "STRING",
-                ValueType::Bool => "BOOL",
-                ValueType::Int64 => "INT64",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STRING" => Some(Self::String),
-                "BOOL" => Some(Self::Bool),
-                "INT64" => Some(Self::Int64),
-                _ => None,
-            }
-        }
-    }
-}
 /// `Distribution` contains summary statistics for a population of values. It
 /// optionally contains a histogram representing the distribution of those values
 /// across a set of buckets.
@@ -1899,119 +1896,65 @@ pub mod distribution {
         pub attachments: ::prost::alloc::vec::Vec<::prost_types::Any>,
     }
 }
-/// An object that describes the schema of a
-/// \[MonitoredResource][google.api.MonitoredResource\] object using a type name
-/// and a set of labels.  For example, the monitored resource descriptor for
-/// Google Compute Engine VM instances has a type of
-/// `"gce_instance"` and specifies the use of the labels `"instance_id"` and
-/// `"zone"` to identify particular VM instances.
-///
-/// Different APIs can support different monitored resource types. APIs generally
-/// provide a `list` method that returns the monitored resource descriptors used
-/// by the API.
-///
+/// A description of a label.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MonitoredResourceDescriptor {
-    /// Optional. The resource name of the monitored resource descriptor:
-    /// `"projects/{project_id}/monitoredResourceDescriptors/{type}"` where
-    /// {type} is the value of the `type` field in this object and
-    /// {project_id} is a project ID that provides API-specific context for
-    /// accessing the type.  APIs that do not use project information can use the
-    /// resource name format `"monitoredResourceDescriptors/{type}"`.
-    #[prost(string, tag = "5")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The monitored resource type. For example, the type
-    /// `"cloudsql_database"` represents databases in Google Cloud SQL.
-    ///   For a list of types, see [Monitoring resource
-    ///   types](<https://cloud.google.com/monitoring/api/resources>)
-    /// and [Logging resource
-    /// types](<https://cloud.google.com/logging/docs/api/v2/resource-list>).
+pub struct LabelDescriptor {
+    /// The label key.
     #[prost(string, tag = "1")]
-    pub r#type: ::prost::alloc::string::String,
-    /// Optional. A concise name for the monitored resource type that might be
-    /// displayed in user interfaces. It should be a Title Cased Noun Phrase,
-    /// without any article or other determiners. For example,
-    /// `"Google Cloud SQL Database"`.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Optional. A detailed description of the monitored resource type that might
-    /// be used in documentation.
+    pub key: ::prost::alloc::string::String,
+    /// The type of data that can be assigned to the label.
+    #[prost(enumeration = "label_descriptor::ValueType", tag = "2")]
+    pub value_type: i32,
+    /// A human-readable description for the label.
     #[prost(string, tag = "3")]
     pub description: ::prost::alloc::string::String,
-    /// Required. A set of labels used to describe instances of this monitored
-    /// resource type. For example, an individual Google Cloud SQL database is
-    /// identified by values for the labels `"database_id"` and `"zone"`.
-    #[prost(message, repeated, tag = "4")]
-    pub labels: ::prost::alloc::vec::Vec<LabelDescriptor>,
-    /// Optional. The launch stage of the monitored resource definition.
-    #[prost(enumeration = "LaunchStage", tag = "7")]
-    pub launch_stage: i32,
 }
-/// An object representing a resource that can be used for monitoring, logging,
-/// billing, or other purposes. Examples include virtual machine instances,
-/// databases, and storage devices such as disks. The `type` field identifies a
-/// \[MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor\] object
-/// that describes the resource's schema. Information in the `labels` field
-/// identifies the actual resource and its attributes according to the schema.
-/// For example, a particular Compute Engine VM instance could be represented by
-/// the following object, because the
-/// \[MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor\] for
-/// `"gce_instance"` has labels
-/// `"project_id"`, `"instance_id"` and `"zone"`:
-///
-///      { "type": "gce_instance",
-///        "labels": { "project_id": "my-project",
-///                    "instance_id": "12345678901234",
-///                    "zone": "us-central1-a" }}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MonitoredResource {
-    /// Required. The monitored resource type. This field must match
-    /// the `type` field of a
-    /// \[MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor\]
-    /// object. For example, the type of a Compute Engine VM instance is
-    /// `gce_instance`. Some descriptors include the service name in the type; for
-    /// example, the type of a Datastream stream is
-    /// `datastream.googleapis.com/Stream`.
-    #[prost(string, tag = "1")]
-    pub r#type: ::prost::alloc::string::String,
-    /// Required. Values for all of the labels listed in the associated monitored
-    /// resource descriptor. For example, Compute Engine VM instances use the
-    /// labels `"project_id"`, `"instance_id"`, and `"zone"`.
-    #[prost(btree_map = "string, string", tag = "2")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// Auxiliary metadata for a \[MonitoredResource][google.api.MonitoredResource\]
-/// object. \[MonitoredResource][google.api.MonitoredResource\] objects contain the
-/// minimum set of information to uniquely identify a monitored resource
-/// instance. There is some other useful auxiliary metadata. Monitoring and
-/// Logging use an ingestion pipeline to extract metadata for cloud resources of
-/// all types, and store the metadata in this message.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MonitoredResourceMetadata {
-    /// Output only. Values for predefined system metadata labels.
-    /// System labels are a kind of metadata extracted by Google, including
-    /// "machine_image", "vpc", "subnet_id",
-    /// "security_group", "name", etc.
-    /// System label values can be only strings, Boolean values, or a list of
-    /// strings. For example:
-    ///
-    ///      { "name": "my-test-instance",
-    ///        "security_group": ["a", "b", "c"],
-    ///        "spot_instance": false }
-    #[prost(message, optional, tag = "1")]
-    pub system_labels: ::core::option::Option<::prost_types::Struct>,
-    /// Output only. A map of user-defined metadata labels.
-    #[prost(btree_map = "string, string", tag = "2")]
-    pub user_labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
+/// Nested message and enum types in `LabelDescriptor`.
+pub mod label_descriptor {
+    /// Value types that can be used as label values.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ValueType {
+        /// A variable-length string. This is the default.
+        String = 0,
+        /// Boolean; true or false.
+        Bool = 1,
+        /// A 64-bit signed integer.
+        Int64 = 2,
+    }
+    impl ValueType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ValueType::String => "STRING",
+                ValueType::Bool => "BOOL",
+                ValueType::Int64 => "INT64",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STRING" => Some(Self::String),
+                "BOOL" => Some(Self::Bool),
+                "INT64" => Some(Self::Int64),
+                _ => None,
+            }
+        }
+    }
 }
 /// Defines a metric type and its schema. Once a metric descriptor is created,
 /// deleting or altering it stops data collection and makes the metric type's
@@ -2336,137 +2279,871 @@ pub struct Metric {
         ::prost::alloc::string::String,
     >,
 }
-/// Message that represents an arbitrary HTTP body. It should only be used for
-/// payload formats that can't be represented as JSON, such as raw binary or
-/// an HTML page.
+/// An object that describes the schema of a
+/// \[MonitoredResource][google.api.MonitoredResource\] object using a type name
+/// and a set of labels.  For example, the monitored resource descriptor for
+/// Google Compute Engine VM instances has a type of
+/// `"gce_instance"` and specifies the use of the labels `"instance_id"` and
+/// `"zone"` to identify particular VM instances.
 ///
+/// Different APIs can support different monitored resource types. APIs generally
+/// provide a `list` method that returns the monitored resource descriptors used
+/// by the API.
 ///
-/// This message can be used both in streaming and non-streaming API methods in
-/// the request as well as the response.
-///
-/// It can be used as a top-level request field, which is convenient if one
-/// wants to extract parameters from either the URL or HTTP template into the
-/// request fields and also want access to the raw HTTP body.
-///
-/// Example:
-///
-///      message GetResourceRequest {
-///        // A unique request id.
-///        string request_id = 1;
-///
-///        // The raw HTTP body is bound to this field.
-///        google.api.HttpBody http_body = 2;
-///
-///      }
-///
-///      service ResourceService {
-///        rpc GetResource(GetResourceRequest)
-///          returns (google.api.HttpBody);
-///        rpc UpdateResource(google.api.HttpBody)
-///          returns (google.protobuf.Empty);
-///
-///      }
-///
-/// Example with streaming methods:
-///
-///      service CaldavService {
-///        rpc GetCalendar(stream google.api.HttpBody)
-///          returns (stream google.api.HttpBody);
-///        rpc UpdateCalendar(stream google.api.HttpBody)
-///          returns (stream google.api.HttpBody);
-///
-///      }
-///
-/// Use of this type only changes how the request and response bodies are
-/// handled, all other features will continue to work unchanged.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct HttpBody {
-    /// The HTTP Content-Type header value specifying the content type of the body.
+pub struct MonitoredResourceDescriptor {
+    /// Optional. The resource name of the monitored resource descriptor:
+    /// `"projects/{project_id}/monitoredResourceDescriptors/{type}"` where
+    /// {type} is the value of the `type` field in this object and
+    /// {project_id} is a project ID that provides API-specific context for
+    /// accessing the type.  APIs that do not use project information can use the
+    /// resource name format `"monitoredResourceDescriptors/{type}"`.
+    #[prost(string, tag = "5")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The monitored resource type. For example, the type
+    /// `"cloudsql_database"` represents databases in Google Cloud SQL.
+    ///   For a list of types, see [Monitoring resource
+    ///   types](<https://cloud.google.com/monitoring/api/resources>)
+    /// and [Logging resource
+    /// types](<https://cloud.google.com/logging/docs/api/v2/resource-list>).
     #[prost(string, tag = "1")]
-    pub content_type: ::prost::alloc::string::String,
-    /// The HTTP request/response body as raw binary.
-    #[prost(bytes = "bytes", tag = "2")]
-    pub data: ::prost::bytes::Bytes,
-    /// Application specific response metadata. Must be set in the first response
-    /// for streaming APIs.
-    #[prost(message, repeated, tag = "3")]
-    pub extensions: ::prost::alloc::vec::Vec<::prost_types::Any>,
+    pub r#type: ::prost::alloc::string::String,
+    /// Optional. A concise name for the monitored resource type that might be
+    /// displayed in user interfaces. It should be a Title Cased Noun Phrase,
+    /// without any article or other determiners. For example,
+    /// `"Google Cloud SQL Database"`.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Optional. A detailed description of the monitored resource type that might
+    /// be used in documentation.
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+    /// Required. A set of labels used to describe instances of this monitored
+    /// resource type. For example, an individual Google Cloud SQL database is
+    /// identified by values for the labels `"database_id"` and `"zone"`.
+    #[prost(message, repeated, tag = "4")]
+    pub labels: ::prost::alloc::vec::Vec<LabelDescriptor>,
+    /// Optional. The launch stage of the monitored resource definition.
+    #[prost(enumeration = "LaunchStage", tag = "7")]
+    pub launch_stage: i32,
 }
-/// `Context` defines which contexts an API requests.
+/// An object representing a resource that can be used for monitoring, logging,
+/// billing, or other purposes. Examples include virtual machine instances,
+/// databases, and storage devices such as disks. The `type` field identifies a
+/// \[MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor\] object
+/// that describes the resource's schema. Information in the `labels` field
+/// identifies the actual resource and its attributes according to the schema.
+/// For example, a particular Compute Engine VM instance could be represented by
+/// the following object, because the
+/// \[MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor\] for
+/// `"gce_instance"` has labels
+/// `"project_id"`, `"instance_id"` and `"zone"`:
 ///
-/// Example:
-///
-///      context:
-///        rules:
-///        - selector: "*"
-///          requested:
-///          - google.rpc.context.ProjectContext
-///          - google.rpc.context.OriginContext
-///
-/// The above specifies that all methods in the API request
-/// `google.rpc.context.ProjectContext` and
-/// `google.rpc.context.OriginContext`.
-///
-/// Available context types are defined in package
-/// `google.rpc.context`.
-///
-/// This also provides mechanism to allowlist any protobuf message extension that
-/// can be sent in grpc metadata using “x-goog-ext-<extension_id>-bin” and
-/// “x-goog-ext-<extension_id>-jspb” format. For example, list any service
-/// specific protobuf types that can appear in grpc metadata as follows in your
-/// yaml file:
-///
-/// Example:
-///
-///      context:
-///        rules:
-///         - selector: "google.example.library.v1.LibraryService.CreateBook"
-///           allowed_request_extensions:
-///           - google.foo.v1.NewExtension
-///           allowed_response_extensions:
-///           - google.foo.v1.NewExtension
-///
-/// You can also specify extension ID instead of fully qualified extension name
-/// here.
+///      { "type": "gce_instance",
+///        "labels": { "project_id": "my-project",
+///                    "instance_id": "12345678901234",
+///                    "zone": "us-central1-a" }}
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Context {
-    /// A list of RPC context rules that apply to individual API methods.
+pub struct MonitoredResource {
+    /// Required. The monitored resource type. This field must match
+    /// the `type` field of a
+    /// \[MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor\]
+    /// object. For example, the type of a Compute Engine VM instance is
+    /// `gce_instance`. Some descriptors include the service name in the type; for
+    /// example, the type of a Datastream stream is
+    /// `datastream.googleapis.com/Stream`.
+    #[prost(string, tag = "1")]
+    pub r#type: ::prost::alloc::string::String,
+    /// Required. Values for all of the labels listed in the associated monitored
+    /// resource descriptor. For example, Compute Engine VM instances use the
+    /// labels `"project_id"`, `"instance_id"`, and `"zone"`.
+    #[prost(btree_map = "string, string", tag = "2")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
+/// Auxiliary metadata for a \[MonitoredResource][google.api.MonitoredResource\]
+/// object. \[MonitoredResource][google.api.MonitoredResource\] objects contain the
+/// minimum set of information to uniquely identify a monitored resource
+/// instance. There is some other useful auxiliary metadata. Monitoring and
+/// Logging use an ingestion pipeline to extract metadata for cloud resources of
+/// all types, and store the metadata in this message.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MonitoredResourceMetadata {
+    /// Output only. Values for predefined system metadata labels.
+    /// System labels are a kind of metadata extracted by Google, including
+    /// "machine_image", "vpc", "subnet_id",
+    /// "security_group", "name", etc.
+    /// System label values can be only strings, Boolean values, or a list of
+    /// strings. For example:
+    ///
+    ///      { "name": "my-test-instance",
+    ///        "security_group": ["a", "b", "c"],
+    ///        "spot_instance": false }
+    #[prost(message, optional, tag = "1")]
+    pub system_labels: ::core::option::Option<::prost_types::Struct>,
+    /// Output only. A map of user-defined metadata labels.
+    #[prost(btree_map = "string, string", tag = "2")]
+    pub user_labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
+/// Defines the supported values for `google.rpc.ErrorInfo.reason` for the
+/// `googleapis.com` error domain. This error domain is reserved for [Service
+/// Infrastructure](<https://cloud.google.com/service-infrastructure/docs/overview>).
+/// For each error info of this domain, the metadata key "service" refers to the
+/// logical identifier of an API service, such as "pubsub.googleapis.com". The
+/// "consumer" refers to the entity that consumes an API Service. It typically is
+/// a Google project that owns the client application or the server resource,
+/// such as "projects/123". Other metadata keys are specific to each error
+/// reason. For more information, see the definition of the specific error
+/// reason.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum ErrorReason {
+    /// Do not use this default value.
+    Unspecified = 0,
+    /// The request is calling a disabled service for a consumer.
+    ///
+    /// Example of an ErrorInfo when the consumer "projects/123" contacting
+    /// "pubsub.googleapis.com" service which is disabled:
+    ///
+    ///      { "reason": "SERVICE_DISABLED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "pubsub.googleapis.com"
+    ///        }
+    ///      }
+    ///
+    /// This response indicates the "pubsub.googleapis.com" has been disabled in
+    /// "projects/123".
+    ServiceDisabled = 1,
+    /// The request whose associated billing account is disabled.
+    ///
+    /// Example of an ErrorInfo when the consumer "projects/123" fails to contact
+    /// "pubsub.googleapis.com" service because the associated billing account is
+    /// disabled:
+    ///
+    ///      { "reason": "BILLING_DISABLED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "pubsub.googleapis.com"
+    ///        }
+    ///      }
+    ///
+    /// This response indicates the billing account associated has been disabled.
+    BillingDisabled = 2,
+    /// The request is denied because the provided [API
+    /// key](<https://cloud.google.com/docs/authentication/api-keys>) is invalid. It
+    /// may be in a bad format, cannot be found, or has been expired).
+    ///
+    /// Example of an ErrorInfo when the request is contacting
+    /// "storage.googleapis.com" service with an invalid API key:
+    ///
+    ///      { "reason": "API_KEY_INVALID",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "service": "storage.googleapis.com",
+    ///        }
+    ///      }
+    ApiKeyInvalid = 3,
+    /// The request is denied because it violates [API key API
+    /// restrictions](<https://cloud.google.com/docs/authentication/api-keys#adding_api_restrictions>).
+    ///
+    /// Example of an ErrorInfo when the consumer "projects/123" fails to call the
+    /// "storage.googleapis.com" service because this service is restricted in the
+    /// API key:
+    ///
+    ///      { "reason": "API_KEY_SERVICE_BLOCKED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "storage.googleapis.com"
+    ///        }
+    ///      }
+    ApiKeyServiceBlocked = 4,
+    /// The request is denied because it violates [API key HTTP
+    /// restrictions](<https://cloud.google.com/docs/authentication/api-keys#adding_http_restrictions>).
+    ///
+    /// Example of an ErrorInfo when the consumer "projects/123" fails to call
+    /// "storage.googleapis.com" service because the http referrer of the request
+    /// violates API key HTTP restrictions:
+    ///
+    ///      { "reason": "API_KEY_HTTP_REFERRER_BLOCKED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "storage.googleapis.com",
+    ///        }
+    ///      }
+    ApiKeyHttpReferrerBlocked = 7,
+    /// The request is denied because it violates [API key IP address
+    /// restrictions](<https://cloud.google.com/docs/authentication/api-keys#adding_application_restrictions>).
+    ///
+    /// Example of an ErrorInfo when the consumer "projects/123" fails to call
+    /// "storage.googleapis.com" service because the caller IP of the request
+    /// violates API key IP address restrictions:
+    ///
+    ///      { "reason": "API_KEY_IP_ADDRESS_BLOCKED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "storage.googleapis.com",
+    ///        }
+    ///      }
+    ApiKeyIpAddressBlocked = 8,
+    /// The request is denied because it violates [API key Android application
+    /// restrictions](<https://cloud.google.com/docs/authentication/api-keys#adding_application_restrictions>).
+    ///
+    /// Example of an ErrorInfo when the consumer "projects/123" fails to call
+    /// "storage.googleapis.com" service because the request from the Android apps
+    /// violates the API key Android application restrictions:
+    ///
+    ///      { "reason": "API_KEY_ANDROID_APP_BLOCKED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "storage.googleapis.com"
+    ///        }
+    ///      }
+    ApiKeyAndroidAppBlocked = 9,
+    /// The request is denied because it violates [API key iOS application
+    /// restrictions](<https://cloud.google.com/docs/authentication/api-keys#adding_application_restrictions>).
+    ///
+    /// Example of an ErrorInfo when the consumer "projects/123" fails to call
+    /// "storage.googleapis.com" service because the request from the iOS apps
+    /// violates the API key iOS application restrictions:
+    ///
+    ///      { "reason": "API_KEY_IOS_APP_BLOCKED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "storage.googleapis.com"
+    ///        }
+    ///      }
+    ApiKeyIosAppBlocked = 13,
+    /// The request is denied because there is not enough rate quota for the
+    /// consumer.
+    ///
+    /// Example of an ErrorInfo when the consumer "projects/123" fails to contact
+    /// "pubsub.googleapis.com" service because consumer's rate quota usage has
+    /// reached the maximum value set for the quota limit
+    /// "ReadsPerMinutePerProject" on the quota metric
+    /// "pubsub.googleapis.com/read_requests":
+    ///
+    ///      { "reason": "RATE_LIMIT_EXCEEDED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "pubsub.googleapis.com",
+    ///          "quota_metric": "pubsub.googleapis.com/read_requests",
+    ///          "quota_limit": "ReadsPerMinutePerProject"
+    ///        }
+    ///      }
+    ///
+    /// Example of an ErrorInfo when the consumer "projects/123" checks quota on
+    /// the service "dataflow.googleapis.com" and hits the organization quota
+    /// limit "DefaultRequestsPerMinutePerOrganization" on the metric
+    /// "dataflow.googleapis.com/default_requests".
+    ///
+    ///      { "reason": "RATE_LIMIT_EXCEEDED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "dataflow.googleapis.com",
+    ///          "quota_metric": "dataflow.googleapis.com/default_requests",
+    ///          "quota_limit": "DefaultRequestsPerMinutePerOrganization"
+    ///        }
+    ///      }
+    RateLimitExceeded = 5,
+    /// The request is denied because there is not enough resource quota for the
+    /// consumer.
+    ///
+    /// Example of an ErrorInfo when the consumer "projects/123" fails to contact
+    /// "compute.googleapis.com" service because consumer's resource quota usage
+    /// has reached the maximum value set for the quota limit "VMsPerProject"
+    /// on the quota metric "compute.googleapis.com/vms":
+    ///
+    ///      { "reason": "RESOURCE_QUOTA_EXCEEDED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "compute.googleapis.com",
+    ///          "quota_metric": "compute.googleapis.com/vms",
+    ///          "quota_limit": "VMsPerProject"
+    ///        }
+    ///      }
+    ///
+    /// Example of an ErrorInfo when the consumer "projects/123" checks resource
+    /// quota on the service "dataflow.googleapis.com" and hits the organization
+    /// quota limit "jobs-per-organization" on the metric
+    /// "dataflow.googleapis.com/job_count".
+    ///
+    ///      { "reason": "RESOURCE_QUOTA_EXCEEDED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "dataflow.googleapis.com",
+    ///          "quota_metric": "dataflow.googleapis.com/job_count",
+    ///          "quota_limit": "jobs-per-organization"
+    ///        }
+    ///      }
+    ResourceQuotaExceeded = 6,
+    /// The request whose associated billing account address is in a tax restricted
+    /// location, violates the local tax restrictions when creating resources in
+    /// the restricted region.
+    ///
+    /// Example of an ErrorInfo when creating the Cloud Storage Bucket in the
+    /// container "projects/123" under a tax restricted region
+    /// "locations/asia-northeast3":
+    ///
+    ///      { "reason": "LOCATION_TAX_POLICY_VIOLATED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "storage.googleapis.com",
+    ///          "location": "locations/asia-northeast3"
+    ///        }
+    ///      }
+    ///
+    /// This response indicates creating the Cloud Storage Bucket in
+    /// "locations/asia-northeast3" violates the location tax restriction.
+    LocationTaxPolicyViolated = 10,
+    /// The request is denied because the caller does not have required permission
+    /// on the user project "projects/123" or the user project is invalid. For more
+    /// information, check the [userProject System
+    /// Parameters](<https://cloud.google.com/apis/docs/system-parameters>).
+    ///
+    /// Example of an ErrorInfo when the caller is calling Cloud Storage service
+    /// with insufficient permissions on the user project:
+    ///
+    ///      { "reason": "USER_PROJECT_DENIED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "storage.googleapis.com"
+    ///        }
+    ///      }
+    UserProjectDenied = 11,
+    /// The request is denied because the consumer "projects/123" is suspended due
+    /// to Terms of Service(Tos) violations. Check [Project suspension
+    /// guidelines](<https://cloud.google.com/resource-manager/docs/project-suspension-guidelines>)
+    /// for more information.
+    ///
+    /// Example of an ErrorInfo when calling Cloud Storage service with the
+    /// suspended consumer "projects/123":
+    ///
+    ///      { "reason": "CONSUMER_SUSPENDED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "storage.googleapis.com"
+    ///        }
+    ///      }
+    ConsumerSuspended = 12,
+    /// The request is denied because the associated consumer is invalid. It may be
+    /// in a bad format, cannot be found, or have been deleted.
+    ///
+    /// Example of an ErrorInfo when calling Cloud Storage service with the
+    /// invalid consumer "projects/123":
+    ///
+    ///      { "reason": "CONSUMER_INVALID",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "storage.googleapis.com"
+    ///        }
+    ///      }
+    ConsumerInvalid = 14,
+    /// The request is denied because it violates [VPC Service
+    /// Controls](<https://cloud.google.com/vpc-service-controls/docs/overview>).
+    /// The 'uid' field is a random generated identifier that customer can use it
+    /// to search the audit log for a request rejected by VPC Service Controls. For
+    /// more information, please refer [VPC Service Controls
+    /// Troubleshooting](<https://cloud.google.com/vpc-service-controls/docs/troubleshooting#unique-id>)
+    ///
+    /// Example of an ErrorInfo when the consumer "projects/123" fails to call
+    /// Cloud Storage service because the request is prohibited by the VPC Service
+    /// Controls.
+    ///
+    ///      { "reason": "SECURITY_POLICY_VIOLATED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "uid": "123456789abcde",
+    ///          "consumer": "projects/123",
+    ///          "service": "storage.googleapis.com"
+    ///        }
+    ///      }
+    SecurityPolicyViolated = 15,
+    /// The request is denied because the provided access token has expired.
+    ///
+    /// Example of an ErrorInfo when the request is calling Cloud Storage service
+    /// with an expired access token:
+    ///
+    ///      { "reason": "ACCESS_TOKEN_EXPIRED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "service": "storage.googleapis.com",
+    ///          "method": "google.storage.v1.Storage.GetObject"
+    ///        }
+    ///      }
+    AccessTokenExpired = 16,
+    /// The request is denied because the provided access token doesn't have at
+    /// least one of the acceptable scopes required for the API. Please check
+    /// [OAuth 2.0 Scopes for Google
+    /// APIs](<https://developers.google.com/identity/protocols/oauth2/scopes>) for
+    /// the list of the OAuth 2.0 scopes that you might need to request to access
+    /// the API.
+    ///
+    /// Example of an ErrorInfo when the request is calling Cloud Storage service
+    /// with an access token that is missing required scopes:
+    ///
+    ///      { "reason": "ACCESS_TOKEN_SCOPE_INSUFFICIENT",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "service": "storage.googleapis.com",
+    ///          "method": "google.storage.v1.Storage.GetObject"
+    ///        }
+    ///      }
+    AccessTokenScopeInsufficient = 17,
+    /// The request is denied because the account associated with the provided
+    /// access token is in an invalid state, such as disabled or deleted.
+    /// For more information, see <https://cloud.google.com/docs/authentication.>
+    ///
+    /// Warning: For privacy reasons, the server may not be able to disclose the
+    /// email address for some accounts. The client MUST NOT depend on the
+    /// availability of the `email` attribute.
+    ///
+    /// Example of an ErrorInfo when the request is to the Cloud Storage API with
+    /// an access token that is associated with a disabled or deleted [service
+    /// account](<http://cloud/iam/docs/service-accounts>):
+    ///
+    ///      { "reason": "ACCOUNT_STATE_INVALID",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "service": "storage.googleapis.com",
+    ///          "method": "google.storage.v1.Storage.GetObject",
+    ///          "email": "user@123.iam.gserviceaccount.com"
+    ///        }
+    ///      }
+    AccountStateInvalid = 18,
+    /// The request is denied because the type of the provided access token is not
+    /// supported by the API being called.
+    ///
+    /// Example of an ErrorInfo when the request is to the Cloud Storage API with
+    /// an unsupported token type.
+    ///
+    ///      { "reason": "ACCESS_TOKEN_TYPE_UNSUPPORTED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "service": "storage.googleapis.com",
+    ///          "method": "google.storage.v1.Storage.GetObject"
+    ///        }
+    ///      }
+    AccessTokenTypeUnsupported = 19,
+    /// The request is denied because the request doesn't have any authentication
+    /// credentials. For more information regarding the supported authentication
+    /// strategies for Google Cloud APIs, see
+    /// <https://cloud.google.com/docs/authentication.>
+    ///
+    /// Example of an ErrorInfo when the request is to the Cloud Storage API
+    /// without any authentication credentials.
+    ///
+    ///      { "reason": "CREDENTIALS_MISSING",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "service": "storage.googleapis.com",
+    ///          "method": "google.storage.v1.Storage.GetObject"
+    ///        }
+    ///      }
+    CredentialsMissing = 20,
+    /// The request is denied because the provided project owning the resource
+    /// which acts as the [API
+    /// consumer](<https://cloud.google.com/apis/design/glossary#api_consumer>) is
+    /// invalid. It may be in a bad format or empty.
+    ///
+    /// Example of an ErrorInfo when the request is to the Cloud Functions API,
+    /// but the offered resource project in the request in a bad format which can't
+    /// perform the ListFunctions method.
+    ///
+    ///      { "reason": "RESOURCE_PROJECT_INVALID",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "service": "cloudfunctions.googleapis.com",
+    ///          "method":
+    ///          "google.cloud.functions.v1.CloudFunctionsService.ListFunctions"
+    ///        }
+    ///      }
+    ResourceProjectInvalid = 21,
+    /// The request is denied because the provided session cookie is missing,
+    /// invalid or failed to decode.
+    ///
+    /// Example of an ErrorInfo when the request is calling Cloud Storage service
+    /// with a SID cookie which can't be decoded.
+    ///
+    ///      { "reason": "SESSION_COOKIE_INVALID",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "service": "storage.googleapis.com",
+    ///          "method": "google.storage.v1.Storage.GetObject",
+    ///          "cookie": "SID"
+    ///        }
+    ///      }
+    SessionCookieInvalid = 23,
+    /// The request is denied because the user is from a Google Workspace customer
+    /// that blocks their users from accessing a particular service.
+    ///
+    /// Example scenario: <https://support.google.com/a/answer/9197205?hl=en>
+    ///
+    /// Example of an ErrorInfo when access to Google Cloud Storage service is
+    /// blocked by the Google Workspace administrator:
+    ///
+    ///      { "reason": "USER_BLOCKED_BY_ADMIN",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "service": "storage.googleapis.com",
+    ///          "method": "google.storage.v1.Storage.GetObject",
+    ///        }
+    ///      }
+    UserBlockedByAdmin = 24,
+    /// The request is denied because the resource service usage is restricted
+    /// by administrators according to the organization policy constraint.
+    /// For more information see
+    /// <https://cloud.google.com/resource-manager/docs/organization-policy/restricting-services.>
+    ///
+    /// Example of an ErrorInfo when access to Google Cloud Storage service is
+    /// restricted by Resource Usage Restriction policy:
+    ///
+    ///      { "reason": "RESOURCE_USAGE_RESTRICTION_VIOLATED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/project-123",
+    ///          "service": "storage.googleapis.com"
+    ///        }
+    ///      }
+    ResourceUsageRestrictionViolated = 25,
+    /// Unimplemented. Do not use.
+    ///
+    /// The request is denied because it contains unsupported system parameters in
+    /// URL query parameters or HTTP headers. For more information,
+    /// see <https://cloud.google.com/apis/docs/system-parameters>
+    ///
+    /// Example of an ErrorInfo when access "pubsub.googleapis.com" service with
+    /// a request header of "x-goog-user-ip":
+    ///
+    ///      { "reason": "SYSTEM_PARAMETER_UNSUPPORTED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "service": "pubsub.googleapis.com"
+    ///          "parameter": "x-goog-user-ip"
+    ///        }
+    ///      }
+    SystemParameterUnsupported = 26,
+    /// The request is denied because it violates Org Restriction: the requested
+    /// resource does not belong to allowed organizations specified in
+    /// "X-Goog-Allowed-Resources" header.
+    ///
+    /// Example of an ErrorInfo when accessing a GCP resource that is restricted by
+    /// Org Restriction for "pubsub.googleapis.com" service.
+    ///
+    /// {
+    ///    reason: "ORG_RESTRICTION_VIOLATION"
+    ///    domain: "googleapis.com"
+    ///    metadata {
+    ///      "consumer":"projects/123456"
+    ///      "service": "pubsub.googleapis.com"
+    ///    }
+    /// }
+    OrgRestrictionViolation = 27,
+    /// The request is denied because "X-Goog-Allowed-Resources" header is in a bad
+    /// format.
+    ///
+    /// Example of an ErrorInfo when
+    /// accessing "pubsub.googleapis.com" service with an invalid
+    /// "X-Goog-Allowed-Resources" request header.
+    ///
+    /// {
+    ///    reason: "ORG_RESTRICTION_HEADER_INVALID"
+    ///    domain: "googleapis.com"
+    ///    metadata {
+    ///      "consumer":"projects/123456"
+    ///      "service": "pubsub.googleapis.com"
+    ///    }
+    /// }
+    OrgRestrictionHeaderInvalid = 28,
+    /// Unimplemented. Do not use.
+    ///
+    /// The request is calling a service that is not visible to the consumer.
+    ///
+    /// Example of an ErrorInfo when the consumer "projects/123" contacting
+    ///   "pubsub.googleapis.com" service which is not visible to the consumer.
+    ///
+    ///      { "reason": "SERVICE_NOT_VISIBLE",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "pubsub.googleapis.com"
+    ///        }
+    ///      }
+    ///
+    /// This response indicates the "pubsub.googleapis.com" is not visible to
+    /// "projects/123" (or it may not exist).
+    ServiceNotVisible = 29,
+    /// The request is related to a project for which GCP access is suspended.
+    ///
+    /// Example of an ErrorInfo when the consumer "projects/123" fails to contact
+    /// "pubsub.googleapis.com" service because GCP access is suspended:
+    ///
+    ///      { "reason": "GCP_SUSPENDED",
+    ///        "domain": "googleapis.com",
+    ///        "metadata": {
+    ///          "consumer": "projects/123",
+    ///          "service": "pubsub.googleapis.com"
+    ///        }
+    ///      }
+    ///
+    /// This response indicates the associated GCP account has been suspended.
+    GcpSuspended = 30,
+}
+impl ErrorReason {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            ErrorReason::Unspecified => "ERROR_REASON_UNSPECIFIED",
+            ErrorReason::ServiceDisabled => "SERVICE_DISABLED",
+            ErrorReason::BillingDisabled => "BILLING_DISABLED",
+            ErrorReason::ApiKeyInvalid => "API_KEY_INVALID",
+            ErrorReason::ApiKeyServiceBlocked => "API_KEY_SERVICE_BLOCKED",
+            ErrorReason::ApiKeyHttpReferrerBlocked => "API_KEY_HTTP_REFERRER_BLOCKED",
+            ErrorReason::ApiKeyIpAddressBlocked => "API_KEY_IP_ADDRESS_BLOCKED",
+            ErrorReason::ApiKeyAndroidAppBlocked => "API_KEY_ANDROID_APP_BLOCKED",
+            ErrorReason::ApiKeyIosAppBlocked => "API_KEY_IOS_APP_BLOCKED",
+            ErrorReason::RateLimitExceeded => "RATE_LIMIT_EXCEEDED",
+            ErrorReason::ResourceQuotaExceeded => "RESOURCE_QUOTA_EXCEEDED",
+            ErrorReason::LocationTaxPolicyViolated => "LOCATION_TAX_POLICY_VIOLATED",
+            ErrorReason::UserProjectDenied => "USER_PROJECT_DENIED",
+            ErrorReason::ConsumerSuspended => "CONSUMER_SUSPENDED",
+            ErrorReason::ConsumerInvalid => "CONSUMER_INVALID",
+            ErrorReason::SecurityPolicyViolated => "SECURITY_POLICY_VIOLATED",
+            ErrorReason::AccessTokenExpired => "ACCESS_TOKEN_EXPIRED",
+            ErrorReason::AccessTokenScopeInsufficient => {
+                "ACCESS_TOKEN_SCOPE_INSUFFICIENT"
+            }
+            ErrorReason::AccountStateInvalid => "ACCOUNT_STATE_INVALID",
+            ErrorReason::AccessTokenTypeUnsupported => "ACCESS_TOKEN_TYPE_UNSUPPORTED",
+            ErrorReason::CredentialsMissing => "CREDENTIALS_MISSING",
+            ErrorReason::ResourceProjectInvalid => "RESOURCE_PROJECT_INVALID",
+            ErrorReason::SessionCookieInvalid => "SESSION_COOKIE_INVALID",
+            ErrorReason::UserBlockedByAdmin => "USER_BLOCKED_BY_ADMIN",
+            ErrorReason::ResourceUsageRestrictionViolated => {
+                "RESOURCE_USAGE_RESTRICTION_VIOLATED"
+            }
+            ErrorReason::SystemParameterUnsupported => "SYSTEM_PARAMETER_UNSUPPORTED",
+            ErrorReason::OrgRestrictionViolation => "ORG_RESTRICTION_VIOLATION",
+            ErrorReason::OrgRestrictionHeaderInvalid => "ORG_RESTRICTION_HEADER_INVALID",
+            ErrorReason::ServiceNotVisible => "SERVICE_NOT_VISIBLE",
+            ErrorReason::GcpSuspended => "GCP_SUSPENDED",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "ERROR_REASON_UNSPECIFIED" => Some(Self::Unspecified),
+            "SERVICE_DISABLED" => Some(Self::ServiceDisabled),
+            "BILLING_DISABLED" => Some(Self::BillingDisabled),
+            "API_KEY_INVALID" => Some(Self::ApiKeyInvalid),
+            "API_KEY_SERVICE_BLOCKED" => Some(Self::ApiKeyServiceBlocked),
+            "API_KEY_HTTP_REFERRER_BLOCKED" => Some(Self::ApiKeyHttpReferrerBlocked),
+            "API_KEY_IP_ADDRESS_BLOCKED" => Some(Self::ApiKeyIpAddressBlocked),
+            "API_KEY_ANDROID_APP_BLOCKED" => Some(Self::ApiKeyAndroidAppBlocked),
+            "API_KEY_IOS_APP_BLOCKED" => Some(Self::ApiKeyIosAppBlocked),
+            "RATE_LIMIT_EXCEEDED" => Some(Self::RateLimitExceeded),
+            "RESOURCE_QUOTA_EXCEEDED" => Some(Self::ResourceQuotaExceeded),
+            "LOCATION_TAX_POLICY_VIOLATED" => Some(Self::LocationTaxPolicyViolated),
+            "USER_PROJECT_DENIED" => Some(Self::UserProjectDenied),
+            "CONSUMER_SUSPENDED" => Some(Self::ConsumerSuspended),
+            "CONSUMER_INVALID" => Some(Self::ConsumerInvalid),
+            "SECURITY_POLICY_VIOLATED" => Some(Self::SecurityPolicyViolated),
+            "ACCESS_TOKEN_EXPIRED" => Some(Self::AccessTokenExpired),
+            "ACCESS_TOKEN_SCOPE_INSUFFICIENT" => Some(Self::AccessTokenScopeInsufficient),
+            "ACCOUNT_STATE_INVALID" => Some(Self::AccountStateInvalid),
+            "ACCESS_TOKEN_TYPE_UNSUPPORTED" => Some(Self::AccessTokenTypeUnsupported),
+            "CREDENTIALS_MISSING" => Some(Self::CredentialsMissing),
+            "RESOURCE_PROJECT_INVALID" => Some(Self::ResourceProjectInvalid),
+            "SESSION_COOKIE_INVALID" => Some(Self::SessionCookieInvalid),
+            "USER_BLOCKED_BY_ADMIN" => Some(Self::UserBlockedByAdmin),
+            "RESOURCE_USAGE_RESTRICTION_VIOLATED" => {
+                Some(Self::ResourceUsageRestrictionViolated)
+            }
+            "SYSTEM_PARAMETER_UNSUPPORTED" => Some(Self::SystemParameterUnsupported),
+            "ORG_RESTRICTION_VIOLATION" => Some(Self::OrgRestrictionViolation),
+            "ORG_RESTRICTION_HEADER_INVALID" => Some(Self::OrgRestrictionHeaderInvalid),
+            "SERVICE_NOT_VISIBLE" => Some(Self::ServiceNotVisible),
+            "GCP_SUSPENDED" => Some(Self::GcpSuspended),
+            _ => None,
+        }
+    }
+}
+/// `Documentation` provides the information for describing a service.
+///
+/// Example:
+/// <pre><code>documentation:
+///    summary: >
+///      The Google Calendar API gives access
+///      to most calendar features.
+///    pages:
+///    - name: Overview
+///      content: &#40;== include google/foo/overview.md ==&#41;
+///    - name: Tutorial
+///      content: &#40;== include google/foo/tutorial.md ==&#41;
+///      subpages;
+///      - name: Java
+///        content: &#40;== include google/foo/tutorial_java.md ==&#41;
+///    rules:
+///    - selector: google.calendar.Calendar.Get
+///      description: >
+///        ...
+///    - selector: google.calendar.Calendar.Put
+///      description: >
+///        ...
+/// </code></pre>
+/// Documentation is provided in markdown syntax. In addition to
+/// standard markdown features, definition lists, tables and fenced
+/// code blocks are supported. Section headers can be provided and are
+/// interpreted relative to the section nesting of the context where
+/// a documentation fragment is embedded.
+///
+/// Documentation from the IDL is merged with documentation defined
+/// via the config at normalization time, where documentation provided
+/// by config rules overrides IDL provided.
+///
+/// A number of constructs specific to the API platform are supported
+/// in documentation text.
+///
+/// In order to reference a proto element, the following
+/// notation can be used:
+/// <pre><code>&#91;fully.qualified.proto.name]&#91;]</code></pre>
+/// To override the display text used for the link, this can be used:
+/// <pre><code>&#91;display text]&#91;fully.qualified.proto.name]</code></pre>
+/// Text can be excluded from doc using the following notation:
+/// <pre><code>&#40;-- internal comment --&#41;</code></pre>
+///
+/// A few directives are available in documentation. Note that
+/// directives must appear on a single line to be properly
+/// identified. The `include` directive includes a markdown file from
+/// an external source:
+/// <pre><code>&#40;== include path/to/file ==&#41;</code></pre>
+/// The `resource_for` directive marks a message to be the resource of
+/// a collection in REST view. If it is not specified, tools attempt
+/// to infer the resource from the operations in a collection:
+/// <pre><code>&#40;== resource_for v1.shelves.books ==&#41;</code></pre>
+/// The directive `suppress_warning` does not directly affect documentation
+/// and is documented together with service config validation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Documentation {
+    /// A short description of what the service does. The summary must be plain
+    /// text. It becomes the overview of the service displayed in Google Cloud
+    /// Console.
+    /// NOTE: This field is equivalent to the standard field `description`.
+    #[prost(string, tag = "1")]
+    pub summary: ::prost::alloc::string::String,
+    /// The top level pages for the documentation set.
+    #[prost(message, repeated, tag = "5")]
+    pub pages: ::prost::alloc::vec::Vec<Page>,
+    /// A list of documentation rules that apply to individual API elements.
     ///
     /// **NOTE:** All service configuration rules follow "last one wins" order.
-    #[prost(message, repeated, tag = "1")]
-    pub rules: ::prost::alloc::vec::Vec<ContextRule>,
+    #[prost(message, repeated, tag = "3")]
+    pub rules: ::prost::alloc::vec::Vec<DocumentationRule>,
+    /// The URL to the root of documentation.
+    #[prost(string, tag = "4")]
+    pub documentation_root_url: ::prost::alloc::string::String,
+    /// Specifies the service root url if the default one (the service name
+    /// from the yaml file) is not suitable. This can be seen in any fully
+    /// specified service urls as well as sections that show a base that other
+    /// urls are relative to.
+    #[prost(string, tag = "6")]
+    pub service_root_url: ::prost::alloc::string::String,
+    /// Declares a single overview page. For example:
+    /// <pre><code>documentation:
+    ///    summary: ...
+    ///    overview: &#40;== include overview.md ==&#41;
+    /// </code></pre>
+    /// This is a shortcut for the following declaration (using pages style):
+    /// <pre><code>documentation:
+    ///    summary: ...
+    ///    pages:
+    ///    - name: Overview
+    ///      content: &#40;== include overview.md ==&#41;
+    /// </code></pre>
+    /// Note: you cannot specify both `overview` field and `pages` field.
+    #[prost(string, tag = "2")]
+    pub overview: ::prost::alloc::string::String,
 }
-/// A context rule provides information about the context for an individual API
-/// element.
+/// A documentation rule provides information about individual API elements.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ContextRule {
-    /// Selects the methods to which this rule applies.
-    ///
-    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
-    /// details.
+pub struct DocumentationRule {
+    /// The selector is a comma-separated list of patterns for any element such as
+    /// a method, a field, an enum value. Each pattern is a qualified name of the
+    /// element which may end in "*", indicating a wildcard. Wildcards are only
+    /// allowed at the end and for a whole component of the qualified name,
+    /// i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A wildcard will match
+    /// one or more components. To specify a default for all applicable elements,
+    /// the whole pattern "*" is used.
     #[prost(string, tag = "1")]
     pub selector: ::prost::alloc::string::String,
-    /// A list of full type names of requested contexts.
-    #[prost(string, repeated, tag = "2")]
-    pub requested: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// A list of full type names of provided contexts.
-    #[prost(string, repeated, tag = "3")]
-    pub provided: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// A list of full type names or extension IDs of extensions allowed in grpc
-    /// side channel from client to backend.
-    #[prost(string, repeated, tag = "4")]
-    pub allowed_request_extensions: ::prost::alloc::vec::Vec<
-        ::prost::alloc::string::String,
-    >,
-    /// A list of full type names or extension IDs of extensions allowed in grpc
-    /// side channel from backend to client.
-    #[prost(string, repeated, tag = "5")]
-    pub allowed_response_extensions: ::prost::alloc::vec::Vec<
-        ::prost::alloc::string::String,
-    >,
+    /// Description of the selected proto element (e.g. a message, a method, a
+    /// 'service' definition, or a field). Defaults to leading & trailing comments
+    /// taken from the proto source definition of the proto element.
+    #[prost(string, tag = "2")]
+    pub description: ::prost::alloc::string::String,
+    /// Deprecation description of the selected element(s). It can be provided if
+    /// an element is marked as `deprecated`.
+    #[prost(string, tag = "3")]
+    pub deprecation_description: ::prost::alloc::string::String,
+}
+/// Represents a documentation page. A page can contain subpages to represent
+/// nested documentation set structure.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Page {
+    /// The name of the page. It will be used as an identity of the page to
+    /// generate URI of the page, text of the link to this page in navigation,
+    /// etc. The full page name (start from the root page name to this page
+    /// concatenated with `.`) can be used as reference to the page in your
+    /// documentation. For example:
+    /// <pre><code>pages:
+    /// - name: Tutorial
+    ///    content: &#40;== include tutorial.md ==&#41;
+    ///    subpages:
+    ///    - name: Java
+    ///      content: &#40;== include tutorial_java.md ==&#41;
+    /// </code></pre>
+    /// You can reference `Java` page using Markdown reference link syntax:
+    /// `\[Java][Tutorial.Java\]`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The Markdown content of the page. You can use <code>&#40;== include {path}
+    /// ==&#41;</code> to include content from a Markdown file. The content can be
+    /// used to produce the documentation page such as HTML format page.
+    #[prost(string, tag = "2")]
+    pub content: ::prost::alloc::string::String,
+    /// Subpages of this page. The order of subpages specified here will be
+    /// honored in the generated docset.
+    #[prost(message, repeated, tag = "3")]
+    pub subpages: ::prost::alloc::vec::Vec<Page>,
 }
 /// `Authentication` defines the authentication configuration for API methods
 /// provided by an API service.
@@ -2700,93 +3377,6 @@ pub struct AuthRequirement {
     ///                 bookstore_web.apps.googleusercontent.com
     #[prost(string, tag = "2")]
     pub audiences: ::prost::alloc::string::String,
-}
-/// Output generated from semantically comparing two versions of a service
-/// configuration.
-///
-/// Includes detailed information about a field that have changed with
-/// applicable advice about potential consequences for the change, such as
-/// backwards-incompatibility.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ConfigChange {
-    /// Object hierarchy path to the change, with levels separated by a '.'
-    /// character. For repeated fields, an applicable unique identifier field is
-    /// used for the index (usually selector, name, or id). For maps, the term
-    /// 'key' is used. If the field has no unique identifier, the numeric index
-    /// is used.
-    /// Examples:
-    /// - visibility.rules\[selector=="google.LibraryService.ListBooks"\].restriction
-    /// - quota.metric_rules\[selector=="google"].metric_costs[key=="reads"\].value
-    /// - logging.producer_destinations\[0\]
-    #[prost(string, tag = "1")]
-    pub element: ::prost::alloc::string::String,
-    /// Value of the changed object in the old Service configuration,
-    /// in JSON format. This field will not be populated if ChangeType == ADDED.
-    #[prost(string, tag = "2")]
-    pub old_value: ::prost::alloc::string::String,
-    /// Value of the changed object in the new Service configuration,
-    /// in JSON format. This field will not be populated if ChangeType == REMOVED.
-    #[prost(string, tag = "3")]
-    pub new_value: ::prost::alloc::string::String,
-    /// The type for this change, either ADDED, REMOVED, or MODIFIED.
-    #[prost(enumeration = "ChangeType", tag = "4")]
-    pub change_type: i32,
-    /// Collection of advice provided for this change, useful for determining the
-    /// possible impact of this change.
-    #[prost(message, repeated, tag = "5")]
-    pub advices: ::prost::alloc::vec::Vec<Advice>,
-}
-/// Generated advice about this change, used for providing more
-/// information about how a change will affect the existing service.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Advice {
-    /// Useful description for why this advice was applied and what actions should
-    /// be taken to mitigate any implied risks.
-    #[prost(string, tag = "2")]
-    pub description: ::prost::alloc::string::String,
-}
-/// Classifies set of possible modifications to an object in the service
-/// configuration.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum ChangeType {
-    /// No value was provided.
-    Unspecified = 0,
-    /// The changed object exists in the 'new' service configuration, but not
-    /// in the 'old' service configuration.
-    Added = 1,
-    /// The changed object exists in the 'old' service configuration, but not
-    /// in the 'new' service configuration.
-    Removed = 2,
-    /// The changed object exists in both service configurations, but its value
-    /// is different.
-    Modified = 3,
-}
-impl ChangeType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            ChangeType::Unspecified => "CHANGE_TYPE_UNSPECIFIED",
-            ChangeType::Added => "ADDED",
-            ChangeType::Removed => "REMOVED",
-            ChangeType::Modified => "MODIFIED",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "CHANGE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "ADDED" => Some(Self::Added),
-            "REMOVED" => Some(Self::Removed),
-            "MODIFIED" => Some(Self::Modified),
-            _ => None,
-        }
-    }
 }
 /// `Backend` defines the backend configuration for a service.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -3071,6 +3661,81 @@ pub mod billing {
         pub metrics: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     }
 }
+/// `Context` defines which contexts an API requests.
+///
+/// Example:
+///
+///      context:
+///        rules:
+///        - selector: "*"
+///          requested:
+///          - google.rpc.context.ProjectContext
+///          - google.rpc.context.OriginContext
+///
+/// The above specifies that all methods in the API request
+/// `google.rpc.context.ProjectContext` and
+/// `google.rpc.context.OriginContext`.
+///
+/// Available context types are defined in package
+/// `google.rpc.context`.
+///
+/// This also provides mechanism to allowlist any protobuf message extension that
+/// can be sent in grpc metadata using “x-goog-ext-<extension_id>-bin” and
+/// “x-goog-ext-<extension_id>-jspb” format. For example, list any service
+/// specific protobuf types that can appear in grpc metadata as follows in your
+/// yaml file:
+///
+/// Example:
+///
+///      context:
+///        rules:
+///         - selector: "google.example.library.v1.LibraryService.CreateBook"
+///           allowed_request_extensions:
+///           - google.foo.v1.NewExtension
+///           allowed_response_extensions:
+///           - google.foo.v1.NewExtension
+///
+/// You can also specify extension ID instead of fully qualified extension name
+/// here.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Context {
+    /// A list of RPC context rules that apply to individual API methods.
+    ///
+    /// **NOTE:** All service configuration rules follow "last one wins" order.
+    #[prost(message, repeated, tag = "1")]
+    pub rules: ::prost::alloc::vec::Vec<ContextRule>,
+}
+/// A context rule provides information about the context for an individual API
+/// element.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ContextRule {
+    /// Selects the methods to which this rule applies.
+    ///
+    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
+    /// details.
+    #[prost(string, tag = "1")]
+    pub selector: ::prost::alloc::string::String,
+    /// A list of full type names of requested contexts.
+    #[prost(string, repeated, tag = "2")]
+    pub requested: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// A list of full type names of provided contexts.
+    #[prost(string, repeated, tag = "3")]
+    pub provided: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// A list of full type names or extension IDs of extensions allowed in grpc
+    /// side channel from client to backend.
+    #[prost(string, repeated, tag = "4")]
+    pub allowed_request_extensions: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
+    /// A list of full type names or extension IDs of extensions allowed in grpc
+    /// side channel from backend to client.
+    #[prost(string, repeated, tag = "5")]
+    pub allowed_response_extensions: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
+}
 /// Selects and configures the service controller used by the service.
 ///
 /// Example:
@@ -3085,157 +3750,6 @@ pub struct Control {
     /// most services is servicecontrol.googleapis.com
     #[prost(string, tag = "1")]
     pub environment: ::prost::alloc::string::String,
-}
-/// `Documentation` provides the information for describing a service.
-///
-/// Example:
-/// <pre><code>documentation:
-///    summary: >
-///      The Google Calendar API gives access
-///      to most calendar features.
-///    pages:
-///    - name: Overview
-///      content: &#40;== include google/foo/overview.md ==&#41;
-///    - name: Tutorial
-///      content: &#40;== include google/foo/tutorial.md ==&#41;
-///      subpages;
-///      - name: Java
-///        content: &#40;== include google/foo/tutorial_java.md ==&#41;
-///    rules:
-///    - selector: google.calendar.Calendar.Get
-///      description: >
-///        ...
-///    - selector: google.calendar.Calendar.Put
-///      description: >
-///        ...
-/// </code></pre>
-/// Documentation is provided in markdown syntax. In addition to
-/// standard markdown features, definition lists, tables and fenced
-/// code blocks are supported. Section headers can be provided and are
-/// interpreted relative to the section nesting of the context where
-/// a documentation fragment is embedded.
-///
-/// Documentation from the IDL is merged with documentation defined
-/// via the config at normalization time, where documentation provided
-/// by config rules overrides IDL provided.
-///
-/// A number of constructs specific to the API platform are supported
-/// in documentation text.
-///
-/// In order to reference a proto element, the following
-/// notation can be used:
-/// <pre><code>&#91;fully.qualified.proto.name]&#91;]</code></pre>
-/// To override the display text used for the link, this can be used:
-/// <pre><code>&#91;display text]&#91;fully.qualified.proto.name]</code></pre>
-/// Text can be excluded from doc using the following notation:
-/// <pre><code>&#40;-- internal comment --&#41;</code></pre>
-///
-/// A few directives are available in documentation. Note that
-/// directives must appear on a single line to be properly
-/// identified. The `include` directive includes a markdown file from
-/// an external source:
-/// <pre><code>&#40;== include path/to/file ==&#41;</code></pre>
-/// The `resource_for` directive marks a message to be the resource of
-/// a collection in REST view. If it is not specified, tools attempt
-/// to infer the resource from the operations in a collection:
-/// <pre><code>&#40;== resource_for v1.shelves.books ==&#41;</code></pre>
-/// The directive `suppress_warning` does not directly affect documentation
-/// and is documented together with service config validation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Documentation {
-    /// A short description of what the service does. The summary must be plain
-    /// text. It becomes the overview of the service displayed in Google Cloud
-    /// Console.
-    /// NOTE: This field is equivalent to the standard field `description`.
-    #[prost(string, tag = "1")]
-    pub summary: ::prost::alloc::string::String,
-    /// The top level pages for the documentation set.
-    #[prost(message, repeated, tag = "5")]
-    pub pages: ::prost::alloc::vec::Vec<Page>,
-    /// A list of documentation rules that apply to individual API elements.
-    ///
-    /// **NOTE:** All service configuration rules follow "last one wins" order.
-    #[prost(message, repeated, tag = "3")]
-    pub rules: ::prost::alloc::vec::Vec<DocumentationRule>,
-    /// The URL to the root of documentation.
-    #[prost(string, tag = "4")]
-    pub documentation_root_url: ::prost::alloc::string::String,
-    /// Specifies the service root url if the default one (the service name
-    /// from the yaml file) is not suitable. This can be seen in any fully
-    /// specified service urls as well as sections that show a base that other
-    /// urls are relative to.
-    #[prost(string, tag = "6")]
-    pub service_root_url: ::prost::alloc::string::String,
-    /// Declares a single overview page. For example:
-    /// <pre><code>documentation:
-    ///    summary: ...
-    ///    overview: &#40;== include overview.md ==&#41;
-    /// </code></pre>
-    /// This is a shortcut for the following declaration (using pages style):
-    /// <pre><code>documentation:
-    ///    summary: ...
-    ///    pages:
-    ///    - name: Overview
-    ///      content: &#40;== include overview.md ==&#41;
-    /// </code></pre>
-    /// Note: you cannot specify both `overview` field and `pages` field.
-    #[prost(string, tag = "2")]
-    pub overview: ::prost::alloc::string::String,
-}
-/// A documentation rule provides information about individual API elements.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DocumentationRule {
-    /// The selector is a comma-separated list of patterns for any element such as
-    /// a method, a field, an enum value. Each pattern is a qualified name of the
-    /// element which may end in "*", indicating a wildcard. Wildcards are only
-    /// allowed at the end and for a whole component of the qualified name,
-    /// i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A wildcard will match
-    /// one or more components. To specify a default for all applicable elements,
-    /// the whole pattern "*" is used.
-    #[prost(string, tag = "1")]
-    pub selector: ::prost::alloc::string::String,
-    /// Description of the selected proto element (e.g. a message, a method, a
-    /// 'service' definition, or a field). Defaults to leading & trailing comments
-    /// taken from the proto source definition of the proto element.
-    #[prost(string, tag = "2")]
-    pub description: ::prost::alloc::string::String,
-    /// Deprecation description of the selected element(s). It can be provided if
-    /// an element is marked as `deprecated`.
-    #[prost(string, tag = "3")]
-    pub deprecation_description: ::prost::alloc::string::String,
-}
-/// Represents a documentation page. A page can contain subpages to represent
-/// nested documentation set structure.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Page {
-    /// The name of the page. It will be used as an identity of the page to
-    /// generate URI of the page, text of the link to this page in navigation,
-    /// etc. The full page name (start from the root page name to this page
-    /// concatenated with `.`) can be used as reference to the page in your
-    /// documentation. For example:
-    /// <pre><code>pages:
-    /// - name: Tutorial
-    ///    content: &#40;== include tutorial.md ==&#41;
-    ///    subpages:
-    ///    - name: Java
-    ///      content: &#40;== include tutorial_java.md ==&#41;
-    /// </code></pre>
-    /// You can reference `Java` page using Markdown reference link syntax:
-    /// `\[Java][Tutorial.Java\]`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The Markdown content of the page. You can use <code>&#40;== include {path}
-    /// ==&#41;</code> to include content from a Markdown file. The content can be
-    /// used to produce the documentation page such as HTML format page.
-    #[prost(string, tag = "2")]
-    pub content: ::prost::alloc::string::String,
-    /// Subpages of this page. The order of subpages specified here will be
-    /// honored in the generated docset.
-    #[prost(message, repeated, tag = "3")]
-    pub subpages: ::prost::alloc::vec::Vec<Page>,
 }
 /// `Endpoint` describes a network address of a service that serves a set of
 /// APIs. It is commonly known as a service endpoint. A service may expose
@@ -3966,6 +4480,93 @@ pub struct Service {
     #[prost(message, optional, tag = "20")]
     pub config_version: ::core::option::Option<u32>,
 }
+/// Output generated from semantically comparing two versions of a service
+/// configuration.
+///
+/// Includes detailed information about a field that have changed with
+/// applicable advice about potential consequences for the change, such as
+/// backwards-incompatibility.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ConfigChange {
+    /// Object hierarchy path to the change, with levels separated by a '.'
+    /// character. For repeated fields, an applicable unique identifier field is
+    /// used for the index (usually selector, name, or id). For maps, the term
+    /// 'key' is used. If the field has no unique identifier, the numeric index
+    /// is used.
+    /// Examples:
+    /// - visibility.rules\[selector=="google.LibraryService.ListBooks"\].restriction
+    /// - quota.metric_rules\[selector=="google"].metric_costs[key=="reads"\].value
+    /// - logging.producer_destinations\[0\]
+    #[prost(string, tag = "1")]
+    pub element: ::prost::alloc::string::String,
+    /// Value of the changed object in the old Service configuration,
+    /// in JSON format. This field will not be populated if ChangeType == ADDED.
+    #[prost(string, tag = "2")]
+    pub old_value: ::prost::alloc::string::String,
+    /// Value of the changed object in the new Service configuration,
+    /// in JSON format. This field will not be populated if ChangeType == REMOVED.
+    #[prost(string, tag = "3")]
+    pub new_value: ::prost::alloc::string::String,
+    /// The type for this change, either ADDED, REMOVED, or MODIFIED.
+    #[prost(enumeration = "ChangeType", tag = "4")]
+    pub change_type: i32,
+    /// Collection of advice provided for this change, useful for determining the
+    /// possible impact of this change.
+    #[prost(message, repeated, tag = "5")]
+    pub advices: ::prost::alloc::vec::Vec<Advice>,
+}
+/// Generated advice about this change, used for providing more
+/// information about how a change will affect the existing service.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Advice {
+    /// Useful description for why this advice was applied and what actions should
+    /// be taken to mitigate any implied risks.
+    #[prost(string, tag = "2")]
+    pub description: ::prost::alloc::string::String,
+}
+/// Classifies set of possible modifications to an object in the service
+/// configuration.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum ChangeType {
+    /// No value was provided.
+    Unspecified = 0,
+    /// The changed object exists in the 'new' service configuration, but not
+    /// in the 'old' service configuration.
+    Added = 1,
+    /// The changed object exists in the 'old' service configuration, but not
+    /// in the 'new' service configuration.
+    Removed = 2,
+    /// The changed object exists in both service configurations, but its value
+    /// is different.
+    Modified = 3,
+}
+impl ChangeType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            ChangeType::Unspecified => "CHANGE_TYPE_UNSPECIFIED",
+            ChangeType::Added => "ADDED",
+            ChangeType::Removed => "REMOVED",
+            ChangeType::Modified => "MODIFIED",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "CHANGE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "ADDED" => Some(Self::Added),
+            "REMOVED" => Some(Self::Removed),
+            "MODIFIED" => Some(Self::Modified),
+            _ => None,
+        }
+    }
+}
 /// `Visibility` restricts service consumer's access to service elements,
 /// such as whether an application can call a visibility-restricted method.
 /// The restriction is expressed by applying visibility labels on service
@@ -4124,607 +4725,6 @@ pub mod property {
                 "DOUBLE" => Some(Self::Double),
                 _ => None,
             }
-        }
-    }
-}
-/// Defines the supported values for `google.rpc.ErrorInfo.reason` for the
-/// `googleapis.com` error domain. This error domain is reserved for [Service
-/// Infrastructure](<https://cloud.google.com/service-infrastructure/docs/overview>).
-/// For each error info of this domain, the metadata key "service" refers to the
-/// logical identifier of an API service, such as "pubsub.googleapis.com". The
-/// "consumer" refers to the entity that consumes an API Service. It typically is
-/// a Google project that owns the client application or the server resource,
-/// such as "projects/123". Other metadata keys are specific to each error
-/// reason. For more information, see the definition of the specific error
-/// reason.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum ErrorReason {
-    /// Do not use this default value.
-    Unspecified = 0,
-    /// The request is calling a disabled service for a consumer.
-    ///
-    /// Example of an ErrorInfo when the consumer "projects/123" contacting
-    /// "pubsub.googleapis.com" service which is disabled:
-    ///
-    ///      { "reason": "SERVICE_DISABLED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "pubsub.googleapis.com"
-    ///        }
-    ///      }
-    ///
-    /// This response indicates the "pubsub.googleapis.com" has been disabled in
-    /// "projects/123".
-    ServiceDisabled = 1,
-    /// The request whose associated billing account is disabled.
-    ///
-    /// Example of an ErrorInfo when the consumer "projects/123" fails to contact
-    /// "pubsub.googleapis.com" service because the associated billing account is
-    /// disabled:
-    ///
-    ///      { "reason": "BILLING_DISABLED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "pubsub.googleapis.com"
-    ///        }
-    ///      }
-    ///
-    /// This response indicates the billing account associated has been disabled.
-    BillingDisabled = 2,
-    /// The request is denied because the provided [API
-    /// key](<https://cloud.google.com/docs/authentication/api-keys>) is invalid. It
-    /// may be in a bad format, cannot be found, or has been expired).
-    ///
-    /// Example of an ErrorInfo when the request is contacting
-    /// "storage.googleapis.com" service with an invalid API key:
-    ///
-    ///      { "reason": "API_KEY_INVALID",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "service": "storage.googleapis.com",
-    ///        }
-    ///      }
-    ApiKeyInvalid = 3,
-    /// The request is denied because it violates [API key API
-    /// restrictions](<https://cloud.google.com/docs/authentication/api-keys#adding_api_restrictions>).
-    ///
-    /// Example of an ErrorInfo when the consumer "projects/123" fails to call the
-    /// "storage.googleapis.com" service because this service is restricted in the
-    /// API key:
-    ///
-    ///      { "reason": "API_KEY_SERVICE_BLOCKED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "storage.googleapis.com"
-    ///        }
-    ///      }
-    ApiKeyServiceBlocked = 4,
-    /// The request is denied because it violates [API key HTTP
-    /// restrictions](<https://cloud.google.com/docs/authentication/api-keys#adding_http_restrictions>).
-    ///
-    /// Example of an ErrorInfo when the consumer "projects/123" fails to call
-    /// "storage.googleapis.com" service because the http referrer of the request
-    /// violates API key HTTP restrictions:
-    ///
-    ///      { "reason": "API_KEY_HTTP_REFERRER_BLOCKED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "storage.googleapis.com",
-    ///        }
-    ///      }
-    ApiKeyHttpReferrerBlocked = 7,
-    /// The request is denied because it violates [API key IP address
-    /// restrictions](<https://cloud.google.com/docs/authentication/api-keys#adding_application_restrictions>).
-    ///
-    /// Example of an ErrorInfo when the consumer "projects/123" fails to call
-    /// "storage.googleapis.com" service because the caller IP of the request
-    /// violates API key IP address restrictions:
-    ///
-    ///      { "reason": "API_KEY_IP_ADDRESS_BLOCKED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "storage.googleapis.com",
-    ///        }
-    ///      }
-    ApiKeyIpAddressBlocked = 8,
-    /// The request is denied because it violates [API key Android application
-    /// restrictions](<https://cloud.google.com/docs/authentication/api-keys#adding_application_restrictions>).
-    ///
-    /// Example of an ErrorInfo when the consumer "projects/123" fails to call
-    /// "storage.googleapis.com" service because the request from the Android apps
-    /// violates the API key Android application restrictions:
-    ///
-    ///      { "reason": "API_KEY_ANDROID_APP_BLOCKED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "storage.googleapis.com"
-    ///        }
-    ///      }
-    ApiKeyAndroidAppBlocked = 9,
-    /// The request is denied because it violates [API key iOS application
-    /// restrictions](<https://cloud.google.com/docs/authentication/api-keys#adding_application_restrictions>).
-    ///
-    /// Example of an ErrorInfo when the consumer "projects/123" fails to call
-    /// "storage.googleapis.com" service because the request from the iOS apps
-    /// violates the API key iOS application restrictions:
-    ///
-    ///      { "reason": "API_KEY_IOS_APP_BLOCKED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "storage.googleapis.com"
-    ///        }
-    ///      }
-    ApiKeyIosAppBlocked = 13,
-    /// The request is denied because there is not enough rate quota for the
-    /// consumer.
-    ///
-    /// Example of an ErrorInfo when the consumer "projects/123" fails to contact
-    /// "pubsub.googleapis.com" service because consumer's rate quota usage has
-    /// reached the maximum value set for the quota limit
-    /// "ReadsPerMinutePerProject" on the quota metric
-    /// "pubsub.googleapis.com/read_requests":
-    ///
-    ///      { "reason": "RATE_LIMIT_EXCEEDED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "pubsub.googleapis.com",
-    ///          "quota_metric": "pubsub.googleapis.com/read_requests",
-    ///          "quota_limit": "ReadsPerMinutePerProject"
-    ///        }
-    ///      }
-    ///
-    /// Example of an ErrorInfo when the consumer "projects/123" checks quota on
-    /// the service "dataflow.googleapis.com" and hits the organization quota
-    /// limit "DefaultRequestsPerMinutePerOrganization" on the metric
-    /// "dataflow.googleapis.com/default_requests".
-    ///
-    ///      { "reason": "RATE_LIMIT_EXCEEDED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "dataflow.googleapis.com",
-    ///          "quota_metric": "dataflow.googleapis.com/default_requests",
-    ///          "quota_limit": "DefaultRequestsPerMinutePerOrganization"
-    ///        }
-    ///      }
-    RateLimitExceeded = 5,
-    /// The request is denied because there is not enough resource quota for the
-    /// consumer.
-    ///
-    /// Example of an ErrorInfo when the consumer "projects/123" fails to contact
-    /// "compute.googleapis.com" service because consumer's resource quota usage
-    /// has reached the maximum value set for the quota limit "VMsPerProject"
-    /// on the quota metric "compute.googleapis.com/vms":
-    ///
-    ///      { "reason": "RESOURCE_QUOTA_EXCEEDED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "compute.googleapis.com",
-    ///          "quota_metric": "compute.googleapis.com/vms",
-    ///          "quota_limit": "VMsPerProject"
-    ///        }
-    ///      }
-    ///
-    /// Example of an ErrorInfo when the consumer "projects/123" checks resource
-    /// quota on the service "dataflow.googleapis.com" and hits the organization
-    /// quota limit "jobs-per-organization" on the metric
-    /// "dataflow.googleapis.com/job_count".
-    ///
-    ///      { "reason": "RESOURCE_QUOTA_EXCEEDED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "dataflow.googleapis.com",
-    ///          "quota_metric": "dataflow.googleapis.com/job_count",
-    ///          "quota_limit": "jobs-per-organization"
-    ///        }
-    ///      }
-    ResourceQuotaExceeded = 6,
-    /// The request whose associated billing account address is in a tax restricted
-    /// location, violates the local tax restrictions when creating resources in
-    /// the restricted region.
-    ///
-    /// Example of an ErrorInfo when creating the Cloud Storage Bucket in the
-    /// container "projects/123" under a tax restricted region
-    /// "locations/asia-northeast3":
-    ///
-    ///      { "reason": "LOCATION_TAX_POLICY_VIOLATED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "storage.googleapis.com",
-    ///          "location": "locations/asia-northeast3"
-    ///        }
-    ///      }
-    ///
-    /// This response indicates creating the Cloud Storage Bucket in
-    /// "locations/asia-northeast3" violates the location tax restriction.
-    LocationTaxPolicyViolated = 10,
-    /// The request is denied because the caller does not have required permission
-    /// on the user project "projects/123" or the user project is invalid. For more
-    /// information, check the [userProject System
-    /// Parameters](<https://cloud.google.com/apis/docs/system-parameters>).
-    ///
-    /// Example of an ErrorInfo when the caller is calling Cloud Storage service
-    /// with insufficient permissions on the user project:
-    ///
-    ///      { "reason": "USER_PROJECT_DENIED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "storage.googleapis.com"
-    ///        }
-    ///      }
-    UserProjectDenied = 11,
-    /// The request is denied because the consumer "projects/123" is suspended due
-    /// to Terms of Service(Tos) violations. Check [Project suspension
-    /// guidelines](<https://cloud.google.com/resource-manager/docs/project-suspension-guidelines>)
-    /// for more information.
-    ///
-    /// Example of an ErrorInfo when calling Cloud Storage service with the
-    /// suspended consumer "projects/123":
-    ///
-    ///      { "reason": "CONSUMER_SUSPENDED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "storage.googleapis.com"
-    ///        }
-    ///      }
-    ConsumerSuspended = 12,
-    /// The request is denied because the associated consumer is invalid. It may be
-    /// in a bad format, cannot be found, or have been deleted.
-    ///
-    /// Example of an ErrorInfo when calling Cloud Storage service with the
-    /// invalid consumer "projects/123":
-    ///
-    ///      { "reason": "CONSUMER_INVALID",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "storage.googleapis.com"
-    ///        }
-    ///      }
-    ConsumerInvalid = 14,
-    /// The request is denied because it violates [VPC Service
-    /// Controls](<https://cloud.google.com/vpc-service-controls/docs/overview>).
-    /// The 'uid' field is a random generated identifier that customer can use it
-    /// to search the audit log for a request rejected by VPC Service Controls. For
-    /// more information, please refer [VPC Service Controls
-    /// Troubleshooting](<https://cloud.google.com/vpc-service-controls/docs/troubleshooting#unique-id>)
-    ///
-    /// Example of an ErrorInfo when the consumer "projects/123" fails to call
-    /// Cloud Storage service because the request is prohibited by the VPC Service
-    /// Controls.
-    ///
-    ///      { "reason": "SECURITY_POLICY_VIOLATED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "uid": "123456789abcde",
-    ///          "consumer": "projects/123",
-    ///          "service": "storage.googleapis.com"
-    ///        }
-    ///      }
-    SecurityPolicyViolated = 15,
-    /// The request is denied because the provided access token has expired.
-    ///
-    /// Example of an ErrorInfo when the request is calling Cloud Storage service
-    /// with an expired access token:
-    ///
-    ///      { "reason": "ACCESS_TOKEN_EXPIRED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "service": "storage.googleapis.com",
-    ///          "method": "google.storage.v1.Storage.GetObject"
-    ///        }
-    ///      }
-    AccessTokenExpired = 16,
-    /// The request is denied because the provided access token doesn't have at
-    /// least one of the acceptable scopes required for the API. Please check
-    /// [OAuth 2.0 Scopes for Google
-    /// APIs](<https://developers.google.com/identity/protocols/oauth2/scopes>) for
-    /// the list of the OAuth 2.0 scopes that you might need to request to access
-    /// the API.
-    ///
-    /// Example of an ErrorInfo when the request is calling Cloud Storage service
-    /// with an access token that is missing required scopes:
-    ///
-    ///      { "reason": "ACCESS_TOKEN_SCOPE_INSUFFICIENT",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "service": "storage.googleapis.com",
-    ///          "method": "google.storage.v1.Storage.GetObject"
-    ///        }
-    ///      }
-    AccessTokenScopeInsufficient = 17,
-    /// The request is denied because the account associated with the provided
-    /// access token is in an invalid state, such as disabled or deleted.
-    /// For more information, see <https://cloud.google.com/docs/authentication.>
-    ///
-    /// Warning: For privacy reasons, the server may not be able to disclose the
-    /// email address for some accounts. The client MUST NOT depend on the
-    /// availability of the `email` attribute.
-    ///
-    /// Example of an ErrorInfo when the request is to the Cloud Storage API with
-    /// an access token that is associated with a disabled or deleted [service
-    /// account](<http://cloud/iam/docs/service-accounts>):
-    ///
-    ///      { "reason": "ACCOUNT_STATE_INVALID",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "service": "storage.googleapis.com",
-    ///          "method": "google.storage.v1.Storage.GetObject",
-    ///          "email": "user@123.iam.gserviceaccount.com"
-    ///        }
-    ///      }
-    AccountStateInvalid = 18,
-    /// The request is denied because the type of the provided access token is not
-    /// supported by the API being called.
-    ///
-    /// Example of an ErrorInfo when the request is to the Cloud Storage API with
-    /// an unsupported token type.
-    ///
-    ///      { "reason": "ACCESS_TOKEN_TYPE_UNSUPPORTED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "service": "storage.googleapis.com",
-    ///          "method": "google.storage.v1.Storage.GetObject"
-    ///        }
-    ///      }
-    AccessTokenTypeUnsupported = 19,
-    /// The request is denied because the request doesn't have any authentication
-    /// credentials. For more information regarding the supported authentication
-    /// strategies for Google Cloud APIs, see
-    /// <https://cloud.google.com/docs/authentication.>
-    ///
-    /// Example of an ErrorInfo when the request is to the Cloud Storage API
-    /// without any authentication credentials.
-    ///
-    ///      { "reason": "CREDENTIALS_MISSING",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "service": "storage.googleapis.com",
-    ///          "method": "google.storage.v1.Storage.GetObject"
-    ///        }
-    ///      }
-    CredentialsMissing = 20,
-    /// The request is denied because the provided project owning the resource
-    /// which acts as the [API
-    /// consumer](<https://cloud.google.com/apis/design/glossary#api_consumer>) is
-    /// invalid. It may be in a bad format or empty.
-    ///
-    /// Example of an ErrorInfo when the request is to the Cloud Functions API,
-    /// but the offered resource project in the request in a bad format which can't
-    /// perform the ListFunctions method.
-    ///
-    ///      { "reason": "RESOURCE_PROJECT_INVALID",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "service": "cloudfunctions.googleapis.com",
-    ///          "method":
-    ///          "google.cloud.functions.v1.CloudFunctionsService.ListFunctions"
-    ///        }
-    ///      }
-    ResourceProjectInvalid = 21,
-    /// The request is denied because the provided session cookie is missing,
-    /// invalid or failed to decode.
-    ///
-    /// Example of an ErrorInfo when the request is calling Cloud Storage service
-    /// with a SID cookie which can't be decoded.
-    ///
-    ///      { "reason": "SESSION_COOKIE_INVALID",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "service": "storage.googleapis.com",
-    ///          "method": "google.storage.v1.Storage.GetObject",
-    ///          "cookie": "SID"
-    ///        }
-    ///      }
-    SessionCookieInvalid = 23,
-    /// The request is denied because the user is from a Google Workspace customer
-    /// that blocks their users from accessing a particular service.
-    ///
-    /// Example scenario: <https://support.google.com/a/answer/9197205?hl=en>
-    ///
-    /// Example of an ErrorInfo when access to Google Cloud Storage service is
-    /// blocked by the Google Workspace administrator:
-    ///
-    ///      { "reason": "USER_BLOCKED_BY_ADMIN",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "service": "storage.googleapis.com",
-    ///          "method": "google.storage.v1.Storage.GetObject",
-    ///        }
-    ///      }
-    UserBlockedByAdmin = 24,
-    /// The request is denied because the resource service usage is restricted
-    /// by administrators according to the organization policy constraint.
-    /// For more information see
-    /// <https://cloud.google.com/resource-manager/docs/organization-policy/restricting-services.>
-    ///
-    /// Example of an ErrorInfo when access to Google Cloud Storage service is
-    /// restricted by Resource Usage Restriction policy:
-    ///
-    ///      { "reason": "RESOURCE_USAGE_RESTRICTION_VIOLATED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/project-123",
-    ///          "service": "storage.googleapis.com"
-    ///        }
-    ///      }
-    ResourceUsageRestrictionViolated = 25,
-    /// Unimplemented. Do not use.
-    ///
-    /// The request is denied because it contains unsupported system parameters in
-    /// URL query parameters or HTTP headers. For more information,
-    /// see <https://cloud.google.com/apis/docs/system-parameters>
-    ///
-    /// Example of an ErrorInfo when access "pubsub.googleapis.com" service with
-    /// a request header of "x-goog-user-ip":
-    ///
-    ///      { "reason": "SYSTEM_PARAMETER_UNSUPPORTED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "service": "pubsub.googleapis.com"
-    ///          "parameter": "x-goog-user-ip"
-    ///        }
-    ///      }
-    SystemParameterUnsupported = 26,
-    /// The request is denied because it violates Org Restriction: the requested
-    /// resource does not belong to allowed organizations specified in
-    /// "X-Goog-Allowed-Resources" header.
-    ///
-    /// Example of an ErrorInfo when accessing a GCP resource that is restricted by
-    /// Org Restriction for "pubsub.googleapis.com" service.
-    ///
-    /// {
-    ///    reason: "ORG_RESTRICTION_VIOLATION"
-    ///    domain: "googleapis.com"
-    ///    metadata {
-    ///      "consumer":"projects/123456"
-    ///      "service": "pubsub.googleapis.com"
-    ///    }
-    /// }
-    OrgRestrictionViolation = 27,
-    /// The request is denied because "X-Goog-Allowed-Resources" header is in a bad
-    /// format.
-    ///
-    /// Example of an ErrorInfo when
-    /// accessing "pubsub.googleapis.com" service with an invalid
-    /// "X-Goog-Allowed-Resources" request header.
-    ///
-    /// {
-    ///    reason: "ORG_RESTRICTION_HEADER_INVALID"
-    ///    domain: "googleapis.com"
-    ///    metadata {
-    ///      "consumer":"projects/123456"
-    ///      "service": "pubsub.googleapis.com"
-    ///    }
-    /// }
-    OrgRestrictionHeaderInvalid = 28,
-    /// Unimplemented. Do not use.
-    ///
-    /// The request is calling a service that is not visible to the consumer.
-    ///
-    /// Example of an ErrorInfo when the consumer "projects/123" contacting
-    ///   "pubsub.googleapis.com" service which is not visible to the consumer.
-    ///
-    ///      { "reason": "SERVICE_NOT_VISIBLE",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "pubsub.googleapis.com"
-    ///        }
-    ///      }
-    ///
-    /// This response indicates the "pubsub.googleapis.com" is not visible to
-    /// "projects/123" (or it may not exist).
-    ServiceNotVisible = 29,
-    /// The request is related to a project for which GCP access is suspended.
-    ///
-    /// Example of an ErrorInfo when the consumer "projects/123" fails to contact
-    /// "pubsub.googleapis.com" service because GCP access is suspended:
-    ///
-    ///      { "reason": "GCP_SUSPENDED",
-    ///        "domain": "googleapis.com",
-    ///        "metadata": {
-    ///          "consumer": "projects/123",
-    ///          "service": "pubsub.googleapis.com"
-    ///        }
-    ///      }
-    ///
-    /// This response indicates the associated GCP account has been suspended.
-    GcpSuspended = 30,
-}
-impl ErrorReason {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            ErrorReason::Unspecified => "ERROR_REASON_UNSPECIFIED",
-            ErrorReason::ServiceDisabled => "SERVICE_DISABLED",
-            ErrorReason::BillingDisabled => "BILLING_DISABLED",
-            ErrorReason::ApiKeyInvalid => "API_KEY_INVALID",
-            ErrorReason::ApiKeyServiceBlocked => "API_KEY_SERVICE_BLOCKED",
-            ErrorReason::ApiKeyHttpReferrerBlocked => "API_KEY_HTTP_REFERRER_BLOCKED",
-            ErrorReason::ApiKeyIpAddressBlocked => "API_KEY_IP_ADDRESS_BLOCKED",
-            ErrorReason::ApiKeyAndroidAppBlocked => "API_KEY_ANDROID_APP_BLOCKED",
-            ErrorReason::ApiKeyIosAppBlocked => "API_KEY_IOS_APP_BLOCKED",
-            ErrorReason::RateLimitExceeded => "RATE_LIMIT_EXCEEDED",
-            ErrorReason::ResourceQuotaExceeded => "RESOURCE_QUOTA_EXCEEDED",
-            ErrorReason::LocationTaxPolicyViolated => "LOCATION_TAX_POLICY_VIOLATED",
-            ErrorReason::UserProjectDenied => "USER_PROJECT_DENIED",
-            ErrorReason::ConsumerSuspended => "CONSUMER_SUSPENDED",
-            ErrorReason::ConsumerInvalid => "CONSUMER_INVALID",
-            ErrorReason::SecurityPolicyViolated => "SECURITY_POLICY_VIOLATED",
-            ErrorReason::AccessTokenExpired => "ACCESS_TOKEN_EXPIRED",
-            ErrorReason::AccessTokenScopeInsufficient => {
-                "ACCESS_TOKEN_SCOPE_INSUFFICIENT"
-            }
-            ErrorReason::AccountStateInvalid => "ACCOUNT_STATE_INVALID",
-            ErrorReason::AccessTokenTypeUnsupported => "ACCESS_TOKEN_TYPE_UNSUPPORTED",
-            ErrorReason::CredentialsMissing => "CREDENTIALS_MISSING",
-            ErrorReason::ResourceProjectInvalid => "RESOURCE_PROJECT_INVALID",
-            ErrorReason::SessionCookieInvalid => "SESSION_COOKIE_INVALID",
-            ErrorReason::UserBlockedByAdmin => "USER_BLOCKED_BY_ADMIN",
-            ErrorReason::ResourceUsageRestrictionViolated => {
-                "RESOURCE_USAGE_RESTRICTION_VIOLATED"
-            }
-            ErrorReason::SystemParameterUnsupported => "SYSTEM_PARAMETER_UNSUPPORTED",
-            ErrorReason::OrgRestrictionViolation => "ORG_RESTRICTION_VIOLATION",
-            ErrorReason::OrgRestrictionHeaderInvalid => "ORG_RESTRICTION_HEADER_INVALID",
-            ErrorReason::ServiceNotVisible => "SERVICE_NOT_VISIBLE",
-            ErrorReason::GcpSuspended => "GCP_SUSPENDED",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "ERROR_REASON_UNSPECIFIED" => Some(Self::Unspecified),
-            "SERVICE_DISABLED" => Some(Self::ServiceDisabled),
-            "BILLING_DISABLED" => Some(Self::BillingDisabled),
-            "API_KEY_INVALID" => Some(Self::ApiKeyInvalid),
-            "API_KEY_SERVICE_BLOCKED" => Some(Self::ApiKeyServiceBlocked),
-            "API_KEY_HTTP_REFERRER_BLOCKED" => Some(Self::ApiKeyHttpReferrerBlocked),
-            "API_KEY_IP_ADDRESS_BLOCKED" => Some(Self::ApiKeyIpAddressBlocked),
-            "API_KEY_ANDROID_APP_BLOCKED" => Some(Self::ApiKeyAndroidAppBlocked),
-            "API_KEY_IOS_APP_BLOCKED" => Some(Self::ApiKeyIosAppBlocked),
-            "RATE_LIMIT_EXCEEDED" => Some(Self::RateLimitExceeded),
-            "RESOURCE_QUOTA_EXCEEDED" => Some(Self::ResourceQuotaExceeded),
-            "LOCATION_TAX_POLICY_VIOLATED" => Some(Self::LocationTaxPolicyViolated),
-            "USER_PROJECT_DENIED" => Some(Self::UserProjectDenied),
-            "CONSUMER_SUSPENDED" => Some(Self::ConsumerSuspended),
-            "CONSUMER_INVALID" => Some(Self::ConsumerInvalid),
-            "SECURITY_POLICY_VIOLATED" => Some(Self::SecurityPolicyViolated),
-            "ACCESS_TOKEN_EXPIRED" => Some(Self::AccessTokenExpired),
-            "ACCESS_TOKEN_SCOPE_INSUFFICIENT" => Some(Self::AccessTokenScopeInsufficient),
-            "ACCOUNT_STATE_INVALID" => Some(Self::AccountStateInvalid),
-            "ACCESS_TOKEN_TYPE_UNSUPPORTED" => Some(Self::AccessTokenTypeUnsupported),
-            "CREDENTIALS_MISSING" => Some(Self::CredentialsMissing),
-            "RESOURCE_PROJECT_INVALID" => Some(Self::ResourceProjectInvalid),
-            "SESSION_COOKIE_INVALID" => Some(Self::SessionCookieInvalid),
-            "USER_BLOCKED_BY_ADMIN" => Some(Self::UserBlockedByAdmin),
-            "RESOURCE_USAGE_RESTRICTION_VIOLATED" => {
-                Some(Self::ResourceUsageRestrictionViolated)
-            }
-            "SYSTEM_PARAMETER_UNSUPPORTED" => Some(Self::SystemParameterUnsupported),
-            "ORG_RESTRICTION_VIOLATION" => Some(Self::OrgRestrictionViolation),
-            "ORG_RESTRICTION_HEADER_INVALID" => Some(Self::OrgRestrictionHeaderInvalid),
-            "SERVICE_NOT_VISIBLE" => Some(Self::ServiceNotVisible),
-            "GCP_SUSPENDED" => Some(Self::GcpSuspended),
-            _ => None,
         }
     }
 }
