@@ -1,6 +1,11 @@
 #[cfg(any(feature = "google-maps-addressvalidation-v1"))]
 pub mod addressvalidation;
-#[cfg(any(feature = "google-maps-mapsplatformdatasets-v1alpha"))]
+#[cfg(
+    any(
+        feature = "google-maps-mapsplatformdatasets-v1",
+        feature = "google-maps-mapsplatformdatasets-v1alpha",
+    )
+)]
 pub mod mapsplatformdatasets;
 #[cfg(any(feature = "google-maps-places-v1"))]
 pub mod places;
