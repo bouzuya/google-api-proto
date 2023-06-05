@@ -262,6 +262,12 @@ pub mod kubernetes_config {
         /// the specified Service.
         #[prost(string, tag = "2")]
         pub deployment: ::prost::alloc::string::String,
+        /// Optional. Whether to disable Pod overprovisioning. If Pod
+        /// overprovisioning is disabled then Cloud Deploy will limit the number of
+        /// total Pods used for the deployment strategy to the number of Pods the
+        /// Deployment has on the cluster.
+        #[prost(bool, tag = "3")]
+        pub disable_pod_overprovisioning: bool,
     }
     /// The service definition configuration.
     #[allow(clippy::derive_partial_eq_without_eq)]
@@ -967,7 +973,7 @@ pub struct DeleteTargetRequest {
     #[prost(string, tag = "2")]
     pub request_id: ::prost::alloc::string::String,
     /// Optional. If set to true, then deleting an already deleted or non-existing
-    /// DeliveryPipeline will succeed.
+    /// `Target` will succeed.
     #[prost(bool, tag = "3")]
     pub allow_missing: bool,
     /// Optional. If set, validate the request and preview the review, but do not
