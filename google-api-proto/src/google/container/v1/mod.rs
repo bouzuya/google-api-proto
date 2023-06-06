@@ -1850,6 +1850,9 @@ pub struct Cluster {
     /// Fleet information for the cluster.
     #[prost(message, optional, tag = "140")]
     pub fleet: ::core::option::Option<Fleet>,
+    /// Beta APIs Config
+    #[prost(message, optional, tag = "143")]
+    pub enable_k8s_beta_apis: ::core::option::Option<K8sBetaApiConfig>,
 }
 /// Nested message and enum types in `Cluster`.
 pub mod cluster {
@@ -1917,6 +1920,14 @@ pub mod cluster {
             }
         }
     }
+}
+/// K8sBetaAPIConfig , configuration for beta APIs
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct K8sBetaApiConfig {
+    /// Enabled k8s beta APIs.
+    #[prost(string, repeated, tag = "1")]
+    pub enabled_apis: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// Node pool configs that apply to all auto-provisioned node pools
 /// in autopilot clusters and node auto-provisioning enabled clusters.
@@ -2159,6 +2170,15 @@ pub struct ClusterUpdate {
     pub removed_additional_pod_ranges_config: ::core::option::Option<
         AdditionalPodRangesConfig,
     >,
+    /// Kubernetes open source beta apis enabled on the cluster. Only beta apis
+    #[prost(message, optional, tag = "122")]
+    pub enable_k8s_beta_apis: ::core::option::Option<K8sBetaApiConfig>,
+    /// Enable/Disable FQDN Network Policy for the cluster.
+    #[prost(bool, optional, tag = "126")]
+    pub desired_enable_fqdn_network_policy: ::core::option::Option<bool>,
+    /// Desired Beta APIs to be enabled for cluster.
+    #[prost(message, optional, tag = "131")]
+    pub desired_k8s_beta_apis: ::core::option::Option<K8sBetaApiConfig>,
 }
 /// AdditionalPodRangesConfig is the configuration for additional pod secondary
 /// ranges supporting the ClusterUpdate message.
@@ -3515,6 +3535,9 @@ pub struct NodePool {
     /// up-to-date value before proceeding.
     #[prost(string, tag = "110")]
     pub etag: ::prost::alloc::string::String,
+    /// Enable best effort provisioning for nodes
+    #[prost(message, optional, tag = "113")]
+    pub best_effort_provisioning: ::core::option::Option<BestEffortProvisioning>,
 }
 /// Nested message and enum types in `NodePool`.
 pub mod node_pool {
@@ -3828,6 +3851,21 @@ pub struct NodeManagement {
     /// Specifies the Auto Upgrade knobs for the node pool.
     #[prost(message, optional, tag = "10")]
     pub upgrade_options: ::core::option::Option<AutoUpgradeOptions>,
+}
+/// Best effort provisioning.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BestEffortProvisioning {
+    /// When this is enabled, cluster/node pool creations will ignore non-fatal
+    /// errors like stockout to best provision as many nodes as possible right now
+    /// and eventually bring up all target number of nodes
+    #[prost(bool, tag = "1")]
+    pub enabled: bool,
+    /// Minimum number of nodes to be provisioned to be considered as succeeded,
+    /// and the rest of nodes will be provisioned gradually and eventually when
+    /// stockout issue has been resolved.
+    #[prost(int32, tag = "2")]
+    pub min_provision_nodes: i32,
 }
 /// AutoUpgradeOptions defines the set of options for the user to control how
 /// the Auto Upgrades will proceed.
@@ -4851,6 +4889,9 @@ pub struct NetworkConfig {
     /// cluster.
     #[prost(message, optional, tag = "16")]
     pub gateway_api_config: ::core::option::Option<GatewayApiConfig>,
+    /// Whether FQDN Network Policy is enabled on this cluster.
+    #[prost(bool, optional, tag = "19")]
+    pub enable_fqdn_network_policy: ::core::option::Option<bool>,
 }
 /// GatewayAPIConfig contains the desired config of Gateway API on this cluster.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -5014,6 +5055,105 @@ pub struct GetJsonWebKeysResponse {
     /// requests.
     #[prost(message, repeated, tag = "1")]
     pub keys: ::prost::alloc::vec::Vec<Jwk>,
+}
+/// CheckAutopilotCompatibilityRequest requests getting the blockers for the
+/// given operation in the cluster.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CheckAutopilotCompatibilityRequest {
+    /// The name (project, location, cluster) of the cluster to retrieve.
+    /// Specified in the format `projects/*/locations/*/clusters/*`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// AutopilotCompatibilityIssue contains information about a specific
+/// compatibility issue with Autopilot mode.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AutopilotCompatibilityIssue {
+    /// The last time when this issue was observed.
+    #[prost(message, optional, tag = "1")]
+    pub last_observation: ::core::option::Option<::prost_types::Timestamp>,
+    /// The constraint type of the issue.
+    #[prost(string, tag = "2")]
+    pub constraint_type: ::prost::alloc::string::String,
+    /// The incompatibility type of this issue.
+    #[prost(enumeration = "autopilot_compatibility_issue::IssueType", tag = "3")]
+    pub incompatibility_type: i32,
+    /// The name of the resources which are subject to this issue.
+    #[prost(string, repeated, tag = "4")]
+    pub subjects: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// A URL to a public documnetation, which addresses resolving this issue.
+    #[prost(string, tag = "5")]
+    pub documentation_url: ::prost::alloc::string::String,
+    /// The description of the issue.
+    #[prost(string, tag = "6")]
+    pub description: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `AutopilotCompatibilityIssue`.
+pub mod autopilot_compatibility_issue {
+    /// The type of the reported issue.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum IssueType {
+        /// Default value, should not be used.
+        Unspecified = 0,
+        /// Indicates that the issue is a known incompatibility between the
+        /// cluster and Autopilot mode.
+        Incompatibility = 1,
+        /// Indicates the issue is an incompatibility if customers take no further
+        /// action to resolve.
+        AdditionalConfigRequired = 2,
+        /// Indicates the issue is not an incompatibility, but depending on the
+        /// workloads business logic, there is a potential that they won't work on
+        /// Autopilot.
+        PassedWithOptionalConfig = 3,
+    }
+    impl IssueType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                IssueType::Unspecified => "UNSPECIFIED",
+                IssueType::Incompatibility => "INCOMPATIBILITY",
+                IssueType::AdditionalConfigRequired => "ADDITIONAL_CONFIG_REQUIRED",
+                IssueType::PassedWithOptionalConfig => "PASSED_WITH_OPTIONAL_CONFIG",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNSPECIFIED" => Some(Self::Unspecified),
+                "INCOMPATIBILITY" => Some(Self::Incompatibility),
+                "ADDITIONAL_CONFIG_REQUIRED" => Some(Self::AdditionalConfigRequired),
+                "PASSED_WITH_OPTIONAL_CONFIG" => Some(Self::PassedWithOptionalConfig),
+                _ => None,
+            }
+        }
+    }
+}
+/// CheckAutopilotCompatibilityResponse has a list of compatibility issues.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CheckAutopilotCompatibilityResponse {
+    /// The list of issues for the given operation.
+    #[prost(message, repeated, tag = "1")]
+    pub issues: ::prost::alloc::vec::Vec<AutopilotCompatibilityIssue>,
+    /// The summary of the autopilot compatibility response.
+    #[prost(string, tag = "2")]
+    pub summary: ::prost::alloc::string::String,
 }
 /// ReleaseChannel indicates which release channel a cluster is
 /// subscribed to. Release channels are arranged in order of risk.
@@ -6985,6 +7125,30 @@ pub mod cluster_manager_client {
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1.ClusterManager/ListUsableSubnetworks",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+        /// Checks the cluster compatibility with Autopilot mode, and returns a list of
+        /// compatibility issues.
+        pub async fn check_autopilot_compatibility(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CheckAutopilotCompatibilityRequest>,
+        ) -> Result<
+            tonic::Response<super::CheckAutopilotCompatibilityResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.container.v1.ClusterManager/CheckAutopilotCompatibility",
             );
             self.inner.unary(request.into_request(), path, codec).await
         }
