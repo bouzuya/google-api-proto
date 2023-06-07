@@ -20,170 +20,6 @@ pub struct Actor {
     #[prost(bool, tag = "4")]
     pub google_support: bool,
 }
-/// A comment associated with a support case.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Comment {
-    /// Output only. The resource name for the comment.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The time when this comment was created.
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The user or Google Support agent created this comment.
-    #[prost(message, optional, tag = "3")]
-    pub creator: ::core::option::Option<Actor>,
-    /// The full comment body. Maximum of 12800 characters. This can contain rich
-    /// text syntax.
-    #[prost(string, tag = "4")]
-    pub body: ::prost::alloc::string::String,
-    /// Output only. DEPRECATED. An automatically generated plain text version of
-    /// body with all rich text syntax stripped.
-    #[prost(string, tag = "5")]
-    pub plain_text_body: ::prost::alloc::string::String,
-}
-/// The request message for the ListComments endpoint.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListCommentsRequest {
-    /// Required. The resource name of Case object for which comments should be
-    /// listed.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The maximum number of comments fetched with each request. Defaults to 10.
-    #[prost(int32, tag = "4")]
-    pub page_size: i32,
-    /// A token identifying the page of results to return. If unspecified, the
-    /// first page is retrieved.
-    #[prost(string, tag = "5")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// The response message for the ListComments endpoint.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListCommentsResponse {
-    /// The list of Comments associated with the given Case.
-    #[prost(message, repeated, tag = "1")]
-    pub comments: ::prost::alloc::vec::Vec<Comment>,
-    /// A token to retrieve the next page of results. This should be set in the
-    /// `page_token` field of subsequent `ListCommentsRequest` message that is
-    /// issued. If unspecified, there are no more results to retrieve.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// The request message for CreateComment endpoint.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateCommentRequest {
-    /// Required. The resource name of Case to which this comment should be added.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The Comment object to be added to this Case.
-    #[prost(message, optional, tag = "2")]
-    pub comment: ::core::option::Option<Comment>,
-}
-/// Generated client implementations.
-pub mod comment_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// A service to manage comments on cases.
-    #[derive(Debug, Clone)]
-    pub struct CommentServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> CommentServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> CommentServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            CommentServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Retrieve all Comments associated with the Case object.
-        pub async fn list_comments(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListCommentsRequest>,
-        ) -> Result<tonic::Response<super::ListCommentsResponse>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.support.v2.CommentService/ListComments",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Add a new comment to the specified Case.
-        /// The comment object must have the following fields set: body.
-        pub async fn create_comment(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateCommentRequest>,
-        ) -> Result<tonic::Response<super::Comment>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.support.v2.CommentService/CreateComment",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-    }
-}
 /// A support case.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -380,6 +216,194 @@ pub struct CaseClassification {
     /// The display name of the classification.
     #[prost(string, tag = "4")]
     pub display_name: ::prost::alloc::string::String,
+}
+/// Represents a file attached to a support case.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Attachment {
+    /// Output only. The resource name of the attachment.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The time at which the attachment was created.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The user who uploaded the attachment. Note, the name and email
+    /// will be obfuscated if the attachment was uploaded by Google support.
+    #[prost(message, optional, tag = "3")]
+    pub creator: ::core::option::Option<Actor>,
+    /// The filename of the attachment (e.g. `"graph.jpg"`).
+    #[prost(string, tag = "4")]
+    pub filename: ::prost::alloc::string::String,
+    /// Output only. The MIME type of the attachment (e.g. text/plain).
+    #[prost(string, tag = "5")]
+    pub mime_type: ::prost::alloc::string::String,
+    /// Output only. The size of the attachment in bytes.
+    #[prost(int64, tag = "6")]
+    pub size_bytes: i64,
+}
+/// A comment associated with a support case.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Comment {
+    /// Output only. The resource name for the comment.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The time when this comment was created.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The user or Google Support agent created this comment.
+    #[prost(message, optional, tag = "3")]
+    pub creator: ::core::option::Option<Actor>,
+    /// The full comment body. Maximum of 12800 characters. This can contain rich
+    /// text syntax.
+    #[prost(string, tag = "4")]
+    pub body: ::prost::alloc::string::String,
+    /// Output only. DEPRECATED. An automatically generated plain text version of
+    /// body with all rich text syntax stripped.
+    #[prost(string, tag = "5")]
+    pub plain_text_body: ::prost::alloc::string::String,
+}
+/// The request message for the ListComments endpoint.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListCommentsRequest {
+    /// Required. The resource name of Case object for which comments should be
+    /// listed.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The maximum number of comments fetched with each request. Defaults to 10.
+    #[prost(int32, tag = "4")]
+    pub page_size: i32,
+    /// A token identifying the page of results to return. If unspecified, the
+    /// first page is retrieved.
+    #[prost(string, tag = "5")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// The response message for the ListComments endpoint.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListCommentsResponse {
+    /// The list of Comments associated with the given Case.
+    #[prost(message, repeated, tag = "1")]
+    pub comments: ::prost::alloc::vec::Vec<Comment>,
+    /// A token to retrieve the next page of results. This should be set in the
+    /// `page_token` field of subsequent `ListCommentsRequest` message that is
+    /// issued. If unspecified, there are no more results to retrieve.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// The request message for CreateComment endpoint.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateCommentRequest {
+    /// Required. The resource name of Case to which this comment should be added.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The Comment object to be added to this Case.
+    #[prost(message, optional, tag = "2")]
+    pub comment: ::core::option::Option<Comment>,
+}
+/// Generated client implementations.
+pub mod comment_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// A service to manage comments on cases.
+    #[derive(Debug, Clone)]
+    pub struct CommentServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> CommentServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> CommentServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            CommentServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Retrieve all Comments associated with the Case object.
+        pub async fn list_comments(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListCommentsRequest>,
+        ) -> Result<tonic::Response<super::ListCommentsResponse>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.support.v2.CommentService/ListComments",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+        /// Add a new comment to the specified Case.
+        /// The comment object must have the following fields set: body.
+        pub async fn create_comment(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateCommentRequest>,
+        ) -> Result<tonic::Response<super::Comment>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.support.v2.CommentService/CreateComment",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+    }
 }
 /// An escalation of a support case.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -886,30 +910,6 @@ pub mod case_service_client {
             self.inner.unary(request.into_request(), path, codec).await
         }
     }
-}
-/// Represents a file attached to a support case.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Attachment {
-    /// Output only. The resource name of the attachment.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The time at which the attachment was created.
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The user who uploaded the attachment. Note, the name and email
-    /// will be obfuscated if the attachment was uploaded by Google support.
-    #[prost(message, optional, tag = "3")]
-    pub creator: ::core::option::Option<Actor>,
-    /// The filename of the attachment (e.g. `"graph.jpg"`).
-    #[prost(string, tag = "4")]
-    pub filename: ::prost::alloc::string::String,
-    /// Output only. The MIME type of the attachment (e.g. text/plain).
-    #[prost(string, tag = "5")]
-    pub mime_type: ::prost::alloc::string::String,
-    /// Output only. The size of the attachment in bytes.
-    #[prost(int64, tag = "6")]
-    pub size_bytes: i64,
 }
 /// The request message for the ListAttachments endpoint.
 #[allow(clippy::derive_partial_eq_without_eq)]

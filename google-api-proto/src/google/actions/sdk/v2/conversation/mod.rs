@@ -1,20 +1,30 @@
-/// Represents a simple prompt to be send to a user.
+/// Represents an Interactive Canvas response to be sent to the user.
+/// This can be used in conjunction with the "first_simple" field in the
+/// containing prompt to speak to the user in addition to displaying a
+/// interactive canvas response. The maximum size of the response is 50k bytes.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Simple {
-    /// Optional. Represents the speech to be spoken to the user. Can be SSML or
-    /// text to speech.
-    /// If the "override" field in the containing prompt is "true", the speech
-    /// defined in this field replaces the previous Simple prompt's speech.
+pub struct Canvas {
+    /// URL of the interactive canvas web app to load. If not set, the url from
+    /// current active canvas will be reused.
     #[prost(string, tag = "1")]
-    pub speech: ::prost::alloc::string::String,
-    /// Optional text to display in the chat bubble. If not given, a display
-    /// rendering of the speech field above will be used. Limited to 640
-    /// chars.
-    /// If the "override" field in the containing prompt is "true", the text
-    /// defined in this field replaces to the previous Simple prompt's text.
-    #[prost(string, tag = "2")]
-    pub text: ::prost::alloc::string::String,
+    pub url: ::prost::alloc::string::String,
+    /// Optional. JSON data to be passed through to the immersive experience
+    /// web page as an event.
+    /// If the "override" field in the containing prompt is "false" data values
+    /// defined in this Canvas prompt will be added after data values defined in
+    /// previous Canvas prompts.
+    #[prost(message, repeated, tag = "4")]
+    pub data: ::prost::alloc::vec::Vec<::prost_types::Value>,
+    /// Optional. Default value: false.
+    #[prost(bool, tag = "3")]
+    pub suppress_mic: bool,
+    /// If `true` the canvas application occupies the full screen and won't
+    /// have a header at the top. A toast message will also be displayed on the
+    /// loading screen that includes the Action's display name, the developer's
+    /// name, and instructions for exiting the Action. Default value: `false`.
+    #[prost(bool, tag = "8")]
+    pub enable_full_screen: bool,
 }
 /// An image displayed in the card.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -93,35 +103,6 @@ pub mod image {
                 _ => None,
             }
         }
-    }
-}
-/// A card for presenting a collection of options to select from.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Collection {
-    /// Title of the collection. Optional.
-    #[prost(string, tag = "1")]
-    pub title: ::prost::alloc::string::String,
-    /// Subtitle of the collection. Optional.
-    #[prost(string, tag = "2")]
-    pub subtitle: ::prost::alloc::string::String,
-    /// min: 2 max: 10
-    #[prost(message, repeated, tag = "3")]
-    pub items: ::prost::alloc::vec::Vec<collection::CollectionItem>,
-    /// How the image backgrounds of collection items will be filled. Optional.
-    #[prost(enumeration = "image::ImageFill", tag = "4")]
-    pub image_fill: i32,
-}
-/// Nested message and enum types in `Collection`.
-pub mod collection {
-    /// An item in the collection
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct CollectionItem {
-        /// Required. The NLU key that matches the entry key name in the associated
-        /// Type.
-        #[prost(string, tag = "1")]
-        pub key: ::prost::alloc::string::String,
     }
 }
 /// Link content.
@@ -205,33 +186,34 @@ pub struct Card {
     #[prost(message, optional, tag = "6")]
     pub button: ::core::option::Option<Link>,
 }
-/// Represents an Interactive Canvas response to be sent to the user.
-/// This can be used in conjunction with the "first_simple" field in the
-/// containing prompt to speak to the user in addition to displaying a
-/// interactive canvas response. The maximum size of the response is 50k bytes.
+/// A card for presenting a collection of options to select from.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Canvas {
-    /// URL of the interactive canvas web app to load. If not set, the url from
-    /// current active canvas will be reused.
+pub struct Collection {
+    /// Title of the collection. Optional.
     #[prost(string, tag = "1")]
-    pub url: ::prost::alloc::string::String,
-    /// Optional. JSON data to be passed through to the immersive experience
-    /// web page as an event.
-    /// If the "override" field in the containing prompt is "false" data values
-    /// defined in this Canvas prompt will be added after data values defined in
-    /// previous Canvas prompts.
-    #[prost(message, repeated, tag = "4")]
-    pub data: ::prost::alloc::vec::Vec<::prost_types::Value>,
-    /// Optional. Default value: false.
-    #[prost(bool, tag = "3")]
-    pub suppress_mic: bool,
-    /// If `true` the canvas application occupies the full screen and won't
-    /// have a header at the top. A toast message will also be displayed on the
-    /// loading screen that includes the Action's display name, the developer's
-    /// name, and instructions for exiting the Action. Default value: `false`.
-    #[prost(bool, tag = "8")]
-    pub enable_full_screen: bool,
+    pub title: ::prost::alloc::string::String,
+    /// Subtitle of the collection. Optional.
+    #[prost(string, tag = "2")]
+    pub subtitle: ::prost::alloc::string::String,
+    /// min: 2 max: 10
+    #[prost(message, repeated, tag = "3")]
+    pub items: ::prost::alloc::vec::Vec<collection::CollectionItem>,
+    /// How the image backgrounds of collection items will be filled. Optional.
+    #[prost(enumeration = "image::ImageFill", tag = "4")]
+    pub image_fill: i32,
+}
+/// Nested message and enum types in `Collection`.
+pub mod collection {
+    /// An item in the collection
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct CollectionItem {
+        /// Required. The NLU key that matches the entry key name in the associated
+        /// Type.
+        #[prost(string, tag = "1")]
+        pub key: ::prost::alloc::string::String,
+    }
 }
 /// A card for presenting a list of options to select from.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -559,6 +541,24 @@ pub mod content {
         List(super::List),
     }
 }
+/// Represents a simple prompt to be send to a user.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Simple {
+    /// Optional. Represents the speech to be spoken to the user. Can be SSML or
+    /// text to speech.
+    /// If the "override" field in the containing prompt is "true", the speech
+    /// defined in this field replaces the previous Simple prompt's speech.
+    #[prost(string, tag = "1")]
+    pub speech: ::prost::alloc::string::String,
+    /// Optional text to display in the chat bubble. If not given, a display
+    /// rendering of the speech field above will be used. Limited to 640
+    /// chars.
+    /// If the "override" field in the containing prompt is "true", the text
+    /// defined in this field replaces to the previous Simple prompt's text.
+    #[prost(string, tag = "2")]
+    pub text: ::prost::alloc::string::String,
+}
 /// Input suggestion to be presented to the user.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -625,41 +625,6 @@ pub struct Prompt {
     /// Optional. Represents a Interactive Canvas response to be sent to the user.
     #[prost(message, optional, tag = "9")]
     pub canvas: ::core::option::Option<Canvas>,
-}
-/// Represents an intent.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Intent {
-    /// Required. The name of the last matched intent.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Represents parameters identified as part of intent matching.
-    /// This is a map of the name of the identified parameter to the value of the
-    /// parameter identified from user input. All parameters defined in
-    /// the matched intent that are identified will be surfaced here.
-    #[prost(btree_map = "string, message", tag = "2")]
-    pub params: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        IntentParameterValue,
-    >,
-    /// Optional. Typed or spoken input from the end user that matched this intent.
-    /// This will be populated when an intent is matched, based on the user input.
-    #[prost(string, tag = "3")]
-    pub query: ::prost::alloc::string::String,
-}
-/// Represents a value for intent parameter.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct IntentParameterValue {
-    /// Required. Original text value extracted from user utterance.
-    #[prost(string, tag = "1")]
-    pub original: ::prost::alloc::string::String,
-    /// Required. Structured value for parameter extracted from user input.
-    /// This will only be populated if the parameter is defined in the matched
-    /// intent and the value of the parameter could be identified during intent
-    /// matching.
-    #[prost(message, optional, tag = "2")]
-    pub resolved: ::core::option::Option<::prost_types::Value>,
 }
 /// Represents a slot.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -817,4 +782,39 @@ impl SlotFillingStatus {
             _ => None,
         }
     }
+}
+/// Represents an intent.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Intent {
+    /// Required. The name of the last matched intent.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Represents parameters identified as part of intent matching.
+    /// This is a map of the name of the identified parameter to the value of the
+    /// parameter identified from user input. All parameters defined in
+    /// the matched intent that are identified will be surfaced here.
+    #[prost(btree_map = "string, message", tag = "2")]
+    pub params: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        IntentParameterValue,
+    >,
+    /// Optional. Typed or spoken input from the end user that matched this intent.
+    /// This will be populated when an intent is matched, based on the user input.
+    #[prost(string, tag = "3")]
+    pub query: ::prost::alloc::string::String,
+}
+/// Represents a value for intent parameter.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct IntentParameterValue {
+    /// Required. Original text value extracted from user utterance.
+    #[prost(string, tag = "1")]
+    pub original: ::prost::alloc::string::String,
+    /// Required. Structured value for parameter extracted from user input.
+    /// This will only be populated if the parameter is defined in the matched
+    /// intent and the value of the parameter could be identified during intent
+    /// matching.
+    #[prost(message, optional, tag = "2")]
+    pub resolved: ::core::option::Option<::prost_types::Value>,
 }

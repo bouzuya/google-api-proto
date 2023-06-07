@@ -1,372 +1,3 @@
-/// A specific filter for a single dimension
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExpandedDataSetFilter {
-    /// Required. The dimension name to filter.
-    #[prost(string, tag = "1")]
-    pub field_name: ::prost::alloc::string::String,
-    /// One of the above filters.
-    #[prost(oneof = "expanded_data_set_filter::OneFilter", tags = "2, 3")]
-    pub one_filter: ::core::option::Option<expanded_data_set_filter::OneFilter>,
-}
-/// Nested message and enum types in `ExpandedDataSetFilter`.
-pub mod expanded_data_set_filter {
-    /// A filter for a string-type dimension that matches a particular pattern.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct StringFilter {
-        /// Required. The match type for the string filter.
-        #[prost(enumeration = "string_filter::MatchType", tag = "1")]
-        pub match_type: i32,
-        /// Required. The string value to be matched against.
-        #[prost(string, tag = "2")]
-        pub value: ::prost::alloc::string::String,
-        /// Optional. If true, the match is case-sensitive. If false, the match is
-        /// case-insensitive.
-        /// Must be true when match_type is EXACT.
-        /// Must be false when match_type is CONTAINS.
-        #[prost(bool, tag = "3")]
-        pub case_sensitive: bool,
-    }
-    /// Nested message and enum types in `StringFilter`.
-    pub mod string_filter {
-        /// The match type for the string filter.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum MatchType {
-            /// Unspecified
-            Unspecified = 0,
-            /// Exact match of the string value.
-            Exact = 1,
-            /// Contains the string value.
-            Contains = 2,
-        }
-        impl MatchType {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    MatchType::Unspecified => "MATCH_TYPE_UNSPECIFIED",
-                    MatchType::Exact => "EXACT",
-                    MatchType::Contains => "CONTAINS",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "MATCH_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                    "EXACT" => Some(Self::Exact),
-                    "CONTAINS" => Some(Self::Contains),
-                    _ => None,
-                }
-            }
-        }
-    }
-    /// A filter for a string dimension that matches a particular list of options.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct InListFilter {
-        /// Required. The list of possible string values to match against. Must be
-        /// non-empty.
-        #[prost(string, repeated, tag = "1")]
-        pub values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-        /// Optional. If true, the match is case-sensitive. If false, the match is
-        /// case-insensitive.
-        /// Must be true.
-        #[prost(bool, tag = "2")]
-        pub case_sensitive: bool,
-    }
-    /// One of the above filters.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum OneFilter {
-        /// A filter for a string-type dimension that matches a particular pattern.
-        #[prost(message, tag = "2")]
-        StringFilter(StringFilter),
-        /// A filter for a string dimension that matches a particular list of
-        /// options.
-        #[prost(message, tag = "3")]
-        InListFilter(InListFilter),
-    }
-}
-/// A logical expression of EnhancedDataSet dimension filters.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExpandedDataSetFilterExpression {
-    /// The expression applied to a filter.
-    #[prost(oneof = "expanded_data_set_filter_expression::Expr", tags = "1, 2, 3")]
-    pub expr: ::core::option::Option<expanded_data_set_filter_expression::Expr>,
-}
-/// Nested message and enum types in `ExpandedDataSetFilterExpression`.
-pub mod expanded_data_set_filter_expression {
-    /// The expression applied to a filter.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Expr {
-        /// A list of expressions to be AND’ed together. It must contain a
-        /// ExpandedDataSetFilterExpression with either not_expression or
-        /// dimension_filter. This must be set for the top level
-        /// ExpandedDataSetFilterExpression.
-        #[prost(message, tag = "1")]
-        AndGroup(super::ExpandedDataSetFilterExpressionList),
-        /// A filter expression to be NOT'ed (that is, inverted, complemented). It
-        /// must include a dimension_filter. This cannot be set on the
-        /// top level ExpandedDataSetFilterExpression.
-        #[prost(message, tag = "2")]
-        NotExpression(
-            ::prost::alloc::boxed::Box<super::ExpandedDataSetFilterExpression>,
-        ),
-        /// A filter on a single dimension. This cannot be set on the top
-        /// level ExpandedDataSetFilterExpression.
-        #[prost(message, tag = "3")]
-        Filter(super::ExpandedDataSetFilter),
-    }
-}
-/// A list of ExpandedDataSet filter expressions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExpandedDataSetFilterExpressionList {
-    /// A list of ExpandedDataSet filter expressions.
-    #[prost(message, repeated, tag = "1")]
-    pub filter_expressions: ::prost::alloc::vec::Vec<ExpandedDataSetFilterExpression>,
-}
-/// A resource message representing a GA4 ExpandedDataSet.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExpandedDataSet {
-    /// Output only. The resource name for this ExpandedDataSet resource.
-    /// Format: properties/{property_id}/expandedDataSets/{expanded_data_set}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The display name of the ExpandedDataSet.
-    /// Max 200 chars.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Optional. The description of the ExpandedDataSet.
-    /// Max 50 chars.
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-    /// Immutable. The list of dimensions included in the ExpandedDataSet.
-    /// See the [API
-    /// Dimensions](<https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#dimensions>)
-    /// for the list of dimension names.
-    #[prost(string, repeated, tag = "4")]
-    pub dimension_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Immutable. The list of metrics included in the ExpandedDataSet.
-    /// See the [API
-    /// Metrics](<https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#metrics>)
-    /// for the list of dimension names.
-    #[prost(string, repeated, tag = "5")]
-    pub metric_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Immutable. A logical expression of ExpandedDataSet filters applied to
-    /// dimension included in the ExpandedDataSet. This filter is used to reduce
-    /// the number of rows and thus the chance of encountering `other` row.
-    #[prost(message, optional, tag = "6")]
-    pub dimension_filter_expression: ::core::option::Option<
-        ExpandedDataSetFilterExpression,
-    >,
-    /// Output only. Time when expanded data set began (or will begin) collecing
-    /// data.
-    #[prost(message, optional, tag = "7")]
-    pub data_collection_start_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// A specific filter for a single dimension.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ChannelGroupFilter {
-    /// Required. Immutable. The dimension name to filter.
-    #[prost(string, tag = "1")]
-    pub field_name: ::prost::alloc::string::String,
-    /// A StringFilter or InListFilter that defines this filters behavior.
-    #[prost(oneof = "channel_group_filter::ValueFilter", tags = "2, 3")]
-    pub value_filter: ::core::option::Option<channel_group_filter::ValueFilter>,
-}
-/// Nested message and enum types in `ChannelGroupFilter`.
-pub mod channel_group_filter {
-    /// Filter where the field value is a String. The match is case insensitive.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct StringFilter {
-        /// Required. The match type for the string filter.
-        #[prost(enumeration = "string_filter::MatchType", tag = "1")]
-        pub match_type: i32,
-        /// Required. The string value to be matched against.
-        #[prost(string, tag = "2")]
-        pub value: ::prost::alloc::string::String,
-    }
-    /// Nested message and enum types in `StringFilter`.
-    pub mod string_filter {
-        /// How the filter will be used to determine a match.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum MatchType {
-            /// Default match type.
-            Unspecified = 0,
-            /// Exact match of the string value.
-            Exact = 1,
-            /// Begins with the string value.
-            BeginsWith = 2,
-            /// Ends with the string value.
-            EndsWith = 3,
-            /// Contains the string value.
-            Contains = 4,
-            /// Full regular expression match with the string value.
-            FullRegexp = 5,
-            /// Partial regular expression match with the string value.
-            PartialRegexp = 6,
-        }
-        impl MatchType {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    MatchType::Unspecified => "MATCH_TYPE_UNSPECIFIED",
-                    MatchType::Exact => "EXACT",
-                    MatchType::BeginsWith => "BEGINS_WITH",
-                    MatchType::EndsWith => "ENDS_WITH",
-                    MatchType::Contains => "CONTAINS",
-                    MatchType::FullRegexp => "FULL_REGEXP",
-                    MatchType::PartialRegexp => "PARTIAL_REGEXP",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "MATCH_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                    "EXACT" => Some(Self::Exact),
-                    "BEGINS_WITH" => Some(Self::BeginsWith),
-                    "ENDS_WITH" => Some(Self::EndsWith),
-                    "CONTAINS" => Some(Self::Contains),
-                    "FULL_REGEXP" => Some(Self::FullRegexp),
-                    "PARTIAL_REGEXP" => Some(Self::PartialRegexp),
-                    _ => None,
-                }
-            }
-        }
-    }
-    /// A filter for a string dimension that matches a particular list of options.
-    /// The match is case insensitive.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct InListFilter {
-        /// Required. The list of possible string values to match against. Must be
-        /// non-empty.
-        #[prost(string, repeated, tag = "1")]
-        pub values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    }
-    /// A StringFilter or InListFilter that defines this filters behavior.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum ValueFilter {
-        /// A filter for a string-type dimension that matches a particular pattern.
-        #[prost(message, tag = "2")]
-        StringFilter(StringFilter),
-        /// A filter for a string dimension that matches a particular list of
-        /// options.
-        #[prost(message, tag = "3")]
-        InListFilter(InListFilter),
-    }
-}
-/// A logical expression of Channel Group dimension filters.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ChannelGroupFilterExpression {
-    /// The expression applied to a filter.
-    #[prost(oneof = "channel_group_filter_expression::Expr", tags = "1, 2, 3, 4")]
-    pub expr: ::core::option::Option<channel_group_filter_expression::Expr>,
-}
-/// Nested message and enum types in `ChannelGroupFilterExpression`.
-pub mod channel_group_filter_expression {
-    /// The expression applied to a filter.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Expr {
-        /// A list of expressions to be AND’ed together. It can only contain
-        /// ChannelGroupFilterExpressions with or_group. This must be set for the
-        /// top level ChannelGroupFilterExpression.
-        #[prost(message, tag = "1")]
-        AndGroup(super::ChannelGroupFilterExpressionList),
-        /// A list of expressions to OR’ed together. It cannot contain
-        /// ChannelGroupFilterExpressions with and_group or or_group.
-        #[prost(message, tag = "2")]
-        OrGroup(super::ChannelGroupFilterExpressionList),
-        /// A filter expression to be NOT'ed (that is inverted, complemented). It
-        /// can only include a dimension_or_metric_filter. This cannot be set on the
-        /// top level ChannelGroupFilterExpression.
-        #[prost(message, tag = "3")]
-        NotExpression(::prost::alloc::boxed::Box<super::ChannelGroupFilterExpression>),
-        /// A filter on a single dimension. This cannot be set on the top
-        /// level ChannelGroupFilterExpression.
-        #[prost(message, tag = "4")]
-        Filter(super::ChannelGroupFilter),
-    }
-}
-/// A list of Channel Group filter expressions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ChannelGroupFilterExpressionList {
-    /// A list of Channel Group filter expressions.
-    #[prost(message, repeated, tag = "1")]
-    pub filter_expressions: ::prost::alloc::vec::Vec<ChannelGroupFilterExpression>,
-}
-/// The rules that govern how traffic is grouped into one channel.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GroupingRule {
-    /// Required. Customer defined display name for the channel.
-    #[prost(string, tag = "1")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Required. The Filter Expression that defines the Grouping Rule.
-    #[prost(message, optional, tag = "2")]
-    pub expression: ::core::option::Option<ChannelGroupFilterExpression>,
-}
-/// A resource message representing a Channel Group.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ChannelGroup {
-    /// Output only. The resource name for this Channel Group resource.
-    /// Format: properties/{property}/channelGroups/{channel_group}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The display name of the Channel Group. Max length of 80
-    /// characters.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// The description of the Channel Group. Max length of 256 characters.
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-    /// Required. The grouping rules of channels. Maximum number of rules is 25.
-    #[prost(message, repeated, tag = "4")]
-    pub grouping_rule: ::prost::alloc::vec::Vec<GroupingRule>,
-    /// Output only. Default Channel Group defined by Google, which cannot be
-    /// updated.
-    #[prost(bool, tag = "5")]
-    pub system_defined: bool,
-}
 /// Defines an event parameter to mutate.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1056,6 +687,375 @@ pub struct AccessQuotaStatus {
     /// Quota remaining after this request.
     #[prost(int32, tag = "2")]
     pub remaining: i32,
+}
+/// A specific filter for a single dimension.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ChannelGroupFilter {
+    /// Required. Immutable. The dimension name to filter.
+    #[prost(string, tag = "1")]
+    pub field_name: ::prost::alloc::string::String,
+    /// A StringFilter or InListFilter that defines this filters behavior.
+    #[prost(oneof = "channel_group_filter::ValueFilter", tags = "2, 3")]
+    pub value_filter: ::core::option::Option<channel_group_filter::ValueFilter>,
+}
+/// Nested message and enum types in `ChannelGroupFilter`.
+pub mod channel_group_filter {
+    /// Filter where the field value is a String. The match is case insensitive.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct StringFilter {
+        /// Required. The match type for the string filter.
+        #[prost(enumeration = "string_filter::MatchType", tag = "1")]
+        pub match_type: i32,
+        /// Required. The string value to be matched against.
+        #[prost(string, tag = "2")]
+        pub value: ::prost::alloc::string::String,
+    }
+    /// Nested message and enum types in `StringFilter`.
+    pub mod string_filter {
+        /// How the filter will be used to determine a match.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum MatchType {
+            /// Default match type.
+            Unspecified = 0,
+            /// Exact match of the string value.
+            Exact = 1,
+            /// Begins with the string value.
+            BeginsWith = 2,
+            /// Ends with the string value.
+            EndsWith = 3,
+            /// Contains the string value.
+            Contains = 4,
+            /// Full regular expression match with the string value.
+            FullRegexp = 5,
+            /// Partial regular expression match with the string value.
+            PartialRegexp = 6,
+        }
+        impl MatchType {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    MatchType::Unspecified => "MATCH_TYPE_UNSPECIFIED",
+                    MatchType::Exact => "EXACT",
+                    MatchType::BeginsWith => "BEGINS_WITH",
+                    MatchType::EndsWith => "ENDS_WITH",
+                    MatchType::Contains => "CONTAINS",
+                    MatchType::FullRegexp => "FULL_REGEXP",
+                    MatchType::PartialRegexp => "PARTIAL_REGEXP",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "MATCH_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "EXACT" => Some(Self::Exact),
+                    "BEGINS_WITH" => Some(Self::BeginsWith),
+                    "ENDS_WITH" => Some(Self::EndsWith),
+                    "CONTAINS" => Some(Self::Contains),
+                    "FULL_REGEXP" => Some(Self::FullRegexp),
+                    "PARTIAL_REGEXP" => Some(Self::PartialRegexp),
+                    _ => None,
+                }
+            }
+        }
+    }
+    /// A filter for a string dimension that matches a particular list of options.
+    /// The match is case insensitive.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct InListFilter {
+        /// Required. The list of possible string values to match against. Must be
+        /// non-empty.
+        #[prost(string, repeated, tag = "1")]
+        pub values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    /// A StringFilter or InListFilter that defines this filters behavior.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum ValueFilter {
+        /// A filter for a string-type dimension that matches a particular pattern.
+        #[prost(message, tag = "2")]
+        StringFilter(StringFilter),
+        /// A filter for a string dimension that matches a particular list of
+        /// options.
+        #[prost(message, tag = "3")]
+        InListFilter(InListFilter),
+    }
+}
+/// A logical expression of Channel Group dimension filters.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ChannelGroupFilterExpression {
+    /// The expression applied to a filter.
+    #[prost(oneof = "channel_group_filter_expression::Expr", tags = "1, 2, 3, 4")]
+    pub expr: ::core::option::Option<channel_group_filter_expression::Expr>,
+}
+/// Nested message and enum types in `ChannelGroupFilterExpression`.
+pub mod channel_group_filter_expression {
+    /// The expression applied to a filter.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Expr {
+        /// A list of expressions to be AND’ed together. It can only contain
+        /// ChannelGroupFilterExpressions with or_group. This must be set for the
+        /// top level ChannelGroupFilterExpression.
+        #[prost(message, tag = "1")]
+        AndGroup(super::ChannelGroupFilterExpressionList),
+        /// A list of expressions to OR’ed together. It cannot contain
+        /// ChannelGroupFilterExpressions with and_group or or_group.
+        #[prost(message, tag = "2")]
+        OrGroup(super::ChannelGroupFilterExpressionList),
+        /// A filter expression to be NOT'ed (that is inverted, complemented). It
+        /// can only include a dimension_or_metric_filter. This cannot be set on the
+        /// top level ChannelGroupFilterExpression.
+        #[prost(message, tag = "3")]
+        NotExpression(::prost::alloc::boxed::Box<super::ChannelGroupFilterExpression>),
+        /// A filter on a single dimension. This cannot be set on the top
+        /// level ChannelGroupFilterExpression.
+        #[prost(message, tag = "4")]
+        Filter(super::ChannelGroupFilter),
+    }
+}
+/// A list of Channel Group filter expressions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ChannelGroupFilterExpressionList {
+    /// A list of Channel Group filter expressions.
+    #[prost(message, repeated, tag = "1")]
+    pub filter_expressions: ::prost::alloc::vec::Vec<ChannelGroupFilterExpression>,
+}
+/// The rules that govern how traffic is grouped into one channel.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GroupingRule {
+    /// Required. Customer defined display name for the channel.
+    #[prost(string, tag = "1")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Required. The Filter Expression that defines the Grouping Rule.
+    #[prost(message, optional, tag = "2")]
+    pub expression: ::core::option::Option<ChannelGroupFilterExpression>,
+}
+/// A resource message representing a Channel Group.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ChannelGroup {
+    /// Output only. The resource name for this Channel Group resource.
+    /// Format: properties/{property}/channelGroups/{channel_group}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The display name of the Channel Group. Max length of 80
+    /// characters.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// The description of the Channel Group. Max length of 256 characters.
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+    /// Required. The grouping rules of channels. Maximum number of rules is 25.
+    #[prost(message, repeated, tag = "4")]
+    pub grouping_rule: ::prost::alloc::vec::Vec<GroupingRule>,
+    /// Output only. Default Channel Group defined by Google, which cannot be
+    /// updated.
+    #[prost(bool, tag = "5")]
+    pub system_defined: bool,
+}
+/// A specific filter for a single dimension
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExpandedDataSetFilter {
+    /// Required. The dimension name to filter.
+    #[prost(string, tag = "1")]
+    pub field_name: ::prost::alloc::string::String,
+    /// One of the above filters.
+    #[prost(oneof = "expanded_data_set_filter::OneFilter", tags = "2, 3")]
+    pub one_filter: ::core::option::Option<expanded_data_set_filter::OneFilter>,
+}
+/// Nested message and enum types in `ExpandedDataSetFilter`.
+pub mod expanded_data_set_filter {
+    /// A filter for a string-type dimension that matches a particular pattern.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct StringFilter {
+        /// Required. The match type for the string filter.
+        #[prost(enumeration = "string_filter::MatchType", tag = "1")]
+        pub match_type: i32,
+        /// Required. The string value to be matched against.
+        #[prost(string, tag = "2")]
+        pub value: ::prost::alloc::string::String,
+        /// Optional. If true, the match is case-sensitive. If false, the match is
+        /// case-insensitive.
+        /// Must be true when match_type is EXACT.
+        /// Must be false when match_type is CONTAINS.
+        #[prost(bool, tag = "3")]
+        pub case_sensitive: bool,
+    }
+    /// Nested message and enum types in `StringFilter`.
+    pub mod string_filter {
+        /// The match type for the string filter.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum MatchType {
+            /// Unspecified
+            Unspecified = 0,
+            /// Exact match of the string value.
+            Exact = 1,
+            /// Contains the string value.
+            Contains = 2,
+        }
+        impl MatchType {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    MatchType::Unspecified => "MATCH_TYPE_UNSPECIFIED",
+                    MatchType::Exact => "EXACT",
+                    MatchType::Contains => "CONTAINS",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "MATCH_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "EXACT" => Some(Self::Exact),
+                    "CONTAINS" => Some(Self::Contains),
+                    _ => None,
+                }
+            }
+        }
+    }
+    /// A filter for a string dimension that matches a particular list of options.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct InListFilter {
+        /// Required. The list of possible string values to match against. Must be
+        /// non-empty.
+        #[prost(string, repeated, tag = "1")]
+        pub values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// Optional. If true, the match is case-sensitive. If false, the match is
+        /// case-insensitive.
+        /// Must be true.
+        #[prost(bool, tag = "2")]
+        pub case_sensitive: bool,
+    }
+    /// One of the above filters.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum OneFilter {
+        /// A filter for a string-type dimension that matches a particular pattern.
+        #[prost(message, tag = "2")]
+        StringFilter(StringFilter),
+        /// A filter for a string dimension that matches a particular list of
+        /// options.
+        #[prost(message, tag = "3")]
+        InListFilter(InListFilter),
+    }
+}
+/// A logical expression of EnhancedDataSet dimension filters.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExpandedDataSetFilterExpression {
+    /// The expression applied to a filter.
+    #[prost(oneof = "expanded_data_set_filter_expression::Expr", tags = "1, 2, 3")]
+    pub expr: ::core::option::Option<expanded_data_set_filter_expression::Expr>,
+}
+/// Nested message and enum types in `ExpandedDataSetFilterExpression`.
+pub mod expanded_data_set_filter_expression {
+    /// The expression applied to a filter.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Expr {
+        /// A list of expressions to be AND’ed together. It must contain a
+        /// ExpandedDataSetFilterExpression with either not_expression or
+        /// dimension_filter. This must be set for the top level
+        /// ExpandedDataSetFilterExpression.
+        #[prost(message, tag = "1")]
+        AndGroup(super::ExpandedDataSetFilterExpressionList),
+        /// A filter expression to be NOT'ed (that is, inverted, complemented). It
+        /// must include a dimension_filter. This cannot be set on the
+        /// top level ExpandedDataSetFilterExpression.
+        #[prost(message, tag = "2")]
+        NotExpression(
+            ::prost::alloc::boxed::Box<super::ExpandedDataSetFilterExpression>,
+        ),
+        /// A filter on a single dimension. This cannot be set on the top
+        /// level ExpandedDataSetFilterExpression.
+        #[prost(message, tag = "3")]
+        Filter(super::ExpandedDataSetFilter),
+    }
+}
+/// A list of ExpandedDataSet filter expressions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExpandedDataSetFilterExpressionList {
+    /// A list of ExpandedDataSet filter expressions.
+    #[prost(message, repeated, tag = "1")]
+    pub filter_expressions: ::prost::alloc::vec::Vec<ExpandedDataSetFilterExpression>,
+}
+/// A resource message representing a GA4 ExpandedDataSet.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExpandedDataSet {
+    /// Output only. The resource name for this ExpandedDataSet resource.
+    /// Format: properties/{property_id}/expandedDataSets/{expanded_data_set}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The display name of the ExpandedDataSet.
+    /// Max 200 chars.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Optional. The description of the ExpandedDataSet.
+    /// Max 50 chars.
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+    /// Immutable. The list of dimensions included in the ExpandedDataSet.
+    /// See the [API
+    /// Dimensions](<https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#dimensions>)
+    /// for the list of dimension names.
+    #[prost(string, repeated, tag = "4")]
+    pub dimension_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Immutable. The list of metrics included in the ExpandedDataSet.
+    /// See the [API
+    /// Metrics](<https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#metrics>)
+    /// for the list of dimension names.
+    #[prost(string, repeated, tag = "5")]
+    pub metric_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Immutable. A logical expression of ExpandedDataSet filters applied to
+    /// dimension included in the ExpandedDataSet. This filter is used to reduce
+    /// the number of rows and thus the chance of encountering `other` row.
+    #[prost(message, optional, tag = "6")]
+    pub dimension_filter_expression: ::core::option::Option<
+        ExpandedDataSetFilterExpression,
+    >,
+    /// Output only. Time when expanded data set began (or will begin) collecing
+    /// data.
+    #[prost(message, optional, tag = "7")]
+    pub data_collection_start_time: ::core::option::Option<::prost_types::Timestamp>,
 }
 /// A specific filter for a single dimension or metric.
 #[allow(clippy::derive_partial_eq_without_eq)]
