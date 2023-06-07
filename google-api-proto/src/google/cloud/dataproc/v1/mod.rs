@@ -1,3 +1,1826 @@
+/// Metadata describing the Batch operation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchOperationMetadata {
+    /// Name of the batch for the operation.
+    #[prost(string, tag = "1")]
+    pub batch: ::prost::alloc::string::String,
+    /// Batch UUID for the operation.
+    #[prost(string, tag = "2")]
+    pub batch_uuid: ::prost::alloc::string::String,
+    /// The time when the operation was created.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The time when the operation finished.
+    #[prost(message, optional, tag = "4")]
+    pub done_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The operation type.
+    #[prost(enumeration = "batch_operation_metadata::BatchOperationType", tag = "6")]
+    pub operation_type: i32,
+    /// Short description of the operation.
+    #[prost(string, tag = "7")]
+    pub description: ::prost::alloc::string::String,
+    /// Labels associated with the operation.
+    #[prost(btree_map = "string, string", tag = "8")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Warnings encountered during operation execution.
+    #[prost(string, repeated, tag = "9")]
+    pub warnings: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Nested message and enum types in `BatchOperationMetadata`.
+pub mod batch_operation_metadata {
+    /// Operation type for Batch resources
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum BatchOperationType {
+        /// Batch operation type is unknown.
+        Unspecified = 0,
+        /// Batch operation type.
+        Batch = 1,
+    }
+    impl BatchOperationType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                BatchOperationType::Unspecified => "BATCH_OPERATION_TYPE_UNSPECIFIED",
+                BatchOperationType::Batch => "BATCH",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "BATCH_OPERATION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "BATCH" => Some(Self::Batch),
+                _ => None,
+            }
+        }
+    }
+}
+/// The status of the operation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ClusterOperationStatus {
+    /// Output only. A message containing the operation state.
+    #[prost(enumeration = "cluster_operation_status::State", tag = "1")]
+    pub state: i32,
+    /// Output only. A message containing the detailed operation state.
+    #[prost(string, tag = "2")]
+    pub inner_state: ::prost::alloc::string::String,
+    /// Output only. A message containing any operation metadata details.
+    #[prost(string, tag = "3")]
+    pub details: ::prost::alloc::string::String,
+    /// Output only. The time this state was entered.
+    #[prost(message, optional, tag = "4")]
+    pub state_start_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Nested message and enum types in `ClusterOperationStatus`.
+pub mod cluster_operation_status {
+    /// The operation state.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unused.
+        Unknown = 0,
+        /// The operation has been created.
+        Pending = 1,
+        /// The operation is running.
+        Running = 2,
+        /// The operation is done; either cancelled or completed.
+        Done = 3,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unknown => "UNKNOWN",
+                State::Pending => "PENDING",
+                State::Running => "RUNNING",
+                State::Done => "DONE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNKNOWN" => Some(Self::Unknown),
+                "PENDING" => Some(Self::Pending),
+                "RUNNING" => Some(Self::Running),
+                "DONE" => Some(Self::Done),
+                _ => None,
+            }
+        }
+    }
+}
+/// Metadata describing the operation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ClusterOperationMetadata {
+    /// Output only. Name of the cluster for the operation.
+    #[prost(string, tag = "7")]
+    pub cluster_name: ::prost::alloc::string::String,
+    /// Output only. Cluster UUID for the operation.
+    #[prost(string, tag = "8")]
+    pub cluster_uuid: ::prost::alloc::string::String,
+    /// Output only. Current operation status.
+    #[prost(message, optional, tag = "9")]
+    pub status: ::core::option::Option<ClusterOperationStatus>,
+    /// Output only. The previous operation status.
+    #[prost(message, repeated, tag = "10")]
+    pub status_history: ::prost::alloc::vec::Vec<ClusterOperationStatus>,
+    /// Output only. The operation type.
+    #[prost(string, tag = "11")]
+    pub operation_type: ::prost::alloc::string::String,
+    /// Output only. Short description of operation.
+    #[prost(string, tag = "12")]
+    pub description: ::prost::alloc::string::String,
+    /// Output only. Labels associated with the operation
+    #[prost(btree_map = "string, string", tag = "13")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. Errors encountered during operation execution.
+    #[prost(string, repeated, tag = "14")]
+    pub warnings: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. Child operation ids
+    #[prost(string, repeated, tag = "15")]
+    pub child_operation_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Metadata describing the node group operation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct NodeGroupOperationMetadata {
+    /// Output only. Node group ID for the operation.
+    #[prost(string, tag = "1")]
+    pub node_group_id: ::prost::alloc::string::String,
+    /// Output only. Cluster UUID associated with the node group operation.
+    #[prost(string, tag = "2")]
+    pub cluster_uuid: ::prost::alloc::string::String,
+    /// Output only. Current operation status.
+    #[prost(message, optional, tag = "3")]
+    pub status: ::core::option::Option<ClusterOperationStatus>,
+    /// Output only. The previous operation status.
+    #[prost(message, repeated, tag = "4")]
+    pub status_history: ::prost::alloc::vec::Vec<ClusterOperationStatus>,
+    /// The operation type.
+    #[prost(
+        enumeration = "node_group_operation_metadata::NodeGroupOperationType",
+        tag = "5"
+    )]
+    pub operation_type: i32,
+    /// Output only. Short description of operation.
+    #[prost(string, tag = "6")]
+    pub description: ::prost::alloc::string::String,
+    /// Output only. Labels associated with the operation.
+    #[prost(btree_map = "string, string", tag = "7")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. Errors encountered during operation execution.
+    #[prost(string, repeated, tag = "8")]
+    pub warnings: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Nested message and enum types in `NodeGroupOperationMetadata`.
+pub mod node_group_operation_metadata {
+    /// Operation type for node group resources.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum NodeGroupOperationType {
+        /// Node group operation type is unknown.
+        Unspecified = 0,
+        /// Create node group operation type.
+        Create = 1,
+        /// Update node group operation type.
+        Update = 2,
+        /// Delete node group operation type.
+        Delete = 3,
+        /// Resize node group operation type.
+        Resize = 4,
+    }
+    impl NodeGroupOperationType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                NodeGroupOperationType::Unspecified => {
+                    "NODE_GROUP_OPERATION_TYPE_UNSPECIFIED"
+                }
+                NodeGroupOperationType::Create => "CREATE",
+                NodeGroupOperationType::Update => "UPDATE",
+                NodeGroupOperationType::Delete => "DELETE",
+                NodeGroupOperationType::Resize => "RESIZE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "NODE_GROUP_OPERATION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATE" => Some(Self::Create),
+                "UPDATE" => Some(Self::Update),
+                "DELETE" => Some(Self::Delete),
+                "RESIZE" => Some(Self::Resize),
+                _ => None,
+            }
+        }
+    }
+}
+/// Describes an autoscaling policy for Dataproc cluster autoscaler.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AutoscalingPolicy {
+    /// Required. The policy id.
+    ///
+    /// The id must contain only letters (a-z, A-Z), numbers (0-9),
+    /// underscores (_), and hyphens (-). Cannot begin or end with underscore
+    /// or hyphen. Must consist of between 3 and 50 characters.
+    ///
+    #[prost(string, tag = "1")]
+    pub id: ::prost::alloc::string::String,
+    /// Output only. The "resource name" of the autoscaling policy, as described
+    /// in <https://cloud.google.com/apis/design/resource_names.>
+    ///
+    /// * For `projects.regions.autoscalingPolicies`, the resource name of the
+    ///    policy has the following format:
+    ///    `projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}`
+    ///
+    /// * For `projects.locations.autoscalingPolicies`, the resource name of the
+    ///    policy has the following format:
+    ///    `projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}`
+    #[prost(string, tag = "2")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Describes how the autoscaler will operate for primary workers.
+    #[prost(message, optional, tag = "4")]
+    pub worker_config: ::core::option::Option<InstanceGroupAutoscalingPolicyConfig>,
+    /// Optional. Describes how the autoscaler will operate for secondary workers.
+    #[prost(message, optional, tag = "5")]
+    pub secondary_worker_config: ::core::option::Option<
+        InstanceGroupAutoscalingPolicyConfig,
+    >,
+    /// Optional. The labels to associate with this autoscaling policy.
+    /// Label **keys** must contain 1 to 63 characters, and must conform to
+    /// [RFC 1035](<https://www.ietf.org/rfc/rfc1035.txt>).
+    /// Label **values** may be empty, but, if present, must contain 1 to 63
+    /// characters, and must conform to [RFC
+    /// 1035](<https://www.ietf.org/rfc/rfc1035.txt>). No more than 32 labels can be
+    /// associated with an autoscaling policy.
+    #[prost(btree_map = "string, string", tag = "6")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Autoscaling algorithm for policy.
+    #[prost(oneof = "autoscaling_policy::Algorithm", tags = "3")]
+    pub algorithm: ::core::option::Option<autoscaling_policy::Algorithm>,
+}
+/// Nested message and enum types in `AutoscalingPolicy`.
+pub mod autoscaling_policy {
+    /// Autoscaling algorithm for policy.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Algorithm {
+        #[prost(message, tag = "3")]
+        BasicAlgorithm(super::BasicAutoscalingAlgorithm),
+    }
+}
+/// Basic algorithm for autoscaling.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BasicAutoscalingAlgorithm {
+    /// Optional. Duration between scaling events. A scaling period starts after
+    /// the update operation from the previous event has completed.
+    ///
+    /// Bounds: [2m, 1d]. Default: 2m.
+    #[prost(message, optional, tag = "2")]
+    pub cooldown_period: ::core::option::Option<::prost_types::Duration>,
+    #[prost(oneof = "basic_autoscaling_algorithm::Config", tags = "1")]
+    pub config: ::core::option::Option<basic_autoscaling_algorithm::Config>,
+}
+/// Nested message and enum types in `BasicAutoscalingAlgorithm`.
+pub mod basic_autoscaling_algorithm {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Config {
+        /// Required. YARN autoscaling configuration.
+        #[prost(message, tag = "1")]
+        YarnConfig(super::BasicYarnAutoscalingConfig),
+    }
+}
+/// Basic autoscaling configurations for YARN.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BasicYarnAutoscalingConfig {
+    /// Required. Timeout for YARN graceful decommissioning of Node Managers.
+    /// Specifies the duration to wait for jobs to complete before forcefully
+    /// removing workers (and potentially interrupting jobs). Only applicable to
+    /// downscaling operations.
+    ///
+    /// Bounds: [0s, 1d].
+    #[prost(message, optional, tag = "5")]
+    pub graceful_decommission_timeout: ::core::option::Option<::prost_types::Duration>,
+    /// Required. Fraction of average YARN pending memory in the last cooldown
+    /// period for which to add workers. A scale-up factor of 1.0 will result in
+    /// scaling up so that there is no pending memory remaining after the update
+    /// (more aggressive scaling). A scale-up factor closer to 0 will result in a
+    /// smaller magnitude of scaling up (less aggressive scaling). See [How
+    /// autoscaling
+    /// works](<https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/autoscaling#how_autoscaling_works>)
+    /// for more information.
+    ///
+    /// Bounds: [0.0, 1.0].
+    #[prost(double, tag = "1")]
+    pub scale_up_factor: f64,
+    /// Required. Fraction of average YARN pending memory in the last cooldown
+    /// period for which to remove workers. A scale-down factor of 1 will result in
+    /// scaling down so that there is no available memory remaining after the
+    /// update (more aggressive scaling). A scale-down factor of 0 disables
+    /// removing workers, which can be beneficial for autoscaling a single job.
+    /// See [How autoscaling
+    /// works](<https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/autoscaling#how_autoscaling_works>)
+    /// for more information.
+    ///
+    /// Bounds: [0.0, 1.0].
+    #[prost(double, tag = "2")]
+    pub scale_down_factor: f64,
+    /// Optional. Minimum scale-up threshold as a fraction of total cluster size
+    /// before scaling occurs. For example, in a 20-worker cluster, a threshold of
+    /// 0.1 means the autoscaler must recommend at least a 2-worker scale-up for
+    /// the cluster to scale. A threshold of 0 means the autoscaler will scale up
+    /// on any recommended change.
+    ///
+    /// Bounds: [0.0, 1.0]. Default: 0.0.
+    #[prost(double, tag = "3")]
+    pub scale_up_min_worker_fraction: f64,
+    /// Optional. Minimum scale-down threshold as a fraction of total cluster size
+    /// before scaling occurs. For example, in a 20-worker cluster, a threshold of
+    /// 0.1 means the autoscaler must recommend at least a 2 worker scale-down for
+    /// the cluster to scale. A threshold of 0 means the autoscaler will scale down
+    /// on any recommended change.
+    ///
+    /// Bounds: [0.0, 1.0]. Default: 0.0.
+    #[prost(double, tag = "4")]
+    pub scale_down_min_worker_fraction: f64,
+}
+/// Configuration for the size bounds of an instance group, including its
+/// proportional size to other groups.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct InstanceGroupAutoscalingPolicyConfig {
+    /// Optional. Minimum number of instances for this group.
+    ///
+    /// Primary workers - Bounds: [2, max_instances]. Default: 2.
+    /// Secondary workers - Bounds: [0, max_instances]. Default: 0.
+    #[prost(int32, tag = "1")]
+    pub min_instances: i32,
+    /// Required. Maximum number of instances for this group. Required for primary
+    /// workers. Note that by default, clusters will not use secondary workers.
+    /// Required for secondary workers if the minimum secondary instances is set.
+    ///
+    /// Primary workers - Bounds: [min_instances, ).
+    /// Secondary workers - Bounds: [min_instances, ). Default: 0.
+    #[prost(int32, tag = "2")]
+    pub max_instances: i32,
+    /// Optional. Weight for the instance group, which is used to determine the
+    /// fraction of total workers in the cluster from this instance group.
+    /// For example, if primary workers have weight 2, and secondary workers have
+    /// weight 1, the cluster will have approximately 2 primary workers for each
+    /// secondary worker.
+    ///
+    /// The cluster may not reach the specified balance if constrained
+    /// by min/max bounds or other autoscaling settings. For example, if
+    /// `max_instances` for secondary workers is 0, then only primary workers will
+    /// be added. The cluster can also be out of balance when created.
+    ///
+    /// If weight is not set on any instance group, the cluster will default to
+    /// equal weight for all groups: the cluster will attempt to maintain an equal
+    /// number of workers in each group within the configured size bounds for each
+    /// group. If weight is set for one group only, the cluster will default to
+    /// zero weight on the unset group. For example if weight is set only on
+    /// primary workers, the cluster will use primary workers only and no
+    /// secondary workers.
+    #[prost(int32, tag = "3")]
+    pub weight: i32,
+}
+/// A request to create an autoscaling policy.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateAutoscalingPolicyRequest {
+    /// Required. The "resource name" of the region or location, as described
+    /// in <https://cloud.google.com/apis/design/resource_names.>
+    ///
+    /// * For `projects.regions.autoscalingPolicies.create`, the resource name
+    ///    of the region has the following format:
+    ///    `projects/{project_id}/regions/{region}`
+    ///
+    /// * For `projects.locations.autoscalingPolicies.create`, the resource name
+    ///    of the location has the following format:
+    ///    `projects/{project_id}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The autoscaling policy to create.
+    #[prost(message, optional, tag = "2")]
+    pub policy: ::core::option::Option<AutoscalingPolicy>,
+}
+/// A request to fetch an autoscaling policy.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetAutoscalingPolicyRequest {
+    /// Required. The "resource name" of the autoscaling policy, as described
+    /// in <https://cloud.google.com/apis/design/resource_names.>
+    ///
+    /// * For `projects.regions.autoscalingPolicies.get`, the resource name
+    ///    of the policy has the following format:
+    ///    `projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}`
+    ///
+    /// * For `projects.locations.autoscalingPolicies.get`, the resource name
+    ///    of the policy has the following format:
+    ///    `projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// A request to update an autoscaling policy.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateAutoscalingPolicyRequest {
+    /// Required. The updated autoscaling policy.
+    #[prost(message, optional, tag = "1")]
+    pub policy: ::core::option::Option<AutoscalingPolicy>,
+}
+/// A request to delete an autoscaling policy.
+///
+/// Autoscaling policies in use by one or more clusters will not be deleted.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteAutoscalingPolicyRequest {
+    /// Required. The "resource name" of the autoscaling policy, as described
+    /// in <https://cloud.google.com/apis/design/resource_names.>
+    ///
+    /// * For `projects.regions.autoscalingPolicies.delete`, the resource name
+    ///    of the policy has the following format:
+    ///    `projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}`
+    ///
+    /// * For `projects.locations.autoscalingPolicies.delete`, the resource name
+    ///    of the policy has the following format:
+    ///    `projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// A request to list autoscaling policies in a project.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListAutoscalingPoliciesRequest {
+    /// Required. The "resource name" of the region or location, as described
+    /// in <https://cloud.google.com/apis/design/resource_names.>
+    ///
+    /// * For `projects.regions.autoscalingPolicies.list`, the resource name
+    ///    of the region has the following format:
+    ///    `projects/{project_id}/regions/{region}`
+    ///
+    /// * For `projects.locations.autoscalingPolicies.list`, the resource name
+    ///    of the location has the following format:
+    ///    `projects/{project_id}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. The maximum number of results to return in each response.
+    /// Must be less than or equal to 1000. Defaults to 100.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// Optional. The page token, returned by a previous call, to request the
+    /// next page of results.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// A response to a request to list autoscaling policies in a project.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListAutoscalingPoliciesResponse {
+    /// Output only. Autoscaling policies list.
+    #[prost(message, repeated, tag = "1")]
+    pub policies: ::prost::alloc::vec::Vec<AutoscalingPolicy>,
+    /// Output only. This token is included in the response if there are more
+    /// results to fetch.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Generated client implementations.
+pub mod autoscaling_policy_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// The API interface for managing autoscaling policies in the
+    /// Dataproc API.
+    #[derive(Debug, Clone)]
+    pub struct AutoscalingPolicyServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> AutoscalingPolicyServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> AutoscalingPolicyServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            AutoscalingPolicyServiceClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Creates new autoscaling policy.
+        pub async fn create_autoscaling_policy(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateAutoscalingPolicyRequest>,
+        ) -> Result<tonic::Response<super::AutoscalingPolicy>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataproc.v1.AutoscalingPolicyService/CreateAutoscalingPolicy",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+        /// Updates (replaces) autoscaling policy.
+        ///
+        /// Disabled check for update_mask, because all updates will be full
+        /// replacements.
+        pub async fn update_autoscaling_policy(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateAutoscalingPolicyRequest>,
+        ) -> Result<tonic::Response<super::AutoscalingPolicy>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataproc.v1.AutoscalingPolicyService/UpdateAutoscalingPolicy",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+        /// Retrieves autoscaling policy.
+        pub async fn get_autoscaling_policy(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetAutoscalingPolicyRequest>,
+        ) -> Result<tonic::Response<super::AutoscalingPolicy>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataproc.v1.AutoscalingPolicyService/GetAutoscalingPolicy",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+        /// Lists autoscaling policies in the project.
+        pub async fn list_autoscaling_policies(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListAutoscalingPoliciesRequest>,
+        ) -> Result<
+            tonic::Response<super::ListAutoscalingPoliciesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataproc.v1.AutoscalingPolicyService/ListAutoscalingPolicies",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+        /// Deletes an autoscaling policy. It is an error to delete an autoscaling
+        /// policy that is in use by one or more clusters.
+        pub async fn delete_autoscaling_policy(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteAutoscalingPolicyRequest>,
+        ) -> Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataproc.v1.AutoscalingPolicyService/DeleteAutoscalingPolicy",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+    }
+}
+/// Runtime configuration for a workload.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RuntimeConfig {
+    /// Optional. Version of the batch runtime.
+    #[prost(string, tag = "1")]
+    pub version: ::prost::alloc::string::String,
+    /// Optional. Optional custom container image for the job runtime environment.
+    /// If not specified, a default container image will be used.
+    #[prost(string, tag = "2")]
+    pub container_image: ::prost::alloc::string::String,
+    /// Optional. A mapping of property names to values, which are used to
+    /// configure workload execution.
+    #[prost(btree_map = "string, string", tag = "3")]
+    pub properties: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
+/// Environment configuration for a workload.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EnvironmentConfig {
+    /// Optional. Execution configuration for a workload.
+    #[prost(message, optional, tag = "1")]
+    pub execution_config: ::core::option::Option<ExecutionConfig>,
+    /// Optional. Peripherals configuration that workload has access to.
+    #[prost(message, optional, tag = "2")]
+    pub peripherals_config: ::core::option::Option<PeripheralsConfig>,
+}
+/// Execution configuration for a workload.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExecutionConfig {
+    /// Optional. Service account that used to execute workload.
+    #[prost(string, tag = "2")]
+    pub service_account: ::prost::alloc::string::String,
+    /// Optional. Tags used for network traffic control.
+    #[prost(string, repeated, tag = "6")]
+    pub network_tags: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. The Cloud KMS key to use for encryption.
+    #[prost(string, tag = "7")]
+    pub kms_key: ::prost::alloc::string::String,
+    /// Optional. The duration after which the workload will be terminated.
+    /// When the workload passes this ttl, it will be unconditionally killed
+    /// without waiting for ongoing work to finish.
+    /// Minimum value is 10 minutes; maximum value is 14 days (see JSON
+    /// representation of
+    /// \[Duration\](<https://developers.google.com/protocol-buffers/docs/proto3#json>)).
+    /// If both ttl and idle_ttl are specified, the conditions are treated as
+    /// and OR: the workload will be terminated when it has been idle for idle_ttl
+    /// or when the ttl has passed, whichever comes first.
+    /// If ttl is not specified for a session, it defaults to 24h.
+    #[prost(message, optional, tag = "9")]
+    pub ttl: ::core::option::Option<::prost_types::Duration>,
+    /// Optional. A Cloud Storage bucket used to stage workload dependencies,
+    /// config files, and store workload output and other ephemeral data, such as
+    /// Spark history files. If you do not specify a staging bucket, Cloud Dataproc
+    /// will determine a Cloud Storage location according to the region where your
+    /// workload is running, and then create and manage project-level, per-location
+    /// staging and temporary buckets.
+    /// **This field requires a Cloud Storage bucket name, not a `gs://...` URI to
+    /// a Cloud Storage bucket.**
+    #[prost(string, tag = "10")]
+    pub staging_bucket: ::prost::alloc::string::String,
+    /// Network configuration for workload execution.
+    #[prost(oneof = "execution_config::Network", tags = "4, 5")]
+    pub network: ::core::option::Option<execution_config::Network>,
+}
+/// Nested message and enum types in `ExecutionConfig`.
+pub mod execution_config {
+    /// Network configuration for workload execution.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Network {
+        /// Optional. Network URI to connect workload to.
+        #[prost(string, tag = "4")]
+        NetworkUri(::prost::alloc::string::String),
+        /// Optional. Subnetwork URI to connect workload to.
+        #[prost(string, tag = "5")]
+        SubnetworkUri(::prost::alloc::string::String),
+    }
+}
+/// Spark History Server configuration for the workload.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SparkHistoryServerConfig {
+    /// Optional. Resource name of an existing Dataproc Cluster to act as a Spark
+    /// History Server for the workload.
+    ///
+    /// Example:
+    ///
+    /// * `projects/\[project_id]/regions/[region]/clusters/[cluster_name\]`
+    #[prost(string, tag = "1")]
+    pub dataproc_cluster: ::prost::alloc::string::String,
+}
+/// Auxiliary services configuration for a workload.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PeripheralsConfig {
+    /// Optional. Resource name of an existing Dataproc Metastore service.
+    ///
+    /// Example:
+    ///
+    /// * `projects/\[project_id]/locations/[region]/services/[service_id\]`
+    #[prost(string, tag = "1")]
+    pub metastore_service: ::prost::alloc::string::String,
+    /// Optional. The Spark History Server configuration for the workload.
+    #[prost(message, optional, tag = "2")]
+    pub spark_history_server_config: ::core::option::Option<SparkHistoryServerConfig>,
+}
+/// Runtime information about workload execution.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RuntimeInfo {
+    /// Output only. Map of remote access endpoints (such as web interfaces and
+    /// APIs) to their URIs.
+    #[prost(btree_map = "string, string", tag = "1")]
+    pub endpoints: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. A URI pointing to the location of the stdout and stderr of the
+    /// workload.
+    #[prost(string, tag = "2")]
+    pub output_uri: ::prost::alloc::string::String,
+    /// Output only. A URI pointing to the location of the diagnostics tarball.
+    #[prost(string, tag = "3")]
+    pub diagnostic_output_uri: ::prost::alloc::string::String,
+    /// Output only. Approximate workload resource usage calculated after workload
+    /// finishes (see [Dataproc Serverless pricing]
+    /// (<https://cloud.google.com/dataproc-serverless/pricing>)).
+    #[prost(message, optional, tag = "6")]
+    pub approximate_usage: ::core::option::Option<UsageMetrics>,
+    /// Output only. Snapshot of current workload resource usage.
+    #[prost(message, optional, tag = "7")]
+    pub current_usage: ::core::option::Option<UsageSnapshot>,
+}
+/// Usage metrics represent approximate total resources consumed by a workload.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UsageMetrics {
+    /// Optional. DCU (Dataproc Compute Units) usage in (`milliDCU` x `seconds`)
+    /// (see [Dataproc Serverless pricing]
+    /// (<https://cloud.google.com/dataproc-serverless/pricing>)).
+    #[prost(int64, tag = "1")]
+    pub milli_dcu_seconds: i64,
+    /// Optional. Shuffle storage usage in (`GB` x `seconds`) (see
+    /// [Dataproc Serverless pricing]
+    /// (<https://cloud.google.com/dataproc-serverless/pricing>)).
+    #[prost(int64, tag = "2")]
+    pub shuffle_storage_gb_seconds: i64,
+}
+/// The usage snaphot represents the resources consumed by a workload at a
+/// specified time.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UsageSnapshot {
+    /// Optional. Milli (one-thousandth) Dataproc Compute Units (DCUs) (see
+    /// [Dataproc Serverless pricing]
+    /// (<https://cloud.google.com/dataproc-serverless/pricing>)).
+    #[prost(int64, tag = "1")]
+    pub milli_dcu: i64,
+    /// Optional. Shuffle Storage in gigabytes (GB). (see [Dataproc Serverless
+    /// pricing] (<https://cloud.google.com/dataproc-serverless/pricing>))
+    #[prost(int64, tag = "2")]
+    pub shuffle_storage_gb: i64,
+    /// Optional. The timestamp of the usage snapshot.
+    #[prost(message, optional, tag = "3")]
+    pub snapshot_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// The cluster's GKE config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GkeClusterConfig {
+    /// Optional. A target GKE cluster to deploy to. It must be in the same project
+    /// and region as the Dataproc cluster (the GKE cluster can be zonal or
+    /// regional). Format:
+    /// 'projects/{project}/locations/{location}/clusters/{cluster_id}'
+    #[prost(string, tag = "2")]
+    pub gke_cluster_target: ::prost::alloc::string::String,
+    /// Optional. GKE node pools where workloads will be scheduled. At least one
+    /// node pool must be assigned the `DEFAULT`
+    /// \[GkeNodePoolTarget.Role][google.cloud.dataproc.v1.GkeNodePoolTarget.Role\].
+    /// If a `GkeNodePoolTarget` is not specified, Dataproc constructs a `DEFAULT`
+    /// `GkeNodePoolTarget`. Each role can be given to only one
+    /// `GkeNodePoolTarget`. All node pools must have the same location settings.
+    #[prost(message, repeated, tag = "3")]
+    pub node_pool_target: ::prost::alloc::vec::Vec<GkeNodePoolTarget>,
+}
+/// The configuration for running the Dataproc cluster on Kubernetes.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct KubernetesClusterConfig {
+    /// Optional. A namespace within the Kubernetes cluster to deploy into. If this
+    /// namespace does not exist, it is created. If it exists, Dataproc verifies
+    /// that another Dataproc VirtualCluster is not installed into it. If not
+    /// specified, the name of the Dataproc Cluster is used.
+    #[prost(string, tag = "1")]
+    pub kubernetes_namespace: ::prost::alloc::string::String,
+    /// Optional. The software configuration for this Dataproc cluster running on
+    /// Kubernetes.
+    #[prost(message, optional, tag = "3")]
+    pub kubernetes_software_config: ::core::option::Option<KubernetesSoftwareConfig>,
+    #[prost(oneof = "kubernetes_cluster_config::Config", tags = "2")]
+    pub config: ::core::option::Option<kubernetes_cluster_config::Config>,
+}
+/// Nested message and enum types in `KubernetesClusterConfig`.
+pub mod kubernetes_cluster_config {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Config {
+        /// Required. The configuration for running the Dataproc cluster on GKE.
+        #[prost(message, tag = "2")]
+        GkeClusterConfig(super::GkeClusterConfig),
+    }
+}
+/// The software configuration for this Dataproc cluster running on Kubernetes.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct KubernetesSoftwareConfig {
+    /// The components that should be installed in this Dataproc cluster. The key
+    /// must be a string from the KubernetesComponent enumeration. The value is
+    /// the version of the software to be installed.
+    /// At least one entry must be specified.
+    #[prost(btree_map = "string, string", tag = "1")]
+    pub component_version: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// The properties to set on daemon config files.
+    ///
+    /// Property keys are specified in `prefix:property` format, for example
+    /// `spark:spark.kubernetes.container.image`. The following are supported
+    /// prefixes and their mappings:
+    ///
+    /// * spark:  `spark-defaults.conf`
+    ///
+    /// For more information, see [Cluster
+    /// properties](<https://cloud.google.com/dataproc/docs/concepts/cluster-properties>).
+    #[prost(btree_map = "string, string", tag = "2")]
+    pub properties: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
+/// GKE node pools that Dataproc workloads run on.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GkeNodePoolTarget {
+    /// Required. The target GKE node pool.
+    /// Format:
+    /// 'projects/{project}/locations/{location}/clusters/{cluster}/nodePools/{node_pool}'
+    #[prost(string, tag = "1")]
+    pub node_pool: ::prost::alloc::string::String,
+    /// Required. The roles associated with the GKE node pool.
+    #[prost(
+        enumeration = "gke_node_pool_target::Role",
+        repeated,
+        packed = "false",
+        tag = "2"
+    )]
+    pub roles: ::prost::alloc::vec::Vec<i32>,
+    /// Input only. The configuration for the GKE node pool.
+    ///
+    /// If specified, Dataproc attempts to create a node pool with the
+    /// specified shape. If one with the same name already exists, it is
+    /// verified against all specified fields. If a field differs, the
+    /// virtual cluster creation will fail.
+    ///
+    /// If omitted, any node pool with the specified name is used. If a
+    /// node pool with the specified name does not exist, Dataproc create a
+    /// node pool with default values.
+    ///
+    /// This is an input only field. It will not be returned by the API.
+    #[prost(message, optional, tag = "3")]
+    pub node_pool_config: ::core::option::Option<GkeNodePoolConfig>,
+}
+/// Nested message and enum types in `GkeNodePoolTarget`.
+pub mod gke_node_pool_target {
+    /// `Role` specifies the tasks that will run on the node pool. Roles can be
+    /// specific to workloads. Exactly one
+    /// \[GkeNodePoolTarget][google.cloud.dataproc.v1.GkeNodePoolTarget\] within the
+    /// virtual cluster must have the `DEFAULT` role, which is used to run all
+    /// workloads that are not associated with a node pool.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Role {
+        /// Role is unspecified.
+        Unspecified = 0,
+        /// At least one node pool must have the `DEFAULT` role.
+        /// Work assigned to a role that is not associated with a node pool
+        /// is assigned to the node pool with the `DEFAULT` role. For example,
+        /// work assigned to the `CONTROLLER` role will be assigned to the node pool
+        /// with the `DEFAULT` role if no node pool has the `CONTROLLER` role.
+        Default = 1,
+        /// Run work associated with the Dataproc control plane (for example,
+        /// controllers and webhooks). Very low resource requirements.
+        Controller = 2,
+        /// Run work associated with a Spark driver of a job.
+        SparkDriver = 3,
+        /// Run work associated with a Spark executor of a job.
+        SparkExecutor = 4,
+    }
+    impl Role {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Role::Unspecified => "ROLE_UNSPECIFIED",
+                Role::Default => "DEFAULT",
+                Role::Controller => "CONTROLLER",
+                Role::SparkDriver => "SPARK_DRIVER",
+                Role::SparkExecutor => "SPARK_EXECUTOR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ROLE_UNSPECIFIED" => Some(Self::Unspecified),
+                "DEFAULT" => Some(Self::Default),
+                "CONTROLLER" => Some(Self::Controller),
+                "SPARK_DRIVER" => Some(Self::SparkDriver),
+                "SPARK_EXECUTOR" => Some(Self::SparkExecutor),
+                _ => None,
+            }
+        }
+    }
+}
+/// The configuration of a GKE node pool used by a [Dataproc-on-GKE
+/// cluster](<https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster>).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GkeNodePoolConfig {
+    /// Optional. The node pool configuration.
+    #[prost(message, optional, tag = "2")]
+    pub config: ::core::option::Option<gke_node_pool_config::GkeNodeConfig>,
+    /// Optional. The list of Compute Engine
+    /// \[zones\](<https://cloud.google.com/compute/docs/zones#available>) where
+    /// node pool nodes associated with a Dataproc on GKE virtual cluster
+    /// will be located.
+    ///
+    /// **Note:** All node pools associated with a virtual cluster
+    /// must be located in the same region as the virtual cluster, and they must
+    /// be located in the same zone within that region.
+    ///
+    /// If a location is not specified during node pool creation, Dataproc on GKE
+    /// will choose the zone.
+    #[prost(string, repeated, tag = "13")]
+    pub locations: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. The autoscaler configuration for this node pool. The autoscaler
+    /// is enabled only when a valid configuration is present.
+    #[prost(message, optional, tag = "4")]
+    pub autoscaling: ::core::option::Option<
+        gke_node_pool_config::GkeNodePoolAutoscalingConfig,
+    >,
+}
+/// Nested message and enum types in `GkeNodePoolConfig`.
+pub mod gke_node_pool_config {
+    /// Parameters that describe cluster nodes.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct GkeNodeConfig {
+        /// Optional. The name of a Compute Engine [machine
+        /// type](<https://cloud.google.com/compute/docs/machine-types>).
+        #[prost(string, tag = "1")]
+        pub machine_type: ::prost::alloc::string::String,
+        /// Optional. The number of local SSD disks to attach to the node, which is
+        /// limited by the maximum number of disks allowable per zone (see [Adding
+        /// Local SSDs](<https://cloud.google.com/compute/docs/disks/local-ssd>)).
+        #[prost(int32, tag = "7")]
+        pub local_ssd_count: i32,
+        /// Optional. Whether the nodes are created as legacy [preemptible VM
+        /// instances] (<https://cloud.google.com/compute/docs/instances/preemptible>).
+        /// Also see
+        /// \[Spot][google.cloud.dataproc.v1.GkeNodePoolConfig.GkeNodeConfig.spot\]
+        /// VMs, preemptible VM instances without a maximum lifetime. Legacy and Spot
+        /// preemptible nodes cannot be used in a node pool with the `CONTROLLER`
+        /// \[role\]
+        /// (/dataproc/docs/reference/rest/v1/projects.regions.clusters#role)
+        /// or in the DEFAULT node pool if the CONTROLLER role is not assigned (the
+        /// DEFAULT node pool will assume the CONTROLLER role).
+        #[prost(bool, tag = "10")]
+        pub preemptible: bool,
+        /// Optional. A list of [hardware
+        /// accelerators](<https://cloud.google.com/compute/docs/gpus>) to attach to
+        /// each node.
+        #[prost(message, repeated, tag = "11")]
+        pub accelerators: ::prost::alloc::vec::Vec<GkeNodePoolAcceleratorConfig>,
+        /// Optional. [Minimum CPU
+        /// platform](<https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform>)
+        /// to be used by this instance. The instance may be scheduled on the
+        /// specified or a newer CPU platform. Specify the friendly names of CPU
+        /// platforms, such as "Intel Haswell"` or Intel Sandy Bridge".
+        #[prost(string, tag = "13")]
+        pub min_cpu_platform: ::prost::alloc::string::String,
+        /// Optional. The [Customer Managed Encryption Key (CMEK)]
+        /// (<https://cloud.google.com/kubernetes-engine/docs/how-to/using-cmek>)
+        /// used to encrypt the boot disk attached to each node in the node pool.
+        /// Specify the key using the following format:
+        /// <code>projects/<var>KEY_PROJECT_ID</var>/locations/<var>LOCATION</var>/keyRings/<var>RING_NAME</var>/cryptoKeys/<var>KEY_NAME</var></code>.
+        #[prost(string, tag = "23")]
+        pub boot_disk_kms_key: ::prost::alloc::string::String,
+        /// Optional. Whether the nodes are created as [Spot VM instances]
+        /// (<https://cloud.google.com/compute/docs/instances/spot>).
+        /// Spot VMs are the latest update to legacy
+        /// [preemptible
+        /// VMs]\[google.cloud.dataproc.v1.GkeNodePoolConfig.GkeNodeConfig.preemptible\].
+        /// Spot VMs do not have a maximum lifetime. Legacy and Spot preemptible
+        /// nodes cannot be used in a node pool with the `CONTROLLER`
+        /// \[role\](/dataproc/docs/reference/rest/v1/projects.regions.clusters#role)
+        /// or in the DEFAULT node pool if the CONTROLLER role is not assigned (the
+        /// DEFAULT node pool will assume the CONTROLLER role).
+        #[prost(bool, tag = "32")]
+        pub spot: bool,
+    }
+    /// A GkeNodeConfigAcceleratorConfig represents a Hardware Accelerator request
+    /// for a node pool.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct GkeNodePoolAcceleratorConfig {
+        /// The number of accelerator cards exposed to an instance.
+        #[prost(int64, tag = "1")]
+        pub accelerator_count: i64,
+        /// The accelerator type resource namename (see GPUs on Compute Engine).
+        #[prost(string, tag = "2")]
+        pub accelerator_type: ::prost::alloc::string::String,
+        /// Size of partitions to create on the GPU. Valid values are described in
+        /// the NVIDIA [mig user
+        /// guide](<https://docs.nvidia.com/datacenter/tesla/mig-user-guide/#partitioning>).
+        #[prost(string, tag = "3")]
+        pub gpu_partition_size: ::prost::alloc::string::String,
+    }
+    /// GkeNodePoolAutoscaling contains information the cluster autoscaler needs to
+    /// adjust the size of the node pool to the current cluster usage.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct GkeNodePoolAutoscalingConfig {
+        /// The minimum number of nodes in the node pool. Must be >= 0 and <=
+        /// max_node_count.
+        #[prost(int32, tag = "2")]
+        pub min_node_count: i32,
+        /// The maximum number of nodes in the node pool. Must be >= min_node_count,
+        /// and must be > 0.
+        /// **Note:** Quota must be sufficient to scale up the cluster.
+        #[prost(int32, tag = "3")]
+        pub max_node_count: i32,
+    }
+}
+/// Cluster components that can be activated.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum Component {
+    /// Unspecified component. Specifying this will cause Cluster creation to fail.
+    Unspecified = 0,
+    /// The Anaconda python distribution. The Anaconda component is not supported
+    /// in the Dataproc
+    /// <a
+    /// href="/dataproc/docs/concepts/versioning/dataproc-release-2.0">2.0
+    /// image</a>. The 2.0 image is pre-installed with Miniconda.
+    Anaconda = 5,
+    /// Docker
+    Docker = 13,
+    /// The Druid query engine. (alpha)
+    Druid = 9,
+    /// Flink
+    Flink = 14,
+    /// HBase. (beta)
+    Hbase = 11,
+    /// The Hive Web HCatalog (the REST service for accessing HCatalog).
+    HiveWebhcat = 3,
+    /// Hudi.
+    Hudi = 18,
+    /// The Jupyter Notebook.
+    Jupyter = 1,
+    /// The Presto query engine.
+    Presto = 6,
+    /// The Trino query engine.
+    Trino = 17,
+    /// The Ranger service.
+    Ranger = 12,
+    /// The Solr service.
+    Solr = 10,
+    /// The Zeppelin notebook.
+    Zeppelin = 4,
+    /// The Zookeeper service.
+    Zookeeper = 8,
+}
+impl Component {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            Component::Unspecified => "COMPONENT_UNSPECIFIED",
+            Component::Anaconda => "ANACONDA",
+            Component::Docker => "DOCKER",
+            Component::Druid => "DRUID",
+            Component::Flink => "FLINK",
+            Component::Hbase => "HBASE",
+            Component::HiveWebhcat => "HIVE_WEBHCAT",
+            Component::Hudi => "HUDI",
+            Component::Jupyter => "JUPYTER",
+            Component::Presto => "PRESTO",
+            Component::Trino => "TRINO",
+            Component::Ranger => "RANGER",
+            Component::Solr => "SOLR",
+            Component::Zeppelin => "ZEPPELIN",
+            Component::Zookeeper => "ZOOKEEPER",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "COMPONENT_UNSPECIFIED" => Some(Self::Unspecified),
+            "ANACONDA" => Some(Self::Anaconda),
+            "DOCKER" => Some(Self::Docker),
+            "DRUID" => Some(Self::Druid),
+            "FLINK" => Some(Self::Flink),
+            "HBASE" => Some(Self::Hbase),
+            "HIVE_WEBHCAT" => Some(Self::HiveWebhcat),
+            "HUDI" => Some(Self::Hudi),
+            "JUPYTER" => Some(Self::Jupyter),
+            "PRESTO" => Some(Self::Presto),
+            "TRINO" => Some(Self::Trino),
+            "RANGER" => Some(Self::Ranger),
+            "SOLR" => Some(Self::Solr),
+            "ZEPPELIN" => Some(Self::Zeppelin),
+            "ZOOKEEPER" => Some(Self::Zookeeper),
+            _ => None,
+        }
+    }
+}
+/// Actions in response to failure of a resource associated with a cluster.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum FailureAction {
+    /// When FailureAction is unspecified, failure action defaults to NO_ACTION.
+    Unspecified = 0,
+    /// Take no action on failure to create a cluster resource. NO_ACTION is the
+    /// default.
+    NoAction = 1,
+    /// Delete the failed cluster resource.
+    Delete = 2,
+}
+impl FailureAction {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            FailureAction::Unspecified => "FAILURE_ACTION_UNSPECIFIED",
+            FailureAction::NoAction => "NO_ACTION",
+            FailureAction::Delete => "DELETE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "FAILURE_ACTION_UNSPECIFIED" => Some(Self::Unspecified),
+            "NO_ACTION" => Some(Self::NoAction),
+            "DELETE" => Some(Self::Delete),
+            _ => None,
+        }
+    }
+}
+/// A request to create a batch workload.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateBatchRequest {
+    /// Required. The parent resource where this batch will be created.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The batch to create.
+    #[prost(message, optional, tag = "2")]
+    pub batch: ::core::option::Option<Batch>,
+    /// Optional. The ID to use for the batch, which will become the final
+    /// component of the batch's resource name.
+    ///
+    /// This value must be 4-63 characters. Valid characters are `/\[a-z][0-9\]-/`.
+    #[prost(string, tag = "3")]
+    pub batch_id: ::prost::alloc::string::String,
+    /// Optional. A unique ID used to identify the request. If the service
+    /// receives two
+    /// \[CreateBatchRequest\](<https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.CreateBatchRequest>)s
+    /// with the same request_id, the second request is ignored and the
+    /// Operation that corresponds to the first Batch created and stored
+    /// in the backend is returned.
+    ///
+    /// Recommendation: Set this value to a
+    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier>).
+    ///
+    /// The value must contain only letters (a-z, A-Z), numbers (0-9),
+    /// underscores (_), and hyphens (-). The maximum length is 40 characters.
+    #[prost(string, tag = "4")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// A request to get the resource representation for a batch workload.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetBatchRequest {
+    /// Required. The fully qualified name of the batch to retrieve
+    /// in the format
+    /// "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// A request to list batch workloads in a project.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListBatchesRequest {
+    /// Required. The parent, which owns this collection of batches.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. The maximum number of batches to return in each response.
+    /// The service may return fewer than this value.
+    /// The default page size is 20; the maximum page size is 1000.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// Optional. A page token received from a previous `ListBatches` call.
+    /// Provide this token to retrieve the subsequent page.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Optional. A filter for the batches to return in the response.
+    ///
+    /// A filter is a logical expression constraining the values of various fields
+    /// in each batch resource. Filters are case sensitive, and may contain
+    /// multiple clauses combined with logical operators (AND/OR).
+    /// Supported fields are `batch_id`, `batch_uuid`, `state`, and `create_time`.
+    ///
+    /// e.g. `state = RUNNING and create_time < "2023-01-01T00:00:00Z"`
+    /// filters for batches in state RUNNING that were created before 2023-01-01
+    ///
+    /// See <https://google.aip.dev/assets/misc/ebnf-filtering.txt> for a detailed
+    /// description of the filter syntax and a list of supported comparisons.
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Optional. Field(s) on which to sort the list of batches.
+    ///
+    /// Currently the only supported sort orders are unspecified (empty) and
+    /// `create_time desc` to sort by most recently created batches first.
+    ///
+    /// See <https://google.aip.dev/132#ordering> for more details.
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// A list of batch workloads.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListBatchesResponse {
+    /// The batches from the specified collection.
+    #[prost(message, repeated, tag = "1")]
+    pub batches: ::prost::alloc::vec::Vec<Batch>,
+    /// A token, which can be sent as `page_token` to retrieve the next page.
+    /// If this field is omitted, there are no subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// A request to delete a batch workload.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteBatchRequest {
+    /// Required. The fully qualified name of the batch to retrieve
+    /// in the format
+    /// "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// A representation of a batch workload in the service.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Batch {
+    /// Output only. The resource name of the batch.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. A batch UUID (Unique Universal Identifier). The service
+    /// generates this value when it creates the batch.
+    #[prost(string, tag = "2")]
+    pub uuid: ::prost::alloc::string::String,
+    /// Output only. The time when the batch was created.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Runtime information about batch execution.
+    #[prost(message, optional, tag = "8")]
+    pub runtime_info: ::core::option::Option<RuntimeInfo>,
+    /// Output only. The state of the batch.
+    #[prost(enumeration = "batch::State", tag = "9")]
+    pub state: i32,
+    /// Output only. Batch state details, such as a failure
+    /// description if the state is `FAILED`.
+    #[prost(string, tag = "10")]
+    pub state_message: ::prost::alloc::string::String,
+    /// Output only. The time when the batch entered a current state.
+    #[prost(message, optional, tag = "11")]
+    pub state_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The email address of the user who created the batch.
+    #[prost(string, tag = "12")]
+    pub creator: ::prost::alloc::string::String,
+    /// Optional. The labels to associate with this batch.
+    /// Label **keys** must contain 1 to 63 characters, and must conform to
+    /// [RFC 1035](<https://www.ietf.org/rfc/rfc1035.txt>).
+    /// Label **values** may be empty, but, if present, must contain 1 to 63
+    /// characters, and must conform to [RFC
+    /// 1035](<https://www.ietf.org/rfc/rfc1035.txt>). No more than 32 labels can be
+    /// associated with a batch.
+    #[prost(btree_map = "string, string", tag = "13")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Optional. Runtime configuration for the batch execution.
+    #[prost(message, optional, tag = "14")]
+    pub runtime_config: ::core::option::Option<RuntimeConfig>,
+    /// Optional. Environment configuration for the batch execution.
+    #[prost(message, optional, tag = "15")]
+    pub environment_config: ::core::option::Option<EnvironmentConfig>,
+    /// Output only. The resource name of the operation associated with this batch.
+    #[prost(string, tag = "16")]
+    pub operation: ::prost::alloc::string::String,
+    /// Output only. Historical state information for the batch.
+    #[prost(message, repeated, tag = "17")]
+    pub state_history: ::prost::alloc::vec::Vec<batch::StateHistory>,
+    /// The application/framework-specific portion of the batch configuration.
+    #[prost(oneof = "batch::BatchConfig", tags = "4, 5, 6, 7")]
+    pub batch_config: ::core::option::Option<batch::BatchConfig>,
+}
+/// Nested message and enum types in `Batch`.
+pub mod batch {
+    /// Historical state information.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct StateHistory {
+        /// Output only. The state of the batch at this point in history.
+        #[prost(enumeration = "State", tag = "1")]
+        pub state: i32,
+        /// Output only. Details about the state at this point in history.
+        #[prost(string, tag = "2")]
+        pub state_message: ::prost::alloc::string::String,
+        /// Output only. The time when the batch entered the historical state.
+        #[prost(message, optional, tag = "3")]
+        pub state_start_time: ::core::option::Option<::prost_types::Timestamp>,
+    }
+    /// The batch state.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// The batch state is unknown.
+        Unspecified = 0,
+        /// The batch is created before running.
+        Pending = 1,
+        /// The batch is running.
+        Running = 2,
+        /// The batch is cancelling.
+        Cancelling = 3,
+        /// The batch cancellation was successful.
+        Cancelled = 4,
+        /// The batch completed successfully.
+        Succeeded = 5,
+        /// The batch is no longer running due to an error.
+        Failed = 6,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Pending => "PENDING",
+                State::Running => "RUNNING",
+                State::Cancelling => "CANCELLING",
+                State::Cancelled => "CANCELLED",
+                State::Succeeded => "SUCCEEDED",
+                State::Failed => "FAILED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "PENDING" => Some(Self::Pending),
+                "RUNNING" => Some(Self::Running),
+                "CANCELLING" => Some(Self::Cancelling),
+                "CANCELLED" => Some(Self::Cancelled),
+                "SUCCEEDED" => Some(Self::Succeeded),
+                "FAILED" => Some(Self::Failed),
+                _ => None,
+            }
+        }
+    }
+    /// The application/framework-specific portion of the batch configuration.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum BatchConfig {
+        /// Optional. PySpark batch config.
+        #[prost(message, tag = "4")]
+        PysparkBatch(super::PySparkBatch),
+        /// Optional. Spark batch config.
+        #[prost(message, tag = "5")]
+        SparkBatch(super::SparkBatch),
+        /// Optional. SparkR batch config.
+        #[prost(message, tag = "6")]
+        SparkRBatch(super::SparkRBatch),
+        /// Optional. SparkSql batch config.
+        #[prost(message, tag = "7")]
+        SparkSqlBatch(super::SparkSqlBatch),
+    }
+}
+/// A configuration for running an
+/// [Apache
+/// PySpark](<https://spark.apache.org/docs/latest/api/python/getting_started/quickstart.html>)
+/// batch workload.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PySparkBatch {
+    /// Required. The HCFS URI of the main Python file to use as the Spark driver.
+    /// Must be a .py file.
+    #[prost(string, tag = "1")]
+    pub main_python_file_uri: ::prost::alloc::string::String,
+    /// Optional. The arguments to pass to the driver. Do not include arguments
+    /// that can be set as batch properties, such as `--conf`, since a collision
+    /// can occur that causes an incorrect batch submission.
+    #[prost(string, repeated, tag = "2")]
+    pub args: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. HCFS file URIs of Python files to pass to the PySpark
+    /// framework. Supported file types: `.py`, `.egg`, and `.zip`.
+    #[prost(string, repeated, tag = "3")]
+    pub python_file_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. HCFS URIs of jar files to add to the classpath of the
+    /// Spark driver and tasks.
+    #[prost(string, repeated, tag = "4")]
+    pub jar_file_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. HCFS URIs of files to be placed in the working directory of
+    /// each executor.
+    #[prost(string, repeated, tag = "5")]
+    pub file_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. HCFS URIs of archives to be extracted into the working directory
+    /// of each executor. Supported file types:
+    /// `.jar`, `.tar`, `.tar.gz`, `.tgz`, and `.zip`.
+    #[prost(string, repeated, tag = "6")]
+    pub archive_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// A configuration for running an [Apache Spark](<https://spark.apache.org/>)
+/// batch workload.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SparkBatch {
+    /// Optional. The arguments to pass to the driver. Do not include arguments
+    /// that can be set as batch properties, such as `--conf`, since a collision
+    /// can occur that causes an incorrect batch submission.
+    #[prost(string, repeated, tag = "3")]
+    pub args: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. HCFS URIs of jar files to add to the classpath of the
+    /// Spark driver and tasks.
+    #[prost(string, repeated, tag = "4")]
+    pub jar_file_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. HCFS URIs of files to be placed in the working directory of
+    /// each executor.
+    #[prost(string, repeated, tag = "5")]
+    pub file_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. HCFS URIs of archives to be extracted into the working directory
+    /// of each executor. Supported file types:
+    /// `.jar`, `.tar`, `.tar.gz`, `.tgz`, and `.zip`.
+    #[prost(string, repeated, tag = "6")]
+    pub archive_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The specification of the main method to call to drive the Spark
+    /// workload. Specify either the jar file that contains the main class or the
+    /// main class name. To pass both a main jar and a main class in that jar, add
+    /// the jar to `jar_file_uris`, and then specify the main class
+    /// name in `main_class`.
+    #[prost(oneof = "spark_batch::Driver", tags = "1, 2")]
+    pub driver: ::core::option::Option<spark_batch::Driver>,
+}
+/// Nested message and enum types in `SparkBatch`.
+pub mod spark_batch {
+    /// The specification of the main method to call to drive the Spark
+    /// workload. Specify either the jar file that contains the main class or the
+    /// main class name. To pass both a main jar and a main class in that jar, add
+    /// the jar to `jar_file_uris`, and then specify the main class
+    /// name in `main_class`.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Driver {
+        /// Optional. The HCFS URI of the jar file that contains the main class.
+        #[prost(string, tag = "1")]
+        MainJarFileUri(::prost::alloc::string::String),
+        /// Optional. The name of the driver main class. The jar file that contains
+        /// the class must be in the classpath or specified in `jar_file_uris`.
+        #[prost(string, tag = "2")]
+        MainClass(::prost::alloc::string::String),
+    }
+}
+/// A configuration for running an
+/// [Apache SparkR](<https://spark.apache.org/docs/latest/sparkr.html>)
+/// batch workload.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SparkRBatch {
+    /// Required. The HCFS URI of the main R file to use as the driver.
+    /// Must be a `.R` or `.r` file.
+    #[prost(string, tag = "1")]
+    pub main_r_file_uri: ::prost::alloc::string::String,
+    /// Optional. The arguments to pass to the Spark driver. Do not include
+    /// arguments that can be set as batch properties, such as `--conf`, since a
+    /// collision can occur that causes an incorrect batch submission.
+    #[prost(string, repeated, tag = "2")]
+    pub args: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. HCFS URIs of files to be placed in the working directory of
+    /// each executor.
+    #[prost(string, repeated, tag = "3")]
+    pub file_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. HCFS URIs of archives to be extracted into the working directory
+    /// of each executor. Supported file types:
+    /// `.jar`, `.tar`, `.tar.gz`, `.tgz`, and `.zip`.
+    #[prost(string, repeated, tag = "4")]
+    pub archive_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// A configuration for running
+/// [Apache Spark SQL](<https://spark.apache.org/sql/>) queries as a batch
+/// workload.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SparkSqlBatch {
+    /// Required. The HCFS URI of the script that contains Spark SQL queries to
+    /// execute.
+    #[prost(string, tag = "1")]
+    pub query_file_uri: ::prost::alloc::string::String,
+    /// Optional. Mapping of query variable names to values (equivalent to the
+    /// Spark SQL command: `SET name="value";`).
+    #[prost(btree_map = "string, string", tag = "2")]
+    pub query_variables: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Optional. HCFS URIs of jar files to be added to the Spark CLASSPATH.
+    #[prost(string, repeated, tag = "3")]
+    pub jar_file_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Generated client implementations.
+pub mod batch_controller_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// The BatchController provides methods to manage batch workloads.
+    #[derive(Debug, Clone)]
+    pub struct BatchControllerClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> BatchControllerClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> BatchControllerClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            BatchControllerClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Creates a batch workload that executes asynchronously.
+        pub async fn create_batch(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateBatchRequest>,
+        ) -> Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataproc.v1.BatchController/CreateBatch",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+        /// Gets the batch workload resource representation.
+        pub async fn get_batch(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetBatchRequest>,
+        ) -> Result<tonic::Response<super::Batch>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataproc.v1.BatchController/GetBatch",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+        /// Lists batch workloads.
+        pub async fn list_batches(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListBatchesRequest>,
+        ) -> Result<tonic::Response<super::ListBatchesResponse>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataproc.v1.BatchController/ListBatches",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+        /// Deletes the batch workload resource. If the batch is not in terminal state,
+        /// the delete fails and the response returns `FAILED_PRECONDITION`.
+        pub async fn delete_batch(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteBatchRequest>,
+        ) -> Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataproc.v1.BatchController/DeleteBatch",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+    }
+}
 /// The runtime logging config of the job.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1432,586 +3255,6 @@ pub mod job_controller_client {
                 "/google.cloud.dataproc.v1.JobController/DeleteJob",
             );
             self.inner.unary(request.into_request(), path, codec).await
-        }
-    }
-}
-/// Runtime configuration for a workload.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RuntimeConfig {
-    /// Optional. Version of the batch runtime.
-    #[prost(string, tag = "1")]
-    pub version: ::prost::alloc::string::String,
-    /// Optional. Optional custom container image for the job runtime environment.
-    /// If not specified, a default container image will be used.
-    #[prost(string, tag = "2")]
-    pub container_image: ::prost::alloc::string::String,
-    /// Optional. A mapping of property names to values, which are used to
-    /// configure workload execution.
-    #[prost(btree_map = "string, string", tag = "3")]
-    pub properties: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// Environment configuration for a workload.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EnvironmentConfig {
-    /// Optional. Execution configuration for a workload.
-    #[prost(message, optional, tag = "1")]
-    pub execution_config: ::core::option::Option<ExecutionConfig>,
-    /// Optional. Peripherals configuration that workload has access to.
-    #[prost(message, optional, tag = "2")]
-    pub peripherals_config: ::core::option::Option<PeripheralsConfig>,
-}
-/// Execution configuration for a workload.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExecutionConfig {
-    /// Optional. Service account that used to execute workload.
-    #[prost(string, tag = "2")]
-    pub service_account: ::prost::alloc::string::String,
-    /// Optional. Tags used for network traffic control.
-    #[prost(string, repeated, tag = "6")]
-    pub network_tags: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. The Cloud KMS key to use for encryption.
-    #[prost(string, tag = "7")]
-    pub kms_key: ::prost::alloc::string::String,
-    /// Optional. The duration after which the workload will be terminated.
-    /// When the workload passes this ttl, it will be unconditionally killed
-    /// without waiting for ongoing work to finish.
-    /// Minimum value is 10 minutes; maximum value is 14 days (see JSON
-    /// representation of
-    /// \[Duration\](<https://developers.google.com/protocol-buffers/docs/proto3#json>)).
-    /// If both ttl and idle_ttl are specified, the conditions are treated as
-    /// and OR: the workload will be terminated when it has been idle for idle_ttl
-    /// or when the ttl has passed, whichever comes first.
-    /// If ttl is not specified for a session, it defaults to 24h.
-    #[prost(message, optional, tag = "9")]
-    pub ttl: ::core::option::Option<::prost_types::Duration>,
-    /// Optional. A Cloud Storage bucket used to stage workload dependencies,
-    /// config files, and store workload output and other ephemeral data, such as
-    /// Spark history files. If you do not specify a staging bucket, Cloud Dataproc
-    /// will determine a Cloud Storage location according to the region where your
-    /// workload is running, and then create and manage project-level, per-location
-    /// staging and temporary buckets.
-    /// **This field requires a Cloud Storage bucket name, not a `gs://...` URI to
-    /// a Cloud Storage bucket.**
-    #[prost(string, tag = "10")]
-    pub staging_bucket: ::prost::alloc::string::String,
-    /// Network configuration for workload execution.
-    #[prost(oneof = "execution_config::Network", tags = "4, 5")]
-    pub network: ::core::option::Option<execution_config::Network>,
-}
-/// Nested message and enum types in `ExecutionConfig`.
-pub mod execution_config {
-    /// Network configuration for workload execution.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Network {
-        /// Optional. Network URI to connect workload to.
-        #[prost(string, tag = "4")]
-        NetworkUri(::prost::alloc::string::String),
-        /// Optional. Subnetwork URI to connect workload to.
-        #[prost(string, tag = "5")]
-        SubnetworkUri(::prost::alloc::string::String),
-    }
-}
-/// Spark History Server configuration for the workload.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SparkHistoryServerConfig {
-    /// Optional. Resource name of an existing Dataproc Cluster to act as a Spark
-    /// History Server for the workload.
-    ///
-    /// Example:
-    ///
-    /// * `projects/\[project_id]/regions/[region]/clusters/[cluster_name\]`
-    #[prost(string, tag = "1")]
-    pub dataproc_cluster: ::prost::alloc::string::String,
-}
-/// Auxiliary services configuration for a workload.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PeripheralsConfig {
-    /// Optional. Resource name of an existing Dataproc Metastore service.
-    ///
-    /// Example:
-    ///
-    /// * `projects/\[project_id]/locations/[region]/services/[service_id\]`
-    #[prost(string, tag = "1")]
-    pub metastore_service: ::prost::alloc::string::String,
-    /// Optional. The Spark History Server configuration for the workload.
-    #[prost(message, optional, tag = "2")]
-    pub spark_history_server_config: ::core::option::Option<SparkHistoryServerConfig>,
-}
-/// Runtime information about workload execution.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RuntimeInfo {
-    /// Output only. Map of remote access endpoints (such as web interfaces and
-    /// APIs) to their URIs.
-    #[prost(btree_map = "string, string", tag = "1")]
-    pub endpoints: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. A URI pointing to the location of the stdout and stderr of the
-    /// workload.
-    #[prost(string, tag = "2")]
-    pub output_uri: ::prost::alloc::string::String,
-    /// Output only. A URI pointing to the location of the diagnostics tarball.
-    #[prost(string, tag = "3")]
-    pub diagnostic_output_uri: ::prost::alloc::string::String,
-    /// Output only. Approximate workload resource usage calculated after workload
-    /// finishes (see [Dataproc Serverless pricing]
-    /// (<https://cloud.google.com/dataproc-serverless/pricing>)).
-    #[prost(message, optional, tag = "6")]
-    pub approximate_usage: ::core::option::Option<UsageMetrics>,
-    /// Output only. Snapshot of current workload resource usage.
-    #[prost(message, optional, tag = "7")]
-    pub current_usage: ::core::option::Option<UsageSnapshot>,
-}
-/// Usage metrics represent approximate total resources consumed by a workload.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UsageMetrics {
-    /// Optional. DCU (Dataproc Compute Units) usage in (`milliDCU` x `seconds`)
-    /// (see [Dataproc Serverless pricing]
-    /// (<https://cloud.google.com/dataproc-serverless/pricing>)).
-    #[prost(int64, tag = "1")]
-    pub milli_dcu_seconds: i64,
-    /// Optional. Shuffle storage usage in (`GB` x `seconds`) (see
-    /// [Dataproc Serverless pricing]
-    /// (<https://cloud.google.com/dataproc-serverless/pricing>)).
-    #[prost(int64, tag = "2")]
-    pub shuffle_storage_gb_seconds: i64,
-}
-/// The usage snaphot represents the resources consumed by a workload at a
-/// specified time.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UsageSnapshot {
-    /// Optional. Milli (one-thousandth) Dataproc Compute Units (DCUs) (see
-    /// [Dataproc Serverless pricing]
-    /// (<https://cloud.google.com/dataproc-serverless/pricing>)).
-    #[prost(int64, tag = "1")]
-    pub milli_dcu: i64,
-    /// Optional. Shuffle Storage in gigabytes (GB). (see [Dataproc Serverless
-    /// pricing] (<https://cloud.google.com/dataproc-serverless/pricing>))
-    #[prost(int64, tag = "2")]
-    pub shuffle_storage_gb: i64,
-    /// Optional. The timestamp of the usage snapshot.
-    #[prost(message, optional, tag = "3")]
-    pub snapshot_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// The cluster's GKE config.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GkeClusterConfig {
-    /// Optional. A target GKE cluster to deploy to. It must be in the same project
-    /// and region as the Dataproc cluster (the GKE cluster can be zonal or
-    /// regional). Format:
-    /// 'projects/{project}/locations/{location}/clusters/{cluster_id}'
-    #[prost(string, tag = "2")]
-    pub gke_cluster_target: ::prost::alloc::string::String,
-    /// Optional. GKE node pools where workloads will be scheduled. At least one
-    /// node pool must be assigned the `DEFAULT`
-    /// \[GkeNodePoolTarget.Role][google.cloud.dataproc.v1.GkeNodePoolTarget.Role\].
-    /// If a `GkeNodePoolTarget` is not specified, Dataproc constructs a `DEFAULT`
-    /// `GkeNodePoolTarget`. Each role can be given to only one
-    /// `GkeNodePoolTarget`. All node pools must have the same location settings.
-    #[prost(message, repeated, tag = "3")]
-    pub node_pool_target: ::prost::alloc::vec::Vec<GkeNodePoolTarget>,
-}
-/// The configuration for running the Dataproc cluster on Kubernetes.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct KubernetesClusterConfig {
-    /// Optional. A namespace within the Kubernetes cluster to deploy into. If this
-    /// namespace does not exist, it is created. If it exists, Dataproc verifies
-    /// that another Dataproc VirtualCluster is not installed into it. If not
-    /// specified, the name of the Dataproc Cluster is used.
-    #[prost(string, tag = "1")]
-    pub kubernetes_namespace: ::prost::alloc::string::String,
-    /// Optional. The software configuration for this Dataproc cluster running on
-    /// Kubernetes.
-    #[prost(message, optional, tag = "3")]
-    pub kubernetes_software_config: ::core::option::Option<KubernetesSoftwareConfig>,
-    #[prost(oneof = "kubernetes_cluster_config::Config", tags = "2")]
-    pub config: ::core::option::Option<kubernetes_cluster_config::Config>,
-}
-/// Nested message and enum types in `KubernetesClusterConfig`.
-pub mod kubernetes_cluster_config {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Config {
-        /// Required. The configuration for running the Dataproc cluster on GKE.
-        #[prost(message, tag = "2")]
-        GkeClusterConfig(super::GkeClusterConfig),
-    }
-}
-/// The software configuration for this Dataproc cluster running on Kubernetes.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct KubernetesSoftwareConfig {
-    /// The components that should be installed in this Dataproc cluster. The key
-    /// must be a string from the KubernetesComponent enumeration. The value is
-    /// the version of the software to be installed.
-    /// At least one entry must be specified.
-    #[prost(btree_map = "string, string", tag = "1")]
-    pub component_version: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// The properties to set on daemon config files.
-    ///
-    /// Property keys are specified in `prefix:property` format, for example
-    /// `spark:spark.kubernetes.container.image`. The following are supported
-    /// prefixes and their mappings:
-    ///
-    /// * spark:  `spark-defaults.conf`
-    ///
-    /// For more information, see [Cluster
-    /// properties](<https://cloud.google.com/dataproc/docs/concepts/cluster-properties>).
-    #[prost(btree_map = "string, string", tag = "2")]
-    pub properties: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// GKE node pools that Dataproc workloads run on.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GkeNodePoolTarget {
-    /// Required. The target GKE node pool.
-    /// Format:
-    /// 'projects/{project}/locations/{location}/clusters/{cluster}/nodePools/{node_pool}'
-    #[prost(string, tag = "1")]
-    pub node_pool: ::prost::alloc::string::String,
-    /// Required. The roles associated with the GKE node pool.
-    #[prost(
-        enumeration = "gke_node_pool_target::Role",
-        repeated,
-        packed = "false",
-        tag = "2"
-    )]
-    pub roles: ::prost::alloc::vec::Vec<i32>,
-    /// Input only. The configuration for the GKE node pool.
-    ///
-    /// If specified, Dataproc attempts to create a node pool with the
-    /// specified shape. If one with the same name already exists, it is
-    /// verified against all specified fields. If a field differs, the
-    /// virtual cluster creation will fail.
-    ///
-    /// If omitted, any node pool with the specified name is used. If a
-    /// node pool with the specified name does not exist, Dataproc create a
-    /// node pool with default values.
-    ///
-    /// This is an input only field. It will not be returned by the API.
-    #[prost(message, optional, tag = "3")]
-    pub node_pool_config: ::core::option::Option<GkeNodePoolConfig>,
-}
-/// Nested message and enum types in `GkeNodePoolTarget`.
-pub mod gke_node_pool_target {
-    /// `Role` specifies the tasks that will run on the node pool. Roles can be
-    /// specific to workloads. Exactly one
-    /// \[GkeNodePoolTarget][google.cloud.dataproc.v1.GkeNodePoolTarget\] within the
-    /// virtual cluster must have the `DEFAULT` role, which is used to run all
-    /// workloads that are not associated with a node pool.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Role {
-        /// Role is unspecified.
-        Unspecified = 0,
-        /// At least one node pool must have the `DEFAULT` role.
-        /// Work assigned to a role that is not associated with a node pool
-        /// is assigned to the node pool with the `DEFAULT` role. For example,
-        /// work assigned to the `CONTROLLER` role will be assigned to the node pool
-        /// with the `DEFAULT` role if no node pool has the `CONTROLLER` role.
-        Default = 1,
-        /// Run work associated with the Dataproc control plane (for example,
-        /// controllers and webhooks). Very low resource requirements.
-        Controller = 2,
-        /// Run work associated with a Spark driver of a job.
-        SparkDriver = 3,
-        /// Run work associated with a Spark executor of a job.
-        SparkExecutor = 4,
-    }
-    impl Role {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Role::Unspecified => "ROLE_UNSPECIFIED",
-                Role::Default => "DEFAULT",
-                Role::Controller => "CONTROLLER",
-                Role::SparkDriver => "SPARK_DRIVER",
-                Role::SparkExecutor => "SPARK_EXECUTOR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "ROLE_UNSPECIFIED" => Some(Self::Unspecified),
-                "DEFAULT" => Some(Self::Default),
-                "CONTROLLER" => Some(Self::Controller),
-                "SPARK_DRIVER" => Some(Self::SparkDriver),
-                "SPARK_EXECUTOR" => Some(Self::SparkExecutor),
-                _ => None,
-            }
-        }
-    }
-}
-/// The configuration of a GKE node pool used by a [Dataproc-on-GKE
-/// cluster](<https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster>).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GkeNodePoolConfig {
-    /// Optional. The node pool configuration.
-    #[prost(message, optional, tag = "2")]
-    pub config: ::core::option::Option<gke_node_pool_config::GkeNodeConfig>,
-    /// Optional. The list of Compute Engine
-    /// \[zones\](<https://cloud.google.com/compute/docs/zones#available>) where
-    /// node pool nodes associated with a Dataproc on GKE virtual cluster
-    /// will be located.
-    ///
-    /// **Note:** All node pools associated with a virtual cluster
-    /// must be located in the same region as the virtual cluster, and they must
-    /// be located in the same zone within that region.
-    ///
-    /// If a location is not specified during node pool creation, Dataproc on GKE
-    /// will choose the zone.
-    #[prost(string, repeated, tag = "13")]
-    pub locations: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. The autoscaler configuration for this node pool. The autoscaler
-    /// is enabled only when a valid configuration is present.
-    #[prost(message, optional, tag = "4")]
-    pub autoscaling: ::core::option::Option<
-        gke_node_pool_config::GkeNodePoolAutoscalingConfig,
-    >,
-}
-/// Nested message and enum types in `GkeNodePoolConfig`.
-pub mod gke_node_pool_config {
-    /// Parameters that describe cluster nodes.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct GkeNodeConfig {
-        /// Optional. The name of a Compute Engine [machine
-        /// type](<https://cloud.google.com/compute/docs/machine-types>).
-        #[prost(string, tag = "1")]
-        pub machine_type: ::prost::alloc::string::String,
-        /// Optional. The number of local SSD disks to attach to the node, which is
-        /// limited by the maximum number of disks allowable per zone (see [Adding
-        /// Local SSDs](<https://cloud.google.com/compute/docs/disks/local-ssd>)).
-        #[prost(int32, tag = "7")]
-        pub local_ssd_count: i32,
-        /// Optional. Whether the nodes are created as legacy [preemptible VM
-        /// instances] (<https://cloud.google.com/compute/docs/instances/preemptible>).
-        /// Also see
-        /// \[Spot][google.cloud.dataproc.v1.GkeNodePoolConfig.GkeNodeConfig.spot\]
-        /// VMs, preemptible VM instances without a maximum lifetime. Legacy and Spot
-        /// preemptible nodes cannot be used in a node pool with the `CONTROLLER`
-        /// \[role\]
-        /// (/dataproc/docs/reference/rest/v1/projects.regions.clusters#role)
-        /// or in the DEFAULT node pool if the CONTROLLER role is not assigned (the
-        /// DEFAULT node pool will assume the CONTROLLER role).
-        #[prost(bool, tag = "10")]
-        pub preemptible: bool,
-        /// Optional. A list of [hardware
-        /// accelerators](<https://cloud.google.com/compute/docs/gpus>) to attach to
-        /// each node.
-        #[prost(message, repeated, tag = "11")]
-        pub accelerators: ::prost::alloc::vec::Vec<GkeNodePoolAcceleratorConfig>,
-        /// Optional. [Minimum CPU
-        /// platform](<https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform>)
-        /// to be used by this instance. The instance may be scheduled on the
-        /// specified or a newer CPU platform. Specify the friendly names of CPU
-        /// platforms, such as "Intel Haswell"` or Intel Sandy Bridge".
-        #[prost(string, tag = "13")]
-        pub min_cpu_platform: ::prost::alloc::string::String,
-        /// Optional. The [Customer Managed Encryption Key (CMEK)]
-        /// (<https://cloud.google.com/kubernetes-engine/docs/how-to/using-cmek>)
-        /// used to encrypt the boot disk attached to each node in the node pool.
-        /// Specify the key using the following format:
-        /// <code>projects/<var>KEY_PROJECT_ID</var>/locations/<var>LOCATION</var>/keyRings/<var>RING_NAME</var>/cryptoKeys/<var>KEY_NAME</var></code>.
-        #[prost(string, tag = "23")]
-        pub boot_disk_kms_key: ::prost::alloc::string::String,
-        /// Optional. Whether the nodes are created as [Spot VM instances]
-        /// (<https://cloud.google.com/compute/docs/instances/spot>).
-        /// Spot VMs are the latest update to legacy
-        /// [preemptible
-        /// VMs]\[google.cloud.dataproc.v1.GkeNodePoolConfig.GkeNodeConfig.preemptible\].
-        /// Spot VMs do not have a maximum lifetime. Legacy and Spot preemptible
-        /// nodes cannot be used in a node pool with the `CONTROLLER`
-        /// \[role\](/dataproc/docs/reference/rest/v1/projects.regions.clusters#role)
-        /// or in the DEFAULT node pool if the CONTROLLER role is not assigned (the
-        /// DEFAULT node pool will assume the CONTROLLER role).
-        #[prost(bool, tag = "32")]
-        pub spot: bool,
-    }
-    /// A GkeNodeConfigAcceleratorConfig represents a Hardware Accelerator request
-    /// for a node pool.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct GkeNodePoolAcceleratorConfig {
-        /// The number of accelerator cards exposed to an instance.
-        #[prost(int64, tag = "1")]
-        pub accelerator_count: i64,
-        /// The accelerator type resource namename (see GPUs on Compute Engine).
-        #[prost(string, tag = "2")]
-        pub accelerator_type: ::prost::alloc::string::String,
-        /// Size of partitions to create on the GPU. Valid values are described in
-        /// the NVIDIA [mig user
-        /// guide](<https://docs.nvidia.com/datacenter/tesla/mig-user-guide/#partitioning>).
-        #[prost(string, tag = "3")]
-        pub gpu_partition_size: ::prost::alloc::string::String,
-    }
-    /// GkeNodePoolAutoscaling contains information the cluster autoscaler needs to
-    /// adjust the size of the node pool to the current cluster usage.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct GkeNodePoolAutoscalingConfig {
-        /// The minimum number of nodes in the node pool. Must be >= 0 and <=
-        /// max_node_count.
-        #[prost(int32, tag = "2")]
-        pub min_node_count: i32,
-        /// The maximum number of nodes in the node pool. Must be >= min_node_count,
-        /// and must be > 0.
-        /// **Note:** Quota must be sufficient to scale up the cluster.
-        #[prost(int32, tag = "3")]
-        pub max_node_count: i32,
-    }
-}
-/// Cluster components that can be activated.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum Component {
-    /// Unspecified component. Specifying this will cause Cluster creation to fail.
-    Unspecified = 0,
-    /// The Anaconda python distribution. The Anaconda component is not supported
-    /// in the Dataproc
-    /// <a
-    /// href="/dataproc/docs/concepts/versioning/dataproc-release-2.0">2.0
-    /// image</a>. The 2.0 image is pre-installed with Miniconda.
-    Anaconda = 5,
-    /// Docker
-    Docker = 13,
-    /// The Druid query engine. (alpha)
-    Druid = 9,
-    /// Flink
-    Flink = 14,
-    /// HBase. (beta)
-    Hbase = 11,
-    /// The Hive Web HCatalog (the REST service for accessing HCatalog).
-    HiveWebhcat = 3,
-    /// Hudi.
-    Hudi = 18,
-    /// The Jupyter Notebook.
-    Jupyter = 1,
-    /// The Presto query engine.
-    Presto = 6,
-    /// The Trino query engine.
-    Trino = 17,
-    /// The Ranger service.
-    Ranger = 12,
-    /// The Solr service.
-    Solr = 10,
-    /// The Zeppelin notebook.
-    Zeppelin = 4,
-    /// The Zookeeper service.
-    Zookeeper = 8,
-}
-impl Component {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            Component::Unspecified => "COMPONENT_UNSPECIFIED",
-            Component::Anaconda => "ANACONDA",
-            Component::Docker => "DOCKER",
-            Component::Druid => "DRUID",
-            Component::Flink => "FLINK",
-            Component::Hbase => "HBASE",
-            Component::HiveWebhcat => "HIVE_WEBHCAT",
-            Component::Hudi => "HUDI",
-            Component::Jupyter => "JUPYTER",
-            Component::Presto => "PRESTO",
-            Component::Trino => "TRINO",
-            Component::Ranger => "RANGER",
-            Component::Solr => "SOLR",
-            Component::Zeppelin => "ZEPPELIN",
-            Component::Zookeeper => "ZOOKEEPER",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "COMPONENT_UNSPECIFIED" => Some(Self::Unspecified),
-            "ANACONDA" => Some(Self::Anaconda),
-            "DOCKER" => Some(Self::Docker),
-            "DRUID" => Some(Self::Druid),
-            "FLINK" => Some(Self::Flink),
-            "HBASE" => Some(Self::Hbase),
-            "HIVE_WEBHCAT" => Some(Self::HiveWebhcat),
-            "HUDI" => Some(Self::Hudi),
-            "JUPYTER" => Some(Self::Jupyter),
-            "PRESTO" => Some(Self::Presto),
-            "TRINO" => Some(Self::Trino),
-            "RANGER" => Some(Self::Ranger),
-            "SOLR" => Some(Self::Solr),
-            "ZEPPELIN" => Some(Self::Zeppelin),
-            "ZOOKEEPER" => Some(Self::Zookeeper),
-            _ => None,
-        }
-    }
-}
-/// Actions in response to failure of a resource associated with a cluster.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum FailureAction {
-    /// When FailureAction is unspecified, failure action defaults to NO_ACTION.
-    Unspecified = 0,
-    /// Take no action on failure to create a cluster resource. NO_ACTION is the
-    /// default.
-    NoAction = 1,
-    /// Delete the failed cluster resource.
-    Delete = 2,
-}
-impl FailureAction {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            FailureAction::Unspecified => "FAILURE_ACTION_UNSPECIFIED",
-            FailureAction::NoAction => "NO_ACTION",
-            FailureAction::Delete => "DELETE",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "FAILURE_ACTION_UNSPECIFIED" => Some(Self::Unspecified),
-            "NO_ACTION" => Some(Self::NoAction),
-            "DELETE" => Some(Self::Delete),
-            _ => None,
         }
     }
 }
@@ -4135,534 +5378,6 @@ pub mod node_group_controller_client {
         }
     }
 }
-/// A request to create a batch workload.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateBatchRequest {
-    /// Required. The parent resource where this batch will be created.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The batch to create.
-    #[prost(message, optional, tag = "2")]
-    pub batch: ::core::option::Option<Batch>,
-    /// Optional. The ID to use for the batch, which will become the final
-    /// component of the batch's resource name.
-    ///
-    /// This value must be 4-63 characters. Valid characters are `/\[a-z][0-9\]-/`.
-    #[prost(string, tag = "3")]
-    pub batch_id: ::prost::alloc::string::String,
-    /// Optional. A unique ID used to identify the request. If the service
-    /// receives two
-    /// \[CreateBatchRequest\](<https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.CreateBatchRequest>)s
-    /// with the same request_id, the second request is ignored and the
-    /// Operation that corresponds to the first Batch created and stored
-    /// in the backend is returned.
-    ///
-    /// Recommendation: Set this value to a
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier>).
-    ///
-    /// The value must contain only letters (a-z, A-Z), numbers (0-9),
-    /// underscores (_), and hyphens (-). The maximum length is 40 characters.
-    #[prost(string, tag = "4")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// A request to get the resource representation for a batch workload.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetBatchRequest {
-    /// Required. The fully qualified name of the batch to retrieve
-    /// in the format
-    /// "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// A request to list batch workloads in a project.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListBatchesRequest {
-    /// Required. The parent, which owns this collection of batches.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Optional. The maximum number of batches to return in each response.
-    /// The service may return fewer than this value.
-    /// The default page size is 20; the maximum page size is 1000.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// Optional. A page token received from a previous `ListBatches` call.
-    /// Provide this token to retrieve the subsequent page.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Optional. A filter for the batches to return in the response.
-    ///
-    /// A filter is a logical expression constraining the values of various fields
-    /// in each batch resource. Filters are case sensitive, and may contain
-    /// multiple clauses combined with logical operators (AND/OR).
-    /// Supported fields are `batch_id`, `batch_uuid`, `state`, and `create_time`.
-    ///
-    /// e.g. `state = RUNNING and create_time < "2023-01-01T00:00:00Z"`
-    /// filters for batches in state RUNNING that were created before 2023-01-01
-    ///
-    /// See <https://google.aip.dev/assets/misc/ebnf-filtering.txt> for a detailed
-    /// description of the filter syntax and a list of supported comparisons.
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Optional. Field(s) on which to sort the list of batches.
-    ///
-    /// Currently the only supported sort orders are unspecified (empty) and
-    /// `create_time desc` to sort by most recently created batches first.
-    ///
-    /// See <https://google.aip.dev/132#ordering> for more details.
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// A list of batch workloads.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListBatchesResponse {
-    /// The batches from the specified collection.
-    #[prost(message, repeated, tag = "1")]
-    pub batches: ::prost::alloc::vec::Vec<Batch>,
-    /// A token, which can be sent as `page_token` to retrieve the next page.
-    /// If this field is omitted, there are no subsequent pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// A request to delete a batch workload.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteBatchRequest {
-    /// Required. The fully qualified name of the batch to retrieve
-    /// in the format
-    /// "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// A representation of a batch workload in the service.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Batch {
-    /// Output only. The resource name of the batch.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. A batch UUID (Unique Universal Identifier). The service
-    /// generates this value when it creates the batch.
-    #[prost(string, tag = "2")]
-    pub uuid: ::prost::alloc::string::String,
-    /// Output only. The time when the batch was created.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Runtime information about batch execution.
-    #[prost(message, optional, tag = "8")]
-    pub runtime_info: ::core::option::Option<RuntimeInfo>,
-    /// Output only. The state of the batch.
-    #[prost(enumeration = "batch::State", tag = "9")]
-    pub state: i32,
-    /// Output only. Batch state details, such as a failure
-    /// description if the state is `FAILED`.
-    #[prost(string, tag = "10")]
-    pub state_message: ::prost::alloc::string::String,
-    /// Output only. The time when the batch entered a current state.
-    #[prost(message, optional, tag = "11")]
-    pub state_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The email address of the user who created the batch.
-    #[prost(string, tag = "12")]
-    pub creator: ::prost::alloc::string::String,
-    /// Optional. The labels to associate with this batch.
-    /// Label **keys** must contain 1 to 63 characters, and must conform to
-    /// [RFC 1035](<https://www.ietf.org/rfc/rfc1035.txt>).
-    /// Label **values** may be empty, but, if present, must contain 1 to 63
-    /// characters, and must conform to [RFC
-    /// 1035](<https://www.ietf.org/rfc/rfc1035.txt>). No more than 32 labels can be
-    /// associated with a batch.
-    #[prost(btree_map = "string, string", tag = "13")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Optional. Runtime configuration for the batch execution.
-    #[prost(message, optional, tag = "14")]
-    pub runtime_config: ::core::option::Option<RuntimeConfig>,
-    /// Optional. Environment configuration for the batch execution.
-    #[prost(message, optional, tag = "15")]
-    pub environment_config: ::core::option::Option<EnvironmentConfig>,
-    /// Output only. The resource name of the operation associated with this batch.
-    #[prost(string, tag = "16")]
-    pub operation: ::prost::alloc::string::String,
-    /// Output only. Historical state information for the batch.
-    #[prost(message, repeated, tag = "17")]
-    pub state_history: ::prost::alloc::vec::Vec<batch::StateHistory>,
-    /// The application/framework-specific portion of the batch configuration.
-    #[prost(oneof = "batch::BatchConfig", tags = "4, 5, 6, 7")]
-    pub batch_config: ::core::option::Option<batch::BatchConfig>,
-}
-/// Nested message and enum types in `Batch`.
-pub mod batch {
-    /// Historical state information.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct StateHistory {
-        /// Output only. The state of the batch at this point in history.
-        #[prost(enumeration = "State", tag = "1")]
-        pub state: i32,
-        /// Output only. Details about the state at this point in history.
-        #[prost(string, tag = "2")]
-        pub state_message: ::prost::alloc::string::String,
-        /// Output only. The time when the batch entered the historical state.
-        #[prost(message, optional, tag = "3")]
-        pub state_start_time: ::core::option::Option<::prost_types::Timestamp>,
-    }
-    /// The batch state.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// The batch state is unknown.
-        Unspecified = 0,
-        /// The batch is created before running.
-        Pending = 1,
-        /// The batch is running.
-        Running = 2,
-        /// The batch is cancelling.
-        Cancelling = 3,
-        /// The batch cancellation was successful.
-        Cancelled = 4,
-        /// The batch completed successfully.
-        Succeeded = 5,
-        /// The batch is no longer running due to an error.
-        Failed = 6,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Pending => "PENDING",
-                State::Running => "RUNNING",
-                State::Cancelling => "CANCELLING",
-                State::Cancelled => "CANCELLED",
-                State::Succeeded => "SUCCEEDED",
-                State::Failed => "FAILED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "PENDING" => Some(Self::Pending),
-                "RUNNING" => Some(Self::Running),
-                "CANCELLING" => Some(Self::Cancelling),
-                "CANCELLED" => Some(Self::Cancelled),
-                "SUCCEEDED" => Some(Self::Succeeded),
-                "FAILED" => Some(Self::Failed),
-                _ => None,
-            }
-        }
-    }
-    /// The application/framework-specific portion of the batch configuration.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum BatchConfig {
-        /// Optional. PySpark batch config.
-        #[prost(message, tag = "4")]
-        PysparkBatch(super::PySparkBatch),
-        /// Optional. Spark batch config.
-        #[prost(message, tag = "5")]
-        SparkBatch(super::SparkBatch),
-        /// Optional. SparkR batch config.
-        #[prost(message, tag = "6")]
-        SparkRBatch(super::SparkRBatch),
-        /// Optional. SparkSql batch config.
-        #[prost(message, tag = "7")]
-        SparkSqlBatch(super::SparkSqlBatch),
-    }
-}
-/// A configuration for running an
-/// [Apache
-/// PySpark](<https://spark.apache.org/docs/latest/api/python/getting_started/quickstart.html>)
-/// batch workload.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PySparkBatch {
-    /// Required. The HCFS URI of the main Python file to use as the Spark driver.
-    /// Must be a .py file.
-    #[prost(string, tag = "1")]
-    pub main_python_file_uri: ::prost::alloc::string::String,
-    /// Optional. The arguments to pass to the driver. Do not include arguments
-    /// that can be set as batch properties, such as `--conf`, since a collision
-    /// can occur that causes an incorrect batch submission.
-    #[prost(string, repeated, tag = "2")]
-    pub args: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. HCFS file URIs of Python files to pass to the PySpark
-    /// framework. Supported file types: `.py`, `.egg`, and `.zip`.
-    #[prost(string, repeated, tag = "3")]
-    pub python_file_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. HCFS URIs of jar files to add to the classpath of the
-    /// Spark driver and tasks.
-    #[prost(string, repeated, tag = "4")]
-    pub jar_file_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. HCFS URIs of files to be placed in the working directory of
-    /// each executor.
-    #[prost(string, repeated, tag = "5")]
-    pub file_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. HCFS URIs of archives to be extracted into the working directory
-    /// of each executor. Supported file types:
-    /// `.jar`, `.tar`, `.tar.gz`, `.tgz`, and `.zip`.
-    #[prost(string, repeated, tag = "6")]
-    pub archive_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// A configuration for running an [Apache Spark](<https://spark.apache.org/>)
-/// batch workload.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SparkBatch {
-    /// Optional. The arguments to pass to the driver. Do not include arguments
-    /// that can be set as batch properties, such as `--conf`, since a collision
-    /// can occur that causes an incorrect batch submission.
-    #[prost(string, repeated, tag = "3")]
-    pub args: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. HCFS URIs of jar files to add to the classpath of the
-    /// Spark driver and tasks.
-    #[prost(string, repeated, tag = "4")]
-    pub jar_file_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. HCFS URIs of files to be placed in the working directory of
-    /// each executor.
-    #[prost(string, repeated, tag = "5")]
-    pub file_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. HCFS URIs of archives to be extracted into the working directory
-    /// of each executor. Supported file types:
-    /// `.jar`, `.tar`, `.tar.gz`, `.tgz`, and `.zip`.
-    #[prost(string, repeated, tag = "6")]
-    pub archive_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The specification of the main method to call to drive the Spark
-    /// workload. Specify either the jar file that contains the main class or the
-    /// main class name. To pass both a main jar and a main class in that jar, add
-    /// the jar to `jar_file_uris`, and then specify the main class
-    /// name in `main_class`.
-    #[prost(oneof = "spark_batch::Driver", tags = "1, 2")]
-    pub driver: ::core::option::Option<spark_batch::Driver>,
-}
-/// Nested message and enum types in `SparkBatch`.
-pub mod spark_batch {
-    /// The specification of the main method to call to drive the Spark
-    /// workload. Specify either the jar file that contains the main class or the
-    /// main class name. To pass both a main jar and a main class in that jar, add
-    /// the jar to `jar_file_uris`, and then specify the main class
-    /// name in `main_class`.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Driver {
-        /// Optional. The HCFS URI of the jar file that contains the main class.
-        #[prost(string, tag = "1")]
-        MainJarFileUri(::prost::alloc::string::String),
-        /// Optional. The name of the driver main class. The jar file that contains
-        /// the class must be in the classpath or specified in `jar_file_uris`.
-        #[prost(string, tag = "2")]
-        MainClass(::prost::alloc::string::String),
-    }
-}
-/// A configuration for running an
-/// [Apache SparkR](<https://spark.apache.org/docs/latest/sparkr.html>)
-/// batch workload.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SparkRBatch {
-    /// Required. The HCFS URI of the main R file to use as the driver.
-    /// Must be a `.R` or `.r` file.
-    #[prost(string, tag = "1")]
-    pub main_r_file_uri: ::prost::alloc::string::String,
-    /// Optional. The arguments to pass to the Spark driver. Do not include
-    /// arguments that can be set as batch properties, such as `--conf`, since a
-    /// collision can occur that causes an incorrect batch submission.
-    #[prost(string, repeated, tag = "2")]
-    pub args: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. HCFS URIs of files to be placed in the working directory of
-    /// each executor.
-    #[prost(string, repeated, tag = "3")]
-    pub file_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. HCFS URIs of archives to be extracted into the working directory
-    /// of each executor. Supported file types:
-    /// `.jar`, `.tar`, `.tar.gz`, `.tgz`, and `.zip`.
-    #[prost(string, repeated, tag = "4")]
-    pub archive_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// A configuration for running
-/// [Apache Spark SQL](<https://spark.apache.org/sql/>) queries as a batch
-/// workload.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SparkSqlBatch {
-    /// Required. The HCFS URI of the script that contains Spark SQL queries to
-    /// execute.
-    #[prost(string, tag = "1")]
-    pub query_file_uri: ::prost::alloc::string::String,
-    /// Optional. Mapping of query variable names to values (equivalent to the
-    /// Spark SQL command: `SET name="value";`).
-    #[prost(btree_map = "string, string", tag = "2")]
-    pub query_variables: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Optional. HCFS URIs of jar files to be added to the Spark CLASSPATH.
-    #[prost(string, repeated, tag = "3")]
-    pub jar_file_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Generated client implementations.
-pub mod batch_controller_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// The BatchController provides methods to manage batch workloads.
-    #[derive(Debug, Clone)]
-    pub struct BatchControllerClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> BatchControllerClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> BatchControllerClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            BatchControllerClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Creates a batch workload that executes asynchronously.
-        pub async fn create_batch(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateBatchRequest>,
-        ) -> Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataproc.v1.BatchController/CreateBatch",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Gets the batch workload resource representation.
-        pub async fn get_batch(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetBatchRequest>,
-        ) -> Result<tonic::Response<super::Batch>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataproc.v1.BatchController/GetBatch",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Lists batch workloads.
-        pub async fn list_batches(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListBatchesRequest>,
-        ) -> Result<tonic::Response<super::ListBatchesResponse>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataproc.v1.BatchController/ListBatches",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Deletes the batch workload resource. If the batch is not in terminal state,
-        /// the delete fails and the response returns `FAILED_PRECONDITION`.
-        pub async fn delete_batch(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteBatchRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataproc.v1.BatchController/DeleteBatch",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-    }
-}
 /// A Dataproc workflow template resource.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -5672,721 +6387,6 @@ pub mod workflow_template_service_client {
                 "/google.cloud.dataproc.v1.WorkflowTemplateService/DeleteWorkflowTemplate",
             );
             self.inner.unary(request.into_request(), path, codec).await
-        }
-    }
-}
-/// Describes an autoscaling policy for Dataproc cluster autoscaler.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AutoscalingPolicy {
-    /// Required. The policy id.
-    ///
-    /// The id must contain only letters (a-z, A-Z), numbers (0-9),
-    /// underscores (_), and hyphens (-). Cannot begin or end with underscore
-    /// or hyphen. Must consist of between 3 and 50 characters.
-    ///
-    #[prost(string, tag = "1")]
-    pub id: ::prost::alloc::string::String,
-    /// Output only. The "resource name" of the autoscaling policy, as described
-    /// in <https://cloud.google.com/apis/design/resource_names.>
-    ///
-    /// * For `projects.regions.autoscalingPolicies`, the resource name of the
-    ///    policy has the following format:
-    ///    `projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}`
-    ///
-    /// * For `projects.locations.autoscalingPolicies`, the resource name of the
-    ///    policy has the following format:
-    ///    `projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}`
-    #[prost(string, tag = "2")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Describes how the autoscaler will operate for primary workers.
-    #[prost(message, optional, tag = "4")]
-    pub worker_config: ::core::option::Option<InstanceGroupAutoscalingPolicyConfig>,
-    /// Optional. Describes how the autoscaler will operate for secondary workers.
-    #[prost(message, optional, tag = "5")]
-    pub secondary_worker_config: ::core::option::Option<
-        InstanceGroupAutoscalingPolicyConfig,
-    >,
-    /// Optional. The labels to associate with this autoscaling policy.
-    /// Label **keys** must contain 1 to 63 characters, and must conform to
-    /// [RFC 1035](<https://www.ietf.org/rfc/rfc1035.txt>).
-    /// Label **values** may be empty, but, if present, must contain 1 to 63
-    /// characters, and must conform to [RFC
-    /// 1035](<https://www.ietf.org/rfc/rfc1035.txt>). No more than 32 labels can be
-    /// associated with an autoscaling policy.
-    #[prost(btree_map = "string, string", tag = "6")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Autoscaling algorithm for policy.
-    #[prost(oneof = "autoscaling_policy::Algorithm", tags = "3")]
-    pub algorithm: ::core::option::Option<autoscaling_policy::Algorithm>,
-}
-/// Nested message and enum types in `AutoscalingPolicy`.
-pub mod autoscaling_policy {
-    /// Autoscaling algorithm for policy.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Algorithm {
-        #[prost(message, tag = "3")]
-        BasicAlgorithm(super::BasicAutoscalingAlgorithm),
-    }
-}
-/// Basic algorithm for autoscaling.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BasicAutoscalingAlgorithm {
-    /// Optional. Duration between scaling events. A scaling period starts after
-    /// the update operation from the previous event has completed.
-    ///
-    /// Bounds: [2m, 1d]. Default: 2m.
-    #[prost(message, optional, tag = "2")]
-    pub cooldown_period: ::core::option::Option<::prost_types::Duration>,
-    #[prost(oneof = "basic_autoscaling_algorithm::Config", tags = "1")]
-    pub config: ::core::option::Option<basic_autoscaling_algorithm::Config>,
-}
-/// Nested message and enum types in `BasicAutoscalingAlgorithm`.
-pub mod basic_autoscaling_algorithm {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Config {
-        /// Required. YARN autoscaling configuration.
-        #[prost(message, tag = "1")]
-        YarnConfig(super::BasicYarnAutoscalingConfig),
-    }
-}
-/// Basic autoscaling configurations for YARN.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BasicYarnAutoscalingConfig {
-    /// Required. Timeout for YARN graceful decommissioning of Node Managers.
-    /// Specifies the duration to wait for jobs to complete before forcefully
-    /// removing workers (and potentially interrupting jobs). Only applicable to
-    /// downscaling operations.
-    ///
-    /// Bounds: [0s, 1d].
-    #[prost(message, optional, tag = "5")]
-    pub graceful_decommission_timeout: ::core::option::Option<::prost_types::Duration>,
-    /// Required. Fraction of average YARN pending memory in the last cooldown
-    /// period for which to add workers. A scale-up factor of 1.0 will result in
-    /// scaling up so that there is no pending memory remaining after the update
-    /// (more aggressive scaling). A scale-up factor closer to 0 will result in a
-    /// smaller magnitude of scaling up (less aggressive scaling). See [How
-    /// autoscaling
-    /// works](<https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/autoscaling#how_autoscaling_works>)
-    /// for more information.
-    ///
-    /// Bounds: [0.0, 1.0].
-    #[prost(double, tag = "1")]
-    pub scale_up_factor: f64,
-    /// Required. Fraction of average YARN pending memory in the last cooldown
-    /// period for which to remove workers. A scale-down factor of 1 will result in
-    /// scaling down so that there is no available memory remaining after the
-    /// update (more aggressive scaling). A scale-down factor of 0 disables
-    /// removing workers, which can be beneficial for autoscaling a single job.
-    /// See [How autoscaling
-    /// works](<https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/autoscaling#how_autoscaling_works>)
-    /// for more information.
-    ///
-    /// Bounds: [0.0, 1.0].
-    #[prost(double, tag = "2")]
-    pub scale_down_factor: f64,
-    /// Optional. Minimum scale-up threshold as a fraction of total cluster size
-    /// before scaling occurs. For example, in a 20-worker cluster, a threshold of
-    /// 0.1 means the autoscaler must recommend at least a 2-worker scale-up for
-    /// the cluster to scale. A threshold of 0 means the autoscaler will scale up
-    /// on any recommended change.
-    ///
-    /// Bounds: [0.0, 1.0]. Default: 0.0.
-    #[prost(double, tag = "3")]
-    pub scale_up_min_worker_fraction: f64,
-    /// Optional. Minimum scale-down threshold as a fraction of total cluster size
-    /// before scaling occurs. For example, in a 20-worker cluster, a threshold of
-    /// 0.1 means the autoscaler must recommend at least a 2 worker scale-down for
-    /// the cluster to scale. A threshold of 0 means the autoscaler will scale down
-    /// on any recommended change.
-    ///
-    /// Bounds: [0.0, 1.0]. Default: 0.0.
-    #[prost(double, tag = "4")]
-    pub scale_down_min_worker_fraction: f64,
-}
-/// Configuration for the size bounds of an instance group, including its
-/// proportional size to other groups.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct InstanceGroupAutoscalingPolicyConfig {
-    /// Optional. Minimum number of instances for this group.
-    ///
-    /// Primary workers - Bounds: [2, max_instances]. Default: 2.
-    /// Secondary workers - Bounds: [0, max_instances]. Default: 0.
-    #[prost(int32, tag = "1")]
-    pub min_instances: i32,
-    /// Required. Maximum number of instances for this group. Required for primary
-    /// workers. Note that by default, clusters will not use secondary workers.
-    /// Required for secondary workers if the minimum secondary instances is set.
-    ///
-    /// Primary workers - Bounds: [min_instances, ).
-    /// Secondary workers - Bounds: [min_instances, ). Default: 0.
-    #[prost(int32, tag = "2")]
-    pub max_instances: i32,
-    /// Optional. Weight for the instance group, which is used to determine the
-    /// fraction of total workers in the cluster from this instance group.
-    /// For example, if primary workers have weight 2, and secondary workers have
-    /// weight 1, the cluster will have approximately 2 primary workers for each
-    /// secondary worker.
-    ///
-    /// The cluster may not reach the specified balance if constrained
-    /// by min/max bounds or other autoscaling settings. For example, if
-    /// `max_instances` for secondary workers is 0, then only primary workers will
-    /// be added. The cluster can also be out of balance when created.
-    ///
-    /// If weight is not set on any instance group, the cluster will default to
-    /// equal weight for all groups: the cluster will attempt to maintain an equal
-    /// number of workers in each group within the configured size bounds for each
-    /// group. If weight is set for one group only, the cluster will default to
-    /// zero weight on the unset group. For example if weight is set only on
-    /// primary workers, the cluster will use primary workers only and no
-    /// secondary workers.
-    #[prost(int32, tag = "3")]
-    pub weight: i32,
-}
-/// A request to create an autoscaling policy.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateAutoscalingPolicyRequest {
-    /// Required. The "resource name" of the region or location, as described
-    /// in <https://cloud.google.com/apis/design/resource_names.>
-    ///
-    /// * For `projects.regions.autoscalingPolicies.create`, the resource name
-    ///    of the region has the following format:
-    ///    `projects/{project_id}/regions/{region}`
-    ///
-    /// * For `projects.locations.autoscalingPolicies.create`, the resource name
-    ///    of the location has the following format:
-    ///    `projects/{project_id}/locations/{location}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The autoscaling policy to create.
-    #[prost(message, optional, tag = "2")]
-    pub policy: ::core::option::Option<AutoscalingPolicy>,
-}
-/// A request to fetch an autoscaling policy.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetAutoscalingPolicyRequest {
-    /// Required. The "resource name" of the autoscaling policy, as described
-    /// in <https://cloud.google.com/apis/design/resource_names.>
-    ///
-    /// * For `projects.regions.autoscalingPolicies.get`, the resource name
-    ///    of the policy has the following format:
-    ///    `projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}`
-    ///
-    /// * For `projects.locations.autoscalingPolicies.get`, the resource name
-    ///    of the policy has the following format:
-    ///    `projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// A request to update an autoscaling policy.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateAutoscalingPolicyRequest {
-    /// Required. The updated autoscaling policy.
-    #[prost(message, optional, tag = "1")]
-    pub policy: ::core::option::Option<AutoscalingPolicy>,
-}
-/// A request to delete an autoscaling policy.
-///
-/// Autoscaling policies in use by one or more clusters will not be deleted.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteAutoscalingPolicyRequest {
-    /// Required. The "resource name" of the autoscaling policy, as described
-    /// in <https://cloud.google.com/apis/design/resource_names.>
-    ///
-    /// * For `projects.regions.autoscalingPolicies.delete`, the resource name
-    ///    of the policy has the following format:
-    ///    `projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}`
-    ///
-    /// * For `projects.locations.autoscalingPolicies.delete`, the resource name
-    ///    of the policy has the following format:
-    ///    `projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// A request to list autoscaling policies in a project.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListAutoscalingPoliciesRequest {
-    /// Required. The "resource name" of the region or location, as described
-    /// in <https://cloud.google.com/apis/design/resource_names.>
-    ///
-    /// * For `projects.regions.autoscalingPolicies.list`, the resource name
-    ///    of the region has the following format:
-    ///    `projects/{project_id}/regions/{region}`
-    ///
-    /// * For `projects.locations.autoscalingPolicies.list`, the resource name
-    ///    of the location has the following format:
-    ///    `projects/{project_id}/locations/{location}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Optional. The maximum number of results to return in each response.
-    /// Must be less than or equal to 1000. Defaults to 100.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// Optional. The page token, returned by a previous call, to request the
-    /// next page of results.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// A response to a request to list autoscaling policies in a project.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListAutoscalingPoliciesResponse {
-    /// Output only. Autoscaling policies list.
-    #[prost(message, repeated, tag = "1")]
-    pub policies: ::prost::alloc::vec::Vec<AutoscalingPolicy>,
-    /// Output only. This token is included in the response if there are more
-    /// results to fetch.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Generated client implementations.
-pub mod autoscaling_policy_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// The API interface for managing autoscaling policies in the
-    /// Dataproc API.
-    #[derive(Debug, Clone)]
-    pub struct AutoscalingPolicyServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> AutoscalingPolicyServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> AutoscalingPolicyServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            AutoscalingPolicyServiceClient::new(
-                InterceptedService::new(inner, interceptor),
-            )
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Creates new autoscaling policy.
-        pub async fn create_autoscaling_policy(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateAutoscalingPolicyRequest>,
-        ) -> Result<tonic::Response<super::AutoscalingPolicy>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataproc.v1.AutoscalingPolicyService/CreateAutoscalingPolicy",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Updates (replaces) autoscaling policy.
-        ///
-        /// Disabled check for update_mask, because all updates will be full
-        /// replacements.
-        pub async fn update_autoscaling_policy(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateAutoscalingPolicyRequest>,
-        ) -> Result<tonic::Response<super::AutoscalingPolicy>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataproc.v1.AutoscalingPolicyService/UpdateAutoscalingPolicy",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Retrieves autoscaling policy.
-        pub async fn get_autoscaling_policy(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetAutoscalingPolicyRequest>,
-        ) -> Result<tonic::Response<super::AutoscalingPolicy>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataproc.v1.AutoscalingPolicyService/GetAutoscalingPolicy",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Lists autoscaling policies in the project.
-        pub async fn list_autoscaling_policies(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListAutoscalingPoliciesRequest>,
-        ) -> Result<
-            tonic::Response<super::ListAutoscalingPoliciesResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataproc.v1.AutoscalingPolicyService/ListAutoscalingPolicies",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Deletes an autoscaling policy. It is an error to delete an autoscaling
-        /// policy that is in use by one or more clusters.
-        pub async fn delete_autoscaling_policy(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteAutoscalingPolicyRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataproc.v1.AutoscalingPolicyService/DeleteAutoscalingPolicy",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-    }
-}
-/// Metadata describing the Batch operation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BatchOperationMetadata {
-    /// Name of the batch for the operation.
-    #[prost(string, tag = "1")]
-    pub batch: ::prost::alloc::string::String,
-    /// Batch UUID for the operation.
-    #[prost(string, tag = "2")]
-    pub batch_uuid: ::prost::alloc::string::String,
-    /// The time when the operation was created.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The time when the operation finished.
-    #[prost(message, optional, tag = "4")]
-    pub done_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The operation type.
-    #[prost(enumeration = "batch_operation_metadata::BatchOperationType", tag = "6")]
-    pub operation_type: i32,
-    /// Short description of the operation.
-    #[prost(string, tag = "7")]
-    pub description: ::prost::alloc::string::String,
-    /// Labels associated with the operation.
-    #[prost(btree_map = "string, string", tag = "8")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Warnings encountered during operation execution.
-    #[prost(string, repeated, tag = "9")]
-    pub warnings: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Nested message and enum types in `BatchOperationMetadata`.
-pub mod batch_operation_metadata {
-    /// Operation type for Batch resources
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum BatchOperationType {
-        /// Batch operation type is unknown.
-        Unspecified = 0,
-        /// Batch operation type.
-        Batch = 1,
-    }
-    impl BatchOperationType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                BatchOperationType::Unspecified => "BATCH_OPERATION_TYPE_UNSPECIFIED",
-                BatchOperationType::Batch => "BATCH",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "BATCH_OPERATION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "BATCH" => Some(Self::Batch),
-                _ => None,
-            }
-        }
-    }
-}
-/// The status of the operation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ClusterOperationStatus {
-    /// Output only. A message containing the operation state.
-    #[prost(enumeration = "cluster_operation_status::State", tag = "1")]
-    pub state: i32,
-    /// Output only. A message containing the detailed operation state.
-    #[prost(string, tag = "2")]
-    pub inner_state: ::prost::alloc::string::String,
-    /// Output only. A message containing any operation metadata details.
-    #[prost(string, tag = "3")]
-    pub details: ::prost::alloc::string::String,
-    /// Output only. The time this state was entered.
-    #[prost(message, optional, tag = "4")]
-    pub state_start_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Nested message and enum types in `ClusterOperationStatus`.
-pub mod cluster_operation_status {
-    /// The operation state.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unused.
-        Unknown = 0,
-        /// The operation has been created.
-        Pending = 1,
-        /// The operation is running.
-        Running = 2,
-        /// The operation is done; either cancelled or completed.
-        Done = 3,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unknown => "UNKNOWN",
-                State::Pending => "PENDING",
-                State::Running => "RUNNING",
-                State::Done => "DONE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UNKNOWN" => Some(Self::Unknown),
-                "PENDING" => Some(Self::Pending),
-                "RUNNING" => Some(Self::Running),
-                "DONE" => Some(Self::Done),
-                _ => None,
-            }
-        }
-    }
-}
-/// Metadata describing the operation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ClusterOperationMetadata {
-    /// Output only. Name of the cluster for the operation.
-    #[prost(string, tag = "7")]
-    pub cluster_name: ::prost::alloc::string::String,
-    /// Output only. Cluster UUID for the operation.
-    #[prost(string, tag = "8")]
-    pub cluster_uuid: ::prost::alloc::string::String,
-    /// Output only. Current operation status.
-    #[prost(message, optional, tag = "9")]
-    pub status: ::core::option::Option<ClusterOperationStatus>,
-    /// Output only. The previous operation status.
-    #[prost(message, repeated, tag = "10")]
-    pub status_history: ::prost::alloc::vec::Vec<ClusterOperationStatus>,
-    /// Output only. The operation type.
-    #[prost(string, tag = "11")]
-    pub operation_type: ::prost::alloc::string::String,
-    /// Output only. Short description of operation.
-    #[prost(string, tag = "12")]
-    pub description: ::prost::alloc::string::String,
-    /// Output only. Labels associated with the operation
-    #[prost(btree_map = "string, string", tag = "13")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. Errors encountered during operation execution.
-    #[prost(string, repeated, tag = "14")]
-    pub warnings: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. Child operation ids
-    #[prost(string, repeated, tag = "15")]
-    pub child_operation_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Metadata describing the node group operation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct NodeGroupOperationMetadata {
-    /// Output only. Node group ID for the operation.
-    #[prost(string, tag = "1")]
-    pub node_group_id: ::prost::alloc::string::String,
-    /// Output only. Cluster UUID associated with the node group operation.
-    #[prost(string, tag = "2")]
-    pub cluster_uuid: ::prost::alloc::string::String,
-    /// Output only. Current operation status.
-    #[prost(message, optional, tag = "3")]
-    pub status: ::core::option::Option<ClusterOperationStatus>,
-    /// Output only. The previous operation status.
-    #[prost(message, repeated, tag = "4")]
-    pub status_history: ::prost::alloc::vec::Vec<ClusterOperationStatus>,
-    /// The operation type.
-    #[prost(
-        enumeration = "node_group_operation_metadata::NodeGroupOperationType",
-        tag = "5"
-    )]
-    pub operation_type: i32,
-    /// Output only. Short description of operation.
-    #[prost(string, tag = "6")]
-    pub description: ::prost::alloc::string::String,
-    /// Output only. Labels associated with the operation.
-    #[prost(btree_map = "string, string", tag = "7")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. Errors encountered during operation execution.
-    #[prost(string, repeated, tag = "8")]
-    pub warnings: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Nested message and enum types in `NodeGroupOperationMetadata`.
-pub mod node_group_operation_metadata {
-    /// Operation type for node group resources.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum NodeGroupOperationType {
-        /// Node group operation type is unknown.
-        Unspecified = 0,
-        /// Create node group operation type.
-        Create = 1,
-        /// Update node group operation type.
-        Update = 2,
-        /// Delete node group operation type.
-        Delete = 3,
-        /// Resize node group operation type.
-        Resize = 4,
-    }
-    impl NodeGroupOperationType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                NodeGroupOperationType::Unspecified => {
-                    "NODE_GROUP_OPERATION_TYPE_UNSPECIFIED"
-                }
-                NodeGroupOperationType::Create => "CREATE",
-                NodeGroupOperationType::Update => "UPDATE",
-                NodeGroupOperationType::Delete => "DELETE",
-                NodeGroupOperationType::Resize => "RESIZE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "NODE_GROUP_OPERATION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATE" => Some(Self::Create),
-                "UPDATE" => Some(Self::Update),
-                "DELETE" => Some(Self::Delete),
-                "RESIZE" => Some(Self::Resize),
-                _ => None,
-            }
         }
     }
 }

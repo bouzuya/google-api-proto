@@ -1,3 +1,7 @@
+/// The metadata message for \[google.cloud.location.Location.metadata][google.cloud.location.Location.metadata\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LocationMetadata {}
 /// A field of an index.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -146,10 +150,6 @@ pub mod index {
         }
     }
 }
-/// The metadata message for \[google.cloud.location.Location.metadata][google.cloud.location.Location.metadata\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LocationMetadata {}
 /// Metadata for index operations. This metadata populates
 /// the metadata field of \[google.longrunning.Operation][google.longrunning.Operation\].
 #[allow(clippy::derive_partial_eq_without_eq)]

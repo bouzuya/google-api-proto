@@ -363,6 +363,8 @@ pub mod memcache;
     )
 )]
 pub mod metastore;
+#[cfg(any(feature = "google-cloud-migrationcenter-v1"))]
+pub mod migrationcenter;
 #[cfg(any(feature = "google-cloud-networkanalyzer-logging-v1"))]
 pub mod networkanalyzer;
 #[cfg(

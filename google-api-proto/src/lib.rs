@@ -235,6 +235,7 @@ pub mod cloud;
         feature = "google-cloud-metastore-v1",
         feature = "google-cloud-metastore-v1alpha",
         feature = "google-cloud-metastore-v1beta",
+        feature = "google-cloud-migrationcenter-v1",
         feature = "google-cloud-networkanalyzer-logging-v1",
         feature = "google-cloud-networkconnectivity-v1",
         feature = "google-cloud-networkconnectivity-v1alpha1",

@@ -1,3 +1,65 @@
+/// Feedback provided by a user.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UserFeedback {
+    /// Required. The unique identifier for the user feedback.
+    /// User feedback is a singleton resource on a Question.
+    /// Example: `projects/foo/locations/bar/questions/1234/userFeedback`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Free form user feedback, such as a text box.
+    #[prost(string, tag = "2")]
+    pub free_form_feedback: ::prost::alloc::string::String,
+    /// The user feedback rating
+    #[prost(enumeration = "user_feedback::UserFeedbackRating", tag = "3")]
+    pub rating: i32,
+}
+/// Nested message and enum types in `UserFeedback`.
+pub mod user_feedback {
+    /// Enumeration of feedback ratings.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum UserFeedbackRating {
+        /// No rating was specified.
+        Unspecified = 0,
+        /// The user provided positive feedback.
+        Positive = 1,
+        /// The user provided negative feedback.
+        Negative = 2,
+    }
+    impl UserFeedbackRating {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                UserFeedbackRating::Unspecified => "USER_FEEDBACK_RATING_UNSPECIFIED",
+                UserFeedbackRating::Positive => "POSITIVE",
+                UserFeedbackRating::Negative => "NEGATIVE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "USER_FEEDBACK_RATING_UNSPECIFIED" => Some(Self::Unspecified),
+                "POSITIVE" => Some(Self::Positive),
+                "NEGATIVE" => Some(Self::Negative),
+                _ => None,
+            }
+        }
+    }
+}
 /// Describes string annotation from both semantic and formatting perspectives.
 /// Example:
 ///
@@ -639,6 +701,242 @@ impl InterpretEntity {
         }
     }
 }
+/// A request to get a previously created question.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetQuestionRequest {
+    /// Required. The unique identifier for the question.
+    /// Example: `projects/foo/locations/bar/questions/1234`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The list of fields to be retrieved.
+    #[prost(message, optional, tag = "2")]
+    pub read_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Request to create a question resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateQuestionRequest {
+    /// Required. The name of the project this data source reference belongs to.
+    /// Example: `projects/foo/locations/bar`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The question to create.
+    #[prost(message, optional, tag = "2")]
+    pub question: ::core::option::Option<Question>,
+}
+/// Request to execute an interpretation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExecuteQuestionRequest {
+    /// Required. The unique identifier for the question.
+    /// Example: `projects/foo/locations/bar/questions/1234`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Index of the interpretation to execute.
+    #[prost(int32, tag = "2")]
+    pub interpretation_index: i32,
+}
+/// Request to get user feedback.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetUserFeedbackRequest {
+    /// Required. The unique identifier for the user feedback.
+    /// User feedback is a singleton resource on a Question.
+    /// Example: `projects/foo/locations/bar/questions/1234/userFeedback`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request to updates user feedback.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateUserFeedbackRequest {
+    /// Required. The user feedback to update. This can be called even if there is no
+    /// user feedback so far.
+    /// The feedback's name field is used to identify the user feedback (and the
+    /// corresponding question) to update.
+    #[prost(message, optional, tag = "1")]
+    pub user_feedback: ::core::option::Option<UserFeedback>,
+    /// The list of fields to be updated.
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Generated client implementations.
+pub mod question_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Service to interpret natural language queries.
+    /// The service allows to create `Question` resources that are interpreted and
+    /// are filled with one or more interpretations if the question could be
+    /// interpreted. Once a `Question` resource is created and has at least one
+    /// interpretation, an interpretation can be chosen for execution, which
+    /// triggers a query to the backend (for BigQuery, it will create a job).
+    /// Upon successful execution of that interpretation, backend specific
+    /// information will be returned so that the client can retrieve the results
+    /// from the backend.
+    ///
+    /// The `Question` resources are named `projects/*/locations/*/questions/*`.
+    ///
+    /// The `Question` resource has a singletion sub-resource `UserFeedback` named
+    /// `projects/*/locations/*/questions/*/userFeedback`, which allows access to
+    /// user feedback.
+    #[derive(Debug, Clone)]
+    pub struct QuestionServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> QuestionServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> QuestionServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            QuestionServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Gets a previously created question.
+        pub async fn get_question(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetQuestionRequest>,
+        ) -> Result<tonic::Response<super::Question>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataqna.v1alpha.QuestionService/GetQuestion",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+        /// Creates a question.
+        pub async fn create_question(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateQuestionRequest>,
+        ) -> Result<tonic::Response<super::Question>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataqna.v1alpha.QuestionService/CreateQuestion",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+        /// Executes an interpretation.
+        pub async fn execute_question(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ExecuteQuestionRequest>,
+        ) -> Result<tonic::Response<super::Question>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataqna.v1alpha.QuestionService/ExecuteQuestion",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+        /// Gets previously created user feedback.
+        pub async fn get_user_feedback(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetUserFeedbackRequest>,
+        ) -> Result<tonic::Response<super::UserFeedback>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataqna.v1alpha.QuestionService/GetUserFeedback",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+        /// Updates user feedback. This creates user feedback if there was none before
+        /// (upsert).
+        pub async fn update_user_feedback(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateUserFeedbackRequest>,
+        ) -> Result<tonic::Response<super::UserFeedback>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataqna.v1alpha.QuestionService/UpdateUserFeedback",
+            );
+            self.inner.unary(request.into_request(), path, codec).await
+        }
+    }
+}
 /// Request for query suggestions.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -914,304 +1212,6 @@ pub mod auto_suggestion_service_client {
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.dataqna.v1alpha.AutoSuggestionService/SuggestQueries",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-    }
-}
-/// Feedback provided by a user.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UserFeedback {
-    /// Required. The unique identifier for the user feedback.
-    /// User feedback is a singleton resource on a Question.
-    /// Example: `projects/foo/locations/bar/questions/1234/userFeedback`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Free form user feedback, such as a text box.
-    #[prost(string, tag = "2")]
-    pub free_form_feedback: ::prost::alloc::string::String,
-    /// The user feedback rating
-    #[prost(enumeration = "user_feedback::UserFeedbackRating", tag = "3")]
-    pub rating: i32,
-}
-/// Nested message and enum types in `UserFeedback`.
-pub mod user_feedback {
-    /// Enumeration of feedback ratings.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum UserFeedbackRating {
-        /// No rating was specified.
-        Unspecified = 0,
-        /// The user provided positive feedback.
-        Positive = 1,
-        /// The user provided negative feedback.
-        Negative = 2,
-    }
-    impl UserFeedbackRating {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                UserFeedbackRating::Unspecified => "USER_FEEDBACK_RATING_UNSPECIFIED",
-                UserFeedbackRating::Positive => "POSITIVE",
-                UserFeedbackRating::Negative => "NEGATIVE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "USER_FEEDBACK_RATING_UNSPECIFIED" => Some(Self::Unspecified),
-                "POSITIVE" => Some(Self::Positive),
-                "NEGATIVE" => Some(Self::Negative),
-                _ => None,
-            }
-        }
-    }
-}
-/// A request to get a previously created question.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetQuestionRequest {
-    /// Required. The unique identifier for the question.
-    /// Example: `projects/foo/locations/bar/questions/1234`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The list of fields to be retrieved.
-    #[prost(message, optional, tag = "2")]
-    pub read_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-/// Request to create a question resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateQuestionRequest {
-    /// Required. The name of the project this data source reference belongs to.
-    /// Example: `projects/foo/locations/bar`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The question to create.
-    #[prost(message, optional, tag = "2")]
-    pub question: ::core::option::Option<Question>,
-}
-/// Request to execute an interpretation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExecuteQuestionRequest {
-    /// Required. The unique identifier for the question.
-    /// Example: `projects/foo/locations/bar/questions/1234`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Index of the interpretation to execute.
-    #[prost(int32, tag = "2")]
-    pub interpretation_index: i32,
-}
-/// Request to get user feedback.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetUserFeedbackRequest {
-    /// Required. The unique identifier for the user feedback.
-    /// User feedback is a singleton resource on a Question.
-    /// Example: `projects/foo/locations/bar/questions/1234/userFeedback`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request to updates user feedback.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateUserFeedbackRequest {
-    /// Required. The user feedback to update. This can be called even if there is no
-    /// user feedback so far.
-    /// The feedback's name field is used to identify the user feedback (and the
-    /// corresponding question) to update.
-    #[prost(message, optional, tag = "1")]
-    pub user_feedback: ::core::option::Option<UserFeedback>,
-    /// The list of fields to be updated.
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-/// Generated client implementations.
-pub mod question_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Service to interpret natural language queries.
-    /// The service allows to create `Question` resources that are interpreted and
-    /// are filled with one or more interpretations if the question could be
-    /// interpreted. Once a `Question` resource is created and has at least one
-    /// interpretation, an interpretation can be chosen for execution, which
-    /// triggers a query to the backend (for BigQuery, it will create a job).
-    /// Upon successful execution of that interpretation, backend specific
-    /// information will be returned so that the client can retrieve the results
-    /// from the backend.
-    ///
-    /// The `Question` resources are named `projects/*/locations/*/questions/*`.
-    ///
-    /// The `Question` resource has a singletion sub-resource `UserFeedback` named
-    /// `projects/*/locations/*/questions/*/userFeedback`, which allows access to
-    /// user feedback.
-    #[derive(Debug, Clone)]
-    pub struct QuestionServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> QuestionServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> QuestionServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            QuestionServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Gets a previously created question.
-        pub async fn get_question(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetQuestionRequest>,
-        ) -> Result<tonic::Response<super::Question>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataqna.v1alpha.QuestionService/GetQuestion",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Creates a question.
-        pub async fn create_question(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateQuestionRequest>,
-        ) -> Result<tonic::Response<super::Question>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataqna.v1alpha.QuestionService/CreateQuestion",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Executes an interpretation.
-        pub async fn execute_question(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ExecuteQuestionRequest>,
-        ) -> Result<tonic::Response<super::Question>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataqna.v1alpha.QuestionService/ExecuteQuestion",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Gets previously created user feedback.
-        pub async fn get_user_feedback(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetUserFeedbackRequest>,
-        ) -> Result<tonic::Response<super::UserFeedback>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataqna.v1alpha.QuestionService/GetUserFeedback",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Updates user feedback. This creates user feedback if there was none before
-        /// (upsert).
-        pub async fn update_user_feedback(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateUserFeedbackRequest>,
-        ) -> Result<tonic::Response<super::UserFeedback>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataqna.v1alpha.QuestionService/UpdateUserFeedback",
             );
             self.inner.unary(request.into_request(), path, codec).await
         }

@@ -8,115 +8,6 @@ pub mod conversation;
     )
 )]
 pub mod interactionmodel;
-/// Definition of version resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Version {
-    /// The unique identifier of the version in the following format.
-    /// `projects/{project}/versions/{version}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The current state of the version.
-    #[prost(message, optional, tag = "2")]
-    pub version_state: ::core::option::Option<version::VersionState>,
-    /// Email of the user who created this version.
-    #[prost(string, tag = "3")]
-    pub creator: ::prost::alloc::string::String,
-    /// Timestamp of the last change to this version.
-    #[prost(message, optional, tag = "4")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Nested message and enum types in `Version`.
-pub mod version {
-    /// Represents the current state of the version.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct VersionState {
-        /// The current state of the version.
-        #[prost(enumeration = "version_state::State", tag = "1")]
-        pub state: i32,
-        /// User-friendly message for the current state of the version.
-        #[prost(string, tag = "2")]
-        pub message: ::prost::alloc::string::String,
-    }
-    /// Nested message and enum types in `VersionState`.
-    pub mod version_state {
-        /// Enum indicating the states that a Version can take. This enum is not yet
-        /// frozen and values maybe added later.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum State {
-            /// Default value of State.
-            Unspecified = 0,
-            /// The version creation is in progress.
-            CreationInProgress = 1,
-            /// The version creation failed.
-            CreationFailed = 2,
-            /// The version has been successfully created.
-            Created = 3,
-            /// The version is under policy review (aka Approval).
-            ReviewInProgress = 4,
-            /// The version has been approved for policy review and can be deployed.
-            Approved = 5,
-            /// The version has been conditionally approved but is pending final
-            /// review. It may be rolled back if final review is denied.
-            ConditionallyApproved = 6,
-            /// The version has been denied for policy review.
-            Denied = 7,
-            /// The version is taken down as entire agent and all versions are taken
-            /// down.
-            UnderTakedown = 8,
-            /// The version has been deleted.
-            Deleted = 9,
-        }
-        impl State {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    State::Unspecified => "STATE_UNSPECIFIED",
-                    State::CreationInProgress => "CREATION_IN_PROGRESS",
-                    State::CreationFailed => "CREATION_FAILED",
-                    State::Created => "CREATED",
-                    State::ReviewInProgress => "REVIEW_IN_PROGRESS",
-                    State::Approved => "APPROVED",
-                    State::ConditionallyApproved => "CONDITIONALLY_APPROVED",
-                    State::Denied => "DENIED",
-                    State::UnderTakedown => "UNDER_TAKEDOWN",
-                    State::Deleted => "DELETED",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                    "CREATION_IN_PROGRESS" => Some(Self::CreationInProgress),
-                    "CREATION_FAILED" => Some(Self::CreationFailed),
-                    "CREATED" => Some(Self::Created),
-                    "REVIEW_IN_PROGRESS" => Some(Self::ReviewInProgress),
-                    "APPROVED" => Some(Self::Approved),
-                    "CONDITIONALLY_APPROVED" => Some(Self::ConditionallyApproved),
-                    "DENIED" => Some(Self::Denied),
-                    "UNDER_TAKEDOWN" => Some(Self::UnderTakedown),
-                    "DELETED" => Some(Self::Deleted),
-                    _ => None,
-                }
-            }
-        }
-    }
-}
 /// Information about the encrypted OAuth client secret used in account linking
 /// flows (for AUTH_CODE grant type).
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1048,6 +939,267 @@ pub mod config_file {
         ResourceBundle(::prost_types::Struct),
     }
 }
+/// Contains information about execution event which happened during processing
+/// Actions Builder conversation request. For an overview of the stages involved
+/// in a conversation request, see
+/// <https://developers.google.com/assistant/conversational/actions.>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExecutionEvent {
+    /// Timestamp when the event happened.
+    #[prost(message, optional, tag = "1")]
+    pub event_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// State of the execution during this event.
+    #[prost(message, optional, tag = "2")]
+    pub execution_state: ::core::option::Option<ExecutionState>,
+    /// Resulting status of particular execution step.
+    #[prost(message, optional, tag = "3")]
+    pub status: ::core::option::Option<super::super::super::rpc::Status>,
+    /// List of warnings generated during execution of this Event. Warnings are
+    /// tips for the developer discovered during the conversation request. These
+    /// are usually non-critical and do not halt the execution of the request. For
+    /// example, a warnings might be generated when webhook tries to override a
+    /// custom Type which does not exist. Errors are reported as a failed status
+    /// code, but warnings can be present even when the status is OK.
+    #[prost(string, repeated, tag = "17")]
+    pub warning_messages: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Detailed information specific to different of events that may be involved
+    /// in processing a conversation round. The field set here defines the type of
+    /// this event.
+    #[prost(
+        oneof = "execution_event::EventData",
+        tags = "4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16"
+    )]
+    pub event_data: ::core::option::Option<execution_event::EventData>,
+}
+/// Nested message and enum types in `ExecutionEvent`.
+pub mod execution_event {
+    /// Detailed information specific to different of events that may be involved
+    /// in processing a conversation round. The field set here defines the type of
+    /// this event.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum EventData {
+        /// User input handling event.
+        #[prost(message, tag = "4")]
+        UserInput(super::UserConversationInput),
+        /// Intent matching event.
+        #[prost(message, tag = "5")]
+        IntentMatch(super::IntentMatch),
+        /// Condition evaluation event.
+        #[prost(message, tag = "6")]
+        ConditionsEvaluated(super::ConditionsEvaluated),
+        /// OnSceneEnter execution event.
+        #[prost(message, tag = "7")]
+        OnSceneEnter(super::OnSceneEnter),
+        /// Webhook request dispatch event.
+        #[prost(message, tag = "8")]
+        WebhookRequest(super::WebhookRequest),
+        /// Webhook response receipt event.
+        #[prost(message, tag = "9")]
+        WebhookResponse(super::WebhookResponse),
+        /// Webhook-initiated transition event.
+        #[prost(message, tag = "10")]
+        WebhookInitiatedTransition(super::WebhookInitiatedTransition),
+        /// Slot matching event.
+        #[prost(message, tag = "11")]
+        SlotMatch(super::SlotMatch),
+        /// Slot requesting event.
+        #[prost(message, tag = "12")]
+        SlotRequested(super::SlotRequested),
+        /// Slot validation event.
+        #[prost(message, tag = "13")]
+        SlotValidated(super::SlotValidated),
+        /// Form filling event.
+        #[prost(message, tag = "14")]
+        FormFilled(super::FormFilled),
+        /// Waiting-for-user-input event.
+        #[prost(message, tag = "15")]
+        WaitingUserInput(super::WaitingForUserInput),
+        /// End-of-conversation event.
+        #[prost(message, tag = "16")]
+        EndConversation(super::EndConversation),
+    }
+}
+/// Current state of the execution.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExecutionState {
+    /// ID of the scene which is currently  active.
+    #[prost(string, tag = "1")]
+    pub current_scene_id: ::prost::alloc::string::String,
+    /// State of the session storage:
+    /// <https://developers.google.com/assistant/conversational/storage-session>
+    #[prost(message, optional, tag = "2")]
+    pub session_storage: ::core::option::Option<::prost_types::Struct>,
+    /// State of the slots filling, if applicable:
+    /// <https://developers.google.com/assistant/conversational/scenes#slot_filling>
+    #[prost(message, optional, tag = "5")]
+    pub slots: ::core::option::Option<Slots>,
+    /// Prompt queue:
+    /// <https://developers.google.com/assistant/conversational/prompts>
+    #[prost(message, repeated, tag = "7")]
+    pub prompt_queue: ::prost::alloc::vec::Vec<conversation::Prompt>,
+    /// State of the user storage:
+    /// <https://developers.google.com/assistant/conversational/storage-user>
+    #[prost(message, optional, tag = "6")]
+    pub user_storage: ::core::option::Option<::prost_types::Struct>,
+    /// State of the home storage:
+    /// <https://developers.google.com/assistant/conversational/storage-home>
+    #[prost(message, optional, tag = "8")]
+    pub household_storage: ::core::option::Option<::prost_types::Struct>,
+}
+/// Represents the current state of a the scene's slots.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Slots {
+    /// The current status of slot filling.
+    #[prost(enumeration = "conversation::SlotFillingStatus", tag = "2")]
+    pub status: i32,
+    /// The slots associated with the current scene.
+    #[prost(btree_map = "string, message", tag = "3")]
+    pub slots: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        conversation::Slot,
+    >,
+}
+/// Information related to user input.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UserConversationInput {
+    /// Type of user input. E.g. keyboard, voice, touch, etc.
+    #[prost(string, tag = "1")]
+    pub r#type: ::prost::alloc::string::String,
+    /// Original text input from the user.
+    #[prost(string, tag = "2")]
+    pub original_query: ::prost::alloc::string::String,
+}
+/// Information about triggered intent match (global or within a scene):
+/// <https://developers.google.com/assistant/conversational/intents>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct IntentMatch {
+    /// Intent id which triggered this interaction.
+    #[prost(string, tag = "1")]
+    pub intent_id: ::prost::alloc::string::String,
+    /// Parameters of intent which triggered this interaction.
+    #[prost(btree_map = "string, message", tag = "5")]
+    pub intent_parameters: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        conversation::IntentParameterValue,
+    >,
+    /// Name of the handler attached to this interaction.
+    #[prost(string, tag = "3")]
+    pub handler: ::prost::alloc::string::String,
+    /// Scene to which this interaction leads to.
+    #[prost(string, tag = "4")]
+    pub next_scene_id: ::prost::alloc::string::String,
+}
+/// Results of conditions evaluation:
+/// <https://developers.google.com/assistant/conversational/scenes#conditions>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ConditionsEvaluated {
+    /// List of conditions which were evaluated to 'false'.
+    #[prost(message, repeated, tag = "1")]
+    pub failed_conditions: ::prost::alloc::vec::Vec<Condition>,
+    /// The first condition which was evaluated to 'true', if any.
+    #[prost(message, optional, tag = "2")]
+    pub success_condition: ::core::option::Option<Condition>,
+}
+/// Evaluated condition.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Condition {
+    /// Expression specified in this condition.
+    #[prost(string, tag = "1")]
+    pub expression: ::prost::alloc::string::String,
+    /// Handler name specified in evaluated condition.
+    #[prost(string, tag = "2")]
+    pub handler: ::prost::alloc::string::String,
+    /// Destination scene specified in evaluated condition.
+    #[prost(string, tag = "3")]
+    pub next_scene_id: ::prost::alloc::string::String,
+}
+/// Information about execution of onSceneEnter stage:
+/// <https://developers.google.com/assistant/conversational/scenes#on_enter>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OnSceneEnter {
+    /// Handler name specified in onSceneEnter event.
+    #[prost(string, tag = "1")]
+    pub handler: ::prost::alloc::string::String,
+}
+/// Event triggered by destination scene returned from webhook:
+/// <https://developers.google.com/assistant/conversational/webhooks#transition_scenes>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WebhookInitiatedTransition {
+    /// ID of the scene the transition is leading to.
+    #[prost(string, tag = "1")]
+    pub next_scene_id: ::prost::alloc::string::String,
+}
+/// Information about a request dispatched to the Action webhook:
+/// <https://developers.google.com/assistant/conversational/webhooks#payloads>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WebhookRequest {
+    /// Payload of the webhook request.
+    #[prost(string, tag = "1")]
+    pub request_json: ::prost::alloc::string::String,
+}
+/// Information about a response received from the Action webhook:
+/// <https://developers.google.com/assistant/conversational/webhooks#payloads>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WebhookResponse {
+    /// Payload of the webhook response.
+    #[prost(string, tag = "1")]
+    pub response_json: ::prost::alloc::string::String,
+}
+/// Information about matched slot(s):
+/// <https://developers.google.com/assistant/conversational/scenes#slot_filling>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SlotMatch {
+    /// Parameters extracted by NLU from user input.
+    #[prost(btree_map = "string, message", tag = "2")]
+    pub nlu_parameters: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        conversation::IntentParameterValue,
+    >,
+}
+/// Information about currently requested slot:
+/// <https://developers.google.com/assistant/conversational/scenes#slot_filling>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SlotRequested {
+    /// Name of the requested slot.
+    #[prost(string, tag = "1")]
+    pub slot: ::prost::alloc::string::String,
+    /// Slot prompt.
+    #[prost(message, optional, tag = "3")]
+    pub prompt: ::core::option::Option<conversation::Prompt>,
+}
+/// Event which happens after webhook validation was finished for slot(s):
+/// <https://developers.google.com/assistant/conversational/scenes#slot_filling>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SlotValidated {}
+/// Event which happens when form is fully filled:
+/// <https://developers.google.com/assistant/conversational/scenes#slot_filling>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FormFilled {}
+/// Event which happens when system needs user input:
+/// <https://developers.google.com/assistant/conversational/scenes#input>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WaitingForUserInput {}
+/// Event which informs that conversation with agent was ended.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EndConversation {}
 /// Wrapper for repeated data file. Repeated fields cannot exist in a oneof.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1115,6 +1267,23 @@ pub mod files {
         DataFiles(super::DataFiles),
     }
 }
+/// Definition of release channel resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ReleaseChannel {
+    /// The unique name of the release channel in the following format.
+    /// `projects/{project}/releaseChannels/{release_channel}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Version currently deployed to this release channel in the following format:
+    /// `projects/{project}/versions/{version}`.
+    #[prost(string, tag = "2")]
+    pub current_version: ::prost::alloc::string::String,
+    /// Version to be deployed to this release channel in the following format:
+    /// `projects/{project}/versions/{version}`.
+    #[prost(string, tag = "3")]
+    pub pending_version: ::prost::alloc::string::String,
+}
 /// Wrapper for repeated validation result.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1148,22 +1317,114 @@ pub mod validation_result {
         pub language_code: ::prost::alloc::string::String,
     }
 }
-/// Definition of release channel resource.
+/// Definition of version resource.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ReleaseChannel {
-    /// The unique name of the release channel in the following format.
-    /// `projects/{project}/releaseChannels/{release_channel}`.
+pub struct Version {
+    /// The unique identifier of the version in the following format.
+    /// `projects/{project}/versions/{version}`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Version currently deployed to this release channel in the following format:
-    /// `projects/{project}/versions/{version}`.
-    #[prost(string, tag = "2")]
-    pub current_version: ::prost::alloc::string::String,
-    /// Version to be deployed to this release channel in the following format:
-    /// `projects/{project}/versions/{version}`.
+    /// The current state of the version.
+    #[prost(message, optional, tag = "2")]
+    pub version_state: ::core::option::Option<version::VersionState>,
+    /// Email of the user who created this version.
     #[prost(string, tag = "3")]
-    pub pending_version: ::prost::alloc::string::String,
+    pub creator: ::prost::alloc::string::String,
+    /// Timestamp of the last change to this version.
+    #[prost(message, optional, tag = "4")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Nested message and enum types in `Version`.
+pub mod version {
+    /// Represents the current state of the version.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct VersionState {
+        /// The current state of the version.
+        #[prost(enumeration = "version_state::State", tag = "1")]
+        pub state: i32,
+        /// User-friendly message for the current state of the version.
+        #[prost(string, tag = "2")]
+        pub message: ::prost::alloc::string::String,
+    }
+    /// Nested message and enum types in `VersionState`.
+    pub mod version_state {
+        /// Enum indicating the states that a Version can take. This enum is not yet
+        /// frozen and values maybe added later.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum State {
+            /// Default value of State.
+            Unspecified = 0,
+            /// The version creation is in progress.
+            CreationInProgress = 1,
+            /// The version creation failed.
+            CreationFailed = 2,
+            /// The version has been successfully created.
+            Created = 3,
+            /// The version is under policy review (aka Approval).
+            ReviewInProgress = 4,
+            /// The version has been approved for policy review and can be deployed.
+            Approved = 5,
+            /// The version has been conditionally approved but is pending final
+            /// review. It may be rolled back if final review is denied.
+            ConditionallyApproved = 6,
+            /// The version has been denied for policy review.
+            Denied = 7,
+            /// The version is taken down as entire agent and all versions are taken
+            /// down.
+            UnderTakedown = 8,
+            /// The version has been deleted.
+            Deleted = 9,
+        }
+        impl State {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    State::Unspecified => "STATE_UNSPECIFIED",
+                    State::CreationInProgress => "CREATION_IN_PROGRESS",
+                    State::CreationFailed => "CREATION_FAILED",
+                    State::Created => "CREATED",
+                    State::ReviewInProgress => "REVIEW_IN_PROGRESS",
+                    State::Approved => "APPROVED",
+                    State::ConditionallyApproved => "CONDITIONALLY_APPROVED",
+                    State::Denied => "DENIED",
+                    State::UnderTakedown => "UNDER_TAKEDOWN",
+                    State::Deleted => "DELETED",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "CREATION_IN_PROGRESS" => Some(Self::CreationInProgress),
+                    "CREATION_FAILED" => Some(Self::CreationFailed),
+                    "CREATED" => Some(Self::Created),
+                    "REVIEW_IN_PROGRESS" => Some(Self::ReviewInProgress),
+                    "APPROVED" => Some(Self::Approved),
+                    "CONDITIONALLY_APPROVED" => Some(Self::ConditionallyApproved),
+                    "DENIED" => Some(Self::Denied),
+                    "UNDER_TAKEDOWN" => Some(Self::UnderTakedown),
+                    "DELETED" => Some(Self::Deleted),
+                    _ => None,
+                }
+            }
+        }
+    }
 }
 /// Streaming RPC request for WriteDraft.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1767,267 +2028,6 @@ pub mod actions_sdk_client {
         }
     }
 }
-/// Contains information about execution event which happened during processing
-/// Actions Builder conversation request. For an overview of the stages involved
-/// in a conversation request, see
-/// <https://developers.google.com/assistant/conversational/actions.>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExecutionEvent {
-    /// Timestamp when the event happened.
-    #[prost(message, optional, tag = "1")]
-    pub event_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// State of the execution during this event.
-    #[prost(message, optional, tag = "2")]
-    pub execution_state: ::core::option::Option<ExecutionState>,
-    /// Resulting status of particular execution step.
-    #[prost(message, optional, tag = "3")]
-    pub status: ::core::option::Option<super::super::super::rpc::Status>,
-    /// List of warnings generated during execution of this Event. Warnings are
-    /// tips for the developer discovered during the conversation request. These
-    /// are usually non-critical and do not halt the execution of the request. For
-    /// example, a warnings might be generated when webhook tries to override a
-    /// custom Type which does not exist. Errors are reported as a failed status
-    /// code, but warnings can be present even when the status is OK.
-    #[prost(string, repeated, tag = "17")]
-    pub warning_messages: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Detailed information specific to different of events that may be involved
-    /// in processing a conversation round. The field set here defines the type of
-    /// this event.
-    #[prost(
-        oneof = "execution_event::EventData",
-        tags = "4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16"
-    )]
-    pub event_data: ::core::option::Option<execution_event::EventData>,
-}
-/// Nested message and enum types in `ExecutionEvent`.
-pub mod execution_event {
-    /// Detailed information specific to different of events that may be involved
-    /// in processing a conversation round. The field set here defines the type of
-    /// this event.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum EventData {
-        /// User input handling event.
-        #[prost(message, tag = "4")]
-        UserInput(super::UserConversationInput),
-        /// Intent matching event.
-        #[prost(message, tag = "5")]
-        IntentMatch(super::IntentMatch),
-        /// Condition evaluation event.
-        #[prost(message, tag = "6")]
-        ConditionsEvaluated(super::ConditionsEvaluated),
-        /// OnSceneEnter execution event.
-        #[prost(message, tag = "7")]
-        OnSceneEnter(super::OnSceneEnter),
-        /// Webhook request dispatch event.
-        #[prost(message, tag = "8")]
-        WebhookRequest(super::WebhookRequest),
-        /// Webhook response receipt event.
-        #[prost(message, tag = "9")]
-        WebhookResponse(super::WebhookResponse),
-        /// Webhook-initiated transition event.
-        #[prost(message, tag = "10")]
-        WebhookInitiatedTransition(super::WebhookInitiatedTransition),
-        /// Slot matching event.
-        #[prost(message, tag = "11")]
-        SlotMatch(super::SlotMatch),
-        /// Slot requesting event.
-        #[prost(message, tag = "12")]
-        SlotRequested(super::SlotRequested),
-        /// Slot validation event.
-        #[prost(message, tag = "13")]
-        SlotValidated(super::SlotValidated),
-        /// Form filling event.
-        #[prost(message, tag = "14")]
-        FormFilled(super::FormFilled),
-        /// Waiting-for-user-input event.
-        #[prost(message, tag = "15")]
-        WaitingUserInput(super::WaitingForUserInput),
-        /// End-of-conversation event.
-        #[prost(message, tag = "16")]
-        EndConversation(super::EndConversation),
-    }
-}
-/// Current state of the execution.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExecutionState {
-    /// ID of the scene which is currently  active.
-    #[prost(string, tag = "1")]
-    pub current_scene_id: ::prost::alloc::string::String,
-    /// State of the session storage:
-    /// <https://developers.google.com/assistant/conversational/storage-session>
-    #[prost(message, optional, tag = "2")]
-    pub session_storage: ::core::option::Option<::prost_types::Struct>,
-    /// State of the slots filling, if applicable:
-    /// <https://developers.google.com/assistant/conversational/scenes#slot_filling>
-    #[prost(message, optional, tag = "5")]
-    pub slots: ::core::option::Option<Slots>,
-    /// Prompt queue:
-    /// <https://developers.google.com/assistant/conversational/prompts>
-    #[prost(message, repeated, tag = "7")]
-    pub prompt_queue: ::prost::alloc::vec::Vec<conversation::Prompt>,
-    /// State of the user storage:
-    /// <https://developers.google.com/assistant/conversational/storage-user>
-    #[prost(message, optional, tag = "6")]
-    pub user_storage: ::core::option::Option<::prost_types::Struct>,
-    /// State of the home storage:
-    /// <https://developers.google.com/assistant/conversational/storage-home>
-    #[prost(message, optional, tag = "8")]
-    pub household_storage: ::core::option::Option<::prost_types::Struct>,
-}
-/// Represents the current state of a the scene's slots.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Slots {
-    /// The current status of slot filling.
-    #[prost(enumeration = "conversation::SlotFillingStatus", tag = "2")]
-    pub status: i32,
-    /// The slots associated with the current scene.
-    #[prost(btree_map = "string, message", tag = "3")]
-    pub slots: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        conversation::Slot,
-    >,
-}
-/// Information related to user input.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UserConversationInput {
-    /// Type of user input. E.g. keyboard, voice, touch, etc.
-    #[prost(string, tag = "1")]
-    pub r#type: ::prost::alloc::string::String,
-    /// Original text input from the user.
-    #[prost(string, tag = "2")]
-    pub original_query: ::prost::alloc::string::String,
-}
-/// Information about triggered intent match (global or within a scene):
-/// <https://developers.google.com/assistant/conversational/intents>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct IntentMatch {
-    /// Intent id which triggered this interaction.
-    #[prost(string, tag = "1")]
-    pub intent_id: ::prost::alloc::string::String,
-    /// Parameters of intent which triggered this interaction.
-    #[prost(btree_map = "string, message", tag = "5")]
-    pub intent_parameters: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        conversation::IntentParameterValue,
-    >,
-    /// Name of the handler attached to this interaction.
-    #[prost(string, tag = "3")]
-    pub handler: ::prost::alloc::string::String,
-    /// Scene to which this interaction leads to.
-    #[prost(string, tag = "4")]
-    pub next_scene_id: ::prost::alloc::string::String,
-}
-/// Results of conditions evaluation:
-/// <https://developers.google.com/assistant/conversational/scenes#conditions>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ConditionsEvaluated {
-    /// List of conditions which were evaluated to 'false'.
-    #[prost(message, repeated, tag = "1")]
-    pub failed_conditions: ::prost::alloc::vec::Vec<Condition>,
-    /// The first condition which was evaluated to 'true', if any.
-    #[prost(message, optional, tag = "2")]
-    pub success_condition: ::core::option::Option<Condition>,
-}
-/// Evaluated condition.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Condition {
-    /// Expression specified in this condition.
-    #[prost(string, tag = "1")]
-    pub expression: ::prost::alloc::string::String,
-    /// Handler name specified in evaluated condition.
-    #[prost(string, tag = "2")]
-    pub handler: ::prost::alloc::string::String,
-    /// Destination scene specified in evaluated condition.
-    #[prost(string, tag = "3")]
-    pub next_scene_id: ::prost::alloc::string::String,
-}
-/// Information about execution of onSceneEnter stage:
-/// <https://developers.google.com/assistant/conversational/scenes#on_enter>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OnSceneEnter {
-    /// Handler name specified in onSceneEnter event.
-    #[prost(string, tag = "1")]
-    pub handler: ::prost::alloc::string::String,
-}
-/// Event triggered by destination scene returned from webhook:
-/// <https://developers.google.com/assistant/conversational/webhooks#transition_scenes>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WebhookInitiatedTransition {
-    /// ID of the scene the transition is leading to.
-    #[prost(string, tag = "1")]
-    pub next_scene_id: ::prost::alloc::string::String,
-}
-/// Information about a request dispatched to the Action webhook:
-/// <https://developers.google.com/assistant/conversational/webhooks#payloads>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WebhookRequest {
-    /// Payload of the webhook request.
-    #[prost(string, tag = "1")]
-    pub request_json: ::prost::alloc::string::String,
-}
-/// Information about a response received from the Action webhook:
-/// <https://developers.google.com/assistant/conversational/webhooks#payloads>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WebhookResponse {
-    /// Payload of the webhook response.
-    #[prost(string, tag = "1")]
-    pub response_json: ::prost::alloc::string::String,
-}
-/// Information about matched slot(s):
-/// <https://developers.google.com/assistant/conversational/scenes#slot_filling>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SlotMatch {
-    /// Parameters extracted by NLU from user input.
-    #[prost(btree_map = "string, message", tag = "2")]
-    pub nlu_parameters: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        conversation::IntentParameterValue,
-    >,
-}
-/// Information about currently requested slot:
-/// <https://developers.google.com/assistant/conversational/scenes#slot_filling>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SlotRequested {
-    /// Name of the requested slot.
-    #[prost(string, tag = "1")]
-    pub slot: ::prost::alloc::string::String,
-    /// Slot prompt.
-    #[prost(message, optional, tag = "3")]
-    pub prompt: ::core::option::Option<conversation::Prompt>,
-}
-/// Event which happens after webhook validation was finished for slot(s):
-/// <https://developers.google.com/assistant/conversational/scenes#slot_filling>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SlotValidated {}
-/// Event which happens when form is fully filled:
-/// <https://developers.google.com/assistant/conversational/scenes#slot_filling>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FormFilled {}
-/// Event which happens when system needs user input:
-/// <https://developers.google.com/assistant/conversational/scenes#input>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WaitingForUserInput {}
-/// Event which informs that conversation with agent was ended.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EndConversation {}
 /// Request for playing a round of the conversation.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]

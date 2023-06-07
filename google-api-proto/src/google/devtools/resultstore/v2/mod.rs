@@ -1,3 +1,84 @@
+/// Stores errors reading or parsing a file during post-processing.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FileProcessingErrors {
+    /// The uid of the File being read or parsed.
+    #[prost(string, tag = "1")]
+    pub file_uid: ::prost::alloc::string::String,
+    /// What went wrong.
+    #[prost(message, repeated, tag = "3")]
+    pub file_processing_errors: ::prost::alloc::vec::Vec<FileProcessingError>,
+}
+/// Stores an error reading or parsing a file during post-processing.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FileProcessingError {
+    /// The type of error that occurred.
+    #[prost(enumeration = "FileProcessingErrorType", tag = "1")]
+    pub r#type: i32,
+    /// Error message describing the problem.
+    #[prost(string, tag = "2")]
+    pub message: ::prost::alloc::string::String,
+}
+/// Errors in file post-processing are categorized using this enum.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum FileProcessingErrorType {
+    /// Type unspecified or not listed here.
+    Unspecified = 0,
+    /// A read error occurred trying to read the file.
+    GenericReadError = 1,
+    /// There was an error trying to parse the file.
+    GenericParseError = 2,
+    /// File is exceeds size limit.
+    FileTooLarge = 3,
+    /// The result of parsing the file exceeded size limit.
+    OutputTooLarge = 4,
+    /// Read access to the file was denied by file system.
+    AccessDenied = 5,
+    /// Deadline exceeded trying to read the file.
+    DeadlineExceeded = 6,
+    /// File not found.
+    NotFound = 7,
+    /// File is empty but was expected to have content.
+    FileEmpty = 8,
+}
+impl FileProcessingErrorType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            FileProcessingErrorType::Unspecified => {
+                "FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED"
+            }
+            FileProcessingErrorType::GenericReadError => "GENERIC_READ_ERROR",
+            FileProcessingErrorType::GenericParseError => "GENERIC_PARSE_ERROR",
+            FileProcessingErrorType::FileTooLarge => "FILE_TOO_LARGE",
+            FileProcessingErrorType::OutputTooLarge => "OUTPUT_TOO_LARGE",
+            FileProcessingErrorType::AccessDenied => "ACCESS_DENIED",
+            FileProcessingErrorType::DeadlineExceeded => "DEADLINE_EXCEEDED",
+            FileProcessingErrorType::NotFound => "NOT_FOUND",
+            FileProcessingErrorType::FileEmpty => "FILE_EMPTY",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "GENERIC_READ_ERROR" => Some(Self::GenericReadError),
+            "GENERIC_PARSE_ERROR" => Some(Self::GenericParseError),
+            "FILE_TOO_LARGE" => Some(Self::FileTooLarge),
+            "OUTPUT_TOO_LARGE" => Some(Self::OutputTooLarge),
+            "ACCESS_DENIED" => Some(Self::AccessDenied),
+            "DEADLINE_EXCEEDED" => Some(Self::DeadlineExceeded),
+            "NOT_FOUND" => Some(Self::NotFound),
+            "FILE_EMPTY" => Some(Self::FileEmpty),
+            _ => None,
+        }
+    }
+}
 /// Describes the status of a resource in both enum and string form.
 /// Only use description when conveying additional info not captured in the enum
 /// name.
@@ -308,6 +389,117 @@ impl UploadStatus {
         }
     }
 }
+/// The download metadata for an invocation
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DownloadMetadata {
+    /// The name of the download metadata.  Its format will be:
+    /// invocations/${INVOCATION_ID}/downloadMetadata
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Indicates the upload status of the invocation, whether it is
+    /// post-processing, or immutable, etc.
+    #[prost(enumeration = "UploadStatus", tag = "2")]
+    pub upload_status: i32,
+}
+/// Describes line coverage for a file
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LineCoverage {
+    /// Which source lines in the file represent the start of a statement that was
+    /// instrumented to detect whether it was executed by the test.
+    ///
+    /// This is a bitfield where i-th bit corresponds to the i-th line. Divide line
+    /// number by 8 to get index into byte array. Mod line number by 8 to get bit
+    /// number (0 = LSB, 7 = MSB).
+    ///
+    /// A 1 denotes the line was instrumented.
+    /// A 0 denotes the line was not instrumented.
+    #[prost(bytes = "bytes", tag = "1")]
+    pub instrumented_lines: ::prost::bytes::Bytes,
+    /// Which of the instrumented source lines were executed by the test. Should
+    /// include lines that were not instrumented.
+    ///
+    /// This is a bitfield where i-th bit corresponds to the i-th line. Divide line
+    /// number by 8 to get index into byte array. Mod line number by 8 to get bit
+    /// number (0 = LSB, 7 = MSB).
+    ///
+    /// A 1 denotes the line was executed.
+    /// A 0 denotes the line was not executed.
+    #[prost(bytes = "bytes", tag = "2")]
+    pub executed_lines: ::prost::bytes::Bytes,
+}
+/// Describes branch coverage for a file
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BranchCoverage {
+    /// The field branch_present denotes the lines containing at least one branch.
+    ///
+    /// This is a bitfield where i-th bit corresponds to the i-th line. Divide line
+    /// number by 8 to get index into byte array. Mod line number by 8 to get bit
+    /// number (0 = LSB, 7 = MSB).
+    ///
+    /// A 1 denotes the line contains at least one branch.
+    /// A 0 denotes the line contains no branches.
+    #[prost(bytes = "bytes", tag = "1")]
+    pub branch_present: ::prost::bytes::Bytes,
+    /// Contains the number of branches present, only for the lines which have the
+    /// corresponding bit set in branch_present, in a relative order ignoring
+    /// lines which do not have any branches.
+    #[prost(int32, repeated, tag = "2")]
+    pub branches_in_line: ::prost::alloc::vec::Vec<i32>,
+    /// As each branch can have any one of the following three states: not
+    /// executed, executed but not taken, executed and taken.
+    ///
+    /// This is a bitfield where i-th bit corresponds to the i-th branch. Divide
+    /// branch number by 8 to get index into byte array. Mod branch number by 8 to
+    /// get bit number (0 = LSB, 7 = MSB).
+    ///
+    /// i-th bit of the following two byte arrays are used to denote the above
+    /// mentioned states.
+    ///
+    /// not executed: i-th bit of executed == 0 && i-th bit of taken == 0
+    /// executed but not taken: i-th bit of executed == 1 && i-th bit of taken == 0
+    /// executed and taken: i-th bit of executed == 1 && i-th bit of taken == 1
+    #[prost(bytes = "bytes", tag = "3")]
+    pub executed: ::prost::bytes::Bytes,
+    /// Described above.
+    #[prost(bytes = "bytes", tag = "4")]
+    pub taken: ::prost::bytes::Bytes,
+}
+/// Describes code coverage for a particular file under test.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FileCoverage {
+    /// Path of source file within the SourceContext of this Invocation.
+    #[prost(string, tag = "1")]
+    pub path: ::prost::alloc::string::String,
+    /// Details of lines in a file for calculating line coverage.
+    #[prost(message, optional, tag = "2")]
+    pub line_coverage: ::core::option::Option<LineCoverage>,
+    /// Details of branches in a file for calculating branch coverage.
+    #[prost(message, optional, tag = "3")]
+    pub branch_coverage: ::core::option::Option<BranchCoverage>,
+}
+/// Describes code coverage for a build or test Action. This is used to store
+/// baseline coverage for build Actions and test coverage for test Actions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ActionCoverage {
+    /// List of coverage info for all source files that the TestResult covers.
+    #[prost(message, repeated, tag = "2")]
+    pub file_coverages: ::prost::alloc::vec::Vec<FileCoverage>,
+}
+/// Describes aggregate code coverage for a collection of build or test Actions.
+/// A line or branch is covered if and only if it is covered in any of the build
+/// or test actions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AggregateCoverage {
+    /// Aggregated coverage info for all source files that the actions cover.
+    #[prost(message, repeated, tag = "1")]
+    pub file_coverages: ::prost::alloc::vec::Vec<FileCoverage>,
+}
 /// The metadata for a file or an archive file entry.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -426,532 +618,6 @@ pub struct ArchiveEntry {
     /// how to handle the entry.
     #[prost(string, tag = "3")]
     pub content_type: ::prost::alloc::string::String,
-}
-/// Each ConfiguredTarget represents data for a given configuration of a given
-/// target in a given Invocation.
-/// Every ConfiguredTarget should have at least one Action as a child resource
-/// before the invocation is finalized. Refer to the Action's documentation for
-/// more info on this.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ConfiguredTarget {
-    /// The resource name.  Its format must be:
-    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${url_encode(CONFIG_ID)}
-    /// where ${CONFIG_ID} must match the ID of an existing Configuration under
-    /// this Invocation.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The resource ID components that identify the ConfiguredTarget. They must
-    /// match the resource name after proper encoding.
-    #[prost(message, optional, tag = "2")]
-    pub id: ::core::option::Option<configured_target::Id>,
-    /// The aggregate status for this configuration of this target. If testing
-    /// was not requested, set this to the build status (e.g. BUILT or
-    /// FAILED_TO_BUILD).
-    #[prost(message, optional, tag = "3")]
-    pub status_attributes: ::core::option::Option<StatusAttributes>,
-    /// Captures the start time and duration of this configured target.
-    #[prost(message, optional, tag = "4")]
-    pub timing: ::core::option::Option<Timing>,
-    /// Test specific attributes for this ConfiguredTarget.
-    #[prost(message, optional, tag = "6")]
-    pub test_attributes: ::core::option::Option<ConfiguredTestAttributes>,
-    /// Arbitrary name-value pairs.
-    /// This is implemented as a multi-map. Multiple properties are allowed with
-    /// the same key. Properties will be returned in lexicographical order by key.
-    #[prost(message, repeated, tag = "7")]
-    pub properties: ::prost::alloc::vec::Vec<Property>,
-    /// A list of file references for configured target level files.
-    /// The file IDs must be unique within this list. Duplicate file IDs will
-    /// result in an error. Files will be returned in lexicographical order by ID.
-    #[prost(message, repeated, tag = "8")]
-    pub files: ::prost::alloc::vec::Vec<File>,
-}
-/// Nested message and enum types in `ConfiguredTarget`.
-pub mod configured_target {
-    /// The resource ID components that identify the ConfiguredTarget.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Id {
-        /// The Invocation ID.
-        #[prost(string, tag = "1")]
-        pub invocation_id: ::prost::alloc::string::String,
-        /// The Target ID.
-        #[prost(string, tag = "2")]
-        pub target_id: ::prost::alloc::string::String,
-        /// The Configuration ID.
-        #[prost(string, tag = "3")]
-        pub configuration_id: ::prost::alloc::string::String,
-    }
-}
-/// Attributes that apply only to test actions under this configured target.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ConfiguredTestAttributes {
-    /// Total number of test runs. For example, in bazel this is specified with
-    /// --runs_per_test. Zero if runs_per_test is not used.
-    #[prost(int32, tag = "2")]
-    pub total_run_count: i32,
-    /// Total number of test shards. Zero if shard count was not specified.
-    #[prost(int32, tag = "3")]
-    pub total_shard_count: i32,
-    /// How long test is allowed to run.
-    #[prost(message, optional, tag = "5")]
-    pub timeout_duration: ::core::option::Option<::prost_types::Duration>,
-}
-/// Summary of line coverage
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LineCoverageSummary {
-    /// Number of lines instrumented for coverage.
-    #[prost(int32, tag = "1")]
-    pub instrumented_line_count: i32,
-    /// Number of instrumented lines that were executed by the test.
-    #[prost(int32, tag = "2")]
-    pub executed_line_count: i32,
-}
-/// Summary of branch coverage
-/// A branch may be:
-///   * not executed.  Counted only in total.
-///   * executed but not taken.  Appears in total and executed.
-///   * executed and taken.  Appears in all three fields.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BranchCoverageSummary {
-    /// The number of branches present in the file.
-    #[prost(int32, tag = "1")]
-    pub total_branch_count: i32,
-    /// The number of branches executed out of the total branches present.
-    /// A branch is executed when its condition is evaluated.
-    /// This is <= total_branch_count as not all branches are executed.
-    #[prost(int32, tag = "2")]
-    pub executed_branch_count: i32,
-    /// The number of branches taken out of the total branches executed.
-    /// A branch is taken when its condition is satisfied.
-    /// This is <= executed_branch_count as not all executed branches are taken.
-    #[prost(int32, tag = "3")]
-    pub taken_branch_count: i32,
-}
-/// Summary of coverage in each language
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LanguageCoverageSummary {
-    /// This summary is for all files written in this programming language.
-    #[prost(enumeration = "Language", tag = "1")]
-    pub language: i32,
-    /// Summary of lines covered vs instrumented.
-    #[prost(message, optional, tag = "2")]
-    pub line_summary: ::core::option::Option<LineCoverageSummary>,
-    /// Summary of branch coverage.
-    #[prost(message, optional, tag = "3")]
-    pub branch_summary: ::core::option::Option<BranchCoverageSummary>,
-}
-/// Each Target represents data for a given target in a given Invocation.
-/// ConfiguredTarget and Action resources under each Target contain the bulk of
-/// the data.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Target {
-    /// The resource name.  Its format must be:
-    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The resource ID components that identify the Target. They must match the
-    /// resource name after proper encoding.
-    #[prost(message, optional, tag = "2")]
-    pub id: ::core::option::Option<target::Id>,
-    /// This is the aggregate status of the target.
-    #[prost(message, optional, tag = "3")]
-    pub status_attributes: ::core::option::Option<StatusAttributes>,
-    /// When this target started and its duration.
-    #[prost(message, optional, tag = "4")]
-    pub timing: ::core::option::Option<Timing>,
-    /// Attributes that apply to all targets.
-    #[prost(message, optional, tag = "5")]
-    pub target_attributes: ::core::option::Option<TargetAttributes>,
-    /// Attributes that apply to all test actions under this target.
-    #[prost(message, optional, tag = "6")]
-    pub test_attributes: ::core::option::Option<TestAttributes>,
-    /// Arbitrary name-value pairs.
-    /// This is implemented as a multi-map. Multiple properties are allowed with
-    /// the same key. Properties will be returned in lexicographical order by key.
-    #[prost(message, repeated, tag = "7")]
-    pub properties: ::prost::alloc::vec::Vec<Property>,
-    /// A list of file references for target level files.
-    /// The file IDs must be unique within this list. Duplicate file IDs will
-    /// result in an error. Files will be returned in lexicographical order by ID.
-    /// Use this field to specify outputs not related to a configuration.
-    #[prost(message, repeated, tag = "8")]
-    pub files: ::prost::alloc::vec::Vec<File>,
-    /// Provides a hint to clients as to whether to display the Target to users.
-    /// If true then clients likely want to display the Target by default.
-    /// Once set to true, this may not be set back to false.
-    #[prost(bool, tag = "10")]
-    pub visible: bool,
-}
-/// Nested message and enum types in `Target`.
-pub mod target {
-    /// The resource ID components that identify the Target.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Id {
-        /// The Invocation ID.
-        #[prost(string, tag = "1")]
-        pub invocation_id: ::prost::alloc::string::String,
-        /// The Target ID.
-        #[prost(string, tag = "2")]
-        pub target_id: ::prost::alloc::string::String,
-    }
-}
-/// Attributes that apply to all targets.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TargetAttributes {
-    /// If known, indicates the type of this target.  In bazel this corresponds
-    /// to the rule-suffix.
-    #[prost(enumeration = "TargetType", tag = "1")]
-    pub r#type: i32,
-    /// If known, the main language of this target, e.g. java, cc, python, etc.
-    #[prost(enumeration = "Language", tag = "2")]
-    pub language: i32,
-    /// The tags attribute of the build rule. These should be short, descriptive
-    /// words, and there should only be a few of them.
-    /// This is implemented as a set. All tags will be unique. Any duplicate tags
-    /// will be ignored. Tags will be returned in lexicographical order.
-    #[prost(string, repeated, tag = "3")]
-    pub tags: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Attributes that apply only to test actions under this target.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TestAttributes {
-    /// Indicates how big the user indicated the test action was.
-    #[prost(enumeration = "TestSize", tag = "1")]
-    pub size: i32,
-}
-/// These correspond to the suffix of the rule name. Eg cc_test has type TEST.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum TargetType {
-    /// Unspecified by the build system.
-    Unspecified = 0,
-    /// An application e.g. ios_application.
-    Application = 1,
-    /// A binary target e.g. cc_binary.
-    Binary = 2,
-    /// A library target e.g. java_library
-    Library = 3,
-    /// A package
-    Package = 4,
-    /// Any test target, in bazel that means a rule with a '_test' suffix.
-    Test = 5,
-}
-impl TargetType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            TargetType::Unspecified => "TARGET_TYPE_UNSPECIFIED",
-            TargetType::Application => "APPLICATION",
-            TargetType::Binary => "BINARY",
-            TargetType::Library => "LIBRARY",
-            TargetType::Package => "PACKAGE",
-            TargetType::Test => "TEST",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "TARGET_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "APPLICATION" => Some(Self::Application),
-            "BINARY" => Some(Self::Binary),
-            "LIBRARY" => Some(Self::Library),
-            "PACKAGE" => Some(Self::Package),
-            "TEST" => Some(Self::Test),
-            _ => None,
-        }
-    }
-}
-/// Indicates how big the user indicated the test action was.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum TestSize {
-    /// Unspecified by the user.
-    Unspecified = 0,
-    /// Unit test taking less than 1 minute.
-    Small = 1,
-    /// Integration tests taking less than 5 minutes.
-    Medium = 2,
-    /// End-to-end tests taking less than 15 minutes.
-    Large = 3,
-    /// Even bigger than LARGE.
-    Enormous = 4,
-    /// Something that doesn't fit into the above categories.
-    OtherSize = 5,
-}
-impl TestSize {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            TestSize::Unspecified => "TEST_SIZE_UNSPECIFIED",
-            TestSize::Small => "SMALL",
-            TestSize::Medium => "MEDIUM",
-            TestSize::Large => "LARGE",
-            TestSize::Enormous => "ENORMOUS",
-            TestSize::OtherSize => "OTHER_SIZE",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "TEST_SIZE_UNSPECIFIED" => Some(Self::Unspecified),
-            "SMALL" => Some(Self::Small),
-            "MEDIUM" => Some(Self::Medium),
-            "LARGE" => Some(Self::Large),
-            "ENORMOUS" => Some(Self::Enormous),
-            "OTHER_SIZE" => Some(Self::OtherSize),
-            _ => None,
-        }
-    }
-}
-/// Represents a configuration within an Invocation associated with one or more
-/// ConfiguredTargets. It captures the environment and other settings that
-/// were used.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Configuration {
-    /// The format of this Configuration resource name must be:
-    /// invocations/${INVOCATION_ID}/configs/${url_encode(CONFIG_ID)}
-    /// The configuration ID of "default" should be preferred for the default
-    /// configuration in a single-config invocation.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The resource ID components that identify the Configuration. They must match
-    /// the resource name after proper encoding.
-    #[prost(message, optional, tag = "2")]
-    pub id: ::core::option::Option<configuration::Id>,
-    /// The aggregate status for this configuration.
-    #[prost(message, optional, tag = "3")]
-    pub status_attributes: ::core::option::Option<StatusAttributes>,
-    /// Attributes that apply only to this configuration.
-    #[prost(message, optional, tag = "5")]
-    pub configuration_attributes: ::core::option::Option<ConfigurationAttributes>,
-    /// Arbitrary name-value pairs.
-    /// This is implemented as a multi-map. Multiple properties are allowed with
-    /// the same key. Properties will be returned in lexicographical order by key.
-    #[prost(message, repeated, tag = "6")]
-    pub properties: ::prost::alloc::vec::Vec<Property>,
-    /// A human-readable name for Configuration for UIs.
-    /// It is recommended that this name be unique.
-    /// If omitted, UIs should default to configuration_id.
-    #[prost(string, tag = "8")]
-    pub display_name: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `Configuration`.
-pub mod configuration {
-    /// The resource ID components that identify the Configuration.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Id {
-        /// The Invocation ID.
-        #[prost(string, tag = "1")]
-        pub invocation_id: ::prost::alloc::string::String,
-        /// The Configuration ID.
-        #[prost(string, tag = "2")]
-        pub configuration_id: ::prost::alloc::string::String,
-    }
-}
-/// Attributes that apply only to the configuration.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ConfigurationAttributes {
-    /// The type of cpu. (e.g. "x86", "powerpc")
-    #[prost(string, tag = "1")]
-    pub cpu: ::prost::alloc::string::String,
-}
-/// Stores errors reading or parsing a file during post-processing.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FileProcessingErrors {
-    /// The uid of the File being read or parsed.
-    #[prost(string, tag = "1")]
-    pub file_uid: ::prost::alloc::string::String,
-    /// What went wrong.
-    #[prost(message, repeated, tag = "3")]
-    pub file_processing_errors: ::prost::alloc::vec::Vec<FileProcessingError>,
-}
-/// Stores an error reading or parsing a file during post-processing.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FileProcessingError {
-    /// The type of error that occurred.
-    #[prost(enumeration = "FileProcessingErrorType", tag = "1")]
-    pub r#type: i32,
-    /// Error message describing the problem.
-    #[prost(string, tag = "2")]
-    pub message: ::prost::alloc::string::String,
-}
-/// Errors in file post-processing are categorized using this enum.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum FileProcessingErrorType {
-    /// Type unspecified or not listed here.
-    Unspecified = 0,
-    /// A read error occurred trying to read the file.
-    GenericReadError = 1,
-    /// There was an error trying to parse the file.
-    GenericParseError = 2,
-    /// File is exceeds size limit.
-    FileTooLarge = 3,
-    /// The result of parsing the file exceeded size limit.
-    OutputTooLarge = 4,
-    /// Read access to the file was denied by file system.
-    AccessDenied = 5,
-    /// Deadline exceeded trying to read the file.
-    DeadlineExceeded = 6,
-    /// File not found.
-    NotFound = 7,
-    /// File is empty but was expected to have content.
-    FileEmpty = 8,
-}
-impl FileProcessingErrorType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            FileProcessingErrorType::Unspecified => {
-                "FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED"
-            }
-            FileProcessingErrorType::GenericReadError => "GENERIC_READ_ERROR",
-            FileProcessingErrorType::GenericParseError => "GENERIC_PARSE_ERROR",
-            FileProcessingErrorType::FileTooLarge => "FILE_TOO_LARGE",
-            FileProcessingErrorType::OutputTooLarge => "OUTPUT_TOO_LARGE",
-            FileProcessingErrorType::AccessDenied => "ACCESS_DENIED",
-            FileProcessingErrorType::DeadlineExceeded => "DEADLINE_EXCEEDED",
-            FileProcessingErrorType::NotFound => "NOT_FOUND",
-            FileProcessingErrorType::FileEmpty => "FILE_EMPTY",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "GENERIC_READ_ERROR" => Some(Self::GenericReadError),
-            "GENERIC_PARSE_ERROR" => Some(Self::GenericParseError),
-            "FILE_TOO_LARGE" => Some(Self::FileTooLarge),
-            "OUTPUT_TOO_LARGE" => Some(Self::OutputTooLarge),
-            "ACCESS_DENIED" => Some(Self::AccessDenied),
-            "DEADLINE_EXCEEDED" => Some(Self::DeadlineExceeded),
-            "NOT_FOUND" => Some(Self::NotFound),
-            "FILE_EMPTY" => Some(Self::FileEmpty),
-            _ => None,
-        }
-    }
-}
-/// Describes line coverage for a file
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LineCoverage {
-    /// Which source lines in the file represent the start of a statement that was
-    /// instrumented to detect whether it was executed by the test.
-    ///
-    /// This is a bitfield where i-th bit corresponds to the i-th line. Divide line
-    /// number by 8 to get index into byte array. Mod line number by 8 to get bit
-    /// number (0 = LSB, 7 = MSB).
-    ///
-    /// A 1 denotes the line was instrumented.
-    /// A 0 denotes the line was not instrumented.
-    #[prost(bytes = "bytes", tag = "1")]
-    pub instrumented_lines: ::prost::bytes::Bytes,
-    /// Which of the instrumented source lines were executed by the test. Should
-    /// include lines that were not instrumented.
-    ///
-    /// This is a bitfield where i-th bit corresponds to the i-th line. Divide line
-    /// number by 8 to get index into byte array. Mod line number by 8 to get bit
-    /// number (0 = LSB, 7 = MSB).
-    ///
-    /// A 1 denotes the line was executed.
-    /// A 0 denotes the line was not executed.
-    #[prost(bytes = "bytes", tag = "2")]
-    pub executed_lines: ::prost::bytes::Bytes,
-}
-/// Describes branch coverage for a file
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BranchCoverage {
-    /// The field branch_present denotes the lines containing at least one branch.
-    ///
-    /// This is a bitfield where i-th bit corresponds to the i-th line. Divide line
-    /// number by 8 to get index into byte array. Mod line number by 8 to get bit
-    /// number (0 = LSB, 7 = MSB).
-    ///
-    /// A 1 denotes the line contains at least one branch.
-    /// A 0 denotes the line contains no branches.
-    #[prost(bytes = "bytes", tag = "1")]
-    pub branch_present: ::prost::bytes::Bytes,
-    /// Contains the number of branches present, only for the lines which have the
-    /// corresponding bit set in branch_present, in a relative order ignoring
-    /// lines which do not have any branches.
-    #[prost(int32, repeated, tag = "2")]
-    pub branches_in_line: ::prost::alloc::vec::Vec<i32>,
-    /// As each branch can have any one of the following three states: not
-    /// executed, executed but not taken, executed and taken.
-    ///
-    /// This is a bitfield where i-th bit corresponds to the i-th branch. Divide
-    /// branch number by 8 to get index into byte array. Mod branch number by 8 to
-    /// get bit number (0 = LSB, 7 = MSB).
-    ///
-    /// i-th bit of the following two byte arrays are used to denote the above
-    /// mentioned states.
-    ///
-    /// not executed: i-th bit of executed == 0 && i-th bit of taken == 0
-    /// executed but not taken: i-th bit of executed == 1 && i-th bit of taken == 0
-    /// executed and taken: i-th bit of executed == 1 && i-th bit of taken == 1
-    #[prost(bytes = "bytes", tag = "3")]
-    pub executed: ::prost::bytes::Bytes,
-    /// Described above.
-    #[prost(bytes = "bytes", tag = "4")]
-    pub taken: ::prost::bytes::Bytes,
-}
-/// Describes code coverage for a particular file under test.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FileCoverage {
-    /// Path of source file within the SourceContext of this Invocation.
-    #[prost(string, tag = "1")]
-    pub path: ::prost::alloc::string::String,
-    /// Details of lines in a file for calculating line coverage.
-    #[prost(message, optional, tag = "2")]
-    pub line_coverage: ::core::option::Option<LineCoverage>,
-    /// Details of branches in a file for calculating branch coverage.
-    #[prost(message, optional, tag = "3")]
-    pub branch_coverage: ::core::option::Option<BranchCoverage>,
-}
-/// Describes code coverage for a build or test Action. This is used to store
-/// baseline coverage for build Actions and test coverage for test Actions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ActionCoverage {
-    /// List of coverage info for all source files that the TestResult covers.
-    #[prost(message, repeated, tag = "2")]
-    pub file_coverages: ::prost::alloc::vec::Vec<FileCoverage>,
-}
-/// Describes aggregate code coverage for a collection of build or test Actions.
-/// A line or branch is covered if and only if it is covered in any of the build
-/// or test actions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AggregateCoverage {
-    /// Aggregated coverage info for all source files that the actions cover.
-    #[prost(message, repeated, tag = "1")]
-    pub file_coverages: ::prost::alloc::vec::Vec<FileCoverage>,
 }
 /// The result of running a test suite, as reported in a <testsuite> element of
 /// an XML log.
@@ -1589,6 +1255,133 @@ impl TestCaching {
         }
     }
 }
+/// Represents a configuration within an Invocation associated with one or more
+/// ConfiguredTargets. It captures the environment and other settings that
+/// were used.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Configuration {
+    /// The format of this Configuration resource name must be:
+    /// invocations/${INVOCATION_ID}/configs/${url_encode(CONFIG_ID)}
+    /// The configuration ID of "default" should be preferred for the default
+    /// configuration in a single-config invocation.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The resource ID components that identify the Configuration. They must match
+    /// the resource name after proper encoding.
+    #[prost(message, optional, tag = "2")]
+    pub id: ::core::option::Option<configuration::Id>,
+    /// The aggregate status for this configuration.
+    #[prost(message, optional, tag = "3")]
+    pub status_attributes: ::core::option::Option<StatusAttributes>,
+    /// Attributes that apply only to this configuration.
+    #[prost(message, optional, tag = "5")]
+    pub configuration_attributes: ::core::option::Option<ConfigurationAttributes>,
+    /// Arbitrary name-value pairs.
+    /// This is implemented as a multi-map. Multiple properties are allowed with
+    /// the same key. Properties will be returned in lexicographical order by key.
+    #[prost(message, repeated, tag = "6")]
+    pub properties: ::prost::alloc::vec::Vec<Property>,
+    /// A human-readable name for Configuration for UIs.
+    /// It is recommended that this name be unique.
+    /// If omitted, UIs should default to configuration_id.
+    #[prost(string, tag = "8")]
+    pub display_name: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Configuration`.
+pub mod configuration {
+    /// The resource ID components that identify the Configuration.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Id {
+        /// The Invocation ID.
+        #[prost(string, tag = "1")]
+        pub invocation_id: ::prost::alloc::string::String,
+        /// The Configuration ID.
+        #[prost(string, tag = "2")]
+        pub configuration_id: ::prost::alloc::string::String,
+    }
+}
+/// Attributes that apply only to the configuration.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ConfigurationAttributes {
+    /// The type of cpu. (e.g. "x86", "powerpc")
+    #[prost(string, tag = "1")]
+    pub cpu: ::prost::alloc::string::String,
+}
+/// Each ConfiguredTarget represents data for a given configuration of a given
+/// target in a given Invocation.
+/// Every ConfiguredTarget should have at least one Action as a child resource
+/// before the invocation is finalized. Refer to the Action's documentation for
+/// more info on this.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ConfiguredTarget {
+    /// The resource name.  Its format must be:
+    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${url_encode(CONFIG_ID)}
+    /// where ${CONFIG_ID} must match the ID of an existing Configuration under
+    /// this Invocation.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The resource ID components that identify the ConfiguredTarget. They must
+    /// match the resource name after proper encoding.
+    #[prost(message, optional, tag = "2")]
+    pub id: ::core::option::Option<configured_target::Id>,
+    /// The aggregate status for this configuration of this target. If testing
+    /// was not requested, set this to the build status (e.g. BUILT or
+    /// FAILED_TO_BUILD).
+    #[prost(message, optional, tag = "3")]
+    pub status_attributes: ::core::option::Option<StatusAttributes>,
+    /// Captures the start time and duration of this configured target.
+    #[prost(message, optional, tag = "4")]
+    pub timing: ::core::option::Option<Timing>,
+    /// Test specific attributes for this ConfiguredTarget.
+    #[prost(message, optional, tag = "6")]
+    pub test_attributes: ::core::option::Option<ConfiguredTestAttributes>,
+    /// Arbitrary name-value pairs.
+    /// This is implemented as a multi-map. Multiple properties are allowed with
+    /// the same key. Properties will be returned in lexicographical order by key.
+    #[prost(message, repeated, tag = "7")]
+    pub properties: ::prost::alloc::vec::Vec<Property>,
+    /// A list of file references for configured target level files.
+    /// The file IDs must be unique within this list. Duplicate file IDs will
+    /// result in an error. Files will be returned in lexicographical order by ID.
+    #[prost(message, repeated, tag = "8")]
+    pub files: ::prost::alloc::vec::Vec<File>,
+}
+/// Nested message and enum types in `ConfiguredTarget`.
+pub mod configured_target {
+    /// The resource ID components that identify the ConfiguredTarget.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Id {
+        /// The Invocation ID.
+        #[prost(string, tag = "1")]
+        pub invocation_id: ::prost::alloc::string::String,
+        /// The Target ID.
+        #[prost(string, tag = "2")]
+        pub target_id: ::prost::alloc::string::String,
+        /// The Configuration ID.
+        #[prost(string, tag = "3")]
+        pub configuration_id: ::prost::alloc::string::String,
+    }
+}
+/// Attributes that apply only to test actions under this configured target.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ConfiguredTestAttributes {
+    /// Total number of test runs. For example, in bazel this is specified with
+    /// --runs_per_test. Zero if runs_per_test is not used.
+    #[prost(int32, tag = "2")]
+    pub total_run_count: i32,
+    /// Total number of test shards. Zero if shard count was not specified.
+    #[prost(int32, tag = "3")]
+    pub total_shard_count: i32,
+    /// How long test is allowed to run.
+    #[prost(message, optional, tag = "5")]
+    pub timeout_duration: ::core::option::Option<::prost_types::Duration>,
+}
 /// This resource represents a set of Files and other (nested) FileSets.
 /// A FileSet is a node in the graph, and the file_sets field represents the
 /// outgoing edges. A resource may reference various nodes in the graph to
@@ -1636,6 +1429,53 @@ pub mod file_set {
         #[prost(string, tag = "2")]
         pub file_set_id: ::prost::alloc::string::String,
     }
+}
+/// Summary of line coverage
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LineCoverageSummary {
+    /// Number of lines instrumented for coverage.
+    #[prost(int32, tag = "1")]
+    pub instrumented_line_count: i32,
+    /// Number of instrumented lines that were executed by the test.
+    #[prost(int32, tag = "2")]
+    pub executed_line_count: i32,
+}
+/// Summary of branch coverage
+/// A branch may be:
+///   * not executed.  Counted only in total.
+///   * executed but not taken.  Appears in total and executed.
+///   * executed and taken.  Appears in all three fields.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BranchCoverageSummary {
+    /// The number of branches present in the file.
+    #[prost(int32, tag = "1")]
+    pub total_branch_count: i32,
+    /// The number of branches executed out of the total branches present.
+    /// A branch is executed when its condition is evaluated.
+    /// This is <= total_branch_count as not all branches are executed.
+    #[prost(int32, tag = "2")]
+    pub executed_branch_count: i32,
+    /// The number of branches taken out of the total branches executed.
+    /// A branch is taken when its condition is satisfied.
+    /// This is <= executed_branch_count as not all executed branches are taken.
+    #[prost(int32, tag = "3")]
+    pub taken_branch_count: i32,
+}
+/// Summary of coverage in each language
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LanguageCoverageSummary {
+    /// This summary is for all files written in this programming language.
+    #[prost(enumeration = "Language", tag = "1")]
+    pub language: i32,
+    /// Summary of lines covered vs instrumented.
+    #[prost(message, optional, tag = "2")]
+    pub line_summary: ::core::option::Option<LineCoverageSummary>,
+    /// Summary of branch coverage.
+    #[prost(message, optional, tag = "3")]
+    pub branch_summary: ::core::option::Option<BranchCoverageSummary>,
 }
 /// An Invocation typically represents the result of running a tool. Each has a
 /// unique ID, typically generated by the server. Target resources under each
@@ -1815,6 +1655,179 @@ pub struct InvocationContext {
     /// A URL pointing to a UI containing more information
     #[prost(string, tag = "2")]
     pub url: ::prost::alloc::string::String,
+}
+/// Each Target represents data for a given target in a given Invocation.
+/// ConfiguredTarget and Action resources under each Target contain the bulk of
+/// the data.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Target {
+    /// The resource name.  Its format must be:
+    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The resource ID components that identify the Target. They must match the
+    /// resource name after proper encoding.
+    #[prost(message, optional, tag = "2")]
+    pub id: ::core::option::Option<target::Id>,
+    /// This is the aggregate status of the target.
+    #[prost(message, optional, tag = "3")]
+    pub status_attributes: ::core::option::Option<StatusAttributes>,
+    /// When this target started and its duration.
+    #[prost(message, optional, tag = "4")]
+    pub timing: ::core::option::Option<Timing>,
+    /// Attributes that apply to all targets.
+    #[prost(message, optional, tag = "5")]
+    pub target_attributes: ::core::option::Option<TargetAttributes>,
+    /// Attributes that apply to all test actions under this target.
+    #[prost(message, optional, tag = "6")]
+    pub test_attributes: ::core::option::Option<TestAttributes>,
+    /// Arbitrary name-value pairs.
+    /// This is implemented as a multi-map. Multiple properties are allowed with
+    /// the same key. Properties will be returned in lexicographical order by key.
+    #[prost(message, repeated, tag = "7")]
+    pub properties: ::prost::alloc::vec::Vec<Property>,
+    /// A list of file references for target level files.
+    /// The file IDs must be unique within this list. Duplicate file IDs will
+    /// result in an error. Files will be returned in lexicographical order by ID.
+    /// Use this field to specify outputs not related to a configuration.
+    #[prost(message, repeated, tag = "8")]
+    pub files: ::prost::alloc::vec::Vec<File>,
+    /// Provides a hint to clients as to whether to display the Target to users.
+    /// If true then clients likely want to display the Target by default.
+    /// Once set to true, this may not be set back to false.
+    #[prost(bool, tag = "10")]
+    pub visible: bool,
+}
+/// Nested message and enum types in `Target`.
+pub mod target {
+    /// The resource ID components that identify the Target.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Id {
+        /// The Invocation ID.
+        #[prost(string, tag = "1")]
+        pub invocation_id: ::prost::alloc::string::String,
+        /// The Target ID.
+        #[prost(string, tag = "2")]
+        pub target_id: ::prost::alloc::string::String,
+    }
+}
+/// Attributes that apply to all targets.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TargetAttributes {
+    /// If known, indicates the type of this target.  In bazel this corresponds
+    /// to the rule-suffix.
+    #[prost(enumeration = "TargetType", tag = "1")]
+    pub r#type: i32,
+    /// If known, the main language of this target, e.g. java, cc, python, etc.
+    #[prost(enumeration = "Language", tag = "2")]
+    pub language: i32,
+    /// The tags attribute of the build rule. These should be short, descriptive
+    /// words, and there should only be a few of them.
+    /// This is implemented as a set. All tags will be unique. Any duplicate tags
+    /// will be ignored. Tags will be returned in lexicographical order.
+    #[prost(string, repeated, tag = "3")]
+    pub tags: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Attributes that apply only to test actions under this target.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TestAttributes {
+    /// Indicates how big the user indicated the test action was.
+    #[prost(enumeration = "TestSize", tag = "1")]
+    pub size: i32,
+}
+/// These correspond to the suffix of the rule name. Eg cc_test has type TEST.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum TargetType {
+    /// Unspecified by the build system.
+    Unspecified = 0,
+    /// An application e.g. ios_application.
+    Application = 1,
+    /// A binary target e.g. cc_binary.
+    Binary = 2,
+    /// A library target e.g. java_library
+    Library = 3,
+    /// A package
+    Package = 4,
+    /// Any test target, in bazel that means a rule with a '_test' suffix.
+    Test = 5,
+}
+impl TargetType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            TargetType::Unspecified => "TARGET_TYPE_UNSPECIFIED",
+            TargetType::Application => "APPLICATION",
+            TargetType::Binary => "BINARY",
+            TargetType::Library => "LIBRARY",
+            TargetType::Package => "PACKAGE",
+            TargetType::Test => "TEST",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "TARGET_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "APPLICATION" => Some(Self::Application),
+            "BINARY" => Some(Self::Binary),
+            "LIBRARY" => Some(Self::Library),
+            "PACKAGE" => Some(Self::Package),
+            "TEST" => Some(Self::Test),
+            _ => None,
+        }
+    }
+}
+/// Indicates how big the user indicated the test action was.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum TestSize {
+    /// Unspecified by the user.
+    Unspecified = 0,
+    /// Unit test taking less than 1 minute.
+    Small = 1,
+    /// Integration tests taking less than 5 minutes.
+    Medium = 2,
+    /// End-to-end tests taking less than 15 minutes.
+    Large = 3,
+    /// Even bigger than LARGE.
+    Enormous = 4,
+    /// Something that doesn't fit into the above categories.
+    OtherSize = 5,
+}
+impl TestSize {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            TestSize::Unspecified => "TEST_SIZE_UNSPECIFIED",
+            TestSize::Small => "SMALL",
+            TestSize::Medium => "MEDIUM",
+            TestSize::Large => "LARGE",
+            TestSize::Enormous => "ENORMOUS",
+            TestSize::OtherSize => "OTHER_SIZE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "TEST_SIZE_UNSPECIFIED" => Some(Self::Unspecified),
+            "SMALL" => Some(Self::Small),
+            "MEDIUM" => Some(Self::Medium),
+            "LARGE" => Some(Self::Large),
+            "ENORMOUS" => Some(Self::Enormous),
+            "OTHER_SIZE" => Some(Self::OtherSize),
+            _ => None,
+        }
+    }
 }
 /// The upload metadata for an invocation
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -3453,19 +3466,6 @@ pub mod result_store_upload_client {
             self.inner.unary(request.into_request(), path, codec).await
         }
     }
-}
-/// The download metadata for an invocation
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DownloadMetadata {
-    /// The name of the download metadata.  Its format will be:
-    /// invocations/${INVOCATION_ID}/downloadMetadata
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Indicates the upload status of the invocation, whether it is
-    /// post-processing, or immutable, etc.
-    #[prost(enumeration = "UploadStatus", tag = "2")]
-    pub upload_status: i32,
 }
 /// Request object for GetFile
 #[allow(clippy::derive_partial_eq_without_eq)]
