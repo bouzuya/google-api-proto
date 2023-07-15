@@ -5,10 +5,10 @@
 [![doc](https://github.com/mechiru/google-api-proto/workflows/doc/badge.svg)](https://mechiru.github.io/google-api-proto/google_api_proto/index.html)
 [![version](https://img.shields.io/crates/v/google-api-proto.svg)](https://crates.io/crates/google-api-proto)
 
-This library generated from [googleapis/googleapis][] using [tonic-build][].
+This library generated from [googleapis/googleapis] using [tonic-build].
 
 ## Overview
-This library contains all the code generated from the [googleapis/googleapis][].
+This library contains all the code generated from the [googleapis/googleapis].
 
 When using each product API, you must explicitly include it in your build using a feature flag.<br>
 For example, if you want to use [Cloud Pub/Sub](https://cloud.google.com/pubsub), write `features = ["google-pubsub-v1"]` to Cargo.toml.
@@ -53,9 +53,10 @@ The list of available features can be found [here](./google-api-proto/Cargo.toml
 ## Version matrices
 | google-api-proto | tonic | tonic-build |
 |------------------|-------|-------------|
-| 1.0.0 ≦          | 0.6.x | 0.6.x       |
-| 1.59.0 ≦         | 0.7.x | 0.7.x       |
-| 1.243.0 ≦        | 0.8.x | 0.8.x       |
+| 1.0.0 <=         | 0.6.x |       0.6.x |
+| 1.59.0 <=        | 0.7.x |       0.7.x |
+| 1.243.0 <=       | 0.8.x |       0.8.x |
+| 1.280.0 <=       | 0.9.x |       0.9.x |
 
 ## Example
 The complete code can be found [here](./examples/src/spanner.rs).
@@ -64,13 +65,13 @@ Cargo.toml:
 ```toml
 [dependencies]
 # For runtime
-tokio = { version = "1.15", features = ["macros", "rt-multi-thread"] }
+tokio = { version = "1.29.1", features = ["macros", "rt-multi-thread"] }
 # For google authentication
-google-authz = { version = "1.0.0-alpha.4", features = ["tonic"] }
+google-authz = { version = "1.0.0-alpha.5", features = ["tonic"] }
 # For gRPC
-tonic = { version = "0.8", features = ["tls", "tls-webpki-roots"] }
-prost = { version = "0.11" }
-prost-types = { version = "0.11" }
+tonic = { version = "0.9.2", features = ["tls", "tls-webpki-roots"] }
+prost = "0.11.9"
+prost-types = "0.11.9"
 google-api-proto = { version = "1", features = ["google-spanner-admin-database-v1"] }
 ```
 
