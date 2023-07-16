@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["PagesClient","Service for managing [Pages][google.cloud.dialogflow.cx.v3beta1.Page]."]]});
+window.SIDEBAR_ITEMS = {"struct":["PagesClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Priority","The priority level of the human review task."],["Source","The document payload."]]});
+window.SIDEBAR_ITEMS = {"enum":["Priority","Source"]};

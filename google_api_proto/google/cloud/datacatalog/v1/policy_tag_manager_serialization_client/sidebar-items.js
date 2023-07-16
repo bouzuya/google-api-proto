@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["PolicyTagManagerSerializationClient","Policy Tag Manager Serialization API service allows you to manipulate your policy tags and taxonomies in a serialized format."]]});
+window.SIDEBAR_ITEMS = {"struct":["PolicyTagManagerSerializationClient"]};

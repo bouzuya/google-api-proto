@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Policy","Unimplemented, reserved for future use. HourlyMaintenanceWindow hourly_maintenance_window = 1;"]]});
+window.SIDEBAR_ITEMS = {"enum":["Policy"]};

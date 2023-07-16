@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AlertCenterServiceClient","Google Workspace Alert Center API (beta)."]]});
+window.SIDEBAR_ITEMS = {"struct":["AlertCenterServiceClient"]};

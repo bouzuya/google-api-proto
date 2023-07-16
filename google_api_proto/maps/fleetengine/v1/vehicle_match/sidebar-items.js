@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["VehicleMatchType","Type of vehicle match."]]});
+window.SIDEBAR_ITEMS = {"enum":["VehicleMatchType"]};

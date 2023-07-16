@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Artifact","A specific type of artifact."]],"struct":[["Gcs","Specifies an artifact available as a Cloud Storage object."],["Remote","Specifies an artifact available via some URI."]]});
+window.SIDEBAR_ITEMS = {"enum":["Artifact"],"struct":["Gcs","Remote"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["BillingDestination","Configuration of a specific billing destination (Currently only support bill against consumer project)."]]});
+window.SIDEBAR_ITEMS = {"struct":["BillingDestination"]};

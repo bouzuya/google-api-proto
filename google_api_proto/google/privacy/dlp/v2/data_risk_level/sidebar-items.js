@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DataRiskLevelScore","Various score levels for resources."]]});
+window.SIDEBAR_ITEMS = {"enum":["DataRiskLevelScore"]};

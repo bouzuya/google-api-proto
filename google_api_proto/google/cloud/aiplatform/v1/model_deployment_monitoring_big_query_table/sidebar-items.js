@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["LogSource","Indicates where does the log come from."],["LogType","Indicates what type of traffic does the log belong to."]]});
+window.SIDEBAR_ITEMS = {"enum":["LogSource","LogType"]};

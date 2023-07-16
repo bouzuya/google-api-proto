@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ExprStep","ID and value index of one step."]]});
+window.SIDEBAR_ITEMS = {"struct":["ExprStep"]};

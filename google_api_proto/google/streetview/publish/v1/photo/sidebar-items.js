@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["MapsPublishStatus","Publication status of the photo in Google Maps."],["TransferStatus","Status of rights transfer."]]});
+window.SIDEBAR_ITEMS = {"enum":["MapsPublishStatus","TransferStatus"]};

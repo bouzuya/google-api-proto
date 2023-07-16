@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["MediaType","Media type of this response."],["OptionalMediaControls","Optional media control types the media response can support"]]});
+window.SIDEBAR_ITEMS = {"enum":["MediaType","OptionalMediaControls"]};

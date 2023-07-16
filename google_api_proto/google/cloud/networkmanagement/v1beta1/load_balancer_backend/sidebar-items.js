@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["HealthCheckFirewallState","State of a health check firewall configuration:"]]});
+window.SIDEBAR_ITEMS = {"enum":["HealthCheckFirewallState"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["MetricsV1Beta3Client","The Dataflow Metrics API lets you monitor the progress of Dataflow jobs."]]});
+window.SIDEBAR_ITEMS = {"struct":["MetricsV1Beta3Client"]};

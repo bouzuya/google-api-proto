@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["destination","fault_injection_policy","header_match","method_match"],"struct":["Destination","FaultInjectionPolicy","HeaderMatch","MethodMatch","RetryPolicy","RouteAction","RouteMatch","RouteRule"]};

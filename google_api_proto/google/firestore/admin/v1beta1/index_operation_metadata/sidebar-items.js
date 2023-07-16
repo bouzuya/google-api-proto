@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["OperationType","The type of index operation."]]});
+window.SIDEBAR_ITEMS = {"enum":["OperationType"]};

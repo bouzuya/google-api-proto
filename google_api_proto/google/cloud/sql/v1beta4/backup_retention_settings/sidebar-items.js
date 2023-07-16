@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["RetentionUnit","The units that retained_backups specifies, we only support COUNT."]]});
+window.SIDEBAR_ITEMS = {"enum":["RetentionUnit"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["BuildTemplate","Template describing the Build request to make when the trigger is matched."]]});
+window.SIDEBAR_ITEMS = {"enum":["BuildTemplate"]};

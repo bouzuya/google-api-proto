@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Label","The parse label enum for the token."]]});
+window.SIDEBAR_ITEMS = {"enum":["Label"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AuthenticationServiceClient","Authentication for Identity Toolkit"]]});
+window.SIDEBAR_ITEMS = {"struct":["AuthenticationServiceClient"]};

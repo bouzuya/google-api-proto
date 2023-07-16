@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Cluster information of the registered cluster."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

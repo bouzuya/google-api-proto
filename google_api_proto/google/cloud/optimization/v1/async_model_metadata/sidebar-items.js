@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","Possible states of the operation."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

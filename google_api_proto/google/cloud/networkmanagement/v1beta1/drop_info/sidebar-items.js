@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Cause","Drop cause types:"]]});
+window.SIDEBAR_ITEMS = {"enum":["Cause"]};

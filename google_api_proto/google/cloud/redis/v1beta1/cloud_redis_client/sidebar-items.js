@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CloudRedisClient","Configures and manages Cloud Memorystore for Redis instances"]]});
+window.SIDEBAR_ITEMS = {"struct":["CloudRedisClient"]};

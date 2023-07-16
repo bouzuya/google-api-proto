@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SymptomType","SymptomType represents the different types of Symptoms that a TPU can be at."]]});
+window.SIDEBAR_ITEMS = {"enum":["SymptomType"]};

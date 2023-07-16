@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["RevisionsClient","Cloud Run Revision Control Plane API."]]});
+window.SIDEBAR_ITEMS = {"struct":["RevisionsClient"]};

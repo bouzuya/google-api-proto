@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["exec","Nested message and enum types in `Exec`."]],"struct":[["Exec","A file or script to execute."]]});
+window.SIDEBAR_ITEMS = {"mod":["exec"],"struct":["Exec"]};

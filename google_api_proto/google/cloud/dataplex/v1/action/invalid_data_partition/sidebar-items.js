@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["PartitionStructure","The expected partition structure."]]});
+window.SIDEBAR_ITEMS = {"enum":["PartitionStructure"]};

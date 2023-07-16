@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AvailableVersion","Deprecated."]]});
+window.SIDEBAR_ITEMS = {"struct":["AvailableVersion"]};

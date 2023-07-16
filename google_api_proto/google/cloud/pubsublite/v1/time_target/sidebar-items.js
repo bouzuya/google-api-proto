@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Time","The type of message time to query."]]});
+window.SIDEBAR_ITEMS = {"enum":["Time"]};

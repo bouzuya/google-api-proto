@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Metrics","Output only. Problem type specific evaluation metrics."]]});
+window.SIDEBAR_ITEMS = {"enum":["Metrics"]};

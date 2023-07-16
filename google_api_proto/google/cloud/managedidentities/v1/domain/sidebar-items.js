@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","Represents the different states of a managed domain."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["FileFormat","File Format that the data should be written in."]]});
+window.SIDEBAR_ITEMS = {"enum":["FileFormat"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["QuotaMode","Supported quota modes."]]});
+window.SIDEBAR_ITEMS = {"enum":["QuotaMode"]};

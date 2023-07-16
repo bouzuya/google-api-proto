@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["OnlinePredictionLogEntry","The access log entry definition of online prediction."]]});
+window.SIDEBAR_ITEMS = {"struct":["OnlinePredictionLogEntry"]};

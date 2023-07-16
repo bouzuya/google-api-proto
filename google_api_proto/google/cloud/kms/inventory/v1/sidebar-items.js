@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["key_dashboard_service_client","key_tracking_service_client"],"struct":["GetProtectedResourcesSummaryRequest","ListCryptoKeysRequest","ListCryptoKeysResponse","ProtectedResource","ProtectedResourcesSummary","SearchProtectedResourcesRequest","SearchProtectedResourcesResponse"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ClusterReference","The location of the Kubernetes cluster."]]});
+window.SIDEBAR_ITEMS = {"enum":["ClusterReference"]};

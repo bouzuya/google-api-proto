@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["AvailabilityType","InstanceType","State"],"struct":["MachineConfig","Node","QueryInsightsInstanceConfig","ReadPoolConfig"]};

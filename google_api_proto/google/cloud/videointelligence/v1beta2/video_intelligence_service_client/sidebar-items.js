@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["VideoIntelligenceServiceClient","Service that implements Google Cloud Video Intelligence API."]]});
+window.SIDEBAR_ITEMS = {"struct":["VideoIntelligenceServiceClient"]};

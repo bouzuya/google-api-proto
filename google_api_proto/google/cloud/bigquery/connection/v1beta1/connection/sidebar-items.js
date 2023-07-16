@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Properties","Properties specific to the underlying data source."]]});
+window.SIDEBAR_ITEMS = {"enum":["Properties"]};

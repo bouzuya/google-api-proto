@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["InfrastructureType","Specifies the infrastructure type of a Membership. Infrastructure type is used by Hub to control infrastructure-specific behavior, including pricing."],["Type","Type of resource represented by this Membership"]]});
+window.SIDEBAR_ITEMS = {"enum":["InfrastructureType","Type"]};

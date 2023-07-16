@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["EncryptionOptions",""]]});
+window.SIDEBAR_ITEMS = {"struct":["EncryptionOptions"]};

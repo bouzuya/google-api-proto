@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["DetectedPerson","NormalizedBoundingBox","PersonEntity","PersonIdentifiedBox","PpeEntity","PpeIdentifiedBox"]};

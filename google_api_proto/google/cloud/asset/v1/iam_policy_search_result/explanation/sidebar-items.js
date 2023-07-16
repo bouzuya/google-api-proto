@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Permissions","IAM permissions"]]});
+window.SIDEBAR_ITEMS = {"struct":["Permissions"]};

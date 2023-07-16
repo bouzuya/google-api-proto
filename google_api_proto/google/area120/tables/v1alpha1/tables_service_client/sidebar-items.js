@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TablesServiceClient","The Tables Service provides an API for reading and updating tables. It defines the following resource model:"]]});
+window.SIDEBAR_ITEMS = {"struct":["TablesServiceClient"]};

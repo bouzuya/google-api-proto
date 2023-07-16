@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["RegionUrlMapsClient","The RegionUrlMaps API."]]});
+window.SIDEBAR_ITEMS = {"struct":["RegionUrlMapsClient"]};

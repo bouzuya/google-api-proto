@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["JobType","Required. The job definition."]]});
+window.SIDEBAR_ITEMS = {"enum":["JobType"]};

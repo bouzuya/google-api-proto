@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Revision","A revision in a Cloud Repo can be identified by either its revision ID or its alias."]]});
+window.SIDEBAR_ITEMS = {"enum":["Revision"]};

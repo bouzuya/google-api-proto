@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","The types of system events that may trigger activity."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SpeechEventType","Indicates the type of speech event."]]});
+window.SIDEBAR_ITEMS = {"enum":["SpeechEventType"]};

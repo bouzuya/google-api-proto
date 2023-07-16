@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["RangeFacetConfig"],"mod":["date_time_bucket_spec"],"struct":["CustomRangeBucketSpec","DateTimeBucketSpec","FixedRangeBucketSpec"]};

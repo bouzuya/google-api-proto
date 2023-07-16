@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["partnerdataingestion",""]]});
+window.SIDEBAR_ITEMS = {"mod":["partnerdataingestion"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["RescheduleType",""]],"struct":[["Reschedule",""]]});
+window.SIDEBAR_ITEMS = {"enum":["RescheduleType"],"struct":["Reschedule"]};

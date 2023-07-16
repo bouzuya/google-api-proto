@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AdditionalOptimizationObjectiveConfig","Additional optimization objective configuration. Required for `maximize-precision-at-recall` and `maximize-recall-at-precision`, otherwise unused."]],"mod":[["transformation","Nested message and enum types in `Transformation`."]],"struct":[["Transformation",""]]});
+window.SIDEBAR_ITEMS = {"enum":["AdditionalOptimizationObjectiveConfig"],"mod":["transformation"],"struct":["Transformation"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Metadata","Metadata discovered during analysis."]],"struct":[["CallAnalysisMetadata","Call-specific metadata created during analysis."]]});
+window.SIDEBAR_ITEMS = {"enum":["Metadata"],"struct":["CallAnalysisMetadata"]};

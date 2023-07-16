@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SurfaceCapability","Possible set of surface capabilities."]]});
+window.SIDEBAR_ITEMS = {"enum":["SurfaceCapability"]};

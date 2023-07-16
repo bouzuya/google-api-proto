@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Entity","Represents an entity object that contains the regular expression that is used for comparison."]]});
+window.SIDEBAR_ITEMS = {"struct":["Entity"]};

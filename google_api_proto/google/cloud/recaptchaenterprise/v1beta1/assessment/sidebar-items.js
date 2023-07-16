@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ClassificationReason","LINT.IfChange(classification_reason) Reasons contributing to the risk analysis verdict."]]});
+window.SIDEBAR_ITEMS = {"enum":["ClassificationReason"]};

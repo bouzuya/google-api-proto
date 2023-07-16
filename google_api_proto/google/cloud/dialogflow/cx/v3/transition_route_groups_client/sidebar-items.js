@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TransitionRouteGroupsClient","Service for managing [TransitionRouteGroups][google.cloud.dialogflow.cx.v3.TransitionRouteGroup]."]]});
+window.SIDEBAR_ITEMS = {"struct":["TransitionRouteGroupsClient"]};

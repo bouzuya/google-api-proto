@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","The source of the document: a string containing the content or a Google Cloud Storage URI."],["Type","The document types enum."]]});
+window.SIDEBAR_ITEMS = {"enum":["BoilerplateHandling","Source","Type"]};

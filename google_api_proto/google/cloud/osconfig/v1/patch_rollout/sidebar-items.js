@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Mode","Type of the rollout."]]});
+window.SIDEBAR_ITEMS = {"enum":["Mode"]};

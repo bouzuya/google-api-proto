@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["policies_client","policy_rule"],"struct":["CreatePolicyRequest","DeletePolicyRequest","DenyRule","GetPolicyRequest","ListPoliciesRequest","ListPoliciesResponse","Policy","PolicyOperationMetadata","PolicyRule","UpdatePolicyRequest"]};

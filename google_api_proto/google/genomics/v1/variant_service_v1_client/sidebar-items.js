@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["VariantServiceV1Client",""]]});
+window.SIDEBAR_ITEMS = {"struct":["VariantServiceV1Client"]};

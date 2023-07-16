@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["OutputFilter","Selects an optional time series filter."]]});
+window.SIDEBAR_ITEMS = {"enum":["OutputFilter"]};

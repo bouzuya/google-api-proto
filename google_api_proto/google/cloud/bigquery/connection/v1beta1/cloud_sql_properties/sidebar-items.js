@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DatabaseType","Supported Cloud SQL database types."]]});
+window.SIDEBAR_ITEMS = {"enum":["DatabaseType"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EgressOption","Defines the egress option for the pool."]]});
+window.SIDEBAR_ITEMS = {"enum":["EgressOption"]};

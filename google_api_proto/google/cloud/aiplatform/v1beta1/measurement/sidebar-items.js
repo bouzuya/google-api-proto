@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Metric","A message representing a metric in the measurement."]]});
+window.SIDEBAR_ITEMS = {"struct":["Metric"]};

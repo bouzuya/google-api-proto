@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["FirewallPoliciesClient","The FirewallPolicies API."]]});
+window.SIDEBAR_ITEMS = {"struct":["FirewallPoliciesClient"]};

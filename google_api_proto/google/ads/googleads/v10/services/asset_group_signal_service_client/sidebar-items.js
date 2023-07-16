@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["AssetGroupSignalServiceClient","Service to manage asset group signal."]]});

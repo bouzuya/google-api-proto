@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["StreetViewPublishServiceClient","Publishes and connects user-contributed photos on Street View."]]});
+window.SIDEBAR_ITEMS = {"struct":["StreetViewPublishServiceClient"]};

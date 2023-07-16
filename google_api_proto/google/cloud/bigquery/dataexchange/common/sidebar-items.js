@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["Category","Listing categories."]]});

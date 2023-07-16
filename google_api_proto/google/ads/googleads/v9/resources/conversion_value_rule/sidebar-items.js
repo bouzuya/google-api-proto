@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["ValueRuleAction","Action applied when rule is applied."],["ValueRuleAudienceCondition","Condition on Audience dimension."],["ValueRuleDeviceCondition","Condition on Device dimension."],["ValueRuleGeoLocationCondition","Condition on Geo dimension."]]});

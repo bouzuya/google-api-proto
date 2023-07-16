@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Agent","Required. The agent to restore."],["RestoreOption","Restore option."]]});
+window.SIDEBAR_ITEMS = {"enum":["Agent","RestoreOption"],"struct":["GitSource"]};

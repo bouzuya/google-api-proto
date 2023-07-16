@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SecurityCenterProperties","Security Command Center managed properties. These properties are managed by Security Command Center and cannot be modified by the user."]]});
+window.SIDEBAR_ITEMS = {"struct":["SecurityCenterProperties"]};

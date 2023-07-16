@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["InstanceTemplatesClient","The InstanceTemplates API."]]});
+window.SIDEBAR_ITEMS = {"struct":["InstanceTemplatesClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DataFormat","Data format of the exported test cases."],["Destination","The destination to export."]]});
+window.SIDEBAR_ITEMS = {"enum":["DataFormat","Destination"]};

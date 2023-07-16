@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Threshold",""]]});
+window.SIDEBAR_ITEMS = {"enum":["Threshold"]};

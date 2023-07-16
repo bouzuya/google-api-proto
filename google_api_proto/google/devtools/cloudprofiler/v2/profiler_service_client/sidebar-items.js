@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ProfilerServiceClient","Manage the collection of continuous profiling data provided by profiling agents running in the cloud or by an offline provider of profiling data."]]});
+window.SIDEBAR_ITEMS = {"struct":["ProfilerServiceClient"]};

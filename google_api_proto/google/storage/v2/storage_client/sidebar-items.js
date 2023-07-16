@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["StorageClient","API Overview and Naming Syntax"]]});
+window.SIDEBAR_ITEMS = {"struct":["StorageClient"]};

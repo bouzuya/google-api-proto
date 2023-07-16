@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Format",""]]});
+window.SIDEBAR_ITEMS = {"enum":["Format"]};

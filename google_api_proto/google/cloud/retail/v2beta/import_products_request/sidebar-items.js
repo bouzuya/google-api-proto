@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ReconciliationMode","Indicates how imported products are reconciled with the existing products created or imported before."]]});
+window.SIDEBAR_ITEMS = {"enum":["ReconciliationMode"]};

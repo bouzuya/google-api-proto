@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Material",""],["SlsaBuilder",""],["SlsaCompleteness","Indicates that the builder claims certain fields in this message to be complete."],["SlsaMetadata","Other properties of the build."],["SlsaRecipe","Steps taken to build the artifact. For a TaskRun, typically each container corresponds to one step in the recipe."]]});
+window.SIDEBAR_ITEMS = {"struct":["Material","SlsaBuilder","SlsaCompleteness","SlsaMetadata","SlsaRecipe"]};

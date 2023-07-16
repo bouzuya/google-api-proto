@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["OutputLocation","The output location into which prediction output is written."]]});
+window.SIDEBAR_ITEMS = {"enum":["OutputLocation"]};

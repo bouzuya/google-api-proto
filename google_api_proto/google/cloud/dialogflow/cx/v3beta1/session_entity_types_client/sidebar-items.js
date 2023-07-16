@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SessionEntityTypesClient","Service for managing [SessionEntityTypes][google.cloud.dialogflow.cx.v3beta1.SessionEntityType]."]]});
+window.SIDEBAR_ITEMS = {"struct":["SessionEntityTypesClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["RolloutStep","A single rollout step with specified traffic allocation."]]});
+window.SIDEBAR_ITEMS = {"struct":["RolloutStep"]};

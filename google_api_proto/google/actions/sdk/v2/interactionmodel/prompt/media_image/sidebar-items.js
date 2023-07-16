@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Image","Only one type of MediaImage is allowed."]]});
+window.SIDEBAR_ITEMS = {"enum":["Image"]};

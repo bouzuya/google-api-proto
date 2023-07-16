@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["RecognizedCelebrity","The recognized celebrity with confidence score."]]});
+window.SIDEBAR_ITEMS = {"struct":["RecognizedCelebrity"]};

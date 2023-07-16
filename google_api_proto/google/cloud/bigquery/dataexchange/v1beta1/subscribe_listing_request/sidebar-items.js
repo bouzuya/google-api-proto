@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Destination","Resulting destination of the listing subscribed to."]]});
+window.SIDEBAR_ITEMS = {"enum":["Destination"]};

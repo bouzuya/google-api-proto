@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["PatchState","Patch state of an instance."]]});
+window.SIDEBAR_ITEMS = {"enum":["PatchState"]};

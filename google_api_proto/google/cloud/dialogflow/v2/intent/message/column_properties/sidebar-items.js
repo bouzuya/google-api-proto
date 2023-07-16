@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["HorizontalAlignment","Text alignments within a cell."]]});
+window.SIDEBAR_ITEMS = {"enum":["HorizontalAlignment"]};

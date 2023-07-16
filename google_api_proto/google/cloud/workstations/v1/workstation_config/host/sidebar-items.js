@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Config"],"mod":["gce_instance"],"struct":["GceInstance"]};

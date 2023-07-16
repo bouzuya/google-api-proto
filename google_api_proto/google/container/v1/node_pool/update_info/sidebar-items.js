@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["blue_green_info"],"struct":["BlueGreenInfo"]};

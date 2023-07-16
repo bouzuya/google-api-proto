@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["CpuOvercommitType","CPU overcommit."],["Status",""]]});
+window.SIDEBAR_ITEMS = {"enum":["CpuOvercommitType","Status"]};

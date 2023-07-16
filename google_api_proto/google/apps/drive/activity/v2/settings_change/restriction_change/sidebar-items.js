@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Feature","The feature which had changes to its restriction policy."],["Restriction","The restriction applicable to a feature."]]});
+window.SIDEBAR_ITEMS = {"enum":["Feature","Restriction"]};

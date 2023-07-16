@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["UrlTypeHint","Type of the URI."]]});
+window.SIDEBAR_ITEMS = {"enum":["UrlTypeHint"]};

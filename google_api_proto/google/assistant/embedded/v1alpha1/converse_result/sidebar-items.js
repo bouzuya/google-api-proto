@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["MicrophoneMode","Possible states of the microphone after a `Converse` RPC completes."]]});
+window.SIDEBAR_ITEMS = {"enum":["MicrophoneMode"]};

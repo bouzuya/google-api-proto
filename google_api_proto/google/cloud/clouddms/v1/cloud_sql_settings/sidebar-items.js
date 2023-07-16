@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SqlActivationPolicy","Specifies when the instance should be activated."],["SqlDataDiskType","The storage options for Cloud SQL databases."],["SqlDatabaseVersion","The database engine type and version."]]});
+window.SIDEBAR_ITEMS = {"enum":["SqlActivationPolicy","SqlAvailabilityType","SqlDataDiskType","SqlDatabaseVersion"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AuthenticationMethod",""]]});
+window.SIDEBAR_ITEMS = {"enum":["AuthenticationMethod"]};

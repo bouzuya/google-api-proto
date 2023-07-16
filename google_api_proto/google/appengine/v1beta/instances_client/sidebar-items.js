@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["InstancesClient","Manages instances of a version."]]});
+window.SIDEBAR_ITEMS = {"struct":["InstancesClient"]};

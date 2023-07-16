@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","Sources of crypto keys."]]});
+window.SIDEBAR_ITEMS = {"enum":["Source"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Request","Request data for each BigQuery method."],["Response","Response data for each BigQuery method."]]});
+window.SIDEBAR_ITEMS = {"enum":["Request","Response"]};

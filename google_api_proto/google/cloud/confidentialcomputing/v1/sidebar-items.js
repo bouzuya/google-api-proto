@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["confidential_computing_client","tpm_attestation"],"struct":["Challenge","CreateChallengeRequest","GcpCredentials","TpmAttestation","VerifyAttestationRequest","VerifyAttestationResponse"]};

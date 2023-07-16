@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DestinationStreamConfig","Stream configuration that is specific to the data destination type."]]});
+window.SIDEBAR_ITEMS = {"enum":["DestinationStreamConfig"]};

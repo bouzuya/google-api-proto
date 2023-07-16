@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CatalogServiceClient","Service for ingesting catalog information of the customer’s website."]]});
+window.SIDEBAR_ITEMS = {"struct":["CatalogServiceClient"]};

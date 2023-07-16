@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ResourceType","The type of resource."]]});
+window.SIDEBAR_ITEMS = {"enum":["ResourceType"]};

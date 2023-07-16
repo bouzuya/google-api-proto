@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DatabaseType",""],["ServingStatus",""]],"struct":[["FeatureSettings","The feature specific settings to be used in the application. These define behaviors that are user configurable."],["IdentityAwareProxy","Identity-Aware Proxy"]]});
+window.SIDEBAR_ITEMS = {"enum":["DatabaseType","ServingStatus"],"struct":["FeatureSettings","IdentityAwareProxy"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EncryptionType","Possible encryption types for a resource."]]});
+window.SIDEBAR_ITEMS = {"enum":["EncryptionType"]};

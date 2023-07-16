@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AdvertiseMode","User-specified flag to indicate which mode to use for advertisement. The options are DEFAULT or CUSTOM."],["AdvertisedGroups",""]]});
+window.SIDEBAR_ITEMS = {"enum":["AdvertiseMode","AdvertisedGroups"]};

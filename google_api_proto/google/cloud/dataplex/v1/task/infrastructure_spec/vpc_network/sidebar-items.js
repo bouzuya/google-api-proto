@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["NetworkName","The Cloud VPC network identifier."]]});
+window.SIDEBAR_ITEMS = {"enum":["NetworkName"]};

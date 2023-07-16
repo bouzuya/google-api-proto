@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TargetGrpcProxiesClient","The TargetGrpcProxies API."]]});
+window.SIDEBAR_ITEMS = {"struct":["TargetGrpcProxiesClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["CardWidth","The width of the cards in the carousel."]]});
+window.SIDEBAR_ITEMS = {"enum":["CardWidth"]};

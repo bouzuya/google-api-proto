@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ChatAppLogEntry","JSON payload of error messages. If the Cloud Logging API is enabled, these error messages are logged to Google Cloud Logging."]]});
+window.SIDEBAR_ITEMS = {"struct":["ChatAppLogEntry"]};

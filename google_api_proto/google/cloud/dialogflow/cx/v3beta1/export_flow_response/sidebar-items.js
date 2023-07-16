@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Flow","The exported flow."]]});
+window.SIDEBAR_ITEMS = {"enum":["Flow"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["RandomSampleConfig","Requests are randomly selected."]]});
+window.SIDEBAR_ITEMS = {"struct":["RandomSampleConfig"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Constraints","The constraints for this diff."]]});
+window.SIDEBAR_ITEMS = {"struct":["Constraints"]};

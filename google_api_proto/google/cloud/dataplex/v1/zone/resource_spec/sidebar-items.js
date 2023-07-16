@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["LocationType","Location type of the resources attached to a zone."]]});
+window.SIDEBAR_ITEMS = {"enum":["LocationType"]};

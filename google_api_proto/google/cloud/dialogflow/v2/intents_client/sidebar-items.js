@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["IntentsClient","Service for managing [Intents][google.cloud.dialogflow.v2.Intent]."]]});
+window.SIDEBAR_ITEMS = {"struct":["IntentsClient"]};

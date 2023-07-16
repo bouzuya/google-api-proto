@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Destination","The destination of the results."]],"struct":[["GcsOutputConfig","The configuration used when outputting documents."]]});
+window.SIDEBAR_ITEMS = {"enum":["Destination"],"mod":["gcs_output_config"],"struct":["GcsOutputConfig"]};

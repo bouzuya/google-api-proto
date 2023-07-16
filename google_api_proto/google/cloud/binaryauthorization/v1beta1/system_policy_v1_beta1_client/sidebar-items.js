@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SystemPolicyV1Beta1Client","API for working with the system policy."]]});
+window.SIDEBAR_ITEMS = {"struct":["SystemPolicyV1Beta1Client"]};

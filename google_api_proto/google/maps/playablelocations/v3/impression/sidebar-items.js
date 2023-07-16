@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ImpressionType","The type of impression event."]]});
+window.SIDEBAR_ITEMS = {"enum":["ImpressionType"]};

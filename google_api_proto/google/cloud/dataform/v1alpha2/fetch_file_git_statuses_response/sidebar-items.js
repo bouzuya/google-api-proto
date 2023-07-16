@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["uncommitted_file_change"],"struct":["UncommittedFileChange"]};

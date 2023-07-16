@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Preference","Preference for a given location."]]});
+window.SIDEBAR_ITEMS = {"enum":["Preference"]};

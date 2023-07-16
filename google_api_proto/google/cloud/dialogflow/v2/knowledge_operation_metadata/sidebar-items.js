@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["OperationMetadata","Additional metadata for the Knowledge operation."],["State","States of the operation."]]});
+window.SIDEBAR_ITEMS = {"enum":["OperationMetadata","State"]};

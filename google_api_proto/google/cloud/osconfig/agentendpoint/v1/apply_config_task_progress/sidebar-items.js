@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","The intermediate states of apply config task."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

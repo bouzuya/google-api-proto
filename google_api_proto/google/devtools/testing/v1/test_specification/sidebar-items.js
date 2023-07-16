@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Setup","Test setup requirements."],["Test","Required. The type of test to run."]]});
+window.SIDEBAR_ITEMS = {"enum":["Setup","Test"]};

@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["ConversionValueRuleStatus","Possible statuses of a conversion value rule."]]});

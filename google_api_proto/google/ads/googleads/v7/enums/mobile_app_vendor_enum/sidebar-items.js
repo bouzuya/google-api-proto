@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["MobileAppVendor","The type of mobile app vendor"]]});

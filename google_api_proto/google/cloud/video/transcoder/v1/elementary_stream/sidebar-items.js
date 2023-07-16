@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ElementaryStream","Encoding of an audio, video, or text track."]]});
+window.SIDEBAR_ITEMS = {"enum":["ElementaryStream"]};

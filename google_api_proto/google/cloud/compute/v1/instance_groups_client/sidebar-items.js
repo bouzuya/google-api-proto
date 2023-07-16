@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["InstanceGroupsClient","The InstanceGroups API."]]});
+window.SIDEBAR_ITEMS = {"struct":["InstanceGroupsClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["publish",""]]});
+window.SIDEBAR_ITEMS = {"mod":["publish"]};

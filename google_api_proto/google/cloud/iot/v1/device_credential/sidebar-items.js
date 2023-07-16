@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Credential","The credential data. Reserved for expansion in the future."]]});
+window.SIDEBAR_ITEMS = {"enum":["Credential"]};

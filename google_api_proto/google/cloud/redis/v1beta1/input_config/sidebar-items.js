@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","Required. Specify source location of input data"]]});
+window.SIDEBAR_ITEMS = {"enum":["Source"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["WindowsVersion","Windows server version."]]});
+window.SIDEBAR_ITEMS = {"struct":["WindowsVersion"]};

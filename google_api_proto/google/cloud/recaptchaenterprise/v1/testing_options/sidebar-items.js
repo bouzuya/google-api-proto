@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["TestingChallenge","Enum that represents the challenge option for challenge-based (CHECKBOX, INVISIBLE) testing keys."]]});
+window.SIDEBAR_ITEMS = {"enum":["TestingChallenge"]};

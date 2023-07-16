@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ExampleComparison","Example comparisons comparing ground truth output and predictions for a specific input."]]});
+window.SIDEBAR_ITEMS = {"struct":["ExampleComparison"]};

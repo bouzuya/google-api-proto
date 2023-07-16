@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["GoalConfigLevel","The possible goal config levels. Campaigns automatically inherit the effective conversion account’s customer goals unless they have been configured with their own set of campaign goals."]]});

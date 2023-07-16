@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Mode","Enum to control DynamicFacet mode"]]});
+window.SIDEBAR_ITEMS = {"enum":["Mode"]};

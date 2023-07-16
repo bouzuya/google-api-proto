@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CertificateManagerClient","API Overview"]]});
+window.SIDEBAR_ITEMS = {"struct":["CertificateManagerClient"]};

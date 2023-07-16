@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["ListingGroupFilterProductChannel","Enum describing the locality of a product offer."]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","The type of the change."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

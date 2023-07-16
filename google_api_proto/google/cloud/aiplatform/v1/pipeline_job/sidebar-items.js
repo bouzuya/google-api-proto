@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["RuntimeConfig","The runtime config of a PipelineJob."]]});
+window.SIDEBAR_ITEMS = {"mod":["runtime_config"],"struct":["RuntimeConfig"]};

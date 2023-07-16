@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Result"],"mod":["histogram"],"struct":["Count","Frequency","Histogram","Sum"]};

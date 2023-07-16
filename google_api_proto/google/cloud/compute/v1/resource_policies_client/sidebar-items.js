@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ResourcePoliciesClient","The ResourcePolicies API."]]});
+window.SIDEBAR_ITEMS = {"struct":["ResourcePoliciesClient"]};

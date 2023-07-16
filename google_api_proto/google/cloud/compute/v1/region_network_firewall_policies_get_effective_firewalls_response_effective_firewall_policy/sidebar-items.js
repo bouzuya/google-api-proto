@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","[Output Only] The type of the firewall policy. Can be one of HIERARCHY, NETWORK, NETWORK_REGIONAL."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

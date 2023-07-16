@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TemplatesServiceClient","Provides a method to create Cloud Dataflow jobs from templates."]]});
+window.SIDEBAR_ITEMS = {"struct":["TemplatesServiceClient"]};

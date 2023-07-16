@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Action","The type of action performed on a Binding in a policy."]]});
+window.SIDEBAR_ITEMS = {"enum":["Action"]};

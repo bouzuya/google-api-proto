@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["StructuredValue","An optional structured entity value. Must match entity type defined in schema if known. If this field is present, the `text` field could also be populated."]]});
+window.SIDEBAR_ITEMS = {"enum":["StructuredValue"]};

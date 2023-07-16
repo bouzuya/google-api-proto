@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AuthProvider","Configuration for an authentication provider, including support for JSON Web Token (JWT)."]]});
+window.SIDEBAR_ITEMS = {"struct":["AuthProvider"]};

@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["SkAdNetworkAdEventType","Enumerates SkAdNetwork ad event types"]]});

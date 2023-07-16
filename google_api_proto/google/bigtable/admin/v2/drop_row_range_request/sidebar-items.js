@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Target","Delete all rows or by prefix."]]});
+window.SIDEBAR_ITEMS = {"enum":["Target"]};

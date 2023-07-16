@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","The source that was not imported."]]});
+window.SIDEBAR_ITEMS = {"enum":["Source"]};

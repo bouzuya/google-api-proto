@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AutoMlClient","AutoML Server API."]]});
+window.SIDEBAR_ITEMS = {"struct":["AutoMlClient"]};

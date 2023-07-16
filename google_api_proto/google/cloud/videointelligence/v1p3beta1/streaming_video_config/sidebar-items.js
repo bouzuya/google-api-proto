@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["StreamingConfig","Config for requested annotation feature."]]});
+window.SIDEBAR_ITEMS = {"enum":["StreamingConfig"]};

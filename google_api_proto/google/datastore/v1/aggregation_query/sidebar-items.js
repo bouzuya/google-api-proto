@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["QueryType"],"mod":["aggregation"],"struct":["Aggregation"]};

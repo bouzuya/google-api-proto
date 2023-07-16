@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Output","Resource specific output."]],"struct":[["ExecResourceOutput","ExecResource specific output."]]});
+window.SIDEBAR_ITEMS = {"enum":["Output"],"struct":["ExecResourceOutput"]};

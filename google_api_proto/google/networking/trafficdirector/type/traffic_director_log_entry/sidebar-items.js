@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ClientType","Defines possible values of client type."],["TransportApiVersion","Defines possible values of API version."]]});
+window.SIDEBAR_ITEMS = {"enum":["ClientType","TransportApiVersion"]};

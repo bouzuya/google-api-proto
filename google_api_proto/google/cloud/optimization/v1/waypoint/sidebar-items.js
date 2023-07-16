@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["LocationType","Different ways to represent a location."]]});
+window.SIDEBAR_ITEMS = {"enum":["LocationType"]};

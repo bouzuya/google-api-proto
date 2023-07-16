@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["OneValue","One of metric value"]]});
+window.SIDEBAR_ITEMS = {"enum":["OneValue"]};

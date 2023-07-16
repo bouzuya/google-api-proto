@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["FinishType","How did the event stream finish."]]});
+window.SIDEBAR_ITEMS = {"enum":["FinishType"]};

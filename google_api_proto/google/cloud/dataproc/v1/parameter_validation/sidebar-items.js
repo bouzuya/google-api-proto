@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ValidationType","Required. The type of validation to be performed."]]});
+window.SIDEBAR_ITEMS = {"enum":["ValidationType"]};

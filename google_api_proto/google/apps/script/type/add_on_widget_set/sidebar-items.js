@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["WidgetType","The Widget type. DEFAULT is the basic widget set."]]});
+window.SIDEBAR_ITEMS = {"enum":["WidgetType"]};

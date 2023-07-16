@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Operation","Describes the different types of CIGAR alignment operations that exist. Used wherever CIGAR alignments are used."]]});
+window.SIDEBAR_ITEMS = {"enum":["Operation"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","The type of actor."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

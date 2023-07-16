@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["UiDetectionServiceClient","Provides image-based UI detection service."]]});
+window.SIDEBAR_ITEMS = {"struct":["UiDetectionServiceClient"]};

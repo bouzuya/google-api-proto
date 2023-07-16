@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SourceIpRangesToNat",""]]});
+window.SIDEBAR_ITEMS = {"enum":["SourceIpRangesToNat"]};

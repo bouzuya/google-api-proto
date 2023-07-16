@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Platform","Types of platforms."]]});
+window.SIDEBAR_ITEMS = {"enum":["Platform"]};

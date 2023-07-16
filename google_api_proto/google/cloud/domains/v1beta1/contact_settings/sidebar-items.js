@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Contact","Details required for a contact associated with a `Registration`."]]});
+window.SIDEBAR_ITEMS = {"struct":["Contact"]};

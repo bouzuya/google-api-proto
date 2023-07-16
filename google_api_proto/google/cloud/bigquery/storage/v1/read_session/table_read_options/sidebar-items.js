@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["OutputFormatSerializationOptions",""]]});
+window.SIDEBAR_ITEMS = {"enum":["OutputFormatSerializationOptions"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["QuerySource","Source of query."]],"struct":[["ContextFilterSettings","Settings that determine how to filter recent conversation context when generating suggestions."],["DialogflowQuerySource","Dialogflow source setting."],["DocumentQuerySource","Document source settings."],["KnowledgeBaseQuerySource","Knowledge base source settings."]]});
+window.SIDEBAR_ITEMS = {"enum":["QuerySource"],"mod":["dialogflow_query_source"],"struct":["ContextFilterSettings","DialogflowQuerySource","DocumentQuerySource","KnowledgeBaseQuerySource"]};

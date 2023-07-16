@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["RoutersClient","The Routers API."]]});
+window.SIDEBAR_ITEMS = {"struct":["RoutersClient"]};

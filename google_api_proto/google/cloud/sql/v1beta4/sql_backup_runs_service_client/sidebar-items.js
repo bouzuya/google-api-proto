@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SqlBackupRunsServiceClient",""]]});
+window.SIDEBAR_ITEMS = {"struct":["SqlBackupRunsServiceClient"]};

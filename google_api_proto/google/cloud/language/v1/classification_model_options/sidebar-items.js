@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ModelType"],"mod":["v2_model"],"struct":["V1Model","V2Model"]};

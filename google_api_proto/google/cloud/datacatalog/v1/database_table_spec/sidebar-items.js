@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["TableType","Type of the table."]]});
+window.SIDEBAR_ITEMS = {"enum":["TableType"],"mod":["database_view_spec"],"struct":["DatabaseViewSpec"]};

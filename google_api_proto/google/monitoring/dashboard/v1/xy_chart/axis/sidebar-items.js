@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Scale","Types of scales used in axes."]]});
+window.SIDEBAR_ITEMS = {"enum":["Scale"]};

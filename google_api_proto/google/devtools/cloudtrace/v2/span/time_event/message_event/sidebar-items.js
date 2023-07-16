@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Indicates whether the message was sent or received."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

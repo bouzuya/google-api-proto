@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TargetTcpProxiesClient","The TargetTcpProxies API."]]});
+window.SIDEBAR_ITEMS = {"struct":["TargetTcpProxiesClient"]};

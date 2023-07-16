@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Rule","Garbage collection rules."]],"struct":[["Intersection","A GcRule which deletes cells matching all of the given rules."],["Union","A GcRule which deletes cells matching any of the given rules."]]});
+window.SIDEBAR_ITEMS = {"enum":["Rule"],"struct":["Intersection","Union"]};

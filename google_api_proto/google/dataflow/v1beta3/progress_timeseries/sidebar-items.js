@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Point","A point in the timeseries."]]});
+window.SIDEBAR_ITEMS = {"struct":["Point"]};

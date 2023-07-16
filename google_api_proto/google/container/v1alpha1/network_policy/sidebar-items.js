@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Provider","Allowed Network Policy providers."]]});
+window.SIDEBAR_ITEMS = {"enum":["Provider"]};

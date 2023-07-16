@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["TimeContext","The IAM conditions time context."]]});
+window.SIDEBAR_ITEMS = {"enum":["TimeContext"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Mode","Chart mode options."]]});
+window.SIDEBAR_ITEMS = {"enum":["Mode"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["LimitType","If the query is a limit query, should the limit be applied to the beginning or the end of results."],["QueryType","The query to run."]]});
+window.SIDEBAR_ITEMS = {"enum":["LimitType","QueryType"]};

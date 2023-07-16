@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["form_info","Nested message and enum types in `FormInfo`."]],"struct":[["FormInfo","Represents form information."]]});
+window.SIDEBAR_ITEMS = {"mod":["form_info"],"struct":["FormInfo"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SpanKind","Type of span. Can be used to specify additional relationships between spans in addition to a parent/child relationship."]]});
+window.SIDEBAR_ITEMS = {"enum":["SpanKind"]};

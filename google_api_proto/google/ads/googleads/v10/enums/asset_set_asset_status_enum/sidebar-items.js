@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["AssetSetAssetStatus","The possible statuses of an asset set asset."]]});

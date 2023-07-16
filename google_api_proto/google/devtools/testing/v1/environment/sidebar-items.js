@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Environment","Required. The environment."]]});
+window.SIDEBAR_ITEMS = {"enum":["Environment"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Intermediary",""]]});
+window.SIDEBAR_ITEMS = {"enum":["Intermediary"]};

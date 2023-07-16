@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["DataFormat","The format used to separate data instances in the source files."],["ModelVersion","Required. The model or the version to use for prediction."]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["BigQueryStorageClient","BigQuery storage API."]]});
+window.SIDEBAR_ITEMS = {"struct":["BigQueryStorageClient"]};

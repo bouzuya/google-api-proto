@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["BackendBucketsClient","The BackendBuckets API."]]});
+window.SIDEBAR_ITEMS = {"struct":["BackendBucketsClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Digest","Required. The message digest."]]});
+window.SIDEBAR_ITEMS = {"enum":["Digest"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["MessageFormat","Format of cloud pub/sub message."]]});
+window.SIDEBAR_ITEMS = {"enum":["MessageFormat"]};

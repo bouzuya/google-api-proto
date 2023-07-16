@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["accesscontextmanager",""]]});
+window.SIDEBAR_ITEMS = {"mod":["accesscontextmanager"]};

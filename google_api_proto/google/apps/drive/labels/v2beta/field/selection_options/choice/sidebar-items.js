@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["AppliedCapabilities","DisplayHints","Properties","SchemaCapabilities"]};

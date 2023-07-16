@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["metadata",""]]});
+window.SIDEBAR_ITEMS = {"mod":["metadata"]};

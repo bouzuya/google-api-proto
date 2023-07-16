@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["GlobalForwardingRulesClient","The GlobalForwardingRules API."]]});
+window.SIDEBAR_ITEMS = {"struct":["GlobalForwardingRulesClient"]};

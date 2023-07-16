@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ThreatHash","Contains threat information on a matching hash."]]});
+window.SIDEBAR_ITEMS = {"struct":["ThreatHash"]};

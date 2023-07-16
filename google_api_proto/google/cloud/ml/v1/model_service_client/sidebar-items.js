@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["ModelServiceClient","Provides methods that create and manage machine learning models and their versions."]]});

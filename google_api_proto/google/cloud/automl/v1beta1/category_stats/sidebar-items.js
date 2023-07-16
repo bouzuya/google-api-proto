@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SingleCategoryStats","The statistics of a single CATEGORY value."]]});
+window.SIDEBAR_ITEMS = {"struct":["SingleCategoryStats"]};

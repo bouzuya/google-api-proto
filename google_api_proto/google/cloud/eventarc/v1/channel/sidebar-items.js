@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","State lists all the possible states of a Channel"],["Transport",""]]});
+window.SIDEBAR_ITEMS = {"enum":["State","Transport"]};

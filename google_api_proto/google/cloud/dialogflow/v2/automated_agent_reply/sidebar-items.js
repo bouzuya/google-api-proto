@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AutomatedAgentReplyType","Represents different automated agent reply types."]]});
+window.SIDEBAR_ITEMS = {"enum":["AutomatedAgentReplyType"]};

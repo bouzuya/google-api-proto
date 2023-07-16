@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["BatchJobMetadata","Additional information about the batch job. This message is also used as metadata returned in batch job Long Running Operations."]]});

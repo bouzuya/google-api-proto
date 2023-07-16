@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Operator","Defines the operation of node selection. Valid operators are IN for affinity and NOT_IN for anti-affinity."]]});
+window.SIDEBAR_ITEMS = {"enum":["Operator"]};

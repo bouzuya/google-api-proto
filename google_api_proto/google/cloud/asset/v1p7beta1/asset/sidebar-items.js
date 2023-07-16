@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AccessContextPolicy","A representation of an access policy."]]});
+window.SIDEBAR_ITEMS = {"enum":["AccessContextPolicy"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["OsLoginServiceClient","Cloud OS Login API"]]});
+window.SIDEBAR_ITEMS = {"struct":["OsLoginServiceClient"]};

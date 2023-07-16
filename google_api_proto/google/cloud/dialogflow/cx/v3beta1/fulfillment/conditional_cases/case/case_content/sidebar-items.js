@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["CasesOrMessage","Either a message is returned or additional cases to be evaluated."]]});
+window.SIDEBAR_ITEMS = {"enum":["CasesOrMessage"]};

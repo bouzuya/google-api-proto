@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Statement","A single DML statement."]]});
+window.SIDEBAR_ITEMS = {"struct":["Statement"]};

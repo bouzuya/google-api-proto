@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ArtifactPath","SourceType"],"struct":["ModelSchema","ProductRecognizerArtifact"]};

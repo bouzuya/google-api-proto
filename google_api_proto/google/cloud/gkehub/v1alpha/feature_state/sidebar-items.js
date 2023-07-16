@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Code","Code represents a machine-readable, high-level status of the Feature."]]});
+window.SIDEBAR_ITEMS = {"enum":["Code"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ValidationHelperV1Client","BinAuthz Attestor verification"]]});
+window.SIDEBAR_ITEMS = {"struct":["ValidationHelperV1Client"]};

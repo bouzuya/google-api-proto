@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Scope","The criteria that select the subspace used for query matching."]]});
+window.SIDEBAR_ITEMS = {"struct":["Scope"]};

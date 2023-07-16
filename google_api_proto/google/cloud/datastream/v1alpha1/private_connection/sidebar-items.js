@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","Private Connection state."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

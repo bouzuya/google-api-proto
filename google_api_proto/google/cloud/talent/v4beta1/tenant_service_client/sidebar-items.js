@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TenantServiceClient","A service that handles tenant management, including CRUD and enumeration."]]});
+window.SIDEBAR_ITEMS = {"struct":["TenantServiceClient"]};

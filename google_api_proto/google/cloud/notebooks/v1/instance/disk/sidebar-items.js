@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["GuestOsFeature","Guest OS features for boot disk."]]});
+window.SIDEBAR_ITEMS = {"struct":["GuestOsFeature"]};

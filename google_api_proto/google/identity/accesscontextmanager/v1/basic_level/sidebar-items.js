@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ConditionCombiningFunction","Options for how the `conditions` list should be combined to determine if this `AccessLevel` is applied. Default is AND."]]});
+window.SIDEBAR_ITEMS = {"enum":["ConditionCombiningFunction"]};

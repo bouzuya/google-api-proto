@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["NodeState","The workflow node state."]]});
+window.SIDEBAR_ITEMS = {"enum":["NodeState"]};

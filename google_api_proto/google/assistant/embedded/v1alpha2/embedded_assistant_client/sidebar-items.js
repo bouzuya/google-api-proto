@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["EmbeddedAssistantClient","Service that implements the Google Assistant API."]]});
+window.SIDEBAR_ITEMS = {"struct":["EmbeddedAssistantClient"]};

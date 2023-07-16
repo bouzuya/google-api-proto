@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Mod","Column familiy modifications."]]});
+window.SIDEBAR_ITEMS = {"enum":["Mod"]};

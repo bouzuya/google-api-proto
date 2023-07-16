@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["adaptation_phrase_set"],"struct":["AdaptationPhraseSet"]};

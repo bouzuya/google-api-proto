@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["record_error","Nested message and enum types in `RecordError`."]],"struct":[["ContentValidationStats",""],["RecordError",""]]});
+window.SIDEBAR_ITEMS = {"mod":["record_error"],"struct":["ContentValidationStats","RecordError"]};

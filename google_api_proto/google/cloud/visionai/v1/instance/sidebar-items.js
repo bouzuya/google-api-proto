@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["InstanceType","State"],"mod":["input_resource"],"struct":["InputResource","OutputResource"]};

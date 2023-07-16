@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["FileFormat","Usage"],"mod":["dataset","maps_platform_datasets_client","status"],"struct":["CreateDatasetRequest","Dataset","DeleteDatasetRequest","GcsSource","GetDatasetRequest","ListDatasetsRequest","ListDatasetsResponse","LocalFileSource","Status","UpdateDatasetMetadataRequest"]};

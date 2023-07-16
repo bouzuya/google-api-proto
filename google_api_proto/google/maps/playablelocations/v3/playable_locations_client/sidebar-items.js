@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["PlayableLocationsClient","The Playable Locations API for v3."]]});
+window.SIDEBAR_ITEMS = {"struct":["PlayableLocationsClient"]};

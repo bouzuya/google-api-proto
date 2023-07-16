@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["LineItemChangeState","LineItemChangeStateReasonType","LineItemChangeType"],"mod":["consumer_procurement_service_client","parameter"],"struct":["GetOrderRequest","LineItem","LineItemChange","LineItemInfo","ListOrdersRequest","ListOrdersResponse","Order","Parameter","PlaceOrderMetadata","PlaceOrderRequest","Subscription"]};

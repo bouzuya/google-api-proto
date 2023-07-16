@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["BetaAnalyticsDataClient","Google Analytics reporting data service."]]});
+window.SIDEBAR_ITEMS = {"struct":["BetaAnalyticsDataClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SqlOperationStatus","The status of an operation."],["SqlOperationType","The type of Cloud SQL operation."]]});
+window.SIDEBAR_ITEMS = {"enum":["SqlOperationStatus","SqlOperationType"]};

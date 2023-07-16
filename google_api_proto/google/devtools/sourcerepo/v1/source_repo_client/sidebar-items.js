@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SourceRepoClient","The Source Repo API service."]]});
+window.SIDEBAR_ITEMS = {"struct":["SourceRepoClient"]};

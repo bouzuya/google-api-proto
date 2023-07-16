@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","Allowed ingress source. It can be one of [AccessLevel] [google.identity.accesscontextmanager.v1.AccessLevel] or Google Cloud resource."]]});
+window.SIDEBAR_ITEMS = {"enum":["Source"]};

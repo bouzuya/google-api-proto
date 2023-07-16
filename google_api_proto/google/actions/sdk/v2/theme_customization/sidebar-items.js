@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ImageCornerStyle","Describes how the borders of images should be rendered."]]});
+window.SIDEBAR_ITEMS = {"enum":["ImageCornerStyle"]};

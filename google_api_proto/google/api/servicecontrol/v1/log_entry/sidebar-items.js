@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Payload","The log entry payload, which can be one of multiple types."]]});
+window.SIDEBAR_ITEMS = {"enum":["Payload"]};

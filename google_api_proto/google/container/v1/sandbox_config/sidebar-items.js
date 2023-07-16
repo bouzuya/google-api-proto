@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Possible types of sandboxes."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

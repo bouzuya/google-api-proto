@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["DiskTypesClient","The DiskTypes API."]]});
+window.SIDEBAR_ITEMS = {"struct":["DiskTypesClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","The application state, corresponding to YarnProtos.YarnApplicationStateProto."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

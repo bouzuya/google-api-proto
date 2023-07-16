@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ConnectionSpec",""],["ConnectionType","The type of the BigQuery connection."]]});
+window.SIDEBAR_ITEMS = {"enum":["ConnectionSpec","ConnectionType"]};

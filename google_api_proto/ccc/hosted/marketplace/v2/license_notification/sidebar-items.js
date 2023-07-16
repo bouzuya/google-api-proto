@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Deletes",""],["Expiries",""],["Provisions",""],["Reassignments",""]]});
+window.SIDEBAR_ITEMS = {"struct":["Deletes","Expiries","Provisions","Reassignments"]};

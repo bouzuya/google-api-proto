@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["RedundancyType","Indicates the user-supplied redundancy type of this external VPN gateway."]]});
+window.SIDEBAR_ITEMS = {"enum":["RedundancyType"]};

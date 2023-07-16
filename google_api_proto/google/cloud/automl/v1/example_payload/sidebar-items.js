@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Payload","Required. The example data."]]});
+window.SIDEBAR_ITEMS = {"enum":["Payload"]};

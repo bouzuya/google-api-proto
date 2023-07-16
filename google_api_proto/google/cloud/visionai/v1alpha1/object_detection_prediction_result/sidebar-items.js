@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["identified_box"],"struct":["Entity","IdentifiedBox"]};

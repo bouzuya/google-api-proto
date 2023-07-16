@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ObjectConfig","Source"],"struct":["ConversationConfig","GcsSource","TranscriptObjectConfig"]};

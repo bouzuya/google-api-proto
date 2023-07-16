@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["traffic_director_log_entry","Nested message and enum types in `TrafficDirectorLogEntry`."]],"struct":[["TrafficDirectorLogEntry","A common proto for describing how the Traffic Director handles xDS-connections/requests/responses."]]});
+window.SIDEBAR_ITEMS = {"mod":["traffic_director_log_entry"],"struct":["TrafficDirectorLogEntry"]};

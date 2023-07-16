@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Kind","An expression can resolve to a value, error or unknown."]]});
+window.SIDEBAR_ITEMS = {"enum":["Kind"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["WorkflowsClient","Workflows is used to deploy and execute workflow programs. Workflows makes sure the program executes reliably, despite hardware and networking interruptions."]]});
+window.SIDEBAR_ITEMS = {"struct":["WorkflowsClient"]};

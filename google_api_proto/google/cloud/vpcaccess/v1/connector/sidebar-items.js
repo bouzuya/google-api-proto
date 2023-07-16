@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","State of a connector."]],"struct":[["Subnet","The subnet in which to house the connector"]]});
+window.SIDEBAR_ITEMS = {"enum":["State"],"struct":["Subnet"]};

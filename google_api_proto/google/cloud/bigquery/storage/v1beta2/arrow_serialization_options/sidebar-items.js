@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Format","The IPC format to use when serializing Arrow streams."]]});
+window.SIDEBAR_ITEMS = {"enum":["Format"]};

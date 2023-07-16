@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ImagesClient","The Images API."]]});
+window.SIDEBAR_ITEMS = {"struct":["ImagesClient"]};

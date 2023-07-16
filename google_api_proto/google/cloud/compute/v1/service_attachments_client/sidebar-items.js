@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ServiceAttachmentsClient","The ServiceAttachments API."]]});
+window.SIDEBAR_ITEMS = {"struct":["ServiceAttachmentsClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Part","Represents a part of a training phrase."]]});
+window.SIDEBAR_ITEMS = {"struct":["Part"]};

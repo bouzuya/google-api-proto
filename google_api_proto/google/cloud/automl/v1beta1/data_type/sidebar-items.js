@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Details","Details of DataType-s that need additional specification."]]});
+window.SIDEBAR_ITEMS = {"enum":["Details"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ClusterType","Source","State"],"struct":["PrimaryConfig","SecondaryConfig"]};

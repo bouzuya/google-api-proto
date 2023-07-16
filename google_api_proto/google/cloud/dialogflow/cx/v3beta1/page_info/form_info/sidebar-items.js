@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["parameter_info","Nested message and enum types in `ParameterInfo`."]],"struct":[["ParameterInfo","Represents parameter information."]]});
+window.SIDEBAR_ITEMS = {"mod":["parameter_info"],"struct":["ParameterInfo"]};

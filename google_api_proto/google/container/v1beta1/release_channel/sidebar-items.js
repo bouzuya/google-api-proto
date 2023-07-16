@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Channel","Possible values for ‘channel’."]]});
+window.SIDEBAR_ITEMS = {"enum":["Channel"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["entity_view","Nested message and enum types in `EntityView`."]],"struct":[["EntityView","Entity view with Feature values."],["FeatureDescriptor","Metadata for requested Features."],["Header","Response header with metadata for the requested [ReadFeatureValuesRequest.entity_type][google.cloud.aiplatform.v1.ReadFeatureValuesRequest.entity_type] and Features."]]});
+window.SIDEBAR_ITEMS = {"mod":["entity_view"],"struct":["EntityView","FeatureDescriptor","Header"]};

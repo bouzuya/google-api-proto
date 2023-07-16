@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ValueDescriptor","A descriptor for the value columns in a data point."]]});
+window.SIDEBAR_ITEMS = {"struct":["ValueDescriptor"]};

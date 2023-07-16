@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["client_gateway","client_gateways_service_client"],"struct":["ClientGateway","ClientGatewayOperationMetadata","CreateClientGatewayRequest","DeleteClientGatewayRequest","GetClientGatewayRequest","ListClientGatewaysRequest","ListClientGatewaysResponse"]};

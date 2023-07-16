@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Agent","Required. The agent to import."]]});
+window.SIDEBAR_ITEMS = {"enum":["Agent"]};

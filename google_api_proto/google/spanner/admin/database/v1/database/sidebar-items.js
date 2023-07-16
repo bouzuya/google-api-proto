@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","Indicates the current state of the database."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

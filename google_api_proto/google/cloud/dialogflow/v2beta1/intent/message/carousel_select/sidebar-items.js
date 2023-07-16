@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Item","An item in the carousel."]]});
+window.SIDEBAR_ITEMS = {"struct":["Item"]};

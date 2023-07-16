@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Output","The output stream content."]]});
+window.SIDEBAR_ITEMS = {"enum":["Output"]};

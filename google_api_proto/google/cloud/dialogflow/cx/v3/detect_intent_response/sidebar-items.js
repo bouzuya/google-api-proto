@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ResponseType","Represents different DetectIntentResponse types."]]});
+window.SIDEBAR_ITEMS = {"enum":["ResponseType"]};

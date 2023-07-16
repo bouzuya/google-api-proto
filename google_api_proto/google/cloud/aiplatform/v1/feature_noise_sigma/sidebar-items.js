@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["NoiseSigmaForFeature","Noise sigma for a single feature."]]});
+window.SIDEBAR_ITEMS = {"struct":["NoiseSigmaForFeature"]};

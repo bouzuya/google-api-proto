@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["PlatformVersion","Platform-specific version"]]});
+window.SIDEBAR_ITEMS = {"enum":["PlatformVersion"]};

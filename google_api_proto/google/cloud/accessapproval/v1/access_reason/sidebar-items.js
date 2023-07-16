@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Type of access justification."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

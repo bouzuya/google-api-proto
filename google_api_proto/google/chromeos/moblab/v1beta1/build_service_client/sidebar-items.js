@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["BuildServiceClient","Manages Chrome OS build services."]]});
+window.SIDEBAR_ITEMS = {"struct":["BuildServiceClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SnapshotsClient","The Snapshots API."]]});
+window.SIDEBAR_ITEMS = {"struct":["SnapshotsClient"]};

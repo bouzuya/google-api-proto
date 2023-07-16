@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["MatchType","Type of a Match."]]});
+window.SIDEBAR_ITEMS = {"enum":["MatchType"]};

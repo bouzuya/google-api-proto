@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SessionsClient","A service used for session interactions."]]});
+window.SIDEBAR_ITEMS = {"struct":["SessionsClient"]};

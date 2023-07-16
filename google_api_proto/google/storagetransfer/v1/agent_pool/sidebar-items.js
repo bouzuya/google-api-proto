@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","The state of an AgentPool."]],"struct":[["BandwidthLimit","Specifies a bandwidth limit for an agent pool."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"],"struct":["BandwidthLimit"]};

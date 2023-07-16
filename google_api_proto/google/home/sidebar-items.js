@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["enterprise",""],["graph",""]]});
+window.SIDEBAR_ITEMS = {"mod":["enterprise","graph"]};

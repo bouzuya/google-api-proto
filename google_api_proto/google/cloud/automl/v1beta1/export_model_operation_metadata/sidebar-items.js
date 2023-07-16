@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ExportModelOutputInfo","Further describes the output of model export. Supplements"]]});
+window.SIDEBAR_ITEMS = {"struct":["ExportModelOutputInfo"]};

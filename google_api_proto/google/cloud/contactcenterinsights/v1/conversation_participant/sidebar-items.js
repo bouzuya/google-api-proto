@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Participant",""],["Role","The role of the participant."]]});
+window.SIDEBAR_ITEMS = {"enum":["Participant","Role"]};

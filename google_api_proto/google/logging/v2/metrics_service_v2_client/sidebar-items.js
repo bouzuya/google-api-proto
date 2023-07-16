@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["MetricsServiceV2Client","Service for configuring logs-based metrics."]]});
+window.SIDEBAR_ITEMS = {"struct":["MetricsServiceV2Client"]};

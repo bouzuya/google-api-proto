@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","Source of import data"]]});
+window.SIDEBAR_ITEMS = {"enum":["Source"]};

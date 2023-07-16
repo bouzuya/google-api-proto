@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Result","ScanType","Scope","State","Trigger"],"struct":["DataProfileResult","DataQualityResult"]};

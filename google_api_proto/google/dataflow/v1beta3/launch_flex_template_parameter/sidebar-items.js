@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Template","Launch Mechanism."]]});
+window.SIDEBAR_ITEMS = {"enum":["Template"]};

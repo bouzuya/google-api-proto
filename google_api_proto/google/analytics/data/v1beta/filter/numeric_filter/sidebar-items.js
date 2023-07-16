@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Operation","The operation applied to a numeric filter"]]});
+window.SIDEBAR_ITEMS = {"enum":["Operation"]};

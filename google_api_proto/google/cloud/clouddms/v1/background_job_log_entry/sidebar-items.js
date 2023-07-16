@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["JobCompletionState","JobDetails"],"struct":["ApplyJobDetails","ConvertJobDetails","ImportRulesJobDetails","SeedJobDetails"]};

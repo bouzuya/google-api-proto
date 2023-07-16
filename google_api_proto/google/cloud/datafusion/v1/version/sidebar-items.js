@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Each type represents the release availability of a CDF version"]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

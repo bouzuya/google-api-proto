@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["IndexingSource","State","StorageSource"],"struct":["DocumentWarehouseConfig","GcsManagedConfig","SpannerIndexingConfig","UnmanagedDatasetConfig"]};

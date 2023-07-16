@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["SubType",""],["TypeKind",""]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ConversationDatasetsClient","Conversation datasets."]]});
+window.SIDEBAR_ITEMS = {"struct":["ConversationDatasetsClient"]};

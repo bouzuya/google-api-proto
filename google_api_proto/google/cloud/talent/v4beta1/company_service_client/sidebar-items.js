@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CompanyServiceClient","A service that handles company management, including CRUD and enumeration."]]});
+window.SIDEBAR_ITEMS = {"struct":["CompanyServiceClient"]};

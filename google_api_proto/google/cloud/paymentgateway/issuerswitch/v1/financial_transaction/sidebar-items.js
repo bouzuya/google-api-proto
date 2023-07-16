@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["payment_rule"],"struct":["PaymentRule"]};

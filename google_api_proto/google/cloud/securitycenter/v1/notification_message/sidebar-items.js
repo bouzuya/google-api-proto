@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Event","Notification Event."]]});
+window.SIDEBAR_ITEMS = {"enum":["Event"]};

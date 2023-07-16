@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["KeywordThemeConstantServiceClient","Service to fetch Smart Campaign keyword themes."]]});

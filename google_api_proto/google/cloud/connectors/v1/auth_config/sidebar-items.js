@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Type"],"mod":["oauth2_jwt_bearer"],"struct":["Oauth2ClientCredentials","Oauth2JwtBearer","SshPublicKey","UserPassword"]};

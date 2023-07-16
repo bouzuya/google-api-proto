@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["FallbackRouteObjective","RouteObjective used for the response."]]});
+window.SIDEBAR_ITEMS = {"enum":["FallbackRouteObjective"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SuccessfulStopReason",""]]});
+window.SIDEBAR_ITEMS = {"enum":["SuccessfulStopReason"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Status","The current status of the node pool instance."]],"struct":[["UpgradeSettings","These upgrade settings control the level of parallelism and the level of disruption caused by an upgrade."]]});
+window.SIDEBAR_ITEMS = {"enum":["Status"],"mod":["placement_policy","update_info"],"struct":["PlacementPolicy","UpdateInfo","UpgradeSettings"]};

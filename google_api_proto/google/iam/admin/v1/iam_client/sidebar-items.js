@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["IamClient","Creates and manages Identity and Access Management (IAM) resources."]]});
+window.SIDEBAR_ITEMS = {"struct":["IamClient"]};

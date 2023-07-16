@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ContentType","Type of the attestation plaintext that was signed."]]});
+window.SIDEBAR_ITEMS = {"enum":["ContentType"]};

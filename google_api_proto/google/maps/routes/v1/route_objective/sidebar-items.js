@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Objective","The route objective."]],"mod":[["rate_card","Nested message and enum types in `RateCard`."]],"struct":[["RateCard","Encapsulates a RateCard route objective."]]});
+window.SIDEBAR_ITEMS = {"enum":["Objective"],"mod":["custom_layer","rate_card"],"struct":["CustomLayer","RateCard"]};

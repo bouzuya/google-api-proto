@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Apt patch type."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

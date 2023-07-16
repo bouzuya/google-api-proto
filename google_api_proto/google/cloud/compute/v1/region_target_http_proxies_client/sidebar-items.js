@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["RegionTargetHttpProxiesClient","The RegionTargetHttpProxies API."]]});
+window.SIDEBAR_ITEMS = {"struct":["RegionTargetHttpProxiesClient"]};

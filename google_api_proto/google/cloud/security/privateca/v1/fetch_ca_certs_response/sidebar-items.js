@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CertChain",""]]});
+window.SIDEBAR_ITEMS = {"struct":["CertChain"]};

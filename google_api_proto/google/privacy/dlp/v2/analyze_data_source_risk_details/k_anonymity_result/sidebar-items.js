@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["KAnonymityEquivalenceClass","The set of columns’ values that share the same ldiversity value"],["KAnonymityHistogramBucket","Histogram of k-anonymity equivalence classes."]]});
+window.SIDEBAR_ITEMS = {"struct":["KAnonymityEquivalenceClass","KAnonymityHistogramBucket"]};

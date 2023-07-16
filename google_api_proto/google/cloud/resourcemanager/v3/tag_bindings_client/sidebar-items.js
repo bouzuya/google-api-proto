@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TagBindingsClient","Allow users to create and manage TagBindings between TagValues and different cloud resources throughout the GCP resource hierarchy."]]});
+window.SIDEBAR_ITEMS = {"struct":["TagBindingsClient"]};

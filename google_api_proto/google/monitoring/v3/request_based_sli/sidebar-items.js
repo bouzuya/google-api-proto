@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Method","The means to compute a ratio of `good_service` to `total_service`."]]});
+window.SIDEBAR_ITEMS = {"enum":["Method"]};

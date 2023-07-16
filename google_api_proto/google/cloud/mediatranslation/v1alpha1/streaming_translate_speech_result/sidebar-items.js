@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AudioTranslationResult","Audio translation result."],["TextTranslationResult","Text translation result."]]});
+window.SIDEBAR_ITEMS = {"struct":["AudioTranslationResult","TextTranslationResult"]};

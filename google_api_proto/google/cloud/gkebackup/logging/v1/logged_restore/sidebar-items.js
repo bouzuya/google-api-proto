@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","Possible values for state of the Restore."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

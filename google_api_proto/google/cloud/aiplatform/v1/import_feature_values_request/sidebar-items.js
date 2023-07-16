@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["FeatureTimeSource","Source of Feature timestamp for all Feature values of each entity. Timestamps must be millisecond-aligned."],["Source","Details about the source data, including the location of the storage and the format."]],"struct":[["FeatureSpec","Defines the Feature value(s) to import."]]});
+window.SIDEBAR_ITEMS = {"enum":["FeatureTimeSource","Source"],"struct":["FeatureSpec"]};

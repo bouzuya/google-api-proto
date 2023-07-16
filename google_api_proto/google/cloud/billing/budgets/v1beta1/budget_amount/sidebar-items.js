@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["BudgetAmount","Specification for what amount to use as the budget."]]});
+window.SIDEBAR_ITEMS = {"enum":["BudgetAmount"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["HealthState","If an instance is healthy or not."]]});
+window.SIDEBAR_ITEMS = {"enum":["HealthState"]};

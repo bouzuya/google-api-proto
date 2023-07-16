@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["TimepointType","The type of timepoint information that is returned in the response."]]});
+window.SIDEBAR_ITEMS = {"enum":["TimepointType"]};

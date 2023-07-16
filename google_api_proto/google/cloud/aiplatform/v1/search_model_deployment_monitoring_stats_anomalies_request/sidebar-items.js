@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["StatsAnomaliesObjective","Stats requested for specific objective."]]});
+window.SIDEBAR_ITEMS = {"struct":["StatsAnomaliesObjective"]};

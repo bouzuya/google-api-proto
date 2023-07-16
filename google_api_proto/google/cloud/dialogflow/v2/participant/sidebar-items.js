@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Role","Enumeration of the roles a participant can play in a conversation."]]});
+window.SIDEBAR_ITEMS = {"enum":["Role"]};

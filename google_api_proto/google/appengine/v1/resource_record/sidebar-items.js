@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["RecordType","A resource record type."]]});
+window.SIDEBAR_ITEMS = {"enum":["RecordType"]};

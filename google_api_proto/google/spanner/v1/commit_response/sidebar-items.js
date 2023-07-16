@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CommitStats","Additional statistics about a commit."]]});
+window.SIDEBAR_ITEMS = {"struct":["CommitStats"]};

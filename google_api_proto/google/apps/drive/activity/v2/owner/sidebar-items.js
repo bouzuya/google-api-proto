@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Owner","The owner of the Drive item."]]});
+window.SIDEBAR_ITEMS = {"enum":["Owner"]};

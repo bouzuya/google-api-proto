@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EventExecutionState","Enum EventExecutionState."]]});
+window.SIDEBAR_ITEMS = {"enum":["EventExecutionState"]};

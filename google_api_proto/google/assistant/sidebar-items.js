@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["embedded",""]]});
+window.SIDEBAR_ITEMS = {"mod":["embedded"]};

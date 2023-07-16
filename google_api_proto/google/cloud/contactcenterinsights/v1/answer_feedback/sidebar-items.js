@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["CorrectnessLevel","The correctness level of an answer."]]});
+window.SIDEBAR_ITEMS = {"enum":["CorrectnessLevel"]};

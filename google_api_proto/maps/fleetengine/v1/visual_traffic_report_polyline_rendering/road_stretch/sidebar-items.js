@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Style","The traffic style, indicating traffic speed."]]});
+window.SIDEBAR_ITEMS = {"enum":["Style"]};

@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["SeasonalityEventScope","The possible scopes of a Seasonality Event."]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["dlp",""]]});
+window.SIDEBAR_ITEMS = {"mod":["dlp"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Record","The record for this answer."]]});
+window.SIDEBAR_ITEMS = {"enum":["Record"]};

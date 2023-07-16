@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Id","The resource ID components that identify the Invocation."]]});
+window.SIDEBAR_ITEMS = {"struct":["Id"]};

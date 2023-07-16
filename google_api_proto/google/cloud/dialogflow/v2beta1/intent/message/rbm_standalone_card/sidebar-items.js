@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["CardOrientation","Orientation of the card."],["ThumbnailImageAlignment","Thumbnail preview alignment for standalone cards with horizontal layout."]]});
+window.SIDEBAR_ITEMS = {"enum":["CardOrientation","ThumbnailImageAlignment"]};

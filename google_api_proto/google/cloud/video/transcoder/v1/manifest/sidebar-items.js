@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ManifestType","The manifest type can be either `HLS` or `DASH`."]]});
+window.SIDEBAR_ITEMS = {"enum":["ManifestConfig","ManifestType"],"mod":["dash_config"],"struct":["DashConfig"]};

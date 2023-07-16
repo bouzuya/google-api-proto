@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Value","Value for the feature."]],"struct":[["Metadata","Metadata of feature value."]]});
+window.SIDEBAR_ITEMS = {"enum":["Value"],"struct":["Metadata"]};

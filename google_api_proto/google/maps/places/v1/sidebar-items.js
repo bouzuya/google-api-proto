@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["PriceLevel"],"mod":["place","places_client","search_text_request"],"struct":["Circle","Int32Range","Place","SearchTextRequest","SearchTextResponse"]};

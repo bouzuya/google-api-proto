@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["VerificationInfo","Proof of completion of the MFA challenge."]]});
+window.SIDEBAR_ITEMS = {"enum":["VerificationInfo"]};

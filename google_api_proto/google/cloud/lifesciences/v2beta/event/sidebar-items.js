@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Details","Machine-readable details about the event."]]});
+window.SIDEBAR_ITEMS = {"enum":["Details"]};

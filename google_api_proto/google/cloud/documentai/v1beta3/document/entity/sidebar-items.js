@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["normalized_value","Nested message and enum types in `NormalizedValue`."]],"struct":[["NormalizedValue","Parsed and normalized entity value."]]});
+window.SIDEBAR_ITEMS = {"mod":["normalized_value"],"struct":["NormalizedValue"]};

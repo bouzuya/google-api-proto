@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SourceInfo","Information about the source used to restore the table."]]});
+window.SIDEBAR_ITEMS = {"enum":["SourceInfo"]};

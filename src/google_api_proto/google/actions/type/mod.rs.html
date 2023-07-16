@@ -1,202 +1,199 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/actions/type/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../../storage.js"></script><script src="../../../../../crates.js"></script><script defer src="../../../../../main.js"></script><script defer src="../../../../../source-script.js"></script><script defer src="../../../../../source-files.js"></script>
-    <noscript><link rel="stylesheet" href="../../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../../../google_api_proto/index.html"><div class="logo-container"><img class="rust-logo" src="../../../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../../../google_api_proto/index.html"><div class="logo-container"><img class="rust-logo" src="../../../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../../../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1"> 1</span>
-<span id="2"> 2</span>
-<span id="3"> 3</span>
-<span id="4"> 4</span>
-<span id="5"> 5</span>
-<span id="6"> 6</span>
-<span id="7"> 7</span>
-<span id="8"> 8</span>
-<span id="9"> 9</span>
-<span id="10">10</span>
-<span id="11">11</span>
-<span id="12">12</span>
-<span id="13">13</span>
-<span id="14">14</span>
-<span id="15">15</span>
-<span id="16">16</span>
-<span id="17">17</span>
-<span id="18">18</span>
-<span id="19">19</span>
-<span id="20">20</span>
-<span id="21">21</span>
-<span id="22">22</span>
-<span id="23">23</span>
-<span id="24">24</span>
-<span id="25">25</span>
-<span id="26">26</span>
-<span id="27">27</span>
-<span id="28">28</span>
-<span id="29">29</span>
-<span id="30">30</span>
-<span id="31">31</span>
-<span id="32">32</span>
-<span id="33">33</span>
-<span id="34">34</span>
-<span id="35">35</span>
-<span id="36">36</span>
-<span id="37">37</span>
-<span id="38">38</span>
-<span id="39">39</span>
-<span id="40">40</span>
-<span id="41">41</span>
-<span id="42">42</span>
-<span id="43">43</span>
-<span id="44">44</span>
-<span id="45">45</span>
-<span id="46">46</span>
-<span id="47">47</span>
-<span id="48">48</span>
-<span id="49">49</span>
-<span id="50">50</span>
-<span id="51">51</span>
-<span id="52">52</span>
-<span id="53">53</span>
-<span id="54">54</span>
-<span id="55">55</span>
-<span id="56">56</span>
-<span id="57">57</span>
-<span id="58">58</span>
-<span id="59">59</span>
-<span id="60">60</span>
-<span id="61">61</span>
-<span id="62">62</span>
-<span id="63">63</span>
-<span id="64">64</span>
-<span id="65">65</span>
-<span id="66">66</span>
-<span id="67">67</span>
-<span id="68">68</span>
-<span id="69">69</span>
-<span id="70">70</span>
-<span id="71">71</span>
-<span id="72">72</span>
-<span id="73">73</span>
-<span id="74">74</span>
-<span id="75">75</span>
-<span id="76">76</span>
-<span id="77">77</span>
-<span id="78">78</span>
-<span id="79">79</span>
-<span id="80">80</span>
-<span id="81">81</span>
-<span id="82">82</span>
-<span id="83">83</span>
-<span id="84">84</span>
-<span id="85">85</span>
-<span id="86">86</span>
-<span id="87">87</span>
-<span id="88">88</span>
-<span id="89">89</span>
-<span id="90">90</span>
-<span id="91">91</span>
-<span id="92">92</span>
-<span id="93">93</span>
-<span id="94">94</span>
-<span id="95">95</span>
-<span id="96">96</span>
-<span id="97">97</span>
-</pre><pre class="rust"><code><span class="doccomment">/// Represents a range based on whole or partial calendar dates, e.g. the</span>
-<span class="doccomment">/// duration of a hotel reservation or the Common Era. This can represent:</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// * A range between full dates, e.g. the duration of a hotel reservation</span>
-<span class="doccomment">/// * A range between years, e.g. a historical era</span>
-<span class="doccomment">/// * A range between year/month dates, e.g. the duration of a job on a resume</span>
-<span class="doccomment">/// * A range beginning in a year, e.g. the Common Era</span>
-<span class="doccomment">/// * A range ending on a specific date, e.g. the period of time before an event</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// While \[google.type.Date][google.type.Date\] allows zero years, DateRange does not. Year must</span>
-<span class="doccomment">/// always be non-zero.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// End cannot be chronologically before start. For example, if start has year</span>
-<span class="doccomment">/// 2000, end cannot have year 1999.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// When both set, start and end must have exactly the same precision. That is,</span>
-<span class="doccomment">/// they must have the same fields populated with non-zero values. For example,</span>
-<span class="doccomment">/// if start specifies only year and month, then end must also specify only year</span>
-<span class="doccomment">/// and month (but not day).</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The date range is inclusive. That is, the dates specified by start and end</span>
-<span class="doccomment">/// are part of the date range. For example, the date January 1, 2000 falls</span>
-<span class="doccomment">/// within any date with start or end equal to January 1, 2000. When determining</span>
-<span class="doccomment">/// whether a date is inside a date range, the date should only be compared to</span>
-<span class="doccomment">/// start and end when those values are set.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// When a date and date range are specified to different degrees of precision,</span>
-<span class="doccomment">/// the rules for evaluating whether that date is inside the date range are as</span>
-<span class="doccomment">/// follows:</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///  * When comparing the date to the start of the date range, unspecified months</span>
-<span class="doccomment">///    should be replaced with 1, and unspecified days should be replaced with 1.</span>
-<span class="doccomment">///    For example, the year 2000 is within the date range with start equal to</span>
-<span class="doccomment">///    January 1, 2000 and no end. And the date January 1, 2000 is within the</span>
-<span class="doccomment">///    date range with start equal to the year 2000 and no end.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///  * When comparing the date to the end of the date range, unspecified months</span>
-<span class="doccomment">///    should be replaced with 12, and unspecified days should be replaced with</span>
-<span class="doccomment">///    the last valid day for the month/year. For example, the year 2000 is</span>
-<span class="doccomment">///    within the date range with start equal to January 1, 1999 and end equal to</span>
-<span class="doccomment">///    December 31, 2000. And the date December 31, 2001 is within the date range</span>
-<span class="doccomment">///    with start equal to the year 2000 and end equal to the year 2001.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The semantics of start and end are the same as those of \[google.type.Date][google.type.Date\],</span>
-<span class="doccomment">/// except that year must always be non-zero in DateRange.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">PartialEq</span>, <span class="ident">::prost::Message</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">DateRange</span> {
-    <span class="doccomment">/// Date at which the date range begins. If unset, the date range has no</span>
-    <span class="doccomment">/// beginning bound.</span>
-    <span class="attribute">#[<span class="ident">prost</span>(<span class="ident">message</span>, <span class="ident">optional</span>, <span class="ident">tag</span> <span class="op">=</span> <span class="string">&quot;1&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="ident">start</span>: <span class="ident">::core::option::Option</span><span class="op">&lt;</span><span class="ident"><span class="kw">super</span>::<span class="kw">super</span></span>::<span class="ident">r#type</span><span class="ident">::Date</span><span class="op">&gt;</span>,
-    <span class="doccomment">/// Date at which the date range ends. If unset, the date range has no ending</span>
-    <span class="doccomment">/// bound.</span>
-    <span class="attribute">#[<span class="ident">prost</span>(<span class="ident">message</span>, <span class="ident">optional</span>, <span class="ident">tag</span> <span class="op">=</span> <span class="string">&quot;2&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="ident">end</span>: <span class="ident">::core::option::Option</span><span class="op">&lt;</span><span class="ident"><span class="kw">super</span>::<span class="kw">super</span></span>::<span class="ident">r#type</span><span class="ident">::Date</span><span class="op">&gt;</span>,
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/actions/type/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.0 (8ede3aae2 2023-07-12)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../../../source-files.js"></script><script defer src="../../../../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<a href="#2" id="2">2</a>
+<a href="#3" id="3">3</a>
+<a href="#4" id="4">4</a>
+<a href="#5" id="5">5</a>
+<a href="#6" id="6">6</a>
+<a href="#7" id="7">7</a>
+<a href="#8" id="8">8</a>
+<a href="#9" id="9">9</a>
+<a href="#10" id="10">10</a>
+<a href="#11" id="11">11</a>
+<a href="#12" id="12">12</a>
+<a href="#13" id="13">13</a>
+<a href="#14" id="14">14</a>
+<a href="#15" id="15">15</a>
+<a href="#16" id="16">16</a>
+<a href="#17" id="17">17</a>
+<a href="#18" id="18">18</a>
+<a href="#19" id="19">19</a>
+<a href="#20" id="20">20</a>
+<a href="#21" id="21">21</a>
+<a href="#22" id="22">22</a>
+<a href="#23" id="23">23</a>
+<a href="#24" id="24">24</a>
+<a href="#25" id="25">25</a>
+<a href="#26" id="26">26</a>
+<a href="#27" id="27">27</a>
+<a href="#28" id="28">28</a>
+<a href="#29" id="29">29</a>
+<a href="#30" id="30">30</a>
+<a href="#31" id="31">31</a>
+<a href="#32" id="32">32</a>
+<a href="#33" id="33">33</a>
+<a href="#34" id="34">34</a>
+<a href="#35" id="35">35</a>
+<a href="#36" id="36">36</a>
+<a href="#37" id="37">37</a>
+<a href="#38" id="38">38</a>
+<a href="#39" id="39">39</a>
+<a href="#40" id="40">40</a>
+<a href="#41" id="41">41</a>
+<a href="#42" id="42">42</a>
+<a href="#43" id="43">43</a>
+<a href="#44" id="44">44</a>
+<a href="#45" id="45">45</a>
+<a href="#46" id="46">46</a>
+<a href="#47" id="47">47</a>
+<a href="#48" id="48">48</a>
+<a href="#49" id="49">49</a>
+<a href="#50" id="50">50</a>
+<a href="#51" id="51">51</a>
+<a href="#52" id="52">52</a>
+<a href="#53" id="53">53</a>
+<a href="#54" id="54">54</a>
+<a href="#55" id="55">55</a>
+<a href="#56" id="56">56</a>
+<a href="#57" id="57">57</a>
+<a href="#58" id="58">58</a>
+<a href="#59" id="59">59</a>
+<a href="#60" id="60">60</a>
+<a href="#61" id="61">61</a>
+<a href="#62" id="62">62</a>
+<a href="#63" id="63">63</a>
+<a href="#64" id="64">64</a>
+<a href="#65" id="65">65</a>
+<a href="#66" id="66">66</a>
+<a href="#67" id="67">67</a>
+<a href="#68" id="68">68</a>
+<a href="#69" id="69">69</a>
+<a href="#70" id="70">70</a>
+<a href="#71" id="71">71</a>
+<a href="#72" id="72">72</a>
+<a href="#73" id="73">73</a>
+<a href="#74" id="74">74</a>
+<a href="#75" id="75">75</a>
+<a href="#76" id="76">76</a>
+<a href="#77" id="77">77</a>
+<a href="#78" id="78">78</a>
+<a href="#79" id="79">79</a>
+<a href="#80" id="80">80</a>
+<a href="#81" id="81">81</a>
+<a href="#82" id="82">82</a>
+<a href="#83" id="83">83</a>
+<a href="#84" id="84">84</a>
+<a href="#85" id="85">85</a>
+<a href="#86" id="86">86</a>
+<a href="#87" id="87">87</a>
+<a href="#88" id="88">88</a>
+<a href="#89" id="89">89</a>
+<a href="#90" id="90">90</a>
+<a href="#91" id="91">91</a>
+<a href="#92" id="92">92</a>
+<a href="#93" id="93">93</a>
+<a href="#94" id="94">94</a>
+<a href="#95" id="95">95</a>
+<a href="#96" id="96">96</a>
+<a href="#97" id="97">97</a>
+<a href="#98" id="98">98</a>
+<a href="#99" id="99">99</a>
+</pre></div><pre class="rust"><code><span class="doccomment">/// Represents a range based on whole or partial calendar dates, e.g. the
+/// duration of a hotel reservation or the Common Era. This can represent:
+///
+/// * A range between full dates, e.g. the duration of a hotel reservation
+/// * A range between years, e.g. a historical era
+/// * A range between year/month dates, e.g. the duration of a job on a resume
+/// * A range beginning in a year, e.g. the Common Era
+/// * A range ending on a specific date, e.g. the period of time before an event
+///
+/// While \[google.type.Date][google.type.Date\] allows zero years, DateRange does not. Year must
+/// always be non-zero.
+///
+/// End cannot be chronologically before start. For example, if start has year
+/// 2000, end cannot have year 1999.
+///
+/// When both set, start and end must have exactly the same precision. That is,
+/// they must have the same fields populated with non-zero values. For example,
+/// if start specifies only year and month, then end must also specify only year
+/// and month (but not day).
+///
+/// The date range is inclusive. That is, the dates specified by start and end
+/// are part of the date range. For example, the date January 1, 2000 falls
+/// within any date with start or end equal to January 1, 2000. When determining
+/// whether a date is inside a date range, the date should only be compared to
+/// start and end when those values are set.
+///
+/// When a date and date range are specified to different degrees of precision,
+/// the rules for evaluating whether that date is inside the date range are as
+/// follows:
+///
+///   * When comparing the date to the start of the date range, unspecified months
+///     should be replaced with 1, and unspecified days should be replaced with 1.
+///     For example, the year 2000 is within the date range with start equal to
+///     January 1, 2000 and no end. And the date January 1, 2000 is within the
+///     date range with start equal to the year 2000 and no end.
+///
+///   * When comparing the date to the end of the date range, unspecified months
+///     should be replaced with 12, and unspecified days should be replaced with
+///     the last valid day for the month/year. For example, the year 2000 is
+///     within the date range with start equal to January 1, 1999 and end equal to
+///     December 31, 2000. And the date December 31, 2001 is within the date range
+///     with start equal to the year 2000 and end equal to the year 2001.
+///
+/// The semantics of start and end are the same as those of \[google.type.Date][google.type.Date\],
+/// except that year must always be non-zero in DateRange.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DateRange {
+    <span class="doccomment">/// Date at which the date range begins. If unset, the date range has no
+    /// beginning bound.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>start: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
+    <span class="doccomment">/// Date at which the date range ends. If unset, the date range has no ending
+    /// bound.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>end: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
 }
-<span class="doccomment">/// Represents a date and time range. This can represent:</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// * A range between points in time with time zone or offset, e.g. the duration</span>
-<span class="doccomment">///   of a flight which starts in the &quot;America/New_York&quot; time zone and ends in</span>
-<span class="doccomment">///   the &quot;Australia/Sydney&quot; time zone</span>
-<span class="doccomment">/// * A range between points in time without time zone/offset info, e.g. an</span>
-<span class="doccomment">///   appointment in local time</span>
-<span class="doccomment">/// * A range starting at a specific date and time, e.g. the range of time which</span>
-<span class="doccomment">///   can be measured in milliseconds since the Unix epoch (period starting with</span>
-<span class="doccomment">///   1970-01-01T00:00:00Z)</span>
-<span class="doccomment">/// * A range ending at a specific date and time, e.g. range of time before</span>
-<span class="doccomment">///   a deadline</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// When considering whether a DateTime falls within a DateTimeRange, the start</span>
-<span class="doccomment">/// of the range is inclusive and the end is exclusive.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// While \[google.type.DateTime][google.type.DateTime\] allows zero years, DateTimeRange does not.</span>
-<span class="doccomment">/// Year must always be non-zero.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// When both start and end are set, either both or neither must have a</span>
-<span class="doccomment">/// time_offset. When set, time_offset can be specified by either utc_offset or</span>
-<span class="doccomment">/// time_zone and must match for start and end, that is if start has utc_offset</span>
-<span class="doccomment">/// set then end must also have utc_offset set. The values of utc_offset or</span>
-<span class="doccomment">/// time_zone need not be the same for start and end.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// When both start and end are set, start must be chronologically less than or</span>
-<span class="doccomment">/// equal to end. When start and end are equal, the range is empty.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The semantics of start and end are the same as those of</span>
-<span class="doccomment">/// \[google.type.DateTime][google.type.DateTime\].</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">PartialEq</span>, <span class="ident">::prost::Message</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">DateTimeRange</span> {
-    <span class="doccomment">/// DateTime at which the date range begins. If unset, the range has no</span>
-    <span class="doccomment">/// beginning bound.</span>
-    <span class="attribute">#[<span class="ident">prost</span>(<span class="ident">message</span>, <span class="ident">optional</span>, <span class="ident">tag</span> <span class="op">=</span> <span class="string">&quot;1&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="ident">start</span>: <span class="ident">::core::option::Option</span><span class="op">&lt;</span><span class="ident"><span class="kw">super</span>::<span class="kw">super</span></span>::<span class="ident">r#type</span><span class="ident">::DateTime</span><span class="op">&gt;</span>,
-    <span class="doccomment">/// DateTime at which the date range ends. If unset, the range has no ending</span>
-    <span class="doccomment">/// bound.</span>
-    <span class="attribute">#[<span class="ident">prost</span>(<span class="ident">message</span>, <span class="ident">optional</span>, <span class="ident">tag</span> <span class="op">=</span> <span class="string">&quot;2&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="ident">end</span>: <span class="ident">::core::option::Option</span><span class="op">&lt;</span><span class="ident"><span class="kw">super</span>::<span class="kw">super</span></span>::<span class="ident">r#type</span><span class="ident">::DateTime</span><span class="op">&gt;</span>,
+<span class="doccomment">/// Represents a date and time range. This can represent:
+///
+/// * A range between points in time with time zone or offset, e.g. the duration
+///    of a flight which starts in the &quot;America/New_York&quot; time zone and ends in
+///    the &quot;Australia/Sydney&quot; time zone
+/// * A range between points in time without time zone/offset info, e.g. an
+///    appointment in local time
+/// * A range starting at a specific date and time, e.g. the range of time which
+///    can be measured in milliseconds since the Unix epoch (period starting with
+///    1970-01-01T00:00:00Z)
+/// * A range ending at a specific date and time, e.g. range of time before
+///    a deadline
+///
+/// When considering whether a DateTime falls within a DateTimeRange, the start
+/// of the range is inclusive and the end is exclusive.
+///
+/// While \[google.type.DateTime][google.type.DateTime\] allows zero years, DateTimeRange does not.
+/// Year must always be non-zero.
+///
+/// When both start and end are set, either both or neither must have a
+/// time_offset. When set, time_offset can be specified by either utc_offset or
+/// time_zone and must match for start and end, that is if start has utc_offset
+/// set then end must also have utc_offset set. The values of utc_offset or
+/// time_zone need not be the same for start and end.
+///
+/// When both start and end are set, start must be chronologically less than or
+/// equal to end. When start and end are equal, the range is empty.
+///
+/// The semantics of start and end are the same as those of
+/// \[google.type.DateTime][google.type.DateTime\].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DateTimeRange {
+    <span class="doccomment">/// DateTime at which the date range begins. If unset, the range has no
+    /// beginning bound.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>start: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::r#type::DateTime&gt;,
+    <span class="doccomment">/// DateTime at which the date range ends. If unset, the range has no ending
+    /// bound.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>end: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::r#type::DateTime&gt;,
 }
-</code></pre></div>
-</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../../../../" data-current-crate="google_api_proto" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0 (7737e0b5c 2022-04-04)" ></div>
-</body></html>
+</code></pre></div></section></main></body></html>

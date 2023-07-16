@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DatasetMetadata","Required. The dataset metadata that is specific to the problem type."]]});
+window.SIDEBAR_ITEMS = {"enum":["DatasetMetadata"]};

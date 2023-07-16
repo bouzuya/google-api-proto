@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["WebhooksClient","Service for managing [Webhooks][google.cloud.dialogflow.cx.v3.Webhook]."]]});
+window.SIDEBAR_ITEMS = {"struct":["WebhooksClient"]};

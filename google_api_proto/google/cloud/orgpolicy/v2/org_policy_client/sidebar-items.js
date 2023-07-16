@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["OrgPolicyClient","An interface for managing organization policies."]]});
+window.SIDEBAR_ITEMS = {"struct":["OrgPolicyClient"]};

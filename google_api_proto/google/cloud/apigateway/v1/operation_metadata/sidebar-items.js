@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Diagnostic","Diagnostic information from configuration processing."]]});
+window.SIDEBAR_ITEMS = {"struct":["Diagnostic"]};

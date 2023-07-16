@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ShareType","Type of sharing for this shared-reservation"]]});
+window.SIDEBAR_ITEMS = {"enum":["ShareType"]};

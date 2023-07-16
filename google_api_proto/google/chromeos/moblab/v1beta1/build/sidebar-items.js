@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["BuildStatus","The build status types."],["BuildType","The build types."]]});
+window.SIDEBAR_ITEMS = {"enum":["BuildStatus","BuildType"]};

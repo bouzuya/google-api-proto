@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Payload","Payload of conversation event."],["Type","Enumeration of the types of events available."]]});
+window.SIDEBAR_ITEMS = {"enum":["Payload","Type"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["MembershipState","Metering: Per-Membership Feature State."]]});
+window.SIDEBAR_ITEMS = {"struct":["MembershipState"]};

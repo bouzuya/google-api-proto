@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Reference","Enumerates references to which the message applies."]]});
+window.SIDEBAR_ITEMS = {"enum":["Reference"]};

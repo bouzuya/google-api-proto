@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["OsPolicyCompliance","Compliance data for an OS policy"]]});
+window.SIDEBAR_ITEMS = {"struct":["OsPolicyCompliance"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Payload","Each stream response message contains one type of payload."]]});
+window.SIDEBAR_ITEMS = {"enum":["Payload"]};

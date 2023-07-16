@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Article","Represents suggested article."],["FaqAnswer","Represents suggested answer from “frequently asked questions”."]]});
+window.SIDEBAR_ITEMS = {"struct":["Article","FaqAnswer"]};

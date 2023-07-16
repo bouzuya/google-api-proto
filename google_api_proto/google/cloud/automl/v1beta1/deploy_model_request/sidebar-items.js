@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ModelDeploymentMetadata","The per-domain specific deployment parameters."]]});
+window.SIDEBAR_ITEMS = {"enum":["ModelDeploymentMetadata"]};

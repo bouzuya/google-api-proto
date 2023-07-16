@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Decision","The current decision on the approval request."]]});
+window.SIDEBAR_ITEMS = {"enum":["Decision"]};

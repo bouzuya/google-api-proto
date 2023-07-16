@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["VersionKind","Whether this is an ordinary package version or a sentinel MIN/MAX version."]]});
+window.SIDEBAR_ITEMS = {"enum":["VersionKind"]};

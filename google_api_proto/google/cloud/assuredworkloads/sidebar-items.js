@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["regulatoryintercept",""],["v1",""],["v1beta1",""]]});
+window.SIDEBAR_ITEMS = {"mod":["regulatoryintercept","v1","v1beta1"]};

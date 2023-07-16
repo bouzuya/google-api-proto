@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ManagedNotebookServiceClient","API v1 service for Managed Notebooks."]]});
+window.SIDEBAR_ITEMS = {"struct":["ManagedNotebookServiceClient"]};

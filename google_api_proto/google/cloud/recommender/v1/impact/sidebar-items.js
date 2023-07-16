@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Category","The category of the impact."],["Projection","Contains projections (if any) for this category."]]});
+window.SIDEBAR_ITEMS = {"enum":["Category","Projection"]};

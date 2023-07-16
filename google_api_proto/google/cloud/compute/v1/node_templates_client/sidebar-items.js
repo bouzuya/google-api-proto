@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["NodeTemplatesClient","The NodeTemplates API."]]});
+window.SIDEBAR_ITEMS = {"struct":["NodeTemplatesClient"]};

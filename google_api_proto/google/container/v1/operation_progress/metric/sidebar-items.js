@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Value","Strictly one of the values is required."]]});
+window.SIDEBAR_ITEMS = {"enum":["Value"]};

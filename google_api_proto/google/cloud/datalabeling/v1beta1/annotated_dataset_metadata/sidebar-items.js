@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AnnotationRequestConfig","Specific request configuration used when requesting the labeling task."]]});
+window.SIDEBAR_ITEMS = {"enum":["AnnotationRequestConfig"]};

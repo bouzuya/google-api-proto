@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["RegulatoryInterceptAckLogEntry",""]]});
+window.SIDEBAR_ITEMS = {"struct":["RegulatoryInterceptAckLogEntry"]};

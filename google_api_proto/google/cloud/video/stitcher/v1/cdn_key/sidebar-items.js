@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["CdnKeyConfig","Configuration associated with the CDN key."]]});
+window.SIDEBAR_ITEMS = {"enum":["CdnKeyConfig"]};

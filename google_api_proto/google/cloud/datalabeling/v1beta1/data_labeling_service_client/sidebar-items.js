@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["DataLabelingServiceClient","Service for the AI Platform Data Labeling API."]]});
+window.SIDEBAR_ITEMS = {"struct":["DataLabelingServiceClient"]};

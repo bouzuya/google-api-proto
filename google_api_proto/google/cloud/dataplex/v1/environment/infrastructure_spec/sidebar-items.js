@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Resources","Hardware config"],["Runtime","Software config"]],"struct":[["ComputeResources","Compute resources associated with the analyze interactive workloads."],["OsImageRuntime","Software Runtime Configuration to run Analyze."]]});
+window.SIDEBAR_ITEMS = {"enum":["Resources","Runtime"],"struct":["ComputeResources","OsImageRuntime"]};

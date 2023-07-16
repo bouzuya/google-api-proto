@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EntityTypeBatch","The source of the entity type batch."]]});
+window.SIDEBAR_ITEMS = {"enum":["EntityTypeBatch"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["BatchControllerClient","The BatchController provides methods to manage batch workloads."]]});
+window.SIDEBAR_ITEMS = {"struct":["BatchControllerClient"]};

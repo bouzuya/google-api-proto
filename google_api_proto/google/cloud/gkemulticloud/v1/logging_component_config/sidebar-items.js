@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Component","The components of the logging configuration;"]]});
+window.SIDEBAR_ITEMS = {"enum":["Component"]};

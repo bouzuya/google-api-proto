@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["predict",""],["trainingjob",""]]});
+window.SIDEBAR_ITEMS = {"mod":["predict","trainingjob"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["CommentControl","Controls behavior of Pull Request comments."],["GitRef","Target refs to match. A target ref is the git reference where the pull request will be applied."]]});
+window.SIDEBAR_ITEMS = {"enum":["CommentControl","GitRef"]};

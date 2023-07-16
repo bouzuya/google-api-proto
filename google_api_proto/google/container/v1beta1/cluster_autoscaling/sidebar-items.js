@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AutoscalingProfile","Defines possible options for autoscaling_profile field."]]});
+window.SIDEBAR_ITEMS = {"enum":["AutoscalingProfile"]};

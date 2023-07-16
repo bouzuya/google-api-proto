@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["OutputConfig","Output configuration for the Model export."]]});
+window.SIDEBAR_ITEMS = {"struct":["OutputConfig"]};

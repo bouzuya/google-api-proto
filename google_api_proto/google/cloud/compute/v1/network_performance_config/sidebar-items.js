@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["TotalEgressBandwidthTier",""]]});
+window.SIDEBAR_ITEMS = {"enum":["TotalEgressBandwidthTier"]};

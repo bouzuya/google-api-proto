@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Availability","Availability of the instance."]],"mod":[["liveness","Nested message and enum types in `Liveness`."]],"struct":[["Liveness","Wrapper for LivenessState enum."]]});
+window.SIDEBAR_ITEMS = {"enum":["Availability"],"mod":["liveness"],"struct":["Liveness"]};

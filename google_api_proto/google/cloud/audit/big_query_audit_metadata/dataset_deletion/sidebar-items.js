@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Reason","Describes how the dataset was deleted."]]});
+window.SIDEBAR_ITEMS = {"enum":["Reason"]};

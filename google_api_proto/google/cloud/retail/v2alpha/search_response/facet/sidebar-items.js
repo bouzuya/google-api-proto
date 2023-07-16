@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["facet_value","Nested message and enum types in `FacetValue`."]],"struct":[["FacetValue","A facet value which contains value names and their count."]]});
+window.SIDEBAR_ITEMS = {"mod":["facet_value"],"struct":["FacetValue"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CategoricalStatsHistogramBucket","Histogram of value frequencies in the column."]]});
+window.SIDEBAR_ITEMS = {"struct":["CategoricalStatsHistogramBucket"]};

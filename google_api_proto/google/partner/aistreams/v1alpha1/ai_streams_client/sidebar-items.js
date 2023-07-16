@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AiStreamsClient","AIStreams service."]]});
+window.SIDEBAR_ITEMS = {"struct":["AiStreamsClient"]};

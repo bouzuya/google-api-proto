@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["RebootConfig","Post-patch reboot settings."]]});
+window.SIDEBAR_ITEMS = {"enum":["RebootConfig"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Payload","Output only."]]});
+window.SIDEBAR_ITEMS = {"enum":["Payload"]};

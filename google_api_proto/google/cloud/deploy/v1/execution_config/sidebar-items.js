@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ExecutionEnvironment","Details of the environment."],["ExecutionEnvironmentUsage","Possible usages of this configuration."]]});
+window.SIDEBAR_ITEMS = {"enum":["ExecutionEnvironment","ExecutionEnvironmentUsage"]};

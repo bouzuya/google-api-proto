@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["activity",""]]});
+window.SIDEBAR_ITEMS = {"mod":["activity","labels"]};

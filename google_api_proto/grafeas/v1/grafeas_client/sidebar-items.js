@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["GrafeasClient","Grafeas API."]]});
+window.SIDEBAR_ITEMS = {"struct":["GrafeasClient"]};

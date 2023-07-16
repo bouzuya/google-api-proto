@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AcceleratorType","Type of this accelerator."]]});
+window.SIDEBAR_ITEMS = {"enum":["AcceleratorType"]};

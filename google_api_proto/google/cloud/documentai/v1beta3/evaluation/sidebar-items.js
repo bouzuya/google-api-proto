@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["multi_confidence_metrics"],"struct":["ConfidenceLevelMetrics","Counters","Metrics","MultiConfidenceMetrics"]};

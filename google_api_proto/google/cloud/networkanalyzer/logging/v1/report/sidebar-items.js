@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Content","Priority","ReportGroup","ReportStatus","Type"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DataFormat","Data format of the exported agent."]]});
+window.SIDEBAR_ITEMS = {"enum":["DataFormat"],"struct":["GitDestination"]};

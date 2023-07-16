@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SolutionType","Selector for different solution types of a reported trip."]]});
+window.SIDEBAR_ITEMS = {"enum":["SolutionType"]};

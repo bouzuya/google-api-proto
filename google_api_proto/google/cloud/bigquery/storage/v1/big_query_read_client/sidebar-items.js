@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["BigQueryReadClient","BigQuery Read API."]]});
+window.SIDEBAR_ITEMS = {"struct":["BigQueryReadClient"]};

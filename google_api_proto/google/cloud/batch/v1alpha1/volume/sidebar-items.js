@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["Source","The source for the volume."]]});

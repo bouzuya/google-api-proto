@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AuthorizedCertificatesClient","Manages SSL certificates a user is authorized to administer. A user can administer any SSL certificates applicable to their authorized domains."]]});
+window.SIDEBAR_ITEMS = {"struct":["AuthorizedCertificatesClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["NamedTarget","A named position with respect to the message backlog."],["Target","The target to seek to. Must be set."]]});
+window.SIDEBAR_ITEMS = {"enum":["NamedTarget","Target"]};

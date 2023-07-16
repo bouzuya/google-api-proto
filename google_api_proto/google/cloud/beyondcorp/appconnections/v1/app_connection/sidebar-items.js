@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["State","Type"],"mod":["gateway"],"struct":["ApplicationEndpoint","Gateway"]};

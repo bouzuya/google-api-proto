@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Type enum of the stream."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

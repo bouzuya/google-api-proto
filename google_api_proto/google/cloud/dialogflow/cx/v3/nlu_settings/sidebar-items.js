@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ModelTrainingMode","NLU model training mode."],["ModelType","NLU model type."]]});
+window.SIDEBAR_ITEMS = {"enum":["ModelTrainingMode","ModelType"]};

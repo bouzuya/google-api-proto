@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Destination","Required. Destination that metadata is exported to."]]});
+window.SIDEBAR_ITEMS = {"enum":["Destination"]};

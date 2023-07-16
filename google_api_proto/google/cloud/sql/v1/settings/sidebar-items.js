@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SqlActivationPolicy","Specifies when the instance is activated."]]});
+window.SIDEBAR_ITEMS = {"enum":["ConnectorEnforcement","Edition","SqlActivationPolicy"]};

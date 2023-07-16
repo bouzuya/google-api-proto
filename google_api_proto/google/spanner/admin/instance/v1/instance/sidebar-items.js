@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","Indicates the current state of the instance."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

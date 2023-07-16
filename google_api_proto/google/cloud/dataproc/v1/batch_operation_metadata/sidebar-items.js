@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["BatchOperationType","Operation type for Batch resources"]]});
+window.SIDEBAR_ITEMS = {"enum":["BatchOperationType"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["GoalType","The available types of optimization goals."]]});
+window.SIDEBAR_ITEMS = {"enum":["GoalType"],"struct":["SafetyMetricConfig"]};

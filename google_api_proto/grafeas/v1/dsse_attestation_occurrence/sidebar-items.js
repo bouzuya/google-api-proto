@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DecodedPayload",""]]});
+window.SIDEBAR_ITEMS = {"enum":["DecodedPayload"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Component","GKE components exposing logs"]]});
+window.SIDEBAR_ITEMS = {"enum":["Component"]};

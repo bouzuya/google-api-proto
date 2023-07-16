@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["KeyFormat","Types of public keys formats that are supported. Currently, only `PEM` format is supported."]]});
+window.SIDEBAR_ITEMS = {"enum":["KeyFormat"]};

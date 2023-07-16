@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CompletionClient","A service handles auto completion."]]});
+window.SIDEBAR_ITEMS = {"struct":["CompletionClient"]};

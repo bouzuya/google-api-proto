@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EnvironmentMatrix","Required. The environment matrix."]]});
+window.SIDEBAR_ITEMS = {"enum":["EnvironmentMatrix"]};

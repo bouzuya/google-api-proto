@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SubnetworksClient","The Subnetworks API."]]});
+window.SIDEBAR_ITEMS = {"struct":["SubnetworksClient"]};

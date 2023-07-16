@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["RegionCommitmentsClient","The RegionCommitments API."]]});
+window.SIDEBAR_ITEMS = {"struct":["RegionCommitmentsClient"]};

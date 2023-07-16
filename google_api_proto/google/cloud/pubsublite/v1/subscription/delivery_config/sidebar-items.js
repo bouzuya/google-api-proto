@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DeliveryRequirement","When this subscription should send messages to subscribers relative to messages persistence in storage. For details, see Creating Lite subscriptions."]]});
+window.SIDEBAR_ITEMS = {"enum":["DeliveryRequirement"]};

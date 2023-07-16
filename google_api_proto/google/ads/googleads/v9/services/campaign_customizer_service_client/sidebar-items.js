@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["CampaignCustomizerServiceClient","Service to manage campaign customizer"]]});

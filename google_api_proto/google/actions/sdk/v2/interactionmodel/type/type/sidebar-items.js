@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SubType","Selection of sub type based on the type of matching to be done."]]});
+window.SIDEBAR_ITEMS = {"enum":["SubType"]};

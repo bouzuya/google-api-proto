@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["consumer_info","Nested message and enum types in `ConsumerInfo`."]],"struct":[["CheckInfo","Contains additional information about the check operation."],["ConsumerInfo","`ConsumerInfo` provides information about the consumer."]]});
+window.SIDEBAR_ITEMS = {"mod":["consumer_info"],"struct":["CheckInfo","ConsumerInfo"]};

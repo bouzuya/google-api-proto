@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["LoggableAction","Loggable actions."],["LoggableActionState","Loggable action states."]]});
+window.SIDEBAR_ITEMS = {"enum":["LoggableAction","LoggableActionState"]};

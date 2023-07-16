@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["FilterType","Specify the type of filtering."]]});
+window.SIDEBAR_ITEMS = {"enum":["FilterType"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TableDataSet","Groups a time series query definition with table options."]]});
+window.SIDEBAR_ITEMS = {"enum":["MetricVisualization"],"struct":["ColumnSettings","TableDataSet"]};

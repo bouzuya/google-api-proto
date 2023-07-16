@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["MetadataStoreState","Represents state information for a MetadataStore."]]});
+window.SIDEBAR_ITEMS = {"struct":["MetadataStoreState"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ConstantKind","Required. The valid constant kinds."]]});
+window.SIDEBAR_ITEMS = {"enum":["ConstantKind"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["fault_injection_policy","header_match","query_parameter_match","redirect","route_match"],"struct":["CorsPolicy","Destination","FaultInjectionPolicy","HeaderMatch","HeaderModifier","QueryParameterMatch","Redirect","RequestMirrorPolicy","RetryPolicy","RouteAction","RouteMatch","RouteRule","UrlRewrite"]};

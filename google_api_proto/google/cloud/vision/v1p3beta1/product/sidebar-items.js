@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["KeyValue","A product label represented as a key-value pair."]]});
+window.SIDEBAR_ITEMS = {"struct":["KeyValue"]};

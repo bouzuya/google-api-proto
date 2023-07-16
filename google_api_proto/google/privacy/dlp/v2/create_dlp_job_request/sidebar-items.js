@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Job","The configuration details for the specific type of job to run."]]});
+window.SIDEBAR_ITEMS = {"enum":["Job"]};

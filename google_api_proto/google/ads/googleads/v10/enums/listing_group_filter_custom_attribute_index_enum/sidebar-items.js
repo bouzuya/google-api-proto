@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["ListingGroupFilterCustomAttributeIndex","The index of customer attributes."]]});

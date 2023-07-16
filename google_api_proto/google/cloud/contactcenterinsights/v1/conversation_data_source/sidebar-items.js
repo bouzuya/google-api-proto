@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","The source of the conversation."]]});
+window.SIDEBAR_ITEMS = {"enum":["Source"]};

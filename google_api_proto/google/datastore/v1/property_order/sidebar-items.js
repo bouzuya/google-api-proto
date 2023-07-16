@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Direction","The sort direction."]]});
+window.SIDEBAR_ITEMS = {"enum":["Direction"]};

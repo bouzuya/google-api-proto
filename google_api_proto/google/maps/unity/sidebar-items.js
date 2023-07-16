@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["client_info","Nested message and enum types in `ClientInfo`."]],"struct":[["ClientInfo","Client information."]]});
+window.SIDEBAR_ITEMS = {"mod":["client_info"],"struct":["ClientInfo"]};

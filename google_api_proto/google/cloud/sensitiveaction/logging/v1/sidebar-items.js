@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["sensitive_action"],"struct":["SensitiveAction"]};

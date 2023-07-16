@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["PredictionServiceClient","A service for online predictions and explanations."]]});
+window.SIDEBAR_ITEMS = {"struct":["PredictionServiceClient"]};

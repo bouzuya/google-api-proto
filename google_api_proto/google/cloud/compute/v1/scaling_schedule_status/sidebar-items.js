@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","[Output Only] The current state of a scaling schedule."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

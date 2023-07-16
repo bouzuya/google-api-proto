@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ApiVersion","Logging API version."]]});
+window.SIDEBAR_ITEMS = {"enum":["ApiVersion"]};

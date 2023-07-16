@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Exclusion rule types."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

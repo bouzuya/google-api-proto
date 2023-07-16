@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Id","Deprecated."]]});
+window.SIDEBAR_ITEMS = {"enum":["Id"]};

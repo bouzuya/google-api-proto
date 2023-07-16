@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ExternalSyncMode",""],["SyncConfig",""]]});
+window.SIDEBAR_ITEMS = {"enum":["ExternalSyncMode","SyncConfig"]};

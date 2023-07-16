@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AutoExpansionMode","Represents different entity type expansion modes. Automated expansion allows an agent to recognize values that have not been explicitly listed in the entity (for example, new kinds of shopping list items)."],["Kind","Represents kinds of entities."]],"struct":[["Entity","An entity entry for an associated entity type."],["ExcludedPhrase","An excluded entity phrase that should not be matched."]]});
+window.SIDEBAR_ITEMS = {"enum":["AutoExpansionMode","Kind"],"struct":["Entity","ExcludedPhrase"]};

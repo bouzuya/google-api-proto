@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["TestType","Either a TestCase of a TestSuite"]]});
+window.SIDEBAR_ITEMS = {"enum":["TestType"]};

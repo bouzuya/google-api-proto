@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EventSource","User event source."]]});
+window.SIDEBAR_ITEMS = {"enum":["EventSource"]};

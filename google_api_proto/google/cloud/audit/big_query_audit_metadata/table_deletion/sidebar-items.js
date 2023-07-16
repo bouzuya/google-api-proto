@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Reason","Describes how the table was deleted."]]});
+window.SIDEBAR_ITEMS = {"enum":["Reason"]};

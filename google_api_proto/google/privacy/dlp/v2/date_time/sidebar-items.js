@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TimeZone","Time zone of the date time object."]]});
+window.SIDEBAR_ITEMS = {"struct":["TimeZone"]};

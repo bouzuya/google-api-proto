@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EventType","Describes the type of event that is being logged. All logs have exactly one EventType."]]});
+window.SIDEBAR_ITEMS = {"enum":["EventType"]};

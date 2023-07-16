@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["OutputLocation","The output location to which the exported data is written."]]});
+window.SIDEBAR_ITEMS = {"enum":["OutputLocation"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SlidesAddOnManifest","Slides add-on manifest."],["SlidesExtensionPoint","Common format for declaring a Slides add-on’s triggers."]]});
+window.SIDEBAR_ITEMS = {"struct":["SlidesAddOnManifest","SlidesExtensionPoint"]};

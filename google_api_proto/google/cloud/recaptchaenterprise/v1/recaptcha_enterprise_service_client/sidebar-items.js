@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["RecaptchaEnterpriseServiceClient","Service to determine the likelihood an event is legitimate."]]});
+window.SIDEBAR_ITEMS = {"struct":["RecaptchaEnterpriseServiceClient"]};

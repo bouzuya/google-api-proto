@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ImageVersionsClient","Readonly service to query available ImageVersions."]]});
+window.SIDEBAR_ITEMS = {"struct":["ImageVersionsClient"]};

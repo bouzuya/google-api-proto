@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["IndexConfig","The index configuration for this field."]]});
+window.SIDEBAR_ITEMS = {"struct":["IndexConfig"]};

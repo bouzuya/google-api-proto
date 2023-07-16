@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["confusion_matrix","Nested message and enum types in `ConfusionMatrix`."]],"struct":[["ConfusionMatrix","Confusion matrix for multi-class classification models."]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["PredictionResult","PredictionResult represents the recommendation prediction results."]]});
+window.SIDEBAR_ITEMS = {"struct":["PredictionResult"]};

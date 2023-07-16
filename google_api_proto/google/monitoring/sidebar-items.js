@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["dashboard",""],["metricsscope",""],["v3",""]]});
+window.SIDEBAR_ITEMS = {"mod":["dashboard","metricsscope","v3"]};

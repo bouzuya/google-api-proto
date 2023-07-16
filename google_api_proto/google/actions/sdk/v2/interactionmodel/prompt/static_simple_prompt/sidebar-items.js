@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Variant","Represents a variant which is part of the simple prompt."]]});
+window.SIDEBAR_ITEMS = {"struct":["Variant"]};

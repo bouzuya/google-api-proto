@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Restriction"],"mod":["candidate"],"struct":["Candidate","Panel"]};

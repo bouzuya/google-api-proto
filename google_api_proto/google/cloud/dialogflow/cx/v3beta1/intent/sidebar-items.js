@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["training_phrase","Nested message and enum types in `TrainingPhrase`."]],"struct":[["Parameter","Represents an intent parameter."],["TrainingPhrase","Represents an example that the agent is trained on to identify the intent."]]});
+window.SIDEBAR_ITEMS = {"mod":["training_phrase"],"struct":["Parameter","TrainingPhrase"]};

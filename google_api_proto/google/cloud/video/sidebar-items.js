@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["livestream",""],["stitcher",""],["transcoder",""]]});
+window.SIDEBAR_ITEMS = {"mod":["livestream","stitcher","transcoder"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["marketplace",""]]});
+window.SIDEBAR_ITEMS = {"mod":["marketplace"]};

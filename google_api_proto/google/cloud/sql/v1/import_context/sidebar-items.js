@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["sql_bak_import_options","Nested message and enum types in `SqlBakImportOptions`."]],"struct":[["SqlBakImportOptions",""],["SqlCsvImportOptions",""]]});
+window.SIDEBAR_ITEMS = {"mod":["sql_bak_import_options"],"struct":["SqlBakImportOptions","SqlCsvImportOptions"]};

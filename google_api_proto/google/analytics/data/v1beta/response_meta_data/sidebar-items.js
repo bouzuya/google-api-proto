@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["schema_restriction_response","Nested message and enum types in `SchemaRestrictionResponse`."]],"struct":[["SchemaRestrictionResponse","The schema restrictions actively enforced in creating this report. To learn more, see Access and data-restriction management."]]});
+window.SIDEBAR_ITEMS = {"mod":["schema_restriction_response"],"struct":["SchemaRestrictionResponse"]};

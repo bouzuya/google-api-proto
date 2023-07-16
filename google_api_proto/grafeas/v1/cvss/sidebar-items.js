@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AttackComplexity",""],["AttackVector",""],["Authentication",""],["Impact",""],["PrivilegesRequired",""],["Scope",""],["UserInteraction",""]]});
+window.SIDEBAR_ITEMS = {"enum":["AttackComplexity","AttackVector","Authentication","Impact","PrivilegesRequired","Scope","UserInteraction"]};

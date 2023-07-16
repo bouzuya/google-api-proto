@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ContactCenterInsightsClient","An API that lets users analyze and explore their business conversation data."]]});
+window.SIDEBAR_ITEMS = {"struct":["ContactCenterInsightsClient"]};

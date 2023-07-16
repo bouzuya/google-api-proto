@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SqlConnectServiceClient","Cloud SQL connect service."]]});
+window.SIDEBAR_ITEMS = {"struct":["SqlConnectServiceClient"]};

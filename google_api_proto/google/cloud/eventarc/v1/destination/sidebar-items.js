@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Descriptor",""]]});
+window.SIDEBAR_ITEMS = {"enum":["Descriptor"]};

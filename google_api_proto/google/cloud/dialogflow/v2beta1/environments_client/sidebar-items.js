@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["EnvironmentsClient","Service for managing [Environments][google.cloud.dialogflow.v2beta1.Environment]."]]});
+window.SIDEBAR_ITEMS = {"struct":["EnvironmentsClient"]};

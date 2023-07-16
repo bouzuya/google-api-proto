@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["StorageErrorCode","Error code for `StorageError`."]]});
+window.SIDEBAR_ITEMS = {"enum":["StorageErrorCode"]};

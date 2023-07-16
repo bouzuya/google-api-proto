@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["runtime_event","Nested message and enum types in `RuntimeEvent`."]],"struct":[["RuntimeEvent","Log content of an event related to a runtime."]]});
+window.SIDEBAR_ITEMS = {"mod":["runtime_event"],"struct":["RuntimeEvent"]};

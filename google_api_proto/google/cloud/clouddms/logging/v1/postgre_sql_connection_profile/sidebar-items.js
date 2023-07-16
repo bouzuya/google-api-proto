@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Version","The PostgreSQL database version."]]});
+window.SIDEBAR_ITEMS = {"enum":["Version"]};

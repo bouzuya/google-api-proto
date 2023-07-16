@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ImageFamilyViewsClient","The ImageFamilyViews API."]]});
+window.SIDEBAR_ITEMS = {"struct":["ImageFamilyViewsClient"]};

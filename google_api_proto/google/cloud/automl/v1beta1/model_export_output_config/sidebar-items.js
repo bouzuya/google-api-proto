@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Destination","Required. The destination of the output."]]});
+window.SIDEBAR_ITEMS = {"enum":["Destination"]};

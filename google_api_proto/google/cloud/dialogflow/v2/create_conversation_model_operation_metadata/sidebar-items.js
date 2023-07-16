@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","State of CreateConversationModel operation."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

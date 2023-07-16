@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DatabaseType","The type of the database."]]});
+window.SIDEBAR_ITEMS = {"enum":["DatabaseType"]};

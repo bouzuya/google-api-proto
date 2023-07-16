@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Entity","An entity a built-in intent parameter value can come from."]]});
+window.SIDEBAR_ITEMS = {"struct":["Entity"]};

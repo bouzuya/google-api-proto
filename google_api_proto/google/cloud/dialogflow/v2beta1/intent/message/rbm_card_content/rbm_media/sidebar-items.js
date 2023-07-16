@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Height","Media height"]]});
+window.SIDEBAR_ITEMS = {"enum":["Height"]};

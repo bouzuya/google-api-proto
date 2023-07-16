@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Slice","Definition of a slice."]]});
+window.SIDEBAR_ITEMS = {"mod":["slice"],"struct":["Slice"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["suppression_info","Nested message and enum types in `SuppressionInfo`."]],"struct":[["SuppressionInfo","Information about entries that were omitted from the session."]]});
+window.SIDEBAR_ITEMS = {"mod":["suppression_info"],"struct":["SuppressionInfo"]};

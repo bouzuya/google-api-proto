@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ConnectionProfile","The connection profile definition."],["State","The current connection profile state (e.g. DRAFT, READY, or FAILED)."]]});
+window.SIDEBAR_ITEMS = {"enum":["ConnectionProfile","State"]};

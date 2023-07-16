@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["InputSource","The input source, which is either plain text or SSML."]]});
+window.SIDEBAR_ITEMS = {"enum":["InputSource"]};

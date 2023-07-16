@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["NetworkEndpointGroupsClient","The NetworkEndpointGroups API."]]});
+window.SIDEBAR_ITEMS = {"struct":["NetworkEndpointGroupsClient"]};

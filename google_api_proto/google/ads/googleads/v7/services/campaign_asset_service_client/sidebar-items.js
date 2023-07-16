@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["CampaignAssetServiceClient","Service to manage campaign assets."]]});

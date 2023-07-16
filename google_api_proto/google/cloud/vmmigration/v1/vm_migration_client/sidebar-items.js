@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["VmMigrationClient","VM Migration Service"]]});
+window.SIDEBAR_ITEMS = {"struct":["VmMigrationClient"]};

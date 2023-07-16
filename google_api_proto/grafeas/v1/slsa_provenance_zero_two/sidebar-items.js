@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["SlsaBuilder","SlsaCompleteness","SlsaConfigSource","SlsaInvocation","SlsaMaterial","SlsaMetadata"]};

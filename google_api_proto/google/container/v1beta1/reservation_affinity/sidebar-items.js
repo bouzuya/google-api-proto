@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Indicates whether to consume capacity from a reservation or not."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["BackupScope",""]]});
+window.SIDEBAR_ITEMS = {"enum":["BackupScope"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ServiceControllerClient","Google Service Control API"]]});
+window.SIDEBAR_ITEMS = {"struct":["ServiceControllerClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Schema",""]],"struct":[["AvroSchema","Schema in Avro JSON format."],["CsvSchema","Marks a CSV-encoded data source."],["OrcSchema","Marks an ORC-encoded data source."],["ParquetSchema","Marks a Parquet-encoded data source."],["ProtobufSchema","Schema in protocol buffer format."],["ThriftSchema","Schema in Thrift format."]]});
+window.SIDEBAR_ITEMS = {"enum":["Schema"],"struct":["AvroSchema","CsvSchema","OrcSchema","ParquetSchema","ProtobufSchema","ThriftSchema"]};

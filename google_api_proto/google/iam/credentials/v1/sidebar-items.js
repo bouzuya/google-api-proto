@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["iam_credentials_client","Generated client implementations."]],"struct":[["GenerateAccessTokenRequest",""],["GenerateAccessTokenResponse",""],["GenerateIdTokenRequest",""],["GenerateIdTokenResponse",""],["SignBlobRequest",""],["SignBlobResponse",""],["SignJwtRequest",""],["SignJwtResponse",""]]});
+window.SIDEBAR_ITEMS = {"mod":["iam_credentials_client"],"struct":["GenerateAccessTokenRequest","GenerateAccessTokenResponse","GenerateIdTokenRequest","GenerateIdTokenResponse","SignBlobRequest","SignBlobResponse","SignJwtRequest","SignJwtResponse"]};

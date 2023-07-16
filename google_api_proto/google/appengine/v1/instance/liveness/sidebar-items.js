@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["LivenessState","Liveness health check status for Flex instances."]]});
+window.SIDEBAR_ITEMS = {"enum":["LivenessState"]};

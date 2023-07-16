@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["PageStart","Options for pagination."]]});
+window.SIDEBAR_ITEMS = {"enum":["PageStart"]};

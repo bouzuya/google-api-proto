@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","Possible states of the batch processing operation."]],"struct":[["IndividualProcessStatus","The status of a each individual document in the batch process."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"],"struct":["IndividualProcessStatus"]};

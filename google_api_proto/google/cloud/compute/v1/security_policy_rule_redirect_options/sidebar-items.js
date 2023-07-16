@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Type of the redirect action."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

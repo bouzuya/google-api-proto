@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["HealthState","Health state of the network endpoint determined based on the health checks configured."]]});
+window.SIDEBAR_ITEMS = {"enum":["HealthState"]};

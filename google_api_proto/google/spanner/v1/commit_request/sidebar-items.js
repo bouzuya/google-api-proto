@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Transaction","Required. The transaction in which to commit."]]});
+window.SIDEBAR_ITEMS = {"enum":["Transaction"]};

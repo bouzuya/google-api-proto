@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["LocalCopy","LocalCopy defines how a remote file should be copied to and from the VM."]]});
+window.SIDEBAR_ITEMS = {"struct":["LocalCopy"]};

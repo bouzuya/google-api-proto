@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["FailureReason",""],["State",""]]});
+window.SIDEBAR_ITEMS = {"enum":["FailureReason","State"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ActionsTestingClient","Actions Testing API which allows developers to run automated tests."]]});
+window.SIDEBAR_ITEMS = {"struct":["ActionsTestingClient"]};

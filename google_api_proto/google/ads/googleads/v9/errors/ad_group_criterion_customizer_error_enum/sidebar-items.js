@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["AdGroupCriterionCustomizerError","Enum describing possible ad group criterion customizer errors."]]});

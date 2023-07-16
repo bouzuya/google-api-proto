@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Action","Available actions to take on matching requests."]]});
+window.SIDEBAR_ITEMS = {"enum":["Action"]};

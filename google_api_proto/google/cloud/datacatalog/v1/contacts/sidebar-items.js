@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Person","A contact person for the entry."]]});
+window.SIDEBAR_ITEMS = {"struct":["Person"]};

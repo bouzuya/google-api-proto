@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Type of resource represented by this Membership"]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Properties",""],["Service","Name of a service that stores the data."]]});
+window.SIDEBAR_ITEMS = {"enum":["Properties","Service"]};

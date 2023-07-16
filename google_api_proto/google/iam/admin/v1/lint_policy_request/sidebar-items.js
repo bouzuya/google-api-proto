@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["LintObject","Required. The Cloud IAM object to be linted."]]});
+window.SIDEBAR_ITEMS = {"enum":["LintObject"]};

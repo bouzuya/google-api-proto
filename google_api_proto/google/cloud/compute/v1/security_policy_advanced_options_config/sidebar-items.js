@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["JsonParsing",""],["LogLevel",""]]});
+window.SIDEBAR_ITEMS = {"enum":["JsonParsing","LogLevel"]};

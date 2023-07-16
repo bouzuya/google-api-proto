@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Endpoint","Endpoint to transfer the call to."]]});
+window.SIDEBAR_ITEMS = {"enum":["Endpoint"]};

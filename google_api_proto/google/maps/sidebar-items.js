@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["playablelocations",""],["roads",""],["routes",""],["unity",""]]});
+window.SIDEBAR_ITEMS = {"mod":["addressvalidation","mapsplatformdatasets","places","playablelocations","regionlookup","roads","routes","routing","unity"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ReplicationState","Table replication states."]]});
+window.SIDEBAR_ITEMS = {"enum":["ReplicationState"]};

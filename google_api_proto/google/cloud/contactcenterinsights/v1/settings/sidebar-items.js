@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AnalysisConfig","Default configuration when creating Analyses in Insights."]]});
+window.SIDEBAR_ITEMS = {"struct":["AnalysisConfig"]};

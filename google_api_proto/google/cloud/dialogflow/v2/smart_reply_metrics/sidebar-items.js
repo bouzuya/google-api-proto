@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TopNMetrics","Evaluation metrics when retrieving `n` smart replies with the model."]]});
+window.SIDEBAR_ITEMS = {"struct":["TopNMetrics"]};

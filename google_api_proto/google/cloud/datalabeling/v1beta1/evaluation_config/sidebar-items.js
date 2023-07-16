@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["VerticalOption","Vertical specific options for general metrics."]]});
+window.SIDEBAR_ITEMS = {"enum":["VerticalOption"]};

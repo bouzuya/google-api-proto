@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["MetadataServiceClient","Metadata service manages metadata resources such as tables, filesets and partitions."]]});
+window.SIDEBAR_ITEMS = {"struct":["MetadataServiceClient"]};

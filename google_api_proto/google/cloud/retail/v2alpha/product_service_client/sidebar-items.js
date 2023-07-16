@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ProductServiceClient","Service for ingesting [Product][google.cloud.retail.v2alpha.Product] information of the customer’s website."]]});
+window.SIDEBAR_ITEMS = {"struct":["ProductServiceClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["LoadBalancingSchemes",""]]});
+window.SIDEBAR_ITEMS = {"enum":["LoadBalancingSchemes"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Result","Translation result."]],"struct":[["TextTranslationResult","Text translation result."]]});
+window.SIDEBAR_ITEMS = {"enum":["Result"],"struct":["TextTranslationResult"]};

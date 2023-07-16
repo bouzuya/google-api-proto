@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["fcm",""]]});
+window.SIDEBAR_ITEMS = {"mod":["fcm"]};

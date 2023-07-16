@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Transition","A transition coverage in a transition route group."]]});
+window.SIDEBAR_ITEMS = {"struct":["Transition"]};

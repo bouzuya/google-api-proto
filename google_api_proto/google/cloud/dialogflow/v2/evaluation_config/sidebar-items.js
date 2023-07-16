@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ModelSpecificConfig","Specific configurations for different models in order to do evaluation."]],"struct":[["SmartComposeConfig","Smart compose specific configuration for evaluation job."],["SmartReplyConfig","Smart reply specific configuration for evaluation job."]]});
+window.SIDEBAR_ITEMS = {"enum":["ModelSpecificConfig"],"struct":["SmartComposeConfig","SmartReplyConfig"]};

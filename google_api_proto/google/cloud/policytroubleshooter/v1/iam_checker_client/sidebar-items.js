@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["IamCheckerClient","IAM Policy Troubleshooter service."]]});
+window.SIDEBAR_ITEMS = {"struct":["IamCheckerClient"]};

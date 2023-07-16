@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Answer","Output only. The agent assist answer."]]});
+window.SIDEBAR_ITEMS = {"enum":["Answer"]};

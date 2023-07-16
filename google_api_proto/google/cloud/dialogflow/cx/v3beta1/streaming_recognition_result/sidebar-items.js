@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["MessageType","Type of the response message."]]});
+window.SIDEBAR_ITEMS = {"enum":["MessageType"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["admob",""],["googleads",""]]});
+window.SIDEBAR_ITEMS = {"mod":["admob","googleads","searchads360"]};

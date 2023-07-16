@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["FontSize","Font size with unit."]]});
+window.SIDEBAR_ITEMS = {"struct":["FontSize"]};

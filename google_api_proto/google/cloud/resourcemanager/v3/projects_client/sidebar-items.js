@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ProjectsClient","Manages Google Cloud Projects."]]});
+window.SIDEBAR_ITEMS = {"struct":["ProjectsClient"]};

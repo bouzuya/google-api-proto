@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["TimeField","Time fields can be used in TimeFilter."]]});

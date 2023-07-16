@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["PeeringState","RoutingMode","State","Type"]};

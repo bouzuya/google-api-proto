@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["BigQueryWriteClient","BigQuery Write API."]]});
+window.SIDEBAR_ITEMS = {"struct":["BigQueryWriteClient"]};

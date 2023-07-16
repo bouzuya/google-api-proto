@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Surface","Possible surfaces used to interact with the Action. Additional values may be included in the future."]]});
+window.SIDEBAR_ITEMS = {"enum":["Surface"]};

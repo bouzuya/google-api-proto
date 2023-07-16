@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Target","The Products to delete."]]});
+window.SIDEBAR_ITEMS = {"enum":["Target"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["AbuseType"],"mod":["confidence","threat_justification"],"struct":["Confidence","ThreatJustification"]};

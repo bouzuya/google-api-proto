@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["time_series","Nested message and enum types in `TimeSeries`."]],"struct":[["TimeSeries","A time series representing conversations over time."]]});
+window.SIDEBAR_ITEMS = {"mod":["time_series"],"struct":["TimeSeries"]};

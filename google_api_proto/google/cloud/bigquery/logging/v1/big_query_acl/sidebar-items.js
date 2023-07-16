@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Entry","Access control entry."]]});
+window.SIDEBAR_ITEMS = {"struct":["Entry"]};

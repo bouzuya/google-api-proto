@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["TypeSpec","Output only."]]});
+window.SIDEBAR_ITEMS = {"enum":["TypeSpec"]};

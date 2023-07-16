@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["detected_break","Nested message and enum types in `DetectedBreak`."]],"struct":[["DetectedBreak","Detected break at the end of a [Token][google.cloud.documentai.v1beta2.Document.Page.Token]."]]});
+window.SIDEBAR_ITEMS = {"mod":["detected_break"],"struct":["DetectedBreak","StyleInfo"]};

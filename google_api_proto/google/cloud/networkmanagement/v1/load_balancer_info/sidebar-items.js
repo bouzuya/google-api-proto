@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["BackendType","The type definition for a load balancer backend configuration:"],["LoadBalancerType","The type definition for a load balancer:"]]});
+window.SIDEBAR_ITEMS = {"enum":["BackendType","LoadBalancerType"]};

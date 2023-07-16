@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["JsonCompression","Json file compression."],["SchemaFileFormat","Schema file format."]]});
+window.SIDEBAR_ITEMS = {"enum":["JsonCompression","SchemaFileFormat"]};

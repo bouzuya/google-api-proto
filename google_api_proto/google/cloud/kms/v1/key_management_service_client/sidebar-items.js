@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["KeyManagementServiceClient","Google Cloud Key Management Service"]]});
+window.SIDEBAR_ITEMS = {"struct":["KeyManagementServiceClient"]};

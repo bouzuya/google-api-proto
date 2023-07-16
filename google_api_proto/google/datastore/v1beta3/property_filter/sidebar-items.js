@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Operator","A property filter operator."]]});
+window.SIDEBAR_ITEMS = {"enum":["Operator"]};

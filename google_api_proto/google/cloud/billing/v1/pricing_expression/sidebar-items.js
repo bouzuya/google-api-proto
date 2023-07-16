@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TierRate","The price rate indicating starting usage and its corresponding price."]]});
+window.SIDEBAR_ITEMS = {"struct":["TierRate"]};

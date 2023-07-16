@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["Item","Contains data of the items purchased."]]});

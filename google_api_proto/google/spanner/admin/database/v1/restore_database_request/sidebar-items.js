@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","Required. The source from which to restore."]]});
+window.SIDEBAR_ITEMS = {"enum":["Source"]};

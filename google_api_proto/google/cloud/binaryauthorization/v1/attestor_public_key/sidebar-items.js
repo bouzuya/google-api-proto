@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["PublicKey",""]]});
+window.SIDEBAR_ITEMS = {"enum":["PublicKey"]};

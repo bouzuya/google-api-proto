@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AutoscalingEventType","Indicates the type of autoscaling event."]]});
+window.SIDEBAR_ITEMS = {"enum":["AutoscalingEventType"]};

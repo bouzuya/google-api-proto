@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ProvisioningModel"],"mod":["attached_disk","disk","instance_policy_or_template"],"struct":["Accelerator","AttachedDisk","Disk","InstancePolicy","InstancePolicyOrTemplate","LocationPolicy","NetworkInterface","NetworkPolicy","PlacementPolicy"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Connectivity","Connectivity options used to establish a connection to the profile."],["Profile","Connection configuration for the ConnectionProfile."]]});
+window.SIDEBAR_ITEMS = {"enum":["Connectivity","Profile"]};

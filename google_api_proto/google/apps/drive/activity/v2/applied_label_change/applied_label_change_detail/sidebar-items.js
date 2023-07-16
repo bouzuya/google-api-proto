@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Type"],"mod":["field_value_change"],"struct":["FieldValueChange"]};

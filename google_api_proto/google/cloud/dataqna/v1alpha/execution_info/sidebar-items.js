@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["JobExecutionState","Enum of possible job execution statuses."]]});
+window.SIDEBAR_ITEMS = {"enum":["JobExecutionState"]};

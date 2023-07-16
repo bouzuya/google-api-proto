@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["FeatureHistoricStatsAnomalies","Historical Stats (and Anomalies) for a specific Feature."]]});
+window.SIDEBAR_ITEMS = {"struct":["FeatureHistoricStatsAnomalies"]};

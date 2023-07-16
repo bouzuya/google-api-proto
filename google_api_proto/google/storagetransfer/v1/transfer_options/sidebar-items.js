@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["OverwriteWhen","Specifies when to overwrite an object in the sink when an object with matching name is found in the source."]]});
+window.SIDEBAR_ITEMS = {"enum":["OverwriteWhen"]};

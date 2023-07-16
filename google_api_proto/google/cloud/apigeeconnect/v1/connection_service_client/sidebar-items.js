@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ConnectionServiceClient","Service Interface for the Apigee Connect connection management APIs."]]});
+window.SIDEBAR_ITEMS = {"struct":["ConnectionServiceClient"]};

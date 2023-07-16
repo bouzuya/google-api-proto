@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["StreamingRequest","Required The streaming request, which is either a streaming config or video content."]]});
+window.SIDEBAR_ITEMS = {"enum":["StreamingRequest"]};

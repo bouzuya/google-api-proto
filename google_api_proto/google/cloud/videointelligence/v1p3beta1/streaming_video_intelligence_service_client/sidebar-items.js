@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["StreamingVideoIntelligenceServiceClient","Service that implements streaming Video Intelligence API."]]});
+window.SIDEBAR_ITEMS = {"struct":["StreamingVideoIntelligenceServiceClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SslType","Specifies The kind of ssl configuration used."]]});
+window.SIDEBAR_ITEMS = {"enum":["SslType"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["moblab",""],["uidetection",""]]});
+window.SIDEBAR_ITEMS = {"mod":["moblab","uidetection"]};

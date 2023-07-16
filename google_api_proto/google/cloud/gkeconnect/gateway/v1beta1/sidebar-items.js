@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["gateway_service_client","Generated client implementations."]]});
+window.SIDEBAR_ITEMS = {"mod":["gateway_service_client"]};

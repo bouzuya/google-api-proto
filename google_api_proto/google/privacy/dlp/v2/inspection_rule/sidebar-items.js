@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Inspection rule types."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

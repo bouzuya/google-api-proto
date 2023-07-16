@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DdosProtection",""]]});
+window.SIDEBAR_ITEMS = {"enum":["DdosProtection"]};

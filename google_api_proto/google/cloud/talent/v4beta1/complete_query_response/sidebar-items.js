@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CompletionResult","Resource that represents completion results."]]});
+window.SIDEBAR_ITEMS = {"struct":["CompletionResult"]};

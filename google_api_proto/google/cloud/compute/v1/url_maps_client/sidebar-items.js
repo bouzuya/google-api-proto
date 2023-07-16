@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["UrlMapsClient","The UrlMaps API."]]});
+window.SIDEBAR_ITEMS = {"struct":["UrlMapsClient"]};

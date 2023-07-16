@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["BgpRoutingMode"],"mod":["details"],"struct":["Details","VpcProject"]};

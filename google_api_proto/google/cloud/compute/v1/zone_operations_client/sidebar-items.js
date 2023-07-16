@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ZoneOperationsClient","The ZoneOperations API."]]});
+window.SIDEBAR_ITEMS = {"struct":["ZoneOperationsClient"]};

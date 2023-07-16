@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["StartingIntent","Required. Intent details to start an activity."]]});
+window.SIDEBAR_ITEMS = {"enum":["StartingIntent"]};

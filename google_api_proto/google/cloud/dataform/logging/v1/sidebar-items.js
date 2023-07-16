@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["workflow_invocation_completion_log_entry"],"struct":["WorkflowInvocationCompletionLogEntry"]};

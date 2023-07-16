@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SpannerClient","Cloud Spanner API"]]});
+window.SIDEBAR_ITEMS = {"struct":["SpannerClient"]};

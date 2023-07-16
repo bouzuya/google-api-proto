@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Metric","[Output Only] Name of the quota metric."]]});
+window.SIDEBAR_ITEMS = {"enum":["Metric"]};

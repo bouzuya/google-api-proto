@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["FileSource","Required."]]});
+window.SIDEBAR_ITEMS = {"enum":["FileSource"]};

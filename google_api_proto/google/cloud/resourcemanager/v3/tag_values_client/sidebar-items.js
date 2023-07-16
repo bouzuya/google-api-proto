@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TagValuesClient","Allow users to create and manage tag values."]]});
+window.SIDEBAR_ITEMS = {"struct":["TagValuesClient"]};

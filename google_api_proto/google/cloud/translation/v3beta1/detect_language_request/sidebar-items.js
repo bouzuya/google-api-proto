@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","Required. The source of the document from which to detect the language."]]});
+window.SIDEBAR_ITEMS = {"enum":["Source"]};

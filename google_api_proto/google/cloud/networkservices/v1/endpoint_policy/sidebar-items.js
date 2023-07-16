@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EndpointPolicyType","The type of endpoint policy."]]});
+window.SIDEBAR_ITEMS = {"enum":["EndpointPolicyType"]};

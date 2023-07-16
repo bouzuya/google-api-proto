@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["BotsClient","Design doc: https://goo.gl/oojM5H"]]});
+window.SIDEBAR_ITEMS = {"struct":["BotsClient"]};

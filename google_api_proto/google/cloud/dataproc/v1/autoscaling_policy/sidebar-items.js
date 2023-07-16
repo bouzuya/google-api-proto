@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Algorithm","Autoscaling algorithm for policy."]]});
+window.SIDEBAR_ITEMS = {"enum":["Algorithm"]};

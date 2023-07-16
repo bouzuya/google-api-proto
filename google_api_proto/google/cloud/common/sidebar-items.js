@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["OperationMetadata","Represents the metadata of the long-running operation."]]});
+window.SIDEBAR_ITEMS = {"struct":["OperationMetadata"]};

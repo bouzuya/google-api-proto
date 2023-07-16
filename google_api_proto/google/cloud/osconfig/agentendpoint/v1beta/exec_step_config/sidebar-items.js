@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Executable","Location of the executable."],["Interpreter","The interpreter used to execute the a file."]]});
+window.SIDEBAR_ITEMS = {"enum":["Executable","Interpreter"]};

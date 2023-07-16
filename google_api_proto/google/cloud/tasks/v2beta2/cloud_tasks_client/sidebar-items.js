@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CloudTasksClient","Cloud Tasks allows developers to manage the execution of background work in their applications."]]});
+window.SIDEBAR_ITEMS = {"struct":["CloudTasksClient"]};

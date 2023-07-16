@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["StaticPromptResponse","Represents structured responses to send to the user, such as text, speech, cards, canvas data, suggestion chips, etc."]]});
+window.SIDEBAR_ITEMS = {"struct":["StaticPromptResponse"]};

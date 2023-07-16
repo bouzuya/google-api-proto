@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Engine","Query Execution engine."]]});
+window.SIDEBAR_ITEMS = {"enum":["Engine"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["OrganizationsClient","Allows users to manage their organization resources."]]});
+window.SIDEBAR_ITEMS = {"struct":["OrganizationsClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SqlApiWarningCode",""]]});
+window.SIDEBAR_ITEMS = {"enum":["SqlApiWarningCode"]};

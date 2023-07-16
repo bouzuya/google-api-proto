@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["trafficdirector",""]]});
+window.SIDEBAR_ITEMS = {"mod":["trafficdirector"]};

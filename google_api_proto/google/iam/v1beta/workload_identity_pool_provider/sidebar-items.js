@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ProviderConfig","Identity provider configuration types."],["State","The current state of the provider."]],"struct":[["Aws","Represents an Amazon Web Services identity provider."],["Oidc","Represents an OpenId Connect 1.0 identity provider."]]});
+window.SIDEBAR_ITEMS = {"enum":["ProviderConfig","State"],"struct":["Aws","Oidc"]};

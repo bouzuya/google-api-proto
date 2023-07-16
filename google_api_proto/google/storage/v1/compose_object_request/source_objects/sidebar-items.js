@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ObjectPreconditions","Preconditions for a source object of a composition request."]]});
+window.SIDEBAR_ITEMS = {"struct":["ObjectPreconditions"]};

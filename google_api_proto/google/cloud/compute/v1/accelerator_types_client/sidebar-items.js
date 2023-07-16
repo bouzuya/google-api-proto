@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AcceleratorTypesClient","Services"]]});
+window.SIDEBAR_ITEMS = {"struct":["AcceleratorTypesClient"]};

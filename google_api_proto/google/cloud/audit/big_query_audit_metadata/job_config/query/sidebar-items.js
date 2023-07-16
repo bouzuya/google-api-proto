@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Priority","Priority given to the query."]]});
+window.SIDEBAR_ITEMS = {"enum":["Priority"]};

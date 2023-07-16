@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Reason","Describes how the model was created."]]});
+window.SIDEBAR_ITEMS = {"enum":["Reason"]};

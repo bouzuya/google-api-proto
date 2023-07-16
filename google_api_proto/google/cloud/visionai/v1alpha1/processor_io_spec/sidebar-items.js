@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["DataType"],"mod":["instance_resource_input_binding_spec"],"struct":["GraphInputChannelSpec","GraphOutputChannelSpec","InstanceResourceInputBindingSpec","InstanceResourceOutputBindingSpec"]};

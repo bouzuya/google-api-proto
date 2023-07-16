@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["RegionNotificationEndpointsClient","The RegionNotificationEndpoints API."]]});
+window.SIDEBAR_ITEMS = {"struct":["RegionNotificationEndpointsClient"]};

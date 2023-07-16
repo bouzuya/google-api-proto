@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CloudFunctionsServiceClient","A service that application uses to manipulate triggers and functions."]]});
+window.SIDEBAR_ITEMS = {"struct":["CloudFunctionsServiceClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["MigrationServiceClient","Service to handle EDW migrations."]]});
+window.SIDEBAR_ITEMS = {"struct":["MigrationServiceClient"]};

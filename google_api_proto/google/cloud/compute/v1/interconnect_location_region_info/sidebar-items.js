@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["LocationPresence","Identifies the network presence of this location."]]});
+window.SIDEBAR_ITEMS = {"enum":["LocationPresence"]};

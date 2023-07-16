@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","Utilization report state."],["TimeFrame","Report time frame options."]]});
+window.SIDEBAR_ITEMS = {"enum":["State","TimeFrame"]};

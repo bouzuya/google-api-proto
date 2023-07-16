@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Subtype","More detailed information about the change."]]});
+window.SIDEBAR_ITEMS = {"enum":["Subtype"]};

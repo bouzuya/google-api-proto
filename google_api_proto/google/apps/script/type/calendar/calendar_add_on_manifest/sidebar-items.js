@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EventAccess","An enum defining the level of data access event triggers require."]]});
+window.SIDEBAR_ITEMS = {"enum":["EventAccess"]};

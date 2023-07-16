@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["logging",""]]});
+window.SIDEBAR_ITEMS = {"mod":["logging"]};

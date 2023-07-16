@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["VersionsClient","Manages versions of a service."]]});
+window.SIDEBAR_ITEMS = {"struct":["VersionsClient"]};

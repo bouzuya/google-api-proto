@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ApprovalState","Valid approval states of a `Rollout`."],["FailureCause","Well-known deployment failures."],["State","Valid states of a `Rollout`."]]});
+window.SIDEBAR_ITEMS = {"enum":["ApprovalState","FailureCause","State"]};

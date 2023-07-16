@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Violation","A message type used to describe a single precondition failure."]]});
+window.SIDEBAR_ITEMS = {"struct":["Violation"]};

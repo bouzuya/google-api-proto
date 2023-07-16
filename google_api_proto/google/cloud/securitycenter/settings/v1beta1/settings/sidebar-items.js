@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["OnboardingState","Defines the onboarding states for SCC"]],"struct":[["DetectorGroupSettings","The DetectorGroupSettings define the configuration for a detector group."]]});
+window.SIDEBAR_ITEMS = {"enum":["OnboardingState"],"struct":["DetectorGroupSettings"]};

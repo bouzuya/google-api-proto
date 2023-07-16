@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["PriorAssetState","State of prior asset."]]});
+window.SIDEBAR_ITEMS = {"enum":["PriorAssetState"]};

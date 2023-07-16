@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["sql_export_options","Nested message and enum types in `SqlExportOptions`."]],"struct":[["SqlCsvExportOptions",""],["SqlExportOptions",""]]});
+window.SIDEBAR_ITEMS = {"mod":["sql_export_options"],"struct":["SqlBakExportOptions","SqlCsvExportOptions","SqlExportOptions"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Interpreter","The interpreter to use."],["Source","What to execute."]]});
+window.SIDEBAR_ITEMS = {"enum":["Interpreter","Source"]};

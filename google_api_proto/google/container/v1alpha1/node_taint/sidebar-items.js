@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Effect","Possible values for Effect in taint."]]});
+window.SIDEBAR_ITEMS = {"enum":["Effect"]};

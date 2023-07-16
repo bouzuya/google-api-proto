@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["Operation","The mutate operation. Update is not supported."]]});

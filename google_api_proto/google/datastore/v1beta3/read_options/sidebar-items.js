@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ConsistencyType","If not specified, lookups and ancestor queries default to `read_consistency`=`STRONG`, global queries default to `read_consistency`=`EVENTUAL`."],["ReadConsistency","The possible values for read consistencies."]]});
+window.SIDEBAR_ITEMS = {"enum":["ConsistencyType","ReadConsistency"]};

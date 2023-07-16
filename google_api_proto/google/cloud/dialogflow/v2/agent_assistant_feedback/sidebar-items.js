@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AnswerRelevance","Relevance of an answer."],["DocumentCorrectness","Correctness of document."],["DocumentEfficiency","Efficiency of document."]]});
+window.SIDEBAR_ITEMS = {"enum":["AnswerRelevance","DocumentCorrectness","DocumentEfficiency"],"struct":["SummarizationFeedback"]};

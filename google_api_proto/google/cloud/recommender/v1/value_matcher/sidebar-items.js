@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["MatchVariant",""]]});
+window.SIDEBAR_ITEMS = {"enum":["MatchVariant"]};

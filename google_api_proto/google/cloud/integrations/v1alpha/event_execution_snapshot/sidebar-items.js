@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["EventExecutionSnapshotMetadata","Metadata for the event/task retry."]]});
+window.SIDEBAR_ITEMS = {"struct":["EventExecutionSnapshotMetadata"]};

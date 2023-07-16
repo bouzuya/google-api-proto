@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["AvailabilityType","InstanceType","State"],"mod":["update_policy"],"struct":["MachineConfig","Node","QueryInsightsInstanceConfig","ReadPoolConfig","UpdatePolicy"]};

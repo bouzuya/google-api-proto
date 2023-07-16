@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["RetryStrategy","The behavior when the taks failed."]]});
+window.SIDEBAR_ITEMS = {"enum":["RetryStrategy"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Bundle","Required. Bundle location information."]]});
+window.SIDEBAR_ITEMS = {"enum":["Bundle"]};

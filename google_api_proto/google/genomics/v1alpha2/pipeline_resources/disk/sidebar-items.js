@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","The types of disks that may be attached to VMs."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

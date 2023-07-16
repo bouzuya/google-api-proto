@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["UserIdentifierSource","The type of user identifier source for offline Store Sales, click conversion, and conversion adjustment uploads."]]});

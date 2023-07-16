@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EventType","The definition of the event types."]]});
+window.SIDEBAR_ITEMS = {"enum":["EventType"]};

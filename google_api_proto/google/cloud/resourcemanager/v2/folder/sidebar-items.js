@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["LifecycleState","Folder lifecycle states."]]});
+window.SIDEBAR_ITEMS = {"enum":["LifecycleState"]};

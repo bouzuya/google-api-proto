@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SqlTranslationSourceDialect","Supported SQL translation source dialects."]]});
+window.SIDEBAR_ITEMS = {"enum":["SqlTranslationSourceDialect"]};

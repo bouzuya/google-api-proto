@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ConstraintDefinition"],"mod":["constraint","custom_constraint"],"struct":["Constraint","CustomConstraint"]};

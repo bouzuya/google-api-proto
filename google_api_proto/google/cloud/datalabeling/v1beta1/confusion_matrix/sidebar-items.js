@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ConfusionMatrixEntry",""],["Row","A row in the confusion matrix. Each entry in this row has the same ground truth label."]]});
+window.SIDEBAR_ITEMS = {"struct":["ConfusionMatrixEntry","Row"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DetectionRequestType",""]]});
+window.SIDEBAR_ITEMS = {"enum":["DetectionRequestType"]};

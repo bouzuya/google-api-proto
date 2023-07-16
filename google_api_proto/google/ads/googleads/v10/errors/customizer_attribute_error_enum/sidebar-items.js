@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["CustomizerAttributeError","Enum describing possible customizer attribute errors."]]});

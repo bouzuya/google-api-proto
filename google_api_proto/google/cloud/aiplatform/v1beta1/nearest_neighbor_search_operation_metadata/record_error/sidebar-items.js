@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["RecordErrorType",""]]});
+window.SIDEBAR_ITEMS = {"enum":["RecordErrorType"]};

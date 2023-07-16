@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["ProfileServiceClient","A service that handles profile management, including profile CRUD, enumeration and search."]]});

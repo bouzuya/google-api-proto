@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Version","The MySQL database version."]]});
+window.SIDEBAR_ITEMS = {"enum":["Version"]};

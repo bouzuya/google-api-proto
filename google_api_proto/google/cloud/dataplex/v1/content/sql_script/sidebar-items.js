@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["QueryEngine","Query Engine Type of the SQL Script."]]});
+window.SIDEBAR_ITEMS = {"enum":["QueryEngine"]};

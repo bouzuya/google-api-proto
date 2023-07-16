@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Variants","The variants updated. We currently only support single variant experiment."]]});
+window.SIDEBAR_ITEMS = {"enum":["Variants"]};

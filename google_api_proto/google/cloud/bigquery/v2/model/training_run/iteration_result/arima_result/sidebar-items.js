@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["ArimaCoefficients","Arima coefficients."],["ArimaModelInfo","Arima model information."]]});

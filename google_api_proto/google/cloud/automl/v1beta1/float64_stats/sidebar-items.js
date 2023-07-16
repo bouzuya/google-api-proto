@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["HistogramBucket","A bucket of a histogram."]]});
+window.SIDEBAR_ITEMS = {"struct":["HistogramBucket"]};

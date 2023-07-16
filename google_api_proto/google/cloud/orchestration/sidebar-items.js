@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["airflow",""]]});
+window.SIDEBAR_ITEMS = {"mod":["airflow"]};

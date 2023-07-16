@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Id","The resource ID components that identify the FileSet."]]});
+window.SIDEBAR_ITEMS = {"struct":["Id"]};

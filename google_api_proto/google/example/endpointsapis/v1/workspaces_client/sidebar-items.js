@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["WorkspacesClient","Manages workspaces."]]});
+window.SIDEBAR_ITEMS = {"struct":["WorkspacesClient"]};

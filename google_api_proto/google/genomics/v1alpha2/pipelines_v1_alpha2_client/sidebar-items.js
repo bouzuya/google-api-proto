@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["PipelinesV1Alpha2Client","A service for running genomics pipelines."]]});
+window.SIDEBAR_ITEMS = {"struct":["PipelinesV1Alpha2Client"]};

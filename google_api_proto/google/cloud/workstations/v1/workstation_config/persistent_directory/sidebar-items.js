@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["DirectoryType"],"mod":["gce_regional_persistent_disk"],"struct":["GceRegionalPersistentDisk"]};

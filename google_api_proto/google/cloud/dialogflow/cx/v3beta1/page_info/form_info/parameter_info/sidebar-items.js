@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ParameterState","Represents the state of a parameter."]]});
+window.SIDEBAR_ITEMS = {"enum":["ParameterState"]};

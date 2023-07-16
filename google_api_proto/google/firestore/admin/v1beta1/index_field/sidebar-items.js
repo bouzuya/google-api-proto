@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Mode","The mode determines how a field is indexed."]]});
+window.SIDEBAR_ITEMS = {"enum":["Mode"]};

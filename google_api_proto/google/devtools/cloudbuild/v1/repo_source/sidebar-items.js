@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Revision","A revision within the Cloud Source Repository must be specified in one of these ways."]]});
+window.SIDEBAR_ITEMS = {"enum":["Revision"]};

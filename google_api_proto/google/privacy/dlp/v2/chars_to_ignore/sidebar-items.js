@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Characters",""],["CommonCharsToIgnore","Convenience enum for indication common characters to not transform."]]});
+window.SIDEBAR_ITEMS = {"enum":["Characters","CommonCharsToIgnore"]};

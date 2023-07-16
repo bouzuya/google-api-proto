@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SchemaSpec",""]]});
+window.SIDEBAR_ITEMS = {"enum":["SchemaSpec"]};

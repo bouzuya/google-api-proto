@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Network","Network configuration for workload execution."]]});
+window.SIDEBAR_ITEMS = {"enum":["Network"]};

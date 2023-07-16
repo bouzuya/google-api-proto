@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ConnectionApiClient","FCM’s service to create client connections to send/receive messages."]]});
+window.SIDEBAR_ITEMS = {"struct":["ConnectionApiClient"]};

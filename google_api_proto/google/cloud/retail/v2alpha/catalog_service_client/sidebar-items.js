@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CatalogServiceClient","Service for managing catalog configuration."]]});
+window.SIDEBAR_ITEMS = {"struct":["CatalogServiceClient"]};

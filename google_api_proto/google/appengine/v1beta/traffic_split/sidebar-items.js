@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ShardBy","Available sharding mechanisms."]]});
+window.SIDEBAR_ITEMS = {"enum":["ShardBy"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Reason","Possible invalid request reasons."]]});
+window.SIDEBAR_ITEMS = {"enum":["Reason"]};

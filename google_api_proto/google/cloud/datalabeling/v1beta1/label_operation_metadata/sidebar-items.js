@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Details","Ouptut only. Details of specific label operation."]]});
+window.SIDEBAR_ITEMS = {"enum":["Details"]};

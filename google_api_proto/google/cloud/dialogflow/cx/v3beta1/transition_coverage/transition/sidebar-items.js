@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Detail","The detailed transition."]]});
+window.SIDEBAR_ITEMS = {"enum":["Detail"]};

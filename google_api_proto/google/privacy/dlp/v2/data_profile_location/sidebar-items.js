@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Location","The location to be scanned."]]});
+window.SIDEBAR_ITEMS = {"enum":["Location"]};

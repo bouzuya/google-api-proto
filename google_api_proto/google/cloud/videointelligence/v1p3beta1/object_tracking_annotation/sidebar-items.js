@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["TrackInfo","Different representation of tracking info in non-streaming batch and streaming modes."]]});
+window.SIDEBAR_ITEMS = {"enum":["TrackInfo"]};

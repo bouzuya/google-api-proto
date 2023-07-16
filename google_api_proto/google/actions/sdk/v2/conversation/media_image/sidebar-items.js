@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Image","Image."]]});
+window.SIDEBAR_ITEMS = {"enum":["Image"]};

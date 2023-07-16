@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ErrorCode","Represents resource error codes."]]});
+window.SIDEBAR_ITEMS = {"enum":["ErrorCode"]};

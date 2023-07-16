@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["PhraseMatchRuleGroupType","Specifies how to combine each phrase match rule for whether there is a match."]]});
+window.SIDEBAR_ITEMS = {"enum":["PhraseMatchRuleGroupType"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Kind","Required. The valid kinds of values."]]});
+window.SIDEBAR_ITEMS = {"enum":["Kind"]};

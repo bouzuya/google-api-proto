@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Possible schema definition types."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

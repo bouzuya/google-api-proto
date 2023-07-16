@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["PolicyType","Defines policy types where the policy tags can be used for."]]});
+window.SIDEBAR_ITEMS = {"enum":["PolicyType"],"struct":["Service"]};

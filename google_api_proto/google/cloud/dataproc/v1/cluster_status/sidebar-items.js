@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","The cluster state."],["Substate","The cluster substate."]]});
+window.SIDEBAR_ITEMS = {"enum":["State","Substate"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["QueueType",""],["State","State of the queue."],["Type","The type of the queue."]]});
+window.SIDEBAR_ITEMS = {"enum":["QueueType","State","Type"]};

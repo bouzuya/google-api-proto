@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DetailedBoundary","A detailed boundary, which describes a more specific point."]]});
+window.SIDEBAR_ITEMS = {"enum":["DetailedBoundary"]};

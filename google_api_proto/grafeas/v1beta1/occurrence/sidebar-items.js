@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Details","Required. Immutable. Describes the details of the note kind found on this resource."]]});
+window.SIDEBAR_ITEMS = {"enum":["Details"]};

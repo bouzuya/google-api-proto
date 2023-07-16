@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Destination","Required. Taxonomies export destination."]]});
+window.SIDEBAR_ITEMS = {"enum":["Destination"]};

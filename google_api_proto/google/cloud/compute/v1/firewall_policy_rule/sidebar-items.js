@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Direction","The direction in which this rule applies."]]});
+window.SIDEBAR_ITEMS = {"enum":["Direction"]};

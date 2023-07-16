@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["Executable","The script or container to run."]],"mod":[["script","Nested message and enum types in `Script`."]],"struct":[["Barrier","Barrier runnable blocks until all tasks in a taskgroup reach it."],["Container","Container runnable."],["Script","Script runnable."]]});

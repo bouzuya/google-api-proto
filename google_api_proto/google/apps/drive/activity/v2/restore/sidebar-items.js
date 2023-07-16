@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","The type of restoration."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

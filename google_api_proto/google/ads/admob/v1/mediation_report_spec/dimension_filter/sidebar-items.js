@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Operator","Filter operator to be applied."]]});
+window.SIDEBAR_ITEMS = {"enum":["Operator"]};

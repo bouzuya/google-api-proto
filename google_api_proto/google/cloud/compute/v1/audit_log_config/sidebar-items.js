@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["LogType","The log type that this config enables."]]});
+window.SIDEBAR_ITEMS = {"enum":["LogType"]};

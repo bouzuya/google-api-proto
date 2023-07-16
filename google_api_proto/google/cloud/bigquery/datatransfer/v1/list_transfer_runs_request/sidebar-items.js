@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["RunAttempt","Represents which runs should be pulled."]]});
+window.SIDEBAR_ITEMS = {"enum":["RunAttempt"]};

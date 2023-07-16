@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["git_integration_settings"],"struct":["GitIntegrationSettings"]};

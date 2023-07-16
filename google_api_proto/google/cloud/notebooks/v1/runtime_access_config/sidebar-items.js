@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["RuntimeAccessType","Possible ways to access runtime. Authentication mode. Currently supports: Single User only."]]});
+window.SIDEBAR_ITEMS = {"enum":["RuntimeAccessType"]};

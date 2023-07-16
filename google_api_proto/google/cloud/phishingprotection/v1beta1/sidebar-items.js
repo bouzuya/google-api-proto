@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["phishing_protection_service_v1_beta1_client","Generated client implementations."]],"struct":[["ReportPhishingRequest","The ReportPhishing request message."],["ReportPhishingResponse","The ReportPhishing (empty) response message."]]});
+window.SIDEBAR_ITEMS = {"mod":["phishing_protection_service_v1_beta1_client"],"struct":["ReportPhishingRequest","ReportPhishingResponse"]};

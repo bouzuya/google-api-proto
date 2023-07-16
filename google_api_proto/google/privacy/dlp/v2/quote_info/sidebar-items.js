@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ParsedQuote","Object representation of the quote."]]});
+window.SIDEBAR_ITEMS = {"enum":["ParsedQuote"]};

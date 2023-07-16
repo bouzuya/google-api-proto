@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Directive","Instructions from Dockerfile."]]});
+window.SIDEBAR_ITEMS = {"enum":["Directive"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","Source taxonomies to import."]]});
+window.SIDEBAR_ITEMS = {"enum":["Source"]};

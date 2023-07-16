@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CompletionResult","Resource that represents completion results."],["RecentSearchResult","Recent search of this user."]]});
+window.SIDEBAR_ITEMS = {"struct":["CompletionResult","RecentSearchResult"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["routes_alpha_client","Generated client implementations."]]});
+window.SIDEBAR_ITEMS = {"mod":["routes_alpha_client"]};

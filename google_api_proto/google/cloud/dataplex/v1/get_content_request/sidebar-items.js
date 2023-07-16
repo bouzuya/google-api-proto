@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ContentView","Specifies whether the request should return the full or the partial representation."]]});
+window.SIDEBAR_ITEMS = {"enum":["ContentView"]};

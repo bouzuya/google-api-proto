@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["PartitionStrategy",""]]});
+window.SIDEBAR_ITEMS = {"enum":["PartitionStrategy"]};

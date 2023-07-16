@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","Operational states for an internal checker."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

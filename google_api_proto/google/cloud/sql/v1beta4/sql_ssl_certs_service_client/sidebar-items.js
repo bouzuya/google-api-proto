@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SqlSslCertsServiceClient",""]]});
+window.SIDEBAR_ITEMS = {"struct":["SqlSslCertsServiceClient"]};

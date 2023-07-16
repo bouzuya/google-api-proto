@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Interval","A single interval in a time series."]]});
+window.SIDEBAR_ITEMS = {"struct":["Interval"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["DeliveryServiceClient","The Last Mile Delivery service."]]});
+window.SIDEBAR_ITEMS = {"struct":["DeliveryServiceClient"]};

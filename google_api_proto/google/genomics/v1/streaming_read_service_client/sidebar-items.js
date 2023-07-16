@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["StreamingReadServiceClient",""]]});
+window.SIDEBAR_ITEMS = {"struct":["StreamingReadServiceClient"]};

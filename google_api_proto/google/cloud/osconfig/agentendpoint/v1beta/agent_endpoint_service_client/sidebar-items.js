@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AgentEndpointServiceClient","OS Config agent endpoint API."]]});
+window.SIDEBAR_ITEMS = {"struct":["AgentEndpointServiceClient"]};

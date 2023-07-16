@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["CustomRolesSupportLevel","The state of the permission with regards to custom roles."],["PermissionLaunchStage","A stage representing a permission’s lifecycle phase."]]});
+window.SIDEBAR_ITEMS = {"enum":["CustomRolesSupportLevel","PermissionLaunchStage"]};

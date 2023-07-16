@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["NicType","The type of vNIC driver. Default should be UNSPECIFIED_NIC_TYPE."]],"struct":[["BootImage","Definition of the boot image used by the Runtime. Used to facilitate runtime upgradeability."]]});
+window.SIDEBAR_ITEMS = {"enum":["NicType"],"struct":["BootImage"]};

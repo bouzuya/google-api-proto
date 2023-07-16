@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ExportableContent","The Model content that can be exported."]]});
+window.SIDEBAR_ITEMS = {"enum":["ExportableContent"]};

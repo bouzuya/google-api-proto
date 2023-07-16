@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["HiveMetastoreVersion","A specification of a supported version of the Hive Metastore software."]]});
+window.SIDEBAR_ITEMS = {"struct":["HiveMetastoreVersion"]};

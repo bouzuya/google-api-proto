@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CidrBlock","CidrBlock contains an optional name and one CIDR block."]]});
+window.SIDEBAR_ITEMS = {"struct":["CidrBlock"]};

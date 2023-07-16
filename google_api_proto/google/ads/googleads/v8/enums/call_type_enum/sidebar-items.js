@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["CallType","Possible types of property from where the call was made."]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AddressMode","Internet protocol versions supported by Cloud Filestore."]]});
+window.SIDEBAR_ITEMS = {"enum":["AddressMode","ConnectMode"]};

@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["OptimizationGoalType","The type of optimization goal"]]});

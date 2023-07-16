@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["FieldInfo"],"struct":["DoubleFieldInfo","IntegerFieldInfo","StringFieldInfo","TopNValue"]};

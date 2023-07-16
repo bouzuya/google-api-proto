@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["app_gateway","app_gateways_service_client"],"struct":["AppGateway","AppGatewayOperationMetadata","CreateAppGatewayRequest","DeleteAppGatewayRequest","GetAppGatewayRequest","ListAppGatewaysRequest","ListAppGatewaysResponse"]};

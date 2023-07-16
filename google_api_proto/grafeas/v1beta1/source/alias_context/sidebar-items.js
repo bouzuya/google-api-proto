@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Kind","The type of an alias."]]});
+window.SIDEBAR_ITEMS = {"enum":["Kind"]};

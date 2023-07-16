@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["FleetRoutingClient","A service for optimizing vehicle tours."]]});
+window.SIDEBAR_ITEMS = {"struct":["FleetRoutingClient"]};

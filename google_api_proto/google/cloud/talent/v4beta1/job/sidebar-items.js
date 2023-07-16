@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ApplicationInfo","Application related details of a job posting."],["DerivedInfo","Derived details about the job posting."],["ProcessingOptions","Options for job processing."]]});
+window.SIDEBAR_ITEMS = {"struct":["ApplicationInfo","DerivedInfo","ProcessingOptions"]};

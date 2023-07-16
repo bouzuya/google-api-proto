@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["RegionDisksClient","The RegionDisks API."]]});
+window.SIDEBAR_ITEMS = {"struct":["RegionDisksClient"]};

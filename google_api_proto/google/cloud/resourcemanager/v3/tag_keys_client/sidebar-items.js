@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TagKeysClient","Allow users to create and manage tag keys."]]});
+window.SIDEBAR_ITEMS = {"struct":["TagKeysClient"]};

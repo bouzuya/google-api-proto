@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AuditableService","Contains information about an auditable service."]]});
+window.SIDEBAR_ITEMS = {"struct":["AuditableService"]};

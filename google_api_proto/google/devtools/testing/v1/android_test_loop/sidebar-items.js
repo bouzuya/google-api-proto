@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AppUnderTest","Required. The Android package to test."]]});
+window.SIDEBAR_ITEMS = {"enum":["AppUnderTest"]};

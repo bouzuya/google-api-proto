@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ComplianceType",""]],"struct":[["CisBenchmark","A compliance check that is a CIS benchmark."]]});
+window.SIDEBAR_ITEMS = {"enum":["ComplianceType"],"struct":["CisBenchmark"]};

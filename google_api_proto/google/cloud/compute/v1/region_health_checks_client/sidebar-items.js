@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["RegionHealthChecksClient","The RegionHealthChecks API."]]});
+window.SIDEBAR_ITEMS = {"struct":["RegionHealthChecksClient"]};

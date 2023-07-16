@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Mode","The input or output mode of the argument."]]});
+window.SIDEBAR_ITEMS = {"enum":["Mode"]};

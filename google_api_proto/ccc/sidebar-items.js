@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["hosted",""]]});
+window.SIDEBAR_ITEMS = {"mod":["hosted"]};

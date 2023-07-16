@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["VersionsClient","Service for managing [Versions][google.cloud.dialogflow.v2beta1.Version]."]]});
+window.SIDEBAR_ITEMS = {"struct":["VersionsClient"]};

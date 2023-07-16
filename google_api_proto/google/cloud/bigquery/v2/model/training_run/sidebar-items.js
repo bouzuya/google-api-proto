@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["iteration_result","Nested message and enum types in `IterationResult`."]],"struct":[["IterationResult","Information about a single iteration of the training run."],["TrainingOptions","Options used in model training."]]});

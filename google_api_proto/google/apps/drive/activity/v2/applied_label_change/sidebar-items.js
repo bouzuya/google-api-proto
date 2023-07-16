@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["applied_label_change_detail"],"struct":["AppliedLabelChangeDetail"]};

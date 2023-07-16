@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EnvironmentCatalog","Output only."]]});
+window.SIDEBAR_ITEMS = {"enum":["EnvironmentCatalog"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["WorkflowsServiceV2BetaClient","A service for running workflows, such as pipelines consisting of Docker containers."]]});
+window.SIDEBAR_ITEMS = {"struct":["WorkflowsServiceV2BetaClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["QuotaControllerClient","Google Quota Control API"]]});
+window.SIDEBAR_ITEMS = {"struct":["QuotaControllerClient"]};

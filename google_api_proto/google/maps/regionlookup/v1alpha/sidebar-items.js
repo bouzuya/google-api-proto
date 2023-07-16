@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["region_identifier","region_lookup_client","region_search_value"],"struct":["LookupRegionRequest","LookupRegionResponse","RegionIdentifier","RegionMatch","RegionSearchValue","SearchRegionRequest","SearchRegionResponse"]};

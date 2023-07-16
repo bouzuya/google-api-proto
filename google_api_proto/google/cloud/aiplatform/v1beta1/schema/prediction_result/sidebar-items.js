@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Input","Some identifier from the input so that the prediction can be mapped back to the input instance."]],"struct":[["Error",""]]});
+window.SIDEBAR_ITEMS = {"enum":["Input"],"struct":["Error"]};

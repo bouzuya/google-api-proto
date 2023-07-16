@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Interval","Interval of acceptable load amounts."]]});
+window.SIDEBAR_ITEMS = {"struct":["Interval"]};

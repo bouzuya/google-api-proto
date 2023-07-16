@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["IndexOrKey",""]]});
+window.SIDEBAR_ITEMS = {"enum":["IndexOrKey"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ItemType","If present, this describes the type of the Drive item."]]});
+window.SIDEBAR_ITEMS = {"enum":["ItemType"]};

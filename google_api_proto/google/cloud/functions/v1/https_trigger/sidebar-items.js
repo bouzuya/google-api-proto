@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SecurityLevel","Available security level settings."]]});
+window.SIDEBAR_ITEMS = {"enum":["SecurityLevel"]};

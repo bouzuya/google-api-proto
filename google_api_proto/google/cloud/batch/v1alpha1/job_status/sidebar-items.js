@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["State","Valid Job states."]],"struct":[["TaskGroupStatus","Aggregated task status for a TaskGroup."]]});

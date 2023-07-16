@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SqlTranslationServiceClient","Provides other SQL dialects to GoogleSQL translation operations."]]});
+window.SIDEBAR_ITEMS = {"struct":["SqlTranslationServiceClient"]};

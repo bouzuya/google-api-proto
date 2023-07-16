@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ParameterType","The type of the intent parameter."]],"mod":[["entity_set_references","Nested message and enum types in `EntitySetReferences`."]],"struct":[["EntitySetReferences","Entity set references for an intent parameter."]]});
+window.SIDEBAR_ITEMS = {"enum":["ParameterType"],"mod":["entity_set_references"],"struct":["EntitySetReferences"]};

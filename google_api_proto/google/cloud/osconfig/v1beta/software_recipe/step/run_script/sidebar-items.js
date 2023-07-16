@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Interpreter","The interpreter used to execute a script."]]});
+window.SIDEBAR_ITEMS = {"enum":["Interpreter"]};

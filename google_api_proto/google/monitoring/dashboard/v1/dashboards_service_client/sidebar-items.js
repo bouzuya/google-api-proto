@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["DashboardsServiceClient","Manages Stackdriver dashboards. A dashboard is an arrangement of data display widgets in a specific layout."]]});
+window.SIDEBAR_ITEMS = {"struct":["DashboardsServiceClient"]};

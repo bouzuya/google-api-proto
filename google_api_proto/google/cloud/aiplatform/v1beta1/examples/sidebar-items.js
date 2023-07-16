@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Config","Source"],"mod":["example_gcs_source"],"struct":["ExampleGcsSource"]};

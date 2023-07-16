@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["OriginalCause","Original event data"]]});
+window.SIDEBAR_ITEMS = {"enum":["OriginalCause"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AuditData","Audit log information specific to Cloud IAM. This message is serialized as an `Any` type in the `ServiceData` message of an `AuditLog` message."]]});
+window.SIDEBAR_ITEMS = {"struct":["AuditData"]};

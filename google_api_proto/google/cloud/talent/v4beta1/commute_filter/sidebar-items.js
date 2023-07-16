@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["RoadTraffic","The traffic density to use when calculating commute time."],["TrafficOption","Traffic factor to take into account while searching by commute."]]});
+window.SIDEBAR_ITEMS = {"enum":["RoadTraffic","TrafficOption"]};

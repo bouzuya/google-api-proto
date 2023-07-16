@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Mode","The sub-dialect options for Teradata."]]});
+window.SIDEBAR_ITEMS = {"enum":["Mode"]};

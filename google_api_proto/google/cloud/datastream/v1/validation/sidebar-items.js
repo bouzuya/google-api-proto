@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","Validation execution state."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

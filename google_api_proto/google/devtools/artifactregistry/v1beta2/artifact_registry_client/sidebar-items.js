@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ArtifactRegistryClient","The Artifact Registry API service."]]});
+window.SIDEBAR_ITEMS = {"struct":["ArtifactRegistryClient"]};

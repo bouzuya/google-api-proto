@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ContentType","Header options corresponding to the content type of a HTTP request body."],["RequestMethod","The HTTP request method options."]],"struct":[["BasicAuthentication","The authentication parameters to provide to the specified resource or URL that requires a username and password. Currently, only Basic HTTP authentication is supported in Uptime checks."]]});
+window.SIDEBAR_ITEMS = {"enum":["ContentType","RequestMethod"],"mod":["response_status_code"],"struct":["BasicAuthentication","ResponseStatusCode"]};

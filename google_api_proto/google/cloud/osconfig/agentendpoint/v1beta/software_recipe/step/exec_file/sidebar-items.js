@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["LocationType","Location of the file to execute."]]});
+window.SIDEBAR_ITEMS = {"enum":["LocationType"]};

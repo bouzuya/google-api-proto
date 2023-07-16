@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DeviceType","An enumeration describing an API access portal and exposure mechanism."]]});
+window.SIDEBAR_ITEMS = {"enum":["DeviceType"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","The current state of the pool."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

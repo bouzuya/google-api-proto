@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","Different states of a Memcached node."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

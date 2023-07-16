@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ParameterViolation","A specific template-parameter violation."]]});
+window.SIDEBAR_ITEMS = {"struct":["ParameterViolation"]};

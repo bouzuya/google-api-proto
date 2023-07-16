@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["PackageType","Package type is either binary or source."]]});
+window.SIDEBAR_ITEMS = {"enum":["PackageType"]};

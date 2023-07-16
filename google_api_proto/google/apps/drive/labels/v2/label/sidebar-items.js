@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["LabelType"],"mod":["applied_label_policy"],"struct":["AppliedCapabilities","AppliedLabelPolicy","DisplayHints","Properties","SchemaCapabilities"]};

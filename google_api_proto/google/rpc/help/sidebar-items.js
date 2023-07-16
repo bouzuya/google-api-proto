@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Link","Describes a URL link."]]});
+window.SIDEBAR_ITEMS = {"struct":["Link"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CodingSequence",""],["Exon",""]]});
+window.SIDEBAR_ITEMS = {"struct":["CodingSequence","Exon"]};

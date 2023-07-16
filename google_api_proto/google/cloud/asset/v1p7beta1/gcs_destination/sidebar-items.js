@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ObjectUri","Required."]]});
+window.SIDEBAR_ITEMS = {"enum":["ObjectUri"]};

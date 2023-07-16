@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Control","The behavior/type of the control"]]});
+window.SIDEBAR_ITEMS = {"enum":["Control"]};

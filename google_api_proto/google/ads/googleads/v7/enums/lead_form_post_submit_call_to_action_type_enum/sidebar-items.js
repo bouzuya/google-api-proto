@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["LeadFormPostSubmitCallToActionType","Enum describing the type of post-submit call-to-action phrases for a lead form."]]});

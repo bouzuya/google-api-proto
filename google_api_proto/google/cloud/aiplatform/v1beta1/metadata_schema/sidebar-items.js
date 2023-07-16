@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["MetadataSchemaType","Describes the type of the MetadataSchema."]]});
+window.SIDEBAR_ITEMS = {"enum":["MetadataSchemaType"]};

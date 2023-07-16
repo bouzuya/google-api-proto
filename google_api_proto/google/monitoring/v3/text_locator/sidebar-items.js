@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Position","The position of a byte within the text."]]});
+window.SIDEBAR_ITEMS = {"struct":["Position"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["MonitoringDestination","Configuration of a specific monitoring destination (the producer project or the consumer project)."]]});
+window.SIDEBAR_ITEMS = {"struct":["MonitoringDestination"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["FirestoreAdminClient","Operations are created by service `FirestoreAdmin`, but are accessed via service `google.longrunning.Operations`."]]});
+window.SIDEBAR_ITEMS = {"struct":["FirestoreAdminClient"]};

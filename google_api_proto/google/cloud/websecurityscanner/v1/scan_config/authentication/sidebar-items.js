@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Authentication","Required. Authentication configuration"]],"mod":[["iap_credential","Nested message and enum types in `IapCredential`."]],"struct":[["CustomAccount","Describes authentication configuration that uses a custom account."],["GoogleAccount","Describes authentication configuration that uses a Google account."],["IapCredential","Describes authentication configuration for Identity-Aware-Proxy (IAP)."]]});
+window.SIDEBAR_ITEMS = {"enum":["Authentication"],"mod":["iap_credential"],"struct":["CustomAccount","GoogleAccount","IapCredential"]};

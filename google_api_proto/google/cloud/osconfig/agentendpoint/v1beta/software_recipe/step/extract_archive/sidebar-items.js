@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ArchiveType","Specifying the type of archive."]]});
+window.SIDEBAR_ITEMS = {"enum":["ArchiveType"]};

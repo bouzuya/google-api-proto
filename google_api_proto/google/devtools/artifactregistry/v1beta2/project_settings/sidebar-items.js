@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["RedirectionState","The possible redirection states for legacy repositories."]]});
+window.SIDEBAR_ITEMS = {"enum":["RedirectionState"]};

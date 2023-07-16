@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["FileType",""]]});
+window.SIDEBAR_ITEMS = {"enum":["FileType"]};

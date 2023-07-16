@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["LoggingSettings","Define behaviors on logging."]]});
+window.SIDEBAR_ITEMS = {"struct":["LoggingSettings"]};

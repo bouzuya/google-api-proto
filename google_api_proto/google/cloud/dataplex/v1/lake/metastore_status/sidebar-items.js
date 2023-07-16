@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","Current state of association."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

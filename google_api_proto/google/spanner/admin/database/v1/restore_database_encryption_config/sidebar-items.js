@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EncryptionType","Encryption types for the database to be restored."]]});
+window.SIDEBAR_ITEMS = {"enum":["EncryptionType"]};

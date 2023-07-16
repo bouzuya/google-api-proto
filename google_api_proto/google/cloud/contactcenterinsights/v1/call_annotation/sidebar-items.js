@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Data","The data in the annotation."]]});
+window.SIDEBAR_ITEMS = {"enum":["Data"]};

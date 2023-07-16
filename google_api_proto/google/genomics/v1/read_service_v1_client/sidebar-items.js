@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ReadServiceV1Client","The Readstore. A data store for DNA sequencing Reads."]]});
+window.SIDEBAR_ITEMS = {"struct":["ReadServiceV1Client"]};

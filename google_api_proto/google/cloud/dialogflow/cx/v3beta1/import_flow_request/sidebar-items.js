@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Flow","Required. The flow to import."],["ImportOption","Import option."]]});
+window.SIDEBAR_ITEMS = {"enum":["Flow","ImportOption"]};

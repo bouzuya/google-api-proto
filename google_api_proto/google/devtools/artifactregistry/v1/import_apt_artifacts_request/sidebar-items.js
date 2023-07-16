@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","The source location of the package binaries."]]});
+window.SIDEBAR_ITEMS = {"enum":["Source"]};

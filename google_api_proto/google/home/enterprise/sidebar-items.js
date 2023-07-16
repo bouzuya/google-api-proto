@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["sdm",""]]});
+window.SIDEBAR_ITEMS = {"mod":["sdm"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["KeyType","Public key formats."]]});
+window.SIDEBAR_ITEMS = {"enum":["KeyType"]};

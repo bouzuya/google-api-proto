@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["agentendpoint",""],["v1",""],["v1alpha",""],["v1beta",""]]});
+window.SIDEBAR_ITEMS = {"mod":["agentendpoint","logging","v1","v1alpha","v1beta"]};

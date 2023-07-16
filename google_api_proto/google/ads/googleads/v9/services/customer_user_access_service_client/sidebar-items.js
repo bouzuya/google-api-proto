@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["CustomerUserAccessServiceClient","This service manages the permissions of a user on a given customer."]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Header","Describes a HTTP Header."]]});
+window.SIDEBAR_ITEMS = {"struct":["Header"]};

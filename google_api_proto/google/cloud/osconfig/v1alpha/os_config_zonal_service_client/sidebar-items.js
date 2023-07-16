@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["OsConfigZonalServiceClient","Zonal OS Config API"]]});
+window.SIDEBAR_ITEMS = {"struct":["OsConfigZonalServiceClient"]};

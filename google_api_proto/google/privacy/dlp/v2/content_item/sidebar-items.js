@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DataItem","Data of the item either in the byte array or UTF-8 string form, or table."]]});
+window.SIDEBAR_ITEMS = {"enum":["DataItem"]};

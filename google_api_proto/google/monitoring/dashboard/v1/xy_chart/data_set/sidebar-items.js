@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["PlotType","The types of plotting strategies for data sets."],["TargetAxis","An axis identifier."]]});
+window.SIDEBAR_ITEMS = {"enum":["PlotType","TargetAxis"]};

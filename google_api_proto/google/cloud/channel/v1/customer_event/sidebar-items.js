@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Type of customer event."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

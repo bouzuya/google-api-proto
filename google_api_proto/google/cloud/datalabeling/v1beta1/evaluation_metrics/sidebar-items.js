@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Metrics","Common metrics covering most general cases."]]});
+window.SIDEBAR_ITEMS = {"enum":["Metrics"]};

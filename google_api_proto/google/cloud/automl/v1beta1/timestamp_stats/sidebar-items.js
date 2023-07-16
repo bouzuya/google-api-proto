@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["GranularStats","Stats split by a defined in context granularity."]]});
+window.SIDEBAR_ITEMS = {"struct":["GranularStats"]};

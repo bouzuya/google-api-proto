@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["BigtableTableAdminClient","Service for creating, configuring, and deleting Cloud Bigtable tables."]]});
+window.SIDEBAR_ITEMS = {"struct":["BigtableTableAdminClient"]};

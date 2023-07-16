@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ServicesClient","Cloud Run Service Control Plane API"]]});
+window.SIDEBAR_ITEMS = {"struct":["ServicesClient"]};

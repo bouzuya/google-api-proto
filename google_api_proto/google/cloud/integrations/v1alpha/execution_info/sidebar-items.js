@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["PostMethod","PostMethod Enum"]]});
+window.SIDEBAR_ITEMS = {"enum":["PostMethod"]};

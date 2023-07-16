@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["landmark","Nested message and enum types in `Landmark`."]],"struct":[["Landmark","A face-specific landmark (for example, a face feature)."]]});
+window.SIDEBAR_ITEMS = {"mod":["landmark"],"struct":["Landmark"]};

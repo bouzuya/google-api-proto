@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AttackVector","Types of XSS attack vector."]]});
+window.SIDEBAR_ITEMS = {"enum":["AttackVector"]};

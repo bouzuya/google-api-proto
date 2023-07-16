@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Template","The template from which to create the job."]]});
+window.SIDEBAR_ITEMS = {"enum":["Template"]};

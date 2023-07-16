@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Collocation","Specifies network collocation"]]});
+window.SIDEBAR_ITEMS = {"enum":["Collocation"]};

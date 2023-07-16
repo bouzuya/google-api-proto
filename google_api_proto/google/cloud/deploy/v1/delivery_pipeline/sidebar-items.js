@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Pipeline","The ordering configuration of the `DeliveryPipeline`."]]});
+window.SIDEBAR_ITEMS = {"enum":["Pipeline"]};

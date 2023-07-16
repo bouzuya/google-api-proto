@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["BusinessStatus"],"mod":["opening_hours"],"struct":["AddressComponent","Attribution","EditorialSummary","OpeningHours","PlusCode","Review"]};

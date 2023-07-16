@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["MessagesV1Beta3Client","The Dataflow Messages API is used for monitoring the progress of Dataflow jobs."]]});
+window.SIDEBAR_ITEMS = {"struct":["MessagesV1Beta3Client"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Details","Specific details of this inventory item based on its type."],["OriginType","The origin of a specific inventory item."],["Type","The different types of inventory that are tracked on a VM."]]});
+window.SIDEBAR_ITEMS = {"enum":["Details","OriginType","Type"]};

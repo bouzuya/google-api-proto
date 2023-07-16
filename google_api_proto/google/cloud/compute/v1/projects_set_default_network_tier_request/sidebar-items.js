@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["NetworkTier","Default network tier to be set."]]});
+window.SIDEBAR_ITEMS = {"enum":["NetworkTier"]};

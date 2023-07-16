@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["RepeatedString",""]]});
+window.SIDEBAR_ITEMS = {"struct":["RepeatedString"]};

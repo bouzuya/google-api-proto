@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ConversationsClient","Service for managing [Conversations][google.cloud.dialogflow.v2beta1.Conversation]."]]});
+window.SIDEBAR_ITEMS = {"struct":["ConversationsClient"]};

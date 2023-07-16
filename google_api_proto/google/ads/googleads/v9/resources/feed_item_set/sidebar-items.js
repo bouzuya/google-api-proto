@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["DynamicSetFilter","Represents a filter on locations in a feed item set. Only applicable if the parent Feed of the FeedItemSet is a LOCATION feed."]]});

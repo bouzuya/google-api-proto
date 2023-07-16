@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["IngressSettings","Available ingress settings."],["SourceCode","The location of the function source code."],["Trigger","An event that triggers the function."],["VpcConnectorEgressSettings","Available egress settings."]]});
+window.SIDEBAR_ITEMS = {"enum":["DockerRegistry","IngressSettings","SourceCode","Trigger","VpcConnectorEgressSettings"]};

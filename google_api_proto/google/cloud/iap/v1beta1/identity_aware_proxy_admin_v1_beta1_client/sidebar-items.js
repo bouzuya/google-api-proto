@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["IdentityAwareProxyAdminV1Beta1Client","APIs for Identity-Aware Proxy Admin configurations."]]});
+window.SIDEBAR_ITEMS = {"struct":["IdentityAwareProxyAdminV1Beta1Client"]};

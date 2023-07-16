@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SnapshotAutoDeleteBehavior","The kinds of auto delete behavior to use when snapshot reserved space is full."],["State","The possible states for a storage volume."],["StorageType","The storage type for a volume."]],"struct":[["SnapshotReservationDetail","Details about snapshot space reservation and usage on the storage volume."]]});
+window.SIDEBAR_ITEMS = {"enum":["SnapshotAutoDeleteBehavior","State","StorageType"],"struct":["SnapshotReservationDetail"]};

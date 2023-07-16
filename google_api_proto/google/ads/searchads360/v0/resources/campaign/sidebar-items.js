@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["CampaignBiddingStrategy"],"struct":["DynamicSearchAdsSetting","GeoTargetTypeSetting","NetworkSettings","OptimizationGoalSetting","SelectiveOptimization","ShoppingSetting","TrackingSetting"]};

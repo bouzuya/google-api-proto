@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["tables",""]]});
+window.SIDEBAR_ITEMS = {"mod":["tables"]};

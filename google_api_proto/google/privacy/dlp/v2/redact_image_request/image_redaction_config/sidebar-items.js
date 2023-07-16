@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Target","Type of information to redact from images."]]});
+window.SIDEBAR_ITEMS = {"enum":["Target"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["WorkloadIdentityPoolsClient","Manages WorkloadIdentityPools."]]});
+window.SIDEBAR_ITEMS = {"struct":["WorkloadIdentityPoolsClient"]};

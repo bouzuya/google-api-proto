@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Type of entitlement event."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

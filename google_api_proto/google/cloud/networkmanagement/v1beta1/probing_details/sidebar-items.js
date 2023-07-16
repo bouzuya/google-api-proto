@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ProbingAbortCause","Abort cause types."],["ProbingResult","Overall probing result of the test."]]});
+window.SIDEBAR_ITEMS = {"enum":["ProbingAbortCause","ProbingResult"],"struct":["EdgeLocation"]};

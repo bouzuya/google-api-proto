@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Warning type."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

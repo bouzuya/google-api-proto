@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EventType","Types of notifications currently supported. Can be used to filter what notifications are sent."]],"struct":[["Filter","Allows filtering to one or more specific event types. If event types are present, those and only those event types will be transmitted to the cluster. Other types will be skipped. If no filter is specified, or no event types are present, all event types will be sent"],["PubSub","Pub/Sub specific notification config."]]});
+window.SIDEBAR_ITEMS = {"enum":["EventType"],"struct":["Filter","PubSub"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["CoverageType","The type of coverage requested."]]});
+window.SIDEBAR_ITEMS = {"enum":["CoverageType"]};

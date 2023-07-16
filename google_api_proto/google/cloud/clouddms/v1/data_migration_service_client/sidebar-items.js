@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["DataMigrationServiceClient","Database Migration service"]]});
+window.SIDEBAR_ITEMS = {"struct":["DataMigrationServiceClient"]};

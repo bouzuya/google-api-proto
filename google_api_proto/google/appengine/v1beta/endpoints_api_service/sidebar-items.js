@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["RolloutStrategy","Available rollout strategies."]]});
+window.SIDEBAR_ITEMS = {"enum":["RolloutStrategy"]};

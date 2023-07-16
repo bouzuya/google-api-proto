@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ApiMethod","The OS policy assignment API method."],["RolloutState","State of the rollout"]]});
+window.SIDEBAR_ITEMS = {"enum":["ApiMethod","RolloutState"]};

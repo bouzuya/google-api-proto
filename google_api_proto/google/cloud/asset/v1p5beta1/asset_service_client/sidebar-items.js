@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AssetServiceClient","Asset service definition."]]});
+window.SIDEBAR_ITEMS = {"struct":["AssetServiceClient"]};

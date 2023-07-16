@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["summarization_config"],"struct":["SummarizationConfig"]};

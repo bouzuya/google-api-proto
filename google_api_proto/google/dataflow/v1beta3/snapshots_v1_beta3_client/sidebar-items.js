@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SnapshotsV1Beta3Client","Provides methods to manage snapshots of Google Cloud Dataflow jobs."]]});
+window.SIDEBAR_ITEMS = {"struct":["SnapshotsV1Beta3Client"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["OperationType","If a processor or agent does an explicit operation on existing elements."]],"struct":[["Parent","The parent element the current element is based on. Used for referencing/aligning, removal and replacement operations."]]});
+window.SIDEBAR_ITEMS = {"enum":["OperationType"],"struct":["Parent"]};

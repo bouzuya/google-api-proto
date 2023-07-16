@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["DatasetServiceV1Client","This service manages datasets, which are collections of genomic data."]]});
+window.SIDEBAR_ITEMS = {"struct":["DatasetServiceV1Client"]};

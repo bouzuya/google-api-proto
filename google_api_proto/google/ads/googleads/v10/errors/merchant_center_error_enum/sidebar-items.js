@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["MerchantCenterError","Enum describing Merchant Center errors."]]});

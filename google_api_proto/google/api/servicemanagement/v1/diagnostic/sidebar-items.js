@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Kind","The kind of diagnostic information possible."]]});
+window.SIDEBAR_ITEMS = {"enum":["Kind"]};

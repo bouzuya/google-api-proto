@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","Possible states of a migration subtask."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

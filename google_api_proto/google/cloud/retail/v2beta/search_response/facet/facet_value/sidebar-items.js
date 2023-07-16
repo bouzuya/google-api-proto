@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["FacetValue","A facet value which contains values."]]});
+window.SIDEBAR_ITEMS = {"enum":["FacetValue"]};

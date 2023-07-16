@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["GlobalOperationsClient","The GlobalOperations API."]]});
+window.SIDEBAR_ITEMS = {"struct":["GlobalOperationsClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","The intermediate states of exec steps."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

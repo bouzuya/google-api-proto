@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AssuredWorkloadsServiceClient","Service to manage AssuredWorkloads."]]});
+window.SIDEBAR_ITEMS = {"struct":["AssuredWorkloadsServiceClient"]};

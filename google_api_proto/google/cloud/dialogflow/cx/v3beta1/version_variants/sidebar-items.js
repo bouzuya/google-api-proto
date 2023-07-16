@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Variant","A single flow version with specified traffic allocation."]]});
+window.SIDEBAR_ITEMS = {"struct":["Variant"]};

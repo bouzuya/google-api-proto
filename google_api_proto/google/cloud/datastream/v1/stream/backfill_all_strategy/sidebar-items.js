@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ExcludedObjects","List of objects to exclude."]]});
+window.SIDEBAR_ITEMS = {"enum":["ExcludedObjects"]};

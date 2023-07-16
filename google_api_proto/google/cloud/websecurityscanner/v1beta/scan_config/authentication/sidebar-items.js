@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Authentication","Required. Authentication configuration"]],"struct":[["CustomAccount","Describes authentication configuration that uses a custom account."],["GoogleAccount","Describes authentication configuration that uses a Google account."]]});
+window.SIDEBAR_ITEMS = {"enum":["Authentication"],"struct":["CustomAccount","GoogleAccount"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Level","Expresses the different constraint relaxation levels, which are applied for a visit and those that follow when it satifies the threshold conditions."]]});
+window.SIDEBAR_ITEMS = {"enum":["Level"]};

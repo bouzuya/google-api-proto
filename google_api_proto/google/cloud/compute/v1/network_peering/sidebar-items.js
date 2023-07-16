@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","[Output Only] State for the peering, either `ACTIVE` or `INACTIVE`. The peering is `ACTIVE` when there’s a matching configuration in the peer network."]]});
+window.SIDEBAR_ITEMS = {"enum":["StackType","State"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["IndexConfig","The index configuration for this field."]]});
+window.SIDEBAR_ITEMS = {"mod":["ttl_config"],"struct":["IndexConfig","TtlConfig"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ArtifactObjects","Files in the workspace to upload to Cloud Storage upon successful completion of all build steps."]]});
+window.SIDEBAR_ITEMS = {"struct":["ArtifactObjects","MavenArtifact","NpmPackage","PythonPackage"]};

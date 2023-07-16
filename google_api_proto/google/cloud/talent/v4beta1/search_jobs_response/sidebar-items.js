@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CommuteInfo","Commute details related to this job."],["MatchingJob","Job entry with metadata inside [SearchJobsResponse][google.cloud.talent.v4beta1.SearchJobsResponse]."]]});
+window.SIDEBAR_ITEMS = {"struct":["CommuteInfo","MatchingJob"]};

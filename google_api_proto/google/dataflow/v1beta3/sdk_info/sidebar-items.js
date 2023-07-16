@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Language","SDK Language."]]});
+window.SIDEBAR_ITEMS = {"enum":["Language"]};

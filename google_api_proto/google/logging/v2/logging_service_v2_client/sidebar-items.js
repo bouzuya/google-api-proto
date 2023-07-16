@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["LoggingServiceV2Client","Service for ingesting and querying logs."]]});
+window.SIDEBAR_ITEMS = {"struct":["LoggingServiceV2Client"]};

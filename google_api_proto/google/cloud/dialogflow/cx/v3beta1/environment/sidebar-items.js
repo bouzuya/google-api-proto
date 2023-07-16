@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TestCasesConfig","The configuration for continuous tests."],["VersionConfig","Configuration for the version."]]});
+window.SIDEBAR_ITEMS = {"struct":["TestCasesConfig","VersionConfig","WebhookConfig"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Priority","Recommendation priority levels."]],"struct":[["InsightReference","Reference to an associated insight."]]});
+window.SIDEBAR_ITEMS = {"enum":["Priority"],"struct":["InsightReference"]};

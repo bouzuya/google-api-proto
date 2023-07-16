@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DiskType","Possible disk types."]]});
+window.SIDEBAR_ITEMS = {"enum":["DiskType"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Progress","Intermediate progress of the current task."]]});
+window.SIDEBAR_ITEMS = {"enum":["Progress"]};

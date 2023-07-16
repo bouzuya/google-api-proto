@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","Describes a Trial state."]],"struct":[["Parameter","A message representing a parameter to be tuned."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"],"struct":["Parameter"]};

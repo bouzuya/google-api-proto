@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["TelecommutePreference","Specify whether to include telecommute jobs."]]});
+window.SIDEBAR_ITEMS = {"enum":["TelecommutePreference"]};

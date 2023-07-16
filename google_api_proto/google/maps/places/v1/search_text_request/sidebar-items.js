@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["RankPreference"],"mod":["location","location_bias","location_restriction"],"struct":["Location","LocationBias","LocationRestriction"]};

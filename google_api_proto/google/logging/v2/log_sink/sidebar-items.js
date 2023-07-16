@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Options","Destination dependent options."],["VersionFormat","Deprecated. This is unused."]]});
+window.SIDEBAR_ITEMS = {"enum":["Options","VersionFormat"]};

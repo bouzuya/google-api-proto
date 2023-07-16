@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["connection",""],["dataexchange",""],["datatransfer",""],["logging",""],["migration",""],["reservation",""],["storage",""],["v2",""]]});
+window.SIDEBAR_ITEMS = {"mod":["analyticshub","biglake","connection","dataexchange","datapolicies","datatransfer","logging","migration","reservation","storage"]};

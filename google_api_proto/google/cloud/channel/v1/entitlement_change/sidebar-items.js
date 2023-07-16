@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ActivationReason","CancellationReason","ChangeReason","ChangeType","OperatorType"]};

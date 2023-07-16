@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TargetFleet","Target Agones fleet specification."],["TargetFleetAutoscaler","Target Agones autoscaler policy reference."]]});
+window.SIDEBAR_ITEMS = {"struct":["TargetFleet","TargetFleetAutoscaler"]};

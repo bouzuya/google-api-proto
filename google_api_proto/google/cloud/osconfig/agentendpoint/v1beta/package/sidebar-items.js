@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Manager","Types of package managers that may be used to manage this package."]]});
+window.SIDEBAR_ITEMS = {"enum":["Manager"]};

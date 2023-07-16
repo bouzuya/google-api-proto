@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Reason","Describes how the job was inserted."]]});
+window.SIDEBAR_ITEMS = {"enum":["Reason"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Repository","A specific type of repository."]]});
+window.SIDEBAR_ITEMS = {"enum":["Repository"]};

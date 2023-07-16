@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ModelServiceClient","A service for managing Vertex AI’s machine learning Models."]]});
+window.SIDEBAR_ITEMS = {"struct":["ModelServiceClient"]};

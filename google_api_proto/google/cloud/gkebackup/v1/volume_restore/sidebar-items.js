@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","The current state of a VolumeRestore"],["VolumeType","Supported volume types."]]});
+window.SIDEBAR_ITEMS = {"enum":["State","VolumeType"]};

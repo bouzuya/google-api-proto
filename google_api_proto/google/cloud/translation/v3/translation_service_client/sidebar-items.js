@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TranslationServiceClient","Provides natural language translation operations."]]});
+window.SIDEBAR_ITEMS = {"struct":["TranslationServiceClient"]};

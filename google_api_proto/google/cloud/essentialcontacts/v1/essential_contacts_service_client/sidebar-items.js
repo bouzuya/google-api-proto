@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["EssentialContactsServiceClient","Manages contacts for important Google Cloud notifications."]]});
+window.SIDEBAR_ITEMS = {"struct":["EssentialContactsServiceClient"]};

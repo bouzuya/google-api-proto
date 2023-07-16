@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["content_search_spec","query_expansion_spec","spell_correction_spec"],"struct":["ContentSearchSpec","QueryExpansionSpec","SpellCorrectionSpec"]};

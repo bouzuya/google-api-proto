@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ContextsClient","Service for managing [Contexts][google.cloud.dialogflow.v2.Context]."]]});
+window.SIDEBAR_ITEMS = {"struct":["ContextsClient"]};

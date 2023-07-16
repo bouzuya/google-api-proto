@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","Describes the state of the Artifact."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ActivityType","Different types of the logs."]]});
+window.SIDEBAR_ITEMS = {"enum":["ActivityType"]};

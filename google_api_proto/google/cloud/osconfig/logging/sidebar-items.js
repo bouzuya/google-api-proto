@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["patch_job_completed_log"],"struct":["PatchJobCompletedLog"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ChangelogsClient","Service for managing [Changelogs][google.cloud.dialogflow.cx.v3.Changelog]."]]});
+window.SIDEBAR_ITEMS = {"struct":["ChangelogsClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","The type of certificate provider which provides the CA certificate."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

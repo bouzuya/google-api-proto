@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["InterconnectsClient","The Interconnects API."]]});
+window.SIDEBAR_ITEMS = {"struct":["InterconnectsClient"]};

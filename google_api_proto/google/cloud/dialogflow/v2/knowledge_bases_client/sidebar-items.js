@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["KnowledgeBasesClient","Service for managing [KnowledgeBases][google.cloud.dialogflow.v2.KnowledgeBase]."]]});
+window.SIDEBAR_ITEMS = {"struct":["KnowledgeBasesClient"]};

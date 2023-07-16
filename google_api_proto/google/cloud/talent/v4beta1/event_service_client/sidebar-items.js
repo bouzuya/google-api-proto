@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["EventServiceClient","A service handles client event report."]]});
+window.SIDEBAR_ITEMS = {"struct":["EventServiceClient"]};

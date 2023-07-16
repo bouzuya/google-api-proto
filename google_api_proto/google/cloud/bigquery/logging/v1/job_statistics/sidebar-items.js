@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ReservationResourceUsage","Job resource usage breakdown by reservation."]]});
+window.SIDEBAR_ITEMS = {"struct":["ReservationResourceUsage"]};

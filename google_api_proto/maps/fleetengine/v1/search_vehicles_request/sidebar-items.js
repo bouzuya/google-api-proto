@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["VehicleMatchOrder","Specifies the order of the vehicle matches in the response."]]});
+window.SIDEBAR_ITEMS = {"enum":["CurrentTripsPresent","VehicleMatchOrder"]};

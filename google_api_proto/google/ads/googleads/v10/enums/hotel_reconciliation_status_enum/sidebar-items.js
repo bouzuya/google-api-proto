@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["HotelReconciliationStatus","Status of the hotel booking reconciliation."]]});

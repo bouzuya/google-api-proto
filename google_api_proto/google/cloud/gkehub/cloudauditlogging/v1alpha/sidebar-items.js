@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["FeatureSpec","Cloud Audit Logging: Spec for Audit Logging Allowlisting."]]});
+window.SIDEBAR_ITEMS = {"struct":["FeatureSpec"]};

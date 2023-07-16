@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","State of etcd encryption."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["InputMetadataOverride","The [input metadata][google.cloud.aiplatform.v1.ExplanationMetadata.InputMetadata] entries to be overridden."]]});
+window.SIDEBAR_ITEMS = {"struct":["InputMetadataOverride"]};

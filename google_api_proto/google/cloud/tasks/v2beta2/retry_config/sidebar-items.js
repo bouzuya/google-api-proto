@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["NumAttempts","Number of attempts per task."]]});
+window.SIDEBAR_ITEMS = {"enum":["NumAttempts"]};

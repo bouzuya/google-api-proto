@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ModelType",""]]});
+window.SIDEBAR_ITEMS = {"enum":["ModelType"]};

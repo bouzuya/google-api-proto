@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["MysqlExportOptions","Options for exporting from MySQL."]]});
+window.SIDEBAR_ITEMS = {"struct":["MysqlExportOptions"]};

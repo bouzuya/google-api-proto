@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["UserLicenseServiceClient",""]]});
+window.SIDEBAR_ITEMS = {"struct":["UserLicenseServiceClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AnimationType","Animations can be static or fade, or they can end the previous animation."]]});
+window.SIDEBAR_ITEMS = {"enum":["AnimationType"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Condition","Enum describing under which condition query expansion should occur."]]});
+window.SIDEBAR_ITEMS = {"enum":["Condition"]};

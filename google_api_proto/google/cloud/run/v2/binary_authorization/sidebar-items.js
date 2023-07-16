@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["BinauthzMethod",""]]});
+window.SIDEBAR_ITEMS = {"enum":["BinauthzMethod"]};

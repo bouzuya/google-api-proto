@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TpuClient","Manages TPU nodes and other resources"]]});
+window.SIDEBAR_ITEMS = {"struct":["TpuClient"]};

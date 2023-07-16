@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["VpnGatewaysClient","The VpnGateways API."]]});
+window.SIDEBAR_ITEMS = {"struct":["VpnGatewaysClient"]};

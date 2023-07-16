@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["batch_documents_import_config"],"struct":["BatchDocumentsImportConfig"]};

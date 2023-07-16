@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["BoundedArea","The bounding box location of this object track for the frame."]]});
+window.SIDEBAR_ITEMS = {"enum":["BoundedArea"]};

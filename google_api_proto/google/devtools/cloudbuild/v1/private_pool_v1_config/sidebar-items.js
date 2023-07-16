@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["network_config","Nested message and enum types in `NetworkConfig`."]],"struct":[["NetworkConfig","Defines the network configuration for the pool."],["WorkerConfig","Defines the configuration to be used for creating workers in the pool."]]});
+window.SIDEBAR_ITEMS = {"mod":["network_config"],"struct":["NetworkConfig","WorkerConfig"]};

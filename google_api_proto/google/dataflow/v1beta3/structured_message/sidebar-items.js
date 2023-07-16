@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Parameter","Structured data associated with this message."]]});
+window.SIDEBAR_ITEMS = {"struct":["Parameter"]};

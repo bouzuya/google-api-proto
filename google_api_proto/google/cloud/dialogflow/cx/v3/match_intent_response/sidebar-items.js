@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Query","The original conversational query."]]});
+window.SIDEBAR_ITEMS = {"enum":["Query"]};

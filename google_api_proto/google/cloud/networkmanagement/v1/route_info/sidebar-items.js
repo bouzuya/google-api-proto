@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["NextHopType","Type of next hop:"],["RouteType","Type of route:"]]});
+window.SIDEBAR_ITEMS = {"enum":["NextHopType","RouteType"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AutoscalersClient","The Autoscalers API."]]});
+window.SIDEBAR_ITEMS = {"struct":["AutoscalersClient"]};

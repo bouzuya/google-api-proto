@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["governed_asset"],"struct":["GovernedAsset","GovernedIamPolicy","GovernedResource"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TripServiceClient","Trip management service."]]});
+window.SIDEBAR_ITEMS = {"struct":["TripServiceClient"]};

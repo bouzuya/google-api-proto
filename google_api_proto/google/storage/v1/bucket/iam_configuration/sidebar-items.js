@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["PublicAccessPrevention","Public Access Prevention configuration values."]],"struct":[["UniformBucketLevelAccess",""]]});
+window.SIDEBAR_ITEMS = {"enum":["PublicAccessPrevention"],"struct":["UniformBucketLevelAccess"]};

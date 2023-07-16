@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["QueryType","The type of query."]]});
+window.SIDEBAR_ITEMS = {"enum":["QueryType"]};

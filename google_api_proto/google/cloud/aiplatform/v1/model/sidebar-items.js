@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DeploymentResourcesType","Identifies a type of Model’s prediction resources."]],"mod":[["export_format","Nested message and enum types in `ExportFormat`."]],"struct":[["ExportFormat","Represents export format supported by the Model. All formats export to Google Cloud Storage."]]});
+window.SIDEBAR_ITEMS = {"enum":["DeploymentResourcesType"],"mod":["export_format"],"struct":["ExportFormat","OriginalModelInfo"]};

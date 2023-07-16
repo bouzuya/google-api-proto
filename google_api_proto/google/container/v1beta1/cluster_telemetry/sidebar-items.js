@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Type of the integration."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

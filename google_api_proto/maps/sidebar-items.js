@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["fleetengine",""]]});
+window.SIDEBAR_ITEMS = {"mod":["fleetengine"]};

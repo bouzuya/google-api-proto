@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["ChangeClientType","The source that the change_event resource was made through."]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ByteStreamClient","Introduction"]]});
+window.SIDEBAR_ITEMS = {"struct":["ByteStreamClient"]};

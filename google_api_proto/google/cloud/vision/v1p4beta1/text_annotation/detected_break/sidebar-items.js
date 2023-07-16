@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["BreakType","Enum to denote the type of break found. New line, space etc."]]});
+window.SIDEBAR_ITEMS = {"enum":["BreakType"]};

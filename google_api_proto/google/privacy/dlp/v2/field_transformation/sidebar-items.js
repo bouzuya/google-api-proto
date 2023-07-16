@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Transformation","Transformation to apply. [required]"]]});
+window.SIDEBAR_ITEMS = {"enum":["Transformation"]};

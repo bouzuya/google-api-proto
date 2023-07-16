@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["MessageSeverity","Represents data transfer user facing message severity."]]});
+window.SIDEBAR_ITEMS = {"enum":["MessageSeverity"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Entry","A mutation for a given row."]]});
+window.SIDEBAR_ITEMS = {"struct":["Entry"]};

@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["ListingGroupFilterBiddingCategoryLevel","The level of the listing group filter bidding category."]]});

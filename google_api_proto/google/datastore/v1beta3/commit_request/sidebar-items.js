@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Mode","The modes available for commits."],["TransactionSelector","Must be set when mode is `TRANSACTIONAL`."]]});
+window.SIDEBAR_ITEMS = {"enum":["Mode","TransactionSelector"]};

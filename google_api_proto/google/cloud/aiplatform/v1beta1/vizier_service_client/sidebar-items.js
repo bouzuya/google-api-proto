@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["VizierServiceClient","Vertex AI Vizier API."]]});
+window.SIDEBAR_ITEMS = {"struct":["VizierServiceClient"]};

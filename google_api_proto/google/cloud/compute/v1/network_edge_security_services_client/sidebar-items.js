@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["NetworkEdgeSecurityServicesClient","The NetworkEdgeSecurityServices API."]]});
+window.SIDEBAR_ITEMS = {"struct":["NetworkEdgeSecurityServicesClient"]};

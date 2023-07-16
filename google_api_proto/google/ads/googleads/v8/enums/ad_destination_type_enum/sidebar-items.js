@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["AdDestinationType","Enumerates Google Ads destination types"]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CustomerLicenseServiceClient",""]]});
+window.SIDEBAR_ITEMS = {"struct":["CustomerLicenseServiceClient"]};

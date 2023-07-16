@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Trigger","The type of trigger determines the conditions Gmail uses to show the add-on."]]});
+window.SIDEBAR_ITEMS = {"enum":["Trigger"]};

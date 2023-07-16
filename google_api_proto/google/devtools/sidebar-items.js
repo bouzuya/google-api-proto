@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["artifactregistry",""],["build",""],["cloudbuild",""],["clouddebugger",""],["clouderrorreporting",""],["cloudprofiler",""],["cloudtrace",""],["containeranalysis",""],["remoteworkers",""],["resultstore",""],["source",""],["sourcerepo",""],["testing",""]]});
+window.SIDEBAR_ITEMS = {"mod":["artifactregistry","build","cloudbuild","clouddebugger","clouderrorreporting","cloudprofiler","cloudtrace","containeranalysis","remoteworkers","resultstore","source","sourcerepo","testing"]};

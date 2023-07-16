@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AccountManagementServiceClient","Account management for Identity Toolkit"]]});
+window.SIDEBAR_ITEMS = {"struct":["AccountManagementServiceClient"]};

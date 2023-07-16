@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["UnigramStats","The statistics of a unigram."]]});
+window.SIDEBAR_ITEMS = {"struct":["UnigramStats"]};

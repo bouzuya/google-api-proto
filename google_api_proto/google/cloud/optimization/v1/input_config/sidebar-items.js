@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","The location of the input model in cloud storage. Required."]]});
+window.SIDEBAR_ITEMS = {"enum":["Source"]};

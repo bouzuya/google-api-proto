@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["UserFeedbackRating","Enumeration of feedback ratings."]]});
+window.SIDEBAR_ITEMS = {"enum":["UserFeedbackRating"]};

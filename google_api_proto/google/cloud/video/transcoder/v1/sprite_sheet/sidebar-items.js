@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ExtractionStrategy","Specify either total number of sprites or interval to create sprites."]]});
+window.SIDEBAR_ITEMS = {"enum":["ExtractionStrategy"]};

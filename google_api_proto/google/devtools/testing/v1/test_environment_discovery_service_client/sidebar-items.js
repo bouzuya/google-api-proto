@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TestEnvironmentDiscoveryServiceClient","Service for discovering environments supported by the TestExecutionService."]]});
+window.SIDEBAR_ITEMS = {"struct":["TestEnvironmentDiscoveryServiceClient"]};

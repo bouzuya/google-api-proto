@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["InfrastructureConfig",""]]});
+window.SIDEBAR_ITEMS = {"enum":["InfrastructureConfig"]};

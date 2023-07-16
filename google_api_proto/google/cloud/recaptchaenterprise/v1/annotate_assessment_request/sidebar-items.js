@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Annotation","Enum that represents the types of annotations."],["Reason","Enum that represents potential reasons for annotating an assessment."]]});
+window.SIDEBAR_ITEMS = {"enum":["Annotation","Reason"]};

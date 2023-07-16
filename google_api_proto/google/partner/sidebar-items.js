@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["aistreams",""]]});
+window.SIDEBAR_ITEMS = {"mod":["aistreams"]};

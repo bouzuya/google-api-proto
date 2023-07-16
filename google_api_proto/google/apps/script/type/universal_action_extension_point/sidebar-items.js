@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ActionType","Required. The action type supported on a universal action menu item. It could be either a link to open or an endpoint to execute."]]});
+window.SIDEBAR_ITEMS = {"enum":["ActionType"]};

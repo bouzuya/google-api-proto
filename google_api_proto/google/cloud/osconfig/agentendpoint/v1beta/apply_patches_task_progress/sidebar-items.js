@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","The intermediate states of applying patches."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["InstanceTerminationAction","Specifies the termination action for the instance."],["OnHostMaintenance","Defines the maintenance behavior for this instance. For standard instances, the default behavior is MIGRATE. For preemptible instances, the default and only possible behavior is TERMINATE. For more information, see Set VM availability policies."],["ProvisioningModel","Specifies the provisioning model of the instance."]]});
+window.SIDEBAR_ITEMS = {"enum":["InstanceTerminationAction","OnHostMaintenance","ProvisioningModel"]};

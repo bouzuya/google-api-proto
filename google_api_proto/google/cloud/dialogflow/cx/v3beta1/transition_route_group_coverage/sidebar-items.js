@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["coverage","Nested message and enum types in `Coverage`."]],"struct":[["Coverage","Coverage result message for one transition route group."]]});
+window.SIDEBAR_ITEMS = {"mod":["coverage"],"struct":["Coverage"]};

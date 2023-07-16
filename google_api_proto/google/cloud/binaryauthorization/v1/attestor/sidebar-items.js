@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AttestorType",""]]});
+window.SIDEBAR_ITEMS = {"enum":["AttestorType"]};

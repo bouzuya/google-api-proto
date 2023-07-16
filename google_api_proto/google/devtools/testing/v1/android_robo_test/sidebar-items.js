@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AppUnderTest","Required."]]});
+window.SIDEBAR_ITEMS = {"enum":["AppUnderTest"]};

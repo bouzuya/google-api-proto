@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Service level indicators can be grouped by whether the “unit” of service being measured is based on counts of good requests or on counts of good time windows"]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

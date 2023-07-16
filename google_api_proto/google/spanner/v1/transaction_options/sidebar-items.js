@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Mode","Required. The type of transaction."]],"mod":[["read_only","Nested message and enum types in `ReadOnly`."]],"struct":[["PartitionedDml","Message type to initiate a Partitioned DML transaction."],["ReadOnly","Message type to initiate a read-only transaction."],["ReadWrite","Message type to initiate a read-write transaction. Currently this transaction type has no options."]]});
+window.SIDEBAR_ITEMS = {"enum":["Mode"],"mod":["read_only","read_write"],"struct":["PartitionedDml","ReadOnly","ReadWrite"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","The type of the peering route."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

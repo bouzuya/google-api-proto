@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Mode","Defines operating mode for this policy."]]});
+window.SIDEBAR_ITEMS = {"enum":["Mode"]};

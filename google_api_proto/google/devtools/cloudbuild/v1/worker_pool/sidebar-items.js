@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Config","Private Pool configuration for the `WorkerPool`."],["State","State of the `WorkerPool`."]]});
+window.SIDEBAR_ITEMS = {"enum":["Config","State"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Scope","Scope of exclusion."]]});
+window.SIDEBAR_ITEMS = {"enum":["Scope"]};

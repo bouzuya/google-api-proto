@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["ExperimentMetricDirection","The type of experiment metric direction."]]});

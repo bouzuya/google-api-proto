@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["ccc",""],["google",""],["grafeas",""],["maps",""]]});
+window.SIDEBAR_ITEMS = {"mod":["ccc","cloud","google","grafeas","maps"]};

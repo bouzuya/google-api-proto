@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["BareMetalSolutionClient","Performs management operations on Bare Metal Solution servers."]]});
+window.SIDEBAR_ITEMS = {"struct":["BareMetalSolutionClient"]};

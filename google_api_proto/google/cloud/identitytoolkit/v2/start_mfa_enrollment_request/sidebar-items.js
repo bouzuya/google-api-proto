@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EnrollmentInfo","MFA information by type of 2nd factor."]]});
+window.SIDEBAR_ITEMS = {"enum":["EnrollmentInfo"]};

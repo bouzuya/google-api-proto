@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["IngressConfig"],"mod":["config"],"struct":["Config"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SpeechTranslationServiceClient","Provides translation from/to media types."]]});
+window.SIDEBAR_ITEMS = {"struct":["SpeechTranslationServiceClient"]};

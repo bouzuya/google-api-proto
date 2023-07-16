@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ConversationModelsClient","Manages a collection of models for human agent assistant."]]});
+window.SIDEBAR_ITEMS = {"struct":["ConversationModelsClient"]};

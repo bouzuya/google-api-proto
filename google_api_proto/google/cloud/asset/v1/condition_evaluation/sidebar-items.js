@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EvaluationValue","Value of this expression."]]});
+window.SIDEBAR_ITEMS = {"enum":["EvaluationValue"]};

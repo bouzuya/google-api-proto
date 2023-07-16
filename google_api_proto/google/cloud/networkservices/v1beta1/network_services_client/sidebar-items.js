@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["NetworkServicesClient",""]]});
+window.SIDEBAR_ITEMS = {"struct":["NetworkServicesClient"]};

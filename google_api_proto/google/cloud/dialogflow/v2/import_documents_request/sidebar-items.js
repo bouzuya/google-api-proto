@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","Required. The source to use for importing documents."]]});
+window.SIDEBAR_ITEMS = {"enum":["Source"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ModelEvaluationExplanationSpec",""]]});
+window.SIDEBAR_ITEMS = {"struct":["ModelEvaluationExplanationSpec"]};

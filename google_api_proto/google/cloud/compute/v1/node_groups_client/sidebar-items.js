@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["NodeGroupsClient","The NodeGroups API."]]});
+window.SIDEBAR_ITEMS = {"struct":["NodeGroupsClient"]};

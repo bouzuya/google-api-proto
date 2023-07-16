@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["HashType","Specifies the hash algorithm, if any."]]});
+window.SIDEBAR_ITEMS = {"enum":["HashType"]};

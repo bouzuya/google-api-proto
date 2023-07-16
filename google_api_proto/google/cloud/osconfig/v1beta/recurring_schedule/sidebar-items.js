@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Frequency","Specifies the frequency of the recurring patch deployments."],["ScheduleConfig","Configurations for this recurring schedule. Configurations must match frequency."]]});
+window.SIDEBAR_ITEMS = {"enum":["Frequency","ScheduleConfig"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["VolumeType",""]]});
+window.SIDEBAR_ITEMS = {"enum":["VolumeType"]};

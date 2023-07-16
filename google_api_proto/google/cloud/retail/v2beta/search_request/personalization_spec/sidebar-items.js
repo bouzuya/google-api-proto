@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Mode","The personalization mode of each search request."]]});
+window.SIDEBAR_ITEMS = {"enum":["Mode"]};

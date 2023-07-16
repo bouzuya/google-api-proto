@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Severity","The severity level of a vulnerability."]]});
+window.SIDEBAR_ITEMS = {"enum":["Severity"]};

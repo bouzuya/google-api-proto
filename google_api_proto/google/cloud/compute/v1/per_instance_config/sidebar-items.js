@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Status","The status of applying this per-instance config on the corresponding managed instance."]]});
+window.SIDEBAR_ITEMS = {"enum":["Status"]};

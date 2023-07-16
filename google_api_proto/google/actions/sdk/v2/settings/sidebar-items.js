@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Category","The category choices for an Actions project."]]});
+window.SIDEBAR_ITEMS = {"enum":["Category"]};

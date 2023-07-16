@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["RowStatus","Signals to the client concerning previous CellChunks received."]]});
+window.SIDEBAR_ITEMS = {"enum":["RowStatus"]};

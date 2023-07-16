@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Supported configuration step types"]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

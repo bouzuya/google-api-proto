@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["IamPolicyAnalysis","An analysis message to group the query and results."]]});
+window.SIDEBAR_ITEMS = {"struct":["IamPolicyAnalysis"]};

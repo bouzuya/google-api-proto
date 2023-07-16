@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","The type of the database dump."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

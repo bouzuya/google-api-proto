@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["DomainMappingsClient","Manages domains serving an application."]]});
+window.SIDEBAR_ITEMS = {"struct":["DomainMappingsClient"]};

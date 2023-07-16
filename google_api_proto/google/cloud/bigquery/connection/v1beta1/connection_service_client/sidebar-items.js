@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ConnectionServiceClient","Manages external data source connections and credentials."]]});
+window.SIDEBAR_ITEMS = {"struct":["ConnectionServiceClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","Provenance of the label."]]});
+window.SIDEBAR_ITEMS = {"enum":["Source"]};

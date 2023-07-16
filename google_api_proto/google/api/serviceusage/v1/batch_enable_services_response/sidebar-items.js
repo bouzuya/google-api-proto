@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["EnableFailure","Provides error messages for the failing services."]]});
+window.SIDEBAR_ITEMS = {"struct":["EnableFailure"]};

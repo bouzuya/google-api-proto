@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Value","The label value can be a bool, int64, or string."]]});
+window.SIDEBAR_ITEMS = {"enum":["Value"]};

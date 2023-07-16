@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ConflictResult","Whether there were python modules conflict during image build."]]});
+window.SIDEBAR_ITEMS = {"enum":["ConflictResult"]};

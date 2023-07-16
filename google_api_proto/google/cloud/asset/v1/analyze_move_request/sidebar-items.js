@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AnalysisView","View enum for supporting partial analysis responses."]]});
+window.SIDEBAR_ITEMS = {"enum":["AnalysisView"]};

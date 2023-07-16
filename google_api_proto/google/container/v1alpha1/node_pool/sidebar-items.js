@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Status","The current status of the node pool instance."]]});
+window.SIDEBAR_ITEMS = {"enum":["Status"]};

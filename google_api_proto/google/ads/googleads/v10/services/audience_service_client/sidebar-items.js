@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["AudienceServiceClient","Service to manage audiences."]]});

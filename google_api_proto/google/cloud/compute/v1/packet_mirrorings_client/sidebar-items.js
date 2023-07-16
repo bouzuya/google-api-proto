@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["PacketMirroringsClient","The PacketMirrorings API."]]});
+window.SIDEBAR_ITEMS = {"struct":["PacketMirroringsClient"]};

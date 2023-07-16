@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ResponseInfo","MultiFactor start sign-in response by 2nd factor type."]]});
+window.SIDEBAR_ITEMS = {"enum":["ResponseInfo"]};

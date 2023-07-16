@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["CheckIfServiceHasUsage","Enum to determine if service usage should be checked when disabling a service."]]});
+window.SIDEBAR_ITEMS = {"enum":["CheckIfServiceHasUsage"]};

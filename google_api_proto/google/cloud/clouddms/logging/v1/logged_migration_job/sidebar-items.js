@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ConnectivityType","Type of connectivity to source database."],["Phase","The migration job phases enum."],["State","The migration job states enum."],["Type","The migration job types."]]});
+window.SIDEBAR_ITEMS = {"enum":["ConnectivityType","Phase","State","Type"]};

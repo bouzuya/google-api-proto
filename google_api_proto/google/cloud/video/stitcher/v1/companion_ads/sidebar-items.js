@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DisplayRequirement","Indicates how many of the companions should be displayed with the ad."]]});
+window.SIDEBAR_ITEMS = {"enum":["DisplayRequirement"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TensorboardServiceClient","TensorboardService"]]});
+window.SIDEBAR_ITEMS = {"struct":["TensorboardServiceClient"]};

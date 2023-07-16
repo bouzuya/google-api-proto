@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SslPoliciesClient","The SslPolicies API."]]});
+window.SIDEBAR_ITEMS = {"struct":["SslPoliciesClient"]};

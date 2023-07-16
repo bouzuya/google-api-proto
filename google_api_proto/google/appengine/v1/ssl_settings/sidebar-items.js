@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SslManagementType","The SSL management type for this domain."]]});
+window.SIDEBAR_ITEMS = {"enum":["SslManagementType"]};

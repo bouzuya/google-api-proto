@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Poly",""]]});
+window.SIDEBAR_ITEMS = {"enum":["Poly"]};

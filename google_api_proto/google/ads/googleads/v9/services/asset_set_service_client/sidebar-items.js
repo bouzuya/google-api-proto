@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["AssetSetServiceClient","Service to manage asset set"]]});

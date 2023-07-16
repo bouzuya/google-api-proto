@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Format","The format type of the text content."]]});
+window.SIDEBAR_ITEMS = {"enum":["Format"]};

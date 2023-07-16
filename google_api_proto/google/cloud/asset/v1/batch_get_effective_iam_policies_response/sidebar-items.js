@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["effective_iam_policy"],"struct":["EffectiveIamPolicy"]};

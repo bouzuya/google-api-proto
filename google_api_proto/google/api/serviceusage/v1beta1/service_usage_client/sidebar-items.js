@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ServiceUsageClient","Service Usage API"]]});
+window.SIDEBAR_ITEMS = {"struct":["ServiceUsageClient"]};

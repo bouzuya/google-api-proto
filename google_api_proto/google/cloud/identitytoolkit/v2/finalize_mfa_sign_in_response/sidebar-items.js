@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AuxiliaryAuthInfo","MFA verified sign-in information."]]});
+window.SIDEBAR_ITEMS = {"enum":["AuxiliaryAuthInfo"]};

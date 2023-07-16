@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AuthorizationHeader","The mode for generating an `Authorization` header for HTTP requests."]]});
+window.SIDEBAR_ITEMS = {"enum":["AuthorizationHeader"]};

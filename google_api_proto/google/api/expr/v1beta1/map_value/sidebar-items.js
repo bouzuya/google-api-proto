@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Entry","An entry in the map."]]});
+window.SIDEBAR_ITEMS = {"struct":["Entry"]};

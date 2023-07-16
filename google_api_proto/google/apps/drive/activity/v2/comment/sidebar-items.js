@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","The type of changed comment."]],"mod":[["assignment","Nested message and enum types in `Assignment`."],["post","Nested message and enum types in `Post`."],["suggestion","Nested message and enum types in `Suggestion`."]],"struct":[["Assignment","A comment with an assignment."],["Post","A regular posted comment."],["Suggestion","A suggestion."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"],"mod":["assignment","post","suggestion"],"struct":["Assignment","Post","Suggestion"]};

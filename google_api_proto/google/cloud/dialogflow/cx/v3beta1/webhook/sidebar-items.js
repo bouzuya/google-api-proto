@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Webhook","Required. The webhook configuration."]],"struct":[["GenericWebService","Represents configuration for a generic web service."],["ServiceDirectoryConfig","Represents configuration for a Service Directory service."]]});
+window.SIDEBAR_ITEMS = {"enum":["Webhook"],"mod":["generic_web_service"],"struct":["GenericWebService","ServiceDirectoryConfig"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["database",""],["instance",""]]});
+window.SIDEBAR_ITEMS = {"mod":["database","instance"]};

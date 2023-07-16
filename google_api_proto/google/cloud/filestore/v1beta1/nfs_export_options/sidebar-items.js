@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AccessMode","The access mode."],["SquashMode","The squash mode."]]});
+window.SIDEBAR_ITEMS = {"enum":["AccessMode","SquashMode"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["PrimitiveType",""],["TypeDecl","Required."]],"mod":[["enum_type","Nested message and enum types in `EnumType`."]],"struct":[["EnumType",""]]});
+window.SIDEBAR_ITEMS = {"enum":["PrimitiveType","TypeDecl"],"mod":["enum_type"],"struct":["EnumType"]};

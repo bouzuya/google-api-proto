@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["PermissionDelta","A PermissionDelta message to record the added_permissions and removed_permissions inside a role."]]});
+window.SIDEBAR_ITEMS = {"struct":["PermissionDelta"]};

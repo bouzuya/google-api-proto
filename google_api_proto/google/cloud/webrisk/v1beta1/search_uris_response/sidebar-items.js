@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ThreatUri","Contains threat information on a matching uri."]]});
+window.SIDEBAR_ITEMS = {"struct":["ThreatUri"]};

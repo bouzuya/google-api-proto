@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["PredictionServiceClient","AutoML Prediction API."]]});
+window.SIDEBAR_ITEMS = {"struct":["PredictionServiceClient"]};

@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["cluster","Nested message and enum types in `Cluster`."]],"struct":[["Cluster","Message containing the information about one cluster."]]});

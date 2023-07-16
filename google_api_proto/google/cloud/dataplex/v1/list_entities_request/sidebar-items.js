@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EntityView","Entity views."]]});
+window.SIDEBAR_ITEMS = {"enum":["EntityView"]};

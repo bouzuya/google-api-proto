@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Orientation","Detected human reading orientation."]]});
+window.SIDEBAR_ITEMS = {"enum":["Orientation"]};

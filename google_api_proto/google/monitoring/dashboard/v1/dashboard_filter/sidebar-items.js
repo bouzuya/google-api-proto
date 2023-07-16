@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DefaultValue","The default value used in the filter comparison"],["FilterType","The type for the dashboard filter"]]});
+window.SIDEBAR_ITEMS = {"enum":["DefaultValue","FilterType"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Request","The type of request this is."]]});
+window.SIDEBAR_ITEMS = {"enum":["Request"]};

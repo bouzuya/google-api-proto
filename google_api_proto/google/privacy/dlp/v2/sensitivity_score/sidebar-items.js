@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SensitivityScoreLevel","Various score levels for resources."]]});
+window.SIDEBAR_ITEMS = {"enum":["SensitivityScoreLevel"]};

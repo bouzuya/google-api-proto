@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["InstanceState","Instances in which state should be returned. Valid options are: ‘ALL’, ‘RUNNING’. By default, it lists all instances."]]});
+window.SIDEBAR_ITEMS = {"enum":["InstanceState"]};

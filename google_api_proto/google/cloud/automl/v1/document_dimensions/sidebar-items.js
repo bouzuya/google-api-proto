@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DocumentDimensionUnit","Unit of the document dimension."]]});
+window.SIDEBAR_ITEMS = {"enum":["DocumentDimensionUnit"]};

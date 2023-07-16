@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Type of image feature."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

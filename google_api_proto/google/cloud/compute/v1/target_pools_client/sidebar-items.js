@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["TargetPoolsClient","The TargetPools API."]]});
+window.SIDEBAR_ITEMS = {"struct":["TargetPoolsClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","A type of trigger."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

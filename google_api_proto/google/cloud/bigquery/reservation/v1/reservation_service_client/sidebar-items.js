@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ReservationServiceClient","This API allows users to manage their flat-rate BigQuery reservations."]]});
+window.SIDEBAR_ITEMS = {"struct":["ReservationServiceClient"]};

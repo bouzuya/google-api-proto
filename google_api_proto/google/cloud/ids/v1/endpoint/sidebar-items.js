@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Severity","Threat severity levels."],["State","Endpoint state"]]});
+window.SIDEBAR_ITEMS = {"enum":["Severity","State"]};

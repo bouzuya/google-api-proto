@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["JobResult","Mutation result of a job."]]});
+window.SIDEBAR_ITEMS = {"struct":["JobResult"]};

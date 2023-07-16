@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","The type of a Drive folder."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Schedule","Schedule for the patch."],["State","Represents state of patch peployment."]]});
+window.SIDEBAR_ITEMS = {"enum":["Schedule","State"]};

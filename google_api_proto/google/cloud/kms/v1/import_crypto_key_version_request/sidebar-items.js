@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["WrappedKeyMaterial","Required. The incoming wrapped key material that is to be imported."]]});
+window.SIDEBAR_ITEMS = {"enum":["WrappedKeyMaterial"]};

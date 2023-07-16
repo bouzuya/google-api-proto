@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["logical_interface"],"struct":["LogicalInterface"]};

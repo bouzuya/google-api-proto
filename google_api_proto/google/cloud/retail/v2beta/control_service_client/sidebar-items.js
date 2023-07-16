@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ControlServiceClient","Service for modifying Control."]]});
+window.SIDEBAR_ITEMS = {"struct":["ControlServiceClient"]};

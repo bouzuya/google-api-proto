@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["facet","guided_search_result"],"struct":["Facet","GuidedSearchResult","SearchResult","Summary"]};

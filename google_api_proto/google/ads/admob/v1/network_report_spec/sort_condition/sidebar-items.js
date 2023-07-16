@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SortOn","Identifies which values to sort on."]]});
+window.SIDEBAR_ITEMS = {"enum":["SortOn"]};

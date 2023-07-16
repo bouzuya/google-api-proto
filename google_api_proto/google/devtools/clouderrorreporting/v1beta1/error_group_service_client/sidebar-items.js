@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ErrorGroupServiceClient","Service for retrieving and updating individual error groups."]]});
+window.SIDEBAR_ITEMS = {"struct":["ErrorGroupServiceClient"]};

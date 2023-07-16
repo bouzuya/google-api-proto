@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Result","A single evaluation result."]]});
+window.SIDEBAR_ITEMS = {"struct":["Result"]};

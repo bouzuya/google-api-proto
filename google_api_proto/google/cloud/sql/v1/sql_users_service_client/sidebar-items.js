@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SqlUsersServiceClient","Cloud SQL users service."]]});
+window.SIDEBAR_ITEMS = {"struct":["SqlUsersServiceClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["FoldersClient","Manages Cloud Platform folder resources. Folders can be used to organize the resources under an organization and to control the policies applied to groups of resources."]]});
+window.SIDEBAR_ITEMS = {"struct":["FoldersClient"]};

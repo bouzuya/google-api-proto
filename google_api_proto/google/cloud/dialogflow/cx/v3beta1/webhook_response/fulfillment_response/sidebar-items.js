@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["MergeBehavior","Defines merge behavior for `messages`."]]});
+window.SIDEBAR_ITEMS = {"enum":["MergeBehavior"]};

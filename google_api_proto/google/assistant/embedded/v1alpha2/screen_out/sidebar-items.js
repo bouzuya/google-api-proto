@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Format","Possible formats of the screen data."]]});
+window.SIDEBAR_ITEMS = {"enum":["Format"]};

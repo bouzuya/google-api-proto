@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ProductInfo","Information about a product."],["Result","Information about a product."]]});
+window.SIDEBAR_ITEMS = {"struct":["GroupedResult","ObjectAnnotation","Result"]};

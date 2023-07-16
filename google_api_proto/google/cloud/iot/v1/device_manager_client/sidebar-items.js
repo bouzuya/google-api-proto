@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["DeviceManagerClient","Internet of Things (IoT) service. Securely connect and manage IoT devices."]]});
+window.SIDEBAR_ITEMS = {"struct":["DeviceManagerClient"]};

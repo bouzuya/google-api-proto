@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Code","Output only. Defines a warning message code. Next id: 6"]]});
+window.SIDEBAR_ITEMS = {"enum":["Code"]};

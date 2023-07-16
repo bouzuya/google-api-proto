@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["DataTransferServiceClient","This API allows users to manage their data transfers into BigQuery."]]});
+window.SIDEBAR_ITEMS = {"struct":["DataTransferServiceClient"]};

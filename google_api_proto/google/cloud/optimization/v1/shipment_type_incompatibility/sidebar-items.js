@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["IncompatibilityMode","Modes defining how the appearance of incompatible shipments are restricted on the same route."]]});
+window.SIDEBAR_ITEMS = {"enum":["IncompatibilityMode"]};

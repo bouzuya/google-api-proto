@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Code","Code for each condition"]]});
+window.SIDEBAR_ITEMS = {"enum":["Code"]};

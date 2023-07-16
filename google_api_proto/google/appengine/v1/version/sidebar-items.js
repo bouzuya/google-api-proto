@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Scaling","Controls how instances are created, scaled, and reaped."]]});
+window.SIDEBAR_ITEMS = {"enum":["Scaling"]};

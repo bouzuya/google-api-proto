@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ContentMatcherOption","Options to perform content matching."]]});
+window.SIDEBAR_ITEMS = {"enum":["AdditionalMatcherInfo","ContentMatcherOption"],"mod":["json_path_matcher"],"struct":["JsonPathMatcher"]};

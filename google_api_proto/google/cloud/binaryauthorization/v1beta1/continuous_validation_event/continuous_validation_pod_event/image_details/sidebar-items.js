@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AuditResult","Result of the audit."]]});
+window.SIDEBAR_ITEMS = {"enum":["AuditResult"]};

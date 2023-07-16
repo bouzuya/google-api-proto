@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Parameter type."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

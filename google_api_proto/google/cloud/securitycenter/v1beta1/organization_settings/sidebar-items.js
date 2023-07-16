@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["asset_discovery_config","Nested message and enum types in `AssetDiscoveryConfig`."]],"struct":[["AssetDiscoveryConfig","The configuration used for Asset Discovery runs."]]});
+window.SIDEBAR_ITEMS = {"mod":["asset_discovery_config"],"struct":["AssetDiscoveryConfig"]};

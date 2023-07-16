@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DataUsageType","Enum that represents how user data owned by the tenant is used."]]});
+window.SIDEBAR_ITEMS = {"enum":["DataUsageType"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["InstanceAdminClient","Cloud Spanner Instance Admin API"]]});
+window.SIDEBAR_ITEMS = {"struct":["InstanceAdminClient"]};

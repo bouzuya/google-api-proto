@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ServiceManagerClient","Google Service Management API"]]});
+window.SIDEBAR_ITEMS = {"struct":["ServiceManagerClient"]};

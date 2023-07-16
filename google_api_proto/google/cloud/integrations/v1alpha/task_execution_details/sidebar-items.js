@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["TaskExecutionState","Enum TaskExecutionState."]]});
+window.SIDEBAR_ITEMS = {"enum":["TaskExecutionState"]};

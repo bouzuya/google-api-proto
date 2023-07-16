@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["MigratedResource","After migration, the resource name in Vertex AI."]]});
+window.SIDEBAR_ITEMS = {"enum":["MigratedResource"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["FailureCause","Well-known rendering failures."],["TargetRenderState","Valid states of the render operation."]]});
+window.SIDEBAR_ITEMS = {"enum":["FailureCause","TargetRenderState"]};

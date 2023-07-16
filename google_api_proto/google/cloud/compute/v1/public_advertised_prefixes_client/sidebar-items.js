@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["PublicAdvertisedPrefixesClient","The PublicAdvertisedPrefixes API."]]});
+window.SIDEBAR_ITEMS = {"struct":["PublicAdvertisedPrefixesClient"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["SqlExternalSyncSettingErrorType",""]]});
+window.SIDEBAR_ITEMS = {"enum":["SqlExternalSyncSettingErrorType"]};

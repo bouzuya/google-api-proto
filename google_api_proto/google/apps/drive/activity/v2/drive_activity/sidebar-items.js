@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Time","The period of time when this activity occurred."]]});
+window.SIDEBAR_ITEMS = {"enum":["Time"]};

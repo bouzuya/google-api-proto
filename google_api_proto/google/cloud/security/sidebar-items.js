@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["privateca",""]]});
+window.SIDEBAR_ITEMS = {"mod":["privateca","publicca"]};

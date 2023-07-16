@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["TimePart","Components that make up time."]]});
+window.SIDEBAR_ITEMS = {"enum":["TimePart"]};

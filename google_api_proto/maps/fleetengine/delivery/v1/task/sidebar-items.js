@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","The state of a Task. This indicates the Tasks’s progress."],["TaskOutcome","The outcome of attempting to execute a Task. When `TaskState` is closed, `TaskOutcome` indicates whether it was completed successfully."],["TaskOutcomeLocationSource","The identity of the source that populated the `task_outcome_location`."],["Type","The type of Task."]],"struct":[["JourneySharingInfo","Journey sharing specific fields."]]});
+window.SIDEBAR_ITEMS = {"enum":["State","TaskOutcome","TaskOutcomeLocationSource","Type"],"struct":["JourneySharingInfo"]};

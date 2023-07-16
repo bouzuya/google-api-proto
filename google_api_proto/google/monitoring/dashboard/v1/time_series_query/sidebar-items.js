@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","Parameters needed to obtain data for the chart."]]});
+window.SIDEBAR_ITEMS = {"enum":["Source"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["data_masking_policy","data_policy","data_policy_service_client"],"struct":["CreateDataPolicyRequest","DataMaskingPolicy","DataPolicy","DeleteDataPolicyRequest","GetDataPolicyRequest","ListDataPoliciesRequest","ListDataPoliciesResponse","RenameDataPolicyRequest","UpdateDataPolicyRequest"]};

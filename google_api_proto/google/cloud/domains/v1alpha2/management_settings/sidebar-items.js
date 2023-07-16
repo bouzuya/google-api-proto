@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["RenewalMethod","Defines how the `Registration` is renewed."]]});
+window.SIDEBAR_ITEMS = {"enum":["RenewalMethod"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DraftAccess","An enum defining the level of data access this compose trigger requires."]]});
+window.SIDEBAR_ITEMS = {"enum":["DraftAccess"]};

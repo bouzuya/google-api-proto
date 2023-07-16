@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["CloudShellErrorCode","Set of possible errors returned from API calls."]]});
+window.SIDEBAR_ITEMS = {"enum":["CloudShellErrorCode"]};

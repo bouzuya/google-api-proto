@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["GlobalPolicyEvaluationMode",""]]});
+window.SIDEBAR_ITEMS = {"enum":["GlobalPolicyEvaluationMode"]};

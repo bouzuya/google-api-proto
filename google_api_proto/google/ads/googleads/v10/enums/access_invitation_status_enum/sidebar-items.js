@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["AccessInvitationStatus","Possible access invitation status of a user"]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["OsConfigServiceClient","OS Config API"]]});
+window.SIDEBAR_ITEMS = {"struct":["OsConfigServiceClient"]};

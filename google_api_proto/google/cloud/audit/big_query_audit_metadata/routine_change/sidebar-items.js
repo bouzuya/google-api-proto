@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Reason","Describes how the routine was updated."]]});
+window.SIDEBAR_ITEMS = {"enum":["Reason"]};

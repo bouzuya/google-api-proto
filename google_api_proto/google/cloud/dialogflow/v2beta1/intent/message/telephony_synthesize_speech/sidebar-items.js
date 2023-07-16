@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","Required. The source to be synthesized."]]});
+window.SIDEBAR_ITEMS = {"enum":["Source"]};

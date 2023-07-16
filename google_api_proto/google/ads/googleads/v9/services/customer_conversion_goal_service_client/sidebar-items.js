@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["CustomerConversionGoalServiceClient","Service to manage customer conversion goal."]]});

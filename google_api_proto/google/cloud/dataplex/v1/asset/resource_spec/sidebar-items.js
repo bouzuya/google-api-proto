@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Type of resource."]]});
+window.SIDEBAR_ITEMS = {"enum":["AccessMode","Type"]};

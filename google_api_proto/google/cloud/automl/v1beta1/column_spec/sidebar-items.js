@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["CorrelatedColumn","Identifies the table’s column, and its correlation with the column this ColumnSpec describes."]]});
+window.SIDEBAR_ITEMS = {"struct":["CorrelatedColumn"]};

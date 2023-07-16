@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","The supported types of mentions."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

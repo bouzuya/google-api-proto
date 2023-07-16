@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["VpcEgress","Egress options for VPC access."]]});
+window.SIDEBAR_ITEMS = {"enum":["VpcEgress"]};

@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["CustomizerAttributeType","The possible types of a customizer attribute."]]});

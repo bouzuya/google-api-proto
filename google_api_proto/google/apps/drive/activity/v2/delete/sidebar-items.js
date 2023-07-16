@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","The type of deletion."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

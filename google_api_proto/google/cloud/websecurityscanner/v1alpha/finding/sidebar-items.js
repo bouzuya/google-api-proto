@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["FindingType","Types of Findings."]]});
+window.SIDEBAR_ITEMS = {"enum":["FindingType"]};

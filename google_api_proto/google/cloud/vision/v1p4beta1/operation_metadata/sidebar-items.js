@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["State","Batch operation states."]]});
+window.SIDEBAR_ITEMS = {"enum":["State"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Defines the type of Human Agent Assistant feature."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

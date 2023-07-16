@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Level","Validation message level."]]});
+window.SIDEBAR_ITEMS = {"enum":["Level"]};

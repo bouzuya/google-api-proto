@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Source","Required. Where the data is from."]]});
+window.SIDEBAR_ITEMS = {"enum":["Source"]};

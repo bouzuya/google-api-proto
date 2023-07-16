@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["InvalidReason","Enum that represents the types of invalid token reasons."]]});
+window.SIDEBAR_ITEMS = {"enum":["InvalidReason"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Uri",""]]});
+window.SIDEBAR_ITEMS = {"enum":["Uri"],"struct":["PhaseArtifact"]};

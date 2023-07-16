@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["connection",""]]});
+window.SIDEBAR_ITEMS = {"mod":["connection"]};

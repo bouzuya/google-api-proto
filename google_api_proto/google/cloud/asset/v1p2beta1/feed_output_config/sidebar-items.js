@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Destination","Asset feed destination."]]});
+window.SIDEBAR_ITEMS = {"enum":["Destination"]};

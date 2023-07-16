@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["CustomizerAttributeServiceClient","Service to manage customizer attribute"]]});

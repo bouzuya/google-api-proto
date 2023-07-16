@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["MachineTypesClient","The MachineTypes API."]]});
+window.SIDEBAR_ITEMS = {"struct":["MachineTypesClient"]};

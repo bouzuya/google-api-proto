@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["ActionsSdkClient","Actions SDK API which allows developers to build projects using the SDK."]]});
+window.SIDEBAR_ITEMS = {"struct":["ActionsSdkClient"]};

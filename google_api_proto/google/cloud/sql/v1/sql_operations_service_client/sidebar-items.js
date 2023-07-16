@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SqlOperationsServiceClient","Service to fetch operations for database instances."]]});
+window.SIDEBAR_ITEMS = {"struct":["SqlOperationsServiceClient"]};

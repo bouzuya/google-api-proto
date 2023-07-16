@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["FinalState","The state of execution."]]});
+window.SIDEBAR_ITEMS = {"enum":["FinalState"]};

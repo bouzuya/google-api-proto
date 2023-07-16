@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Action","Operation type: what type update to perform."]]});
+window.SIDEBAR_ITEMS = {"enum":["Action"]};

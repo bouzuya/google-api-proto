@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Protocol","IANA Internet Protocol Number such as TCP(6) and UDP(17)."]]});
+window.SIDEBAR_ITEMS = {"enum":["Protocol"]};

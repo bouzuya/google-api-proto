@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Detail","Additional information about the Query metadata."],["EventType","The type of the event."]],"mod":[["query_detail","Nested message and enum types in `QueryDetail`."]],"struct":[["QueryDetail","Execution details of the query."]]});
+window.SIDEBAR_ITEMS = {"enum":["Detail","EventType"],"mod":["query_detail"],"struct":["QueryDetail"]};

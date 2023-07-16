@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Value","The value for the condition to trigger."]]});
+window.SIDEBAR_ITEMS = {"enum":["Value"]};

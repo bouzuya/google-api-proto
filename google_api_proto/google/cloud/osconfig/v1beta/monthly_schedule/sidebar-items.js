@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["DayOfMonth","One day in a month."]]});
+window.SIDEBAR_ITEMS = {"enum":["DayOfMonth"]};

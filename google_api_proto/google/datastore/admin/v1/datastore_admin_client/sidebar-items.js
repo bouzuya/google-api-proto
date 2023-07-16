@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["DatastoreAdminClient","Google Cloud Datastore Admin API"]]});
+window.SIDEBAR_ITEMS = {"struct":["DatastoreAdminClient"]};

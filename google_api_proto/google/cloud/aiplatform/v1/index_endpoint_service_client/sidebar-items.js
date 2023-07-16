@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["IndexEndpointServiceClient","A service for managing Vertex AI’s IndexEndpoints."]]});
+window.SIDEBAR_ITEMS = {"struct":["IndexEndpointServiceClient"]};

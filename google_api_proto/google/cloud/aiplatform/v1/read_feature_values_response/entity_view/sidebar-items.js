@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["data","Nested message and enum types in `Data`."]],"struct":[["Data","Container to hold value(s), successive in time, for one Feature from the request."]]});
+window.SIDEBAR_ITEMS = {"mod":["data"],"struct":["Data"]};

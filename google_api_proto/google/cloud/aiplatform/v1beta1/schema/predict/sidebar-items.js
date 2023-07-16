@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["instance",""],["params",""],["prediction",""]]});
+window.SIDEBAR_ITEMS = {"mod":["instance","params","prediction"]};

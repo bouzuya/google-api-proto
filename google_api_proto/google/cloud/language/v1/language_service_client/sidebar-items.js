@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["LanguageServiceClient","Provides text analysis operations such as sentiment analysis and entity recognition."]]});
+window.SIDEBAR_ITEMS = {"struct":["LanguageServiceClient"]};

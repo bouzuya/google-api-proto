@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Status","The current status of the cluster."]]});
+window.SIDEBAR_ITEMS = {"enum":["Status"]};

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["AccessContextPolicy","Representation of the Cloud Organization access policy."]]});
+window.SIDEBAR_ITEMS = {"enum":["AccessContextPolicy"]};

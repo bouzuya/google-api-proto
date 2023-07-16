@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["TimeSeriesView","Controls which fields are returned by `ListTimeSeries`."]]});
+window.SIDEBAR_ITEMS = {"enum":["TimeSeriesView"]};

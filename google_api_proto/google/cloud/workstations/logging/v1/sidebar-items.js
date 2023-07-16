@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["workstation_event"],"struct":["DiskAssignmentEvent","VmAssignmentEvent","WorkstationEvent"]};

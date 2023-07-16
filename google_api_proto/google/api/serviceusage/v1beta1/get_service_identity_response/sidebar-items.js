@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["IdentityState","Enum for service identity state."]]});
+window.SIDEBAR_ITEMS = {"enum":["IdentityState"]};

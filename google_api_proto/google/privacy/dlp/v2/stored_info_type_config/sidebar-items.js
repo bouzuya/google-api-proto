@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Type","Stored infotype types."]]});
+window.SIDEBAR_ITEMS = {"enum":["Type"]};

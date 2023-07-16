@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["PolicyTagManagerClient","The policy tag manager API service allows clients to manage their taxonomies and policy tags."]]});
+window.SIDEBAR_ITEMS = {"struct":["PolicyTagManagerClient"]};

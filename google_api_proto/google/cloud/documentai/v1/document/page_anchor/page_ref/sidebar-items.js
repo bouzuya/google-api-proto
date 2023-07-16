@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["LayoutType","The type of layout that is being referenced."]]});
+window.SIDEBAR_ITEMS = {"enum":["LayoutType"]};

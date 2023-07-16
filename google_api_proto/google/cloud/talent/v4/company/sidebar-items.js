@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["DerivedInfo","Derived details about the company."]]});
+window.SIDEBAR_ITEMS = {"struct":["DerivedInfo"]};

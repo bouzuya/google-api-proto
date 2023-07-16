@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["OutputType",""]]});
+window.SIDEBAR_ITEMS = {"enum":["OutputType"]};

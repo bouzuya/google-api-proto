@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["CompressionCodec","Compression codec’s supported by Arrow."]]});
+window.SIDEBAR_ITEMS = {"enum":["CompressionCodec"]};

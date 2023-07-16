@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SqlFlagsServiceClient","Service to manage database flags for Cloud SQL instances."]]});
+window.SIDEBAR_ITEMS = {"struct":["SqlFlagsServiceClient"]};

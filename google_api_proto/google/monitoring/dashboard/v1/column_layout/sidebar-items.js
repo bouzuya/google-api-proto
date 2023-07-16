@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Column","Defines the layout properties and content for a column."]]});
+window.SIDEBAR_ITEMS = {"struct":["Column"]};
