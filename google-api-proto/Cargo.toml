@@ -11,11 +11,6 @@ categories = ["api-bindings"]
 keywords = ["google", "api", "googleapis", "gcloud", "gcp"]
 readme = "../README.md"
 
-[package.metadata.release]
-pre-release-commit-message = "{{crate_name}}: bump to v{{version}}"
-tag-name = "{{crate_name}}/v{{version}}"
-tag-message = "{{crate_name}} version {{version}}"
-
 [lib]
 doctest = false
 
