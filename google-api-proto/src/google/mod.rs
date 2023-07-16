@@ -22,6 +22,11 @@ pub mod actions;
         feature = "google-ads-googleads-v13-errors",
         feature = "google-ads-googleads-v13-resources",
         feature = "google-ads-googleads-v13-services",
+        feature = "google-ads-googleads-v14-common",
+        feature = "google-ads-googleads-v14-enums",
+        feature = "google-ads-googleads-v14-errors",
+        feature = "google-ads-googleads-v14-resources",
+        feature = "google-ads-googleads-v14-services",
         feature = "google-ads-searchads360-v0-common",
         feature = "google-ads-searchads360-v0-enums",
         feature = "google-ads-searchads360-v0-resources",
@@ -119,6 +124,7 @@ pub mod chromeos;
         feature = "google-cloud-aiplatform-v1beta1-schema-predict-params",
         feature = "google-cloud-aiplatform-v1beta1-schema-predict-prediction",
         feature = "google-cloud-aiplatform-v1beta1-schema-trainingjob-definition",
+        feature = "google-cloud-alloydb-connectors-v1alpha",
         feature = "google-cloud-alloydb-v1",
         feature = "google-cloud-alloydb-v1alpha",
         feature = "google-cloud-alloydb-v1beta",
@@ -276,6 +282,7 @@ pub mod chromeos;
         feature = "google-cloud-metastore-v1alpha",
         feature = "google-cloud-metastore-v1beta",
         feature = "google-cloud-migrationcenter-v1",
+        feature = "google-cloud-netapp-v1beta1",
         feature = "google-cloud-networkanalyzer-logging-v1",
         feature = "google-cloud-networkconnectivity-v1",
         feature = "google-cloud-networkconnectivity-v1alpha1",
@@ -400,6 +407,8 @@ pub mod chromeos;
     )
 )]
 pub mod cloud;
+#[cfg(any(feature = "google-compute-logging-gdnsusage-v1"))]
+pub mod compute;
 #[cfg(
     any(
         feature = "google-container-v1",

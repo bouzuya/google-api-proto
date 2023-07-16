@@ -442,367 +442,6 @@ pub struct GcsObject {
     #[prost(int64, tag = "3")]
     pub generation_number: i64,
 }
-/// A unit of work to be performed by the agent.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Task {
-    /// Unique task id.
-    #[prost(string, tag = "1")]
-    pub task_id: ::prost::alloc::string::String,
-    /// The type of task to perform.
-    ///
-    /// Task details must include the appropriate message based on this enum as
-    /// specified below:
-    /// APPLY_PATCHES = ApplyPatchesTask
-    /// EXEC_STEP = ExecStepTask;
-    #[prost(enumeration = "TaskType", tag = "2")]
-    pub task_type: i32,
-    /// Current directive to the agent.
-    #[prost(enumeration = "TaskDirective", tag = "3")]
-    pub task_directive: i32,
-    /// Labels describing the task.  Used for logging by the agent.
-    #[prost(btree_map = "string, string", tag = "6")]
-    pub service_labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Specific details about the current task to perform.
-    #[prost(oneof = "task::TaskDetails", tags = "4, 5")]
-    pub task_details: ::core::option::Option<task::TaskDetails>,
-}
-/// Nested message and enum types in `Task`.
-pub mod task {
-    /// Specific details about the current task to perform.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum TaskDetails {
-        /// Details about the apply patches task to perform.
-        #[prost(message, tag = "4")]
-        ApplyPatchesTask(super::ApplyPatchesTask),
-        /// Details about the exec step task to perform.
-        #[prost(message, tag = "5")]
-        ExecStepTask(super::ExecStepTask),
-    }
-}
-/// Message which instructs agent to apply patches.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ApplyPatchesTask {
-    /// Specific information about how patches should be applied.
-    #[prost(message, optional, tag = "1")]
-    pub patch_config: ::core::option::Option<PatchConfig>,
-    /// If true, the agent will report its status as it goes through the motions
-    /// but won't actually run any updates or perform any reboots.
-    #[prost(bool, tag = "3")]
-    pub dry_run: bool,
-}
-/// Information reported from the agent about applying patches execution.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ApplyPatchesTaskProgress {
-    /// Required. The current state of this patch execution.
-    #[prost(enumeration = "apply_patches_task_progress::State", tag = "1")]
-    pub state: i32,
-}
-/// Nested message and enum types in `ApplyPatchesTaskProgress`.
-pub mod apply_patches_task_progress {
-    /// The intermediate states of applying patches.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified is invalid.
-        Unspecified = 0,
-        /// The agent has started the patch task.
-        Started = 4,
-        /// The agent is currently downloading patches.
-        DownloadingPatches = 1,
-        /// The agent is currently applying patches.
-        ApplyingPatches = 2,
-        /// The agent is currently rebooting the VM instance.
-        Rebooting = 3,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Started => "STARTED",
-                State::DownloadingPatches => "DOWNLOADING_PATCHES",
-                State::ApplyingPatches => "APPLYING_PATCHES",
-                State::Rebooting => "REBOOTING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "STARTED" => Some(Self::Started),
-                "DOWNLOADING_PATCHES" => Some(Self::DownloadingPatches),
-                "APPLYING_PATCHES" => Some(Self::ApplyingPatches),
-                "REBOOTING" => Some(Self::Rebooting),
-                _ => None,
-            }
-        }
-    }
-}
-/// Information reported from the agent about applying patches execution.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ApplyPatchesTaskOutput {
-    /// Required. The final state of this task.
-    #[prost(enumeration = "apply_patches_task_output::State", tag = "1")]
-    pub state: i32,
-}
-/// Nested message and enum types in `ApplyPatchesTaskOutput`.
-pub mod apply_patches_task_output {
-    /// The final states of applying patches.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified is invalid.
-        Unspecified = 0,
-        /// Applying patches completed successfully.
-        Succeeded = 1,
-        /// Applying patches completed successfully, but a reboot is required.
-        SucceededRebootRequired = 2,
-        /// Applying patches failed.
-        Failed = 3,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Succeeded => "SUCCEEDED",
-                State::SucceededRebootRequired => "SUCCEEDED_REBOOT_REQUIRED",
-                State::Failed => "FAILED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "SUCCEEDED" => Some(Self::Succeeded),
-                "SUCCEEDED_REBOOT_REQUIRED" => Some(Self::SucceededRebootRequired),
-                "FAILED" => Some(Self::Failed),
-                _ => None,
-            }
-        }
-    }
-}
-/// Message which instructs agent to execute the following command.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExecStepTask {
-    /// Details of the exec step to run.
-    #[prost(message, optional, tag = "1")]
-    pub exec_step: ::core::option::Option<ExecStep>,
-}
-/// Information reported from the agent about the exec step execution.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExecStepTaskProgress {
-    /// Required. The current state of this exec step.
-    #[prost(enumeration = "exec_step_task_progress::State", tag = "1")]
-    pub state: i32,
-}
-/// Nested message and enum types in `ExecStepTaskProgress`.
-pub mod exec_step_task_progress {
-    /// The intermediate states of exec steps.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified is invalid.
-        Unspecified = 0,
-        /// The agent has started the exec step task.
-        Started = 1,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Started => "STARTED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "STARTED" => Some(Self::Started),
-                _ => None,
-            }
-        }
-    }
-}
-/// Information reported from the agent about the exec step execution.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExecStepTaskOutput {
-    /// Required. The final state of the exec step.
-    #[prost(enumeration = "exec_step_task_output::State", tag = "1")]
-    pub state: i32,
-    /// Required. The exit code received from the script which ran as part of the exec step.
-    #[prost(int32, tag = "2")]
-    pub exit_code: i32,
-}
-/// Nested message and enum types in `ExecStepTaskOutput`.
-pub mod exec_step_task_output {
-    /// The final states of exec steps.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified is invalid.
-        Unspecified = 0,
-        /// The exec step completed normally.
-        Completed = 1,
-        /// The exec step was terminated because it took too long.
-        TimedOut = 2,
-        /// The exec step task was cancelled before it started.
-        Cancelled = 3,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Completed => "COMPLETED",
-                State::TimedOut => "TIMED_OUT",
-                State::Cancelled => "CANCELLED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "COMPLETED" => Some(Self::Completed),
-                "TIMED_OUT" => Some(Self::TimedOut),
-                "CANCELLED" => Some(Self::Cancelled),
-                _ => None,
-            }
-        }
-    }
-}
-/// Specifies the current agent behavior.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum TaskDirective {
-    /// Unspecified is invalid.
-    Unspecified = 0,
-    /// The task should continue to progress.
-    Continue = 1,
-    /// Task should not be started, or if already in progress, should stop
-    /// at first safe stopping point.  Task should be considered done and will
-    /// never repeat.
-    Stop = 2,
-}
-impl TaskDirective {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            TaskDirective::Unspecified => "TASK_DIRECTIVE_UNSPECIFIED",
-            TaskDirective::Continue => "CONTINUE",
-            TaskDirective::Stop => "STOP",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "TASK_DIRECTIVE_UNSPECIFIED" => Some(Self::Unspecified),
-            "CONTINUE" => Some(Self::Continue),
-            "STOP" => Some(Self::Stop),
-            _ => None,
-        }
-    }
-}
-/// Specifies the type of task to perform.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum TaskType {
-    /// Unspecified is invalid.
-    Unspecified = 0,
-    /// The apply patches task.
-    ApplyPatches = 1,
-    /// The exec step task.
-    ExecStepTask = 2,
-}
-impl TaskType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            TaskType::Unspecified => "TASK_TYPE_UNSPECIFIED",
-            TaskType::ApplyPatches => "APPLY_PATCHES",
-            TaskType::ExecStepTask => "EXEC_STEP_TASK",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "TASK_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "APPLY_PATCHES" => Some(Self::ApplyPatches),
-            "EXEC_STEP_TASK" => Some(Self::ExecStepTask),
-            _ => None,
-        }
-    }
-}
 /// Package is a reference to the software package to be installed or removed.
 /// The agent on the VM instance uses the system package manager to apply the
 /// config.
@@ -1594,6 +1233,367 @@ impl DesiredState {
         }
     }
 }
+/// A unit of work to be performed by the agent.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Task {
+    /// Unique task id.
+    #[prost(string, tag = "1")]
+    pub task_id: ::prost::alloc::string::String,
+    /// The type of task to perform.
+    ///
+    /// Task details must include the appropriate message based on this enum as
+    /// specified below:
+    /// APPLY_PATCHES = ApplyPatchesTask
+    /// EXEC_STEP = ExecStepTask;
+    #[prost(enumeration = "TaskType", tag = "2")]
+    pub task_type: i32,
+    /// Current directive to the agent.
+    #[prost(enumeration = "TaskDirective", tag = "3")]
+    pub task_directive: i32,
+    /// Labels describing the task.  Used for logging by the agent.
+    #[prost(btree_map = "string, string", tag = "6")]
+    pub service_labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Specific details about the current task to perform.
+    #[prost(oneof = "task::TaskDetails", tags = "4, 5")]
+    pub task_details: ::core::option::Option<task::TaskDetails>,
+}
+/// Nested message and enum types in `Task`.
+pub mod task {
+    /// Specific details about the current task to perform.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum TaskDetails {
+        /// Details about the apply patches task to perform.
+        #[prost(message, tag = "4")]
+        ApplyPatchesTask(super::ApplyPatchesTask),
+        /// Details about the exec step task to perform.
+        #[prost(message, tag = "5")]
+        ExecStepTask(super::ExecStepTask),
+    }
+}
+/// Message which instructs agent to apply patches.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ApplyPatchesTask {
+    /// Specific information about how patches should be applied.
+    #[prost(message, optional, tag = "1")]
+    pub patch_config: ::core::option::Option<PatchConfig>,
+    /// If true, the agent will report its status as it goes through the motions
+    /// but won't actually run any updates or perform any reboots.
+    #[prost(bool, tag = "3")]
+    pub dry_run: bool,
+}
+/// Information reported from the agent about applying patches execution.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ApplyPatchesTaskProgress {
+    /// Required. The current state of this patch execution.
+    #[prost(enumeration = "apply_patches_task_progress::State", tag = "1")]
+    pub state: i32,
+}
+/// Nested message and enum types in `ApplyPatchesTaskProgress`.
+pub mod apply_patches_task_progress {
+    /// The intermediate states of applying patches.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified is invalid.
+        Unspecified = 0,
+        /// The agent has started the patch task.
+        Started = 4,
+        /// The agent is currently downloading patches.
+        DownloadingPatches = 1,
+        /// The agent is currently applying patches.
+        ApplyingPatches = 2,
+        /// The agent is currently rebooting the VM instance.
+        Rebooting = 3,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Started => "STARTED",
+                State::DownloadingPatches => "DOWNLOADING_PATCHES",
+                State::ApplyingPatches => "APPLYING_PATCHES",
+                State::Rebooting => "REBOOTING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "STARTED" => Some(Self::Started),
+                "DOWNLOADING_PATCHES" => Some(Self::DownloadingPatches),
+                "APPLYING_PATCHES" => Some(Self::ApplyingPatches),
+                "REBOOTING" => Some(Self::Rebooting),
+                _ => None,
+            }
+        }
+    }
+}
+/// Information reported from the agent about applying patches execution.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ApplyPatchesTaskOutput {
+    /// Required. The final state of this task.
+    #[prost(enumeration = "apply_patches_task_output::State", tag = "1")]
+    pub state: i32,
+}
+/// Nested message and enum types in `ApplyPatchesTaskOutput`.
+pub mod apply_patches_task_output {
+    /// The final states of applying patches.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified is invalid.
+        Unspecified = 0,
+        /// Applying patches completed successfully.
+        Succeeded = 1,
+        /// Applying patches completed successfully, but a reboot is required.
+        SucceededRebootRequired = 2,
+        /// Applying patches failed.
+        Failed = 3,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Succeeded => "SUCCEEDED",
+                State::SucceededRebootRequired => "SUCCEEDED_REBOOT_REQUIRED",
+                State::Failed => "FAILED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "SUCCEEDED" => Some(Self::Succeeded),
+                "SUCCEEDED_REBOOT_REQUIRED" => Some(Self::SucceededRebootRequired),
+                "FAILED" => Some(Self::Failed),
+                _ => None,
+            }
+        }
+    }
+}
+/// Message which instructs agent to execute the following command.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExecStepTask {
+    /// Details of the exec step to run.
+    #[prost(message, optional, tag = "1")]
+    pub exec_step: ::core::option::Option<ExecStep>,
+}
+/// Information reported from the agent about the exec step execution.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExecStepTaskProgress {
+    /// Required. The current state of this exec step.
+    #[prost(enumeration = "exec_step_task_progress::State", tag = "1")]
+    pub state: i32,
+}
+/// Nested message and enum types in `ExecStepTaskProgress`.
+pub mod exec_step_task_progress {
+    /// The intermediate states of exec steps.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified is invalid.
+        Unspecified = 0,
+        /// The agent has started the exec step task.
+        Started = 1,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Started => "STARTED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "STARTED" => Some(Self::Started),
+                _ => None,
+            }
+        }
+    }
+}
+/// Information reported from the agent about the exec step execution.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExecStepTaskOutput {
+    /// Required. The final state of the exec step.
+    #[prost(enumeration = "exec_step_task_output::State", tag = "1")]
+    pub state: i32,
+    /// Required. The exit code received from the script which ran as part of the exec step.
+    #[prost(int32, tag = "2")]
+    pub exit_code: i32,
+}
+/// Nested message and enum types in `ExecStepTaskOutput`.
+pub mod exec_step_task_output {
+    /// The final states of exec steps.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified is invalid.
+        Unspecified = 0,
+        /// The exec step completed normally.
+        Completed = 1,
+        /// The exec step was terminated because it took too long.
+        TimedOut = 2,
+        /// The exec step task was cancelled before it started.
+        Cancelled = 3,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Completed => "COMPLETED",
+                State::TimedOut => "TIMED_OUT",
+                State::Cancelled => "CANCELLED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "COMPLETED" => Some(Self::Completed),
+                "TIMED_OUT" => Some(Self::TimedOut),
+                "CANCELLED" => Some(Self::Cancelled),
+                _ => None,
+            }
+        }
+    }
+}
+/// Specifies the current agent behavior.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum TaskDirective {
+    /// Unspecified is invalid.
+    Unspecified = 0,
+    /// The task should continue to progress.
+    Continue = 1,
+    /// Task should not be started, or if already in progress, should stop
+    /// at first safe stopping point.  Task should be considered done and will
+    /// never repeat.
+    Stop = 2,
+}
+impl TaskDirective {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            TaskDirective::Unspecified => "TASK_DIRECTIVE_UNSPECIFIED",
+            TaskDirective::Continue => "CONTINUE",
+            TaskDirective::Stop => "STOP",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "TASK_DIRECTIVE_UNSPECIFIED" => Some(Self::Unspecified),
+            "CONTINUE" => Some(Self::Continue),
+            "STOP" => Some(Self::Stop),
+            _ => None,
+        }
+    }
+}
+/// Specifies the type of task to perform.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum TaskType {
+    /// Unspecified is invalid.
+    Unspecified = 0,
+    /// The apply patches task.
+    ApplyPatches = 1,
+    /// The exec step task.
+    ExecStepTask = 2,
+}
+impl TaskType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            TaskType::Unspecified => "TASK_TYPE_UNSPECIFIED",
+            TaskType::ApplyPatches => "APPLY_PATCHES",
+            TaskType::ExecStepTask => "EXEC_STEP_TASK",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "TASK_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "APPLY_PATCHES" => Some(Self::ApplyPatches),
+            "EXEC_STEP_TASK" => Some(Self::ExecStepTask),
+            _ => None,
+        }
+    }
+}
 /// A request message to receive task notifications.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1821,11 +1821,27 @@ pub mod agent_endpoint_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Stream established by client to receive Task notifications.
         pub async fn receive_task_notification(
             &mut self,
             request: impl tonic::IntoRequest<super::ReceiveTaskNotificationRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<
                 tonic::codec::Streaming<super::ReceiveTaskNotificationResponse>,
             >,
@@ -1844,13 +1860,24 @@ pub mod agent_endpoint_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.agentendpoint.v1beta.AgentEndpointService/ReceiveTaskNotification",
             );
-            self.inner.server_streaming(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.agentendpoint.v1beta.AgentEndpointService",
+                        "ReceiveTaskNotification",
+                    ),
+                );
+            self.inner.server_streaming(req, path, codec).await
         }
         /// Signals the start of a task execution and returns the task info.
         pub async fn start_next_task(
             &mut self,
             request: impl tonic::IntoRequest<super::StartNextTaskRequest>,
-        ) -> Result<tonic::Response<super::StartNextTaskResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::StartNextTaskResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1864,13 +1891,24 @@ pub mod agent_endpoint_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.agentendpoint.v1beta.AgentEndpointService/StartNextTask",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.agentendpoint.v1beta.AgentEndpointService",
+                        "StartNextTask",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Signals an intermediary progress checkpoint in task execution.
         pub async fn report_task_progress(
             &mut self,
             request: impl tonic::IntoRequest<super::ReportTaskProgressRequest>,
-        ) -> Result<tonic::Response<super::ReportTaskProgressResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ReportTaskProgressResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1884,14 +1922,25 @@ pub mod agent_endpoint_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.agentendpoint.v1beta.AgentEndpointService/ReportTaskProgress",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.agentendpoint.v1beta.AgentEndpointService",
+                        "ReportTaskProgress",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Signals that the task execution is complete and optionally returns the next
         /// task.
         pub async fn report_task_complete(
             &mut self,
             request: impl tonic::IntoRequest<super::ReportTaskCompleteRequest>,
-        ) -> Result<tonic::Response<super::ReportTaskCompleteResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ReportTaskCompleteResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1905,14 +1954,25 @@ pub mod agent_endpoint_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.agentendpoint.v1beta.AgentEndpointService/ReportTaskComplete",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.agentendpoint.v1beta.AgentEndpointService",
+                        "ReportTaskComplete",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lookup the effective guest policy that applies to a VM instance. This
         /// lookup merges all policies that are assigned to the instance ancestry.
         pub async fn lookup_effective_guest_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::LookupEffectiveGuestPolicyRequest>,
-        ) -> Result<tonic::Response<super::EffectiveGuestPolicy>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::EffectiveGuestPolicy>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1926,13 +1986,24 @@ pub mod agent_endpoint_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.agentendpoint.v1beta.AgentEndpointService/LookupEffectiveGuestPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.agentendpoint.v1beta.AgentEndpointService",
+                        "LookupEffectiveGuestPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Registers the agent running on the VM.
         pub async fn register_agent(
             &mut self,
             request: impl tonic::IntoRequest<super::RegisterAgentRequest>,
-        ) -> Result<tonic::Response<super::RegisterAgentResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::RegisterAgentResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1946,7 +2017,15 @@ pub mod agent_endpoint_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.agentendpoint.v1beta.AgentEndpointService/RegisterAgent",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.agentendpoint.v1beta.AgentEndpointService",
+                        "RegisterAgent",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

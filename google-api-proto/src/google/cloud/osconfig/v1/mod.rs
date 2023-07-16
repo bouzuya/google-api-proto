@@ -1,3 +1,477 @@
+/// This API resource represents the available inventory data for a
+/// Compute Engine virtual machine (VM) instance at a given point in time.
+///
+/// You can use this API resource to determine the inventory data of your VM.
+///
+/// For more information, see [Information provided by OS inventory
+/// management](<https://cloud.google.com/compute/docs/instances/os-inventory-management#data-collected>).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Inventory {
+    /// Output only. The `Inventory` API resource name.
+    ///
+    /// Format:
+    /// `projects/{project_number}/locations/{location}/instances/{instance_id}/inventory`
+    #[prost(string, tag = "3")]
+    pub name: ::prost::alloc::string::String,
+    /// Base level operating system information for the VM.
+    #[prost(message, optional, tag = "1")]
+    pub os_info: ::core::option::Option<inventory::OsInfo>,
+    /// Inventory items related to the VM keyed by an opaque unique identifier for
+    /// each inventory item.  The identifier is unique to each distinct and
+    /// addressable inventory item and will change, when there is a new package
+    /// version.
+    #[prost(btree_map = "string, message", tag = "2")]
+    pub items: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        inventory::Item,
+    >,
+    /// Output only. Timestamp of the last reported inventory for the VM.
+    #[prost(message, optional, tag = "4")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Nested message and enum types in `Inventory`.
+pub mod inventory {
+    /// Operating system information for the VM.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct OsInfo {
+        /// The VM hostname.
+        #[prost(string, tag = "9")]
+        pub hostname: ::prost::alloc::string::String,
+        /// The operating system long name.
+        /// For example 'Debian GNU/Linux 9' or 'Microsoft Window Server 2019
+        /// Datacenter'.
+        #[prost(string, tag = "2")]
+        pub long_name: ::prost::alloc::string::String,
+        /// The operating system short name.
+        /// For example, 'windows' or 'debian'.
+        #[prost(string, tag = "3")]
+        pub short_name: ::prost::alloc::string::String,
+        /// The version of the operating system.
+        #[prost(string, tag = "4")]
+        pub version: ::prost::alloc::string::String,
+        /// The system architecture of the operating system.
+        #[prost(string, tag = "5")]
+        pub architecture: ::prost::alloc::string::String,
+        /// The kernel version of the operating system.
+        #[prost(string, tag = "6")]
+        pub kernel_version: ::prost::alloc::string::String,
+        /// The kernel release of the operating system.
+        #[prost(string, tag = "7")]
+        pub kernel_release: ::prost::alloc::string::String,
+        /// The current version of the OS Config agent running on the VM.
+        #[prost(string, tag = "8")]
+        pub osconfig_agent_version: ::prost::alloc::string::String,
+    }
+    /// A single piece of inventory on a VM.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Item {
+        /// Identifier for this item, unique across items for this VM.
+        #[prost(string, tag = "1")]
+        pub id: ::prost::alloc::string::String,
+        /// The origin of this inventory item.
+        #[prost(enumeration = "item::OriginType", tag = "2")]
+        pub origin_type: i32,
+        /// When this inventory item was first detected.
+        #[prost(message, optional, tag = "8")]
+        pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+        /// When this inventory item was last modified.
+        #[prost(message, optional, tag = "9")]
+        pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+        /// The specific type of inventory, correlating to its specific details.
+        #[prost(enumeration = "item::Type", tag = "5")]
+        pub r#type: i32,
+        /// Specific details of this inventory item based on its type.
+        #[prost(oneof = "item::Details", tags = "6, 7")]
+        pub details: ::core::option::Option<item::Details>,
+    }
+    /// Nested message and enum types in `Item`.
+    pub mod item {
+        /// The origin of a specific inventory item.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum OriginType {
+            /// Invalid. An origin type must be specified.
+            Unspecified = 0,
+            /// This inventory item was discovered as the result of the agent
+            /// reporting inventory via the reporting API.
+            InventoryReport = 1,
+        }
+        impl OriginType {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    OriginType::Unspecified => "ORIGIN_TYPE_UNSPECIFIED",
+                    OriginType::InventoryReport => "INVENTORY_REPORT",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "ORIGIN_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "INVENTORY_REPORT" => Some(Self::InventoryReport),
+                    _ => None,
+                }
+            }
+        }
+        /// The different types of inventory that are tracked on a VM.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum Type {
+            /// Invalid. An type must be specified.
+            Unspecified = 0,
+            /// This represents a package that is installed on the VM.
+            InstalledPackage = 1,
+            /// This represents an update that is available for a package.
+            AvailablePackage = 2,
+        }
+        impl Type {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    Type::Unspecified => "TYPE_UNSPECIFIED",
+                    Type::InstalledPackage => "INSTALLED_PACKAGE",
+                    Type::AvailablePackage => "AVAILABLE_PACKAGE",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "INSTALLED_PACKAGE" => Some(Self::InstalledPackage),
+                    "AVAILABLE_PACKAGE" => Some(Self::AvailablePackage),
+                    _ => None,
+                }
+            }
+        }
+        /// Specific details of this inventory item based on its type.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum Details {
+            /// Software package present on the VM instance.
+            #[prost(message, tag = "6")]
+            InstalledPackage(super::SoftwarePackage),
+            /// Software package available to be installed on the VM instance.
+            #[prost(message, tag = "7")]
+            AvailablePackage(super::SoftwarePackage),
+        }
+    }
+    /// Software package information of the operating system.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct SoftwarePackage {
+        /// Information about the different types of software packages.
+        #[prost(oneof = "software_package::Details", tags = "1, 2, 3, 4, 5, 6, 7, 8, 9")]
+        pub details: ::core::option::Option<software_package::Details>,
+    }
+    /// Nested message and enum types in `SoftwarePackage`.
+    pub mod software_package {
+        /// Information about the different types of software packages.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum Details {
+            /// Yum package info.
+            /// For details about the yum package manager, see
+            /// <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-yum.>
+            #[prost(message, tag = "1")]
+            YumPackage(super::VersionedPackage),
+            /// Details of an APT package.
+            /// For details about the apt package manager, see
+            /// <https://wiki.debian.org/Apt.>
+            #[prost(message, tag = "2")]
+            AptPackage(super::VersionedPackage),
+            /// Details of a Zypper package.
+            /// For details about the Zypper package manager, see
+            /// <https://en.opensuse.org/SDB:Zypper_manual.>
+            #[prost(message, tag = "3")]
+            ZypperPackage(super::VersionedPackage),
+            /// Details of a Googet package.
+            ///   For details about the googet package manager, see
+            ///   <https://github.com/google/googet.>
+            #[prost(message, tag = "4")]
+            GoogetPackage(super::VersionedPackage),
+            /// Details of a Zypper patch.
+            /// For details about the Zypper package manager, see
+            /// <https://en.opensuse.org/SDB:Zypper_manual.>
+            #[prost(message, tag = "5")]
+            ZypperPatch(super::ZypperPatch),
+            /// Details of a Windows Update package.
+            /// See <https://docs.microsoft.com/en-us/windows/win32/api/_wua/> for
+            /// information about Windows Update.
+            #[prost(message, tag = "6")]
+            WuaPackage(super::WindowsUpdatePackage),
+            /// Details of a Windows Quick Fix engineering package.
+            /// See
+            /// <https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/win32-quickfixengineering>
+            /// for info in Windows Quick Fix Engineering.
+            #[prost(message, tag = "7")]
+            QfePackage(super::WindowsQuickFixEngineeringPackage),
+            /// Details of a COS package.
+            #[prost(message, tag = "8")]
+            CosPackage(super::VersionedPackage),
+            /// Details of Windows Application.
+            #[prost(message, tag = "9")]
+            WindowsApplication(super::WindowsApplication),
+        }
+    }
+    /// Information related to the a standard versioned package.  This includes
+    /// package info for APT, Yum, Zypper, and Googet package managers.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct VersionedPackage {
+        /// The name of the package.
+        #[prost(string, tag = "4")]
+        pub package_name: ::prost::alloc::string::String,
+        /// The system architecture this package is intended for.
+        #[prost(string, tag = "2")]
+        pub architecture: ::prost::alloc::string::String,
+        /// The version of the package.
+        #[prost(string, tag = "3")]
+        pub version: ::prost::alloc::string::String,
+    }
+    /// Details related to a Zypper Patch.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ZypperPatch {
+        /// The name of the patch.
+        #[prost(string, tag = "5")]
+        pub patch_name: ::prost::alloc::string::String,
+        /// The category of the patch.
+        #[prost(string, tag = "2")]
+        pub category: ::prost::alloc::string::String,
+        /// The severity specified for this patch
+        #[prost(string, tag = "3")]
+        pub severity: ::prost::alloc::string::String,
+        /// Any summary information provided about this patch.
+        #[prost(string, tag = "4")]
+        pub summary: ::prost::alloc::string::String,
+    }
+    /// Details related to a Windows Update package.
+    /// Field data and names are taken from Windows Update API IUpdate Interface:
+    /// <https://docs.microsoft.com/en-us/windows/win32/api/_wua/>
+    /// Descriptive fields like title, and description are localized based on
+    /// the locale of the VM being updated.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct WindowsUpdatePackage {
+        /// The localized title of the update package.
+        #[prost(string, tag = "1")]
+        pub title: ::prost::alloc::string::String,
+        /// The localized description of the update package.
+        #[prost(string, tag = "2")]
+        pub description: ::prost::alloc::string::String,
+        /// The categories that are associated with this update package.
+        #[prost(message, repeated, tag = "3")]
+        pub categories: ::prost::alloc::vec::Vec<
+            windows_update_package::WindowsUpdateCategory,
+        >,
+        /// A collection of Microsoft Knowledge Base article IDs that are associated
+        /// with the update package.
+        #[prost(string, repeated, tag = "4")]
+        pub kb_article_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// A hyperlink to the language-specific support information for the update.
+        #[prost(string, tag = "11")]
+        pub support_url: ::prost::alloc::string::String,
+        /// A collection of URLs that provide more information about the update
+        /// package.
+        #[prost(string, repeated, tag = "5")]
+        pub more_info_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// Gets the identifier of an update package.  Stays the same across
+        /// revisions.
+        #[prost(string, tag = "6")]
+        pub update_id: ::prost::alloc::string::String,
+        /// The revision number of this update package.
+        #[prost(int32, tag = "7")]
+        pub revision_number: i32,
+        /// The last published date of the update, in (UTC) date and time.
+        #[prost(message, optional, tag = "10")]
+        pub last_deployment_change_time: ::core::option::Option<
+            ::prost_types::Timestamp,
+        >,
+    }
+    /// Nested message and enum types in `WindowsUpdatePackage`.
+    pub mod windows_update_package {
+        /// Categories specified by the Windows Update.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct WindowsUpdateCategory {
+            /// The identifier of the windows update category.
+            #[prost(string, tag = "1")]
+            pub id: ::prost::alloc::string::String,
+            /// The name of the windows update category.
+            #[prost(string, tag = "2")]
+            pub name: ::prost::alloc::string::String,
+        }
+    }
+    /// Information related to a Quick Fix Engineering package.
+    /// Fields are taken from Windows QuickFixEngineering Interface and match
+    /// the source names:
+    /// <https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/win32-quickfixengineering>
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct WindowsQuickFixEngineeringPackage {
+        /// A short textual description of the QFE update.
+        #[prost(string, tag = "1")]
+        pub caption: ::prost::alloc::string::String,
+        /// A textual description of the QFE update.
+        #[prost(string, tag = "2")]
+        pub description: ::prost::alloc::string::String,
+        /// Unique identifier associated with a particular QFE update.
+        #[prost(string, tag = "3")]
+        pub hot_fix_id: ::prost::alloc::string::String,
+        /// Date that the QFE update was installed.  Mapped from installed_on field.
+        #[prost(message, optional, tag = "5")]
+        pub install_time: ::core::option::Option<::prost_types::Timestamp>,
+    }
+    /// Contains information about a Windows application that is retrieved from the
+    /// Windows Registry. For more information about these fields, see:
+    /// <https://docs.microsoft.com/en-us/windows/win32/msi/uninstall-registry-key>
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct WindowsApplication {
+        /// The name of the application or product.
+        #[prost(string, tag = "1")]
+        pub display_name: ::prost::alloc::string::String,
+        /// The version of the product or application in string format.
+        #[prost(string, tag = "2")]
+        pub display_version: ::prost::alloc::string::String,
+        /// The name of the manufacturer for the product or application.
+        #[prost(string, tag = "3")]
+        pub publisher: ::prost::alloc::string::String,
+        /// The last time this product received service. The value of this property
+        /// is replaced each time a patch is applied or removed from the product or
+        /// the command-line option is used to repair the product.
+        #[prost(message, optional, tag = "4")]
+        pub install_date: ::core::option::Option<
+            super::super::super::super::r#type::Date,
+        >,
+        /// The internet address for technical support.
+        #[prost(string, tag = "5")]
+        pub help_link: ::prost::alloc::string::String,
+    }
+}
+/// A request message for getting inventory data for the specified VM.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetInventoryRequest {
+    /// Required. API resource name for inventory resource.
+    ///
+    /// Format:
+    /// `projects/{project}/locations/{location}/instances/{instance}/inventory`
+    ///
+    /// For `{project}`, either `project-number` or `project-id` can be provided.
+    /// For `{instance}`, either Compute Engine  `instance-id` or `instance-name`
+    /// can be provided.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Inventory view indicating what information should be included in the
+    /// inventory resource. If unspecified, the default view is BASIC.
+    #[prost(enumeration = "InventoryView", tag = "2")]
+    pub view: i32,
+}
+/// A request message for listing inventory data for all VMs in the specified
+/// location.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListInventoriesRequest {
+    /// Required. The parent resource name.
+    ///
+    /// Format: `projects/{project}/locations/{location}/instances/-`
+    ///
+    /// For `{project}`, either `project-number` or `project-id` can be provided.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Inventory view indicating what information should be included in the
+    /// inventory resource. If unspecified, the default view is BASIC.
+    #[prost(enumeration = "InventoryView", tag = "2")]
+    pub view: i32,
+    /// The maximum number of results to return.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// A pagination token returned from a previous call to
+    /// `ListInventories` that indicates where this listing
+    /// should continue from.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+    /// If provided, this field specifies the criteria that must be met by a
+    /// `Inventory` API resource to be included in the response.
+    #[prost(string, tag = "5")]
+    pub filter: ::prost::alloc::string::String,
+}
+/// A response message for listing inventory data for all VMs in a specified
+/// location.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListInventoriesResponse {
+    /// List of inventory objects.
+    #[prost(message, repeated, tag = "1")]
+    pub inventories: ::prost::alloc::vec::Vec<Inventory>,
+    /// The pagination token to retrieve the next page of inventory objects.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// The view for inventory objects.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum InventoryView {
+    /// The default value.
+    /// The API defaults to the BASIC view.
+    Unspecified = 0,
+    /// Returns the basic inventory information that includes `os_info`.
+    Basic = 1,
+    /// Returns all fields.
+    Full = 2,
+}
+impl InventoryView {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            InventoryView::Unspecified => "INVENTORY_VIEW_UNSPECIFIED",
+            InventoryView::Basic => "BASIC",
+            InventoryView::Full => "FULL",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "INVENTORY_VIEW_UNSPECIFIED" => Some(Self::Unspecified),
+            "BASIC" => Some(Self::Basic),
+            "FULL" => Some(Self::Full),
+            _ => None,
+        }
+    }
+}
 /// Message encapsulating a value that can be either absolute ("fixed") or
 /// relative ("percent") to a value.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1390,477 +1864,447 @@ pub struct ResumePatchDeploymentRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// This API resource represents the available inventory data for a
-/// Compute Engine virtual machine (VM) instance at a given point in time.
-///
-/// You can use this API resource to determine the inventory data of your VM.
-///
-/// For more information, see [Information provided by OS inventory
-/// management](<https://cloud.google.com/compute/docs/instances/os-inventory-management#data-collected>).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Inventory {
-    /// Output only. The `Inventory` API resource name.
+/// Generated client implementations.
+pub mod os_config_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// OS Config API
     ///
-    /// Format:
-    /// `projects/{project_number}/locations/{location}/instances/{instance_id}/inventory`
-    #[prost(string, tag = "3")]
-    pub name: ::prost::alloc::string::String,
-    /// Base level operating system information for the VM.
-    #[prost(message, optional, tag = "1")]
-    pub os_info: ::core::option::Option<inventory::OsInfo>,
-    /// Inventory items related to the VM keyed by an opaque unique identifier for
-    /// each inventory item.  The identifier is unique to each distinct and
-    /// addressable inventory item and will change, when there is a new package
-    /// version.
-    #[prost(btree_map = "string, message", tag = "2")]
-    pub items: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        inventory::Item,
-    >,
-    /// Output only. Timestamp of the last reported inventory for the VM.
-    #[prost(message, optional, tag = "4")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Nested message and enum types in `Inventory`.
-pub mod inventory {
-    /// Operating system information for the VM.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct OsInfo {
-        /// The VM hostname.
-        #[prost(string, tag = "9")]
-        pub hostname: ::prost::alloc::string::String,
-        /// The operating system long name.
-        /// For example 'Debian GNU/Linux 9' or 'Microsoft Window Server 2019
-        /// Datacenter'.
-        #[prost(string, tag = "2")]
-        pub long_name: ::prost::alloc::string::String,
-        /// The operating system short name.
-        /// For example, 'windows' or 'debian'.
-        #[prost(string, tag = "3")]
-        pub short_name: ::prost::alloc::string::String,
-        /// The version of the operating system.
-        #[prost(string, tag = "4")]
-        pub version: ::prost::alloc::string::String,
-        /// The system architecture of the operating system.
-        #[prost(string, tag = "5")]
-        pub architecture: ::prost::alloc::string::String,
-        /// The kernel version of the operating system.
-        #[prost(string, tag = "6")]
-        pub kernel_version: ::prost::alloc::string::String,
-        /// The kernel release of the operating system.
-        #[prost(string, tag = "7")]
-        pub kernel_release: ::prost::alloc::string::String,
-        /// The current version of the OS Config agent running on the VM.
-        #[prost(string, tag = "8")]
-        pub osconfig_agent_version: ::prost::alloc::string::String,
+    /// The OS Config service is a server-side component that you can use to
+    /// manage package installations and patch jobs for virtual machine instances.
+    #[derive(Debug, Clone)]
+    pub struct OsConfigServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
     }
-    /// A single piece of inventory on a VM.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Item {
-        /// Identifier for this item, unique across items for this VM.
-        #[prost(string, tag = "1")]
-        pub id: ::prost::alloc::string::String,
-        /// The origin of this inventory item.
-        #[prost(enumeration = "item::OriginType", tag = "2")]
-        pub origin_type: i32,
-        /// When this inventory item was first detected.
-        #[prost(message, optional, tag = "8")]
-        pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-        /// When this inventory item was last modified.
-        #[prost(message, optional, tag = "9")]
-        pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-        /// The specific type of inventory, correlating to its specific details.
-        #[prost(enumeration = "item::Type", tag = "5")]
-        pub r#type: i32,
-        /// Specific details of this inventory item based on its type.
-        #[prost(oneof = "item::Details", tags = "6, 7")]
-        pub details: ::core::option::Option<item::Details>,
-    }
-    /// Nested message and enum types in `Item`.
-    pub mod item {
-        /// The origin of a specific inventory item.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum OriginType {
-            /// Invalid. An origin type must be specified.
-            Unspecified = 0,
-            /// This inventory item was discovered as the result of the agent
-            /// reporting inventory via the reporting API.
-            InventoryReport = 1,
+    impl<T> OsConfigServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
         }
-        impl OriginType {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    OriginType::Unspecified => "ORIGIN_TYPE_UNSPECIFIED",
-                    OriginType::InventoryReport => "INVENTORY_REPORT",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "ORIGIN_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                    "INVENTORY_REPORT" => Some(Self::InventoryReport),
-                    _ => None,
-                }
-            }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
         }
-        /// The different types of inventory that are tracked on a VM.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum Type {
-            /// Invalid. An type must be specified.
-            Unspecified = 0,
-            /// This represents a package that is installed on the VM.
-            InstalledPackage = 1,
-            /// This represents an update that is available for a package.
-            AvailablePackage = 2,
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> OsConfigServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            OsConfigServiceClient::new(InterceptedService::new(inner, interceptor))
         }
-        impl Type {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    Type::Unspecified => "TYPE_UNSPECIFIED",
-                    Type::InstalledPackage => "INSTALLED_PACKAGE",
-                    Type::AvailablePackage => "AVAILABLE_PACKAGE",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                    "INSTALLED_PACKAGE" => Some(Self::InstalledPackage),
-                    "AVAILABLE_PACKAGE" => Some(Self::AvailablePackage),
-                    _ => None,
-                }
-            }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
         }
-        /// Specific details of this inventory item based on its type.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum Details {
-            /// Software package present on the VM instance.
-            #[prost(message, tag = "6")]
-            InstalledPackage(super::SoftwarePackage),
-            /// Software package available to be installed on the VM instance.
-            #[prost(message, tag = "7")]
-            AvailablePackage(super::SoftwarePackage),
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
         }
-    }
-    /// Software package information of the operating system.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct SoftwarePackage {
-        /// Information about the different types of software packages.
-        #[prost(oneof = "software_package::Details", tags = "1, 2, 3, 4, 5, 6, 7, 8, 9")]
-        pub details: ::core::option::Option<software_package::Details>,
-    }
-    /// Nested message and enum types in `SoftwarePackage`.
-    pub mod software_package {
-        /// Information about the different types of software packages.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum Details {
-            /// Yum package info.
-            /// For details about the yum package manager, see
-            /// <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-yum.>
-            #[prost(message, tag = "1")]
-            YumPackage(super::VersionedPackage),
-            /// Details of an APT package.
-            /// For details about the apt package manager, see
-            /// <https://wiki.debian.org/Apt.>
-            #[prost(message, tag = "2")]
-            AptPackage(super::VersionedPackage),
-            /// Details of a Zypper package.
-            /// For details about the Zypper package manager, see
-            /// <https://en.opensuse.org/SDB:Zypper_manual.>
-            #[prost(message, tag = "3")]
-            ZypperPackage(super::VersionedPackage),
-            /// Details of a Googet package.
-            ///   For details about the googet package manager, see
-            ///   <https://github.com/google/googet.>
-            #[prost(message, tag = "4")]
-            GoogetPackage(super::VersionedPackage),
-            /// Details of a Zypper patch.
-            /// For details about the Zypper package manager, see
-            /// <https://en.opensuse.org/SDB:Zypper_manual.>
-            #[prost(message, tag = "5")]
-            ZypperPatch(super::ZypperPatch),
-            /// Details of a Windows Update package.
-            /// See <https://docs.microsoft.com/en-us/windows/win32/api/_wua/> for
-            /// information about Windows Update.
-            #[prost(message, tag = "6")]
-            WuaPackage(super::WindowsUpdatePackage),
-            /// Details of a Windows Quick Fix engineering package.
-            /// See
-            /// <https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/win32-quickfixengineering>
-            /// for info in Windows Quick Fix Engineering.
-            #[prost(message, tag = "7")]
-            QfePackage(super::WindowsQuickFixEngineeringPackage),
-            /// Details of a COS package.
-            #[prost(message, tag = "8")]
-            CosPackage(super::VersionedPackage),
-            /// Details of Windows Application.
-            #[prost(message, tag = "9")]
-            WindowsApplication(super::WindowsApplication),
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
         }
-    }
-    /// Information related to the a standard versioned package.  This includes
-    /// package info for APT, Yum, Zypper, and Googet package managers.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct VersionedPackage {
-        /// The name of the package.
-        #[prost(string, tag = "4")]
-        pub package_name: ::prost::alloc::string::String,
-        /// The system architecture this package is intended for.
-        #[prost(string, tag = "2")]
-        pub architecture: ::prost::alloc::string::String,
-        /// The version of the package.
-        #[prost(string, tag = "3")]
-        pub version: ::prost::alloc::string::String,
-    }
-    /// Details related to a Zypper Patch.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ZypperPatch {
-        /// The name of the patch.
-        #[prost(string, tag = "5")]
-        pub patch_name: ::prost::alloc::string::String,
-        /// The category of the patch.
-        #[prost(string, tag = "2")]
-        pub category: ::prost::alloc::string::String,
-        /// The severity specified for this patch
-        #[prost(string, tag = "3")]
-        pub severity: ::prost::alloc::string::String,
-        /// Any summary information provided about this patch.
-        #[prost(string, tag = "4")]
-        pub summary: ::prost::alloc::string::String,
-    }
-    /// Details related to a Windows Update package.
-    /// Field data and names are taken from Windows Update API IUpdate Interface:
-    /// <https://docs.microsoft.com/en-us/windows/win32/api/_wua/>
-    /// Descriptive fields like title, and description are localized based on
-    /// the locale of the VM being updated.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct WindowsUpdatePackage {
-        /// The localized title of the update package.
-        #[prost(string, tag = "1")]
-        pub title: ::prost::alloc::string::String,
-        /// The localized description of the update package.
-        #[prost(string, tag = "2")]
-        pub description: ::prost::alloc::string::String,
-        /// The categories that are associated with this update package.
-        #[prost(message, repeated, tag = "3")]
-        pub categories: ::prost::alloc::vec::Vec<
-            windows_update_package::WindowsUpdateCategory,
-        >,
-        /// A collection of Microsoft Knowledge Base article IDs that are associated
-        /// with the update package.
-        #[prost(string, repeated, tag = "4")]
-        pub kb_article_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-        /// A hyperlink to the language-specific support information for the update.
-        #[prost(string, tag = "11")]
-        pub support_url: ::prost::alloc::string::String,
-        /// A collection of URLs that provide more information about the update
-        /// package.
-        #[prost(string, repeated, tag = "5")]
-        pub more_info_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-        /// Gets the identifier of an update package.  Stays the same across
-        /// revisions.
-        #[prost(string, tag = "6")]
-        pub update_id: ::prost::alloc::string::String,
-        /// The revision number of this update package.
-        #[prost(int32, tag = "7")]
-        pub revision_number: i32,
-        /// The last published date of the update, in (UTC) date and time.
-        #[prost(message, optional, tag = "10")]
-        pub last_deployment_change_time: ::core::option::Option<
-            ::prost_types::Timestamp,
-        >,
-    }
-    /// Nested message and enum types in `WindowsUpdatePackage`.
-    pub mod windows_update_package {
-        /// Categories specified by the Windows Update.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct WindowsUpdateCategory {
-            /// The identifier of the windows update category.
-            #[prost(string, tag = "1")]
-            pub id: ::prost::alloc::string::String,
-            /// The name of the windows update category.
-            #[prost(string, tag = "2")]
-            pub name: ::prost::alloc::string::String,
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
         }
-    }
-    /// Information related to a Quick Fix Engineering package.
-    /// Fields are taken from Windows QuickFixEngineering Interface and match
-    /// the source names:
-    /// <https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/win32-quickfixengineering>
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct WindowsQuickFixEngineeringPackage {
-        /// A short textual description of the QFE update.
-        #[prost(string, tag = "1")]
-        pub caption: ::prost::alloc::string::String,
-        /// A textual description of the QFE update.
-        #[prost(string, tag = "2")]
-        pub description: ::prost::alloc::string::String,
-        /// Unique identifier associated with a particular QFE update.
-        #[prost(string, tag = "3")]
-        pub hot_fix_id: ::prost::alloc::string::String,
-        /// Date that the QFE update was installed.  Mapped from installed_on field.
-        #[prost(message, optional, tag = "5")]
-        pub install_time: ::core::option::Option<::prost_types::Timestamp>,
-    }
-    /// Contains information about a Windows application that is retrieved from the
-    /// Windows Registry. For more information about these fields, see:
-    /// <https://docs.microsoft.com/en-us/windows/win32/msi/uninstall-registry-key>
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct WindowsApplication {
-        /// The name of the application or product.
-        #[prost(string, tag = "1")]
-        pub display_name: ::prost::alloc::string::String,
-        /// The version of the product or application in string format.
-        #[prost(string, tag = "2")]
-        pub display_version: ::prost::alloc::string::String,
-        /// The name of the manufacturer for the product or application.
-        #[prost(string, tag = "3")]
-        pub publisher: ::prost::alloc::string::String,
-        /// The last time this product received service. The value of this property
-        /// is replaced each time a patch is applied or removed from the product or
-        /// the command-line option is used to repair the product.
-        #[prost(message, optional, tag = "4")]
-        pub install_date: ::core::option::Option<
-            super::super::super::super::r#type::Date,
-        >,
-        /// The internet address for technical support.
-        #[prost(string, tag = "5")]
-        pub help_link: ::prost::alloc::string::String,
-    }
-}
-/// A request message for getting inventory data for the specified VM.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetInventoryRequest {
-    /// Required. API resource name for inventory resource.
-    ///
-    /// Format:
-    /// `projects/{project}/locations/{location}/instances/{instance}/inventory`
-    ///
-    /// For `{project}`, either `project-number` or `project-id` can be provided.
-    /// For `{instance}`, either Compute Engine  `instance-id` or `instance-name`
-    /// can be provided.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Inventory view indicating what information should be included in the
-    /// inventory resource. If unspecified, the default view is BASIC.
-    #[prost(enumeration = "InventoryView", tag = "2")]
-    pub view: i32,
-}
-/// A request message for listing inventory data for all VMs in the specified
-/// location.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListInventoriesRequest {
-    /// Required. The parent resource name.
-    ///
-    /// Format: `projects/{project}/locations/{location}/instances/-`
-    ///
-    /// For `{project}`, either `project-number` or `project-id` can be provided.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Inventory view indicating what information should be included in the
-    /// inventory resource. If unspecified, the default view is BASIC.
-    #[prost(enumeration = "InventoryView", tag = "2")]
-    pub view: i32,
-    /// The maximum number of results to return.
-    #[prost(int32, tag = "3")]
-    pub page_size: i32,
-    /// A pagination token returned from a previous call to
-    /// `ListInventories` that indicates where this listing
-    /// should continue from.
-    #[prost(string, tag = "4")]
-    pub page_token: ::prost::alloc::string::String,
-    /// If provided, this field specifies the criteria that must be met by a
-    /// `Inventory` API resource to be included in the response.
-    #[prost(string, tag = "5")]
-    pub filter: ::prost::alloc::string::String,
-}
-/// A response message for listing inventory data for all VMs in a specified
-/// location.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListInventoriesResponse {
-    /// List of inventory objects.
-    #[prost(message, repeated, tag = "1")]
-    pub inventories: ::prost::alloc::vec::Vec<Inventory>,
-    /// The pagination token to retrieve the next page of inventory objects.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// The view for inventory objects.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum InventoryView {
-    /// The default value.
-    /// The API defaults to the BASIC view.
-    Unspecified = 0,
-    /// Returns the basic inventory information that includes `os_info`.
-    Basic = 1,
-    /// Returns all fields.
-    Full = 2,
-}
-impl InventoryView {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            InventoryView::Unspecified => "INVENTORY_VIEW_UNSPECIFIED",
-            InventoryView::Basic => "BASIC",
-            InventoryView::Full => "FULL",
+        /// Patch VM instances by creating and running a patch job.
+        pub async fn execute_patch_job(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ExecutePatchJobRequest>,
+        ) -> std::result::Result<tonic::Response<super::PatchJob>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.osconfig.v1.OsConfigService/ExecutePatchJob",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigService",
+                        "ExecutePatchJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "INVENTORY_VIEW_UNSPECIFIED" => Some(Self::Unspecified),
-            "BASIC" => Some(Self::Basic),
-            "FULL" => Some(Self::Full),
-            _ => None,
+        /// Get the patch job. This can be used to track the progress of an
+        /// ongoing patch job or review the details of completed jobs.
+        pub async fn get_patch_job(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetPatchJobRequest>,
+        ) -> std::result::Result<tonic::Response<super::PatchJob>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.osconfig.v1.OsConfigService/GetPatchJob",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigService",
+                        "GetPatchJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Cancel a patch job. The patch job must be active. Canceled patch jobs
+        /// cannot be restarted.
+        pub async fn cancel_patch_job(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CancelPatchJobRequest>,
+        ) -> std::result::Result<tonic::Response<super::PatchJob>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.osconfig.v1.OsConfigService/CancelPatchJob",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigService",
+                        "CancelPatchJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Get a list of patch jobs.
+        pub async fn list_patch_jobs(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListPatchJobsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListPatchJobsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.osconfig.v1.OsConfigService/ListPatchJobs",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigService",
+                        "ListPatchJobs",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Get a list of instance details for a given patch job.
+        pub async fn list_patch_job_instance_details(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListPatchJobInstanceDetailsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListPatchJobInstanceDetailsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.osconfig.v1.OsConfigService/ListPatchJobInstanceDetails",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigService",
+                        "ListPatchJobInstanceDetails",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Create an OS Config patch deployment.
+        pub async fn create_patch_deployment(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreatePatchDeploymentRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::PatchDeployment>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.osconfig.v1.OsConfigService/CreatePatchDeployment",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigService",
+                        "CreatePatchDeployment",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Get an OS Config patch deployment.
+        pub async fn get_patch_deployment(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetPatchDeploymentRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::PatchDeployment>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.osconfig.v1.OsConfigService/GetPatchDeployment",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigService",
+                        "GetPatchDeployment",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Get a page of OS Config patch deployments.
+        pub async fn list_patch_deployments(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListPatchDeploymentsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListPatchDeploymentsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.osconfig.v1.OsConfigService/ListPatchDeployments",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigService",
+                        "ListPatchDeployments",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Delete an OS Config patch deployment.
+        pub async fn delete_patch_deployment(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeletePatchDeploymentRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.osconfig.v1.OsConfigService/DeletePatchDeployment",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigService",
+                        "DeletePatchDeployment",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Update an OS Config patch deployment.
+        pub async fn update_patch_deployment(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdatePatchDeploymentRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::PatchDeployment>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.osconfig.v1.OsConfigService/UpdatePatchDeployment",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigService",
+                        "UpdatePatchDeployment",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Change state of patch deployment to "PAUSED".
+        /// Patch deployment in paused state doesn't generate patch jobs.
+        pub async fn pause_patch_deployment(
+            &mut self,
+            request: impl tonic::IntoRequest<super::PausePatchDeploymentRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::PatchDeployment>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.osconfig.v1.OsConfigService/PausePatchDeployment",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigService",
+                        "PausePatchDeployment",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Change state of patch deployment back to "ACTIVE".
+        /// Patch deployment in active state continues to generate patch jobs.
+        pub async fn resume_patch_deployment(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ResumePatchDeploymentRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::PatchDeployment>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.osconfig.v1.OsConfigService/ResumePatchDeployment",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigService",
+                        "ResumePatchDeployment",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -4104,6 +4548,22 @@ pub mod os_config_zonal_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Create an OS policy assignment.
         ///
         /// This method also creates the first revision of the OS policy assignment.
@@ -4116,7 +4576,7 @@ pub mod os_config_zonal_service_client {
         pub async fn create_os_policy_assignment(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateOsPolicyAssignmentRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -4133,7 +4593,15 @@ pub mod os_config_zonal_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.v1.OsConfigZonalService/CreateOSPolicyAssignment",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigZonalService",
+                        "CreateOSPolicyAssignment",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Update an existing OS policy assignment.
         ///
@@ -4147,7 +4615,7 @@ pub mod os_config_zonal_service_client {
         pub async fn update_os_policy_assignment(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateOsPolicyAssignmentRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -4164,7 +4632,15 @@ pub mod os_config_zonal_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.v1.OsConfigZonalService/UpdateOSPolicyAssignment",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigZonalService",
+                        "UpdateOSPolicyAssignment",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Retrieve an existing OS policy assignment.
         ///
@@ -4174,7 +4650,10 @@ pub mod os_config_zonal_service_client {
         pub async fn get_os_policy_assignment(
             &mut self,
             request: impl tonic::IntoRequest<super::GetOsPolicyAssignmentRequest>,
-        ) -> Result<tonic::Response<super::OsPolicyAssignment>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::OsPolicyAssignment>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -4188,7 +4667,15 @@ pub mod os_config_zonal_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.v1.OsConfigZonalService/GetOSPolicyAssignment",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigZonalService",
+                        "GetOSPolicyAssignment",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// List the OS policy assignments under the parent resource.
         ///
@@ -4196,7 +4683,7 @@ pub mod os_config_zonal_service_client {
         pub async fn list_os_policy_assignments(
             &mut self,
             request: impl tonic::IntoRequest<super::ListOsPolicyAssignmentsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListOsPolicyAssignmentsResponse>,
             tonic::Status,
         > {
@@ -4213,7 +4700,15 @@ pub mod os_config_zonal_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.v1.OsConfigZonalService/ListOSPolicyAssignments",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigZonalService",
+                        "ListOSPolicyAssignments",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// List the OS policy assignment revisions for a given OS policy assignment.
         pub async fn list_os_policy_assignment_revisions(
@@ -4221,7 +4716,7 @@ pub mod os_config_zonal_service_client {
             request: impl tonic::IntoRequest<
                 super::ListOsPolicyAssignmentRevisionsRequest,
             >,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListOsPolicyAssignmentRevisionsResponse>,
             tonic::Status,
         > {
@@ -4238,7 +4733,15 @@ pub mod os_config_zonal_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.v1.OsConfigZonalService/ListOSPolicyAssignmentRevisions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigZonalService",
+                        "ListOSPolicyAssignmentRevisions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Delete the OS policy assignment.
         ///
@@ -4255,7 +4758,7 @@ pub mod os_config_zonal_service_client {
         pub async fn delete_os_policy_assignment(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteOsPolicyAssignmentRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -4272,14 +4775,25 @@ pub mod os_config_zonal_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.v1.OsConfigZonalService/DeleteOSPolicyAssignment",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigZonalService",
+                        "DeleteOSPolicyAssignment",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Get the OS policy asssignment report for the specified Compute Engine VM
         /// instance.
         pub async fn get_os_policy_assignment_report(
             &mut self,
             request: impl tonic::IntoRequest<super::GetOsPolicyAssignmentReportRequest>,
-        ) -> Result<tonic::Response<super::OsPolicyAssignmentReport>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::OsPolicyAssignmentReport>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -4293,14 +4807,22 @@ pub mod os_config_zonal_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.v1.OsConfigZonalService/GetOSPolicyAssignmentReport",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigZonalService",
+                        "GetOSPolicyAssignmentReport",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// List OS policy asssignment reports for all Compute Engine VM instances in
         /// the specified zone.
         pub async fn list_os_policy_assignment_reports(
             &mut self,
             request: impl tonic::IntoRequest<super::ListOsPolicyAssignmentReportsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListOsPolicyAssignmentReportsResponse>,
             tonic::Status,
         > {
@@ -4317,14 +4839,22 @@ pub mod os_config_zonal_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.v1.OsConfigZonalService/ListOSPolicyAssignmentReports",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigZonalService",
+                        "ListOSPolicyAssignmentReports",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Get inventory data for the specified VM instance. If the VM has no
         /// associated inventory, the message `NOT_FOUND` is returned.
         pub async fn get_inventory(
             &mut self,
             request: impl tonic::IntoRequest<super::GetInventoryRequest>,
-        ) -> Result<tonic::Response<super::Inventory>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Inventory>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -4338,13 +4868,24 @@ pub mod os_config_zonal_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.v1.OsConfigZonalService/GetInventory",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigZonalService",
+                        "GetInventory",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// List inventory data for all VM instances in the specified zone.
         pub async fn list_inventories(
             &mut self,
             request: impl tonic::IntoRequest<super::ListInventoriesRequest>,
-        ) -> Result<tonic::Response<super::ListInventoriesResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListInventoriesResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -4358,14 +4899,25 @@ pub mod os_config_zonal_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.v1.OsConfigZonalService/ListInventories",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigZonalService",
+                        "ListInventories",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the vulnerability report for the specified VM instance. Only VMs with
         /// inventory data have vulnerability reports associated with them.
         pub async fn get_vulnerability_report(
             &mut self,
             request: impl tonic::IntoRequest<super::GetVulnerabilityReportRequest>,
-        ) -> Result<tonic::Response<super::VulnerabilityReport>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::VulnerabilityReport>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -4379,13 +4931,21 @@ pub mod os_config_zonal_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.v1.OsConfigZonalService/GetVulnerabilityReport",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigZonalService",
+                        "GetVulnerabilityReport",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// List vulnerability reports for all VM instances in the specified zone.
         pub async fn list_vulnerability_reports(
             &mut self,
             request: impl tonic::IntoRequest<super::ListVulnerabilityReportsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListVulnerabilityReportsResponse>,
             tonic::Status,
         > {
@@ -4402,321 +4962,15 @@ pub mod os_config_zonal_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.osconfig.v1.OsConfigZonalService/ListVulnerabilityReports",
             );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-    }
-}
-/// Generated client implementations.
-pub mod os_config_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// OS Config API
-    ///
-    /// The OS Config service is a server-side component that you can use to
-    /// manage package installations and patch jobs for virtual machine instances.
-    #[derive(Debug, Clone)]
-    pub struct OsConfigServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> OsConfigServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> OsConfigServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            OsConfigServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Patch VM instances by creating and running a patch job.
-        pub async fn execute_patch_job(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ExecutePatchJobRequest>,
-        ) -> Result<tonic::Response<super::PatchJob>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.osconfig.v1.OsConfigService/ExecutePatchJob",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Get the patch job. This can be used to track the progress of an
-        /// ongoing patch job or review the details of completed jobs.
-        pub async fn get_patch_job(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetPatchJobRequest>,
-        ) -> Result<tonic::Response<super::PatchJob>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.osconfig.v1.OsConfigService/GetPatchJob",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Cancel a patch job. The patch job must be active. Canceled patch jobs
-        /// cannot be restarted.
-        pub async fn cancel_patch_job(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CancelPatchJobRequest>,
-        ) -> Result<tonic::Response<super::PatchJob>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.osconfig.v1.OsConfigService/CancelPatchJob",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Get a list of patch jobs.
-        pub async fn list_patch_jobs(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListPatchJobsRequest>,
-        ) -> Result<tonic::Response<super::ListPatchJobsResponse>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.osconfig.v1.OsConfigService/ListPatchJobs",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Get a list of instance details for a given patch job.
-        pub async fn list_patch_job_instance_details(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListPatchJobInstanceDetailsRequest>,
-        ) -> Result<
-            tonic::Response<super::ListPatchJobInstanceDetailsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.osconfig.v1.OsConfigService/ListPatchJobInstanceDetails",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Create an OS Config patch deployment.
-        pub async fn create_patch_deployment(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreatePatchDeploymentRequest>,
-        ) -> Result<tonic::Response<super::PatchDeployment>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.osconfig.v1.OsConfigService/CreatePatchDeployment",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Get an OS Config patch deployment.
-        pub async fn get_patch_deployment(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetPatchDeploymentRequest>,
-        ) -> Result<tonic::Response<super::PatchDeployment>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.osconfig.v1.OsConfigService/GetPatchDeployment",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Get a page of OS Config patch deployments.
-        pub async fn list_patch_deployments(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListPatchDeploymentsRequest>,
-        ) -> Result<
-            tonic::Response<super::ListPatchDeploymentsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.osconfig.v1.OsConfigService/ListPatchDeployments",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Delete an OS Config patch deployment.
-        pub async fn delete_patch_deployment(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeletePatchDeploymentRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.osconfig.v1.OsConfigService/DeletePatchDeployment",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Update an OS Config patch deployment.
-        pub async fn update_patch_deployment(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdatePatchDeploymentRequest>,
-        ) -> Result<tonic::Response<super::PatchDeployment>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.osconfig.v1.OsConfigService/UpdatePatchDeployment",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Change state of patch deployment to "PAUSED".
-        /// Patch deployment in paused state doesn't generate patch jobs.
-        pub async fn pause_patch_deployment(
-            &mut self,
-            request: impl tonic::IntoRequest<super::PausePatchDeploymentRequest>,
-        ) -> Result<tonic::Response<super::PatchDeployment>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.osconfig.v1.OsConfigService/PausePatchDeployment",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Change state of patch deployment back to "ACTIVE".
-        /// Patch deployment in active state continues to generate patch jobs.
-        pub async fn resume_patch_deployment(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ResumePatchDeploymentRequest>,
-        ) -> Result<tonic::Response<super::PatchDeployment>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.osconfig.v1.OsConfigService/ResumePatchDeployment",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.osconfig.v1.OsConfigZonalService",
+                        "ListVulnerabilityReports",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

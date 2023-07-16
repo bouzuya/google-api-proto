@@ -1,3 +1,937 @@
+/// An Application resource contains the top-level configuration of an App
+/// Engine application.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Application {
+    /// Full path to the Application resource in the API.
+    /// Example: `apps/myapp`.
+    ///
+    /// @OutputOnly
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Identifier of the Application resource. This identifier is equivalent
+    /// to the project ID of the Google Cloud Platform project where you want to
+    /// deploy your application.
+    /// Example: `myapp`.
+    #[prost(string, tag = "2")]
+    pub id: ::prost::alloc::string::String,
+    /// HTTP path dispatch rules for requests to the application that do not
+    /// explicitly target a service or version. Rules are order-dependent.
+    /// Up to 20 dispatch rules can be supported.
+    #[prost(message, repeated, tag = "3")]
+    pub dispatch_rules: ::prost::alloc::vec::Vec<UrlDispatchRule>,
+    /// Google Apps authentication domain that controls which users can access
+    /// this application.
+    ///
+    /// Defaults to open access for any Google Account.
+    #[prost(string, tag = "6")]
+    pub auth_domain: ::prost::alloc::string::String,
+    /// Location from which this application runs. Application instances
+    /// run out of the data centers in the specified location, which is also where
+    /// all of the application's end user content is stored.
+    ///
+    /// Defaults to `us-central`.
+    ///
+    /// View the list of
+    /// [supported locations](<https://cloud.google.com/appengine/docs/locations>).
+    #[prost(string, tag = "7")]
+    pub location_id: ::prost::alloc::string::String,
+    /// Google Cloud Storage bucket that can be used for storing files
+    /// associated with this application. This bucket is associated with the
+    /// application and can be used by the gcloud deployment commands.
+    ///
+    /// @OutputOnly
+    #[prost(string, tag = "8")]
+    pub code_bucket: ::prost::alloc::string::String,
+    /// Cookie expiration policy for this application.
+    #[prost(message, optional, tag = "9")]
+    pub default_cookie_expiration: ::core::option::Option<::prost_types::Duration>,
+    /// Serving status of this application.
+    #[prost(enumeration = "application::ServingStatus", tag = "10")]
+    pub serving_status: i32,
+    /// Hostname used to reach this application, as resolved by App Engine.
+    ///
+    /// @OutputOnly
+    #[prost(string, tag = "11")]
+    pub default_hostname: ::prost::alloc::string::String,
+    /// Google Cloud Storage bucket that can be used by this application to store
+    /// content.
+    ///
+    /// @OutputOnly
+    #[prost(string, tag = "12")]
+    pub default_bucket: ::prost::alloc::string::String,
+    #[prost(message, optional, tag = "14")]
+    pub iap: ::core::option::Option<application::IdentityAwareProxy>,
+    /// The Google Container Registry domain used for storing managed build docker
+    /// images for this application.
+    #[prost(string, tag = "16")]
+    pub gcr_domain: ::prost::alloc::string::String,
+    /// The type of the Cloud Firestore or Cloud Datastore database associated with
+    /// this application.
+    #[prost(enumeration = "application::DatabaseType", tag = "17")]
+    pub database_type: i32,
+    /// The feature specific settings to be used in the application.
+    #[prost(message, optional, tag = "18")]
+    pub feature_settings: ::core::option::Option<application::FeatureSettings>,
+}
+/// Nested message and enum types in `Application`.
+pub mod application {
+    /// Identity-Aware Proxy
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct IdentityAwareProxy {
+        /// Whether the serving infrastructure will authenticate and
+        /// authorize all incoming requests.
+        ///
+        /// If true, the `oauth2_client_id` and `oauth2_client_secret`
+        /// fields must be non-empty.
+        #[prost(bool, tag = "1")]
+        pub enabled: bool,
+        /// OAuth2 client ID to use for the authentication flow.
+        #[prost(string, tag = "2")]
+        pub oauth2_client_id: ::prost::alloc::string::String,
+        /// OAuth2 client secret to use for the authentication flow.
+        ///
+        /// For security reasons, this value cannot be retrieved via the API.
+        /// Instead, the SHA-256 hash of the value is returned in the
+        /// `oauth2_client_secret_sha256` field.
+        ///
+        /// @InputOnly
+        #[prost(string, tag = "3")]
+        pub oauth2_client_secret: ::prost::alloc::string::String,
+        /// Hex-encoded SHA-256 hash of the client secret.
+        ///
+        /// @OutputOnly
+        #[prost(string, tag = "4")]
+        pub oauth2_client_secret_sha256: ::prost::alloc::string::String,
+    }
+    /// The feature specific settings to be used in the application. These define
+    /// behaviors that are user configurable.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FeatureSettings {
+        /// Boolean value indicating if split health checks should be used instead
+        /// of the legacy health checks. At an app.yaml level, this means defaulting
+        /// to 'readiness_check' and 'liveness_check' values instead of
+        /// 'health_check' ones. Once the legacy 'health_check' behavior is
+        /// deprecated, and this value is always true, this setting can
+        /// be removed.
+        #[prost(bool, tag = "1")]
+        pub split_health_checks: bool,
+        /// If true, use [Container-Optimized OS](<https://cloud.google.com/container-optimized-os/>)
+        /// base image for VMs, rather than a base Debian image.
+        #[prost(bool, tag = "2")]
+        pub use_container_optimized_os: bool,
+    }
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ServingStatus {
+        /// Serving status is unspecified.
+        Unspecified = 0,
+        /// Application is serving.
+        Serving = 1,
+        /// Application has been disabled by the user.
+        UserDisabled = 2,
+        /// Application has been disabled by the system.
+        SystemDisabled = 3,
+    }
+    impl ServingStatus {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ServingStatus::Unspecified => "UNSPECIFIED",
+                ServingStatus::Serving => "SERVING",
+                ServingStatus::UserDisabled => "USER_DISABLED",
+                ServingStatus::SystemDisabled => "SYSTEM_DISABLED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNSPECIFIED" => Some(Self::Unspecified),
+                "SERVING" => Some(Self::Serving),
+                "USER_DISABLED" => Some(Self::UserDisabled),
+                "SYSTEM_DISABLED" => Some(Self::SystemDisabled),
+                _ => None,
+            }
+        }
+    }
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum DatabaseType {
+        /// Database type is unspecified.
+        Unspecified = 0,
+        /// Cloud Datastore
+        CloudDatastore = 1,
+        /// Cloud Firestore Native
+        CloudFirestore = 2,
+        /// Cloud Firestore in Datastore Mode
+        CloudDatastoreCompatibility = 3,
+    }
+    impl DatabaseType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                DatabaseType::Unspecified => "DATABASE_TYPE_UNSPECIFIED",
+                DatabaseType::CloudDatastore => "CLOUD_DATASTORE",
+                DatabaseType::CloudFirestore => "CLOUD_FIRESTORE",
+                DatabaseType::CloudDatastoreCompatibility => {
+                    "CLOUD_DATASTORE_COMPATIBILITY"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "DATABASE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CLOUD_DATASTORE" => Some(Self::CloudDatastore),
+                "CLOUD_FIRESTORE" => Some(Self::CloudFirestore),
+                "CLOUD_DATASTORE_COMPATIBILITY" => {
+                    Some(Self::CloudDatastoreCompatibility)
+                }
+                _ => None,
+            }
+        }
+    }
+}
+/// Rules to match an HTTP request and dispatch that request to a service.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UrlDispatchRule {
+    /// Domain name to match against. The wildcard "`*`" is supported if
+    /// specified before a period: "`*.`".
+    ///
+    /// Defaults to matching all domains: "`*`".
+    #[prost(string, tag = "1")]
+    pub domain: ::prost::alloc::string::String,
+    /// Pathname within the host. Must start with a "`/`". A
+    /// single "`*`" can be included at the end of the path.
+    ///
+    /// The sum of the lengths of the domain and path may not
+    /// exceed 100 characters.
+    #[prost(string, tag = "2")]
+    pub path: ::prost::alloc::string::String,
+    /// Resource ID of a service in this application that should
+    /// serve the matched request. The service must already
+    /// exist. Example: `default`.
+    #[prost(string, tag = "3")]
+    pub service: ::prost::alloc::string::String,
+}
+/// Metadata for the given \[google.longrunning.Operation][google.longrunning.Operation\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OperationMetadataV1Beta {
+    /// API method that initiated this operation. Example:
+    /// `google.appengine.v1beta.Versions.CreateVersion`.
+    ///
+    /// @OutputOnly
+    #[prost(string, tag = "1")]
+    pub method: ::prost::alloc::string::String,
+    /// Time that this operation was created.
+    ///
+    /// @OutputOnly
+    #[prost(message, optional, tag = "2")]
+    pub insert_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Time that this operation completed.
+    ///
+    /// @OutputOnly
+    #[prost(message, optional, tag = "3")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// User who requested this operation.
+    ///
+    /// @OutputOnly
+    #[prost(string, tag = "4")]
+    pub user: ::prost::alloc::string::String,
+    /// Name of the resource that this operation is acting on. Example:
+    /// `apps/myapp/services/default`.
+    ///
+    /// @OutputOnly
+    #[prost(string, tag = "5")]
+    pub target: ::prost::alloc::string::String,
+    /// Ephemeral message that may change every time the operation is polled.
+    /// @OutputOnly
+    #[prost(string, tag = "6")]
+    pub ephemeral_message: ::prost::alloc::string::String,
+    /// Durable messages that persist on every operation poll.
+    /// @OutputOnly
+    #[prost(string, repeated, tag = "7")]
+    pub warning: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Metadata specific to the type of operation in progress.
+    /// @OutputOnly
+    #[prost(oneof = "operation_metadata_v1_beta::MethodMetadata", tags = "8")]
+    pub method_metadata: ::core::option::Option<
+        operation_metadata_v1_beta::MethodMetadata,
+    >,
+}
+/// Nested message and enum types in `OperationMetadataV1Beta`.
+pub mod operation_metadata_v1_beta {
+    /// Metadata specific to the type of operation in progress.
+    /// @OutputOnly
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum MethodMetadata {
+        #[prost(message, tag = "8")]
+        CreateVersionMetadata(super::CreateVersionMetadataV1Beta),
+    }
+}
+/// Metadata for the given \[google.longrunning.Operation][google.longrunning.Operation\] during a
+/// \[google.appengine.v1beta.CreateVersionRequest][google.appengine.v1beta.CreateVersionRequest\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateVersionMetadataV1Beta {
+    /// The Cloud Build ID if one was created as part of the version create.
+    /// @OutputOnly
+    #[prost(string, tag = "1")]
+    pub cloud_build_id: ::prost::alloc::string::String,
+}
+/// An SSL certificate that a user has been authorized to administer. A user
+/// is authorized to administer any certificate that applies to one of their
+/// authorized domains.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AuthorizedCertificate {
+    /// Full path to the `AuthorizedCertificate` resource in the API. Example:
+    /// `apps/myapp/authorizedCertificates/12345`.
+    ///
+    /// @OutputOnly
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Relative name of the certificate. This is a unique value autogenerated
+    /// on `AuthorizedCertificate` resource creation. Example: `12345`.
+    ///
+    /// @OutputOnly
+    #[prost(string, tag = "2")]
+    pub id: ::prost::alloc::string::String,
+    /// The user-specified display name of the certificate. This is not
+    /// guaranteed to be unique. Example: `My Certificate`.
+    #[prost(string, tag = "3")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Topmost applicable domains of this certificate. This certificate
+    /// applies to these domains and their subdomains. Example: `example.com`.
+    ///
+    /// @OutputOnly
+    #[prost(string, repeated, tag = "4")]
+    pub domain_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The time when this certificate expires. To update the renewal time on this
+    /// certificate, upload an SSL certificate with a different expiration time
+    /// using \[`AuthorizedCertificates.UpdateAuthorizedCertificate`\]().
+    ///
+    /// @OutputOnly
+    #[prost(message, optional, tag = "5")]
+    pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The SSL certificate serving the `AuthorizedCertificate` resource. This
+    /// must be obtained independently from a certificate authority.
+    #[prost(message, optional, tag = "6")]
+    pub certificate_raw_data: ::core::option::Option<CertificateRawData>,
+    /// Only applicable if this certificate is managed by App Engine. Managed
+    /// certificates are tied to the lifecycle of a `DomainMapping` and cannot be
+    /// updated or deleted via the `AuthorizedCertificates` API. If this
+    /// certificate is manually administered by the user, this field will be empty.
+    ///
+    /// @OutputOnly
+    #[prost(message, optional, tag = "7")]
+    pub managed_certificate: ::core::option::Option<ManagedCertificate>,
+    /// The full paths to user visible Domain Mapping resources that have this
+    /// certificate mapped. Example: `apps/myapp/domainMappings/example.com`.
+    ///
+    /// This may not represent the full list of mapped domain mappings if the user
+    /// does not have `VIEWER` permissions on all of the applications that have
+    /// this certificate mapped. See `domain_mappings_count` for a complete count.
+    ///
+    /// Only returned by `GET` or `LIST` requests when specifically requested by
+    /// the `view=FULL_CERTIFICATE` option.
+    ///
+    /// @OutputOnly
+    #[prost(string, repeated, tag = "8")]
+    pub visible_domain_mappings: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
+    /// Aggregate count of the domain mappings with this certificate mapped. This
+    /// count includes domain mappings on applications for which the user does not
+    /// have `VIEWER` permissions.
+    ///
+    /// Only returned by `GET` or `LIST` requests when specifically requested by
+    /// the `view=FULL_CERTIFICATE` option.
+    ///
+    /// @OutputOnly
+    #[prost(int32, tag = "9")]
+    pub domain_mappings_count: i32,
+}
+/// An SSL certificate obtained from a certificate authority.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CertificateRawData {
+    /// PEM encoded x.509 public key certificate. This field is set once on
+    /// certificate creation. Must include the header and footer. Example:
+    /// <pre>
+    /// -----BEGIN CERTIFICATE-----
+    /// <certificate_value>
+    /// -----END CERTIFICATE-----
+    /// </pre>
+    #[prost(string, tag = "1")]
+    pub public_certificate: ::prost::alloc::string::String,
+    /// Unencrypted PEM encoded RSA private key. This field is set once on
+    /// certificate creation and then encrypted. The key size must be 2048
+    /// bits or fewer. Must include the header and footer. Example:
+    /// <pre>
+    /// -----BEGIN RSA PRIVATE KEY-----
+    /// <unencrypted_key_value>
+    /// -----END RSA PRIVATE KEY-----
+    /// </pre>
+    /// @InputOnly
+    #[prost(string, tag = "2")]
+    pub private_key: ::prost::alloc::string::String,
+}
+/// A certificate managed by App Engine.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ManagedCertificate {
+    /// Time at which the certificate was last renewed. The renewal process is
+    /// fully managed. Certificate renewal will automatically occur before the
+    /// certificate expires. Renewal errors can be tracked via `ManagementStatus`.
+    ///
+    /// @OutputOnly
+    #[prost(message, optional, tag = "1")]
+    pub last_renewal_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Status of certificate management. Refers to the most recent certificate
+    /// acquisition or renewal attempt.
+    ///
+    /// @OutputOnly
+    #[prost(enumeration = "ManagementStatus", tag = "2")]
+    pub status: i32,
+}
+/// State of certificate management. Refers to the most recent certificate
+/// acquisition or renewal attempt.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum ManagementStatus {
+    Unspecified = 0,
+    /// Certificate was successfully obtained and inserted into the serving
+    /// system.
+    Ok = 1,
+    /// Certificate is under active attempts to acquire or renew.
+    Pending = 2,
+    /// Most recent renewal failed due to an invalid DNS setup and will be
+    /// retried. Renewal attempts will continue to fail until the certificate
+    /// domain's DNS configuration is fixed. The last successfully provisioned
+    /// certificate may still be serving.
+    FailedRetryingNotVisible = 4,
+    /// All renewal attempts have been exhausted, likely due to an invalid DNS
+    /// setup.
+    FailedPermanent = 6,
+    /// Most recent renewal failed due to an explicit CAA record that does not
+    /// include one of the in-use CAs (Google CA and Let's Encrypt). Renewals will
+    /// continue to fail until the CAA is reconfigured. The last successfully
+    /// provisioned certificate may still be serving.
+    FailedRetryingCaaForbidden = 7,
+    /// Most recent renewal failed due to a CAA retrieval failure. This means that
+    /// the domain's DNS provider does not properly handle CAA records, failing
+    /// requests for CAA records when no CAA records are defined. Renewals will
+    /// continue to fail until the DNS provider is changed or a CAA record is
+    /// added for the given domain. The last successfully provisioned certificate
+    /// may still be serving.
+    FailedRetryingCaaChecking = 8,
+}
+impl ManagementStatus {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            ManagementStatus::Unspecified => "MANAGEMENT_STATUS_UNSPECIFIED",
+            ManagementStatus::Ok => "OK",
+            ManagementStatus::Pending => "PENDING",
+            ManagementStatus::FailedRetryingNotVisible => "FAILED_RETRYING_NOT_VISIBLE",
+            ManagementStatus::FailedPermanent => "FAILED_PERMANENT",
+            ManagementStatus::FailedRetryingCaaForbidden => {
+                "FAILED_RETRYING_CAA_FORBIDDEN"
+            }
+            ManagementStatus::FailedRetryingCaaChecking => "FAILED_RETRYING_CAA_CHECKING",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "MANAGEMENT_STATUS_UNSPECIFIED" => Some(Self::Unspecified),
+            "OK" => Some(Self::Ok),
+            "PENDING" => Some(Self::Pending),
+            "FAILED_RETRYING_NOT_VISIBLE" => Some(Self::FailedRetryingNotVisible),
+            "FAILED_PERMANENT" => Some(Self::FailedPermanent),
+            "FAILED_RETRYING_CAA_FORBIDDEN" => Some(Self::FailedRetryingCaaForbidden),
+            "FAILED_RETRYING_CAA_CHECKING" => Some(Self::FailedRetryingCaaChecking),
+            _ => None,
+        }
+    }
+}
+/// A domain that a user has been authorized to administer. To authorize use
+/// of a domain, verify ownership via
+/// [Search Console](<https://search.google.com/search-console/welcome>).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AuthorizedDomain {
+    /// Full path to the `AuthorizedDomain` resource in the API. Example:
+    /// `apps/myapp/authorizedDomains/example.com`.
+    ///
+    /// @OutputOnly
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Fully qualified domain name of the domain authorized for use. Example:
+    /// `example.com`.
+    #[prost(string, tag = "2")]
+    pub id: ::prost::alloc::string::String,
+}
+/// A domain serving an App Engine application.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DomainMapping {
+    /// Full path to the `DomainMapping` resource in the API. Example:
+    /// `apps/myapp/domainMapping/example.com`.
+    ///
+    /// @OutputOnly
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Relative name of the domain serving the application. Example:
+    /// `example.com`.
+    #[prost(string, tag = "2")]
+    pub id: ::prost::alloc::string::String,
+    /// SSL configuration for this domain. If unconfigured, this domain will not
+    /// serve with SSL.
+    #[prost(message, optional, tag = "3")]
+    pub ssl_settings: ::core::option::Option<SslSettings>,
+    /// The resource records required to configure this domain mapping. These
+    /// records must be added to the domain's DNS configuration in order to
+    /// serve the application via this domain mapping.
+    ///
+    /// @OutputOnly
+    #[prost(message, repeated, tag = "4")]
+    pub resource_records: ::prost::alloc::vec::Vec<ResourceRecord>,
+}
+/// SSL configuration for a `DomainMapping` resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SslSettings {
+    /// ID of the `AuthorizedCertificate` resource configuring SSL for the
+    /// application. Clearing this field will remove SSL support.
+    ///
+    /// By default, a managed certificate is automatically created for every
+    /// domain mapping. To omit SSL support or to configure SSL manually, specify
+    /// `SslManagementType.MANUAL` on a `CREATE` or `UPDATE` request. You must
+    /// be authorized to administer the `AuthorizedCertificate` resource to
+    /// manually map it to a `DomainMapping` resource.
+    /// Example: `12345`.
+    #[prost(string, tag = "1")]
+    pub certificate_id: ::prost::alloc::string::String,
+    /// SSL management type for this domain. If `AUTOMATIC`, a managed certificate
+    /// is automatically provisioned. If `MANUAL`, `certificate_id` must be
+    /// manually specified in order to configure SSL for this domain.
+    #[prost(enumeration = "ssl_settings::SslManagementType", tag = "3")]
+    pub ssl_management_type: i32,
+    /// ID of the managed `AuthorizedCertificate` resource currently being
+    /// provisioned, if applicable. Until the new managed certificate has been
+    /// successfully provisioned, the previous SSL state will be preserved. Once
+    /// the provisioning process completes, the `certificate_id` field will reflect
+    /// the new managed certificate and this field will be left empty. To remove
+    /// SSL support while there is still a pending managed certificate, clear the
+    /// `certificate_id` field with an `UpdateDomainMappingRequest`.
+    ///
+    /// @OutputOnly
+    #[prost(string, tag = "4")]
+    pub pending_managed_certificate_id: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `SslSettings`.
+pub mod ssl_settings {
+    /// The SSL management type for this domain.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum SslManagementType {
+        /// SSL support for this domain is configured automatically. The mapped SSL
+        /// certificate will be automatically renewed.
+        Automatic = 0,
+        /// SSL support for this domain is configured manually by the user. Either
+        /// the domain has no SSL support or a user-obtained SSL certificate has been
+        /// explictly mapped to this domain.
+        Manual = 1,
+    }
+    impl SslManagementType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                SslManagementType::Automatic => "AUTOMATIC",
+                SslManagementType::Manual => "MANUAL",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "AUTOMATIC" => Some(Self::Automatic),
+                "MANUAL" => Some(Self::Manual),
+                _ => None,
+            }
+        }
+    }
+}
+/// A DNS resource record.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResourceRecord {
+    /// Relative name of the object affected by this record. Only applicable for
+    /// `CNAME` records. Example: 'www'.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Data for this record. Values vary by record type, as defined in RFC 1035
+    /// (section 5) and RFC 1034 (section 3.6.1).
+    #[prost(string, tag = "2")]
+    pub rrdata: ::prost::alloc::string::String,
+    /// Resource record type. Example: `AAAA`.
+    #[prost(enumeration = "resource_record::RecordType", tag = "3")]
+    pub r#type: i32,
+}
+/// Nested message and enum types in `ResourceRecord`.
+pub mod resource_record {
+    /// A resource record type.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum RecordType {
+        /// An A resource record. Data is an IPv4 address.
+        A = 0,
+        /// An AAAA resource record. Data is an IPv6 address.
+        Aaaa = 1,
+        /// A CNAME resource record. Data is a domain name to be aliased.
+        Cname = 2,
+    }
+    impl RecordType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                RecordType::A => "A",
+                RecordType::Aaaa => "AAAA",
+                RecordType::Cname => "CNAME",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "A" => Some(Self::A),
+                "AAAA" => Some(Self::Aaaa),
+                "CNAME" => Some(Self::Cname),
+                _ => None,
+            }
+        }
+    }
+}
+/// A single firewall rule that is evaluated against incoming traffic
+/// and provides an action to take on matched requests.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FirewallRule {
+    /// A positive integer between [1, Int32.MaxValue-1] that defines the order of
+    /// rule evaluation. Rules with the lowest priority are evaluated first.
+    ///
+    /// A default rule at priority Int32.MaxValue matches all IPv4 and IPv6 traffic
+    /// when no previous rule matches. Only the action of this rule can be modified
+    /// by the user.
+    #[prost(int32, tag = "1")]
+    pub priority: i32,
+    /// The action to take on matched requests.
+    #[prost(enumeration = "firewall_rule::Action", tag = "2")]
+    pub action: i32,
+    /// IP address or range, defined using CIDR notation, of requests that this
+    /// rule applies to. You can use the wildcard character "*" to match all IPs
+    /// equivalent to "0/0" and "::/0" together.
+    /// Examples: `192.168.1.1` or `192.168.0.0/16` or `2001:db8::/32`
+    ///            or `2001:0db8:0000:0042:0000:8a2e:0370:7334`.
+    ///
+    ///
+    /// <p>Truncation will be silently performed on addresses which are not
+    /// properly truncated. For example, `1.2.3.4/24` is accepted as the same
+    /// address as `1.2.3.0/24`. Similarly, for IPv6, `2001:db8::1/32` is accepted
+    /// as the same address as `2001:db8::/32`.
+    #[prost(string, tag = "3")]
+    pub source_range: ::prost::alloc::string::String,
+    /// An optional string description of this rule.
+    /// This field has a maximum length of 100 characters.
+    #[prost(string, tag = "4")]
+    pub description: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `FirewallRule`.
+pub mod firewall_rule {
+    /// Available actions to take on matching requests.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Action {
+        UnspecifiedAction = 0,
+        /// Matching requests are allowed.
+        Allow = 1,
+        /// Matching requests are denied.
+        Deny = 2,
+    }
+    impl Action {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Action::UnspecifiedAction => "UNSPECIFIED_ACTION",
+                Action::Allow => "ALLOW",
+                Action::Deny => "DENY",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNSPECIFIED_ACTION" => Some(Self::UnspecifiedAction),
+                "ALLOW" => Some(Self::Allow),
+                "DENY" => Some(Self::Deny),
+                _ => None,
+            }
+        }
+    }
+}
+/// An Instance resource is the computing unit that App Engine uses to
+/// automatically scale an application.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Instance {
+    /// Output only. Full path to the Instance resource in the API.
+    /// Example: `apps/myapp/services/default/versions/v1/instances/instance-1`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Relative name of the instance within the version.
+    /// Example: `instance-1`.
+    #[prost(string, tag = "2")]
+    pub id: ::prost::alloc::string::String,
+    /// Output only. App Engine release this instance is running on.
+    #[prost(string, tag = "3")]
+    pub app_engine_release: ::prost::alloc::string::String,
+    /// Output only. Availability of the instance.
+    #[prost(enumeration = "instance::Availability", tag = "4")]
+    pub availability: i32,
+    /// Output only. Name of the virtual machine where this instance lives. Only applicable
+    /// for instances in App Engine flexible environment.
+    #[prost(string, tag = "5")]
+    pub vm_name: ::prost::alloc::string::String,
+    /// Output only. Zone where the virtual machine is located. Only applicable for instances
+    /// in App Engine flexible environment.
+    #[prost(string, tag = "6")]
+    pub vm_zone_name: ::prost::alloc::string::String,
+    /// Output only. Virtual machine ID of this instance. Only applicable for instances in
+    /// App Engine flexible environment.
+    #[prost(string, tag = "7")]
+    pub vm_id: ::prost::alloc::string::String,
+    /// Output only. Time that this instance was started.
+    ///
+    /// @OutputOnly
+    #[prost(message, optional, tag = "8")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Number of requests since this instance was started.
+    #[prost(int32, tag = "9")]
+    pub requests: i32,
+    /// Output only. Number of errors since this instance was started.
+    #[prost(int32, tag = "10")]
+    pub errors: i32,
+    /// Output only. Average queries per second (QPS) over the last minute.
+    #[prost(float, tag = "11")]
+    pub qps: f32,
+    /// Output only. Average latency (ms) over the last minute.
+    #[prost(int32, tag = "12")]
+    pub average_latency: i32,
+    /// Output only. Total memory in use (bytes).
+    #[prost(int64, tag = "13")]
+    pub memory_usage: i64,
+    /// Output only. Status of the virtual machine where this instance lives. Only applicable
+    /// for instances in App Engine flexible environment.
+    #[prost(string, tag = "14")]
+    pub vm_status: ::prost::alloc::string::String,
+    /// Output only. Whether this instance is in debug mode. Only applicable for instances in
+    /// App Engine flexible environment.
+    #[prost(bool, tag = "15")]
+    pub vm_debug_enabled: bool,
+    /// Output only. The IP address of this instance. Only applicable for instances in App
+    /// Engine flexible environment.
+    #[prost(string, tag = "16")]
+    pub vm_ip: ::prost::alloc::string::String,
+    /// Output only. The liveness health check of this instance. Only applicable for instances
+    /// in App Engine flexible environment.
+    #[prost(enumeration = "instance::liveness::LivenessState", tag = "17")]
+    pub vm_liveness: i32,
+}
+/// Nested message and enum types in `Instance`.
+pub mod instance {
+    /// Wrapper for LivenessState enum.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Liveness {}
+    /// Nested message and enum types in `Liveness`.
+    pub mod liveness {
+        /// Liveness health check status for Flex instances.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum LivenessState {
+            /// There is no liveness health check for the instance. Only applicable for
+            /// instances in App Engine standard environment.
+            Unspecified = 0,
+            /// The health checking system is aware of the instance but its health is
+            /// not known at the moment.
+            Unknown = 1,
+            /// The instance is reachable i.e. a connection to the application health
+            /// checking endpoint can be established, and conforms to the requirements
+            /// defined by the health check.
+            Healthy = 2,
+            /// The instance is reachable, but does not conform to the requirements
+            /// defined by the health check.
+            Unhealthy = 3,
+            /// The instance is being drained. The existing connections to the instance
+            /// have time to complete, but the new ones are being refused.
+            Draining = 4,
+            /// The instance is unreachable i.e. a connection to the application health
+            /// checking endpoint cannot be established, or the server does not respond
+            /// within the specified timeout.
+            Timeout = 5,
+        }
+        impl LivenessState {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    LivenessState::Unspecified => "LIVENESS_STATE_UNSPECIFIED",
+                    LivenessState::Unknown => "UNKNOWN",
+                    LivenessState::Healthy => "HEALTHY",
+                    LivenessState::Unhealthy => "UNHEALTHY",
+                    LivenessState::Draining => "DRAINING",
+                    LivenessState::Timeout => "TIMEOUT",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "LIVENESS_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "UNKNOWN" => Some(Self::Unknown),
+                    "HEALTHY" => Some(Self::Healthy),
+                    "UNHEALTHY" => Some(Self::Unhealthy),
+                    "DRAINING" => Some(Self::Draining),
+                    "TIMEOUT" => Some(Self::Timeout),
+                    _ => None,
+                }
+            }
+        }
+    }
+    /// Availability of the instance.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Availability {
+        Unspecified = 0,
+        Resident = 1,
+        Dynamic = 2,
+    }
+    impl Availability {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Availability::Unspecified => "UNSPECIFIED",
+                Availability::Resident => "RESIDENT",
+                Availability::Dynamic => "DYNAMIC",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNSPECIFIED" => Some(Self::Unspecified),
+                "RESIDENT" => Some(Self::Resident),
+                "DYNAMIC" => Some(Self::Dynamic),
+                _ => None,
+            }
+        }
+    }
+}
 /// [Google Cloud Endpoints](<https://cloud.google.com/appengine/docs/python/endpoints/>)
 /// configuration for API handlers.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1399,873 +2333,6 @@ impl ServingStatus {
         }
     }
 }
-/// An Application resource contains the top-level configuration of an App
-/// Engine application.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Application {
-    /// Full path to the Application resource in the API.
-    /// Example: `apps/myapp`.
-    ///
-    /// @OutputOnly
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Identifier of the Application resource. This identifier is equivalent
-    /// to the project ID of the Google Cloud Platform project where you want to
-    /// deploy your application.
-    /// Example: `myapp`.
-    #[prost(string, tag = "2")]
-    pub id: ::prost::alloc::string::String,
-    /// HTTP path dispatch rules for requests to the application that do not
-    /// explicitly target a service or version. Rules are order-dependent.
-    /// Up to 20 dispatch rules can be supported.
-    #[prost(message, repeated, tag = "3")]
-    pub dispatch_rules: ::prost::alloc::vec::Vec<UrlDispatchRule>,
-    /// Google Apps authentication domain that controls which users can access
-    /// this application.
-    ///
-    /// Defaults to open access for any Google Account.
-    #[prost(string, tag = "6")]
-    pub auth_domain: ::prost::alloc::string::String,
-    /// Location from which this application runs. Application instances
-    /// run out of the data centers in the specified location, which is also where
-    /// all of the application's end user content is stored.
-    ///
-    /// Defaults to `us-central`.
-    ///
-    /// View the list of
-    /// [supported locations](<https://cloud.google.com/appengine/docs/locations>).
-    #[prost(string, tag = "7")]
-    pub location_id: ::prost::alloc::string::String,
-    /// Google Cloud Storage bucket that can be used for storing files
-    /// associated with this application. This bucket is associated with the
-    /// application and can be used by the gcloud deployment commands.
-    ///
-    /// @OutputOnly
-    #[prost(string, tag = "8")]
-    pub code_bucket: ::prost::alloc::string::String,
-    /// Cookie expiration policy for this application.
-    #[prost(message, optional, tag = "9")]
-    pub default_cookie_expiration: ::core::option::Option<::prost_types::Duration>,
-    /// Serving status of this application.
-    #[prost(enumeration = "application::ServingStatus", tag = "10")]
-    pub serving_status: i32,
-    /// Hostname used to reach this application, as resolved by App Engine.
-    ///
-    /// @OutputOnly
-    #[prost(string, tag = "11")]
-    pub default_hostname: ::prost::alloc::string::String,
-    /// Google Cloud Storage bucket that can be used by this application to store
-    /// content.
-    ///
-    /// @OutputOnly
-    #[prost(string, tag = "12")]
-    pub default_bucket: ::prost::alloc::string::String,
-    #[prost(message, optional, tag = "14")]
-    pub iap: ::core::option::Option<application::IdentityAwareProxy>,
-    /// The Google Container Registry domain used for storing managed build docker
-    /// images for this application.
-    #[prost(string, tag = "16")]
-    pub gcr_domain: ::prost::alloc::string::String,
-    /// The type of the Cloud Firestore or Cloud Datastore database associated with
-    /// this application.
-    #[prost(enumeration = "application::DatabaseType", tag = "17")]
-    pub database_type: i32,
-    /// The feature specific settings to be used in the application.
-    #[prost(message, optional, tag = "18")]
-    pub feature_settings: ::core::option::Option<application::FeatureSettings>,
-}
-/// Nested message and enum types in `Application`.
-pub mod application {
-    /// Identity-Aware Proxy
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct IdentityAwareProxy {
-        /// Whether the serving infrastructure will authenticate and
-        /// authorize all incoming requests.
-        ///
-        /// If true, the `oauth2_client_id` and `oauth2_client_secret`
-        /// fields must be non-empty.
-        #[prost(bool, tag = "1")]
-        pub enabled: bool,
-        /// OAuth2 client ID to use for the authentication flow.
-        #[prost(string, tag = "2")]
-        pub oauth2_client_id: ::prost::alloc::string::String,
-        /// OAuth2 client secret to use for the authentication flow.
-        ///
-        /// For security reasons, this value cannot be retrieved via the API.
-        /// Instead, the SHA-256 hash of the value is returned in the
-        /// `oauth2_client_secret_sha256` field.
-        ///
-        /// @InputOnly
-        #[prost(string, tag = "3")]
-        pub oauth2_client_secret: ::prost::alloc::string::String,
-        /// Hex-encoded SHA-256 hash of the client secret.
-        ///
-        /// @OutputOnly
-        #[prost(string, tag = "4")]
-        pub oauth2_client_secret_sha256: ::prost::alloc::string::String,
-    }
-    /// The feature specific settings to be used in the application. These define
-    /// behaviors that are user configurable.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct FeatureSettings {
-        /// Boolean value indicating if split health checks should be used instead
-        /// of the legacy health checks. At an app.yaml level, this means defaulting
-        /// to 'readiness_check' and 'liveness_check' values instead of
-        /// 'health_check' ones. Once the legacy 'health_check' behavior is
-        /// deprecated, and this value is always true, this setting can
-        /// be removed.
-        #[prost(bool, tag = "1")]
-        pub split_health_checks: bool,
-        /// If true, use [Container-Optimized OS](<https://cloud.google.com/container-optimized-os/>)
-        /// base image for VMs, rather than a base Debian image.
-        #[prost(bool, tag = "2")]
-        pub use_container_optimized_os: bool,
-    }
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ServingStatus {
-        /// Serving status is unspecified.
-        Unspecified = 0,
-        /// Application is serving.
-        Serving = 1,
-        /// Application has been disabled by the user.
-        UserDisabled = 2,
-        /// Application has been disabled by the system.
-        SystemDisabled = 3,
-    }
-    impl ServingStatus {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ServingStatus::Unspecified => "UNSPECIFIED",
-                ServingStatus::Serving => "SERVING",
-                ServingStatus::UserDisabled => "USER_DISABLED",
-                ServingStatus::SystemDisabled => "SYSTEM_DISABLED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UNSPECIFIED" => Some(Self::Unspecified),
-                "SERVING" => Some(Self::Serving),
-                "USER_DISABLED" => Some(Self::UserDisabled),
-                "SYSTEM_DISABLED" => Some(Self::SystemDisabled),
-                _ => None,
-            }
-        }
-    }
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum DatabaseType {
-        /// Database type is unspecified.
-        Unspecified = 0,
-        /// Cloud Datastore
-        CloudDatastore = 1,
-        /// Cloud Firestore Native
-        CloudFirestore = 2,
-        /// Cloud Firestore in Datastore Mode
-        CloudDatastoreCompatibility = 3,
-    }
-    impl DatabaseType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                DatabaseType::Unspecified => "DATABASE_TYPE_UNSPECIFIED",
-                DatabaseType::CloudDatastore => "CLOUD_DATASTORE",
-                DatabaseType::CloudFirestore => "CLOUD_FIRESTORE",
-                DatabaseType::CloudDatastoreCompatibility => {
-                    "CLOUD_DATASTORE_COMPATIBILITY"
-                }
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "DATABASE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CLOUD_DATASTORE" => Some(Self::CloudDatastore),
-                "CLOUD_FIRESTORE" => Some(Self::CloudFirestore),
-                "CLOUD_DATASTORE_COMPATIBILITY" => {
-                    Some(Self::CloudDatastoreCompatibility)
-                }
-                _ => None,
-            }
-        }
-    }
-}
-/// Rules to match an HTTP request and dispatch that request to a service.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UrlDispatchRule {
-    /// Domain name to match against. The wildcard "`*`" is supported if
-    /// specified before a period: "`*.`".
-    ///
-    /// Defaults to matching all domains: "`*`".
-    #[prost(string, tag = "1")]
-    pub domain: ::prost::alloc::string::String,
-    /// Pathname within the host. Must start with a "`/`". A
-    /// single "`*`" can be included at the end of the path.
-    ///
-    /// The sum of the lengths of the domain and path may not
-    /// exceed 100 characters.
-    #[prost(string, tag = "2")]
-    pub path: ::prost::alloc::string::String,
-    /// Resource ID of a service in this application that should
-    /// serve the matched request. The service must already
-    /// exist. Example: `default`.
-    #[prost(string, tag = "3")]
-    pub service: ::prost::alloc::string::String,
-}
-/// An SSL certificate that a user has been authorized to administer. A user
-/// is authorized to administer any certificate that applies to one of their
-/// authorized domains.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AuthorizedCertificate {
-    /// Full path to the `AuthorizedCertificate` resource in the API. Example:
-    /// `apps/myapp/authorizedCertificates/12345`.
-    ///
-    /// @OutputOnly
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Relative name of the certificate. This is a unique value autogenerated
-    /// on `AuthorizedCertificate` resource creation. Example: `12345`.
-    ///
-    /// @OutputOnly
-    #[prost(string, tag = "2")]
-    pub id: ::prost::alloc::string::String,
-    /// The user-specified display name of the certificate. This is not
-    /// guaranteed to be unique. Example: `My Certificate`.
-    #[prost(string, tag = "3")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Topmost applicable domains of this certificate. This certificate
-    /// applies to these domains and their subdomains. Example: `example.com`.
-    ///
-    /// @OutputOnly
-    #[prost(string, repeated, tag = "4")]
-    pub domain_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The time when this certificate expires. To update the renewal time on this
-    /// certificate, upload an SSL certificate with a different expiration time
-    /// using \[`AuthorizedCertificates.UpdateAuthorizedCertificate`\]().
-    ///
-    /// @OutputOnly
-    #[prost(message, optional, tag = "5")]
-    pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The SSL certificate serving the `AuthorizedCertificate` resource. This
-    /// must be obtained independently from a certificate authority.
-    #[prost(message, optional, tag = "6")]
-    pub certificate_raw_data: ::core::option::Option<CertificateRawData>,
-    /// Only applicable if this certificate is managed by App Engine. Managed
-    /// certificates are tied to the lifecycle of a `DomainMapping` and cannot be
-    /// updated or deleted via the `AuthorizedCertificates` API. If this
-    /// certificate is manually administered by the user, this field will be empty.
-    ///
-    /// @OutputOnly
-    #[prost(message, optional, tag = "7")]
-    pub managed_certificate: ::core::option::Option<ManagedCertificate>,
-    /// The full paths to user visible Domain Mapping resources that have this
-    /// certificate mapped. Example: `apps/myapp/domainMappings/example.com`.
-    ///
-    /// This may not represent the full list of mapped domain mappings if the user
-    /// does not have `VIEWER` permissions on all of the applications that have
-    /// this certificate mapped. See `domain_mappings_count` for a complete count.
-    ///
-    /// Only returned by `GET` or `LIST` requests when specifically requested by
-    /// the `view=FULL_CERTIFICATE` option.
-    ///
-    /// @OutputOnly
-    #[prost(string, repeated, tag = "8")]
-    pub visible_domain_mappings: ::prost::alloc::vec::Vec<
-        ::prost::alloc::string::String,
-    >,
-    /// Aggregate count of the domain mappings with this certificate mapped. This
-    /// count includes domain mappings on applications for which the user does not
-    /// have `VIEWER` permissions.
-    ///
-    /// Only returned by `GET` or `LIST` requests when specifically requested by
-    /// the `view=FULL_CERTIFICATE` option.
-    ///
-    /// @OutputOnly
-    #[prost(int32, tag = "9")]
-    pub domain_mappings_count: i32,
-}
-/// An SSL certificate obtained from a certificate authority.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CertificateRawData {
-    /// PEM encoded x.509 public key certificate. This field is set once on
-    /// certificate creation. Must include the header and footer. Example:
-    /// <pre>
-    /// -----BEGIN CERTIFICATE-----
-    /// <certificate_value>
-    /// -----END CERTIFICATE-----
-    /// </pre>
-    #[prost(string, tag = "1")]
-    pub public_certificate: ::prost::alloc::string::String,
-    /// Unencrypted PEM encoded RSA private key. This field is set once on
-    /// certificate creation and then encrypted. The key size must be 2048
-    /// bits or fewer. Must include the header and footer. Example:
-    /// <pre>
-    /// -----BEGIN RSA PRIVATE KEY-----
-    /// <unencrypted_key_value>
-    /// -----END RSA PRIVATE KEY-----
-    /// </pre>
-    /// @InputOnly
-    #[prost(string, tag = "2")]
-    pub private_key: ::prost::alloc::string::String,
-}
-/// A certificate managed by App Engine.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ManagedCertificate {
-    /// Time at which the certificate was last renewed. The renewal process is
-    /// fully managed. Certificate renewal will automatically occur before the
-    /// certificate expires. Renewal errors can be tracked via `ManagementStatus`.
-    ///
-    /// @OutputOnly
-    #[prost(message, optional, tag = "1")]
-    pub last_renewal_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Status of certificate management. Refers to the most recent certificate
-    /// acquisition or renewal attempt.
-    ///
-    /// @OutputOnly
-    #[prost(enumeration = "ManagementStatus", tag = "2")]
-    pub status: i32,
-}
-/// State of certificate management. Refers to the most recent certificate
-/// acquisition or renewal attempt.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum ManagementStatus {
-    Unspecified = 0,
-    /// Certificate was successfully obtained and inserted into the serving
-    /// system.
-    Ok = 1,
-    /// Certificate is under active attempts to acquire or renew.
-    Pending = 2,
-    /// Most recent renewal failed due to an invalid DNS setup and will be
-    /// retried. Renewal attempts will continue to fail until the certificate
-    /// domain's DNS configuration is fixed. The last successfully provisioned
-    /// certificate may still be serving.
-    FailedRetryingNotVisible = 4,
-    /// All renewal attempts have been exhausted, likely due to an invalid DNS
-    /// setup.
-    FailedPermanent = 6,
-    /// Most recent renewal failed due to an explicit CAA record that does not
-    /// include one of the in-use CAs (Google CA and Let's Encrypt). Renewals will
-    /// continue to fail until the CAA is reconfigured. The last successfully
-    /// provisioned certificate may still be serving.
-    FailedRetryingCaaForbidden = 7,
-    /// Most recent renewal failed due to a CAA retrieval failure. This means that
-    /// the domain's DNS provider does not properly handle CAA records, failing
-    /// requests for CAA records when no CAA records are defined. Renewals will
-    /// continue to fail until the DNS provider is changed or a CAA record is
-    /// added for the given domain. The last successfully provisioned certificate
-    /// may still be serving.
-    FailedRetryingCaaChecking = 8,
-}
-impl ManagementStatus {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            ManagementStatus::Unspecified => "MANAGEMENT_STATUS_UNSPECIFIED",
-            ManagementStatus::Ok => "OK",
-            ManagementStatus::Pending => "PENDING",
-            ManagementStatus::FailedRetryingNotVisible => "FAILED_RETRYING_NOT_VISIBLE",
-            ManagementStatus::FailedPermanent => "FAILED_PERMANENT",
-            ManagementStatus::FailedRetryingCaaForbidden => {
-                "FAILED_RETRYING_CAA_FORBIDDEN"
-            }
-            ManagementStatus::FailedRetryingCaaChecking => "FAILED_RETRYING_CAA_CHECKING",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "MANAGEMENT_STATUS_UNSPECIFIED" => Some(Self::Unspecified),
-            "OK" => Some(Self::Ok),
-            "PENDING" => Some(Self::Pending),
-            "FAILED_RETRYING_NOT_VISIBLE" => Some(Self::FailedRetryingNotVisible),
-            "FAILED_PERMANENT" => Some(Self::FailedPermanent),
-            "FAILED_RETRYING_CAA_FORBIDDEN" => Some(Self::FailedRetryingCaaForbidden),
-            "FAILED_RETRYING_CAA_CHECKING" => Some(Self::FailedRetryingCaaChecking),
-            _ => None,
-        }
-    }
-}
-/// A domain that a user has been authorized to administer. To authorize use
-/// of a domain, verify ownership via
-/// [Search Console](<https://search.google.com/search-console/welcome>).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AuthorizedDomain {
-    /// Full path to the `AuthorizedDomain` resource in the API. Example:
-    /// `apps/myapp/authorizedDomains/example.com`.
-    ///
-    /// @OutputOnly
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Fully qualified domain name of the domain authorized for use. Example:
-    /// `example.com`.
-    #[prost(string, tag = "2")]
-    pub id: ::prost::alloc::string::String,
-}
-/// A domain serving an App Engine application.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DomainMapping {
-    /// Full path to the `DomainMapping` resource in the API. Example:
-    /// `apps/myapp/domainMapping/example.com`.
-    ///
-    /// @OutputOnly
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Relative name of the domain serving the application. Example:
-    /// `example.com`.
-    #[prost(string, tag = "2")]
-    pub id: ::prost::alloc::string::String,
-    /// SSL configuration for this domain. If unconfigured, this domain will not
-    /// serve with SSL.
-    #[prost(message, optional, tag = "3")]
-    pub ssl_settings: ::core::option::Option<SslSettings>,
-    /// The resource records required to configure this domain mapping. These
-    /// records must be added to the domain's DNS configuration in order to
-    /// serve the application via this domain mapping.
-    ///
-    /// @OutputOnly
-    #[prost(message, repeated, tag = "4")]
-    pub resource_records: ::prost::alloc::vec::Vec<ResourceRecord>,
-}
-/// SSL configuration for a `DomainMapping` resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SslSettings {
-    /// ID of the `AuthorizedCertificate` resource configuring SSL for the
-    /// application. Clearing this field will remove SSL support.
-    ///
-    /// By default, a managed certificate is automatically created for every
-    /// domain mapping. To omit SSL support or to configure SSL manually, specify
-    /// `SslManagementType.MANUAL` on a `CREATE` or `UPDATE` request. You must
-    /// be authorized to administer the `AuthorizedCertificate` resource to
-    /// manually map it to a `DomainMapping` resource.
-    /// Example: `12345`.
-    #[prost(string, tag = "1")]
-    pub certificate_id: ::prost::alloc::string::String,
-    /// SSL management type for this domain. If `AUTOMATIC`, a managed certificate
-    /// is automatically provisioned. If `MANUAL`, `certificate_id` must be
-    /// manually specified in order to configure SSL for this domain.
-    #[prost(enumeration = "ssl_settings::SslManagementType", tag = "3")]
-    pub ssl_management_type: i32,
-    /// ID of the managed `AuthorizedCertificate` resource currently being
-    /// provisioned, if applicable. Until the new managed certificate has been
-    /// successfully provisioned, the previous SSL state will be preserved. Once
-    /// the provisioning process completes, the `certificate_id` field will reflect
-    /// the new managed certificate and this field will be left empty. To remove
-    /// SSL support while there is still a pending managed certificate, clear the
-    /// `certificate_id` field with an `UpdateDomainMappingRequest`.
-    ///
-    /// @OutputOnly
-    #[prost(string, tag = "4")]
-    pub pending_managed_certificate_id: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `SslSettings`.
-pub mod ssl_settings {
-    /// The SSL management type for this domain.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum SslManagementType {
-        /// SSL support for this domain is configured automatically. The mapped SSL
-        /// certificate will be automatically renewed.
-        Automatic = 0,
-        /// SSL support for this domain is configured manually by the user. Either
-        /// the domain has no SSL support or a user-obtained SSL certificate has been
-        /// explictly mapped to this domain.
-        Manual = 1,
-    }
-    impl SslManagementType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                SslManagementType::Automatic => "AUTOMATIC",
-                SslManagementType::Manual => "MANUAL",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "AUTOMATIC" => Some(Self::Automatic),
-                "MANUAL" => Some(Self::Manual),
-                _ => None,
-            }
-        }
-    }
-}
-/// A DNS resource record.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ResourceRecord {
-    /// Relative name of the object affected by this record. Only applicable for
-    /// `CNAME` records. Example: 'www'.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Data for this record. Values vary by record type, as defined in RFC 1035
-    /// (section 5) and RFC 1034 (section 3.6.1).
-    #[prost(string, tag = "2")]
-    pub rrdata: ::prost::alloc::string::String,
-    /// Resource record type. Example: `AAAA`.
-    #[prost(enumeration = "resource_record::RecordType", tag = "3")]
-    pub r#type: i32,
-}
-/// Nested message and enum types in `ResourceRecord`.
-pub mod resource_record {
-    /// A resource record type.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum RecordType {
-        /// An A resource record. Data is an IPv4 address.
-        A = 0,
-        /// An AAAA resource record. Data is an IPv6 address.
-        Aaaa = 1,
-        /// A CNAME resource record. Data is a domain name to be aliased.
-        Cname = 2,
-    }
-    impl RecordType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                RecordType::A => "A",
-                RecordType::Aaaa => "AAAA",
-                RecordType::Cname => "CNAME",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "A" => Some(Self::A),
-                "AAAA" => Some(Self::Aaaa),
-                "CNAME" => Some(Self::Cname),
-                _ => None,
-            }
-        }
-    }
-}
-/// A single firewall rule that is evaluated against incoming traffic
-/// and provides an action to take on matched requests.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FirewallRule {
-    /// A positive integer between [1, Int32.MaxValue-1] that defines the order of
-    /// rule evaluation. Rules with the lowest priority are evaluated first.
-    ///
-    /// A default rule at priority Int32.MaxValue matches all IPv4 and IPv6 traffic
-    /// when no previous rule matches. Only the action of this rule can be modified
-    /// by the user.
-    #[prost(int32, tag = "1")]
-    pub priority: i32,
-    /// The action to take on matched requests.
-    #[prost(enumeration = "firewall_rule::Action", tag = "2")]
-    pub action: i32,
-    /// IP address or range, defined using CIDR notation, of requests that this
-    /// rule applies to. You can use the wildcard character "*" to match all IPs
-    /// equivalent to "0/0" and "::/0" together.
-    /// Examples: `192.168.1.1` or `192.168.0.0/16` or `2001:db8::/32`
-    ///            or `2001:0db8:0000:0042:0000:8a2e:0370:7334`.
-    ///
-    ///
-    /// <p>Truncation will be silently performed on addresses which are not
-    /// properly truncated. For example, `1.2.3.4/24` is accepted as the same
-    /// address as `1.2.3.0/24`. Similarly, for IPv6, `2001:db8::1/32` is accepted
-    /// as the same address as `2001:db8::/32`.
-    #[prost(string, tag = "3")]
-    pub source_range: ::prost::alloc::string::String,
-    /// An optional string description of this rule.
-    /// This field has a maximum length of 100 characters.
-    #[prost(string, tag = "4")]
-    pub description: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `FirewallRule`.
-pub mod firewall_rule {
-    /// Available actions to take on matching requests.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Action {
-        UnspecifiedAction = 0,
-        /// Matching requests are allowed.
-        Allow = 1,
-        /// Matching requests are denied.
-        Deny = 2,
-    }
-    impl Action {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Action::UnspecifiedAction => "UNSPECIFIED_ACTION",
-                Action::Allow => "ALLOW",
-                Action::Deny => "DENY",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UNSPECIFIED_ACTION" => Some(Self::UnspecifiedAction),
-                "ALLOW" => Some(Self::Allow),
-                "DENY" => Some(Self::Deny),
-                _ => None,
-            }
-        }
-    }
-}
-/// An Instance resource is the computing unit that App Engine uses to
-/// automatically scale an application.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Instance {
-    /// Output only. Full path to the Instance resource in the API.
-    /// Example: `apps/myapp/services/default/versions/v1/instances/instance-1`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Relative name of the instance within the version.
-    /// Example: `instance-1`.
-    #[prost(string, tag = "2")]
-    pub id: ::prost::alloc::string::String,
-    /// Output only. App Engine release this instance is running on.
-    #[prost(string, tag = "3")]
-    pub app_engine_release: ::prost::alloc::string::String,
-    /// Output only. Availability of the instance.
-    #[prost(enumeration = "instance::Availability", tag = "4")]
-    pub availability: i32,
-    /// Output only. Name of the virtual machine where this instance lives. Only applicable
-    /// for instances in App Engine flexible environment.
-    #[prost(string, tag = "5")]
-    pub vm_name: ::prost::alloc::string::String,
-    /// Output only. Zone where the virtual machine is located. Only applicable for instances
-    /// in App Engine flexible environment.
-    #[prost(string, tag = "6")]
-    pub vm_zone_name: ::prost::alloc::string::String,
-    /// Output only. Virtual machine ID of this instance. Only applicable for instances in
-    /// App Engine flexible environment.
-    #[prost(string, tag = "7")]
-    pub vm_id: ::prost::alloc::string::String,
-    /// Output only. Time that this instance was started.
-    ///
-    /// @OutputOnly
-    #[prost(message, optional, tag = "8")]
-    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Number of requests since this instance was started.
-    #[prost(int32, tag = "9")]
-    pub requests: i32,
-    /// Output only. Number of errors since this instance was started.
-    #[prost(int32, tag = "10")]
-    pub errors: i32,
-    /// Output only. Average queries per second (QPS) over the last minute.
-    #[prost(float, tag = "11")]
-    pub qps: f32,
-    /// Output only. Average latency (ms) over the last minute.
-    #[prost(int32, tag = "12")]
-    pub average_latency: i32,
-    /// Output only. Total memory in use (bytes).
-    #[prost(int64, tag = "13")]
-    pub memory_usage: i64,
-    /// Output only. Status of the virtual machine where this instance lives. Only applicable
-    /// for instances in App Engine flexible environment.
-    #[prost(string, tag = "14")]
-    pub vm_status: ::prost::alloc::string::String,
-    /// Output only. Whether this instance is in debug mode. Only applicable for instances in
-    /// App Engine flexible environment.
-    #[prost(bool, tag = "15")]
-    pub vm_debug_enabled: bool,
-    /// Output only. The IP address of this instance. Only applicable for instances in App
-    /// Engine flexible environment.
-    #[prost(string, tag = "16")]
-    pub vm_ip: ::prost::alloc::string::String,
-    /// Output only. The liveness health check of this instance. Only applicable for instances
-    /// in App Engine flexible environment.
-    #[prost(enumeration = "instance::liveness::LivenessState", tag = "17")]
-    pub vm_liveness: i32,
-}
-/// Nested message and enum types in `Instance`.
-pub mod instance {
-    /// Wrapper for LivenessState enum.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Liveness {}
-    /// Nested message and enum types in `Liveness`.
-    pub mod liveness {
-        /// Liveness health check status for Flex instances.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum LivenessState {
-            /// There is no liveness health check for the instance. Only applicable for
-            /// instances in App Engine standard environment.
-            Unspecified = 0,
-            /// The health checking system is aware of the instance but its health is
-            /// not known at the moment.
-            Unknown = 1,
-            /// The instance is reachable i.e. a connection to the application health
-            /// checking endpoint can be established, and conforms to the requirements
-            /// defined by the health check.
-            Healthy = 2,
-            /// The instance is reachable, but does not conform to the requirements
-            /// defined by the health check.
-            Unhealthy = 3,
-            /// The instance is being drained. The existing connections to the instance
-            /// have time to complete, but the new ones are being refused.
-            Draining = 4,
-            /// The instance is unreachable i.e. a connection to the application health
-            /// checking endpoint cannot be established, or the server does not respond
-            /// within the specified timeout.
-            Timeout = 5,
-        }
-        impl LivenessState {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    LivenessState::Unspecified => "LIVENESS_STATE_UNSPECIFIED",
-                    LivenessState::Unknown => "UNKNOWN",
-                    LivenessState::Healthy => "HEALTHY",
-                    LivenessState::Unhealthy => "UNHEALTHY",
-                    LivenessState::Draining => "DRAINING",
-                    LivenessState::Timeout => "TIMEOUT",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "LIVENESS_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                    "UNKNOWN" => Some(Self::Unknown),
-                    "HEALTHY" => Some(Self::Healthy),
-                    "UNHEALTHY" => Some(Self::Unhealthy),
-                    "DRAINING" => Some(Self::Draining),
-                    "TIMEOUT" => Some(Self::Timeout),
-                    _ => None,
-                }
-            }
-        }
-    }
-    /// Availability of the instance.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Availability {
-        Unspecified = 0,
-        Resident = 1,
-        Dynamic = 2,
-    }
-    impl Availability {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Availability::Unspecified => "UNSPECIFIED",
-                Availability::Resident => "RESIDENT",
-                Availability::Dynamic => "DYNAMIC",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UNSPECIFIED" => Some(Self::Unspecified),
-                "RESIDENT" => Some(Self::Resident),
-                "DYNAMIC" => Some(Self::Dynamic),
-                _ => None,
-            }
-        }
-    }
-}
 /// A Service resource is a logical component of an application that can share
 /// state and communicate in a secure fashion with other services.
 /// For example, an application that handles customer requests might
@@ -3069,11 +3136,27 @@ pub mod applications_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Gets information about an application.
         pub async fn get_application(
             &mut self,
             request: impl tonic::IntoRequest<super::GetApplicationRequest>,
-        ) -> Result<tonic::Response<super::Application>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Application>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3087,7 +3170,15 @@ pub mod applications_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Applications/GetApplication",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.Applications",
+                        "GetApplication",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates an App Engine application for a Google Cloud Platform project.
         /// Required fields:
@@ -3099,7 +3190,7 @@ pub mod applications_client {
         pub async fn create_application(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateApplicationRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -3116,7 +3207,15 @@ pub mod applications_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Applications/CreateApplication",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.Applications",
+                        "CreateApplication",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the specified Application resource.
         /// You can update the following fields:
@@ -3126,7 +3225,7 @@ pub mod applications_client {
         pub async fn update_application(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateApplicationRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -3143,7 +3242,15 @@ pub mod applications_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Applications/UpdateApplication",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.Applications",
+                        "UpdateApplication",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Recreates the required App Engine features for the specified App Engine
         /// application, for example a Cloud Storage bucket or App Engine service
@@ -3158,7 +3265,7 @@ pub mod applications_client {
         pub async fn repair_application(
             &mut self,
             request: impl tonic::IntoRequest<super::RepairApplicationRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -3175,7 +3282,15 @@ pub mod applications_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Applications/RepairApplication",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.Applications",
+                        "RepairApplication",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -3238,11 +3353,30 @@ pub mod services_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Lists all the services in the application.
         pub async fn list_services(
             &mut self,
             request: impl tonic::IntoRequest<super::ListServicesRequest>,
-        ) -> Result<tonic::Response<super::ListServicesResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListServicesResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3256,13 +3390,18 @@ pub mod services_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Services/ListServices",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.appengine.v1beta.Services", "ListServices"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the current configuration of the specified service.
         pub async fn get_service(
             &mut self,
             request: impl tonic::IntoRequest<super::GetServiceRequest>,
-        ) -> Result<tonic::Response<super::Service>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Service>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3276,13 +3415,18 @@ pub mod services_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Services/GetService",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.appengine.v1beta.Services", "GetService"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the configuration of the specified service.
         pub async fn update_service(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateServiceRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -3299,13 +3443,18 @@ pub mod services_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Services/UpdateService",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.appengine.v1beta.Services", "UpdateService"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes the specified service and all enclosed versions.
         pub async fn delete_service(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteServiceRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -3322,7 +3471,12 @@ pub mod services_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Services/DeleteService",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.appengine.v1beta.Services", "DeleteService"),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -3385,11 +3539,30 @@ pub mod versions_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Lists the versions of a service.
         pub async fn list_versions(
             &mut self,
             request: impl tonic::IntoRequest<super::ListVersionsRequest>,
-        ) -> Result<tonic::Response<super::ListVersionsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListVersionsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3403,7 +3576,12 @@ pub mod versions_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Versions/ListVersions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.appengine.v1beta.Versions", "ListVersions"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the specified Version resource.
         /// By default, only a `BASIC_VIEW` will be returned.
@@ -3411,7 +3589,7 @@ pub mod versions_client {
         pub async fn get_version(
             &mut self,
             request: impl tonic::IntoRequest<super::GetVersionRequest>,
-        ) -> Result<tonic::Response<super::Version>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Version>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3425,13 +3603,18 @@ pub mod versions_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Versions/GetVersion",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.appengine.v1beta.Versions", "GetVersion"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deploys code and resource files to a new version.
         pub async fn create_version(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateVersionRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -3448,7 +3631,12 @@ pub mod versions_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Versions/CreateVersion",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.appengine.v1beta.Versions", "CreateVersion"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the specified Version resource.
         /// You can specify the following fields depending on the App Engine
@@ -3489,7 +3677,7 @@ pub mod versions_client {
         pub async fn update_version(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateVersionRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -3506,13 +3694,18 @@ pub mod versions_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Versions/UpdateVersion",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.appengine.v1beta.Versions", "UpdateVersion"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes an existing Version resource.
         pub async fn delete_version(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteVersionRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -3529,7 +3722,12 @@ pub mod versions_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Versions/DeleteVersion",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.appengine.v1beta.Versions", "DeleteVersion"),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -3592,6 +3790,22 @@ pub mod instances_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Lists the instances of a version.
         ///
         /// Tip: To aggregate details about instances over time, see the
@@ -3599,7 +3813,10 @@ pub mod instances_client {
         pub async fn list_instances(
             &mut self,
             request: impl tonic::IntoRequest<super::ListInstancesRequest>,
-        ) -> Result<tonic::Response<super::ListInstancesResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListInstancesResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3613,13 +3830,18 @@ pub mod instances_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Instances/ListInstances",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.appengine.v1beta.Instances", "ListInstances"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets instance information.
         pub async fn get_instance(
             &mut self,
             request: impl tonic::IntoRequest<super::GetInstanceRequest>,
-        ) -> Result<tonic::Response<super::Instance>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Instance>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3633,7 +3855,12 @@ pub mod instances_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Instances/GetInstance",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.appengine.v1beta.Instances", "GetInstance"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Stops a running instance.
         ///
@@ -3650,7 +3877,7 @@ pub mod instances_client {
         pub async fn delete_instance(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteInstanceRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -3667,7 +3894,15 @@ pub mod instances_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Instances/DeleteInstance",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.Instances",
+                        "DeleteInstance",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Enables debugging on a VM instance. This allows you to use the SSH
         /// command to connect to the virtual machine where the instance lives.
@@ -3680,7 +3915,7 @@ pub mod instances_client {
         pub async fn debug_instance(
             &mut self,
             request: impl tonic::IntoRequest<super::DebugInstanceRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -3697,7 +3932,12 @@ pub mod instances_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Instances/DebugInstance",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.appengine.v1beta.Instances", "DebugInstance"),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -3769,11 +4009,30 @@ pub mod firewall_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Lists the firewall rules of an application.
         pub async fn list_ingress_rules(
             &mut self,
             request: impl tonic::IntoRequest<super::ListIngressRulesRequest>,
-        ) -> Result<tonic::Response<super::ListIngressRulesResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListIngressRulesResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3787,7 +4046,15 @@ pub mod firewall_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Firewall/ListIngressRules",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.Firewall",
+                        "ListIngressRules",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Replaces the entire firewall ruleset in one bulk operation. This overrides
         /// and replaces the rules of an existing firewall with the new rules.
@@ -3797,7 +4064,7 @@ pub mod firewall_client {
         pub async fn batch_update_ingress_rules(
             &mut self,
             request: impl tonic::IntoRequest<super::BatchUpdateIngressRulesRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::BatchUpdateIngressRulesResponse>,
             tonic::Status,
         > {
@@ -3814,13 +4081,21 @@ pub mod firewall_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Firewall/BatchUpdateIngressRules",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.Firewall",
+                        "BatchUpdateIngressRules",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a firewall rule for the application.
         pub async fn create_ingress_rule(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateIngressRuleRequest>,
-        ) -> Result<tonic::Response<super::FirewallRule>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::FirewallRule>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3834,13 +4109,21 @@ pub mod firewall_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Firewall/CreateIngressRule",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.Firewall",
+                        "CreateIngressRule",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the specified firewall rule.
         pub async fn get_ingress_rule(
             &mut self,
             request: impl tonic::IntoRequest<super::GetIngressRuleRequest>,
-        ) -> Result<tonic::Response<super::FirewallRule>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::FirewallRule>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3854,13 +4137,18 @@ pub mod firewall_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Firewall/GetIngressRule",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.appengine.v1beta.Firewall", "GetIngressRule"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the specified firewall rule.
         pub async fn update_ingress_rule(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateIngressRuleRequest>,
-        ) -> Result<tonic::Response<super::FirewallRule>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::FirewallRule>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3874,13 +4162,21 @@ pub mod firewall_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Firewall/UpdateIngressRule",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.Firewall",
+                        "UpdateIngressRule",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes the specified firewall rule.
         pub async fn delete_ingress_rule(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteIngressRuleRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3894,7 +4190,15 @@ pub mod firewall_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.Firewall/DeleteIngressRule",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.Firewall",
+                        "DeleteIngressRule",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -3959,11 +4263,27 @@ pub mod authorized_domains_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Lists all domains the user is authorized to administer.
         pub async fn list_authorized_domains(
             &mut self,
             request: impl tonic::IntoRequest<super::ListAuthorizedDomainsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListAuthorizedDomainsResponse>,
             tonic::Status,
         > {
@@ -3980,7 +4300,15 @@ pub mod authorized_domains_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.AuthorizedDomains/ListAuthorizedDomains",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.AuthorizedDomains",
+                        "ListAuthorizedDomains",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -4046,11 +4374,27 @@ pub mod authorized_certificates_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Lists all SSL certificates the user is authorized to administer.
         pub async fn list_authorized_certificates(
             &mut self,
             request: impl tonic::IntoRequest<super::ListAuthorizedCertificatesRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListAuthorizedCertificatesResponse>,
             tonic::Status,
         > {
@@ -4067,13 +4411,24 @@ pub mod authorized_certificates_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.AuthorizedCertificates/ListAuthorizedCertificates",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.AuthorizedCertificates",
+                        "ListAuthorizedCertificates",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the specified SSL certificate.
         pub async fn get_authorized_certificate(
             &mut self,
             request: impl tonic::IntoRequest<super::GetAuthorizedCertificateRequest>,
-        ) -> Result<tonic::Response<super::AuthorizedCertificate>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::AuthorizedCertificate>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -4087,13 +4442,24 @@ pub mod authorized_certificates_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.AuthorizedCertificates/GetAuthorizedCertificate",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.AuthorizedCertificates",
+                        "GetAuthorizedCertificate",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Uploads the specified SSL certificate.
         pub async fn create_authorized_certificate(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateAuthorizedCertificateRequest>,
-        ) -> Result<tonic::Response<super::AuthorizedCertificate>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::AuthorizedCertificate>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -4107,7 +4473,15 @@ pub mod authorized_certificates_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.AuthorizedCertificates/CreateAuthorizedCertificate",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.AuthorizedCertificates",
+                        "CreateAuthorizedCertificate",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the specified SSL certificate. To renew a certificate and maintain
         /// its existing domain mappings, update `certificate_data` with a new
@@ -4117,7 +4491,10 @@ pub mod authorized_certificates_client {
         pub async fn update_authorized_certificate(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateAuthorizedCertificateRequest>,
-        ) -> Result<tonic::Response<super::AuthorizedCertificate>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::AuthorizedCertificate>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -4131,13 +4508,21 @@ pub mod authorized_certificates_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.AuthorizedCertificates/UpdateAuthorizedCertificate",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.AuthorizedCertificates",
+                        "UpdateAuthorizedCertificate",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes the specified SSL certificate.
         pub async fn delete_authorized_certificate(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteAuthorizedCertificateRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -4151,7 +4536,15 @@ pub mod authorized_certificates_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.AuthorizedCertificates/DeleteAuthorizedCertificate",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.AuthorizedCertificates",
+                        "DeleteAuthorizedCertificate",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -4214,11 +4607,30 @@ pub mod domain_mappings_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Lists the domain mappings on an application.
         pub async fn list_domain_mappings(
             &mut self,
             request: impl tonic::IntoRequest<super::ListDomainMappingsRequest>,
-        ) -> Result<tonic::Response<super::ListDomainMappingsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListDomainMappingsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -4232,13 +4644,21 @@ pub mod domain_mappings_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.DomainMappings/ListDomainMappings",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.DomainMappings",
+                        "ListDomainMappings",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the specified domain mapping.
         pub async fn get_domain_mapping(
             &mut self,
             request: impl tonic::IntoRequest<super::GetDomainMappingRequest>,
-        ) -> Result<tonic::Response<super::DomainMapping>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::DomainMapping>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -4252,7 +4672,15 @@ pub mod domain_mappings_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.DomainMappings/GetDomainMapping",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.DomainMappings",
+                        "GetDomainMapping",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Maps a domain to an application. A user must be authorized to administer a
         /// domain in order to map it to an application. For a list of available
@@ -4260,7 +4688,7 @@ pub mod domain_mappings_client {
         pub async fn create_domain_mapping(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateDomainMappingRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -4277,7 +4705,15 @@ pub mod domain_mappings_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.DomainMappings/CreateDomainMapping",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.DomainMappings",
+                        "CreateDomainMapping",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the specified domain mapping. To map an SSL certificate to a
         /// domain mapping, update `certificate_id` to point to an `AuthorizedCertificate`
@@ -4286,7 +4722,7 @@ pub mod domain_mappings_client {
         pub async fn update_domain_mapping(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateDomainMappingRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -4303,7 +4739,15 @@ pub mod domain_mappings_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.DomainMappings/UpdateDomainMapping",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.DomainMappings",
+                        "UpdateDomainMapping",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes the specified domain mapping. A user must be authorized to
         /// administer the associated domain in order to delete a `DomainMapping`
@@ -4311,7 +4755,7 @@ pub mod domain_mappings_client {
         pub async fn delete_domain_mapping(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteDomainMappingRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -4328,9 +4772,36 @@ pub mod domain_mappings_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.appengine.v1beta.DomainMappings/DeleteDomainMapping",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.appengine.v1beta.DomainMappings",
+                        "DeleteDomainMapping",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
+}
+/// Metadata for the given \[google.cloud.location.Location][google.cloud.location.Location\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LocationMetadata {
+    /// App Engine standard environment is available in the given location.
+    ///
+    /// @OutputOnly
+    #[prost(bool, tag = "2")]
+    pub standard_environment_available: bool,
+    /// App Engine flexible environment is available in the given location.
+    ///
+    /// @OutputOnly
+    #[prost(bool, tag = "4")]
+    pub flexible_environment_available: bool,
+    /// Output only. [Search API](<https://cloud.google.com/appengine/docs/standard/python/search>)
+    /// is available in the given location.
+    #[prost(bool, tag = "6")]
+    pub search_api_available: bool,
 }
 /// App Engine admin service audit log.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -4375,90 +4846,4 @@ pub struct CreateVersionMethod {
     /// Create version request.
     #[prost(message, optional, tag = "1")]
     pub request: ::core::option::Option<CreateVersionRequest>,
-}
-/// Metadata for the given \[google.cloud.location.Location][google.cloud.location.Location\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LocationMetadata {
-    /// App Engine standard environment is available in the given location.
-    ///
-    /// @OutputOnly
-    #[prost(bool, tag = "2")]
-    pub standard_environment_available: bool,
-    /// App Engine flexible environment is available in the given location.
-    ///
-    /// @OutputOnly
-    #[prost(bool, tag = "4")]
-    pub flexible_environment_available: bool,
-    /// Output only. [Search API](<https://cloud.google.com/appengine/docs/standard/python/search>)
-    /// is available in the given location.
-    #[prost(bool, tag = "6")]
-    pub search_api_available: bool,
-}
-/// Metadata for the given \[google.longrunning.Operation][google.longrunning.Operation\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OperationMetadataV1Beta {
-    /// API method that initiated this operation. Example:
-    /// `google.appengine.v1beta.Versions.CreateVersion`.
-    ///
-    /// @OutputOnly
-    #[prost(string, tag = "1")]
-    pub method: ::prost::alloc::string::String,
-    /// Time that this operation was created.
-    ///
-    /// @OutputOnly
-    #[prost(message, optional, tag = "2")]
-    pub insert_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Time that this operation completed.
-    ///
-    /// @OutputOnly
-    #[prost(message, optional, tag = "3")]
-    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// User who requested this operation.
-    ///
-    /// @OutputOnly
-    #[prost(string, tag = "4")]
-    pub user: ::prost::alloc::string::String,
-    /// Name of the resource that this operation is acting on. Example:
-    /// `apps/myapp/services/default`.
-    ///
-    /// @OutputOnly
-    #[prost(string, tag = "5")]
-    pub target: ::prost::alloc::string::String,
-    /// Ephemeral message that may change every time the operation is polled.
-    /// @OutputOnly
-    #[prost(string, tag = "6")]
-    pub ephemeral_message: ::prost::alloc::string::String,
-    /// Durable messages that persist on every operation poll.
-    /// @OutputOnly
-    #[prost(string, repeated, tag = "7")]
-    pub warning: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Metadata specific to the type of operation in progress.
-    /// @OutputOnly
-    #[prost(oneof = "operation_metadata_v1_beta::MethodMetadata", tags = "8")]
-    pub method_metadata: ::core::option::Option<
-        operation_metadata_v1_beta::MethodMetadata,
-    >,
-}
-/// Nested message and enum types in `OperationMetadataV1Beta`.
-pub mod operation_metadata_v1_beta {
-    /// Metadata specific to the type of operation in progress.
-    /// @OutputOnly
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum MethodMetadata {
-        #[prost(message, tag = "8")]
-        CreateVersionMetadata(super::CreateVersionMetadataV1Beta),
-    }
-}
-/// Metadata for the given \[google.longrunning.Operation][google.longrunning.Operation\] during a
-/// \[google.appengine.v1beta.CreateVersionRequest][google.appengine.v1beta.CreateVersionRequest\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateVersionMetadataV1Beta {
-    /// The Cloud Build ID if one was created as part of the version create.
-    /// @OutputOnly
-    #[prost(string, tag = "1")]
-    pub cloud_build_id: ::prost::alloc::string::String,
 }

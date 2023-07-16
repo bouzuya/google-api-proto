@@ -1587,11 +1587,30 @@ pub mod database_admin_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Lists Cloud Spanner databases.
         pub async fn list_databases(
             &mut self,
             request: impl tonic::IntoRequest<super::ListDatabasesRequest>,
-        ) -> Result<tonic::Response<super::ListDatabasesResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListDatabasesResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1605,7 +1624,15 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/ListDatabases",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "ListDatabases",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a new Cloud Spanner database and starts to prepare it for serving.
         /// The returned [long-running operation][google.longrunning.Operation] will
@@ -1618,7 +1645,7 @@ pub mod database_admin_client {
         pub async fn create_database(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateDatabaseRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -1635,13 +1662,21 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/CreateDatabase",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "CreateDatabase",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the state of a Cloud Spanner database.
         pub async fn get_database(
             &mut self,
             request: impl tonic::IntoRequest<super::GetDatabaseRequest>,
-        ) -> Result<tonic::Response<super::Database>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Database>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1655,7 +1690,15 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/GetDatabase",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "GetDatabase",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates a Cloud Spanner database. The returned
         /// [long-running operation][google.longrunning.Operation] can be used to track
@@ -1696,7 +1739,7 @@ pub mod database_admin_client {
         pub async fn update_database(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateDatabaseRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -1713,7 +1756,15 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/UpdateDatabase",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "UpdateDatabase",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the schema of a Cloud Spanner database by
         /// creating/altering/dropping tables, columns, indexes, etc. The returned
@@ -1725,7 +1776,7 @@ pub mod database_admin_client {
         pub async fn update_database_ddl(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateDatabaseDdlRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -1742,7 +1793,15 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/UpdateDatabaseDdl",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "UpdateDatabaseDdl",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Drops (aka deletes) a Cloud Spanner database.
         /// Completed backups for the database will be retained according to their
@@ -1752,7 +1811,7 @@ pub mod database_admin_client {
         pub async fn drop_database(
             &mut self,
             request: impl tonic::IntoRequest<super::DropDatabaseRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1766,7 +1825,15 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/DropDatabase",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "DropDatabase",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns the schema of a Cloud Spanner database as a list of formatted
         /// DDL statements. This method does not show pending schema updates, those may
@@ -1774,7 +1841,10 @@ pub mod database_admin_client {
         pub async fn get_database_ddl(
             &mut self,
             request: impl tonic::IntoRequest<super::GetDatabaseDdlRequest>,
-        ) -> Result<tonic::Response<super::GetDatabaseDdlResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::GetDatabaseDdlResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1788,7 +1858,15 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/GetDatabaseDdl",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "GetDatabaseDdl",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Sets the access control policy on a database or backup resource.
         /// Replaces any existing policy.
@@ -1802,7 +1880,7 @@ pub mod database_admin_client {
             request: impl tonic::IntoRequest<
                 super::super::super::super::super::iam::v1::SetIamPolicyRequest,
             >,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::super::iam::v1::Policy>,
             tonic::Status,
         > {
@@ -1819,7 +1897,15 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/SetIamPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "SetIamPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the access control policy for a database or backup resource.
         /// Returns an empty policy if a database or backup exists but does not have a
@@ -1834,7 +1920,7 @@ pub mod database_admin_client {
             request: impl tonic::IntoRequest<
                 super::super::super::super::super::iam::v1::GetIamPolicyRequest,
             >,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::super::iam::v1::Policy>,
             tonic::Status,
         > {
@@ -1851,7 +1937,15 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/GetIamPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "GetIamPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns permissions that the caller has on the specified database or backup
         /// resource.
@@ -1868,7 +1962,7 @@ pub mod database_admin_client {
             request: impl tonic::IntoRequest<
                 super::super::super::super::super::iam::v1::TestIamPermissionsRequest,
             >,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<
                 super::super::super::super::super::iam::v1::TestIamPermissionsResponse,
             >,
@@ -1887,7 +1981,15 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/TestIamPermissions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "TestIamPermissions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Starts creating a new Cloud Spanner Backup.
         /// The returned backup [long-running operation][google.longrunning.Operation]
@@ -1904,7 +2006,7 @@ pub mod database_admin_client {
         pub async fn create_backup(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateBackupRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -1921,7 +2023,15 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/CreateBackup",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "CreateBackup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Starts copying a Cloud Spanner Backup.
         /// The returned backup [long-running operation][google.longrunning.Operation]
@@ -1938,7 +2048,7 @@ pub mod database_admin_client {
         pub async fn copy_backup(
             &mut self,
             request: impl tonic::IntoRequest<super::CopyBackupRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -1955,13 +2065,21 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/CopyBackup",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "CopyBackup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets metadata on a pending or completed [Backup][google.spanner.admin.database.v1.Backup].
         pub async fn get_backup(
             &mut self,
             request: impl tonic::IntoRequest<super::GetBackupRequest>,
-        ) -> Result<tonic::Response<super::Backup>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Backup>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1975,13 +2093,21 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/GetBackup",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "GetBackup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates a pending or completed [Backup][google.spanner.admin.database.v1.Backup].
         pub async fn update_backup(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateBackupRequest>,
-        ) -> Result<tonic::Response<super::Backup>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Backup>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1995,13 +2121,21 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/UpdateBackup",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "UpdateBackup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a pending or completed [Backup][google.spanner.admin.database.v1.Backup].
         pub async fn delete_backup(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteBackupRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2015,7 +2149,15 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/DeleteBackup",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "DeleteBackup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists completed and pending backups.
         /// Backups returned are ordered by `create_time` in descending order,
@@ -2023,7 +2165,10 @@ pub mod database_admin_client {
         pub async fn list_backups(
             &mut self,
             request: impl tonic::IntoRequest<super::ListBackupsRequest>,
-        ) -> Result<tonic::Response<super::ListBackupsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListBackupsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2037,7 +2182,15 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/ListBackups",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "ListBackups",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Create a new database by restoring from a completed backup. The new
         /// database must be in the same project and in an instance with the same
@@ -2059,7 +2212,7 @@ pub mod database_admin_client {
         pub async fn restore_database(
             &mut self,
             request: impl tonic::IntoRequest<super::RestoreDatabaseRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -2076,7 +2229,15 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/RestoreDatabase",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "RestoreDatabase",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists database [longrunning-operations][google.longrunning.Operation].
         /// A database operation has a name of the form
@@ -2089,7 +2250,7 @@ pub mod database_admin_client {
         pub async fn list_database_operations(
             &mut self,
             request: impl tonic::IntoRequest<super::ListDatabaseOperationsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListDatabaseOperationsResponse>,
             tonic::Status,
         > {
@@ -2106,7 +2267,15 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/ListDatabaseOperations",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "ListDatabaseOperations",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists the backup [long-running operations][google.longrunning.Operation] in
         /// the given instance. A backup operation has a name of the form
@@ -2121,7 +2290,7 @@ pub mod database_admin_client {
         pub async fn list_backup_operations(
             &mut self,
             request: impl tonic::IntoRequest<super::ListBackupOperationsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListBackupOperationsResponse>,
             tonic::Status,
         > {
@@ -2138,13 +2307,24 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/ListBackupOperations",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "ListBackupOperations",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists Cloud Spanner database roles.
         pub async fn list_database_roles(
             &mut self,
             request: impl tonic::IntoRequest<super::ListDatabaseRolesRequest>,
-        ) -> Result<tonic::Response<super::ListDatabaseRolesResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListDatabaseRolesResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2158,7 +2338,15 @@ pub mod database_admin_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.admin.database.v1.DatabaseAdmin/ListDatabaseRoles",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.spanner.admin.database.v1.DatabaseAdmin",
+                        "ListDatabaseRoles",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

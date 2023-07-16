@@ -21,6 +21,7 @@ pub mod advisorynotifications;
 pub mod aiplatform;
 #[cfg(
     any(
+        feature = "google-cloud-alloydb-connectors-v1alpha",
         feature = "google-cloud-alloydb-v1",
         feature = "google-cloud-alloydb-v1alpha",
         feature = "google-cloud-alloydb-v1beta",
@@ -365,6 +366,8 @@ pub mod memcache;
 pub mod metastore;
 #[cfg(any(feature = "google-cloud-migrationcenter-v1"))]
 pub mod migrationcenter;
+#[cfg(any(feature = "google-cloud-netapp-v1beta1"))]
+pub mod netapp;
 #[cfg(any(feature = "google-cloud-networkanalyzer-logging-v1"))]
 pub mod networkanalyzer;
 #[cfg(

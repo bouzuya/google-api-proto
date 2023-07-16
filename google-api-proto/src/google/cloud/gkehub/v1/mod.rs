@@ -1,281 +1,3 @@
-/// Feature represents the settings and status of any Hub Feature.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Feature {
-    /// Output only. The full, unique name of this Feature resource in the format
-    /// `projects/*/locations/*/features/*`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// GCP labels for this Feature.
-    #[prost(btree_map = "string, string", tag = "2")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. State of the Feature resource itself.
-    #[prost(message, optional, tag = "3")]
-    pub resource_state: ::core::option::Option<FeatureResourceState>,
-    /// Optional. Hub-wide Feature configuration. If this Feature does not support any
-    /// Hub-wide configuration, this field may be unused.
-    #[prost(message, optional, tag = "4")]
-    pub spec: ::core::option::Option<CommonFeatureSpec>,
-    /// Optional. Membership-specific configuration for this Feature. If this Feature does
-    /// not support any per-Membership configuration, this field may be unused.
-    ///
-    /// The keys indicate which Membership the configuration is for, in the form:
-    ///
-    ///      projects/{p}/locations/{l}/memberships/{m}
-    ///
-    /// Where {p} is the project, {l} is a valid location and {m} is a valid
-    /// Membership in this project at that location. {p} WILL match the Feature's
-    /// project.
-    ///
-    /// {p} will always be returned as the project number, but the project ID is
-    /// also accepted during input. If the same Membership is specified in the map
-    /// twice (using the project ID form, and the project number form), exactly
-    /// ONE of the entries will be saved, with no guarantees as to which. For this
-    /// reason, it is recommended the same format be used for all entries when
-    /// mutating a Feature.
-    #[prost(btree_map = "string, message", tag = "5")]
-    pub membership_specs: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        MembershipFeatureSpec,
-    >,
-    /// Output only. The Hub-wide Feature state.
-    #[prost(message, optional, tag = "6")]
-    pub state: ::core::option::Option<CommonFeatureState>,
-    /// Output only. Membership-specific Feature status. If this Feature does
-    /// report any per-Membership status, this field may be unused.
-    ///
-    /// The keys indicate which Membership the state is for, in the form:
-    ///
-    ///      projects/{p}/locations/{l}/memberships/{m}
-    ///
-    /// Where {p} is the project number, {l} is a valid location and {m} is a valid
-    /// Membership in this project at that location. {p} MUST match the Feature's
-    /// project number.
-    #[prost(btree_map = "string, message", tag = "7")]
-    pub membership_states: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        MembershipFeatureState,
-    >,
-    /// Output only. When the Feature resource was created.
-    #[prost(message, optional, tag = "8")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. When the Feature resource was last updated.
-    #[prost(message, optional, tag = "9")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. When the Feature resource was deleted.
-    #[prost(message, optional, tag = "10")]
-    pub delete_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// FeatureResourceState describes the state of a Feature *resource* in the
-/// GkeHub API. See `FeatureState` for the "running state" of the Feature in the
-/// Hub and across Memberships.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FeatureResourceState {
-    /// The current state of the Feature resource in the Hub API.
-    #[prost(enumeration = "feature_resource_state::State", tag = "1")]
-    pub state: i32,
-}
-/// Nested message and enum types in `FeatureResourceState`.
-pub mod feature_resource_state {
-    /// State describes the lifecycle status of a Feature.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// State is unknown or not set.
-        Unspecified = 0,
-        /// The Feature is being enabled, and the Feature resource is being created.
-        /// Once complete, the corresponding Feature will be enabled in this Hub.
-        Enabling = 1,
-        /// The Feature is enabled in this Hub, and the Feature resource is fully
-        /// available.
-        Active = 2,
-        /// The Feature is being disabled in this Hub, and the Feature resource
-        /// is being deleted.
-        Disabling = 3,
-        /// The Feature resource is being updated.
-        Updating = 4,
-        /// The Feature resource is being updated by the Hub Service.
-        ServiceUpdating = 5,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Enabling => "ENABLING",
-                State::Active => "ACTIVE",
-                State::Disabling => "DISABLING",
-                State::Updating => "UPDATING",
-                State::ServiceUpdating => "SERVICE_UPDATING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "ENABLING" => Some(Self::Enabling),
-                "ACTIVE" => Some(Self::Active),
-                "DISABLING" => Some(Self::Disabling),
-                "UPDATING" => Some(Self::Updating),
-                "SERVICE_UPDATING" => Some(Self::ServiceUpdating),
-                _ => None,
-            }
-        }
-    }
-}
-/// FeatureState describes the high-level state of a Feature. It may be used to
-/// describe a Feature's state at the environ-level, or per-membershop, depending
-/// on the context.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FeatureState {
-    /// The high-level, machine-readable status of this Feature.
-    #[prost(enumeration = "feature_state::Code", tag = "1")]
-    pub code: i32,
-    /// A human-readable description of the current status.
-    #[prost(string, tag = "2")]
-    pub description: ::prost::alloc::string::String,
-    /// The time this status and any related Feature-specific details were updated.
-    #[prost(message, optional, tag = "3")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Nested message and enum types in `FeatureState`.
-pub mod feature_state {
-    /// Code represents a machine-readable, high-level status of the Feature.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Code {
-        /// Unknown or not set.
-        Unspecified = 0,
-        /// The Feature is operating normally.
-        Ok = 1,
-        /// The Feature has encountered an issue, and is operating in a degraded
-        /// state. The Feature may need intervention to return to normal operation.
-        /// See the description and any associated Feature-specific details for more
-        /// information.
-        Warning = 2,
-        /// The Feature is not operating or is in a severely degraded state.
-        /// The Feature may need intervention to return to normal operation.
-        /// See the description and any associated Feature-specific details for more
-        /// information.
-        Error = 3,
-    }
-    impl Code {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Code::Unspecified => "CODE_UNSPECIFIED",
-                Code::Ok => "OK",
-                Code::Warning => "WARNING",
-                Code::Error => "ERROR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "CODE_UNSPECIFIED" => Some(Self::Unspecified),
-                "OK" => Some(Self::Ok),
-                "WARNING" => Some(Self::Warning),
-                "ERROR" => Some(Self::Error),
-                _ => None,
-            }
-        }
-    }
-}
-/// CommonFeatureSpec contains Hub-wide configuration information
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CommonFeatureSpec {
-    #[prost(oneof = "common_feature_spec::FeatureSpec", tags = "102")]
-    pub feature_spec: ::core::option::Option<common_feature_spec::FeatureSpec>,
-}
-/// Nested message and enum types in `CommonFeatureSpec`.
-pub mod common_feature_spec {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum FeatureSpec {
-        /// Multicluster Ingress-specific spec.
-        #[prost(message, tag = "102")]
-        Multiclusteringress(super::super::multiclusteringress::v1::FeatureSpec),
-    }
-}
-/// CommonFeatureState contains Hub-wide Feature status information.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CommonFeatureState {
-    /// Output only. The "running state" of the Feature in this Hub.
-    #[prost(message, optional, tag = "1")]
-    pub state: ::core::option::Option<FeatureState>,
-}
-/// MembershipFeatureSpec contains configuration information for a single
-/// Membership.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MembershipFeatureSpec {
-    #[prost(oneof = "membership_feature_spec::FeatureSpec", tags = "106")]
-    pub feature_spec: ::core::option::Option<membership_feature_spec::FeatureSpec>,
-}
-/// Nested message and enum types in `MembershipFeatureSpec`.
-pub mod membership_feature_spec {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum FeatureSpec {
-        /// Config Management-specific spec.
-        #[prost(message, tag = "106")]
-        Configmanagement(super::super::configmanagement::v1::MembershipSpec),
-    }
-}
-/// MembershipFeatureState contains Feature status information for a single
-/// Membership.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MembershipFeatureState {
-    /// The high-level state of this Feature for a single membership.
-    #[prost(message, optional, tag = "1")]
-    pub state: ::core::option::Option<FeatureState>,
-    #[prost(oneof = "membership_feature_state::FeatureState", tags = "106")]
-    pub feature_state: ::core::option::Option<membership_feature_state::FeatureState>,
-}
-/// Nested message and enum types in `MembershipFeatureState`.
-pub mod membership_feature_state {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum FeatureState {
-        /// Config Management-specific state.
-        #[prost(message, tag = "106")]
-        Configmanagement(super::super::configmanagement::v1::MembershipState),
-    }
-}
 /// Membership contains information about a member cluster.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -646,6 +368,284 @@ pub struct Authority {
     /// and instead OIDC tokens will be validated using this field.
     #[prost(bytes = "bytes", tag = "4")]
     pub oidc_jwks: ::prost::bytes::Bytes,
+}
+/// Feature represents the settings and status of any Hub Feature.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Feature {
+    /// Output only. The full, unique name of this Feature resource in the format
+    /// `projects/*/locations/*/features/*`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// GCP labels for this Feature.
+    #[prost(btree_map = "string, string", tag = "2")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. State of the Feature resource itself.
+    #[prost(message, optional, tag = "3")]
+    pub resource_state: ::core::option::Option<FeatureResourceState>,
+    /// Optional. Hub-wide Feature configuration. If this Feature does not support any
+    /// Hub-wide configuration, this field may be unused.
+    #[prost(message, optional, tag = "4")]
+    pub spec: ::core::option::Option<CommonFeatureSpec>,
+    /// Optional. Membership-specific configuration for this Feature. If this Feature does
+    /// not support any per-Membership configuration, this field may be unused.
+    ///
+    /// The keys indicate which Membership the configuration is for, in the form:
+    ///
+    ///      projects/{p}/locations/{l}/memberships/{m}
+    ///
+    /// Where {p} is the project, {l} is a valid location and {m} is a valid
+    /// Membership in this project at that location. {p} WILL match the Feature's
+    /// project.
+    ///
+    /// {p} will always be returned as the project number, but the project ID is
+    /// also accepted during input. If the same Membership is specified in the map
+    /// twice (using the project ID form, and the project number form), exactly
+    /// ONE of the entries will be saved, with no guarantees as to which. For this
+    /// reason, it is recommended the same format be used for all entries when
+    /// mutating a Feature.
+    #[prost(btree_map = "string, message", tag = "5")]
+    pub membership_specs: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        MembershipFeatureSpec,
+    >,
+    /// Output only. The Hub-wide Feature state.
+    #[prost(message, optional, tag = "6")]
+    pub state: ::core::option::Option<CommonFeatureState>,
+    /// Output only. Membership-specific Feature status. If this Feature does
+    /// report any per-Membership status, this field may be unused.
+    ///
+    /// The keys indicate which Membership the state is for, in the form:
+    ///
+    ///      projects/{p}/locations/{l}/memberships/{m}
+    ///
+    /// Where {p} is the project number, {l} is a valid location and {m} is a valid
+    /// Membership in this project at that location. {p} MUST match the Feature's
+    /// project number.
+    #[prost(btree_map = "string, message", tag = "7")]
+    pub membership_states: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        MembershipFeatureState,
+    >,
+    /// Output only. When the Feature resource was created.
+    #[prost(message, optional, tag = "8")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. When the Feature resource was last updated.
+    #[prost(message, optional, tag = "9")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. When the Feature resource was deleted.
+    #[prost(message, optional, tag = "10")]
+    pub delete_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// FeatureResourceState describes the state of a Feature *resource* in the
+/// GkeHub API. See `FeatureState` for the "running state" of the Feature in the
+/// Hub and across Memberships.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeatureResourceState {
+    /// The current state of the Feature resource in the Hub API.
+    #[prost(enumeration = "feature_resource_state::State", tag = "1")]
+    pub state: i32,
+}
+/// Nested message and enum types in `FeatureResourceState`.
+pub mod feature_resource_state {
+    /// State describes the lifecycle status of a Feature.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// State is unknown or not set.
+        Unspecified = 0,
+        /// The Feature is being enabled, and the Feature resource is being created.
+        /// Once complete, the corresponding Feature will be enabled in this Hub.
+        Enabling = 1,
+        /// The Feature is enabled in this Hub, and the Feature resource is fully
+        /// available.
+        Active = 2,
+        /// The Feature is being disabled in this Hub, and the Feature resource
+        /// is being deleted.
+        Disabling = 3,
+        /// The Feature resource is being updated.
+        Updating = 4,
+        /// The Feature resource is being updated by the Hub Service.
+        ServiceUpdating = 5,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Enabling => "ENABLING",
+                State::Active => "ACTIVE",
+                State::Disabling => "DISABLING",
+                State::Updating => "UPDATING",
+                State::ServiceUpdating => "SERVICE_UPDATING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "ENABLING" => Some(Self::Enabling),
+                "ACTIVE" => Some(Self::Active),
+                "DISABLING" => Some(Self::Disabling),
+                "UPDATING" => Some(Self::Updating),
+                "SERVICE_UPDATING" => Some(Self::ServiceUpdating),
+                _ => None,
+            }
+        }
+    }
+}
+/// FeatureState describes the high-level state of a Feature. It may be used to
+/// describe a Feature's state at the environ-level, or per-membershop, depending
+/// on the context.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeatureState {
+    /// The high-level, machine-readable status of this Feature.
+    #[prost(enumeration = "feature_state::Code", tag = "1")]
+    pub code: i32,
+    /// A human-readable description of the current status.
+    #[prost(string, tag = "2")]
+    pub description: ::prost::alloc::string::String,
+    /// The time this status and any related Feature-specific details were updated.
+    #[prost(message, optional, tag = "3")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Nested message and enum types in `FeatureState`.
+pub mod feature_state {
+    /// Code represents a machine-readable, high-level status of the Feature.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Code {
+        /// Unknown or not set.
+        Unspecified = 0,
+        /// The Feature is operating normally.
+        Ok = 1,
+        /// The Feature has encountered an issue, and is operating in a degraded
+        /// state. The Feature may need intervention to return to normal operation.
+        /// See the description and any associated Feature-specific details for more
+        /// information.
+        Warning = 2,
+        /// The Feature is not operating or is in a severely degraded state.
+        /// The Feature may need intervention to return to normal operation.
+        /// See the description and any associated Feature-specific details for more
+        /// information.
+        Error = 3,
+    }
+    impl Code {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Code::Unspecified => "CODE_UNSPECIFIED",
+                Code::Ok => "OK",
+                Code::Warning => "WARNING",
+                Code::Error => "ERROR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "CODE_UNSPECIFIED" => Some(Self::Unspecified),
+                "OK" => Some(Self::Ok),
+                "WARNING" => Some(Self::Warning),
+                "ERROR" => Some(Self::Error),
+                _ => None,
+            }
+        }
+    }
+}
+/// CommonFeatureSpec contains Hub-wide configuration information
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CommonFeatureSpec {
+    #[prost(oneof = "common_feature_spec::FeatureSpec", tags = "102")]
+    pub feature_spec: ::core::option::Option<common_feature_spec::FeatureSpec>,
+}
+/// Nested message and enum types in `CommonFeatureSpec`.
+pub mod common_feature_spec {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum FeatureSpec {
+        /// Multicluster Ingress-specific spec.
+        #[prost(message, tag = "102")]
+        Multiclusteringress(super::super::multiclusteringress::v1::FeatureSpec),
+    }
+}
+/// CommonFeatureState contains Hub-wide Feature status information.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CommonFeatureState {
+    /// Output only. The "running state" of the Feature in this Hub.
+    #[prost(message, optional, tag = "1")]
+    pub state: ::core::option::Option<FeatureState>,
+}
+/// MembershipFeatureSpec contains configuration information for a single
+/// Membership.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MembershipFeatureSpec {
+    #[prost(oneof = "membership_feature_spec::FeatureSpec", tags = "106")]
+    pub feature_spec: ::core::option::Option<membership_feature_spec::FeatureSpec>,
+}
+/// Nested message and enum types in `MembershipFeatureSpec`.
+pub mod membership_feature_spec {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum FeatureSpec {
+        /// Config Management-specific spec.
+        #[prost(message, tag = "106")]
+        Configmanagement(super::super::configmanagement::v1::MembershipSpec),
+    }
+}
+/// MembershipFeatureState contains Feature status information for a single
+/// Membership.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MembershipFeatureState {
+    /// The high-level state of this Feature for a single membership.
+    #[prost(message, optional, tag = "1")]
+    pub state: ::core::option::Option<FeatureState>,
+    #[prost(oneof = "membership_feature_state::FeatureState", tags = "106")]
+    pub feature_state: ::core::option::Option<membership_feature_state::FeatureState>,
+}
+/// Nested message and enum types in `MembershipFeatureState`.
+pub mod membership_feature_state {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum FeatureState {
+        /// Config Management-specific state.
+        #[prost(message, tag = "106")]
+        Configmanagement(super::super::configmanagement::v1::MembershipState),
+    }
 }
 /// Request message for `GkeHub.ListMemberships` method.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1160,11 +1160,30 @@ pub mod gke_hub_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Lists Memberships in a given project and location.
         pub async fn list_memberships(
             &mut self,
             request: impl tonic::IntoRequest<super::ListMembershipsRequest>,
-        ) -> Result<tonic::Response<super::ListMembershipsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListMembershipsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1178,13 +1197,21 @@ pub mod gke_hub_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkehub.v1.GkeHub/ListMemberships",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.gkehub.v1.GkeHub", "ListMemberships"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists Features in a given project and location.
         pub async fn list_features(
             &mut self,
             request: impl tonic::IntoRequest<super::ListFeaturesRequest>,
-        ) -> Result<tonic::Response<super::ListFeaturesResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListFeaturesResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1198,13 +1225,18 @@ pub mod gke_hub_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkehub.v1.GkeHub/ListFeatures",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.gkehub.v1.GkeHub", "ListFeatures"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the details of a Membership.
         pub async fn get_membership(
             &mut self,
             request: impl tonic::IntoRequest<super::GetMembershipRequest>,
-        ) -> Result<tonic::Response<super::Membership>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Membership>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1218,13 +1250,18 @@ pub mod gke_hub_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkehub.v1.GkeHub/GetMembership",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.gkehub.v1.GkeHub", "GetMembership"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets details of a single Feature.
         pub async fn get_feature(
             &mut self,
             request: impl tonic::IntoRequest<super::GetFeatureRequest>,
-        ) -> Result<tonic::Response<super::Feature>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Feature>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1238,7 +1275,10 @@ pub mod gke_hub_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkehub.v1.GkeHub/GetFeature",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new("google.cloud.gkehub.v1.GkeHub", "GetFeature"));
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a new Membership.
         ///
@@ -1248,7 +1288,7 @@ pub mod gke_hub_client {
         pub async fn create_membership(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateMembershipRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -1265,13 +1305,18 @@ pub mod gke_hub_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkehub.v1.GkeHub/CreateMembership",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.gkehub.v1.GkeHub", "CreateMembership"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Adds a new Feature.
         pub async fn create_feature(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateFeatureRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -1288,7 +1333,12 @@ pub mod gke_hub_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkehub.v1.GkeHub/CreateFeature",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.gkehub.v1.GkeHub", "CreateFeature"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Removes a Membership.
         ///
@@ -1298,7 +1348,7 @@ pub mod gke_hub_client {
         pub async fn delete_membership(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteMembershipRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -1315,13 +1365,18 @@ pub mod gke_hub_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkehub.v1.GkeHub/DeleteMembership",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.gkehub.v1.GkeHub", "DeleteMembership"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Removes a Feature.
         pub async fn delete_feature(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteFeatureRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -1338,13 +1393,18 @@ pub mod gke_hub_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkehub.v1.GkeHub/DeleteFeature",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.gkehub.v1.GkeHub", "DeleteFeature"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates an existing Membership.
         pub async fn update_membership(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateMembershipRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -1361,13 +1421,18 @@ pub mod gke_hub_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkehub.v1.GkeHub/UpdateMembership",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.gkehub.v1.GkeHub", "UpdateMembership"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates an existing Feature.
         pub async fn update_feature(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateFeatureRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -1384,7 +1449,12 @@ pub mod gke_hub_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkehub.v1.GkeHub/UpdateFeature",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.gkehub.v1.GkeHub", "UpdateFeature"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Generates the manifest for deployment of the GKE connect agent.
         ///
@@ -1393,7 +1463,7 @@ pub mod gke_hub_client {
         pub async fn generate_connect_manifest(
             &mut self,
             request: impl tonic::IntoRequest<super::GenerateConnectManifestRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::GenerateConnectManifestResponse>,
             tonic::Status,
         > {
@@ -1410,7 +1480,15 @@ pub mod gke_hub_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkehub.v1.GkeHub/GenerateConnectManifest",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkehub.v1.GkeHub",
+                        "GenerateConnectManifest",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

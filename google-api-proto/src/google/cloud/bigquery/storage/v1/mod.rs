@@ -118,6 +118,32 @@ pub struct AvroSerializationOptions {
     #[prost(bool, tag = "1")]
     pub enable_display_name_attribute: bool,
 }
+/// ProtoSchema describes the schema of the serialized protocol buffer data rows.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProtoSchema {
+    /// Descriptor for input message.  The provided descriptor must be self
+    /// contained, such that data rows sent can be fully decoded using only the
+    /// single descriptor.  For data rows that are compositions of multiple
+    /// independent messages, this means the descriptor may need to be transformed
+    /// to only use nested types:
+    /// <https://developers.google.com/protocol-buffers/docs/proto#nested>
+    ///
+    /// For additional information for how proto types and values map onto BigQuery
+    /// see: <https://cloud.google.com/bigquery/docs/write-api#data_type_conversions>
+    #[prost(message, optional, tag = "1")]
+    pub proto_descriptor: ::core::option::Option<::prost_types::DescriptorProto>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProtoRows {
+    /// A sequence of rows serialized as a Protocol Buffer.
+    ///
+    /// See <https://developers.google.com/protocol-buffers/docs/overview> for more
+    /// information on deserializing this field.
+    #[prost(bytes = "bytes", repeated, tag = "1")]
+    pub serialized_rows: ::prost::alloc::vec::Vec<::prost::bytes::Bytes>,
+}
 /// Schema of a table. This schema is a subset of
 /// google.cloud.bigquery.v2.TableSchema containing information necessary to
 /// generate valid message to write to BigQuery.
@@ -388,6 +414,13 @@ pub struct ReadSession {
     /// metadata from the table which might be incomplete or stale.
     #[prost(int64, tag = "12")]
     pub estimated_total_bytes_scanned: i64,
+    /// Output only. A pre-projected estimate of the total physical size of files
+    /// (in bytes) that this session will scan when all streams are consumed. This
+    /// estimate is independent of the selected columns and can be based on
+    /// incomplete or stale metadata from the table.  This field is only set for
+    /// BigLake tables.
+    #[prost(int64, tag = "15")]
+    pub estimated_total_physical_file_size: i64,
     /// Output only. An estimate on the number of rows present in this session's
     /// streams. This estimate is based on metadata from the table which might be
     /// incomplete or stale.
@@ -483,11 +516,11 @@ pub mod read_session {
         #[prost(string, tag = "2")]
         pub row_restriction: ::prost::alloc::string::String,
         /// Optional. Specifies a table sampling percentage. Specifically, the query
-        /// planner will use TABLESAMPLE SYSTEM (sample_percentage PERCENT). This
-        /// samples at the file-level. It will randomly choose for each file whether
-        /// to include that file in the sample returned. Note, that if the table only
-        /// has one file, then TABLESAMPLE SYSTEM will select that file and return
-        /// all returnable rows contained within.
+        /// planner will use TABLESAMPLE SYSTEM (sample_percentage PERCENT). The
+        /// sampling percentage is applied at the data block granularity. It will
+        /// randomly choose for each data block whether to read the rows in that data
+        /// block. For more details, see
+        /// <https://cloud.google.com/bigquery/docs/table-sampling>)
         #[prost(double, optional, tag = "5")]
         pub sample_percentage: ::core::option::Option<f64>,
         #[prost(
@@ -736,32 +769,6 @@ impl WriteStreamView {
         }
     }
 }
-/// ProtoSchema describes the schema of the serialized protocol buffer data rows.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ProtoSchema {
-    /// Descriptor for input message.  The provided descriptor must be self
-    /// contained, such that data rows sent can be fully decoded using only the
-    /// single descriptor.  For data rows that are compositions of multiple
-    /// independent messages, this means the descriptor may need to be transformed
-    /// to only use nested types:
-    /// <https://developers.google.com/protocol-buffers/docs/proto#nested>
-    ///
-    /// For additional information for how proto types and values map onto BigQuery
-    /// see: <https://cloud.google.com/bigquery/docs/write-api#data_type_conversions>
-    #[prost(message, optional, tag = "1")]
-    pub proto_descriptor: ::core::option::Option<::prost_types::DescriptorProto>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ProtoRows {
-    /// A sequence of rows serialized as a Protocol Buffer.
-    ///
-    /// See <https://developers.google.com/protocol-buffers/docs/overview> for more
-    /// information on deserializing this field.
-    #[prost(bytes = "bytes", repeated, tag = "1")]
-    pub serialized_rows: ::prost::alloc::vec::Vec<::prost::bytes::Bytes>,
-}
 /// Request message for `CreateReadSession`.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -951,19 +958,24 @@ pub struct CreateWriteStreamRequest {
 }
 /// Request message for `AppendRows`.
 ///
-/// Due to the nature of AppendRows being a bidirectional streaming RPC, certain
-/// parts of the AppendRowsRequest need only be specified for the first request
-/// sent each time the gRPC network connection is opened/reopened.
+/// Because AppendRows is a bidirectional streaming RPC, certain parts of the
+/// AppendRowsRequest need only be specified for the first request before
+/// switching table destinations. You can also switch table destinations within
+/// the same connection for the default stream.
 ///
 /// The size of a single AppendRowsRequest must be less than 10 MB in size.
 /// Requests larger than this return an error, typically `INVALID_ARGUMENT`.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AppendRowsRequest {
-    /// Required. The write_stream identifies the target of the append operation,
-    /// and only needs to be specified as part of the first request on the gRPC
-    /// connection. If provided for subsequent requests, it must match the value of
-    /// the first request.
+    /// Required. The write_stream identifies the append operation. It must be
+    /// provided in the following scenarios:
+    ///
+    /// * In the first request to an AppendRows connection.
+    ///
+    /// * In all subsequent requests to an AppendRows connection, if you use the
+    /// same connection to write to multiple tables or change the input schema for
+    /// default streams.
     ///
     /// For explicitly created write streams, the format is:
     ///
@@ -972,6 +984,22 @@ pub struct AppendRowsRequest {
     /// For the special default stream, the format is:
     ///
     /// * `projects/{project}/datasets/{dataset}/tables/{table}/streams/_default`.
+    ///
+    /// An example of a possible sequence of requests with write_stream fields
+    /// within a single connection:
+    ///
+    /// * r1: {write_stream: stream_name_1}
+    ///
+    /// * r2: {write_stream: /*omit*/}
+    ///
+    /// * r3: {write_stream: /*omit*/}
+    ///
+    /// * r4: {write_stream: stream_name_2}
+    ///
+    /// * r5: {write_stream: stream_name_2}
+    ///
+    /// The destination changed in request_4, so the write_stream field must be
+    /// populated in all subsequent requests in this stream.
     #[prost(string, tag = "1")]
     pub write_stream: ::prost::alloc::string::String,
     /// If present, the write is only performed if the next append offset is same
@@ -1024,9 +1052,14 @@ pub mod append_rows_request {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct ProtoData {
-        /// Proto schema used to serialize the data.  This value only needs to be
-        /// provided as part of the first request on a gRPC network connection,
-        /// and will be ignored for subsequent requests on the connection.
+        /// The protocol buffer schema used to serialize the data. Provide this value
+        /// whenever:
+        ///
+        /// * You send the first request of an RPC connection.
+        ///
+        /// * You change the input schema.
+        ///
+        /// * You specify a new destination table.
         #[prost(message, optional, tag = "1")]
         pub writer_schema: ::core::option::Option<super::ProtoSchema>,
         /// Serialized row data in protobuf message format.
@@ -1036,10 +1069,9 @@ pub mod append_rows_request {
         #[prost(message, optional, tag = "2")]
         pub rows: ::core::option::Option<super::ProtoRows>,
     }
-    /// An enum to indicate how to interpret missing values. Missing values are
-    /// fields present in user schema but missing in rows. A missing value can
-    /// represent a NULL or a column default value defined in BigQuery table
-    /// schema.
+    /// An enum to indicate how to interpret missing values of fields that are
+    /// present in user schema but missing in rows. A missing value can represent a
+    /// NULL or a column default value defined in BigQuery table schema.
     #[derive(
         Clone,
         Copy,
@@ -1474,6 +1506,22 @@ pub mod big_query_read_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Creates a new read session. A read session divides the contents of a
         /// BigQuery table into one or more streams, which can then be used to read
         /// data from the table. The read session also specifies properties of the
@@ -1496,7 +1544,7 @@ pub mod big_query_read_client {
         pub async fn create_read_session(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateReadSessionRequest>,
-        ) -> Result<tonic::Response<super::ReadSession>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::ReadSession>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1510,7 +1558,15 @@ pub mod big_query_read_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.storage.v1.BigQueryRead/CreateReadSession",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.storage.v1.BigQueryRead",
+                        "CreateReadSession",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Reads rows from the stream in the format prescribed by the ReadSession.
         /// Each response contains one or more table rows, up to a maximum of 100 MiB
@@ -1522,7 +1578,7 @@ pub mod big_query_read_client {
         pub async fn read_rows(
             &mut self,
             request: impl tonic::IntoRequest<super::ReadRowsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<tonic::codec::Streaming<super::ReadRowsResponse>>,
             tonic::Status,
         > {
@@ -1539,7 +1595,15 @@ pub mod big_query_read_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.storage.v1.BigQueryRead/ReadRows",
             );
-            self.inner.server_streaming(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.storage.v1.BigQueryRead",
+                        "ReadRows",
+                    ),
+                );
+            self.inner.server_streaming(req, path, codec).await
         }
         /// Splits a given `ReadStream` into two `ReadStream` objects. These
         /// `ReadStream` objects are referred to as the primary and the residual
@@ -1556,7 +1620,10 @@ pub mod big_query_read_client {
         pub async fn split_read_stream(
             &mut self,
             request: impl tonic::IntoRequest<super::SplitReadStreamRequest>,
-        ) -> Result<tonic::Response<super::SplitReadStreamResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::SplitReadStreamResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1570,7 +1637,15 @@ pub mod big_query_read_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.storage.v1.BigQueryRead/SplitReadStream",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.storage.v1.BigQueryRead",
+                        "SplitReadStream",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -1638,6 +1713,22 @@ pub mod big_query_write_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Creates a write stream to the given table.
         /// Additionally, every table has a special stream named '_default'
         /// to which data can be written. This stream doesn't need to be created using
@@ -1647,7 +1738,7 @@ pub mod big_query_write_client {
         pub async fn create_write_stream(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateWriteStreamRequest>,
-        ) -> Result<tonic::Response<super::WriteStream>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::WriteStream>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1661,7 +1752,15 @@ pub mod big_query_write_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.storage.v1.BigQueryWrite/CreateWriteStream",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.storage.v1.BigQueryWrite",
+                        "CreateWriteStream",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Appends data to the given stream.
         ///
@@ -1697,7 +1796,7 @@ pub mod big_query_write_client {
         pub async fn append_rows(
             &mut self,
             request: impl tonic::IntoStreamingRequest<Message = super::AppendRowsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<tonic::codec::Streaming<super::AppendRowsResponse>>,
             tonic::Status,
         > {
@@ -1714,13 +1813,21 @@ pub mod big_query_write_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.storage.v1.BigQueryWrite/AppendRows",
             );
-            self.inner.streaming(request.into_streaming_request(), path, codec).await
+            let mut req = request.into_streaming_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.storage.v1.BigQueryWrite",
+                        "AppendRows",
+                    ),
+                );
+            self.inner.streaming(req, path, codec).await
         }
         /// Gets information about a write stream.
         pub async fn get_write_stream(
             &mut self,
             request: impl tonic::IntoRequest<super::GetWriteStreamRequest>,
-        ) -> Result<tonic::Response<super::WriteStream>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::WriteStream>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1734,14 +1841,25 @@ pub mod big_query_write_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.storage.v1.BigQueryWrite/GetWriteStream",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.storage.v1.BigQueryWrite",
+                        "GetWriteStream",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Finalize a write stream so that no new data can be appended to the
         /// stream. Finalize is not supported on the '_default' stream.
         pub async fn finalize_write_stream(
             &mut self,
             request: impl tonic::IntoRequest<super::FinalizeWriteStreamRequest>,
-        ) -> Result<tonic::Response<super::FinalizeWriteStreamResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::FinalizeWriteStreamResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1755,7 +1873,15 @@ pub mod big_query_write_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.storage.v1.BigQueryWrite/FinalizeWriteStream",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.storage.v1.BigQueryWrite",
+                        "FinalizeWriteStream",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Atomically commits a group of `PENDING` streams that belong to the same
         /// `parent` table.
@@ -1766,7 +1892,7 @@ pub mod big_query_write_client {
         pub async fn batch_commit_write_streams(
             &mut self,
             request: impl tonic::IntoRequest<super::BatchCommitWriteStreamsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::BatchCommitWriteStreamsResponse>,
             tonic::Status,
         > {
@@ -1783,7 +1909,15 @@ pub mod big_query_write_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.storage.v1.BigQueryWrite/BatchCommitWriteStreams",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.storage.v1.BigQueryWrite",
+                        "BatchCommitWriteStreams",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Flushes rows to a BUFFERED stream.
         ///
@@ -1796,7 +1930,10 @@ pub mod big_query_write_client {
         pub async fn flush_rows(
             &mut self,
             request: impl tonic::IntoRequest<super::FlushRowsRequest>,
-        ) -> Result<tonic::Response<super::FlushRowsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::FlushRowsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1810,7 +1947,15 @@ pub mod big_query_write_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.storage.v1.BigQueryWrite/FlushRows",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.storage.v1.BigQueryWrite",
+                        "FlushRows",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

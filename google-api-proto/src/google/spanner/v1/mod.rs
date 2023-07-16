@@ -1,149 +1,3 @@
-/// Node information for nodes appearing in a \[QueryPlan.plan_nodes][google.spanner.v1.QueryPlan.plan_nodes\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PlanNode {
-    /// The `PlanNode`'s index in [node list]\[google.spanner.v1.QueryPlan.plan_nodes\].
-    #[prost(int32, tag = "1")]
-    pub index: i32,
-    /// Used to determine the type of node. May be needed for visualizing
-    /// different kinds of nodes differently. For example, If the node is a
-    /// \[SCALAR][google.spanner.v1.PlanNode.Kind.SCALAR\] node, it will have a condensed representation
-    /// which can be used to directly embed a description of the node in its
-    /// parent.
-    #[prost(enumeration = "plan_node::Kind", tag = "2")]
-    pub kind: i32,
-    /// The display name for the node.
-    #[prost(string, tag = "3")]
-    pub display_name: ::prost::alloc::string::String,
-    /// List of child node `index`es and their relationship to this parent.
-    #[prost(message, repeated, tag = "4")]
-    pub child_links: ::prost::alloc::vec::Vec<plan_node::ChildLink>,
-    /// Condensed representation for \[SCALAR][google.spanner.v1.PlanNode.Kind.SCALAR\] nodes.
-    #[prost(message, optional, tag = "5")]
-    pub short_representation: ::core::option::Option<plan_node::ShortRepresentation>,
-    /// Attributes relevant to the node contained in a group of key-value pairs.
-    /// For example, a Parameter Reference node could have the following
-    /// information in its metadata:
-    ///
-    ///      {
-    ///        "parameter_reference": "param1",
-    ///        "parameter_type": "array"
-    ///      }
-    #[prost(message, optional, tag = "6")]
-    pub metadata: ::core::option::Option<::prost_types::Struct>,
-    /// The execution statistics associated with the node, contained in a group of
-    /// key-value pairs. Only present if the plan was returned as a result of a
-    /// profile query. For example, number of executions, number of rows/time per
-    /// execution etc.
-    #[prost(message, optional, tag = "7")]
-    pub execution_stats: ::core::option::Option<::prost_types::Struct>,
-}
-/// Nested message and enum types in `PlanNode`.
-pub mod plan_node {
-    /// Metadata associated with a parent-child relationship appearing in a
-    /// \[PlanNode][google.spanner.v1.PlanNode\].
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ChildLink {
-        /// The node to which the link points.
-        #[prost(int32, tag = "1")]
-        pub child_index: i32,
-        /// The type of the link. For example, in Hash Joins this could be used to
-        /// distinguish between the build child and the probe child, or in the case
-        /// of the child being an output variable, to represent the tag associated
-        /// with the output variable.
-        #[prost(string, tag = "2")]
-        pub r#type: ::prost::alloc::string::String,
-        /// Only present if the child node is \[SCALAR][google.spanner.v1.PlanNode.Kind.SCALAR\] and corresponds
-        /// to an output variable of the parent node. The field carries the name of
-        /// the output variable.
-        /// For example, a `TableScan` operator that reads rows from a table will
-        /// have child links to the `SCALAR` nodes representing the output variables
-        /// created for each column that is read by the operator. The corresponding
-        /// `variable` fields will be set to the variable names assigned to the
-        /// columns.
-        #[prost(string, tag = "3")]
-        pub variable: ::prost::alloc::string::String,
-    }
-    /// Condensed representation of a node and its subtree. Only present for
-    /// `SCALAR` \[PlanNode(s)][google.spanner.v1.PlanNode\].
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ShortRepresentation {
-        /// A string representation of the expression subtree rooted at this node.
-        #[prost(string, tag = "1")]
-        pub description: ::prost::alloc::string::String,
-        /// A mapping of (subquery variable name) -> (subquery node id) for cases
-        /// where the `description` string of this node references a `SCALAR`
-        /// subquery contained in the expression subtree rooted at this node. The
-        /// referenced `SCALAR` subquery may not necessarily be a direct child of
-        /// this node.
-        #[prost(btree_map = "string, int32", tag = "2")]
-        pub subqueries: ::prost::alloc::collections::BTreeMap<
-            ::prost::alloc::string::String,
-            i32,
-        >,
-    }
-    /// The kind of \[PlanNode][google.spanner.v1.PlanNode\]. Distinguishes between the two different kinds of
-    /// nodes that can appear in a query plan.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Kind {
-        /// Not specified.
-        Unspecified = 0,
-        /// Denotes a Relational operator node in the expression tree. Relational
-        /// operators represent iterative processing of rows during query execution.
-        /// For example, a `TableScan` operation that reads rows from a table.
-        Relational = 1,
-        /// Denotes a Scalar node in the expression tree. Scalar nodes represent
-        /// non-iterable entities in the query plan. For example, constants or
-        /// arithmetic operators appearing inside predicate expressions or references
-        /// to column names.
-        Scalar = 2,
-    }
-    impl Kind {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Kind::Unspecified => "KIND_UNSPECIFIED",
-                Kind::Relational => "RELATIONAL",
-                Kind::Scalar => "SCALAR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "KIND_UNSPECIFIED" => Some(Self::Unspecified),
-                "RELATIONAL" => Some(Self::Relational),
-                "SCALAR" => Some(Self::Scalar),
-                _ => None,
-            }
-        }
-    }
-}
-/// Contains an ordered list of nodes appearing in the query plan.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct QueryPlan {
-    /// The nodes in the query plan. Plan nodes are returned in pre-order starting
-    /// with the plan root. Each \[PlanNode][google.spanner.v1.PlanNode\]'s `id` corresponds to its index in
-    /// `plan_nodes`.
-    #[prost(message, repeated, tag = "1")]
-    pub plan_nodes: ::prost::alloc::vec::Vec<PlanNode>,
-}
 /// The response for \[Commit][google.spanner.v1.Spanner.Commit\].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -418,6 +272,152 @@ pub mod mutation {
         #[prost(message, tag = "5")]
         Delete(Delete),
     }
+}
+/// Node information for nodes appearing in a \[QueryPlan.plan_nodes][google.spanner.v1.QueryPlan.plan_nodes\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlanNode {
+    /// The `PlanNode`'s index in [node list]\[google.spanner.v1.QueryPlan.plan_nodes\].
+    #[prost(int32, tag = "1")]
+    pub index: i32,
+    /// Used to determine the type of node. May be needed for visualizing
+    /// different kinds of nodes differently. For example, If the node is a
+    /// \[SCALAR][google.spanner.v1.PlanNode.Kind.SCALAR\] node, it will have a condensed representation
+    /// which can be used to directly embed a description of the node in its
+    /// parent.
+    #[prost(enumeration = "plan_node::Kind", tag = "2")]
+    pub kind: i32,
+    /// The display name for the node.
+    #[prost(string, tag = "3")]
+    pub display_name: ::prost::alloc::string::String,
+    /// List of child node `index`es and their relationship to this parent.
+    #[prost(message, repeated, tag = "4")]
+    pub child_links: ::prost::alloc::vec::Vec<plan_node::ChildLink>,
+    /// Condensed representation for \[SCALAR][google.spanner.v1.PlanNode.Kind.SCALAR\] nodes.
+    #[prost(message, optional, tag = "5")]
+    pub short_representation: ::core::option::Option<plan_node::ShortRepresentation>,
+    /// Attributes relevant to the node contained in a group of key-value pairs.
+    /// For example, a Parameter Reference node could have the following
+    /// information in its metadata:
+    ///
+    ///      {
+    ///        "parameter_reference": "param1",
+    ///        "parameter_type": "array"
+    ///      }
+    #[prost(message, optional, tag = "6")]
+    pub metadata: ::core::option::Option<::prost_types::Struct>,
+    /// The execution statistics associated with the node, contained in a group of
+    /// key-value pairs. Only present if the plan was returned as a result of a
+    /// profile query. For example, number of executions, number of rows/time per
+    /// execution etc.
+    #[prost(message, optional, tag = "7")]
+    pub execution_stats: ::core::option::Option<::prost_types::Struct>,
+}
+/// Nested message and enum types in `PlanNode`.
+pub mod plan_node {
+    /// Metadata associated with a parent-child relationship appearing in a
+    /// \[PlanNode][google.spanner.v1.PlanNode\].
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ChildLink {
+        /// The node to which the link points.
+        #[prost(int32, tag = "1")]
+        pub child_index: i32,
+        /// The type of the link. For example, in Hash Joins this could be used to
+        /// distinguish between the build child and the probe child, or in the case
+        /// of the child being an output variable, to represent the tag associated
+        /// with the output variable.
+        #[prost(string, tag = "2")]
+        pub r#type: ::prost::alloc::string::String,
+        /// Only present if the child node is \[SCALAR][google.spanner.v1.PlanNode.Kind.SCALAR\] and corresponds
+        /// to an output variable of the parent node. The field carries the name of
+        /// the output variable.
+        /// For example, a `TableScan` operator that reads rows from a table will
+        /// have child links to the `SCALAR` nodes representing the output variables
+        /// created for each column that is read by the operator. The corresponding
+        /// `variable` fields will be set to the variable names assigned to the
+        /// columns.
+        #[prost(string, tag = "3")]
+        pub variable: ::prost::alloc::string::String,
+    }
+    /// Condensed representation of a node and its subtree. Only present for
+    /// `SCALAR` \[PlanNode(s)][google.spanner.v1.PlanNode\].
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ShortRepresentation {
+        /// A string representation of the expression subtree rooted at this node.
+        #[prost(string, tag = "1")]
+        pub description: ::prost::alloc::string::String,
+        /// A mapping of (subquery variable name) -> (subquery node id) for cases
+        /// where the `description` string of this node references a `SCALAR`
+        /// subquery contained in the expression subtree rooted at this node. The
+        /// referenced `SCALAR` subquery may not necessarily be a direct child of
+        /// this node.
+        #[prost(btree_map = "string, int32", tag = "2")]
+        pub subqueries: ::prost::alloc::collections::BTreeMap<
+            ::prost::alloc::string::String,
+            i32,
+        >,
+    }
+    /// The kind of \[PlanNode][google.spanner.v1.PlanNode\]. Distinguishes between the two different kinds of
+    /// nodes that can appear in a query plan.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Kind {
+        /// Not specified.
+        Unspecified = 0,
+        /// Denotes a Relational operator node in the expression tree. Relational
+        /// operators represent iterative processing of rows during query execution.
+        /// For example, a `TableScan` operation that reads rows from a table.
+        Relational = 1,
+        /// Denotes a Scalar node in the expression tree. Scalar nodes represent
+        /// non-iterable entities in the query plan. For example, constants or
+        /// arithmetic operators appearing inside predicate expressions or references
+        /// to column names.
+        Scalar = 2,
+    }
+    impl Kind {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Kind::Unspecified => "KIND_UNSPECIFIED",
+                Kind::Relational => "RELATIONAL",
+                Kind::Scalar => "SCALAR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "KIND_UNSPECIFIED" => Some(Self::Unspecified),
+                "RELATIONAL" => Some(Self::Relational),
+                "SCALAR" => Some(Self::Scalar),
+                _ => None,
+            }
+        }
+    }
+}
+/// Contains an ordered list of nodes appearing in the query plan.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryPlan {
+    /// The nodes in the query plan. Plan nodes are returned in pre-order starting
+    /// with the plan root. Each \[PlanNode][google.spanner.v1.PlanNode\]'s `id` corresponds to its index in
+    /// `plan_nodes`.
+    #[prost(message, repeated, tag = "1")]
+    pub plan_nodes: ::prost::alloc::vec::Vec<PlanNode>,
 }
 /// Transactions:
 ///
@@ -2275,6 +2275,22 @@ pub mod spanner_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Creates a new session. A session can be used to perform
         /// transactions that read and/or modify data in a Cloud Spanner database.
         /// Sessions are meant to be reused for many consecutive
@@ -2297,7 +2313,7 @@ pub mod spanner_client {
         pub async fn create_session(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateSessionRequest>,
-        ) -> Result<tonic::Response<super::Session>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Session>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2311,7 +2327,10 @@ pub mod spanner_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.v1.Spanner/CreateSession",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new("google.spanner.v1.Spanner", "CreateSession"));
+            self.inner.unary(req, path, codec).await
         }
         /// Creates multiple new sessions.
         ///
@@ -2320,7 +2339,10 @@ pub mod spanner_client {
         pub async fn batch_create_sessions(
             &mut self,
             request: impl tonic::IntoRequest<super::BatchCreateSessionsRequest>,
-        ) -> Result<tonic::Response<super::BatchCreateSessionsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::BatchCreateSessionsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2334,7 +2356,12 @@ pub mod spanner_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.v1.Spanner/BatchCreateSessions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.spanner.v1.Spanner", "BatchCreateSessions"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets a session. Returns `NOT_FOUND` if the session does not exist.
         /// This is mainly useful for determining whether a session is still
@@ -2342,7 +2369,7 @@ pub mod spanner_client {
         pub async fn get_session(
             &mut self,
             request: impl tonic::IntoRequest<super::GetSessionRequest>,
-        ) -> Result<tonic::Response<super::Session>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Session>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2356,13 +2383,19 @@ pub mod spanner_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.v1.Spanner/GetSession",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new("google.spanner.v1.Spanner", "GetSession"));
+            self.inner.unary(req, path, codec).await
         }
         /// Lists all sessions in a given database.
         pub async fn list_sessions(
             &mut self,
             request: impl tonic::IntoRequest<super::ListSessionsRequest>,
-        ) -> Result<tonic::Response<super::ListSessionsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListSessionsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2376,7 +2409,10 @@ pub mod spanner_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.v1.Spanner/ListSessions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new("google.spanner.v1.Spanner", "ListSessions"));
+            self.inner.unary(req, path, codec).await
         }
         /// Ends a session, releasing server resources associated with it. This will
         /// asynchronously trigger cancellation of any operations that are running with
@@ -2384,7 +2420,7 @@ pub mod spanner_client {
         pub async fn delete_session(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteSessionRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2398,7 +2434,10 @@ pub mod spanner_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.v1.Spanner/DeleteSession",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new("google.spanner.v1.Spanner", "DeleteSession"));
+            self.inner.unary(req, path, codec).await
         }
         /// Executes an SQL statement, returning all results in a single reply. This
         /// method cannot be used to return a result set larger than 10 MiB;
@@ -2414,7 +2453,7 @@ pub mod spanner_client {
         pub async fn execute_sql(
             &mut self,
             request: impl tonic::IntoRequest<super::ExecuteSqlRequest>,
-        ) -> Result<tonic::Response<super::ResultSet>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::ResultSet>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2428,7 +2467,10 @@ pub mod spanner_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.v1.Spanner/ExecuteSql",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new("google.spanner.v1.Spanner", "ExecuteSql"));
+            self.inner.unary(req, path, codec).await
         }
         /// Like [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql], except returns the result
         /// set as a stream. Unlike [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql], there
@@ -2438,7 +2480,7 @@ pub mod spanner_client {
         pub async fn execute_streaming_sql(
             &mut self,
             request: impl tonic::IntoRequest<super::ExecuteSqlRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<tonic::codec::Streaming<super::PartialResultSet>>,
             tonic::Status,
         > {
@@ -2455,7 +2497,12 @@ pub mod spanner_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.v1.Spanner/ExecuteStreamingSql",
             );
-            self.inner.server_streaming(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.spanner.v1.Spanner", "ExecuteStreamingSql"),
+                );
+            self.inner.server_streaming(req, path, codec).await
         }
         /// Executes a batch of SQL DML statements. This method allows many statements
         /// to be run with lower latency than submitting them sequentially with
@@ -2471,7 +2518,10 @@ pub mod spanner_client {
         pub async fn execute_batch_dml(
             &mut self,
             request: impl tonic::IntoRequest<super::ExecuteBatchDmlRequest>,
-        ) -> Result<tonic::Response<super::ExecuteBatchDmlResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ExecuteBatchDmlResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2485,7 +2535,10 @@ pub mod spanner_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.v1.Spanner/ExecuteBatchDml",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new("google.spanner.v1.Spanner", "ExecuteBatchDml"));
+            self.inner.unary(req, path, codec).await
         }
         /// Reads rows from the database using key lookups and scans, as a
         /// simple key/value style alternative to
@@ -2503,7 +2556,7 @@ pub mod spanner_client {
         pub async fn read(
             &mut self,
             request: impl tonic::IntoRequest<super::ReadRequest>,
-        ) -> Result<tonic::Response<super::ResultSet>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::ResultSet>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2517,7 +2570,10 @@ pub mod spanner_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.v1.Spanner/Read",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new("google.spanner.v1.Spanner", "Read"));
+            self.inner.unary(req, path, codec).await
         }
         /// Like [Read][google.spanner.v1.Spanner.Read], except returns the result set as a
         /// stream. Unlike [Read][google.spanner.v1.Spanner.Read], there is no limit on the
@@ -2527,7 +2583,7 @@ pub mod spanner_client {
         pub async fn streaming_read(
             &mut self,
             request: impl tonic::IntoRequest<super::ReadRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<tonic::codec::Streaming<super::PartialResultSet>>,
             tonic::Status,
         > {
@@ -2544,7 +2600,10 @@ pub mod spanner_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.v1.Spanner/StreamingRead",
             );
-            self.inner.server_streaming(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new("google.spanner.v1.Spanner", "StreamingRead"));
+            self.inner.server_streaming(req, path, codec).await
         }
         /// Begins a new transaction. This step can often be skipped:
         /// [Read][google.spanner.v1.Spanner.Read], [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql] and
@@ -2553,7 +2612,7 @@ pub mod spanner_client {
         pub async fn begin_transaction(
             &mut self,
             request: impl tonic::IntoRequest<super::BeginTransactionRequest>,
-        ) -> Result<tonic::Response<super::Transaction>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Transaction>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2567,7 +2626,12 @@ pub mod spanner_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.v1.Spanner/BeginTransaction",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.spanner.v1.Spanner", "BeginTransaction"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Commits a transaction. The request includes the mutations to be
         /// applied to rows in the database.
@@ -2586,7 +2650,7 @@ pub mod spanner_client {
         pub async fn commit(
             &mut self,
             request: impl tonic::IntoRequest<super::CommitRequest>,
-        ) -> Result<tonic::Response<super::CommitResponse>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::CommitResponse>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2600,7 +2664,10 @@ pub mod spanner_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.v1.Spanner/Commit",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new("google.spanner.v1.Spanner", "Commit"));
+            self.inner.unary(req, path, codec).await
         }
         /// Rolls back a transaction, releasing any locks it holds. It is a good
         /// idea to call this for any transaction that includes one or more
@@ -2613,7 +2680,7 @@ pub mod spanner_client {
         pub async fn rollback(
             &mut self,
             request: impl tonic::IntoRequest<super::RollbackRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2627,7 +2694,10 @@ pub mod spanner_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.v1.Spanner/Rollback",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new("google.spanner.v1.Spanner", "Rollback"));
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a set of partition tokens that can be used to execute a query
         /// operation in parallel.  Each of the returned partition tokens can be used
@@ -2643,7 +2713,10 @@ pub mod spanner_client {
         pub async fn partition_query(
             &mut self,
             request: impl tonic::IntoRequest<super::PartitionQueryRequest>,
-        ) -> Result<tonic::Response<super::PartitionResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::PartitionResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2657,7 +2730,10 @@ pub mod spanner_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.v1.Spanner/PartitionQuery",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new("google.spanner.v1.Spanner", "PartitionQuery"));
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a set of partition tokens that can be used to execute a read
         /// operation in parallel.  Each of the returned partition tokens can be used
@@ -2675,7 +2751,10 @@ pub mod spanner_client {
         pub async fn partition_read(
             &mut self,
             request: impl tonic::IntoRequest<super::PartitionReadRequest>,
-        ) -> Result<tonic::Response<super::PartitionResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::PartitionResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2689,7 +2768,10 @@ pub mod spanner_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.spanner.v1.Spanner/PartitionRead",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new("google.spanner.v1.Spanner", "PartitionRead"));
+            self.inner.unary(req, path, codec).await
         }
     }
 }

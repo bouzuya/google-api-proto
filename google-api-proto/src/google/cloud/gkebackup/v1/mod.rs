@@ -31,7 +31,7 @@ pub struct NamespacedNames {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct EncryptionKey {
     /// Google Cloud KMS encryption key. Format:
-    /// projects/*/locations/*/keyRings/*/cryptoKeys/*
+    /// `projects/*/locations/*/keyRings/*/cryptoKeys/*`
     #[prost(string, tag = "1")]
     pub gcp_kms_encryption_key: ::prost::alloc::string::String,
 }
@@ -44,7 +44,7 @@ pub struct EncryptionKey {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Backup {
     /// Output only. The fully qualified name of the Backup.
-    /// projects/*/locations/*/backupPlans/*/backups/*
+    /// `projects/*/locations/*/backupPlans/*/backups/*`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Output only. Server generated global unique identifier of
@@ -57,9 +57,9 @@ pub struct Backup {
     /// Output only. The timestamp when this Backup resource was last updated.
     #[prost(message, optional, tag = "4")]
     pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. This flag indicates whether this Backup resource was created manually
-    /// by a user or via a schedule in the BackupPlan. A value of True means that
-    /// the Backup was created manually.
+    /// Output only. This flag indicates whether this Backup resource was created
+    /// manually by a user or via a schedule in the BackupPlan. A value of True
+    /// means that the Backup was created manually.
     #[prost(bool, tag = "5")]
     pub manual: bool,
     /// A set of custom labels supplied by user.
@@ -80,65 +80,76 @@ pub struct Backup {
     /// (either at creation time or in a subsequent update).
     #[prost(int32, tag = "7")]
     pub delete_lock_days: i32,
-    /// Output only. The time at which an existing delete lock will expire for this backup
-    /// (calculated from create_time + \[delete_lock_days][google.cloud.gkebackup.v1.Backup.delete_lock_days\]).
+    /// Output only. The time at which an existing delete lock will expire for this
+    /// backup (calculated from create_time +
+    /// \[delete_lock_days][google.cloud.gkebackup.v1.Backup.delete_lock_days\]).
     #[prost(message, optional, tag = "8")]
     pub delete_lock_expire_time: ::core::option::Option<::prost_types::Timestamp>,
     /// The age (in days) after which this Backup will be automatically deleted.
     /// Must be an integer value >= 0:
     ///
     /// - If 0, no automatic deletion will occur for this Backup.
-    /// - If not 0, this must be >= \[delete_lock_days][google.cloud.gkebackup.v1.Backup.delete_lock_days\].
+    /// - If not 0, this must be >=
+    /// \[delete_lock_days][google.cloud.gkebackup.v1.Backup.delete_lock_days\] and
+    /// <= 365.
     ///
     /// Once a Backup is created, this value may only be increased.
     ///
     /// Defaults to the parent BackupPlan's
-    /// \[backup_retain_days][google.cloud.gkebackup.v1.BackupPlan.RetentionPolicy.backup_retain_days\] value.
+    /// \[backup_retain_days][google.cloud.gkebackup.v1.BackupPlan.RetentionPolicy.backup_retain_days\]
+    /// value.
     #[prost(int32, tag = "9")]
     pub retain_days: i32,
-    /// Output only. The time at which this Backup will be automatically deleted (calculated
-    /// from create_time + \[retain_days][google.cloud.gkebackup.v1.Backup.retain_days\]).
+    /// Output only. The time at which this Backup will be automatically deleted
+    /// (calculated from create_time +
+    /// \[retain_days][google.cloud.gkebackup.v1.Backup.retain_days\]).
     #[prost(message, optional, tag = "10")]
     pub retain_expire_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The customer managed encryption key that was used to encrypt the Backup's
-    /// artifacts.  Inherited from the parent BackupPlan's
-    /// \[encryption_key][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.encryption_key\] value.
+    /// Output only. The customer managed encryption key that was used to encrypt
+    /// the Backup's artifacts.  Inherited from the parent BackupPlan's
+    /// \[encryption_key][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.encryption_key\]
+    /// value.
     #[prost(message, optional, tag = "11")]
     pub encryption_key: ::core::option::Option<EncryptionKey>,
-    /// Output only. Whether or not the Backup contains volume data.  Controlled by the parent
-    /// BackupPlan's
-    /// \[include_volume_data][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.include_volume_data\] value.
+    /// Output only. Whether or not the Backup contains volume data.  Controlled by
+    /// the parent BackupPlan's
+    /// \[include_volume_data][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.include_volume_data\]
+    /// value.
     #[prost(bool, tag = "15")]
     pub contains_volume_data: bool,
-    /// Output only. Whether or not the Backup contains Kubernetes Secrets.  Controlled by the
-    /// parent BackupPlan's
-    /// \[include_secrets][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.include_secrets\] value.
+    /// Output only. Whether or not the Backup contains Kubernetes Secrets.
+    /// Controlled by the parent BackupPlan's
+    /// \[include_secrets][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.include_secrets\]
+    /// value.
     #[prost(bool, tag = "16")]
     pub contains_secrets: bool,
-    /// Output only. Information about the GKE cluster from which this Backup was created.
+    /// Output only. Information about the GKE cluster from which this Backup was
+    /// created.
     #[prost(message, optional, tag = "17")]
     pub cluster_metadata: ::core::option::Option<backup::ClusterMetadata>,
     /// Output only. Current state of the Backup
     #[prost(enumeration = "backup::State", tag = "18")]
     pub state: i32,
-    /// Output only. Human-readable description of why the backup is in the current `state`.
+    /// Output only. Human-readable description of why the backup is in the current
+    /// `state`.
     #[prost(string, tag = "19")]
     pub state_reason: ::prost::alloc::string::String,
     /// Output only. Completion time of the Backup
     #[prost(message, optional, tag = "20")]
     pub complete_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The total number of Kubernetes resources included in the Backup.
+    /// Output only. The total number of Kubernetes resources included in the
+    /// Backup.
     #[prost(int32, tag = "21")]
     pub resource_count: i32,
     /// Output only. The total number of volume backups contained in the Backup.
     #[prost(int32, tag = "22")]
     pub volume_count: i32,
-    /// Output only. The total size of the Backup in bytes = config backup size + sum(volume
-    /// backup sizes)
+    /// Output only. The total size of the Backup in bytes = config backup size +
+    /// sum(volume backup sizes)
     #[prost(int64, tag = "23")]
     pub size_bytes: i64,
-    /// Output only. `etag` is used for optimistic concurrency control as a way to help
-    /// prevent simultaneous updates of a backup from overwriting each other.
+    /// Output only. `etag` is used for optimistic concurrency control as a way to
+    /// help prevent simultaneous updates of a backup from overwriting each other.
     /// It is strongly suggested that systems make use of the `etag` in the
     /// read-modify-write cycle to perform backup updates in order to avoid
     /// race conditions: An `etag` is returned in the response to `GetBackup`,
@@ -158,7 +169,9 @@ pub struct Backup {
     pub config_backup_size_bytes: i64,
     /// Defines the "scope" of the Backup - which namespaced resources in the
     /// cluster were included in the Backup.  Inherited from the parent
-    /// BackupPlan's \[backup_scope][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.backup_scope\] value.
+    /// BackupPlan's
+    /// \[backup_scope][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.backup_scope\]
+    /// value.
     #[prost(oneof = "backup::BackupScope", tags = "12, 13, 14")]
     pub backup_scope: ::core::option::Option<backup::BackupScope>,
 }
@@ -171,8 +184,8 @@ pub mod backup {
         /// The source cluster from which this Backup was created.
         /// Valid formats:
         ///
-        ///    - projects/*/locations/*/clusters/*
-        ///    - projects/*/zones/*/clusters/*
+        ///    - `projects/*/locations/*/clusters/*`
+        ///    - `projects/*/zones/*/clusters/*`
         ///
         /// This is inherited from the parent BackupPlan's
         /// \[cluster][google.cloud.gkebackup.v1.BackupPlan.cluster\] field.
@@ -265,714 +278,24 @@ pub mod backup {
     }
     /// Defines the "scope" of the Backup - which namespaced resources in the
     /// cluster were included in the Backup.  Inherited from the parent
-    /// BackupPlan's \[backup_scope][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.backup_scope\] value.
+    /// BackupPlan's
+    /// \[backup_scope][google.cloud.gkebackup.v1.BackupPlan.BackupConfig.backup_scope\]
+    /// value.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum BackupScope {
         /// Output only. If True, all namespaces were included in the Backup.
         #[prost(bool, tag = "12")]
         AllNamespaces(bool),
-        /// Output only. If set, the list of namespaces that were included in the Backup.
+        /// Output only. If set, the list of namespaces that were included in the
+        /// Backup.
         #[prost(message, tag = "13")]
         SelectedNamespaces(super::Namespaces),
-        /// Output only. If set, the list of ProtectedApplications whose resources were included
-        /// in the Backup.
+        /// Output only. If set, the list of ProtectedApplications whose resources
+        /// were included in the Backup.
         #[prost(message, tag = "14")]
         SelectedApplications(super::NamespacedNames),
     }
-}
-/// Defines the configuration and scheduling for a "line" of Backups.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BackupPlan {
-    /// Output only. The full name of the BackupPlan resource.
-    /// Format: projects/*/locations/*/backupPlans/*
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Server generated global unique identifier of
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier>) format.
-    #[prost(string, tag = "2")]
-    pub uid: ::prost::alloc::string::String,
-    /// Output only. The timestamp when this BackupPlan resource was created.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The timestamp when this BackupPlan resource was last
-    /// updated.
-    #[prost(message, optional, tag = "4")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// User specified descriptive string for this BackupPlan.
-    #[prost(string, tag = "5")]
-    pub description: ::prost::alloc::string::String,
-    /// Required. Immutable. The source cluster from which Backups will be created via
-    /// this BackupPlan.
-    /// Valid formats:
-    ///
-    /// - projects/*/locations/*/clusters/*
-    /// - projects/*/zones/*/clusters/*
-    #[prost(string, tag = "6")]
-    pub cluster: ::prost::alloc::string::String,
-    /// RetentionPolicy governs lifecycle of Backups created under this plan.
-    #[prost(message, optional, tag = "7")]
-    pub retention_policy: ::core::option::Option<backup_plan::RetentionPolicy>,
-    /// A set of custom labels supplied by user.
-    #[prost(btree_map = "string, string", tag = "8")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Defines a schedule for automatic Backup creation via this BackupPlan.
-    #[prost(message, optional, tag = "9")]
-    pub backup_schedule: ::core::option::Option<backup_plan::Schedule>,
-    /// Output only. `etag` is used for optimistic concurrency control as a way to help
-    /// prevent simultaneous updates of a backup plan from overwriting each other.
-    /// It is strongly suggested that systems make use of the 'etag' in the
-    /// read-modify-write cycle to perform BackupPlan updates in order to avoid
-    /// race conditions: An `etag` is returned in the response to `GetBackupPlan`,
-    /// and systems are expected to put that etag in the request to
-    /// `UpdateBackupPlan` or `DeleteBackupPlan` to ensure that their change
-    /// will be applied to the same version of the resource.
-    #[prost(string, tag = "10")]
-    pub etag: ::prost::alloc::string::String,
-    /// This flag indicates whether this BackupPlan has been deactivated.
-    /// Setting this field to True locks the BackupPlan such that no further
-    /// updates will be allowed (except deletes), including the deactivated field
-    /// itself. It also prevents any new Backups from being created via this
-    /// BackupPlan (including scheduled Backups).
-    ///
-    /// Default: False
-    #[prost(bool, tag = "11")]
-    pub deactivated: bool,
-    /// Defines the configuration of Backups created via this BackupPlan.
-    #[prost(message, optional, tag = "12")]
-    pub backup_config: ::core::option::Option<backup_plan::BackupConfig>,
-    /// Output only. The number of Kubernetes Pods backed up in the
-    /// last successful Backup created via this BackupPlan.
-    #[prost(int32, tag = "13")]
-    pub protected_pod_count: i32,
-}
-/// Nested message and enum types in `BackupPlan`.
-pub mod backup_plan {
-    /// RetentionPolicy defines a Backup retention policy for a BackupPlan.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct RetentionPolicy {
-        /// Minimum age for Backups created via this BackupPlan (in days).
-        /// This field MUST be an integer value between 0-90 (inclusive).
-        /// A Backup created under this BackupPlan will NOT be deletable until it
-        /// reaches Backup's (create_time + backup_delete_lock_days).
-        /// Updating this field of a BackupPlan does NOT affect existing Backups
-        /// under it. Backups created AFTER a successful update will inherit
-        /// the new value.
-        ///
-        /// Default: 0 (no delete blocking)
-        #[prost(int32, tag = "1")]
-        pub backup_delete_lock_days: i32,
-        /// The default maximum age of a Backup created via this BackupPlan.
-        /// This field MUST be an integer value >= 0.
-        /// If specified, a Backup created under this BackupPlan will be
-        /// automatically deleted after its age reaches (create_time +
-        /// backup_retain_days).
-        /// If not specified, Backups created under this BackupPlan will NOT be
-        /// subject to automatic deletion.
-        /// Updating this field does NOT affect existing Backups under it. Backups
-        /// created AFTER a successful update will automatically pick up the new
-        /// value.
-        /// NOTE: backup_retain_days must be >= \[backup_delete_lock_days][google.cloud.gkebackup.v1.BackupPlan.RetentionPolicy.backup_delete_lock_days\].
-        ///
-        /// Default: 0 (no automatic deletion)
-        #[prost(int32, tag = "2")]
-        pub backup_retain_days: i32,
-        /// This flag denotes whether the retention policy of this BackupPlan is
-        /// locked.  If set to True, no further update is allowed on this policy,
-        /// including the `locked` field itself.
-        ///
-        /// Default: False
-        #[prost(bool, tag = "3")]
-        pub locked: bool,
-    }
-    /// Schedule defines scheduling parameters for automatically creating Backups
-    /// via this BackupPlan.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Schedule {
-        /// A standard \[cron\](<https://wikipedia.com/wiki/cron>) string that defines a
-        /// repeating schedule for creating Backups via this BackupPlan.
-        ///
-        /// Default (empty): no automatic backup creation will occur.
-        #[prost(string, tag = "1")]
-        pub cron_schedule: ::prost::alloc::string::String,
-        /// This flag denotes whether automatic Backup creation is paused for this
-        /// BackupPlan.
-        ///
-        /// Default: False
-        #[prost(bool, tag = "2")]
-        pub paused: bool,
-    }
-    /// BackupConfig defines the configuration of Backups created via this
-    /// BackupPlan.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct BackupConfig {
-        /// This flag specifies whether volume data should be backed up when
-        /// PVCs are included in the scope of a Backup.
-        ///
-        /// Default: False
-        #[prost(bool, tag = "4")]
-        pub include_volume_data: bool,
-        /// This flag specifies whether Kubernetes Secret resources should be
-        /// included when they fall into the scope of Backups.
-        ///
-        /// Default: False
-        #[prost(bool, tag = "5")]
-        pub include_secrets: bool,
-        /// This defines a customer managed encryption key that will be used to
-        /// encrypt the "config" portion (the Kubernetes resources) of Backups
-        /// created via this plan.
-        ///
-        /// Default (empty): Config backup artifacts will not be encrypted.
-        #[prost(message, optional, tag = "6")]
-        pub encryption_key: ::core::option::Option<super::EncryptionKey>,
-        /// This defines the "scope" of the Backup - which namespaced
-        /// resources in the cluster will be included in a Backup.
-        /// Exactly one of the fields of backup_scope MUST be specified.
-        #[prost(oneof = "backup_config::BackupScope", tags = "1, 2, 3")]
-        pub backup_scope: ::core::option::Option<backup_config::BackupScope>,
-    }
-    /// Nested message and enum types in `BackupConfig`.
-    pub mod backup_config {
-        /// This defines the "scope" of the Backup - which namespaced
-        /// resources in the cluster will be included in a Backup.
-        /// Exactly one of the fields of backup_scope MUST be specified.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum BackupScope {
-            /// If True, include all namespaced resources
-            #[prost(bool, tag = "1")]
-            AllNamespaces(bool),
-            /// If set, include just the resources in the listed namespaces.
-            #[prost(message, tag = "2")]
-            SelectedNamespaces(super::super::Namespaces),
-            /// If set, include just the resources referenced by the listed
-            /// ProtectedApplications.
-            #[prost(message, tag = "3")]
-            SelectedApplications(super::super::NamespacedNames),
-        }
-    }
-}
-/// Represents both a request to Restore some portion of a Backup into
-/// a target GKE cluster and a record of the restore operation itself.
-/// Next id: 18
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Restore {
-    /// Output only. The full name of the Restore resource.
-    /// Format: projects/*/locations/*/restorePlans/*/restores/*
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Server generated global unique identifier of
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier>) format.
-    #[prost(string, tag = "2")]
-    pub uid: ::prost::alloc::string::String,
-    /// Output only. The timestamp when this Restore resource was created.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The timestamp when this Restore resource was last
-    /// updated.
-    #[prost(message, optional, tag = "4")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// User specified descriptive string for this Restore.
-    #[prost(string, tag = "5")]
-    pub description: ::prost::alloc::string::String,
-    /// Required. Immutable. A reference to the \[Backup][google.cloud.gkebackup.v1.Backup\] used as the source from which this Restore
-    /// will restore. Note that this Backup must be a sub-resource of the
-    /// RestorePlan's \[backup_plan][google.cloud.gkebackup.v1.RestorePlan.backup_plan\].
-    /// Format: projects/*/locations/*/backupPlans/*/backups/*.
-    #[prost(string, tag = "6")]
-    pub backup: ::prost::alloc::string::String,
-    /// Output only. The target cluster into which this Restore will restore data.
-    /// Valid formats:
-    ///
-    ///    - projects/*/locations/*/clusters/*
-    ///    - projects/*/zones/*/clusters/*
-    ///
-    /// Inherited from parent RestorePlan's \[cluster][google.cloud.gkebackup.v1.RestorePlan.cluster\] value.
-    #[prost(string, tag = "7")]
-    pub cluster: ::prost::alloc::string::String,
-    /// Output only. Configuration of the Restore.  Inherited from parent RestorePlan's
-    /// \[restore_config][google.cloud.gkebackup.v1.RestorePlan.restore_config\].
-    #[prost(message, optional, tag = "8")]
-    pub restore_config: ::core::option::Option<RestoreConfig>,
-    /// A set of custom labels supplied by user.
-    #[prost(btree_map = "string, string", tag = "9")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. The current state of the Restore.
-    #[prost(enumeration = "restore::State", tag = "10")]
-    pub state: i32,
-    /// Output only. Human-readable description of why the Restore is in its current state.
-    #[prost(string, tag = "11")]
-    pub state_reason: ::prost::alloc::string::String,
-    /// Output only. Timestamp of when the restore operation completed.
-    #[prost(message, optional, tag = "12")]
-    pub complete_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Number of resources restored during the restore execution.
-    #[prost(int32, tag = "13")]
-    pub resources_restored_count: i32,
-    /// Output only. Number of resources excluded during the restore execution.
-    #[prost(int32, tag = "14")]
-    pub resources_excluded_count: i32,
-    /// Output only. Number of resources that failed to be restored during the restore
-    /// execution.
-    #[prost(int32, tag = "15")]
-    pub resources_failed_count: i32,
-    /// Output only. Number of volumes restored during the restore execution.
-    #[prost(int32, tag = "16")]
-    pub volumes_restored_count: i32,
-    /// Output only. `etag` is used for optimistic concurrency control as a way to help
-    /// prevent simultaneous updates of a restore from overwriting each other.
-    /// It is strongly suggested that systems make use of the `etag` in the
-    /// read-modify-write cycle to perform restore updates in order to avoid
-    /// race conditions: An `etag` is returned in the response to `GetRestore`,
-    /// and systems are expected to put that etag in the request to
-    /// `UpdateRestore` or `DeleteRestore` to ensure that their change will be
-    /// applied to the same version of the resource.
-    #[prost(string, tag = "17")]
-    pub etag: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `Restore`.
-pub mod restore {
-    /// Possible values for state of the Restore.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// The Restore resource is in the process of being created.
-        Unspecified = 0,
-        /// The Restore resource has been created and the associated RestoreJob
-        /// Kubernetes resource has been injected into target cluster.
-        Creating = 1,
-        /// The gkebackup agent in the cluster has begun executing the restore
-        /// operation.
-        InProgress = 2,
-        /// The restore operation has completed successfully. Restored workloads may
-        /// not yet be operational.
-        Succeeded = 3,
-        /// The restore operation has failed.
-        Failed = 4,
-        /// This Restore resource is in the process of being deleted.
-        Deleting = 5,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::InProgress => "IN_PROGRESS",
-                State::Succeeded => "SUCCEEDED",
-                State::Failed => "FAILED",
-                State::Deleting => "DELETING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "IN_PROGRESS" => Some(Self::InProgress),
-                "SUCCEEDED" => Some(Self::Succeeded),
-                "FAILED" => Some(Self::Failed),
-                "DELETING" => Some(Self::Deleting),
-                _ => None,
-            }
-        }
-    }
-}
-/// Configuration of a restore.
-/// Next id: 9
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RestoreConfig {
-    /// Specifies the mechanism to be used to restore volume data.
-    /// Default: VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED (will be treated as
-    /// NO_VOLUME_DATA_RESTORATION).
-    #[prost(enumeration = "restore_config::VolumeDataRestorePolicy", tag = "1")]
-    pub volume_data_restore_policy: i32,
-    /// Defines the behavior for handling the situation where cluster-scoped
-    /// resources being restored already exist in the target cluster. This MUST be
-    /// set to a value other than CLUSTER_RESOURCE_CONFLICT_POLICY_UNSPECIFIED if
-    /// \[cluster_resource_restore_scope][google.cloud.gkebackup.v1.RestoreConfig.cluster_resource_restore_scope\] is not empty.
-    #[prost(enumeration = "restore_config::ClusterResourceConflictPolicy", tag = "2")]
-    pub cluster_resource_conflict_policy: i32,
-    /// Defines the behavior for handling the situation where sets of namespaced
-    /// resources being restored already exist in the target cluster. This MUST be
-    /// set to a value other than NAMESPACED_RESOURCE_RESTORE_MODE_UNSPECIFIED.
-    #[prost(enumeration = "restore_config::NamespacedResourceRestoreMode", tag = "3")]
-    pub namespaced_resource_restore_mode: i32,
-    /// Identifies the cluster-scoped resources to restore from the Backup.
-    /// Not specifying it means NO cluster resource will be restored.
-    #[prost(message, optional, tag = "4")]
-    pub cluster_resource_restore_scope: ::core::option::Option<
-        restore_config::ClusterResourceRestoreScope,
-    >,
-    /// A list of transformation rules to be applied against Kubernetes resources
-    /// as they are selected for restoration from a Backup. Rules are executed in
-    /// order defined - this order matters, as changes made by a rule may impact
-    /// the filtering logic of subsequent rules. An empty list means no
-    /// substitution will occur.
-    #[prost(message, repeated, tag = "8")]
-    pub substitution_rules: ::prost::alloc::vec::Vec<restore_config::SubstitutionRule>,
-    /// Specifies the namespaced resources to restore from the Backup.
-    /// Only one of the entries may be specified. If not specified, NO namespaced
-    /// resources will be restored.
-    #[prost(oneof = "restore_config::NamespacedResourceRestoreScope", tags = "5, 6, 7")]
-    pub namespaced_resource_restore_scope: ::core::option::Option<
-        restore_config::NamespacedResourceRestoreScope,
-    >,
-}
-/// Nested message and enum types in `RestoreConfig`.
-pub mod restore_config {
-    /// This is a direct map to the Kubernetes GroupKind type
-    /// \[GroupKind\](<https://godoc.org/k8s.io/apimachinery/pkg/runtime/schema#GroupKind>)
-    /// and is used for identifying specific "types" of resources to restore.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct GroupKind {
-        /// API group string of a Kubernetes resource, e.g.
-        /// "apiextensions.k8s.io", "storage.k8s.io", etc.
-        /// Note: use empty string for core API group
-        #[prost(string, tag = "1")]
-        pub resource_group: ::prost::alloc::string::String,
-        /// Kind of a Kubernetes resource, e.g.
-        /// "CustomResourceDefinition", "StorageClass", etc.
-        #[prost(string, tag = "2")]
-        pub resource_kind: ::prost::alloc::string::String,
-    }
-    /// Identifies the cluster-scoped resources to restore from the Backup.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ClusterResourceRestoreScope {
-        /// A list of "types" of cluster-scoped resources to be restored from the
-        /// Backup.  An empty list means that NO cluster-scoped resources will be
-        /// restored. Note that Namespaces and PersistentVolume restoration is
-        /// handled separately and is not governed by this field.
-        #[prost(message, repeated, tag = "1")]
-        pub selected_group_kinds: ::prost::alloc::vec::Vec<GroupKind>,
-    }
-    /// A transformation rule to be applied against Kubernetes resources as they
-    /// are selected for restoration from a Backup. A rule contains both filtering
-    /// logic (which resources are subject to substitution) and substitution logic.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct SubstitutionRule {
-        /// (Filtering parameter) Any resource subject to substitution must be
-        /// contained within one of the listed Kubernetes Namespace in the Backup.
-        /// If this field is not provided, no namespace filtering will be performed
-        /// (all resources in all Namespaces, including all cluster-scoped resources,
-        /// will be candidates for substitution).
-        /// To mix cluster-scoped and namespaced resources in the same rule, use an
-        /// empty string ("") as one of the target namespaces.
-        #[prost(string, repeated, tag = "1")]
-        pub target_namespaces: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-        /// (Filtering parameter) Any resource subject to substitution must belong to
-        /// one of the listed "types".
-        /// If this field is not provided, no type filtering will be performed (all
-        /// resources of all types matching previous filtering parameters will be
-        /// candidates for substitution).
-        #[prost(message, repeated, tag = "2")]
-        pub target_group_kinds: ::prost::alloc::vec::Vec<GroupKind>,
-        /// Required. This is a \[JSONPath\]
-        /// (<https://kubernetes.io/docs/reference/kubectl/jsonpath/>)
-        /// expression that matches specific fields of candidate
-        /// resources and it operates as both a filtering parameter (resources that
-        /// are not matched with this expression will not be candidates for
-        /// substitution) as well as a field identifier (identifies exactly which
-        /// fields out of the candidate resources will be modified).
-        #[prost(string, tag = "3")]
-        pub target_json_path: ::prost::alloc::string::String,
-        /// (Filtering parameter) This is a [regular expression]
-        /// (<https://en.wikipedia.org/wiki/Regular_expression>)
-        /// that is compared against the fields matched by the target_json_path
-        /// expression (and must also have passed the previous filters).
-        /// Substitution will not be performed against fields whose
-        /// value does not match this expression. If this field is NOT specified,
-        /// then ALL fields matched by the target_json_path expression will undergo
-        /// substitution. Note that an empty (e.g., "", rather than unspecified)
-        /// value for for this field will only match empty fields.
-        #[prost(string, tag = "4")]
-        pub original_value_pattern: ::prost::alloc::string::String,
-        /// This is the new value to set for any fields that pass the filtering and
-        /// selection criteria. To remove a value from a Kubernetes resource, either
-        /// leave this field unspecified, or set it to the empty string ("").
-        #[prost(string, tag = "5")]
-        pub new_value: ::prost::alloc::string::String,
-    }
-    /// Defines how volume data should be restored
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum VolumeDataRestorePolicy {
-        /// Unspecified (illegal).
-        Unspecified = 0,
-        /// For each PVC to be restored, will create a new underlying volume (and PV)
-        /// from the corresponding VolumeBackup contained within the Backup.
-        RestoreVolumeDataFromBackup = 1,
-        /// For each PVC to be restored, attempt to reuse the original PV contained
-        /// in the Backup (with its original underlying volume).  Note that option
-        /// is likely only usable when restoring a workload to its original cluster.
-        ReuseVolumeHandleFromBackup = 2,
-        /// For each PVC to be restored, PVCs will be created without any particular
-        /// action to restore data.  In this case, the normal Kubernetes provisioning
-        /// logic would kick in, and this would likely result in either dynamically
-        /// provisioning blank PVs or binding to statically provisioned PVs.
-        NoVolumeDataRestoration = 3,
-    }
-    impl VolumeDataRestorePolicy {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                VolumeDataRestorePolicy::Unspecified => {
-                    "VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED"
-                }
-                VolumeDataRestorePolicy::RestoreVolumeDataFromBackup => {
-                    "RESTORE_VOLUME_DATA_FROM_BACKUP"
-                }
-                VolumeDataRestorePolicy::ReuseVolumeHandleFromBackup => {
-                    "REUSE_VOLUME_HANDLE_FROM_BACKUP"
-                }
-                VolumeDataRestorePolicy::NoVolumeDataRestoration => {
-                    "NO_VOLUME_DATA_RESTORATION"
-                }
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED" => Some(Self::Unspecified),
-                "RESTORE_VOLUME_DATA_FROM_BACKUP" => {
-                    Some(Self::RestoreVolumeDataFromBackup)
-                }
-                "REUSE_VOLUME_HANDLE_FROM_BACKUP" => {
-                    Some(Self::ReuseVolumeHandleFromBackup)
-                }
-                "NO_VOLUME_DATA_RESTORATION" => Some(Self::NoVolumeDataRestoration),
-                _ => None,
-            }
-        }
-    }
-    /// Defines the behavior for handling the situation where cluster-scoped
-    /// resources being restored already exist in the target cluster.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ClusterResourceConflictPolicy {
-        /// Unspecified. Only allowed if no cluster-scoped resources will be
-        /// restored.
-        Unspecified = 0,
-        /// Do not attempt to restore the conflicting resource.
-        UseExistingVersion = 1,
-        /// Delete the existing version before re-creating it from the Backup.
-        /// Note that this is a dangerous option which could cause unintentional
-        /// data loss if used inappropriately - for example, deleting a CRD will
-        /// cause Kubernetes to delete all CRs of that type.
-        UseBackupVersion = 2,
-    }
-    impl ClusterResourceConflictPolicy {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ClusterResourceConflictPolicy::Unspecified => {
-                    "CLUSTER_RESOURCE_CONFLICT_POLICY_UNSPECIFIED"
-                }
-                ClusterResourceConflictPolicy::UseExistingVersion => {
-                    "USE_EXISTING_VERSION"
-                }
-                ClusterResourceConflictPolicy::UseBackupVersion => "USE_BACKUP_VERSION",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "CLUSTER_RESOURCE_CONFLICT_POLICY_UNSPECIFIED" => Some(Self::Unspecified),
-                "USE_EXISTING_VERSION" => Some(Self::UseExistingVersion),
-                "USE_BACKUP_VERSION" => Some(Self::UseBackupVersion),
-                _ => None,
-            }
-        }
-    }
-    /// Defines the behavior for handling the situation where sets of namespaced
-    /// resources being restored already exist in the target cluster.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum NamespacedResourceRestoreMode {
-        /// Unspecified (invalid).
-        Unspecified = 0,
-        /// When conflicting top-level resources (either Namespaces or
-        /// ProtectedApplications, depending upon the scope) are encountered, this
-        /// will first trigger a delete of the conflicting resource AND ALL OF ITS
-        /// REFERENCED RESOURCES (e.g., all resources in the Namespace or all
-        /// resources referenced by the ProtectedApplication) before restoring the
-        /// resources from the Backup. This mode should only be used when you are
-        /// intending to revert some portion of a cluster to an earlier state.
-        DeleteAndRestore = 1,
-        /// If conflicting top-level resources (either Namespaces or
-        /// ProtectedApplications, depending upon the scope) are encountered at the
-        /// beginning of a restore process, the Restore will fail.  If a conflict
-        /// occurs during the restore process itself (e.g., because an out of band
-        /// process creates conflicting resources), a conflict will be reported.
-        FailOnConflict = 2,
-    }
-    impl NamespacedResourceRestoreMode {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                NamespacedResourceRestoreMode::Unspecified => {
-                    "NAMESPACED_RESOURCE_RESTORE_MODE_UNSPECIFIED"
-                }
-                NamespacedResourceRestoreMode::DeleteAndRestore => "DELETE_AND_RESTORE",
-                NamespacedResourceRestoreMode::FailOnConflict => "FAIL_ON_CONFLICT",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "NAMESPACED_RESOURCE_RESTORE_MODE_UNSPECIFIED" => Some(Self::Unspecified),
-                "DELETE_AND_RESTORE" => Some(Self::DeleteAndRestore),
-                "FAIL_ON_CONFLICT" => Some(Self::FailOnConflict),
-                _ => None,
-            }
-        }
-    }
-    /// Specifies the namespaced resources to restore from the Backup.
-    /// Only one of the entries may be specified. If not specified, NO namespaced
-    /// resources will be restored.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum NamespacedResourceRestoreScope {
-        /// Restore all namespaced resources in the Backup if set to "True".
-        /// Specifying this field to "False" is an error.
-        #[prost(bool, tag = "5")]
-        AllNamespaces(bool),
-        /// A list of selected Namespaces to restore from the Backup. The listed
-        /// Namespaces and all resources contained in them will be restored.
-        #[prost(message, tag = "6")]
-        SelectedNamespaces(super::Namespaces),
-        /// A list of selected ProtectedApplications to restore. The listed
-        /// ProtectedApplications and all the resources to which they refer will be
-        /// restored.
-        #[prost(message, tag = "7")]
-        SelectedApplications(super::NamespacedNames),
-    }
-}
-/// The configuration of a potential series of Restore operations to be performed
-/// against Backups belong to a particular BackupPlan.
-/// Next id: 11
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RestorePlan {
-    /// Output only. The full name of the RestorePlan resource.
-    /// Format: projects/*/locations/*/restorePlans/*.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Server generated global unique identifier of
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier>) format.
-    #[prost(string, tag = "2")]
-    pub uid: ::prost::alloc::string::String,
-    /// Output only. The timestamp when this RestorePlan resource was
-    /// created.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The timestamp when this RestorePlan resource was last
-    /// updated.
-    #[prost(message, optional, tag = "4")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// User specified descriptive string for this RestorePlan.
-    #[prost(string, tag = "5")]
-    pub description: ::prost::alloc::string::String,
-    /// Required. Immutable. A reference to the \[BackupPlan][google.cloud.gkebackup.v1.BackupPlan\] from which Backups may be used as the
-    /// source for Restores created via this RestorePlan.
-    /// Format: projects/*/locations/*/backupPlans/*.
-    #[prost(string, tag = "6")]
-    pub backup_plan: ::prost::alloc::string::String,
-    /// Required. Immutable. The target cluster into which Restores created via this RestorePlan
-    /// will restore data. NOTE: the cluster's region must be the same as the
-    /// RestorePlan.
-    /// Valid formats:
-    ///
-    ///    - projects/*/locations/*/clusters/*
-    ///    - projects/*/zones/*/clusters/*
-    #[prost(string, tag = "7")]
-    pub cluster: ::prost::alloc::string::String,
-    /// Required. Configuration of Restores created via this RestorePlan.
-    #[prost(message, optional, tag = "8")]
-    pub restore_config: ::core::option::Option<RestoreConfig>,
-    /// A set of custom labels supplied by user.
-    #[prost(btree_map = "string, string", tag = "9")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. `etag` is used for optimistic concurrency control as a way to help
-    /// prevent simultaneous updates of a restore from overwriting each other.
-    /// It is strongly suggested that systems make use of the `etag` in the
-    /// read-modify-write cycle to perform restore updates in order to avoid
-    /// race conditions: An `etag` is returned in the response to `GetRestorePlan`,
-    /// and systems are expected to put that etag in the request to
-    /// `UpdateRestorePlan` or `DeleteRestorePlan` to ensure that their change
-    /// will be applied to the same version of the resource.
-    #[prost(string, tag = "10")]
-    pub etag: ::prost::alloc::string::String,
 }
 /// Represents the backup of a specific persistent volume as a component of a
 /// Backup - both the record of the operation and a pointer to the underlying
@@ -982,7 +305,7 @@ pub struct RestorePlan {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct VolumeBackup {
     /// Output only. The full name of the VolumeBackup resource.
-    /// Format: projects/*/locations/*/backupPlans/*/backups/*/volumeBackups/*.
+    /// Format: `projects/*/locations/*/backupPlans/*/backups/*/volumeBackups/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Output only. Server generated global unique identifier of
@@ -997,24 +320,26 @@ pub struct VolumeBackup {
     /// updated.
     #[prost(message, optional, tag = "4")]
     pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. A reference to the source Kubernetes PVC from which this VolumeBackup
-    /// was created.
+    /// Output only. A reference to the source Kubernetes PVC from which this
+    /// VolumeBackup was created.
     #[prost(message, optional, tag = "5")]
     pub source_pvc: ::core::option::Option<NamespacedName>,
-    /// Output only. A storage system-specific opaque handle to the underlying volume backup.
+    /// Output only. A storage system-specific opaque handle to the underlying
+    /// volume backup.
     #[prost(string, tag = "6")]
     pub volume_backup_handle: ::prost::alloc::string::String,
     /// Output only. The format used for the volume backup.
     #[prost(enumeration = "volume_backup::VolumeBackupFormat", tag = "7")]
     pub format: i32,
-    /// Output only. The aggregate size of the underlying artifacts associated with this
-    /// VolumeBackup in the backup storage. This may change over time when
+    /// Output only. The aggregate size of the underlying artifacts associated with
+    /// this VolumeBackup in the backup storage. This may change over time when
     /// multiple backups of the same volume share the same backup storage
     /// location. In particular, this is likely to increase in size when
     /// the immediately preceding backup of the same volume is deleted.
     #[prost(int64, tag = "8")]
     pub storage_bytes: i64,
-    /// Output only. The minimum size of the disk to which this VolumeBackup can be restored.
+    /// Output only. The minimum size of the disk to which this VolumeBackup can be
+    /// restored.
     #[prost(int64, tag = "9")]
     pub disk_size_bytes: i64,
     /// Output only. The timestamp when the associated underlying volume backup
@@ -1024,12 +349,12 @@ pub struct VolumeBackup {
     /// Output only. The current state of this VolumeBackup.
     #[prost(enumeration = "volume_backup::State", tag = "11")]
     pub state: i32,
-    /// Output only. A human readable message explaining why the VolumeBackup is in its current
-    /// state.
+    /// Output only. A human readable message explaining why the VolumeBackup is in
+    /// its current state.
     #[prost(string, tag = "12")]
     pub state_message: ::prost::alloc::string::String,
-    /// Output only. `etag` is used for optimistic concurrency control as a way to help
-    /// prevent simultaneous updates of a volume backup from overwriting each
+    /// Output only. `etag` is used for optimistic concurrency control as a way to
+    /// help prevent simultaneous updates of a volume backup from overwriting each
     /// other. It is strongly suggested that systems make use of the `etag` in the
     /// read-modify-write cycle to perform volume backup updates in order to avoid
     /// race conditions.
@@ -1149,7 +474,7 @@ pub mod volume_backup {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct VolumeRestore {
     /// Output only. Full name of the VolumeRestore resource.
-    /// Format: projects/*/locations/*/restorePlans/*/restores/*/volumeRestores/*.
+    /// Format: `projects/*/locations/*/restorePlans/*/restores/*/volumeRestores/*`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Output only. Server generated global unique identifier of
@@ -1164,15 +489,16 @@ pub struct VolumeRestore {
     /// updated.
     #[prost(message, optional, tag = "4")]
     pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The full name of the VolumeBackup from which the volume will be restored.
-    /// Format: projects/*/locations/*/backupPlans/*/backups/*/volumeBackups/*.
+    /// Output only. The full name of the VolumeBackup from which the volume will
+    /// be restored. Format:
+    /// `projects/*/locations/*/backupPlans/*/backups/*/volumeBackups/*`.
     #[prost(string, tag = "5")]
     pub volume_backup: ::prost::alloc::string::String,
     /// Output only. The reference to the target Kubernetes PVC to be restored.
     #[prost(message, optional, tag = "6")]
     pub target_pvc: ::core::option::Option<NamespacedName>,
-    /// Output only. A storage system-specific opaque handler to the underlying volume created
-    /// for the target PVC from the volume backup.
+    /// Output only. A storage system-specific opaque handler to the underlying
+    /// volume created for the target PVC from the volume backup.
     #[prost(string, tag = "7")]
     pub volume_handle: ::prost::alloc::string::String,
     /// Output only. The type of volume provisioned
@@ -1185,12 +511,12 @@ pub struct VolumeRestore {
     /// Output only. The current state of this VolumeRestore.
     #[prost(enumeration = "volume_restore::State", tag = "10")]
     pub state: i32,
-    /// Output only. A human readable message explaining why the VolumeRestore is in its
-    /// current state.
+    /// Output only. A human readable message explaining why the VolumeRestore is
+    /// in its current state.
     #[prost(string, tag = "11")]
     pub state_message: ::prost::alloc::string::String,
-    /// Output only. `etag` is used for optimistic concurrency control as a way to help
-    /// prevent simultaneous updates of a volume restore from overwriting each
+    /// Output only. `etag` is used for optimistic concurrency control as a way to
+    /// help prevent simultaneous updates of a volume restore from overwriting each
     /// other. It is strongly suggested that systems make use of the `etag` in the
     /// read-modify-write cycle to perform volume restore updates in order to avoid
     /// race conditions.
@@ -1295,6 +621,1055 @@ pub mod volume_restore {
         }
     }
 }
+/// Represents both a request to Restore some portion of a Backup into
+/// a target GKE cluster and a record of the restore operation itself.
+/// Next id: 18
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Restore {
+    /// Output only. The full name of the Restore resource.
+    /// Format: `projects/*/locations/*/restorePlans/*/restores/*`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Server generated global unique identifier of
+    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier>) format.
+    #[prost(string, tag = "2")]
+    pub uid: ::prost::alloc::string::String,
+    /// Output only. The timestamp when this Restore resource was created.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The timestamp when this Restore resource was last
+    /// updated.
+    #[prost(message, optional, tag = "4")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// User specified descriptive string for this Restore.
+    #[prost(string, tag = "5")]
+    pub description: ::prost::alloc::string::String,
+    /// Required. Immutable. A reference to the
+    /// \[Backup][google.cloud.gkebackup.v1.Backup\] used as the source from which
+    /// this Restore will restore. Note that this Backup must be a sub-resource of
+    /// the RestorePlan's
+    /// \[backup_plan][google.cloud.gkebackup.v1.RestorePlan.backup_plan\]. Format:
+    /// `projects/*/locations/*/backupPlans/*/backups/*`.
+    #[prost(string, tag = "6")]
+    pub backup: ::prost::alloc::string::String,
+    /// Output only. The target cluster into which this Restore will restore data.
+    /// Valid formats:
+    ///
+    ///    - `projects/*/locations/*/clusters/*`
+    ///    - `projects/*/zones/*/clusters/*`
+    ///
+    /// Inherited from parent RestorePlan's
+    /// \[cluster][google.cloud.gkebackup.v1.RestorePlan.cluster\] value.
+    #[prost(string, tag = "7")]
+    pub cluster: ::prost::alloc::string::String,
+    /// Output only. Configuration of the Restore.  Inherited from parent
+    /// RestorePlan's
+    /// \[restore_config][google.cloud.gkebackup.v1.RestorePlan.restore_config\].
+    #[prost(message, optional, tag = "8")]
+    pub restore_config: ::core::option::Option<RestoreConfig>,
+    /// A set of custom labels supplied by user.
+    #[prost(btree_map = "string, string", tag = "9")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. The current state of the Restore.
+    #[prost(enumeration = "restore::State", tag = "10")]
+    pub state: i32,
+    /// Output only. Human-readable description of why the Restore is in its
+    /// current state.
+    #[prost(string, tag = "11")]
+    pub state_reason: ::prost::alloc::string::String,
+    /// Output only. Timestamp of when the restore operation completed.
+    #[prost(message, optional, tag = "12")]
+    pub complete_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Number of resources restored during the restore execution.
+    #[prost(int32, tag = "13")]
+    pub resources_restored_count: i32,
+    /// Output only. Number of resources excluded during the restore execution.
+    #[prost(int32, tag = "14")]
+    pub resources_excluded_count: i32,
+    /// Output only. Number of resources that failed to be restored during the
+    /// restore execution.
+    #[prost(int32, tag = "15")]
+    pub resources_failed_count: i32,
+    /// Output only. Number of volumes restored during the restore execution.
+    #[prost(int32, tag = "16")]
+    pub volumes_restored_count: i32,
+    /// Output only. `etag` is used for optimistic concurrency control as a way to
+    /// help prevent simultaneous updates of a restore from overwriting each other.
+    /// It is strongly suggested that systems make use of the `etag` in the
+    /// read-modify-write cycle to perform restore updates in order to avoid
+    /// race conditions: An `etag` is returned in the response to `GetRestore`,
+    /// and systems are expected to put that etag in the request to
+    /// `UpdateRestore` or `DeleteRestore` to ensure that their change will be
+    /// applied to the same version of the resource.
+    #[prost(string, tag = "17")]
+    pub etag: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Restore`.
+pub mod restore {
+    /// Possible values for state of the Restore.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// The Restore resource is in the process of being created.
+        Unspecified = 0,
+        /// The Restore resource has been created and the associated RestoreJob
+        /// Kubernetes resource has been injected into target cluster.
+        Creating = 1,
+        /// The gkebackup agent in the cluster has begun executing the restore
+        /// operation.
+        InProgress = 2,
+        /// The restore operation has completed successfully. Restored workloads may
+        /// not yet be operational.
+        Succeeded = 3,
+        /// The restore operation has failed.
+        Failed = 4,
+        /// This Restore resource is in the process of being deleted.
+        Deleting = 5,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::InProgress => "IN_PROGRESS",
+                State::Succeeded => "SUCCEEDED",
+                State::Failed => "FAILED",
+                State::Deleting => "DELETING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "IN_PROGRESS" => Some(Self::InProgress),
+                "SUCCEEDED" => Some(Self::Succeeded),
+                "FAILED" => Some(Self::Failed),
+                "DELETING" => Some(Self::Deleting),
+                _ => None,
+            }
+        }
+    }
+}
+/// Configuration of a restore.
+/// Next id: 12
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RestoreConfig {
+    /// Specifies the mechanism to be used to restore volume data.
+    /// Default: VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED (will be treated as
+    /// NO_VOLUME_DATA_RESTORATION).
+    #[prost(enumeration = "restore_config::VolumeDataRestorePolicy", tag = "1")]
+    pub volume_data_restore_policy: i32,
+    /// Defines the behavior for handling the situation where cluster-scoped
+    /// resources being restored already exist in the target cluster. This MUST be
+    /// set to a value other than CLUSTER_RESOURCE_CONFLICT_POLICY_UNSPECIFIED if
+    /// \[cluster_resource_restore_scope][google.cloud.gkebackup.v1.RestoreConfig.cluster_resource_restore_scope\]
+    /// is not empty.
+    #[prost(enumeration = "restore_config::ClusterResourceConflictPolicy", tag = "2")]
+    pub cluster_resource_conflict_policy: i32,
+    /// Defines the behavior for handling the situation where sets of namespaced
+    /// resources being restored already exist in the target cluster. This MUST be
+    /// set to a value other than NAMESPACED_RESOURCE_RESTORE_MODE_UNSPECIFIED.
+    #[prost(enumeration = "restore_config::NamespacedResourceRestoreMode", tag = "3")]
+    pub namespaced_resource_restore_mode: i32,
+    /// Identifies the cluster-scoped resources to restore from the Backup.
+    /// Not specifying it means NO cluster resource will be restored.
+    #[prost(message, optional, tag = "4")]
+    pub cluster_resource_restore_scope: ::core::option::Option<
+        restore_config::ClusterResourceRestoreScope,
+    >,
+    /// A list of transformation rules to be applied against Kubernetes resources
+    /// as they are selected for restoration from a Backup. Rules are executed in
+    /// order defined - this order matters, as changes made by a rule may impact
+    /// the filtering logic of subsequent rules. An empty list means no
+    /// substitution will occur.
+    #[prost(message, repeated, tag = "8")]
+    pub substitution_rules: ::prost::alloc::vec::Vec<restore_config::SubstitutionRule>,
+    /// A list of transformation rules to be applied against Kubernetes resources
+    /// as they are selected for restoration from a Backup. Rules are executed in
+    /// order defined - this order matters, as changes made by a rule may impact
+    /// the filtering logic of subsequent rules. An empty list means no
+    /// transformation will occur.
+    #[prost(message, repeated, tag = "11")]
+    pub transformation_rules: ::prost::alloc::vec::Vec<
+        restore_config::TransformationRule,
+    >,
+    /// Specifies the namespaced resources to restore from the Backup.
+    /// Only one of the entries may be specified. If not specified, NO namespaced
+    /// resources will be restored.
+    ///
+    /// Note: Resources will never be restored into *managed* namespaces such as
+    /// `kube-system`, `kube-public`, or `kube-node-lease`. These namespaces
+    /// are silently skipped when
+    /// \[all_namespaces][google.cloud.gkebackup.v1.RestoreConfig.all_namespaces\] is
+    /// selected. Listing them explicitly will result in an error.
+    #[prost(
+        oneof = "restore_config::NamespacedResourceRestoreScope",
+        tags = "5, 6, 7, 9, 10"
+    )]
+    pub namespaced_resource_restore_scope: ::core::option::Option<
+        restore_config::NamespacedResourceRestoreScope,
+    >,
+}
+/// Nested message and enum types in `RestoreConfig`.
+pub mod restore_config {
+    /// This is a direct map to the Kubernetes GroupKind type
+    /// \[GroupKind\](<https://godoc.org/k8s.io/apimachinery/pkg/runtime/schema#GroupKind>)
+    /// and is used for identifying specific "types" of resources to restore.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct GroupKind {
+        /// API group string of a Kubernetes resource, e.g.
+        /// "apiextensions.k8s.io", "storage.k8s.io", etc.
+        /// Note: use empty string for core API group
+        #[prost(string, tag = "1")]
+        pub resource_group: ::prost::alloc::string::String,
+        /// Kind of a Kubernetes resource, e.g.
+        /// "CustomResourceDefinition", "StorageClass", etc.
+        #[prost(string, tag = "2")]
+        pub resource_kind: ::prost::alloc::string::String,
+    }
+    /// Defines the scope of cluster-scoped resources to restore.
+    ///
+    /// Some group kinds are not reasonable choices for a restore, and will cause
+    /// an error if selected here. Any scope selection that would restore
+    /// "all valid" resources automatically excludes these group kinds.
+    /// - gkebackup.gke.io/BackupJob
+    /// - gkebackup.gke.io/RestoreJob
+    /// - metrics.k8s.io/NodeMetrics
+    /// - migration.k8s.io/StorageState
+    /// - migration.k8s.io/StorageVersionMigration
+    /// - Node
+    /// - snapshot.storage.k8s.io/VolumeSnapshotContent
+    /// - storage.k8s.io/CSINode
+    ///
+    /// Some group kinds are driven by restore configuration elsewhere,
+    /// and will cause an error if selected here.
+    /// - Namespace
+    /// - PersistentVolume
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ClusterResourceRestoreScope {
+        /// A list of cluster-scoped resource group kinds to restore from the
+        /// backup. If specified, only the selected resources will be restored.
+        /// Mutually exclusive to any other field in the message.
+        #[prost(message, repeated, tag = "1")]
+        pub selected_group_kinds: ::prost::alloc::vec::Vec<GroupKind>,
+        /// A list of cluster-scoped resource group kinds to NOT restore from the
+        /// backup. If specified, all valid cluster-scoped resources will be
+        /// restored except for those specified in the list.
+        /// Mutually exclusive to any other field in the message.
+        #[prost(message, repeated, tag = "2")]
+        pub excluded_group_kinds: ::prost::alloc::vec::Vec<GroupKind>,
+        /// If True, all valid cluster-scoped resources will be restored.
+        /// Mutually exclusive to any other field in the message.
+        #[prost(bool, tag = "3")]
+        pub all_group_kinds: bool,
+        /// If True, no cluster-scoped resources will be restored.
+        /// This has the same restore scope as if the message is not defined.
+        /// Mutually exclusive to any other field in the message.
+        #[prost(bool, tag = "4")]
+        pub no_group_kinds: bool,
+    }
+    /// A transformation rule to be applied against Kubernetes resources as they
+    /// are selected for restoration from a Backup. A rule contains both filtering
+    /// logic (which resources are subject to substitution) and substitution logic.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct SubstitutionRule {
+        /// (Filtering parameter) Any resource subject to substitution must be
+        /// contained within one of the listed Kubernetes Namespace in the Backup.
+        /// If this field is not provided, no namespace filtering will be performed
+        /// (all resources in all Namespaces, including all cluster-scoped resources,
+        /// will be candidates for substitution).
+        /// To mix cluster-scoped and namespaced resources in the same rule, use an
+        /// empty string ("") as one of the target namespaces.
+        #[prost(string, repeated, tag = "1")]
+        pub target_namespaces: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// (Filtering parameter) Any resource subject to substitution must belong to
+        /// one of the listed "types".
+        /// If this field is not provided, no type filtering will be performed (all
+        /// resources of all types matching previous filtering parameters will be
+        /// candidates for substitution).
+        #[prost(message, repeated, tag = "2")]
+        pub target_group_kinds: ::prost::alloc::vec::Vec<GroupKind>,
+        /// Required. This is a \[JSONPath\]
+        /// (<https://kubernetes.io/docs/reference/kubectl/jsonpath/>)
+        /// expression that matches specific fields of candidate
+        /// resources and it operates as both a filtering parameter (resources that
+        /// are not matched with this expression will not be candidates for
+        /// substitution) as well as a field identifier (identifies exactly which
+        /// fields out of the candidate resources will be modified).
+        #[prost(string, tag = "3")]
+        pub target_json_path: ::prost::alloc::string::String,
+        /// (Filtering parameter) This is a [regular expression]
+        /// (<https://en.wikipedia.org/wiki/Regular_expression>)
+        /// that is compared against the fields matched by the target_json_path
+        /// expression (and must also have passed the previous filters).
+        /// Substitution will not be performed against fields whose
+        /// value does not match this expression. If this field is NOT specified,
+        /// then ALL fields matched by the target_json_path expression will undergo
+        /// substitution. Note that an empty (e.g., "", rather than unspecified)
+        /// value for this field will only match empty fields.
+        #[prost(string, tag = "4")]
+        pub original_value_pattern: ::prost::alloc::string::String,
+        /// This is the new value to set for any fields that pass the filtering and
+        /// selection criteria. To remove a value from a Kubernetes resource, either
+        /// leave this field unspecified, or set it to the empty string ("").
+        #[prost(string, tag = "5")]
+        pub new_value: ::prost::alloc::string::String,
+    }
+    /// TransformationRuleAction defines a TransformationRule action based on the
+    /// JSON Patch RFC (<https://www.rfc-editor.org/rfc/rfc6902>)
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TransformationRuleAction {
+        /// Required. op specifies the operation to perform.
+        #[prost(enumeration = "transformation_rule_action::Op", tag = "1")]
+        pub op: i32,
+        /// A string containing a JSON Pointer value that references the location in
+        /// the target document to move the value from.
+        #[prost(string, tag = "2")]
+        pub from_path: ::prost::alloc::string::String,
+        /// A string containing a JSON-Pointer value that references a location
+        /// within the target document where the operation is performed.
+        #[prost(string, tag = "3")]
+        pub path: ::prost::alloc::string::String,
+        /// A string that specifies the desired value in string format to
+        /// use for transformation.
+        #[prost(string, tag = "4")]
+        pub value: ::prost::alloc::string::String,
+    }
+    /// Nested message and enum types in `TransformationRuleAction`.
+    pub mod transformation_rule_action {
+        /// Possible values for operations of a transformation rule action.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum Op {
+            /// Unspecified operation
+            Unspecified = 0,
+            /// The "remove" operation removes the value at the target location.
+            Remove = 1,
+            /// The "move" operation removes the value at a specified location and
+            /// adds it to the target location.
+            Move = 2,
+            /// The "copy" operation copies the value at a specified location to the
+            /// target location.
+            Copy = 3,
+            /// The "add" operation performs one of the following functions,
+            /// depending upon what the target location references:
+            /// 1. If the target location specifies an array index, a new value is
+            /// inserted into the array at the specified index.
+            /// 2. If the target location specifies an object member that does not
+            /// already exist, a new member is added to the object.
+            /// 3. If the target location specifies an object member that does exist,
+            /// that member's value is replaced.
+            Add = 4,
+            /// The "test" operation tests that a value at the target location is
+            /// equal to a specified value.
+            Test = 5,
+            /// The "replace" operation replaces the value at the target location
+            /// with a new value.  The operation object MUST contain a "value" member
+            /// whose content specifies the replacement value.
+            Replace = 6,
+        }
+        impl Op {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    Op::Unspecified => "OP_UNSPECIFIED",
+                    Op::Remove => "REMOVE",
+                    Op::Move => "MOVE",
+                    Op::Copy => "COPY",
+                    Op::Add => "ADD",
+                    Op::Test => "TEST",
+                    Op::Replace => "REPLACE",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "OP_UNSPECIFIED" => Some(Self::Unspecified),
+                    "REMOVE" => Some(Self::Remove),
+                    "MOVE" => Some(Self::Move),
+                    "COPY" => Some(Self::Copy),
+                    "ADD" => Some(Self::Add),
+                    "TEST" => Some(Self::Test),
+                    "REPLACE" => Some(Self::Replace),
+                    _ => None,
+                }
+            }
+        }
+    }
+    /// ResourceFilter specifies matching criteria to limit the scope of a
+    /// change to a specific set of kubernetes resources that are selected for
+    /// restoration from a backup.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ResourceFilter {
+        /// (Filtering parameter) Any resource subject to transformation must be
+        /// contained within one of the listed Kubernetes Namespace in the Backup.
+        /// If this field is not provided, no namespace filtering will be performed
+        /// (all resources in all Namespaces, including all cluster-scoped resources,
+        /// will be candidates for transformation).
+        /// To mix cluster-scoped and namespaced resources in the same rule, use an
+        /// empty string ("") as one of the target namespaces.
+        #[prost(string, repeated, tag = "1")]
+        pub namespaces: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// (Filtering parameter) Any resource subject to transformation must belong
+        /// to one of the listed "types". If this field is not provided, no type
+        /// filtering will be performed (all resources of all types matching previous
+        /// filtering parameters will be candidates for transformation).
+        #[prost(message, repeated, tag = "2")]
+        pub group_kinds: ::prost::alloc::vec::Vec<GroupKind>,
+        /// This is a \[JSONPath\]
+        /// (<https://github.com/json-path/JsonPath/blob/master/README.md>)
+        /// expression that matches specific fields of candidate
+        /// resources and it operates as a filtering parameter (resources that
+        /// are not matched with this expression will not be candidates for
+        /// transformation).
+        #[prost(string, tag = "3")]
+        pub json_path: ::prost::alloc::string::String,
+    }
+    /// A transformation rule to be applied against Kubernetes resources as they
+    /// are selected for restoration from a Backup. A rule contains both filtering
+    /// logic (which resources are subject to transform) and transformation logic.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TransformationRule {
+        /// Required. A list of transformation rule actions to take against candidate
+        /// resources. Actions are executed in order defined - this order matters, as
+        /// they could potentially interfere with each other and the first operation
+        /// could affect the outcome of the second operation.
+        #[prost(message, repeated, tag = "1")]
+        pub field_actions: ::prost::alloc::vec::Vec<TransformationRuleAction>,
+        /// This field is used to specify a set of fields that should be used to
+        /// determine which resources in backup should be acted upon by the supplied
+        /// transformation rule actions, and this will ensure that only specific
+        /// resources are affected by transformation rule actions.
+        #[prost(message, optional, tag = "2")]
+        pub resource_filter: ::core::option::Option<ResourceFilter>,
+        /// The description is a user specified string description of the
+        /// transformation rule.
+        #[prost(string, tag = "3")]
+        pub description: ::prost::alloc::string::String,
+    }
+    /// Defines how volume data should be restored.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum VolumeDataRestorePolicy {
+        /// Unspecified (illegal).
+        Unspecified = 0,
+        /// For each PVC to be restored, create a new underlying volume and PV
+        /// from the corresponding VolumeBackup contained within the Backup.
+        RestoreVolumeDataFromBackup = 1,
+        /// For each PVC to be restored, attempt to reuse the original PV contained
+        /// in the Backup (with its original underlying volume). This option
+        /// is likely only usable when restoring a workload to its original cluster.
+        ReuseVolumeHandleFromBackup = 2,
+        /// For each PVC to be restored, create PVC without any particular
+        /// action to restore data. In this case, the normal Kubernetes provisioning
+        /// logic would kick in, and this would likely result in either dynamically
+        /// provisioning blank PVs or binding to statically provisioned PVs.
+        NoVolumeDataRestoration = 3,
+    }
+    impl VolumeDataRestorePolicy {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                VolumeDataRestorePolicy::Unspecified => {
+                    "VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED"
+                }
+                VolumeDataRestorePolicy::RestoreVolumeDataFromBackup => {
+                    "RESTORE_VOLUME_DATA_FROM_BACKUP"
+                }
+                VolumeDataRestorePolicy::ReuseVolumeHandleFromBackup => {
+                    "REUSE_VOLUME_HANDLE_FROM_BACKUP"
+                }
+                VolumeDataRestorePolicy::NoVolumeDataRestoration => {
+                    "NO_VOLUME_DATA_RESTORATION"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED" => Some(Self::Unspecified),
+                "RESTORE_VOLUME_DATA_FROM_BACKUP" => {
+                    Some(Self::RestoreVolumeDataFromBackup)
+                }
+                "REUSE_VOLUME_HANDLE_FROM_BACKUP" => {
+                    Some(Self::ReuseVolumeHandleFromBackup)
+                }
+                "NO_VOLUME_DATA_RESTORATION" => Some(Self::NoVolumeDataRestoration),
+                _ => None,
+            }
+        }
+    }
+    /// Defines the behavior for handling the situation where cluster-scoped
+    /// resources being restored already exist in the target cluster.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ClusterResourceConflictPolicy {
+        /// Unspecified. Only allowed if no cluster-scoped resources will be
+        /// restored.
+        Unspecified = 0,
+        /// Do not attempt to restore the conflicting resource.
+        UseExistingVersion = 1,
+        /// Delete the existing version before re-creating it from the Backup.
+        /// This is a dangerous option which could cause unintentional
+        /// data loss if used inappropriately. For example, deleting a CRD will
+        /// cause Kubernetes to delete all CRs of that type.
+        UseBackupVersion = 2,
+    }
+    impl ClusterResourceConflictPolicy {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ClusterResourceConflictPolicy::Unspecified => {
+                    "CLUSTER_RESOURCE_CONFLICT_POLICY_UNSPECIFIED"
+                }
+                ClusterResourceConflictPolicy::UseExistingVersion => {
+                    "USE_EXISTING_VERSION"
+                }
+                ClusterResourceConflictPolicy::UseBackupVersion => "USE_BACKUP_VERSION",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "CLUSTER_RESOURCE_CONFLICT_POLICY_UNSPECIFIED" => Some(Self::Unspecified),
+                "USE_EXISTING_VERSION" => Some(Self::UseExistingVersion),
+                "USE_BACKUP_VERSION" => Some(Self::UseBackupVersion),
+                _ => None,
+            }
+        }
+    }
+    /// Defines the behavior for handling the situation where sets of namespaced
+    /// resources being restored already exist in the target cluster.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum NamespacedResourceRestoreMode {
+        /// Unspecified (invalid).
+        Unspecified = 0,
+        /// When conflicting top-level resources (either Namespaces or
+        /// ProtectedApplications, depending upon the scope) are encountered, this
+        /// will first trigger a delete of the conflicting resource AND ALL OF ITS
+        /// REFERENCED RESOURCES (e.g., all resources in the Namespace or all
+        /// resources referenced by the ProtectedApplication) before restoring the
+        /// resources from the Backup. This mode should only be used when you are
+        /// intending to revert some portion of a cluster to an earlier state.
+        DeleteAndRestore = 1,
+        /// If conflicting top-level resources (either Namespaces or
+        /// ProtectedApplications, depending upon the scope) are encountered at the
+        /// beginning of a restore process, the Restore will fail.  If a conflict
+        /// occurs during the restore process itself (e.g., because an out of band
+        /// process creates conflicting resources), a conflict will be reported.
+        FailOnConflict = 2,
+    }
+    impl NamespacedResourceRestoreMode {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                NamespacedResourceRestoreMode::Unspecified => {
+                    "NAMESPACED_RESOURCE_RESTORE_MODE_UNSPECIFIED"
+                }
+                NamespacedResourceRestoreMode::DeleteAndRestore => "DELETE_AND_RESTORE",
+                NamespacedResourceRestoreMode::FailOnConflict => "FAIL_ON_CONFLICT",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "NAMESPACED_RESOURCE_RESTORE_MODE_UNSPECIFIED" => Some(Self::Unspecified),
+                "DELETE_AND_RESTORE" => Some(Self::DeleteAndRestore),
+                "FAIL_ON_CONFLICT" => Some(Self::FailOnConflict),
+                _ => None,
+            }
+        }
+    }
+    /// Specifies the namespaced resources to restore from the Backup.
+    /// Only one of the entries may be specified. If not specified, NO namespaced
+    /// resources will be restored.
+    ///
+    /// Note: Resources will never be restored into *managed* namespaces such as
+    /// `kube-system`, `kube-public`, or `kube-node-lease`. These namespaces
+    /// are silently skipped when
+    /// \[all_namespaces][google.cloud.gkebackup.v1.RestoreConfig.all_namespaces\] is
+    /// selected. Listing them explicitly will result in an error.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum NamespacedResourceRestoreScope {
+        /// Restore all namespaced resources in the Backup if set to "True".
+        /// Specifying this field to "False" is an error.
+        #[prost(bool, tag = "5")]
+        AllNamespaces(bool),
+        /// A list of selected Namespaces to restore from the Backup. The listed
+        /// Namespaces and all resources contained in them will be restored.
+        #[prost(message, tag = "6")]
+        SelectedNamespaces(super::Namespaces),
+        /// A list of selected ProtectedApplications to restore. The listed
+        /// ProtectedApplications and all the resources to which they refer will be
+        /// restored.
+        #[prost(message, tag = "7")]
+        SelectedApplications(super::NamespacedNames),
+        /// Do not restore any namespaced resources if set to "True".
+        /// Specifying this field to "False" is not allowed.
+        #[prost(bool, tag = "9")]
+        NoNamespaces(bool),
+        /// A list of selected namespaces excluded from restoration. All
+        /// namespaces except those in this list will be restored.
+        #[prost(message, tag = "10")]
+        ExcludedNamespaces(super::Namespaces),
+    }
+}
+/// Defines the configuration and scheduling for a "line" of Backups.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BackupPlan {
+    /// Output only. The full name of the BackupPlan resource.
+    /// Format: `projects/*/locations/*/backupPlans/*`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Server generated global unique identifier of
+    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier>) format.
+    #[prost(string, tag = "2")]
+    pub uid: ::prost::alloc::string::String,
+    /// Output only. The timestamp when this BackupPlan resource was created.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The timestamp when this BackupPlan resource was last
+    /// updated.
+    #[prost(message, optional, tag = "4")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// User specified descriptive string for this BackupPlan.
+    #[prost(string, tag = "5")]
+    pub description: ::prost::alloc::string::String,
+    /// Required. Immutable. The source cluster from which Backups will be created
+    /// via this BackupPlan. Valid formats:
+    ///
+    /// - `projects/*/locations/*/clusters/*`
+    /// - `projects/*/zones/*/clusters/*`
+    #[prost(string, tag = "6")]
+    pub cluster: ::prost::alloc::string::String,
+    /// RetentionPolicy governs lifecycle of Backups created under this plan.
+    #[prost(message, optional, tag = "7")]
+    pub retention_policy: ::core::option::Option<backup_plan::RetentionPolicy>,
+    /// A set of custom labels supplied by user.
+    #[prost(btree_map = "string, string", tag = "8")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Defines a schedule for automatic Backup creation via this BackupPlan.
+    #[prost(message, optional, tag = "9")]
+    pub backup_schedule: ::core::option::Option<backup_plan::Schedule>,
+    /// Output only. `etag` is used for optimistic concurrency control as a way to
+    /// help prevent simultaneous updates of a backup plan from overwriting each
+    /// other. It is strongly suggested that systems make use of the 'etag' in the
+    /// read-modify-write cycle to perform BackupPlan updates in order to avoid
+    /// race conditions: An `etag` is returned in the response to `GetBackupPlan`,
+    /// and systems are expected to put that etag in the request to
+    /// `UpdateBackupPlan` or `DeleteBackupPlan` to ensure that their change
+    /// will be applied to the same version of the resource.
+    #[prost(string, tag = "10")]
+    pub etag: ::prost::alloc::string::String,
+    /// This flag indicates whether this BackupPlan has been deactivated.
+    /// Setting this field to True locks the BackupPlan such that no further
+    /// updates will be allowed (except deletes), including the deactivated field
+    /// itself. It also prevents any new Backups from being created via this
+    /// BackupPlan (including scheduled Backups).
+    ///
+    /// Default: False
+    #[prost(bool, tag = "11")]
+    pub deactivated: bool,
+    /// Defines the configuration of Backups created via this BackupPlan.
+    #[prost(message, optional, tag = "12")]
+    pub backup_config: ::core::option::Option<backup_plan::BackupConfig>,
+    /// Output only. The number of Kubernetes Pods backed up in the
+    /// last successful Backup created via this BackupPlan.
+    #[prost(int32, tag = "13")]
+    pub protected_pod_count: i32,
+    /// Output only. State of the BackupPlan. This State field reflects the
+    /// various stages a BackupPlan can be in
+    /// during the Create operation. It will be set to "DEACTIVATED"
+    /// if the BackupPlan is deactivated on an Update
+    #[prost(enumeration = "backup_plan::State", tag = "14")]
+    pub state: i32,
+    /// Output only. Human-readable description of why BackupPlan is in the current
+    /// `state`
+    #[prost(string, tag = "15")]
+    pub state_reason: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `BackupPlan`.
+pub mod backup_plan {
+    /// RetentionPolicy defines a Backup retention policy for a BackupPlan.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct RetentionPolicy {
+        /// Minimum age for Backups created via this BackupPlan (in days).
+        /// This field MUST be an integer value between 0-90 (inclusive).
+        /// A Backup created under this BackupPlan will NOT be deletable until it
+        /// reaches Backup's (create_time + backup_delete_lock_days).
+        /// Updating this field of a BackupPlan does NOT affect existing Backups
+        /// under it. Backups created AFTER a successful update will inherit
+        /// the new value.
+        ///
+        /// Default: 0 (no delete blocking)
+        #[prost(int32, tag = "1")]
+        pub backup_delete_lock_days: i32,
+        /// The default maximum age of a Backup created via this BackupPlan.
+        /// This field MUST be an integer value >= 0 and <= 365.
+        /// If specified, a Backup created under this BackupPlan will be
+        /// automatically deleted after its age reaches (create_time +
+        /// backup_retain_days).
+        /// If not specified, Backups created under this BackupPlan will NOT be
+        /// subject to automatic deletion.
+        /// Updating this field does NOT affect existing Backups under it. Backups
+        /// created AFTER a successful update will automatically pick up the new
+        /// value.
+        /// NOTE: backup_retain_days must be >=
+        /// \[backup_delete_lock_days][google.cloud.gkebackup.v1.BackupPlan.RetentionPolicy.backup_delete_lock_days\].
+        /// If
+        /// \[cron_schedule][google.cloud.gkebackup.v1.BackupPlan.Schedule.cron_schedule\]
+        /// is defined, then this must be
+        /// <= 360 * the creation interval.
+        ///
+        /// Default: 0 (no automatic deletion)
+        #[prost(int32, tag = "2")]
+        pub backup_retain_days: i32,
+        /// This flag denotes whether the retention policy of this BackupPlan is
+        /// locked.  If set to True, no further update is allowed on this policy,
+        /// including the `locked` field itself.
+        ///
+        /// Default: False
+        #[prost(bool, tag = "3")]
+        pub locked: bool,
+    }
+    /// Defines scheduling parameters for automatically creating Backups
+    /// via this BackupPlan.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Schedule {
+        /// A standard \[cron\](<https://wikipedia.com/wiki/cron>) string that defines a
+        /// repeating schedule for creating Backups via this BackupPlan. If this is
+        /// defined, then
+        /// \[backup_retain_days][google.cloud.gkebackup.v1.BackupPlan.RetentionPolicy.backup_retain_days\]
+        /// must also be defined.
+        ///
+        /// Default (empty): no automatic backup creation will occur.
+        #[prost(string, tag = "1")]
+        pub cron_schedule: ::prost::alloc::string::String,
+        /// This flag denotes whether automatic Backup creation is paused for this
+        /// BackupPlan.
+        ///
+        /// Default: False
+        #[prost(bool, tag = "2")]
+        pub paused: bool,
+    }
+    /// BackupConfig defines the configuration of Backups created via this
+    /// BackupPlan.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct BackupConfig {
+        /// This flag specifies whether volume data should be backed up when
+        /// PVCs are included in the scope of a Backup.
+        ///
+        /// Default: False
+        #[prost(bool, tag = "4")]
+        pub include_volume_data: bool,
+        /// This flag specifies whether Kubernetes Secret resources should be
+        /// included when they fall into the scope of Backups.
+        ///
+        /// Default: False
+        #[prost(bool, tag = "5")]
+        pub include_secrets: bool,
+        /// This defines a customer managed encryption key that will be used to
+        /// encrypt the "config" portion (the Kubernetes resources) of Backups
+        /// created via this plan.
+        ///
+        /// Default (empty): Config backup artifacts will not be encrypted.
+        #[prost(message, optional, tag = "6")]
+        pub encryption_key: ::core::option::Option<super::EncryptionKey>,
+        /// This defines the "scope" of the Backup - which namespaced
+        /// resources in the cluster will be included in a Backup.
+        /// Exactly one of the fields of backup_scope MUST be specified.
+        #[prost(oneof = "backup_config::BackupScope", tags = "1, 2, 3")]
+        pub backup_scope: ::core::option::Option<backup_config::BackupScope>,
+    }
+    /// Nested message and enum types in `BackupConfig`.
+    pub mod backup_config {
+        /// This defines the "scope" of the Backup - which namespaced
+        /// resources in the cluster will be included in a Backup.
+        /// Exactly one of the fields of backup_scope MUST be specified.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum BackupScope {
+            /// If True, include all namespaced resources
+            #[prost(bool, tag = "1")]
+            AllNamespaces(bool),
+            /// If set, include just the resources in the listed namespaces.
+            #[prost(message, tag = "2")]
+            SelectedNamespaces(super::super::Namespaces),
+            /// If set, include just the resources referenced by the listed
+            /// ProtectedApplications.
+            #[prost(message, tag = "3")]
+            SelectedApplications(super::super::NamespacedNames),
+        }
+    }
+    /// State
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Default first value for Enums.
+        Unspecified = 0,
+        /// Waiting for cluster state to be RUNNING.
+        ClusterPending = 1,
+        /// The BackupPlan is in the process of being created.
+        Provisioning = 2,
+        /// The BackupPlan has successfully been created and is ready for Backups.
+        Ready = 3,
+        /// BackupPlan creation has failed.
+        Failed = 4,
+        /// The BackupPlan has been deactivated.
+        Deactivated = 5,
+        /// The BackupPlan is in the process of being deleted.
+        Deleting = 6,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::ClusterPending => "CLUSTER_PENDING",
+                State::Provisioning => "PROVISIONING",
+                State::Ready => "READY",
+                State::Failed => "FAILED",
+                State::Deactivated => "DEACTIVATED",
+                State::Deleting => "DELETING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CLUSTER_PENDING" => Some(Self::ClusterPending),
+                "PROVISIONING" => Some(Self::Provisioning),
+                "READY" => Some(Self::Ready),
+                "FAILED" => Some(Self::Failed),
+                "DEACTIVATED" => Some(Self::Deactivated),
+                "DELETING" => Some(Self::Deleting),
+                _ => None,
+            }
+        }
+    }
+}
+/// The configuration of a potential series of Restore operations to be performed
+/// against Backups belong to a particular BackupPlan.
+/// Next id: 13
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RestorePlan {
+    /// Output only. The full name of the RestorePlan resource.
+    /// Format: `projects/*/locations/*/restorePlans/*`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Server generated global unique identifier of
+    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier>) format.
+    #[prost(string, tag = "2")]
+    pub uid: ::prost::alloc::string::String,
+    /// Output only. The timestamp when this RestorePlan resource was
+    /// created.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The timestamp when this RestorePlan resource was last
+    /// updated.
+    #[prost(message, optional, tag = "4")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// User specified descriptive string for this RestorePlan.
+    #[prost(string, tag = "5")]
+    pub description: ::prost::alloc::string::String,
+    /// Required. Immutable. A reference to the
+    /// \[BackupPlan][google.cloud.gkebackup.v1.BackupPlan\] from which Backups may
+    /// be used as the source for Restores created via this RestorePlan. Format:
+    /// `projects/*/locations/*/backupPlans/*`.
+    #[prost(string, tag = "6")]
+    pub backup_plan: ::prost::alloc::string::String,
+    /// Required. Immutable. The target cluster into which Restores created via
+    /// this RestorePlan will restore data. NOTE: the cluster's region must be the
+    /// same as the RestorePlan. Valid formats:
+    ///
+    ///    - `projects/*/locations/*/clusters/*`
+    ///    - `projects/*/zones/*/clusters/*`
+    #[prost(string, tag = "7")]
+    pub cluster: ::prost::alloc::string::String,
+    /// Required. Configuration of Restores created via this RestorePlan.
+    #[prost(message, optional, tag = "8")]
+    pub restore_config: ::core::option::Option<RestoreConfig>,
+    /// A set of custom labels supplied by user.
+    #[prost(btree_map = "string, string", tag = "9")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. `etag` is used for optimistic concurrency control as a way to
+    /// help prevent simultaneous updates of a restore from overwriting each other.
+    /// It is strongly suggested that systems make use of the `etag` in the
+    /// read-modify-write cycle to perform restore updates in order to avoid
+    /// race conditions: An `etag` is returned in the response to `GetRestorePlan`,
+    /// and systems are expected to put that etag in the request to
+    /// `UpdateRestorePlan` or `DeleteRestorePlan` to ensure that their change
+    /// will be applied to the same version of the resource.
+    #[prost(string, tag = "10")]
+    pub etag: ::prost::alloc::string::String,
+    /// Output only. State of the RestorePlan. This State field reflects the
+    /// various stages a RestorePlan can be in
+    /// during the Create operation.
+    #[prost(enumeration = "restore_plan::State", tag = "11")]
+    pub state: i32,
+    /// Output only. Human-readable description of why RestorePlan is in the
+    /// current `state`
+    #[prost(string, tag = "12")]
+    pub state_reason: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `RestorePlan`.
+pub mod restore_plan {
+    /// State
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Default first value for Enums.
+        Unspecified = 0,
+        /// Waiting for cluster state to be RUNNING.
+        ClusterPending = 1,
+        /// The RestorePlan has successfully been created and is ready for Restores.
+        Ready = 2,
+        /// RestorePlan creation has failed.
+        Failed = 3,
+        /// The RestorePlan is in the process of being deleted.
+        Deleting = 4,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::ClusterPending => "CLUSTER_PENDING",
+                State::Ready => "READY",
+                State::Failed => "FAILED",
+                State::Deleting => "DELETING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CLUSTER_PENDING" => Some(Self::ClusterPending),
+                "READY" => Some(Self::Ready),
+                "FAILED" => Some(Self::Failed),
+                "DELETING" => Some(Self::Deleting),
+                _ => None,
+            }
+        }
+    }
+}
 /// Represents the metadata of the long-running operation.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1316,8 +1691,9 @@ pub struct OperationMetadata {
     pub status_message: ::prost::alloc::string::String,
     /// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a \[google.rpc.Status.code][google.rpc.Status.code\] of 1,
-    /// corresponding to `Code.CANCELLED`.
+    /// have \[Operation.error][\] value with a
+    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// `Code.CANCELLED`.
     #[prost(bool, tag = "6")]
     pub requested_cancellation: bool,
     /// Output only. API version used to start the operation.
@@ -1329,7 +1705,7 @@ pub struct OperationMetadata {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateBackupPlanRequest {
     /// Required. The location within which to create the BackupPlan.
-    /// Format: projects/*/locations/*
+    /// Format: `projects/*/locations/*`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// Required. The BackupPlan resource object to create.
@@ -1351,7 +1727,7 @@ pub struct CreateBackupPlanRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListBackupPlansRequest {
     /// Required. The location that contains the BackupPlans to list.
-    /// Format: projects/*/locations/*
+    /// Format: `projects/*/locations/*`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// The target number of results to return in a single response.
@@ -1385,10 +1761,10 @@ pub struct ListBackupPlansResponse {
     #[prost(message, repeated, tag = "1")]
     pub backup_plans: ::prost::alloc::vec::Vec<BackupPlan>,
     /// A token which may be sent as
-    /// \[page_token][google.cloud.gkebackup.v1.ListBackupPlansRequest.page_token\] in a subsequent
-    /// `ListBackupPlans` call to retrieve the next page of results.
-    /// If this field is omitted or empty, then there are no more results to
-    /// return.
+    /// \[page_token][google.cloud.gkebackup.v1.ListBackupPlansRequest.page_token\]
+    /// in a subsequent `ListBackupPlans` call to retrieve the next page of
+    /// results. If this field is omitted or empty, then there are no more results
+    /// to return.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
     /// Locations that could not be reached.
@@ -1400,7 +1776,7 @@ pub struct ListBackupPlansResponse {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetBackupPlanRequest {
     /// Required. Fully qualified BackupPlan name.
-    /// Format: projects/*/locations/*/backupPlans/*
+    /// Format: `projects/*/locations/*/backupPlans/*`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -1408,8 +1784,8 @@ pub struct GetBackupPlanRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateBackupPlanRequest {
-    /// Required. A new version of the BackupPlan resource that contains updated fields.
-    /// This may be sparsely populated if an `update_mask` is provided.
+    /// Required. A new version of the BackupPlan resource that contains updated
+    /// fields. This may be sparsely populated if an `update_mask` is provided.
     #[prost(message, optional, tag = "1")]
     pub backup_plan: ::core::option::Option<BackupPlan>,
     /// This is used to specify the fields to be overwritten in the
@@ -1429,12 +1805,12 @@ pub struct UpdateBackupPlanRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteBackupPlanRequest {
     /// Required. Fully qualified BackupPlan name.
-    /// Format: projects/*/locations/*/backupPlans/*
+    /// Format: `projects/*/locations/*/backupPlans/*`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// If provided, this value must match the current value of the
-    /// target BackupPlan's \[etag][google.cloud.gkebackup.v1.BackupPlan.etag\] field or the request is
-    /// rejected.
+    /// target BackupPlan's \[etag][google.cloud.gkebackup.v1.BackupPlan.etag\] field
+    /// or the request is rejected.
     #[prost(string, tag = "2")]
     pub etag: ::prost::alloc::string::String,
 }
@@ -1443,7 +1819,7 @@ pub struct DeleteBackupPlanRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateBackupRequest {
     /// Required. The BackupPlan within which to create the Backup.
-    /// Format: projects/*/locations/*/backupPlans/*
+    /// Format: `projects/*/locations/*/backupPlans/*`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// The Backup resource to create.
@@ -1465,7 +1841,7 @@ pub struct CreateBackupRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListBackupsRequest {
     /// Required. The BackupPlan that contains the Backups to list.
-    /// Format: projects/*/locations/*/backupPlans/*
+    /// Format: `projects/*/locations/*/backupPlans/*`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// The target number of results to return in a single response.
@@ -1498,9 +1874,10 @@ pub struct ListBackupsResponse {
     /// The list of Backups matching the given criteria.
     #[prost(message, repeated, tag = "1")]
     pub backups: ::prost::alloc::vec::Vec<Backup>,
-    /// A token which may be sent as \[page_token][google.cloud.gkebackup.v1.ListBackupsRequest.page_token\] in
-    /// a subsequent `ListBackups` call to retrieve the next page of results. If
-    /// this field is omitted or empty, then there are no more results to return.
+    /// A token which may be sent as
+    /// \[page_token][google.cloud.gkebackup.v1.ListBackupsRequest.page_token\] in a
+    /// subsequent `ListBackups` call to retrieve the next page of results. If this
+    /// field is omitted or empty, then there are no more results to return.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
@@ -1509,7 +1886,7 @@ pub struct ListBackupsResponse {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetBackupRequest {
     /// Required. Full name of the Backup resource.
-    /// Format: projects/*/locations/*/backupPlans/*/backups/*
+    /// Format: `projects/*/locations/*/backupPlans/*/backups/*`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -1517,8 +1894,8 @@ pub struct GetBackupRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateBackupRequest {
-    /// Required. A new version of the Backup resource that contains updated fields.
-    /// This may be sparsely populated if an `update_mask` is provided.
+    /// Required. A new version of the Backup resource that contains updated
+    /// fields. This may be sparsely populated if an `update_mask` is provided.
     #[prost(message, optional, tag = "1")]
     pub backup: ::core::option::Option<Backup>,
     /// This is used to specify the fields to be overwritten in the
@@ -1537,12 +1914,12 @@ pub struct UpdateBackupRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteBackupRequest {
     /// Required. Name of the Backup resource.
-    /// Format: projects/*/locations/*/backupPlans/*/backups/*
+    /// Format: `projects/*/locations/*/backupPlans/*/backups/*`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// If provided, this value must match the current value of the
-    /// target Backup's \[etag][google.cloud.gkebackup.v1.Backup.etag\] field or the request is
-    /// rejected.
+    /// target Backup's \[etag][google.cloud.gkebackup.v1.Backup.etag\] field or the
+    /// request is rejected.
     #[prost(string, tag = "2")]
     pub etag: ::prost::alloc::string::String,
     /// If set to true, any VolumeBackups below this Backup will also be deleted.
@@ -1556,7 +1933,7 @@ pub struct DeleteBackupRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListVolumeBackupsRequest {
     /// Required. The Backup that contains the VolumeBackups to list.
-    /// Format: projects/*/locations/*/backupPlans/*/backups/*
+    /// Format: `projects/*/locations/*/backupPlans/*/backups/*`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// The target number of results to return in a single response.
@@ -1590,10 +1967,10 @@ pub struct ListVolumeBackupsResponse {
     #[prost(message, repeated, tag = "1")]
     pub volume_backups: ::prost::alloc::vec::Vec<VolumeBackup>,
     /// A token which may be sent as
-    /// \[page_token][google.cloud.gkebackup.v1.ListVolumeBackupsRequest.page_token\] in a subsequent
-    /// `ListVolumeBackups` call to retrieve the next page of results.
-    /// If this field is omitted or empty, then there are no more results to
-    /// return.
+    /// \[page_token][google.cloud.gkebackup.v1.ListVolumeBackupsRequest.page_token\]
+    /// in a subsequent `ListVolumeBackups` call to retrieve the next page of
+    /// results. If this field is omitted or empty, then there are no more results
+    /// to return.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
@@ -1602,7 +1979,7 @@ pub struct ListVolumeBackupsResponse {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetVolumeBackupRequest {
     /// Required. Full name of the VolumeBackup resource.
-    /// Format: projects/*/locations/*/backupPlans/*/backups/*/volumeBackups/*
+    /// Format: `projects/*/locations/*/backupPlans/*/backups/*/volumeBackups/*`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -1611,7 +1988,7 @@ pub struct GetVolumeBackupRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateRestorePlanRequest {
     /// Required. The location within which to create the RestorePlan.
-    /// Format: projects/*/locations/*
+    /// Format: `projects/*/locations/*`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// Required. The RestorePlan resource object to create.
@@ -1633,7 +2010,7 @@ pub struct CreateRestorePlanRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListRestorePlansRequest {
     /// Required. The location that contains the RestorePlans to list.
-    /// Format: projects/*/locations/*
+    /// Format: `projects/*/locations/*`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// The target number of results to return in a single response.
@@ -1667,10 +2044,10 @@ pub struct ListRestorePlansResponse {
     #[prost(message, repeated, tag = "1")]
     pub restore_plans: ::prost::alloc::vec::Vec<RestorePlan>,
     /// A token which may be sent as
-    /// \[page_token][google.cloud.gkebackup.v1.ListRestorePlansRequest.page_token\] in a subsequent
-    /// `ListRestorePlans` call to retrieve the next page of results.
-    /// If this field is omitted or empty, then there are no more results to
-    /// return.
+    /// \[page_token][google.cloud.gkebackup.v1.ListRestorePlansRequest.page_token\]
+    /// in a subsequent `ListRestorePlans` call to retrieve the next page of
+    /// results. If this field is omitted or empty, then there are no more results
+    /// to return.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
     /// Locations that could not be reached.
@@ -1682,7 +2059,7 @@ pub struct ListRestorePlansResponse {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetRestorePlanRequest {
     /// Required. Fully qualified RestorePlan name.
-    /// Format: projects/*/locations/*/restorePlans/*
+    /// Format: `projects/*/locations/*/restorePlans/*`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -1690,8 +2067,8 @@ pub struct GetRestorePlanRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateRestorePlanRequest {
-    /// Required. A new version of the RestorePlan resource that contains updated fields.
-    /// This may be sparsely populated if an `update_mask` is provided.
+    /// Required. A new version of the RestorePlan resource that contains updated
+    /// fields. This may be sparsely populated if an `update_mask` is provided.
     #[prost(message, optional, tag = "1")]
     pub restore_plan: ::core::option::Option<RestorePlan>,
     /// This is used to specify the fields to be overwritten in the
@@ -1710,12 +2087,12 @@ pub struct UpdateRestorePlanRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteRestorePlanRequest {
     /// Required. Fully qualified RestorePlan name.
-    /// Format: projects/*/locations/*/restorePlans/*
+    /// Format: `projects/*/locations/*/restorePlans/*`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// If provided, this value must match the current value of the
-    /// target RestorePlan's \[etag][google.cloud.gkebackup.v1.RestorePlan.etag\] field or the request is
-    /// rejected.
+    /// target RestorePlan's \[etag][google.cloud.gkebackup.v1.RestorePlan.etag\]
+    /// field or the request is rejected.
     #[prost(string, tag = "2")]
     pub etag: ::prost::alloc::string::String,
     /// If set to true, any Restores below this RestorePlan will also be deleted.
@@ -1729,7 +2106,7 @@ pub struct DeleteRestorePlanRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateRestoreRequest {
     /// Required. The RestorePlan within which to create the Restore.
-    /// Format: projects/*/locations/*/restorePlans/*
+    /// Format: `projects/*/locations/*/restorePlans/*`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// Required. The restore resource to create.
@@ -1751,7 +2128,7 @@ pub struct CreateRestoreRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListRestoresRequest {
     /// Required. The RestorePlan that contains the Restores to list.
-    /// Format: projects/*/locations/*/restorePlans/*
+    /// Format: `projects/*/locations/*/restorePlans/*`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// The target number of results to return in a single response.
@@ -1784,10 +2161,10 @@ pub struct ListRestoresResponse {
     /// The list of Restores matching the given criteria.
     #[prost(message, repeated, tag = "1")]
     pub restores: ::prost::alloc::vec::Vec<Restore>,
-    /// A token which may be sent as \[page_token][google.cloud.gkebackup.v1.ListRestoresRequest.page_token\]
-    /// in a subsequent `ListRestores` call to retrieve the next page of results.
-    /// If this field is omitted or empty, then there are no more results to
-    /// return.
+    /// A token which may be sent as
+    /// \[page_token][google.cloud.gkebackup.v1.ListRestoresRequest.page_token\] in a
+    /// subsequent `ListRestores` call to retrieve the next page of results. If
+    /// this field is omitted or empty, then there are no more results to return.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
     /// Locations that could not be reached.
@@ -1799,7 +2176,7 @@ pub struct ListRestoresResponse {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetRestoreRequest {
     /// Required. Name of the restore resource.
-    /// Format: projects/*/locations/*/restorePlans/*/restores/*
+    /// Format: `projects/*/locations/*/restorePlans/*/restores/*`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -1807,8 +2184,8 @@ pub struct GetRestoreRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateRestoreRequest {
-    /// Required. A new version of the Restore resource that contains updated fields.
-    /// This may be sparsely populated if an `update_mask` is provided.
+    /// Required. A new version of the Restore resource that contains updated
+    /// fields. This may be sparsely populated if an `update_mask` is provided.
     #[prost(message, optional, tag = "1")]
     pub restore: ::core::option::Option<Restore>,
     /// This is used to specify the fields to be overwritten in the
@@ -1827,12 +2204,12 @@ pub struct UpdateRestoreRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteRestoreRequest {
     /// Required. Full name of the Restore
-    /// Format: projects/*/locations/*/restorePlans/*/restores/*
+    /// Format: `projects/*/locations/*/restorePlans/*/restores/*`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// If provided, this value must match the current value of the
-    /// target Restore's \[etag][google.cloud.gkebackup.v1.Restore.etag\] field or the request is
-    /// rejected.
+    /// target Restore's \[etag][google.cloud.gkebackup.v1.Restore.etag\] field or
+    /// the request is rejected.
     #[prost(string, tag = "2")]
     pub etag: ::prost::alloc::string::String,
     /// If set to true, any VolumeRestores below this restore will also be deleted.
@@ -1846,7 +2223,7 @@ pub struct DeleteRestoreRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListVolumeRestoresRequest {
     /// Required. The Restore that contains the VolumeRestores to list.
-    /// Format: projects/*/locations/*/restorePlans/*/restores/*
+    /// Format: `projects/*/locations/*/restorePlans/*/restores/*`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// The target number of results to return in a single response.
@@ -1880,10 +2257,10 @@ pub struct ListVolumeRestoresResponse {
     #[prost(message, repeated, tag = "1")]
     pub volume_restores: ::prost::alloc::vec::Vec<VolumeRestore>,
     /// A token which may be sent as
-    /// \[page_token][google.cloud.gkebackup.v1.ListVolumeRestoresRequest.page_token\] in a subsequent
-    /// `ListVolumeRestores` call to retrieve the next page of results.
-    /// If this field is omitted or empty, then there are no more results to
-    /// return.
+    /// \[page_token][google.cloud.gkebackup.v1.ListVolumeRestoresRequest.page_token\]
+    /// in a subsequent `ListVolumeRestores` call to retrieve the next page of
+    /// results. If this field is omitted or empty, then there are no more results
+    /// to return.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
@@ -1892,7 +2269,7 @@ pub struct ListVolumeRestoresResponse {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetVolumeRestoreRequest {
     /// Required. Full name of the VolumeRestore resource.
-    /// Format: projects/*/locations/*/restorePlans/*/restores/*/volumeRestores/*
+    /// Format: `projects/*/locations/*/restorePlans/*/restores/*/volumeRestores/*`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -1956,11 +2333,27 @@ pub mod backup_for_gke_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Creates a new BackupPlan in a given location.
         pub async fn create_backup_plan(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateBackupPlanRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -1977,13 +2370,24 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/CreateBackupPlan",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "CreateBackupPlan",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists BackupPlans in a given location.
         pub async fn list_backup_plans(
             &mut self,
             request: impl tonic::IntoRequest<super::ListBackupPlansRequest>,
-        ) -> Result<tonic::Response<super::ListBackupPlansResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListBackupPlansResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1997,13 +2401,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/ListBackupPlans",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "ListBackupPlans",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Retrieve the details of a single BackupPlan.
         pub async fn get_backup_plan(
             &mut self,
             request: impl tonic::IntoRequest<super::GetBackupPlanRequest>,
-        ) -> Result<tonic::Response<super::BackupPlan>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::BackupPlan>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2017,13 +2429,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/GetBackupPlan",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "GetBackupPlan",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Update a BackupPlan.
         pub async fn update_backup_plan(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateBackupPlanRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -2040,13 +2460,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/UpdateBackupPlan",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "UpdateBackupPlan",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes an existing BackupPlan.
         pub async fn delete_backup_plan(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteBackupPlanRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -2063,13 +2491,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/DeleteBackupPlan",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "DeleteBackupPlan",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a Backup for the given BackupPlan.
         pub async fn create_backup(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateBackupRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -2086,13 +2522,24 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/CreateBackup",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "CreateBackup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists the Backups for a given BackupPlan.
         pub async fn list_backups(
             &mut self,
             request: impl tonic::IntoRequest<super::ListBackupsRequest>,
-        ) -> Result<tonic::Response<super::ListBackupsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListBackupsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2106,13 +2553,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/ListBackups",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "ListBackups",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Retrieve the details of a single Backup.
         pub async fn get_backup(
             &mut self,
             request: impl tonic::IntoRequest<super::GetBackupRequest>,
-        ) -> Result<tonic::Response<super::Backup>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Backup>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2126,13 +2581,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/GetBackup",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "GetBackup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Update a Backup.
         pub async fn update_backup(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateBackupRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -2149,13 +2612,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/UpdateBackup",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "UpdateBackup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes an existing Backup.
         pub async fn delete_backup(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteBackupRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -2172,13 +2643,24 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/DeleteBackup",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "DeleteBackup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists the VolumeBackups for a given Backup.
         pub async fn list_volume_backups(
             &mut self,
             request: impl tonic::IntoRequest<super::ListVolumeBackupsRequest>,
-        ) -> Result<tonic::Response<super::ListVolumeBackupsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListVolumeBackupsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2192,13 +2674,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/ListVolumeBackups",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "ListVolumeBackups",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Retrieve the details of a single VolumeBackup.
         pub async fn get_volume_backup(
             &mut self,
             request: impl tonic::IntoRequest<super::GetVolumeBackupRequest>,
-        ) -> Result<tonic::Response<super::VolumeBackup>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::VolumeBackup>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2212,13 +2702,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/GetVolumeBackup",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "GetVolumeBackup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a new RestorePlan in a given location.
         pub async fn create_restore_plan(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateRestorePlanRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -2235,13 +2733,24 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/CreateRestorePlan",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "CreateRestorePlan",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists RestorePlans in a given location.
         pub async fn list_restore_plans(
             &mut self,
             request: impl tonic::IntoRequest<super::ListRestorePlansRequest>,
-        ) -> Result<tonic::Response<super::ListRestorePlansResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListRestorePlansResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2255,13 +2764,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/ListRestorePlans",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "ListRestorePlans",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Retrieve the details of a single RestorePlan.
         pub async fn get_restore_plan(
             &mut self,
             request: impl tonic::IntoRequest<super::GetRestorePlanRequest>,
-        ) -> Result<tonic::Response<super::RestorePlan>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::RestorePlan>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2275,13 +2792,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/GetRestorePlan",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "GetRestorePlan",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Update a RestorePlan.
         pub async fn update_restore_plan(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateRestorePlanRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -2298,13 +2823,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/UpdateRestorePlan",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "UpdateRestorePlan",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes an existing RestorePlan.
         pub async fn delete_restore_plan(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteRestorePlanRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -2321,13 +2854,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/DeleteRestorePlan",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "DeleteRestorePlan",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a new Restore for the given RestorePlan.
         pub async fn create_restore(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateRestoreRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -2344,13 +2885,24 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/CreateRestore",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "CreateRestore",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists the Restores for a given RestorePlan.
         pub async fn list_restores(
             &mut self,
             request: impl tonic::IntoRequest<super::ListRestoresRequest>,
-        ) -> Result<tonic::Response<super::ListRestoresResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListRestoresResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2364,13 +2916,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/ListRestores",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "ListRestores",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Retrieves the details of a single Restore.
         pub async fn get_restore(
             &mut self,
             request: impl tonic::IntoRequest<super::GetRestoreRequest>,
-        ) -> Result<tonic::Response<super::Restore>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Restore>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2384,13 +2944,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/GetRestore",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "GetRestore",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Update a Restore.
         pub async fn update_restore(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateRestoreRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -2407,13 +2975,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/UpdateRestore",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "UpdateRestore",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes an existing Restore.
         pub async fn delete_restore(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteRestoreRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -2430,13 +3006,24 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/DeleteRestore",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "DeleteRestore",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists the VolumeRestores for a given Restore.
         pub async fn list_volume_restores(
             &mut self,
             request: impl tonic::IntoRequest<super::ListVolumeRestoresRequest>,
-        ) -> Result<tonic::Response<super::ListVolumeRestoresResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListVolumeRestoresResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2450,13 +3037,21 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/ListVolumeRestores",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "ListVolumeRestores",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Retrieve the details of a single VolumeRestore.
         pub async fn get_volume_restore(
             &mut self,
             request: impl tonic::IntoRequest<super::GetVolumeRestoreRequest>,
-        ) -> Result<tonic::Response<super::VolumeRestore>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::VolumeRestore>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2470,7 +3065,15 @@ pub mod backup_for_gke_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.gkebackup.v1.BackupForGKE/GetVolumeRestore",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gkebackup.v1.BackupForGKE",
+                        "GetVolumeRestore",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

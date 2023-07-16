@@ -585,13 +585,29 @@ pub mod bots_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// CreateBotSession is called when the bot first joins the farm, and
         /// establishes a session ID to ensure that multiple machines do not register
         /// using the same name accidentally.
         pub async fn create_bot_session(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateBotSessionRequest>,
-        ) -> Result<tonic::Response<super::BotSession>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::BotSession>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -605,7 +621,15 @@ pub mod bots_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.remoteworkers.v1test2.Bots/CreateBotSession",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.remoteworkers.v1test2.Bots",
+                        "CreateBotSession",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// UpdateBotSession must be called periodically by the bot (on a schedule
         /// determined by the server) to let the server know about its status, and to
@@ -613,7 +637,7 @@ pub mod bots_client {
         pub async fn update_bot_session(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateBotSessionRequest>,
-        ) -> Result<tonic::Response<super::BotSession>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::BotSession>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -627,7 +651,15 @@ pub mod bots_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.remoteworkers.v1test2.Bots/UpdateBotSession",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.remoteworkers.v1test2.Bots",
+                        "UpdateBotSession",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

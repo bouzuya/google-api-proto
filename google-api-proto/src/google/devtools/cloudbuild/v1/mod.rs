@@ -28,25 +28,26 @@ pub struct RunBuildTriggerRequest {
     #[prost(string, tag = "2")]
     pub trigger_id: ::prost::alloc::string::String,
     /// Source to build against this trigger.
+    /// Branch and tag names cannot consist of regular expressions.
     #[prost(message, optional, tag = "3")]
     pub source: ::core::option::Option<RepoSource>,
 }
-/// Location of the source in an archive file in Google Cloud Storage.
+/// Location of the source in an archive file in Cloud Storage.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct StorageSource {
-    /// Google Cloud Storage bucket containing the source (see
+    /// Cloud Storage bucket containing the source (see
     /// [Bucket Name
     /// Requirements](<https://cloud.google.com/storage/docs/bucket-naming#requirements>)).
     #[prost(string, tag = "1")]
     pub bucket: ::prost::alloc::string::String,
-    /// Google Cloud Storage object containing the source.
+    /// Cloud Storage object containing the source.
     ///
-    /// This object must be a gzipped archive file (`.tar.gz`) containing source to
-    /// build.
+    /// This object must be a zipped (`.zip`) or gzipped archive file (`.tar.gz`)
+    /// containing source to build.
     #[prost(string, tag = "2")]
     pub object: ::prost::alloc::string::String,
-    /// Google Cloud Storage generation for the object. If the generation is
+    /// Cloud Storage generation for the object. If the generation is
     /// omitted, the latest generation will be used.
     #[prost(int64, tag = "3")]
     pub generation: i64,
@@ -136,23 +137,23 @@ pub mod repo_source {
         CommitSha(::prost::alloc::string::String),
     }
 }
-/// Location of the source manifest in Google Cloud Storage.
+/// Location of the source manifest in Cloud Storage.
 /// This feature is in Preview; see description
 /// \[here\](<https://github.com/GoogleCloudPlatform/cloud-builders/tree/master/gcs-fetcher>).
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct StorageSourceManifest {
-    /// Google Cloud Storage bucket containing the source manifest (see [Bucket
+    /// Cloud Storage bucket containing the source manifest (see [Bucket
     /// Name
     /// Requirements](<https://cloud.google.com/storage/docs/bucket-naming#requirements>)).
     #[prost(string, tag = "1")]
     pub bucket: ::prost::alloc::string::String,
-    /// Google Cloud Storage object containing the source manifest.
+    /// Cloud Storage object containing the source manifest.
     ///
     /// This object must be a JSON file.
     #[prost(string, tag = "2")]
     pub object: ::prost::alloc::string::String,
-    /// Google Cloud Storage generation for the object. If the generation is
+    /// Cloud Storage generation for the object. If the generation is
     /// omitted, the latest generation will be used.
     #[prost(int64, tag = "3")]
     pub generation: i64,
@@ -171,7 +172,7 @@ pub mod source {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Source {
-        /// If provided, get the source from this location in Google Cloud Storage.
+        /// If provided, get the source from this location in Cloud Storage.
         #[prost(message, tag = "2")]
         StorageSource(super::StorageSource),
         /// If provided, get the source from this location in a Cloud Source
@@ -181,7 +182,7 @@ pub mod source {
         /// If provided, get the source from this Git repository.
         #[prost(message, tag = "5")]
         GitSource(super::GitSource),
-        /// If provided, get the source from this manifest in Google Cloud Storage.
+        /// If provided, get the source from this manifest in Cloud Storage.
         /// This feature is in Preview; see description
         /// \[here\](<https://github.com/GoogleCloudPlatform/cloud-builders/tree/master/gcs-fetcher>).
         #[prost(message, tag = "8")]
@@ -426,7 +427,7 @@ pub struct Results {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ArtifactResult {
-    /// The path of an artifact in a Google Cloud Storage bucket, with the
+    /// The path of an artifact in a Cloud Storage bucket, with the
     /// generation number. For example,
     /// `gs://mybucket/path/to/output.jar#generation`.
     #[prost(string, tag = "1")]
@@ -527,7 +528,7 @@ pub struct Build {
     /// successful completion of all build steps.
     #[prost(message, optional, tag = "37")]
     pub artifacts: ::core::option::Option<Artifacts>,
-    /// Google Cloud Storage bucket where logs should be written (see
+    /// Cloud Storage bucket where logs should be written (see
     /// [Bucket Name
     /// Requirements](<https://cloud.google.com/storage/docs/bucket-naming#requirements>)).
     /// Logs file names will be of the format `${logs_bucket}/log-${build_id}.txt`.
@@ -1495,13 +1496,19 @@ pub struct BuildTrigger {
     /// Format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_ID_OR_EMAIL}`
     #[prost(string, tag = "33")]
     pub service_account: ::prost::alloc::string::String,
+    /// The configuration of a trigger that creates a build whenever an event from
+    /// Repo API is received.
+    #[prost(message, optional, tag = "39")]
+    pub repository_event_config: ::core::option::Option<RepositoryEventConfig>,
     /// Template describing the Build request to make when the trigger is matched.
+    /// At least one of the template fields must be provided.
     #[prost(oneof = "build_trigger::BuildTemplate", tags = "18, 4, 8")]
     pub build_template: ::core::option::Option<build_trigger::BuildTemplate>,
 }
 /// Nested message and enum types in `BuildTrigger`.
 pub mod build_trigger {
     /// Template describing the Build request to make when the trigger is matched.
+    /// At least one of the template fields must be provided.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum BuildTemplate {
@@ -1525,10 +1532,84 @@ pub mod build_trigger {
         Filename(::prost::alloc::string::String),
     }
 }
+/// The configuration of a trigger that creates a build whenever an event from
+/// Repo API is received.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RepositoryEventConfig {
+    /// The resource name of the Repo API resource.
+    #[prost(string, tag = "1")]
+    pub repository: ::prost::alloc::string::String,
+    /// Output only. The type of the SCM vendor the repository points to.
+    #[prost(enumeration = "repository_event_config::RepositoryType", tag = "2")]
+    pub repository_type: i32,
+    /// The types of filter to trigger a build.
+    #[prost(oneof = "repository_event_config::Filter", tags = "3, 4")]
+    pub filter: ::core::option::Option<repository_event_config::Filter>,
+}
+/// Nested message and enum types in `RepositoryEventConfig`.
+pub mod repository_event_config {
+    /// All possible SCM repo types from Repo API.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum RepositoryType {
+        /// If unspecified, RepositoryType defaults to GITHUB.
+        Unspecified = 0,
+        /// The SCM repo is GITHUB.
+        Github = 1,
+        /// The SCM repo is GITHUB Enterprise.
+        GithubEnterprise = 2,
+        /// The SCM repo is GITLAB Enterprise.
+        GitlabEnterprise = 3,
+    }
+    impl RepositoryType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                RepositoryType::Unspecified => "REPOSITORY_TYPE_UNSPECIFIED",
+                RepositoryType::Github => "GITHUB",
+                RepositoryType::GithubEnterprise => "GITHUB_ENTERPRISE",
+                RepositoryType::GitlabEnterprise => "GITLAB_ENTERPRISE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "REPOSITORY_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "GITHUB" => Some(Self::Github),
+                "GITHUB_ENTERPRISE" => Some(Self::GithubEnterprise),
+                "GITLAB_ENTERPRISE" => Some(Self::GitlabEnterprise),
+                _ => None,
+            }
+        }
+    }
+    /// The types of filter to trigger a build.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Filter {
+        /// Filter to match changes in pull requests.
+        #[prost(message, tag = "3")]
+        PullRequest(super::PullRequestFilter),
+        /// Filter to match changes in refs like branches, tags.
+        #[prost(message, tag = "4")]
+        Push(super::PushFilter),
+    }
+}
 /// GitHubEventsConfig describes the configuration of a trigger that creates a
 /// build whenever a GitHub event is received.
-///
-/// This message is experimental.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GitHubEventsConfig {
@@ -1947,7 +2028,7 @@ pub struct BuildOptions {
     /// overridden in the build configuration file.
     #[prost(bool, tag = "17")]
     pub dynamic_substitutions: bool,
-    /// Option to define build log streaming behavior to Google Cloud
+    /// Option to define build log streaming behavior to Cloud
     /// Storage.
     #[prost(enumeration = "build_options::LogStreamingOption", tag = "5")]
     pub log_streaming_option: i32,
@@ -2014,6 +2095,15 @@ pub mod build_options {
         pub name: ::prost::alloc::string::String,
     }
     /// Specifies the manner in which the build should be verified, if at all.
+    ///
+    /// If a verified build is requested, and any part of the process to generate
+    /// and upload provenance fails, the build will also fail.
+    ///
+    /// If the build does not request verification then that process may occur, but
+    /// is not guaranteed to. If it does occur and fails, the build will not fail.
+    ///
+    /// For more information, see [Viewing Build
+    /// Provenance](<https://cloud.google.com/build/docs/securing-builds/view-build-provenance>).
     #[derive(
         Clone,
         Copy,
@@ -2078,6 +2168,8 @@ pub mod build_options {
         E2Highcpu8 = 5,
         /// Highcpu e2 machine with 32 CPUs.
         E2Highcpu32 = 6,
+        /// E2 machine with 1 CPU.
+        E2Medium = 7,
     }
     impl MachineType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -2091,6 +2183,7 @@ pub mod build_options {
                 MachineType::N1Highcpu32 => "N1_HIGHCPU_32",
                 MachineType::E2Highcpu8 => "E2_HIGHCPU_8",
                 MachineType::E2Highcpu32 => "E2_HIGHCPU_32",
+                MachineType::E2Medium => "E2_MEDIUM",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -2101,6 +2194,7 @@ pub mod build_options {
                 "N1_HIGHCPU_32" => Some(Self::N1Highcpu32),
                 "E2_HIGHCPU_8" => Some(Self::E2Highcpu8),
                 "E2_HIGHCPU_32" => Some(Self::E2Highcpu32),
+                "E2_MEDIUM" => Some(Self::E2Medium),
                 _ => None,
             }
         }
@@ -2145,7 +2239,7 @@ pub mod build_options {
             }
         }
     }
-    /// Specifies the behavior when writing build logs to Google Cloud Storage.
+    /// Specifies the behavior when writing build logs to Cloud Storage.
     #[derive(
         Clone,
         Copy,
@@ -2161,9 +2255,9 @@ pub mod build_options {
     pub enum LogStreamingOption {
         /// Service may automatically determine build log streaming behavior.
         StreamDefault = 0,
-        /// Build logs should be streamed to Google Cloud Storage.
+        /// Build logs should be streamed to Cloud Storage.
         StreamOn = 1,
-        /// Build logs should not be streamed to Google Cloud Storage; they will be
+        /// Build logs should not be streamed to Cloud Storage; they will be
         /// written when the build is completed.
         StreamOff = 2,
     }
@@ -2407,6 +2501,8 @@ pub mod worker_pool {
         Deleting = 3,
         /// `WorkerPool` is deleted.
         Deleted = 4,
+        /// `WorkerPool` is being updated; new builds cannot be run.
+        Updating = 5,
     }
     impl State {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -2420,6 +2516,7 @@ pub mod worker_pool {
                 State::Running => "RUNNING",
                 State::Deleting => "DELETING",
                 State::Deleted => "DELETED",
+                State::Updating => "UPDATING",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -2430,6 +2527,7 @@ pub mod worker_pool {
                 "RUNNING" => Some(Self::Running),
                 "DELETING" => Some(Self::Deleting),
                 "DELETED" => Some(Self::Deleted),
+                "UPDATING" => Some(Self::Updating),
                 _ => None,
             }
         }
@@ -2593,8 +2691,8 @@ pub struct DeleteWorkerPoolRequest {
     /// `projects/{project}/locations/{location}/workerPools/{workerPool}`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Optional. If this is provided, it must match the server's etag on the
-    /// workerpool for the request to be processed.
+    /// Optional. If provided, it must match the server's etag on the workerpool
+    /// for the request to be processed.
     #[prost(string, tag = "2")]
     pub etag: ::prost::alloc::string::String,
     /// If set to true, and the `WorkerPool` is not found, the request will succeed
@@ -2768,6 +2866,22 @@ pub mod cloud_build_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Starts a build with the specified configuration.
         ///
         /// This method returns a long-running `Operation`, which includes the build
@@ -2776,7 +2890,7 @@ pub mod cloud_build_client {
         pub async fn create_build(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateBuildRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -2793,7 +2907,15 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/CreateBuild",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "CreateBuild",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns information about a previously requested build.
         ///
@@ -2802,7 +2924,7 @@ pub mod cloud_build_client {
         pub async fn get_build(
             &mut self,
             request: impl tonic::IntoRequest<super::GetBuildRequest>,
-        ) -> Result<tonic::Response<super::Build>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Build>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2816,7 +2938,15 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/GetBuild",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "GetBuild",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists previously requested builds.
         ///
@@ -2825,7 +2955,10 @@ pub mod cloud_build_client {
         pub async fn list_builds(
             &mut self,
             request: impl tonic::IntoRequest<super::ListBuildsRequest>,
-        ) -> Result<tonic::Response<super::ListBuildsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListBuildsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2839,13 +2972,21 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/ListBuilds",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "ListBuilds",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Cancels a build in progress.
         pub async fn cancel_build(
             &mut self,
             request: impl tonic::IntoRequest<super::CancelBuildRequest>,
-        ) -> Result<tonic::Response<super::Build>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Build>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2859,7 +3000,15 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/CancelBuild",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "CancelBuild",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a new build based on the specified build.
         ///
@@ -2881,7 +3030,7 @@ pub mod cloud_build_client {
         ///
         /// For builds that specify `StorageSource`:
         ///
-        /// * If the original build pulled source from Google Cloud Storage without
+        /// * If the original build pulled source from Cloud Storage without
         /// specifying the generation of the object, the new build will use the current
         /// object, which may be different from the original build source.
         /// * If the original build pulled source from Cloud Storage and specified the
@@ -2891,7 +3040,7 @@ pub mod cloud_build_client {
         pub async fn retry_build(
             &mut self,
             request: impl tonic::IntoRequest<super::RetryBuildRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -2908,7 +3057,15 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/RetryBuild",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "RetryBuild",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Approves or rejects a pending build.
         ///
@@ -2919,7 +3076,7 @@ pub mod cloud_build_client {
         pub async fn approve_build(
             &mut self,
             request: impl tonic::IntoRequest<super::ApproveBuildRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -2936,7 +3093,15 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/ApproveBuild",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "ApproveBuild",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a new `BuildTrigger`.
         ///
@@ -2944,7 +3109,7 @@ pub mod cloud_build_client {
         pub async fn create_build_trigger(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateBuildTriggerRequest>,
-        ) -> Result<tonic::Response<super::BuildTrigger>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::BuildTrigger>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2958,7 +3123,15 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/CreateBuildTrigger",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "CreateBuildTrigger",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns information about a `BuildTrigger`.
         ///
@@ -2966,7 +3139,7 @@ pub mod cloud_build_client {
         pub async fn get_build_trigger(
             &mut self,
             request: impl tonic::IntoRequest<super::GetBuildTriggerRequest>,
-        ) -> Result<tonic::Response<super::BuildTrigger>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::BuildTrigger>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2980,7 +3153,15 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/GetBuildTrigger",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "GetBuildTrigger",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists existing `BuildTrigger`s.
         ///
@@ -2988,7 +3169,10 @@ pub mod cloud_build_client {
         pub async fn list_build_triggers(
             &mut self,
             request: impl tonic::IntoRequest<super::ListBuildTriggersRequest>,
-        ) -> Result<tonic::Response<super::ListBuildTriggersResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListBuildTriggersResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3002,7 +3186,15 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/ListBuildTriggers",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "ListBuildTriggers",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a `BuildTrigger` by its project ID and trigger ID.
         ///
@@ -3010,7 +3202,7 @@ pub mod cloud_build_client {
         pub async fn delete_build_trigger(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteBuildTriggerRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3024,7 +3216,15 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/DeleteBuildTrigger",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "DeleteBuildTrigger",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates a `BuildTrigger` by its project ID and trigger ID.
         ///
@@ -3032,7 +3232,7 @@ pub mod cloud_build_client {
         pub async fn update_build_trigger(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateBuildTriggerRequest>,
-        ) -> Result<tonic::Response<super::BuildTrigger>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::BuildTrigger>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3046,13 +3246,27 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/UpdateBuildTrigger",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "UpdateBuildTrigger",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Runs a `BuildTrigger` at a particular source revision.
+        ///
+        /// To run a regional or global trigger, use the POST request
+        /// that includes the location endpoint in the path (ex.
+        /// v1/projects/{projectId}/locations/{region}/triggers/{triggerId}:run). The
+        /// POST request that does not include the location endpoint in the path can
+        /// only be used when running global triggers.
         pub async fn run_build_trigger(
             &mut self,
             request: impl tonic::IntoRequest<super::RunBuildTriggerRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -3069,14 +3283,22 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/RunBuildTrigger",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "RunBuildTrigger",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// ReceiveTriggerWebhook [Experimental] is called when the API receives a
         /// webhook request targeted at a specific trigger.
         pub async fn receive_trigger_webhook(
             &mut self,
             request: impl tonic::IntoRequest<super::ReceiveTriggerWebhookRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ReceiveTriggerWebhookResponse>,
             tonic::Status,
         > {
@@ -3093,13 +3315,21 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/ReceiveTriggerWebhook",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "ReceiveTriggerWebhook",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a `WorkerPool`.
         pub async fn create_worker_pool(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateWorkerPoolRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -3116,13 +3346,21 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/CreateWorkerPool",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "CreateWorkerPool",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns details of a `WorkerPool`.
         pub async fn get_worker_pool(
             &mut self,
             request: impl tonic::IntoRequest<super::GetWorkerPoolRequest>,
-        ) -> Result<tonic::Response<super::WorkerPool>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::WorkerPool>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3136,13 +3374,21 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/GetWorkerPool",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "GetWorkerPool",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a `WorkerPool`.
         pub async fn delete_worker_pool(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteWorkerPoolRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -3159,13 +3405,21 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/DeleteWorkerPool",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "DeleteWorkerPool",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates a `WorkerPool`.
         pub async fn update_worker_pool(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateWorkerPoolRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -3182,13 +3436,24 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/UpdateWorkerPool",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "UpdateWorkerPool",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists `WorkerPool`s.
         pub async fn list_worker_pools(
             &mut self,
             request: impl tonic::IntoRequest<super::ListWorkerPoolsRequest>,
-        ) -> Result<tonic::Response<super::ListWorkerPoolsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListWorkerPoolsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3202,7 +3467,15 @@ pub mod cloud_build_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.devtools.cloudbuild.v1.CloudBuild/ListWorkerPools",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.cloudbuild.v1.CloudBuild",
+                        "ListWorkerPools",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

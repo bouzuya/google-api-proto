@@ -1,503 +1,3 @@
-/// Dimensions are attributes of your data. For example, the dimension
-/// `userEmail` indicates the email of the user that accessed reporting data.
-/// Dimension values in report responses are strings.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessDimension {
-    /// The API name of the dimension. See [Data Access
-    /// Schema](<https://developers.google.com/analytics/devguides/config/admin/v1/access-api-schema>)
-    /// for the list of dimensions supported in this API.
-    ///
-    /// Dimensions are referenced by name in `dimensionFilter` and `orderBys`.
-    #[prost(string, tag = "1")]
-    pub dimension_name: ::prost::alloc::string::String,
-}
-/// The quantitative measurements of a report. For example, the metric
-/// `accessCount` is the total number of data access records.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessMetric {
-    /// The API name of the metric. See [Data Access
-    /// Schema](<https://developers.google.com/analytics/devguides/config/admin/v1/access-api-schema>)
-    /// for the list of metrics supported in this API.
-    ///
-    /// Metrics are referenced by name in `metricFilter` & `orderBys`.
-    #[prost(string, tag = "1")]
-    pub metric_name: ::prost::alloc::string::String,
-}
-/// A contiguous range of days: startDate, startDate + 1, ..., endDate.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessDateRange {
-    /// The inclusive start date for the query in the format `YYYY-MM-DD`. Cannot
-    /// be after `endDate`. The format `NdaysAgo`, `yesterday`, or `today` is also
-    /// accepted, and in that case, the date is inferred based on the current time
-    /// in the request's time zone.
-    #[prost(string, tag = "1")]
-    pub start_date: ::prost::alloc::string::String,
-    /// The inclusive end date for the query in the format `YYYY-MM-DD`. Cannot
-    /// be before `startDate`. The format `NdaysAgo`, `yesterday`, or `today` is
-    /// also accepted, and in that case, the date is inferred based on the current
-    /// time in the request's time zone.
-    #[prost(string, tag = "2")]
-    pub end_date: ::prost::alloc::string::String,
-}
-/// Expresses dimension or metric filters. The fields in the same expression need
-/// to be either all dimensions or all metrics.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessFilterExpression {
-    /// Specify one type of filter expression for `FilterExpression`.
-    #[prost(oneof = "access_filter_expression::OneExpression", tags = "1, 2, 3, 4")]
-    pub one_expression: ::core::option::Option<access_filter_expression::OneExpression>,
-}
-/// Nested message and enum types in `AccessFilterExpression`.
-pub mod access_filter_expression {
-    /// Specify one type of filter expression for `FilterExpression`.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum OneExpression {
-        /// Each of the FilterExpressions in the and_group has an AND relationship.
-        #[prost(message, tag = "1")]
-        AndGroup(super::AccessFilterExpressionList),
-        /// Each of the FilterExpressions in the or_group has an OR relationship.
-        #[prost(message, tag = "2")]
-        OrGroup(super::AccessFilterExpressionList),
-        /// The FilterExpression is NOT of not_expression.
-        #[prost(message, tag = "3")]
-        NotExpression(::prost::alloc::boxed::Box<super::AccessFilterExpression>),
-        /// A primitive filter. In the same FilterExpression, all of the filter's
-        /// field names need to be either all dimensions or all metrics.
-        #[prost(message, tag = "4")]
-        AccessFilter(super::AccessFilter),
-    }
-}
-/// A list of filter expressions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessFilterExpressionList {
-    /// A list of filter expressions.
-    #[prost(message, repeated, tag = "1")]
-    pub expressions: ::prost::alloc::vec::Vec<AccessFilterExpression>,
-}
-/// An expression to filter dimension or metric values.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessFilter {
-    /// The dimension name or metric name.
-    #[prost(string, tag = "1")]
-    pub field_name: ::prost::alloc::string::String,
-    /// Specify one type of filter for `Filter`.
-    #[prost(oneof = "access_filter::OneFilter", tags = "2, 3, 4, 5")]
-    pub one_filter: ::core::option::Option<access_filter::OneFilter>,
-}
-/// Nested message and enum types in `AccessFilter`.
-pub mod access_filter {
-    /// Specify one type of filter for `Filter`.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum OneFilter {
-        /// Strings related filter.
-        #[prost(message, tag = "2")]
-        StringFilter(super::AccessStringFilter),
-        /// A filter for in list values.
-        #[prost(message, tag = "3")]
-        InListFilter(super::AccessInListFilter),
-        /// A filter for numeric or date values.
-        #[prost(message, tag = "4")]
-        NumericFilter(super::AccessNumericFilter),
-        /// A filter for two values.
-        #[prost(message, tag = "5")]
-        BetweenFilter(super::AccessBetweenFilter),
-    }
-}
-/// The filter for strings.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessStringFilter {
-    /// The match type for this filter.
-    #[prost(enumeration = "access_string_filter::MatchType", tag = "1")]
-    pub match_type: i32,
-    /// The string value used for the matching.
-    #[prost(string, tag = "2")]
-    pub value: ::prost::alloc::string::String,
-    /// If true, the string value is case sensitive.
-    #[prost(bool, tag = "3")]
-    pub case_sensitive: bool,
-}
-/// Nested message and enum types in `AccessStringFilter`.
-pub mod access_string_filter {
-    /// The match type of a string filter.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum MatchType {
-        /// Unspecified
-        Unspecified = 0,
-        /// Exact match of the string value.
-        Exact = 1,
-        /// Begins with the string value.
-        BeginsWith = 2,
-        /// Ends with the string value.
-        EndsWith = 3,
-        /// Contains the string value.
-        Contains = 4,
-        /// Full match for the regular expression with the string value.
-        FullRegexp = 5,
-        /// Partial match for the regular expression with the string value.
-        PartialRegexp = 6,
-    }
-    impl MatchType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                MatchType::Unspecified => "MATCH_TYPE_UNSPECIFIED",
-                MatchType::Exact => "EXACT",
-                MatchType::BeginsWith => "BEGINS_WITH",
-                MatchType::EndsWith => "ENDS_WITH",
-                MatchType::Contains => "CONTAINS",
-                MatchType::FullRegexp => "FULL_REGEXP",
-                MatchType::PartialRegexp => "PARTIAL_REGEXP",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "MATCH_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "EXACT" => Some(Self::Exact),
-                "BEGINS_WITH" => Some(Self::BeginsWith),
-                "ENDS_WITH" => Some(Self::EndsWith),
-                "CONTAINS" => Some(Self::Contains),
-                "FULL_REGEXP" => Some(Self::FullRegexp),
-                "PARTIAL_REGEXP" => Some(Self::PartialRegexp),
-                _ => None,
-            }
-        }
-    }
-}
-/// The result needs to be in a list of string values.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessInListFilter {
-    /// The list of string values. Must be non-empty.
-    #[prost(string, repeated, tag = "1")]
-    pub values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// If true, the string value is case sensitive.
-    #[prost(bool, tag = "2")]
-    pub case_sensitive: bool,
-}
-/// Filters for numeric or date values.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessNumericFilter {
-    /// The operation type for this filter.
-    #[prost(enumeration = "access_numeric_filter::Operation", tag = "1")]
-    pub operation: i32,
-    /// A numeric value or a date value.
-    #[prost(message, optional, tag = "2")]
-    pub value: ::core::option::Option<NumericValue>,
-}
-/// Nested message and enum types in `AccessNumericFilter`.
-pub mod access_numeric_filter {
-    /// The operation applied to a numeric filter.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Operation {
-        /// Unspecified.
-        Unspecified = 0,
-        /// Equal
-        Equal = 1,
-        /// Less than
-        LessThan = 2,
-        /// Less than or equal
-        LessThanOrEqual = 3,
-        /// Greater than
-        GreaterThan = 4,
-        /// Greater than or equal
-        GreaterThanOrEqual = 5,
-    }
-    impl Operation {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Operation::Unspecified => "OPERATION_UNSPECIFIED",
-                Operation::Equal => "EQUAL",
-                Operation::LessThan => "LESS_THAN",
-                Operation::LessThanOrEqual => "LESS_THAN_OR_EQUAL",
-                Operation::GreaterThan => "GREATER_THAN",
-                Operation::GreaterThanOrEqual => "GREATER_THAN_OR_EQUAL",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "OPERATION_UNSPECIFIED" => Some(Self::Unspecified),
-                "EQUAL" => Some(Self::Equal),
-                "LESS_THAN" => Some(Self::LessThan),
-                "LESS_THAN_OR_EQUAL" => Some(Self::LessThanOrEqual),
-                "GREATER_THAN" => Some(Self::GreaterThan),
-                "GREATER_THAN_OR_EQUAL" => Some(Self::GreaterThanOrEqual),
-                _ => None,
-            }
-        }
-    }
-}
-/// To express that the result needs to be between two numbers (inclusive).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessBetweenFilter {
-    /// Begins with this number.
-    #[prost(message, optional, tag = "1")]
-    pub from_value: ::core::option::Option<NumericValue>,
-    /// Ends with this number.
-    #[prost(message, optional, tag = "2")]
-    pub to_value: ::core::option::Option<NumericValue>,
-}
-/// To represent a number.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct NumericValue {
-    /// One of a numeric value
-    #[prost(oneof = "numeric_value::OneValue", tags = "1, 2")]
-    pub one_value: ::core::option::Option<numeric_value::OneValue>,
-}
-/// Nested message and enum types in `NumericValue`.
-pub mod numeric_value {
-    /// One of a numeric value
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum OneValue {
-        /// Integer value
-        #[prost(int64, tag = "1")]
-        Int64Value(i64),
-        /// Double value
-        #[prost(double, tag = "2")]
-        DoubleValue(f64),
-    }
-}
-/// Order bys define how rows will be sorted in the response. For example,
-/// ordering rows by descending access count is one ordering, and ordering rows
-/// by the country string is a different ordering.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessOrderBy {
-    /// If true, sorts by descending order. If false or unspecified, sorts in
-    /// ascending order.
-    #[prost(bool, tag = "3")]
-    pub desc: bool,
-    /// Specify one type of order by for `OrderBy`.
-    #[prost(oneof = "access_order_by::OneOrderBy", tags = "1, 2")]
-    pub one_order_by: ::core::option::Option<access_order_by::OneOrderBy>,
-}
-/// Nested message and enum types in `AccessOrderBy`.
-pub mod access_order_by {
-    /// Sorts by metric values.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct MetricOrderBy {
-        /// A metric name in the request to order by.
-        #[prost(string, tag = "1")]
-        pub metric_name: ::prost::alloc::string::String,
-    }
-    /// Sorts by dimension values.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct DimensionOrderBy {
-        /// A dimension name in the request to order by.
-        #[prost(string, tag = "1")]
-        pub dimension_name: ::prost::alloc::string::String,
-        /// Controls the rule for dimension value ordering.
-        #[prost(enumeration = "dimension_order_by::OrderType", tag = "2")]
-        pub order_type: i32,
-    }
-    /// Nested message and enum types in `DimensionOrderBy`.
-    pub mod dimension_order_by {
-        /// Rule to order the string dimension values by.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum OrderType {
-            /// Unspecified.
-            Unspecified = 0,
-            /// Alphanumeric sort by Unicode code point. For example, "2" < "A" < "X" <
-            /// "b" < "z".
-            Alphanumeric = 1,
-            /// Case insensitive alphanumeric sort by lower case Unicode code point.
-            /// For example, "2" < "A" < "b" < "X" < "z".
-            CaseInsensitiveAlphanumeric = 2,
-            /// Dimension values are converted to numbers before sorting. For example
-            /// in NUMERIC sort, "25" < "100", and in `ALPHANUMERIC` sort, "100" <
-            /// "25". Non-numeric dimension values all have equal ordering value below
-            /// all numeric values.
-            Numeric = 3,
-        }
-        impl OrderType {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    OrderType::Unspecified => "ORDER_TYPE_UNSPECIFIED",
-                    OrderType::Alphanumeric => "ALPHANUMERIC",
-                    OrderType::CaseInsensitiveAlphanumeric => {
-                        "CASE_INSENSITIVE_ALPHANUMERIC"
-                    }
-                    OrderType::Numeric => "NUMERIC",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "ORDER_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                    "ALPHANUMERIC" => Some(Self::Alphanumeric),
-                    "CASE_INSENSITIVE_ALPHANUMERIC" => {
-                        Some(Self::CaseInsensitiveAlphanumeric)
-                    }
-                    "NUMERIC" => Some(Self::Numeric),
-                    _ => None,
-                }
-            }
-        }
-    }
-    /// Specify one type of order by for `OrderBy`.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum OneOrderBy {
-        /// Sorts results by a metric's values.
-        #[prost(message, tag = "1")]
-        Metric(MetricOrderBy),
-        /// Sorts results by a dimension's values.
-        #[prost(message, tag = "2")]
-        Dimension(DimensionOrderBy),
-    }
-}
-/// Describes a dimension column in the report. Dimensions requested in a report
-/// produce column entries within rows and DimensionHeaders. However, dimensions
-/// used exclusively within filters or expressions do not produce columns in a
-/// report; correspondingly, those dimensions do not produce headers.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessDimensionHeader {
-    /// The dimension's name; for example 'userEmail'.
-    #[prost(string, tag = "1")]
-    pub dimension_name: ::prost::alloc::string::String,
-}
-/// Describes a metric column in the report. Visible metrics requested in a
-/// report produce column entries within rows and MetricHeaders. However,
-/// metrics used exclusively within filters or expressions do not produce columns
-/// in a report; correspondingly, those metrics do not produce headers.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessMetricHeader {
-    /// The metric's name; for example 'accessCount'.
-    #[prost(string, tag = "1")]
-    pub metric_name: ::prost::alloc::string::String,
-}
-/// Access report data for each row.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessRow {
-    /// List of dimension values. These values are in the same order as specified
-    /// in the request.
-    #[prost(message, repeated, tag = "1")]
-    pub dimension_values: ::prost::alloc::vec::Vec<AccessDimensionValue>,
-    /// List of metric values. These values are in the same order as specified
-    /// in the request.
-    #[prost(message, repeated, tag = "2")]
-    pub metric_values: ::prost::alloc::vec::Vec<AccessMetricValue>,
-}
-/// The value of a dimension.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessDimensionValue {
-    /// The dimension value. For example, this value may be 'France' for the
-    /// 'country' dimension.
-    #[prost(string, tag = "1")]
-    pub value: ::prost::alloc::string::String,
-}
-/// The value of a metric.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessMetricValue {
-    /// The measurement value. For example, this value may be '13'.
-    #[prost(string, tag = "1")]
-    pub value: ::prost::alloc::string::String,
-}
-/// Current state of all quotas for this Analytics property. If any quota for a
-/// property is exhausted, all requests to that property will return Resource
-/// Exhausted errors.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessQuota {
-    /// Properties can use 250,000 tokens per day. Most requests consume fewer than
-    /// 10 tokens.
-    #[prost(message, optional, tag = "1")]
-    pub tokens_per_day: ::core::option::Option<AccessQuotaStatus>,
-    /// Properties can use 50,000 tokens per hour. An API request consumes a single
-    /// number of tokens, and that number is deducted from all of the hourly,
-    /// daily, and per project hourly quotas.
-    #[prost(message, optional, tag = "2")]
-    pub tokens_per_hour: ::core::option::Option<AccessQuotaStatus>,
-    /// Properties can use up to 50 concurrent requests.
-    #[prost(message, optional, tag = "3")]
-    pub concurrent_requests: ::core::option::Option<AccessQuotaStatus>,
-    /// Properties and cloud project pairs can have up to 50 server errors per
-    /// hour.
-    #[prost(message, optional, tag = "4")]
-    pub server_errors_per_project_per_hour: ::core::option::Option<AccessQuotaStatus>,
-    /// Properties can use up to 25% of their tokens per project per hour. This
-    /// amounts to Analytics 360 Properties can use 12,500 tokens per project per
-    /// hour. An API request consumes a single number of tokens, and that number is
-    /// deducted from all of the hourly, daily, and per project hourly quotas.
-    #[prost(message, optional, tag = "5")]
-    pub tokens_per_project_per_hour: ::core::option::Option<AccessQuotaStatus>,
-}
-/// Current state for a particular quota group.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessQuotaStatus {
-    /// Quota consumed by this request.
-    #[prost(int32, tag = "1")]
-    pub consumed: i32,
-    /// Quota remaining after this request.
-    #[prost(int32, tag = "2")]
-    pub remaining: i32,
-}
 /// A resource message representing a Google Analytics account.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1744,6 +1244,506 @@ impl PropertyType {
         }
     }
 }
+/// Dimensions are attributes of your data. For example, the dimension
+/// `userEmail` indicates the email of the user that accessed reporting data.
+/// Dimension values in report responses are strings.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessDimension {
+    /// The API name of the dimension. See [Data Access
+    /// Schema](<https://developers.google.com/analytics/devguides/config/admin/v1/access-api-schema>)
+    /// for the list of dimensions supported in this API.
+    ///
+    /// Dimensions are referenced by name in `dimensionFilter` and `orderBys`.
+    #[prost(string, tag = "1")]
+    pub dimension_name: ::prost::alloc::string::String,
+}
+/// The quantitative measurements of a report. For example, the metric
+/// `accessCount` is the total number of data access records.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessMetric {
+    /// The API name of the metric. See [Data Access
+    /// Schema](<https://developers.google.com/analytics/devguides/config/admin/v1/access-api-schema>)
+    /// for the list of metrics supported in this API.
+    ///
+    /// Metrics are referenced by name in `metricFilter` & `orderBys`.
+    #[prost(string, tag = "1")]
+    pub metric_name: ::prost::alloc::string::String,
+}
+/// A contiguous range of days: startDate, startDate + 1, ..., endDate.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessDateRange {
+    /// The inclusive start date for the query in the format `YYYY-MM-DD`. Cannot
+    /// be after `endDate`. The format `NdaysAgo`, `yesterday`, or `today` is also
+    /// accepted, and in that case, the date is inferred based on the current time
+    /// in the request's time zone.
+    #[prost(string, tag = "1")]
+    pub start_date: ::prost::alloc::string::String,
+    /// The inclusive end date for the query in the format `YYYY-MM-DD`. Cannot
+    /// be before `startDate`. The format `NdaysAgo`, `yesterday`, or `today` is
+    /// also accepted, and in that case, the date is inferred based on the current
+    /// time in the request's time zone.
+    #[prost(string, tag = "2")]
+    pub end_date: ::prost::alloc::string::String,
+}
+/// Expresses dimension or metric filters. The fields in the same expression need
+/// to be either all dimensions or all metrics.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessFilterExpression {
+    /// Specify one type of filter expression for `FilterExpression`.
+    #[prost(oneof = "access_filter_expression::OneExpression", tags = "1, 2, 3, 4")]
+    pub one_expression: ::core::option::Option<access_filter_expression::OneExpression>,
+}
+/// Nested message and enum types in `AccessFilterExpression`.
+pub mod access_filter_expression {
+    /// Specify one type of filter expression for `FilterExpression`.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum OneExpression {
+        /// Each of the FilterExpressions in the and_group has an AND relationship.
+        #[prost(message, tag = "1")]
+        AndGroup(super::AccessFilterExpressionList),
+        /// Each of the FilterExpressions in the or_group has an OR relationship.
+        #[prost(message, tag = "2")]
+        OrGroup(super::AccessFilterExpressionList),
+        /// The FilterExpression is NOT of not_expression.
+        #[prost(message, tag = "3")]
+        NotExpression(::prost::alloc::boxed::Box<super::AccessFilterExpression>),
+        /// A primitive filter. In the same FilterExpression, all of the filter's
+        /// field names need to be either all dimensions or all metrics.
+        #[prost(message, tag = "4")]
+        AccessFilter(super::AccessFilter),
+    }
+}
+/// A list of filter expressions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessFilterExpressionList {
+    /// A list of filter expressions.
+    #[prost(message, repeated, tag = "1")]
+    pub expressions: ::prost::alloc::vec::Vec<AccessFilterExpression>,
+}
+/// An expression to filter dimension or metric values.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessFilter {
+    /// The dimension name or metric name.
+    #[prost(string, tag = "1")]
+    pub field_name: ::prost::alloc::string::String,
+    /// Specify one type of filter for `Filter`.
+    #[prost(oneof = "access_filter::OneFilter", tags = "2, 3, 4, 5")]
+    pub one_filter: ::core::option::Option<access_filter::OneFilter>,
+}
+/// Nested message and enum types in `AccessFilter`.
+pub mod access_filter {
+    /// Specify one type of filter for `Filter`.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum OneFilter {
+        /// Strings related filter.
+        #[prost(message, tag = "2")]
+        StringFilter(super::AccessStringFilter),
+        /// A filter for in list values.
+        #[prost(message, tag = "3")]
+        InListFilter(super::AccessInListFilter),
+        /// A filter for numeric or date values.
+        #[prost(message, tag = "4")]
+        NumericFilter(super::AccessNumericFilter),
+        /// A filter for two values.
+        #[prost(message, tag = "5")]
+        BetweenFilter(super::AccessBetweenFilter),
+    }
+}
+/// The filter for strings.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessStringFilter {
+    /// The match type for this filter.
+    #[prost(enumeration = "access_string_filter::MatchType", tag = "1")]
+    pub match_type: i32,
+    /// The string value used for the matching.
+    #[prost(string, tag = "2")]
+    pub value: ::prost::alloc::string::String,
+    /// If true, the string value is case sensitive.
+    #[prost(bool, tag = "3")]
+    pub case_sensitive: bool,
+}
+/// Nested message and enum types in `AccessStringFilter`.
+pub mod access_string_filter {
+    /// The match type of a string filter.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum MatchType {
+        /// Unspecified
+        Unspecified = 0,
+        /// Exact match of the string value.
+        Exact = 1,
+        /// Begins with the string value.
+        BeginsWith = 2,
+        /// Ends with the string value.
+        EndsWith = 3,
+        /// Contains the string value.
+        Contains = 4,
+        /// Full match for the regular expression with the string value.
+        FullRegexp = 5,
+        /// Partial match for the regular expression with the string value.
+        PartialRegexp = 6,
+    }
+    impl MatchType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                MatchType::Unspecified => "MATCH_TYPE_UNSPECIFIED",
+                MatchType::Exact => "EXACT",
+                MatchType::BeginsWith => "BEGINS_WITH",
+                MatchType::EndsWith => "ENDS_WITH",
+                MatchType::Contains => "CONTAINS",
+                MatchType::FullRegexp => "FULL_REGEXP",
+                MatchType::PartialRegexp => "PARTIAL_REGEXP",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "MATCH_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "EXACT" => Some(Self::Exact),
+                "BEGINS_WITH" => Some(Self::BeginsWith),
+                "ENDS_WITH" => Some(Self::EndsWith),
+                "CONTAINS" => Some(Self::Contains),
+                "FULL_REGEXP" => Some(Self::FullRegexp),
+                "PARTIAL_REGEXP" => Some(Self::PartialRegexp),
+                _ => None,
+            }
+        }
+    }
+}
+/// The result needs to be in a list of string values.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessInListFilter {
+    /// The list of string values. Must be non-empty.
+    #[prost(string, repeated, tag = "1")]
+    pub values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// If true, the string value is case sensitive.
+    #[prost(bool, tag = "2")]
+    pub case_sensitive: bool,
+}
+/// Filters for numeric or date values.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessNumericFilter {
+    /// The operation type for this filter.
+    #[prost(enumeration = "access_numeric_filter::Operation", tag = "1")]
+    pub operation: i32,
+    /// A numeric value or a date value.
+    #[prost(message, optional, tag = "2")]
+    pub value: ::core::option::Option<NumericValue>,
+}
+/// Nested message and enum types in `AccessNumericFilter`.
+pub mod access_numeric_filter {
+    /// The operation applied to a numeric filter.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Operation {
+        /// Unspecified.
+        Unspecified = 0,
+        /// Equal
+        Equal = 1,
+        /// Less than
+        LessThan = 2,
+        /// Less than or equal
+        LessThanOrEqual = 3,
+        /// Greater than
+        GreaterThan = 4,
+        /// Greater than or equal
+        GreaterThanOrEqual = 5,
+    }
+    impl Operation {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Operation::Unspecified => "OPERATION_UNSPECIFIED",
+                Operation::Equal => "EQUAL",
+                Operation::LessThan => "LESS_THAN",
+                Operation::LessThanOrEqual => "LESS_THAN_OR_EQUAL",
+                Operation::GreaterThan => "GREATER_THAN",
+                Operation::GreaterThanOrEqual => "GREATER_THAN_OR_EQUAL",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "OPERATION_UNSPECIFIED" => Some(Self::Unspecified),
+                "EQUAL" => Some(Self::Equal),
+                "LESS_THAN" => Some(Self::LessThan),
+                "LESS_THAN_OR_EQUAL" => Some(Self::LessThanOrEqual),
+                "GREATER_THAN" => Some(Self::GreaterThan),
+                "GREATER_THAN_OR_EQUAL" => Some(Self::GreaterThanOrEqual),
+                _ => None,
+            }
+        }
+    }
+}
+/// To express that the result needs to be between two numbers (inclusive).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessBetweenFilter {
+    /// Begins with this number.
+    #[prost(message, optional, tag = "1")]
+    pub from_value: ::core::option::Option<NumericValue>,
+    /// Ends with this number.
+    #[prost(message, optional, tag = "2")]
+    pub to_value: ::core::option::Option<NumericValue>,
+}
+/// To represent a number.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct NumericValue {
+    /// One of a numeric value
+    #[prost(oneof = "numeric_value::OneValue", tags = "1, 2")]
+    pub one_value: ::core::option::Option<numeric_value::OneValue>,
+}
+/// Nested message and enum types in `NumericValue`.
+pub mod numeric_value {
+    /// One of a numeric value
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum OneValue {
+        /// Integer value
+        #[prost(int64, tag = "1")]
+        Int64Value(i64),
+        /// Double value
+        #[prost(double, tag = "2")]
+        DoubleValue(f64),
+    }
+}
+/// Order bys define how rows will be sorted in the response. For example,
+/// ordering rows by descending access count is one ordering, and ordering rows
+/// by the country string is a different ordering.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessOrderBy {
+    /// If true, sorts by descending order. If false or unspecified, sorts in
+    /// ascending order.
+    #[prost(bool, tag = "3")]
+    pub desc: bool,
+    /// Specify one type of order by for `OrderBy`.
+    #[prost(oneof = "access_order_by::OneOrderBy", tags = "1, 2")]
+    pub one_order_by: ::core::option::Option<access_order_by::OneOrderBy>,
+}
+/// Nested message and enum types in `AccessOrderBy`.
+pub mod access_order_by {
+    /// Sorts by metric values.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct MetricOrderBy {
+        /// A metric name in the request to order by.
+        #[prost(string, tag = "1")]
+        pub metric_name: ::prost::alloc::string::String,
+    }
+    /// Sorts by dimension values.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DimensionOrderBy {
+        /// A dimension name in the request to order by.
+        #[prost(string, tag = "1")]
+        pub dimension_name: ::prost::alloc::string::String,
+        /// Controls the rule for dimension value ordering.
+        #[prost(enumeration = "dimension_order_by::OrderType", tag = "2")]
+        pub order_type: i32,
+    }
+    /// Nested message and enum types in `DimensionOrderBy`.
+    pub mod dimension_order_by {
+        /// Rule to order the string dimension values by.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum OrderType {
+            /// Unspecified.
+            Unspecified = 0,
+            /// Alphanumeric sort by Unicode code point. For example, "2" < "A" < "X" <
+            /// "b" < "z".
+            Alphanumeric = 1,
+            /// Case insensitive alphanumeric sort by lower case Unicode code point.
+            /// For example, "2" < "A" < "b" < "X" < "z".
+            CaseInsensitiveAlphanumeric = 2,
+            /// Dimension values are converted to numbers before sorting. For example
+            /// in NUMERIC sort, "25" < "100", and in `ALPHANUMERIC` sort, "100" <
+            /// "25". Non-numeric dimension values all have equal ordering value below
+            /// all numeric values.
+            Numeric = 3,
+        }
+        impl OrderType {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    OrderType::Unspecified => "ORDER_TYPE_UNSPECIFIED",
+                    OrderType::Alphanumeric => "ALPHANUMERIC",
+                    OrderType::CaseInsensitiveAlphanumeric => {
+                        "CASE_INSENSITIVE_ALPHANUMERIC"
+                    }
+                    OrderType::Numeric => "NUMERIC",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "ORDER_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "ALPHANUMERIC" => Some(Self::Alphanumeric),
+                    "CASE_INSENSITIVE_ALPHANUMERIC" => {
+                        Some(Self::CaseInsensitiveAlphanumeric)
+                    }
+                    "NUMERIC" => Some(Self::Numeric),
+                    _ => None,
+                }
+            }
+        }
+    }
+    /// Specify one type of order by for `OrderBy`.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum OneOrderBy {
+        /// Sorts results by a metric's values.
+        #[prost(message, tag = "1")]
+        Metric(MetricOrderBy),
+        /// Sorts results by a dimension's values.
+        #[prost(message, tag = "2")]
+        Dimension(DimensionOrderBy),
+    }
+}
+/// Describes a dimension column in the report. Dimensions requested in a report
+/// produce column entries within rows and DimensionHeaders. However, dimensions
+/// used exclusively within filters or expressions do not produce columns in a
+/// report; correspondingly, those dimensions do not produce headers.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessDimensionHeader {
+    /// The dimension's name; for example 'userEmail'.
+    #[prost(string, tag = "1")]
+    pub dimension_name: ::prost::alloc::string::String,
+}
+/// Describes a metric column in the report. Visible metrics requested in a
+/// report produce column entries within rows and MetricHeaders. However,
+/// metrics used exclusively within filters or expressions do not produce columns
+/// in a report; correspondingly, those metrics do not produce headers.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessMetricHeader {
+    /// The metric's name; for example 'accessCount'.
+    #[prost(string, tag = "1")]
+    pub metric_name: ::prost::alloc::string::String,
+}
+/// Access report data for each row.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessRow {
+    /// List of dimension values. These values are in the same order as specified
+    /// in the request.
+    #[prost(message, repeated, tag = "1")]
+    pub dimension_values: ::prost::alloc::vec::Vec<AccessDimensionValue>,
+    /// List of metric values. These values are in the same order as specified
+    /// in the request.
+    #[prost(message, repeated, tag = "2")]
+    pub metric_values: ::prost::alloc::vec::Vec<AccessMetricValue>,
+}
+/// The value of a dimension.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessDimensionValue {
+    /// The dimension value. For example, this value may be 'France' for the
+    /// 'country' dimension.
+    #[prost(string, tag = "1")]
+    pub value: ::prost::alloc::string::String,
+}
+/// The value of a metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessMetricValue {
+    /// The measurement value. For example, this value may be '13'.
+    #[prost(string, tag = "1")]
+    pub value: ::prost::alloc::string::String,
+}
+/// Current state of all quotas for this Analytics property. If any quota for a
+/// property is exhausted, all requests to that property will return Resource
+/// Exhausted errors.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessQuota {
+    /// Properties can use 250,000 tokens per day. Most requests consume fewer than
+    /// 10 tokens.
+    #[prost(message, optional, tag = "1")]
+    pub tokens_per_day: ::core::option::Option<AccessQuotaStatus>,
+    /// Properties can use 50,000 tokens per hour. An API request consumes a single
+    /// number of tokens, and that number is deducted from all of the hourly,
+    /// daily, and per project hourly quotas.
+    #[prost(message, optional, tag = "2")]
+    pub tokens_per_hour: ::core::option::Option<AccessQuotaStatus>,
+    /// Properties can use up to 50 concurrent requests.
+    #[prost(message, optional, tag = "3")]
+    pub concurrent_requests: ::core::option::Option<AccessQuotaStatus>,
+    /// Properties and cloud project pairs can have up to 50 server errors per
+    /// hour.
+    #[prost(message, optional, tag = "4")]
+    pub server_errors_per_project_per_hour: ::core::option::Option<AccessQuotaStatus>,
+    /// Properties can use up to 25% of their tokens per project per hour. This
+    /// amounts to Analytics 360 Properties can use 12,500 tokens per project per
+    /// hour. An API request consumes a single number of tokens, and that number is
+    /// deducted from all of the hourly, daily, and per project hourly quotas.
+    #[prost(message, optional, tag = "5")]
+    pub tokens_per_project_per_hour: ::core::option::Option<AccessQuotaStatus>,
+}
+/// Current state for a particular quota group.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessQuotaStatus {
+    /// Quota consumed by this request.
+    #[prost(int32, tag = "1")]
+    pub consumed: i32,
+    /// Quota remaining after this request.
+    #[prost(int32, tag = "2")]
+    pub remaining: i32,
+}
 /// The request for a Data Access Record Report.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2736,11 +2736,27 @@ pub mod analytics_admin_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Lookup for a single Account.
         pub async fn get_account(
             &mut self,
             request: impl tonic::IntoRequest<super::GetAccountRequest>,
-        ) -> Result<tonic::Response<super::Account>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Account>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2754,7 +2770,15 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/GetAccount",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "GetAccount",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns all accounts accessible by the caller.
         ///
@@ -2764,7 +2788,10 @@ pub mod analytics_admin_service_client {
         pub async fn list_accounts(
             &mut self,
             request: impl tonic::IntoRequest<super::ListAccountsRequest>,
-        ) -> Result<tonic::Response<super::ListAccountsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListAccountsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2778,7 +2805,15 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/ListAccounts",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "ListAccounts",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Marks target Account as soft-deleted (ie: "trashed") and returns it.
         ///
@@ -2794,7 +2829,7 @@ pub mod analytics_admin_service_client {
         pub async fn delete_account(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteAccountRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2808,13 +2843,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/DeleteAccount",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "DeleteAccount",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates an account.
         pub async fn update_account(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateAccountRequest>,
-        ) -> Result<tonic::Response<super::Account>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Account>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2828,13 +2871,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/UpdateAccount",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "UpdateAccount",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Requests a ticket for creating an account.
         pub async fn provision_account_ticket(
             &mut self,
             request: impl tonic::IntoRequest<super::ProvisionAccountTicketRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ProvisionAccountTicketResponse>,
             tonic::Status,
         > {
@@ -2851,13 +2902,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/ProvisionAccountTicket",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "ProvisionAccountTicket",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns summaries of all accounts accessible by the caller.
         pub async fn list_account_summaries(
             &mut self,
             request: impl tonic::IntoRequest<super::ListAccountSummariesRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListAccountSummariesResponse>,
             tonic::Status,
         > {
@@ -2874,13 +2933,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/ListAccountSummaries",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "ListAccountSummaries",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lookup for a single "GA4" Property.
         pub async fn get_property(
             &mut self,
             request: impl tonic::IntoRequest<super::GetPropertyRequest>,
-        ) -> Result<tonic::Response<super::Property>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Property>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2894,7 +2961,15 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/GetProperty",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "GetProperty",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns child Properties under the specified parent Account.
         ///
@@ -2905,7 +2980,10 @@ pub mod analytics_admin_service_client {
         pub async fn list_properties(
             &mut self,
             request: impl tonic::IntoRequest<super::ListPropertiesRequest>,
-        ) -> Result<tonic::Response<super::ListPropertiesResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListPropertiesResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2919,13 +2997,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/ListProperties",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "ListProperties",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates an "GA4" property with the specified location and attributes.
         pub async fn create_property(
             &mut self,
             request: impl tonic::IntoRequest<super::CreatePropertyRequest>,
-        ) -> Result<tonic::Response<super::Property>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Property>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2939,7 +3025,15 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/CreateProperty",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "CreateProperty",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Marks target Property as soft-deleted (ie: "trashed") and returns it.
         ///
@@ -2955,7 +3049,7 @@ pub mod analytics_admin_service_client {
         pub async fn delete_property(
             &mut self,
             request: impl tonic::IntoRequest<super::DeletePropertyRequest>,
-        ) -> Result<tonic::Response<super::Property>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Property>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2969,13 +3063,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/DeleteProperty",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "DeleteProperty",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates a property.
         pub async fn update_property(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdatePropertyRequest>,
-        ) -> Result<tonic::Response<super::Property>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Property>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2989,7 +3091,15 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/UpdateProperty",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "UpdateProperty",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a FirebaseLink.
         ///
@@ -2997,7 +3107,7 @@ pub mod analytics_admin_service_client {
         pub async fn create_firebase_link(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateFirebaseLinkRequest>,
-        ) -> Result<tonic::Response<super::FirebaseLink>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::FirebaseLink>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3011,13 +3121,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/CreateFirebaseLink",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "CreateFirebaseLink",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a FirebaseLink on a property
         pub async fn delete_firebase_link(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteFirebaseLinkRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3031,14 +3149,25 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/DeleteFirebaseLink",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "DeleteFirebaseLink",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists FirebaseLinks on a property.
         /// Properties can have at most one FirebaseLink.
         pub async fn list_firebase_links(
             &mut self,
             request: impl tonic::IntoRequest<super::ListFirebaseLinksRequest>,
-        ) -> Result<tonic::Response<super::ListFirebaseLinksResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListFirebaseLinksResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3052,13 +3181,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/ListFirebaseLinks",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "ListFirebaseLinks",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a GoogleAdsLink.
         pub async fn create_google_ads_link(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateGoogleAdsLinkRequest>,
-        ) -> Result<tonic::Response<super::GoogleAdsLink>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::GoogleAdsLink>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3072,13 +3209,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/CreateGoogleAdsLink",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "CreateGoogleAdsLink",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates a GoogleAdsLink on a property
         pub async fn update_google_ads_link(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateGoogleAdsLinkRequest>,
-        ) -> Result<tonic::Response<super::GoogleAdsLink>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::GoogleAdsLink>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3092,13 +3237,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/UpdateGoogleAdsLink",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "UpdateGoogleAdsLink",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a GoogleAdsLink on a property
         pub async fn delete_google_ads_link(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteGoogleAdsLinkRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3112,13 +3265,24 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/DeleteGoogleAdsLink",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "DeleteGoogleAdsLink",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists GoogleAdsLinks on a property.
         pub async fn list_google_ads_links(
             &mut self,
             request: impl tonic::IntoRequest<super::ListGoogleAdsLinksRequest>,
-        ) -> Result<tonic::Response<super::ListGoogleAdsLinksResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListGoogleAdsLinksResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3132,14 +3296,25 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/ListGoogleAdsLinks",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "ListGoogleAdsLinks",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Get data sharing settings on an account.
         /// Data sharing settings are singletons.
         pub async fn get_data_sharing_settings(
             &mut self,
             request: impl tonic::IntoRequest<super::GetDataSharingSettingsRequest>,
-        ) -> Result<tonic::Response<super::DataSharingSettings>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::DataSharingSettings>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3153,13 +3328,24 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/GetDataSharingSettings",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "GetDataSharingSettings",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lookup for a single "GA4" MeasurementProtocolSecret.
         pub async fn get_measurement_protocol_secret(
             &mut self,
             request: impl tonic::IntoRequest<super::GetMeasurementProtocolSecretRequest>,
-        ) -> Result<tonic::Response<super::MeasurementProtocolSecret>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::MeasurementProtocolSecret>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3173,7 +3359,15 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/GetMeasurementProtocolSecret",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "GetMeasurementProtocolSecret",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns child MeasurementProtocolSecrets under the specified parent
         /// Property.
@@ -3182,7 +3376,7 @@ pub mod analytics_admin_service_client {
             request: impl tonic::IntoRequest<
                 super::ListMeasurementProtocolSecretsRequest,
             >,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListMeasurementProtocolSecretsResponse>,
             tonic::Status,
         > {
@@ -3199,7 +3393,15 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/ListMeasurementProtocolSecrets",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "ListMeasurementProtocolSecrets",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a measurement protocol secret.
         pub async fn create_measurement_protocol_secret(
@@ -3207,7 +3409,10 @@ pub mod analytics_admin_service_client {
             request: impl tonic::IntoRequest<
                 super::CreateMeasurementProtocolSecretRequest,
             >,
-        ) -> Result<tonic::Response<super::MeasurementProtocolSecret>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::MeasurementProtocolSecret>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3221,7 +3426,15 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/CreateMeasurementProtocolSecret",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "CreateMeasurementProtocolSecret",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes target MeasurementProtocolSecret.
         pub async fn delete_measurement_protocol_secret(
@@ -3229,7 +3442,7 @@ pub mod analytics_admin_service_client {
             request: impl tonic::IntoRequest<
                 super::DeleteMeasurementProtocolSecretRequest,
             >,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3243,7 +3456,15 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/DeleteMeasurementProtocolSecret",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "DeleteMeasurementProtocolSecret",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates a measurement protocol secret.
         pub async fn update_measurement_protocol_secret(
@@ -3251,7 +3472,10 @@ pub mod analytics_admin_service_client {
             request: impl tonic::IntoRequest<
                 super::UpdateMeasurementProtocolSecretRequest,
             >,
-        ) -> Result<tonic::Response<super::MeasurementProtocolSecret>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::MeasurementProtocolSecret>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3265,7 +3489,15 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/UpdateMeasurementProtocolSecret",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "UpdateMeasurementProtocolSecret",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Acknowledges the terms of user data collection for the specified property.
         ///
@@ -3275,7 +3507,7 @@ pub mod analytics_admin_service_client {
         pub async fn acknowledge_user_data_collection(
             &mut self,
             request: impl tonic::IntoRequest<super::AcknowledgeUserDataCollectionRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::AcknowledgeUserDataCollectionResponse>,
             tonic::Status,
         > {
@@ -3292,14 +3524,22 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/AcknowledgeUserDataCollection",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "AcknowledgeUserDataCollection",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Searches through all changes to an account or its children given the
         /// specified set of filters.
         pub async fn search_change_history_events(
             &mut self,
             request: impl tonic::IntoRequest<super::SearchChangeHistoryEventsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::SearchChangeHistoryEventsResponse>,
             tonic::Status,
         > {
@@ -3316,13 +3556,24 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/SearchChangeHistoryEvents",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "SearchChangeHistoryEvents",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a conversion event with the specified attributes.
         pub async fn create_conversion_event(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateConversionEventRequest>,
-        ) -> Result<tonic::Response<super::ConversionEvent>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ConversionEvent>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3336,13 +3587,24 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/CreateConversionEvent",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "CreateConversionEvent",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Retrieve a single conversion event.
         pub async fn get_conversion_event(
             &mut self,
             request: impl tonic::IntoRequest<super::GetConversionEventRequest>,
-        ) -> Result<tonic::Response<super::ConversionEvent>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ConversionEvent>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3356,13 +3618,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/GetConversionEvent",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "GetConversionEvent",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a conversion event in a property.
         pub async fn delete_conversion_event(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteConversionEventRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3376,7 +3646,15 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/DeleteConversionEvent",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "DeleteConversionEvent",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns a list of conversion events in the specified parent property.
         ///
@@ -3384,7 +3662,7 @@ pub mod analytics_admin_service_client {
         pub async fn list_conversion_events(
             &mut self,
             request: impl tonic::IntoRequest<super::ListConversionEventsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListConversionEventsResponse>,
             tonic::Status,
         > {
@@ -3401,13 +3679,24 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/ListConversionEvents",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "ListConversionEvents",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a CustomDimension.
         pub async fn create_custom_dimension(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateCustomDimensionRequest>,
-        ) -> Result<tonic::Response<super::CustomDimension>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::CustomDimension>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3421,13 +3710,24 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/CreateCustomDimension",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "CreateCustomDimension",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates a CustomDimension on a property.
         pub async fn update_custom_dimension(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateCustomDimensionRequest>,
-        ) -> Result<tonic::Response<super::CustomDimension>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::CustomDimension>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3441,13 +3741,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/UpdateCustomDimension",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "UpdateCustomDimension",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists CustomDimensions on a property.
         pub async fn list_custom_dimensions(
             &mut self,
             request: impl tonic::IntoRequest<super::ListCustomDimensionsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListCustomDimensionsResponse>,
             tonic::Status,
         > {
@@ -3464,13 +3772,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/ListCustomDimensions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "ListCustomDimensions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Archives a CustomDimension on a property.
         pub async fn archive_custom_dimension(
             &mut self,
             request: impl tonic::IntoRequest<super::ArchiveCustomDimensionRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3484,13 +3800,24 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/ArchiveCustomDimension",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "ArchiveCustomDimension",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lookup for a single CustomDimension.
         pub async fn get_custom_dimension(
             &mut self,
             request: impl tonic::IntoRequest<super::GetCustomDimensionRequest>,
-        ) -> Result<tonic::Response<super::CustomDimension>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::CustomDimension>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3504,13 +3831,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/GetCustomDimension",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "GetCustomDimension",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a CustomMetric.
         pub async fn create_custom_metric(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateCustomMetricRequest>,
-        ) -> Result<tonic::Response<super::CustomMetric>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::CustomMetric>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3524,13 +3859,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/CreateCustomMetric",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "CreateCustomMetric",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates a CustomMetric on a property.
         pub async fn update_custom_metric(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateCustomMetricRequest>,
-        ) -> Result<tonic::Response<super::CustomMetric>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::CustomMetric>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3544,13 +3887,24 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/UpdateCustomMetric",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "UpdateCustomMetric",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists CustomMetrics on a property.
         pub async fn list_custom_metrics(
             &mut self,
             request: impl tonic::IntoRequest<super::ListCustomMetricsRequest>,
-        ) -> Result<tonic::Response<super::ListCustomMetricsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListCustomMetricsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3564,13 +3918,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/ListCustomMetrics",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "ListCustomMetrics",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Archives a CustomMetric on a property.
         pub async fn archive_custom_metric(
             &mut self,
             request: impl tonic::IntoRequest<super::ArchiveCustomMetricRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3584,13 +3946,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/ArchiveCustomMetric",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "ArchiveCustomMetric",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lookup for a single CustomMetric.
         pub async fn get_custom_metric(
             &mut self,
             request: impl tonic::IntoRequest<super::GetCustomMetricRequest>,
-        ) -> Result<tonic::Response<super::CustomMetric>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::CustomMetric>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3604,13 +3974,24 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/GetCustomMetric",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "GetCustomMetric",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns the singleton data retention settings for this property.
         pub async fn get_data_retention_settings(
             &mut self,
             request: impl tonic::IntoRequest<super::GetDataRetentionSettingsRequest>,
-        ) -> Result<tonic::Response<super::DataRetentionSettings>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::DataRetentionSettings>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3624,13 +4005,24 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/GetDataRetentionSettings",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "GetDataRetentionSettings",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the singleton data retention settings for this property.
         pub async fn update_data_retention_settings(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateDataRetentionSettingsRequest>,
-        ) -> Result<tonic::Response<super::DataRetentionSettings>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::DataRetentionSettings>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3644,13 +4036,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/UpdateDataRetentionSettings",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "UpdateDataRetentionSettings",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a DataStream.
         pub async fn create_data_stream(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateDataStreamRequest>,
-        ) -> Result<tonic::Response<super::DataStream>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::DataStream>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3664,13 +4064,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/CreateDataStream",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "CreateDataStream",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a DataStream on a property.
         pub async fn delete_data_stream(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteDataStreamRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3684,13 +4092,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/DeleteDataStream",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "DeleteDataStream",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates a DataStream on a property.
         pub async fn update_data_stream(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateDataStreamRequest>,
-        ) -> Result<tonic::Response<super::DataStream>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::DataStream>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3704,13 +4120,24 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/UpdateDataStream",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "UpdateDataStream",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists DataStreams on a property.
         pub async fn list_data_streams(
             &mut self,
             request: impl tonic::IntoRequest<super::ListDataStreamsRequest>,
-        ) -> Result<tonic::Response<super::ListDataStreamsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListDataStreamsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3724,13 +4151,21 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/ListDataStreams",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "ListDataStreams",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lookup for a single DataStream.
         pub async fn get_data_stream(
             &mut self,
             request: impl tonic::IntoRequest<super::GetDataStreamRequest>,
-        ) -> Result<tonic::Response<super::DataStream>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::DataStream>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -3744,7 +4179,15 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/GetDataStream",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "GetDataStream",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns a customized report of data access records. The report provides
         /// records of each time a user reads Google Analytics reporting data. Access
@@ -3762,7 +4205,10 @@ pub mod analytics_admin_service_client {
         pub async fn run_access_report(
             &mut self,
             request: impl tonic::IntoRequest<super::RunAccessReportRequest>,
-        ) -> Result<tonic::Response<super::RunAccessReportResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::RunAccessReportResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -3776,7 +4222,15 @@ pub mod analytics_admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.analytics.admin.v1beta.AnalyticsAdminService/RunAccessReport",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.analytics.admin.v1beta.AnalyticsAdminService",
+                        "RunAccessReport",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

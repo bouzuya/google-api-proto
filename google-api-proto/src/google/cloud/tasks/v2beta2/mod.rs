@@ -411,221 +411,6 @@ impl HttpMethod {
         }
     }
 }
-/// A unit of scheduled work.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Task {
-    /// Optionally caller-specified in
-    /// \[CreateTask][google.cloud.tasks.v2beta2.CloudTasks.CreateTask\].
-    ///
-    /// The task name.
-    ///
-    /// The task name must have the following format:
-    /// `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
-    ///
-    /// * `PROJECT_ID` can contain letters (\[A-Za-z\]), numbers (\[0-9\]),
-    ///     hyphens (-), colons (:), or periods (.).
-    ///     For more information, see
-    ///     [Identifying
-    ///     projects](<https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects>)
-    /// * `LOCATION_ID` is the canonical ID for the task's location.
-    ///     The list of available locations can be obtained by calling
-    ///     \[ListLocations][google.cloud.location.Locations.ListLocations\].
-    ///     For more information, see <https://cloud.google.com/about/locations/.>
-    /// * `QUEUE_ID` can contain letters (\[A-Za-z\]), numbers (\[0-9\]), or
-    ///    hyphens (-). The maximum length is 100 characters.
-    /// * `TASK_ID` can contain only letters (\[A-Za-z\]), numbers (\[0-9\]),
-    ///    hyphens (-), or underscores (_). The maximum length is 500 characters.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The time when the task is scheduled to be attempted.
-    ///
-    /// For App Engine queues, this is when the task will be attempted or retried.
-    ///
-    /// For pull queues, this is the time when the task is available to
-    /// be leased; if a task is currently leased, this is the time when
-    /// the current lease expires, that is, the time that the task was
-    /// leased plus the
-    /// \[lease_duration][google.cloud.tasks.v2beta2.LeaseTasksRequest.lease_duration\].
-    ///
-    /// `schedule_time` will be truncated to the nearest microsecond.
-    #[prost(message, optional, tag = "5")]
-    pub schedule_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The time that the task was created.
-    ///
-    /// `create_time` will be truncated to the nearest second.
-    #[prost(message, optional, tag = "6")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The task status.
-    #[prost(message, optional, tag = "7")]
-    pub status: ::core::option::Option<TaskStatus>,
-    /// Output only. The view specifies which subset of the
-    /// \[Task][google.cloud.tasks.v2beta2.Task\] has been returned.
-    #[prost(enumeration = "task::View", tag = "8")]
-    pub view: i32,
-    /// Required.
-    ///
-    /// The task's payload is used by the task's target to process the task.
-    /// A payload is valid only if it is compatible with the queue's target.
-    #[prost(oneof = "task::PayloadType", tags = "3, 4")]
-    pub payload_type: ::core::option::Option<task::PayloadType>,
-}
-/// Nested message and enum types in `Task`.
-pub mod task {
-    /// The view specifies a subset of \[Task][google.cloud.tasks.v2beta2.Task\]
-    /// data.
-    ///
-    /// When a task is returned in a response, not all
-    /// information is retrieved by default because some data, such as
-    /// payloads, might be desirable to return only when needed because
-    /// of its large size or because of the sensitivity of data that it
-    /// contains.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum View {
-        /// Unspecified. Defaults to BASIC.
-        Unspecified = 0,
-        /// The basic view omits fields which can be large or can contain
-        /// sensitive data.
-        ///
-        /// This view does not include the
-        /// ([payload in
-        /// AppEngineHttpRequest]\[google.cloud.tasks.v2beta2.AppEngineHttpRequest\]
-        /// and [payload in
-        /// PullMessage]\[google.cloud.tasks.v2beta2.PullMessage.payload\]). These
-        /// payloads are desirable to return only when needed, because they can be
-        /// large and because of the sensitivity of the data that you choose to store
-        /// in it.
-        Basic = 1,
-        /// All information is returned.
-        ///
-        /// Authorization for \[FULL][google.cloud.tasks.v2beta2.Task.View.FULL\]
-        /// requires `cloudtasks.tasks.fullView` [Google
-        /// IAM](<https://cloud.google.com/iam/>) permission on the
-        /// \[Queue][google.cloud.tasks.v2beta2.Queue\] resource.
-        Full = 2,
-    }
-    impl View {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                View::Unspecified => "VIEW_UNSPECIFIED",
-                View::Basic => "BASIC",
-                View::Full => "FULL",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "VIEW_UNSPECIFIED" => Some(Self::Unspecified),
-                "BASIC" => Some(Self::Basic),
-                "FULL" => Some(Self::Full),
-                _ => None,
-            }
-        }
-    }
-    /// Required.
-    ///
-    /// The task's payload is used by the task's target to process the task.
-    /// A payload is valid only if it is compatible with the queue's target.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum PayloadType {
-        /// App Engine HTTP request that is sent to the task's target. Can
-        /// be set only if
-        /// \[app_engine_http_target][google.cloud.tasks.v2beta2.Queue.app_engine_http_target\]
-        /// is set on the queue.
-        ///
-        /// An App Engine task is a task that has
-        /// \[AppEngineHttpRequest][google.cloud.tasks.v2beta2.AppEngineHttpRequest\]
-        /// set.
-        #[prost(message, tag = "3")]
-        AppEngineHttpRequest(super::AppEngineHttpRequest),
-        /// \[LeaseTasks][google.cloud.tasks.v2beta2.CloudTasks.LeaseTasks\] to process
-        /// the task. Can be set only if
-        /// \[pull_target][google.cloud.tasks.v2beta2.Queue.pull_target\] is set on the
-        /// queue.
-        ///
-        /// A pull task is a task that has
-        /// \[PullMessage][google.cloud.tasks.v2beta2.PullMessage\] set.
-        #[prost(message, tag = "4")]
-        PullMessage(super::PullMessage),
-    }
-}
-/// Status of the task.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TaskStatus {
-    /// Output only. The number of attempts dispatched.
-    ///
-    /// This count includes attempts which have been dispatched but haven't
-    /// received a response.
-    #[prost(int32, tag = "1")]
-    pub attempt_dispatch_count: i32,
-    /// Output only. The number of attempts which have received a response.
-    ///
-    /// This field is not calculated for [pull
-    /// tasks]\[google.cloud.tasks.v2beta2.PullMessage\].
-    #[prost(int32, tag = "2")]
-    pub attempt_response_count: i32,
-    /// Output only. The status of the task's first attempt.
-    ///
-    /// Only
-    /// \[dispatch_time][google.cloud.tasks.v2beta2.AttemptStatus.dispatch_time\]
-    /// will be set. The other
-    /// \[AttemptStatus][google.cloud.tasks.v2beta2.AttemptStatus\] information is
-    /// not retained by Cloud Tasks.
-    ///
-    /// This field is not calculated for [pull
-    /// tasks]\[google.cloud.tasks.v2beta2.PullMessage\].
-    #[prost(message, optional, tag = "3")]
-    pub first_attempt_status: ::core::option::Option<AttemptStatus>,
-    /// Output only. The status of the task's last attempt.
-    ///
-    /// This field is not calculated for [pull
-    /// tasks]\[google.cloud.tasks.v2beta2.PullMessage\].
-    #[prost(message, optional, tag = "4")]
-    pub last_attempt_status: ::core::option::Option<AttemptStatus>,
-}
-/// The status of a task attempt.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AttemptStatus {
-    /// Output only. The time that this attempt was scheduled.
-    ///
-    /// `schedule_time` will be truncated to the nearest microsecond.
-    #[prost(message, optional, tag = "1")]
-    pub schedule_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The time that this attempt was dispatched.
-    ///
-    /// `dispatch_time` will be truncated to the nearest microsecond.
-    #[prost(message, optional, tag = "2")]
-    pub dispatch_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The time that this attempt response was received.
-    ///
-    /// `response_time` will be truncated to the nearest microsecond.
-    #[prost(message, optional, tag = "3")]
-    pub response_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The response from the target for this attempt.
-    ///
-    /// If the task has not been attempted or the task is currently running
-    /// then the response status is unset.
-    #[prost(message, optional, tag = "4")]
-    pub response_status: ::core::option::Option<super::super::super::rpc::Status>,
-}
 /// A queue is a container of related tasks. Queues are configured to manage
 /// how those tasks are dispatched. Configurable properties include rate limits,
 /// retry options, target types, and others.
@@ -1117,6 +902,221 @@ pub struct QueueStats {
     /// endpoints tasks in the queue are targeting.
     #[prost(double, tag = "5")]
     pub effective_execution_rate: f64,
+}
+/// A unit of scheduled work.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Task {
+    /// Optionally caller-specified in
+    /// \[CreateTask][google.cloud.tasks.v2beta2.CloudTasks.CreateTask\].
+    ///
+    /// The task name.
+    ///
+    /// The task name must have the following format:
+    /// `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
+    ///
+    /// * `PROJECT_ID` can contain letters (\[A-Za-z\]), numbers (\[0-9\]),
+    ///     hyphens (-), colons (:), or periods (.).
+    ///     For more information, see
+    ///     [Identifying
+    ///     projects](<https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects>)
+    /// * `LOCATION_ID` is the canonical ID for the task's location.
+    ///     The list of available locations can be obtained by calling
+    ///     \[ListLocations][google.cloud.location.Locations.ListLocations\].
+    ///     For more information, see <https://cloud.google.com/about/locations/.>
+    /// * `QUEUE_ID` can contain letters (\[A-Za-z\]), numbers (\[0-9\]), or
+    ///    hyphens (-). The maximum length is 100 characters.
+    /// * `TASK_ID` can contain only letters (\[A-Za-z\]), numbers (\[0-9\]),
+    ///    hyphens (-), or underscores (_). The maximum length is 500 characters.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The time when the task is scheduled to be attempted.
+    ///
+    /// For App Engine queues, this is when the task will be attempted or retried.
+    ///
+    /// For pull queues, this is the time when the task is available to
+    /// be leased; if a task is currently leased, this is the time when
+    /// the current lease expires, that is, the time that the task was
+    /// leased plus the
+    /// \[lease_duration][google.cloud.tasks.v2beta2.LeaseTasksRequest.lease_duration\].
+    ///
+    /// `schedule_time` will be truncated to the nearest microsecond.
+    #[prost(message, optional, tag = "5")]
+    pub schedule_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The time that the task was created.
+    ///
+    /// `create_time` will be truncated to the nearest second.
+    #[prost(message, optional, tag = "6")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The task status.
+    #[prost(message, optional, tag = "7")]
+    pub status: ::core::option::Option<TaskStatus>,
+    /// Output only. The view specifies which subset of the
+    /// \[Task][google.cloud.tasks.v2beta2.Task\] has been returned.
+    #[prost(enumeration = "task::View", tag = "8")]
+    pub view: i32,
+    /// Required.
+    ///
+    /// The task's payload is used by the task's target to process the task.
+    /// A payload is valid only if it is compatible with the queue's target.
+    #[prost(oneof = "task::PayloadType", tags = "3, 4")]
+    pub payload_type: ::core::option::Option<task::PayloadType>,
+}
+/// Nested message and enum types in `Task`.
+pub mod task {
+    /// The view specifies a subset of \[Task][google.cloud.tasks.v2beta2.Task\]
+    /// data.
+    ///
+    /// When a task is returned in a response, not all
+    /// information is retrieved by default because some data, such as
+    /// payloads, might be desirable to return only when needed because
+    /// of its large size or because of the sensitivity of data that it
+    /// contains.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum View {
+        /// Unspecified. Defaults to BASIC.
+        Unspecified = 0,
+        /// The basic view omits fields which can be large or can contain
+        /// sensitive data.
+        ///
+        /// This view does not include the
+        /// ([payload in
+        /// AppEngineHttpRequest]\[google.cloud.tasks.v2beta2.AppEngineHttpRequest\]
+        /// and [payload in
+        /// PullMessage]\[google.cloud.tasks.v2beta2.PullMessage.payload\]). These
+        /// payloads are desirable to return only when needed, because they can be
+        /// large and because of the sensitivity of the data that you choose to store
+        /// in it.
+        Basic = 1,
+        /// All information is returned.
+        ///
+        /// Authorization for \[FULL][google.cloud.tasks.v2beta2.Task.View.FULL\]
+        /// requires `cloudtasks.tasks.fullView` [Google
+        /// IAM](<https://cloud.google.com/iam/>) permission on the
+        /// \[Queue][google.cloud.tasks.v2beta2.Queue\] resource.
+        Full = 2,
+    }
+    impl View {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                View::Unspecified => "VIEW_UNSPECIFIED",
+                View::Basic => "BASIC",
+                View::Full => "FULL",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "VIEW_UNSPECIFIED" => Some(Self::Unspecified),
+                "BASIC" => Some(Self::Basic),
+                "FULL" => Some(Self::Full),
+                _ => None,
+            }
+        }
+    }
+    /// Required.
+    ///
+    /// The task's payload is used by the task's target to process the task.
+    /// A payload is valid only if it is compatible with the queue's target.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum PayloadType {
+        /// App Engine HTTP request that is sent to the task's target. Can
+        /// be set only if
+        /// \[app_engine_http_target][google.cloud.tasks.v2beta2.Queue.app_engine_http_target\]
+        /// is set on the queue.
+        ///
+        /// An App Engine task is a task that has
+        /// \[AppEngineHttpRequest][google.cloud.tasks.v2beta2.AppEngineHttpRequest\]
+        /// set.
+        #[prost(message, tag = "3")]
+        AppEngineHttpRequest(super::AppEngineHttpRequest),
+        /// \[LeaseTasks][google.cloud.tasks.v2beta2.CloudTasks.LeaseTasks\] to process
+        /// the task. Can be set only if
+        /// \[pull_target][google.cloud.tasks.v2beta2.Queue.pull_target\] is set on the
+        /// queue.
+        ///
+        /// A pull task is a task that has
+        /// \[PullMessage][google.cloud.tasks.v2beta2.PullMessage\] set.
+        #[prost(message, tag = "4")]
+        PullMessage(super::PullMessage),
+    }
+}
+/// Status of the task.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TaskStatus {
+    /// Output only. The number of attempts dispatched.
+    ///
+    /// This count includes attempts which have been dispatched but haven't
+    /// received a response.
+    #[prost(int32, tag = "1")]
+    pub attempt_dispatch_count: i32,
+    /// Output only. The number of attempts which have received a response.
+    ///
+    /// This field is not calculated for [pull
+    /// tasks]\[google.cloud.tasks.v2beta2.PullMessage\].
+    #[prost(int32, tag = "2")]
+    pub attempt_response_count: i32,
+    /// Output only. The status of the task's first attempt.
+    ///
+    /// Only
+    /// \[dispatch_time][google.cloud.tasks.v2beta2.AttemptStatus.dispatch_time\]
+    /// will be set. The other
+    /// \[AttemptStatus][google.cloud.tasks.v2beta2.AttemptStatus\] information is
+    /// not retained by Cloud Tasks.
+    ///
+    /// This field is not calculated for [pull
+    /// tasks]\[google.cloud.tasks.v2beta2.PullMessage\].
+    #[prost(message, optional, tag = "3")]
+    pub first_attempt_status: ::core::option::Option<AttemptStatus>,
+    /// Output only. The status of the task's last attempt.
+    ///
+    /// This field is not calculated for [pull
+    /// tasks]\[google.cloud.tasks.v2beta2.PullMessage\].
+    #[prost(message, optional, tag = "4")]
+    pub last_attempt_status: ::core::option::Option<AttemptStatus>,
+}
+/// The status of a task attempt.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AttemptStatus {
+    /// Output only. The time that this attempt was scheduled.
+    ///
+    /// `schedule_time` will be truncated to the nearest microsecond.
+    #[prost(message, optional, tag = "1")]
+    pub schedule_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The time that this attempt was dispatched.
+    ///
+    /// `dispatch_time` will be truncated to the nearest microsecond.
+    #[prost(message, optional, tag = "2")]
+    pub dispatch_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The time that this attempt response was received.
+    ///
+    /// `response_time` will be truncated to the nearest microsecond.
+    #[prost(message, optional, tag = "3")]
+    pub response_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The response from the target for this attempt.
+    ///
+    /// If the task has not been attempted or the task is currently running
+    /// then the response status is unset.
+    #[prost(message, optional, tag = "4")]
+    pub response_status: ::core::option::Option<super::super::super::rpc::Status>,
 }
 /// Request message for
 /// \[ListQueues][google.cloud.tasks.v2beta2.CloudTasks.ListQueues\].
@@ -1725,13 +1725,32 @@ pub mod cloud_tasks_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Lists queues.
         ///
         /// Queues are returned in lexicographical order.
         pub async fn list_queues(
             &mut self,
             request: impl tonic::IntoRequest<super::ListQueuesRequest>,
-        ) -> Result<tonic::Response<super::ListQueuesResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListQueuesResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1745,13 +1764,21 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/ListQueues",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tasks.v2beta2.CloudTasks",
+                        "ListQueues",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets a queue.
         pub async fn get_queue(
             &mut self,
             request: impl tonic::IntoRequest<super::GetQueueRequest>,
-        ) -> Result<tonic::Response<super::Queue>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Queue>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1765,7 +1792,12 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/GetQueue",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.tasks.v2beta2.CloudTasks", "GetQueue"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a queue.
         ///
@@ -1782,7 +1814,7 @@ pub mod cloud_tasks_client {
         pub async fn create_queue(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateQueueRequest>,
-        ) -> Result<tonic::Response<super::Queue>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Queue>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1796,7 +1828,15 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/CreateQueue",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tasks.v2beta2.CloudTasks",
+                        "CreateQueue",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates a queue.
         ///
@@ -1816,7 +1856,7 @@ pub mod cloud_tasks_client {
         pub async fn update_queue(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateQueueRequest>,
-        ) -> Result<tonic::Response<super::Queue>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Queue>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1830,7 +1870,15 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/UpdateQueue",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tasks.v2beta2.CloudTasks",
+                        "UpdateQueue",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a queue.
         ///
@@ -1848,7 +1896,7 @@ pub mod cloud_tasks_client {
         pub async fn delete_queue(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteQueueRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1862,7 +1910,15 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/DeleteQueue",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tasks.v2beta2.CloudTasks",
+                        "DeleteQueue",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Purges a queue by deleting all of its tasks.
         ///
@@ -1873,7 +1929,7 @@ pub mod cloud_tasks_client {
         pub async fn purge_queue(
             &mut self,
             request: impl tonic::IntoRequest<super::PurgeQueueRequest>,
-        ) -> Result<tonic::Response<super::Queue>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Queue>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1887,7 +1943,15 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/PurgeQueue",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tasks.v2beta2.CloudTasks",
+                        "PurgeQueue",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Pauses the queue.
         ///
@@ -1900,7 +1964,7 @@ pub mod cloud_tasks_client {
         pub async fn pause_queue(
             &mut self,
             request: impl tonic::IntoRequest<super::PauseQueueRequest>,
-        ) -> Result<tonic::Response<super::Queue>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Queue>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1914,7 +1978,15 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/PauseQueue",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tasks.v2beta2.CloudTasks",
+                        "PauseQueue",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Resume a queue.
         ///
@@ -1934,7 +2006,7 @@ pub mod cloud_tasks_client {
         pub async fn resume_queue(
             &mut self,
             request: impl tonic::IntoRequest<super::ResumeQueueRequest>,
-        ) -> Result<tonic::Response<super::Queue>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Queue>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1948,7 +2020,15 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/ResumeQueue",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tasks.v2beta2.CloudTasks",
+                        "ResumeQueue",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the access control policy for a
         /// [Queue][google.cloud.tasks.v2beta2.Queue]. Returns an empty policy if the
@@ -1964,7 +2044,7 @@ pub mod cloud_tasks_client {
             request: impl tonic::IntoRequest<
                 super::super::super::super::iam::v1::GetIamPolicyRequest,
             >,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::iam::v1::Policy>,
             tonic::Status,
         > {
@@ -1981,7 +2061,15 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/GetIamPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tasks.v2beta2.CloudTasks",
+                        "GetIamPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Sets the access control policy for a
         /// [Queue][google.cloud.tasks.v2beta2.Queue]. Replaces any existing policy.
@@ -1999,7 +2087,7 @@ pub mod cloud_tasks_client {
             request: impl tonic::IntoRequest<
                 super::super::super::super::iam::v1::SetIamPolicyRequest,
             >,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::iam::v1::Policy>,
             tonic::Status,
         > {
@@ -2016,7 +2104,15 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/SetIamPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tasks.v2beta2.CloudTasks",
+                        "SetIamPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns permissions that a caller has on a
         /// [Queue][google.cloud.tasks.v2beta2.Queue]. If the resource does not exist,
@@ -2031,7 +2127,7 @@ pub mod cloud_tasks_client {
             request: impl tonic::IntoRequest<
                 super::super::super::super::iam::v1::TestIamPermissionsRequest,
             >,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<
                 super::super::super::super::iam::v1::TestIamPermissionsResponse,
             >,
@@ -2050,7 +2146,15 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/TestIamPermissions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tasks.v2beta2.CloudTasks",
+                        "TestIamPermissions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists the tasks in a queue.
         ///
@@ -2064,7 +2168,10 @@ pub mod cloud_tasks_client {
         pub async fn list_tasks(
             &mut self,
             request: impl tonic::IntoRequest<super::ListTasksRequest>,
-        ) -> Result<tonic::Response<super::ListTasksResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListTasksResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2078,13 +2185,18 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/ListTasks",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.tasks.v2beta2.CloudTasks", "ListTasks"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets a task.
         pub async fn get_task(
             &mut self,
             request: impl tonic::IntoRequest<super::GetTaskRequest>,
-        ) -> Result<tonic::Response<super::Task>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Task>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2098,7 +2210,12 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/GetTask",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.tasks.v2beta2.CloudTasks", "GetTask"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a task and adds it to a queue.
         ///
@@ -2112,7 +2229,7 @@ pub mod cloud_tasks_client {
         pub async fn create_task(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateTaskRequest>,
-        ) -> Result<tonic::Response<super::Task>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Task>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2126,7 +2243,15 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/CreateTask",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tasks.v2beta2.CloudTasks",
+                        "CreateTask",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a task.
         ///
@@ -2136,7 +2261,7 @@ pub mod cloud_tasks_client {
         pub async fn delete_task(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteTaskRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2150,7 +2275,15 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/DeleteTask",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tasks.v2beta2.CloudTasks",
+                        "DeleteTask",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Leases tasks from a pull queue for
         /// [lease_duration][google.cloud.tasks.v2beta2.LeaseTasksRequest.lease_duration].
@@ -2178,7 +2311,10 @@ pub mod cloud_tasks_client {
         pub async fn lease_tasks(
             &mut self,
             request: impl tonic::IntoRequest<super::LeaseTasksRequest>,
-        ) -> Result<tonic::Response<super::LeaseTasksResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::LeaseTasksResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2192,7 +2328,15 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/LeaseTasks",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tasks.v2beta2.CloudTasks",
+                        "LeaseTasks",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Acknowledges a pull task.
         ///
@@ -2211,7 +2355,7 @@ pub mod cloud_tasks_client {
         pub async fn acknowledge_task(
             &mut self,
             request: impl tonic::IntoRequest<super::AcknowledgeTaskRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2225,7 +2369,15 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/AcknowledgeTask",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tasks.v2beta2.CloudTasks",
+                        "AcknowledgeTask",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Renew the current lease of a pull task.
         ///
@@ -2236,7 +2388,7 @@ pub mod cloud_tasks_client {
         pub async fn renew_lease(
             &mut self,
             request: impl tonic::IntoRequest<super::RenewLeaseRequest>,
-        ) -> Result<tonic::Response<super::Task>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Task>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2250,7 +2402,15 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/RenewLease",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tasks.v2beta2.CloudTasks",
+                        "RenewLease",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Cancel a pull task's lease.
         ///
@@ -2261,7 +2421,7 @@ pub mod cloud_tasks_client {
         pub async fn cancel_lease(
             &mut self,
             request: impl tonic::IntoRequest<super::CancelLeaseRequest>,
-        ) -> Result<tonic::Response<super::Task>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Task>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2275,7 +2435,15 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/CancelLease",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tasks.v2beta2.CloudTasks",
+                        "CancelLease",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Forces a task to run now.
         ///
@@ -2310,7 +2478,7 @@ pub mod cloud_tasks_client {
         pub async fn run_task(
             &mut self,
             request: impl tonic::IntoRequest<super::RunTaskRequest>,
-        ) -> Result<tonic::Response<super::Task>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Task>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2324,7 +2492,12 @@ pub mod cloud_tasks_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.tasks.v2beta2.CloudTasks/RunTask",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.tasks.v2beta2.CloudTasks", "RunTask"),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

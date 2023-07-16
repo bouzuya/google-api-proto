@@ -845,6 +845,7 @@ pub mod job_status {
     )]
     #[repr(i32)]
     pub enum State {
+        /// Job state unspecified.
         Unspecified = 0,
         /// Job is admitted (validated and persisted) and waiting for resources.
         Queued = 1,
@@ -1116,6 +1117,7 @@ pub mod allocation_policy {
             /// * "batch-debian": use Batch Debian images.
             /// * "batch-centos": use Batch CentOS images.
             /// * "batch-cos": use Batch Container-Optimized images.
+            /// * "batch-hpc-centos": use Batch HPC CentOS images.
             #[prost(string, tag = "4")]
             Image(::prost::alloc::string::String),
             /// Name of a snapshot used as the data source.
@@ -1165,6 +1167,11 @@ pub mod allocation_policy {
         #[deprecated]
         #[prost(bool, tag = "3")]
         pub install_gpu_drivers: bool,
+        /// The accelerator driver version that will be installed for this type.
+        ///
+        /// Not yet implemented.
+        #[prost(string, tag = "4")]
+        pub driver_version: ::prost::alloc::string::String,
     }
     /// InstancePolicy describes an instance type and resources attached to each VM
     /// created by this InstancePolicy.
@@ -1183,7 +1190,6 @@ pub mod allocation_policy {
         /// The minimum CPU platform.
         /// See
         /// <https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform.>
-        /// Not yet implemented.
         #[prost(string, tag = "3")]
         pub min_cpu_platform: ::prost::alloc::string::String,
         /// The provisioning model.
@@ -1350,8 +1356,7 @@ pub mod allocation_policy {
         }
     }
 }
-/// A TaskGroup contains one or multiple Tasks that share the same
-/// Runnable but with different runtime parameters.
+/// A TaskGroup defines one or more Tasks that all share the same TaskSpec.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct TaskGroup {
@@ -1401,8 +1406,6 @@ pub struct TaskGroup {
     /// addition to any environment variables set in task_environments, specifying
     /// the number of Tasks in the Task's parent TaskGroup, and the specific Task's
     /// index in the TaskGroup (0 through BATCH_TASK_COUNT - 1).
-    ///
-    /// task_environments supports up to 200 entries.
     #[prost(message, repeated, tag = "9")]
     pub task_environments: ::prost::alloc::vec::Vec<Environment>,
     /// Max number of tasks that can be run on a VM at the same time.
@@ -1444,8 +1447,6 @@ pub mod task_group {
         /// task_count values.
         AsSoonAsPossible = 1,
         /// Run Tasks sequentially with increased task index.
-        ///
-        /// Not yet implemented.
         InOrder = 2,
     }
     impl SchedulingPolicy {
@@ -1731,11 +1732,27 @@ pub mod batch_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Create a Job.
         pub async fn create_job(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateJobRequest>,
-        ) -> Result<tonic::Response<super::Job>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Job>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1749,13 +1766,21 @@ pub mod batch_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.batch.v1alpha.BatchService/CreateJob",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.batch.v1alpha.BatchService",
+                        "CreateJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Get a Job specified by its resource name.
         pub async fn get_job(
             &mut self,
             request: impl tonic::IntoRequest<super::GetJobRequest>,
-        ) -> Result<tonic::Response<super::Job>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Job>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1769,13 +1794,18 @@ pub mod batch_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.batch.v1alpha.BatchService/GetJob",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.batch.v1alpha.BatchService", "GetJob"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Delete a Job.
         pub async fn delete_job(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteJobRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -1792,13 +1822,24 @@ pub mod batch_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.batch.v1alpha.BatchService/DeleteJob",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.batch.v1alpha.BatchService",
+                        "DeleteJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// List all Jobs for a project within a region.
         pub async fn list_jobs(
             &mut self,
             request: impl tonic::IntoRequest<super::ListJobsRequest>,
-        ) -> Result<tonic::Response<super::ListJobsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListJobsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1812,13 +1853,21 @@ pub mod batch_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.batch.v1alpha.BatchService/ListJobs",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.batch.v1alpha.BatchService",
+                        "ListJobs",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Return a single Task.
         pub async fn get_task(
             &mut self,
             request: impl tonic::IntoRequest<super::GetTaskRequest>,
-        ) -> Result<tonic::Response<super::Task>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Task>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1832,13 +1881,21 @@ pub mod batch_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.batch.v1alpha.BatchService/GetTask",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.batch.v1alpha.BatchService", "GetTask"),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// List Tasks associated with a job.
         pub async fn list_tasks(
             &mut self,
             request: impl tonic::IntoRequest<super::ListTasksRequest>,
-        ) -> Result<tonic::Response<super::ListTasksResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListTasksResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1852,7 +1909,15 @@ pub mod batch_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.batch.v1alpha.BatchService/ListTasks",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.batch.v1alpha.BatchService",
+                        "ListTasks",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

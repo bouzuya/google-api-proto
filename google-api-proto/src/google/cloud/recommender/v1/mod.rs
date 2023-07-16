@@ -1,3 +1,236 @@
+/// An insight along with the information used to derive the insight. The insight
+/// may have associated recomendations as well.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Insight {
+    /// Name of the insight.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Free-form human readable summary in English. The maximum length is 500
+    /// characters.
+    #[prost(string, tag = "2")]
+    pub description: ::prost::alloc::string::String,
+    /// Fully qualified resource names that this insight is targeting.
+    #[prost(string, repeated, tag = "9")]
+    pub target_resources: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Insight subtype. Insight content schema will be stable for a given subtype.
+    #[prost(string, tag = "10")]
+    pub insight_subtype: ::prost::alloc::string::String,
+    /// A struct of custom fields to explain the insight.
+    /// Example: "grantedPermissionsCount": "1000"
+    #[prost(message, optional, tag = "3")]
+    pub content: ::core::option::Option<::prost_types::Struct>,
+    /// Timestamp of the latest data used to generate the insight.
+    #[prost(message, optional, tag = "4")]
+    pub last_refresh_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Observation period that led to the insight. The source data used to
+    /// generate the insight ends at last_refresh_time and begins at
+    /// (last_refresh_time - observation_period).
+    #[prost(message, optional, tag = "5")]
+    pub observation_period: ::core::option::Option<::prost_types::Duration>,
+    /// Information state and metadata.
+    #[prost(message, optional, tag = "6")]
+    pub state_info: ::core::option::Option<InsightStateInfo>,
+    /// Category being targeted by the insight.
+    #[prost(enumeration = "insight::Category", tag = "7")]
+    pub category: i32,
+    /// Insight's severity.
+    #[prost(enumeration = "insight::Severity", tag = "15")]
+    pub severity: i32,
+    /// Fingerprint of the Insight. Provides optimistic locking when updating
+    /// states.
+    #[prost(string, tag = "11")]
+    pub etag: ::prost::alloc::string::String,
+    /// Recommendations derived from this insight.
+    #[prost(message, repeated, tag = "8")]
+    pub associated_recommendations: ::prost::alloc::vec::Vec<
+        insight::RecommendationReference,
+    >,
+}
+/// Nested message and enum types in `Insight`.
+pub mod insight {
+    /// Reference to an associated recommendation.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct RecommendationReference {
+        /// Recommendation resource name, e.g.
+        /// projects/\[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/recommendations/[RECOMMENDATION_ID\]
+        #[prost(string, tag = "1")]
+        pub recommendation: ::prost::alloc::string::String,
+    }
+    /// Insight category.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Category {
+        /// Unspecified category.
+        Unspecified = 0,
+        /// The insight is related to cost.
+        Cost = 1,
+        /// The insight is related to security.
+        Security = 2,
+        /// The insight is related to performance.
+        Performance = 3,
+        /// This insight is related to manageability.
+        Manageability = 4,
+    }
+    impl Category {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Category::Unspecified => "CATEGORY_UNSPECIFIED",
+                Category::Cost => "COST",
+                Category::Security => "SECURITY",
+                Category::Performance => "PERFORMANCE",
+                Category::Manageability => "MANAGEABILITY",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "CATEGORY_UNSPECIFIED" => Some(Self::Unspecified),
+                "COST" => Some(Self::Cost),
+                "SECURITY" => Some(Self::Security),
+                "PERFORMANCE" => Some(Self::Performance),
+                "MANAGEABILITY" => Some(Self::Manageability),
+                _ => None,
+            }
+        }
+    }
+    /// Insight severity levels.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Severity {
+        /// Insight has unspecified severity.
+        Unspecified = 0,
+        /// Insight has low severity.
+        Low = 1,
+        /// Insight has medium severity.
+        Medium = 2,
+        /// Insight has high severity.
+        High = 3,
+        /// Insight has critical severity.
+        Critical = 4,
+    }
+    impl Severity {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Severity::Unspecified => "SEVERITY_UNSPECIFIED",
+                Severity::Low => "LOW",
+                Severity::Medium => "MEDIUM",
+                Severity::High => "HIGH",
+                Severity::Critical => "CRITICAL",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "SEVERITY_UNSPECIFIED" => Some(Self::Unspecified),
+                "LOW" => Some(Self::Low),
+                "MEDIUM" => Some(Self::Medium),
+                "HIGH" => Some(Self::High),
+                "CRITICAL" => Some(Self::Critical),
+                _ => None,
+            }
+        }
+    }
+}
+/// Information related to insight state.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct InsightStateInfo {
+    /// Insight state.
+    #[prost(enumeration = "insight_state_info::State", tag = "1")]
+    pub state: i32,
+    /// A map of metadata for the state, provided by user or automations systems.
+    #[prost(btree_map = "string, string", tag = "2")]
+    pub state_metadata: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
+/// Nested message and enum types in `InsightStateInfo`.
+pub mod insight_state_info {
+    /// Represents insight state.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified state.
+        Unspecified = 0,
+        /// Insight is active. Content for ACTIVE insights can be updated by Google.
+        /// ACTIVE insights can be marked DISMISSED OR ACCEPTED.
+        Active = 1,
+        /// Some action has been taken based on this insight. Insights become
+        /// accepted when a recommendation derived from the insight has been marked
+        /// CLAIMED, SUCCEEDED, or FAILED. ACTIVE insights can also be marked
+        /// ACCEPTED explicitly. Content for ACCEPTED insights is immutable. ACCEPTED
+        /// insights can only be marked ACCEPTED (which may update state metadata).
+        Accepted = 2,
+        /// Insight is dismissed. Content for DISMISSED insights can be updated by
+        /// Google. DISMISSED insights can be marked as ACTIVE.
+        Dismissed = 3,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Active => "ACTIVE",
+                State::Accepted => "ACCEPTED",
+                State::Dismissed => "DISMISSED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "ACTIVE" => Some(Self::Active),
+                "ACCEPTED" => Some(Self::Accepted),
+                "DISMISSED" => Some(Self::Dismissed),
+                _ => None,
+            }
+        }
+    }
+}
 /// A recommendation along with a suggested action. E.g., a rightsizing
 /// recommendation for an underutilized VM, IAM role recommendations, etc
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -450,239 +683,6 @@ pub mod recommendation_state_info {
                 "CLAIMED" => Some(Self::Claimed),
                 "SUCCEEDED" => Some(Self::Succeeded),
                 "FAILED" => Some(Self::Failed),
-                "DISMISSED" => Some(Self::Dismissed),
-                _ => None,
-            }
-        }
-    }
-}
-/// An insight along with the information used to derive the insight. The insight
-/// may have associated recomendations as well.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Insight {
-    /// Name of the insight.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Free-form human readable summary in English. The maximum length is 500
-    /// characters.
-    #[prost(string, tag = "2")]
-    pub description: ::prost::alloc::string::String,
-    /// Fully qualified resource names that this insight is targeting.
-    #[prost(string, repeated, tag = "9")]
-    pub target_resources: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Insight subtype. Insight content schema will be stable for a given subtype.
-    #[prost(string, tag = "10")]
-    pub insight_subtype: ::prost::alloc::string::String,
-    /// A struct of custom fields to explain the insight.
-    /// Example: "grantedPermissionsCount": "1000"
-    #[prost(message, optional, tag = "3")]
-    pub content: ::core::option::Option<::prost_types::Struct>,
-    /// Timestamp of the latest data used to generate the insight.
-    #[prost(message, optional, tag = "4")]
-    pub last_refresh_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Observation period that led to the insight. The source data used to
-    /// generate the insight ends at last_refresh_time and begins at
-    /// (last_refresh_time - observation_period).
-    #[prost(message, optional, tag = "5")]
-    pub observation_period: ::core::option::Option<::prost_types::Duration>,
-    /// Information state and metadata.
-    #[prost(message, optional, tag = "6")]
-    pub state_info: ::core::option::Option<InsightStateInfo>,
-    /// Category being targeted by the insight.
-    #[prost(enumeration = "insight::Category", tag = "7")]
-    pub category: i32,
-    /// Insight's severity.
-    #[prost(enumeration = "insight::Severity", tag = "15")]
-    pub severity: i32,
-    /// Fingerprint of the Insight. Provides optimistic locking when updating
-    /// states.
-    #[prost(string, tag = "11")]
-    pub etag: ::prost::alloc::string::String,
-    /// Recommendations derived from this insight.
-    #[prost(message, repeated, tag = "8")]
-    pub associated_recommendations: ::prost::alloc::vec::Vec<
-        insight::RecommendationReference,
-    >,
-}
-/// Nested message and enum types in `Insight`.
-pub mod insight {
-    /// Reference to an associated recommendation.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct RecommendationReference {
-        /// Recommendation resource name, e.g.
-        /// projects/\[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/recommendations/[RECOMMENDATION_ID\]
-        #[prost(string, tag = "1")]
-        pub recommendation: ::prost::alloc::string::String,
-    }
-    /// Insight category.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Category {
-        /// Unspecified category.
-        Unspecified = 0,
-        /// The insight is related to cost.
-        Cost = 1,
-        /// The insight is related to security.
-        Security = 2,
-        /// The insight is related to performance.
-        Performance = 3,
-        /// This insight is related to manageability.
-        Manageability = 4,
-    }
-    impl Category {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Category::Unspecified => "CATEGORY_UNSPECIFIED",
-                Category::Cost => "COST",
-                Category::Security => "SECURITY",
-                Category::Performance => "PERFORMANCE",
-                Category::Manageability => "MANAGEABILITY",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "CATEGORY_UNSPECIFIED" => Some(Self::Unspecified),
-                "COST" => Some(Self::Cost),
-                "SECURITY" => Some(Self::Security),
-                "PERFORMANCE" => Some(Self::Performance),
-                "MANAGEABILITY" => Some(Self::Manageability),
-                _ => None,
-            }
-        }
-    }
-    /// Insight severity levels.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Severity {
-        /// Insight has unspecified severity.
-        Unspecified = 0,
-        /// Insight has low severity.
-        Low = 1,
-        /// Insight has medium severity.
-        Medium = 2,
-        /// Insight has high severity.
-        High = 3,
-        /// Insight has critical severity.
-        Critical = 4,
-    }
-    impl Severity {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Severity::Unspecified => "SEVERITY_UNSPECIFIED",
-                Severity::Low => "LOW",
-                Severity::Medium => "MEDIUM",
-                Severity::High => "HIGH",
-                Severity::Critical => "CRITICAL",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "SEVERITY_UNSPECIFIED" => Some(Self::Unspecified),
-                "LOW" => Some(Self::Low),
-                "MEDIUM" => Some(Self::Medium),
-                "HIGH" => Some(Self::High),
-                "CRITICAL" => Some(Self::Critical),
-                _ => None,
-            }
-        }
-    }
-}
-/// Information related to insight state.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct InsightStateInfo {
-    /// Insight state.
-    #[prost(enumeration = "insight_state_info::State", tag = "1")]
-    pub state: i32,
-    /// A map of metadata for the state, provided by user or automations systems.
-    #[prost(btree_map = "string, string", tag = "2")]
-    pub state_metadata: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// Nested message and enum types in `InsightStateInfo`.
-pub mod insight_state_info {
-    /// Represents insight state.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified state.
-        Unspecified = 0,
-        /// Insight is active. Content for ACTIVE insights can be updated by Google.
-        /// ACTIVE insights can be marked DISMISSED OR ACCEPTED.
-        Active = 1,
-        /// Some action has been taken based on this insight. Insights become
-        /// accepted when a recommendation derived from the insight has been marked
-        /// CLAIMED, SUCCEEDED, or FAILED. ACTIVE insights can also be marked
-        /// ACCEPTED explicitly. Content for ACCEPTED insights is immutable. ACCEPTED
-        /// insights can only be marked ACCEPTED (which may update state metadata).
-        Accepted = 2,
-        /// Insight is dismissed. Content for DISMISSED insights can be updated by
-        /// Google. DISMISSED insights can be marked as ACTIVE.
-        Dismissed = 3,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Active => "ACTIVE",
-                State::Accepted => "ACCEPTED",
-                State::Dismissed => "DISMISSED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "ACTIVE" => Some(Self::Active),
-                "ACCEPTED" => Some(Self::Accepted),
                 "DISMISSED" => Some(Self::Dismissed),
                 _ => None,
             }
@@ -1159,12 +1159,31 @@ pub mod recommender_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Lists insights for the specified Cloud Resource. Requires the
         /// recommender.*.list IAM permission for the specified insight type.
         pub async fn list_insights(
             &mut self,
             request: impl tonic::IntoRequest<super::ListInsightsRequest>,
-        ) -> Result<tonic::Response<super::ListInsightsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListInsightsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1178,14 +1197,22 @@ pub mod recommender_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.recommender.v1.Recommender/ListInsights",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.recommender.v1.Recommender",
+                        "ListInsights",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the requested insight. Requires the recommender.*.get IAM permission
         /// for the specified insight type.
         pub async fn get_insight(
             &mut self,
             request: impl tonic::IntoRequest<super::GetInsightRequest>,
-        ) -> Result<tonic::Response<super::Insight>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Insight>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1199,7 +1226,15 @@ pub mod recommender_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.recommender.v1.Recommender/GetInsight",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.recommender.v1.Recommender",
+                        "GetInsight",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Marks the Insight State as Accepted. Users can use this method to
         /// indicate to the Recommender API that they have applied some action based
@@ -1210,7 +1245,7 @@ pub mod recommender_client {
         pub async fn mark_insight_accepted(
             &mut self,
             request: impl tonic::IntoRequest<super::MarkInsightAcceptedRequest>,
-        ) -> Result<tonic::Response<super::Insight>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Insight>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1224,14 +1259,25 @@ pub mod recommender_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.recommender.v1.Recommender/MarkInsightAccepted",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.recommender.v1.Recommender",
+                        "MarkInsightAccepted",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists recommendations for the specified Cloud Resource. Requires the
         /// recommender.*.list IAM permission for the specified recommender.
         pub async fn list_recommendations(
             &mut self,
             request: impl tonic::IntoRequest<super::ListRecommendationsRequest>,
-        ) -> Result<tonic::Response<super::ListRecommendationsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListRecommendationsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1245,14 +1291,22 @@ pub mod recommender_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.recommender.v1.Recommender/ListRecommendations",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.recommender.v1.Recommender",
+                        "ListRecommendations",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the requested recommendation. Requires the recommender.*.get
         /// IAM permission for the specified recommender.
         pub async fn get_recommendation(
             &mut self,
             request: impl tonic::IntoRequest<super::GetRecommendationRequest>,
-        ) -> Result<tonic::Response<super::Recommendation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Recommendation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1266,7 +1320,15 @@ pub mod recommender_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.recommender.v1.Recommender/GetRecommendation",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.recommender.v1.Recommender",
+                        "GetRecommendation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Marks the Recommendation State as Claimed. Users can use this method to
         /// indicate to the Recommender API that they are starting to apply the
@@ -1281,7 +1343,7 @@ pub mod recommender_client {
         pub async fn mark_recommendation_claimed(
             &mut self,
             request: impl tonic::IntoRequest<super::MarkRecommendationClaimedRequest>,
-        ) -> Result<tonic::Response<super::Recommendation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Recommendation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1295,7 +1357,15 @@ pub mod recommender_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.recommender.v1.Recommender/MarkRecommendationClaimed",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.recommender.v1.Recommender",
+                        "MarkRecommendationClaimed",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Marks the Recommendation State as Succeeded. Users can use this method to
         /// indicate to the Recommender API that they have applied the recommendation
@@ -1311,7 +1381,7 @@ pub mod recommender_client {
         pub async fn mark_recommendation_succeeded(
             &mut self,
             request: impl tonic::IntoRequest<super::MarkRecommendationSucceededRequest>,
-        ) -> Result<tonic::Response<super::Recommendation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Recommendation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1325,7 +1395,15 @@ pub mod recommender_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.recommender.v1.Recommender/MarkRecommendationSucceeded",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.recommender.v1.Recommender",
+                        "MarkRecommendationSucceeded",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Marks the Recommendation State as Failed. Users can use this method to
         /// indicate to the Recommender API that they have applied the recommendation
@@ -1341,7 +1419,7 @@ pub mod recommender_client {
         pub async fn mark_recommendation_failed(
             &mut self,
             request: impl tonic::IntoRequest<super::MarkRecommendationFailedRequest>,
-        ) -> Result<tonic::Response<super::Recommendation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Recommendation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1355,14 +1433,25 @@ pub mod recommender_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.recommender.v1.Recommender/MarkRecommendationFailed",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.recommender.v1.Recommender",
+                        "MarkRecommendationFailed",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the requested Recommender Config. There is only one instance of the
         /// config for each Recommender.
         pub async fn get_recommender_config(
             &mut self,
             request: impl tonic::IntoRequest<super::GetRecommenderConfigRequest>,
-        ) -> Result<tonic::Response<super::RecommenderConfig>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::RecommenderConfig>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1376,14 +1465,25 @@ pub mod recommender_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.recommender.v1.Recommender/GetRecommenderConfig",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.recommender.v1.Recommender",
+                        "GetRecommenderConfig",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates a Recommender Config. This will create a new revision of the
         /// config.
         pub async fn update_recommender_config(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateRecommenderConfigRequest>,
-        ) -> Result<tonic::Response<super::RecommenderConfig>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::RecommenderConfig>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1397,14 +1497,25 @@ pub mod recommender_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.recommender.v1.Recommender/UpdateRecommenderConfig",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.recommender.v1.Recommender",
+                        "UpdateRecommenderConfig",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the requested InsightTypeConfig. There is only one instance of the
         /// config for each InsightType.
         pub async fn get_insight_type_config(
             &mut self,
             request: impl tonic::IntoRequest<super::GetInsightTypeConfigRequest>,
-        ) -> Result<tonic::Response<super::InsightTypeConfig>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::InsightTypeConfig>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1418,14 +1529,25 @@ pub mod recommender_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.recommender.v1.Recommender/GetInsightTypeConfig",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.recommender.v1.Recommender",
+                        "GetInsightTypeConfig",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates an InsightTypeConfig change. This will create a new revision of the
         /// config.
         pub async fn update_insight_type_config(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateInsightTypeConfigRequest>,
-        ) -> Result<tonic::Response<super::InsightTypeConfig>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::InsightTypeConfig>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1439,7 +1561,15 @@ pub mod recommender_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.recommender.v1.Recommender/UpdateInsightTypeConfig",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.recommender.v1.Recommender",
+                        "UpdateInsightTypeConfig",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

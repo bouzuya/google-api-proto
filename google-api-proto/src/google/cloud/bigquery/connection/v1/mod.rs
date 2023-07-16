@@ -102,7 +102,7 @@ pub struct Connection {
     #[prost(bool, tag = "7")]
     pub has_credential: bool,
     /// Properties specific to the underlying data source.
-    #[prost(oneof = "connection::Properties", tags = "4, 8, 11, 21, 22, 23")]
+    #[prost(oneof = "connection::Properties", tags = "4, 8, 11, 21, 22, 23, 24")]
     pub properties: ::core::option::Option<connection::Properties>,
 }
 /// Nested message and enum types in `Connection`.
@@ -129,6 +129,11 @@ pub mod connection {
         /// Spark properties.
         #[prost(message, tag = "23")]
         Spark(super::SparkProperties),
+        /// Optional. Salesforce DataCloud properties. This field is intended for
+        /// use only by Salesforce partner projects. This field contains properties
+        /// for your Salesforce DataCloud connection.
+        #[prost(message, tag = "24")]
+        SalesforceDataCloud(super::SalesforceDataCloudProperties),
     }
 }
 /// Connection properties specific to the Cloud SQL.
@@ -223,23 +228,39 @@ pub struct CloudSpannerProperties {
     /// If parallelism should be used when reading from Cloud Spanner
     #[prost(bool, tag = "2")]
     pub use_parallelism: bool,
+    /// Allows setting max parallelism per query when executing on Spanner
+    /// independent compute resources. If unspecified, default values of
+    /// parallelism are chosen that are dependent on the Cloud Spanner instance
+    /// configuration.
+    ///
+    /// REQUIRES: `use_parallelism` must be set.
+    /// REQUIRES: Either `use_data_boost` or `use_serverless_analytics` must be
+    /// set.
+    #[prost(int32, tag = "5")]
+    pub max_parallelism: i32,
     /// If the serverless analytics service should be used to read data from Cloud
     /// Spanner.
     /// Note: `use_parallelism` must be set when using serverless analytics.
     #[prost(bool, tag = "3")]
     pub use_serverless_analytics: bool,
+    /// If set, the request will be executed via Spanner independent compute
+    /// resources.
+    /// REQUIRES: `use_parallelism` must be set.
+    ///
+    /// NOTE: `use_serverless_analytics` will be deprecated. Prefer
+    /// `use_data_boost` over `use_serverless_analytics`.
+    #[prost(bool, tag = "6")]
+    pub use_data_boost: bool,
     /// Optional. Cloud Spanner database role for fine-grained access control.
-    /// A database role is a collection of fine-grained access privileges. Example:
-    /// Admin predefines roles that provides user a set of permissions (SELECT,
-    /// INSERT, ..). The user can then specify a predefined role on a connection to
-    /// execute their Cloud Spanner query. The role is passthrough here. If the
-    /// user is not authorized to use the specified role, they get an error. This
-    /// validation happens on Cloud Spanner.
+    /// The Cloud Spanner admin should have provisioned the database role with
+    /// appropriate permissions, such as `SELECT` and `INSERT`. Other users should
+    /// only use roles provided by their Cloud Spanner admins.
     ///
-    /// See <https://cloud.google.com/spanner/docs/fgac-about> for more details.
+    /// For more details, see [About fine-grained access control]
+    /// (<https://cloud.google.com/spanner/docs/fgac-about>).
     ///
-    /// REQUIRES: database role name must start with uppercase/lowercase letter
-    /// and only contain uppercase/lowercase letters, numbers, and underscores.
+    /// REQUIRES: The database role name must start with a letter, and can only
+    /// contain letters, numbers, and underscores.
     #[prost(string, tag = "4")]
     pub database_role: ::prost::alloc::string::String,
 }
@@ -388,7 +409,7 @@ pub struct SparkProperties {
     /// The service account does not have any permissions associated with it when
     /// it is created. After creation, customers delegate permissions to the
     /// service account. When the connection is used in the context of a stored
-    /// procedure for Apache Spark in BigQuery, the service account will be used to
+    /// procedure for Apache Spark in BigQuery, the service account is used to
     /// connect to the desired resources in Google Cloud.
     ///
     /// The account ID is in the form of:
@@ -401,6 +422,22 @@ pub struct SparkProperties {
     /// Optional. Spark History Server configuration for the connection.
     #[prost(message, optional, tag = "4")]
     pub spark_history_server_config: ::core::option::Option<SparkHistoryServerConfig>,
+}
+/// Connection properties specific to Salesforce DataCloud. This is intended for
+/// use only by Salesforce partner projects.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SalesforceDataCloudProperties {
+    /// The URL to the user's Salesforce DataCloud instance.
+    #[prost(string, tag = "1")]
+    pub instance_uri: ::prost::alloc::string::String,
+    /// Output only. A unique Google-owned and Google-generated service account
+    /// identity for the connection.
+    #[prost(string, tag = "2")]
+    pub identity: ::prost::alloc::string::String,
+    /// The ID of the user's Salesforce tenant.
+    #[prost(string, tag = "3")]
+    pub tenant_id: ::prost::alloc::string::String,
 }
 /// Generated client implementations.
 pub mod connection_service_client {
@@ -461,11 +498,27 @@ pub mod connection_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Creates a new connection.
         pub async fn create_connection(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateConnectionRequest>,
-        ) -> Result<tonic::Response<super::Connection>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Connection>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -479,13 +532,21 @@ pub mod connection_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.connection.v1.ConnectionService/CreateConnection",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.connection.v1.ConnectionService",
+                        "CreateConnection",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns specified connection.
         pub async fn get_connection(
             &mut self,
             request: impl tonic::IntoRequest<super::GetConnectionRequest>,
-        ) -> Result<tonic::Response<super::Connection>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Connection>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -499,13 +560,24 @@ pub mod connection_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.connection.v1.ConnectionService/GetConnection",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.connection.v1.ConnectionService",
+                        "GetConnection",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns a list of connections in the given project.
         pub async fn list_connections(
             &mut self,
             request: impl tonic::IntoRequest<super::ListConnectionsRequest>,
-        ) -> Result<tonic::Response<super::ListConnectionsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListConnectionsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -519,14 +591,22 @@ pub mod connection_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.connection.v1.ConnectionService/ListConnections",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.connection.v1.ConnectionService",
+                        "ListConnections",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the specified connection. For security reasons, also resets
         /// credential if connection properties are in the update field mask.
         pub async fn update_connection(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateConnectionRequest>,
-        ) -> Result<tonic::Response<super::Connection>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Connection>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -540,13 +620,21 @@ pub mod connection_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.connection.v1.ConnectionService/UpdateConnection",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.connection.v1.ConnectionService",
+                        "UpdateConnection",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes connection and associated credential.
         pub async fn delete_connection(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteConnectionRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -560,7 +648,15 @@ pub mod connection_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.connection.v1.ConnectionService/DeleteConnection",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.connection.v1.ConnectionService",
+                        "DeleteConnection",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the access control policy for a resource.
         /// Returns an empty policy if the resource exists and does not have a policy
@@ -570,7 +666,7 @@ pub mod connection_service_client {
             request: impl tonic::IntoRequest<
                 super::super::super::super::super::iam::v1::GetIamPolicyRequest,
             >,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::super::iam::v1::Policy>,
             tonic::Status,
         > {
@@ -587,7 +683,15 @@ pub mod connection_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.connection.v1.ConnectionService/GetIamPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.connection.v1.ConnectionService",
+                        "GetIamPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Sets the access control policy on the specified resource. Replaces any
         /// existing policy.
@@ -598,7 +702,7 @@ pub mod connection_service_client {
             request: impl tonic::IntoRequest<
                 super::super::super::super::super::iam::v1::SetIamPolicyRequest,
             >,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::super::iam::v1::Policy>,
             tonic::Status,
         > {
@@ -615,7 +719,15 @@ pub mod connection_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.connection.v1.ConnectionService/SetIamPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.connection.v1.ConnectionService",
+                        "SetIamPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns permissions that a caller has on the specified resource.
         /// If the resource does not exist, this will return an empty set of
@@ -629,7 +741,7 @@ pub mod connection_service_client {
             request: impl tonic::IntoRequest<
                 super::super::super::super::super::iam::v1::TestIamPermissionsRequest,
             >,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<
                 super::super::super::super::super::iam::v1::TestIamPermissionsResponse,
             >,
@@ -648,7 +760,15 @@ pub mod connection_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.bigquery.connection.v1.ConnectionService/TestIamPermissions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.bigquery.connection.v1.ConnectionService",
+                        "TestIamPermissions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

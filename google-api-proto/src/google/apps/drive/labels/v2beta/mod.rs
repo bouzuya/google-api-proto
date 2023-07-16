@@ -1,145 +1,3 @@
-/// Label constraints governing the structure of a Label; such as, the maximum
-/// number of Fields allowed and maximum length of the label title.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LabelLimits {
-    /// Resource name.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The maximum number of characters allowed for the title.
-    #[prost(int32, tag = "2")]
-    pub max_title_length: i32,
-    /// The maximum number of characters allowed for the description.
-    #[prost(int32, tag = "3")]
-    pub max_description_length: i32,
-    /// The maximum number of Fields allowed within the label.
-    #[prost(int32, tag = "4")]
-    pub max_fields: i32,
-    /// The maximum number of published Fields that can be deleted.
-    #[prost(int32, tag = "5")]
-    pub max_deleted_fields: i32,
-    /// The maximum number of draft revisions that will be kept before deleting
-    /// old drafts.
-    #[prost(int32, tag = "6")]
-    pub max_draft_revisions: i32,
-    /// The limits for Fields.
-    #[prost(message, optional, tag = "7")]
-    pub field_limits: ::core::option::Option<FieldLimits>,
-}
-/// Field constants governing the structure of a Field; such as, the maximum
-/// title length, minimum and maximum field values or length, etc.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FieldLimits {
-    /// Max length for the id.
-    #[prost(int32, tag = "1")]
-    pub max_id_length: i32,
-    /// Limits for Field title.
-    #[prost(int32, tag = "2")]
-    pub max_display_name_length: i32,
-    /// Limits for Field description, also called help text.
-    #[prost(int32, tag = "3")]
-    pub max_description_length: i32,
-    /// The relevant limits for the specified Field.Type.
-    /// Text Field limits.
-    #[prost(message, optional, tag = "4")]
-    pub text_limits: ::core::option::Option<TextLimits>,
-    /// Long text Field limits.
-    #[prost(message, optional, tag = "5")]
-    pub long_text_limits: ::core::option::Option<LongTextLimits>,
-    /// Integer Field limits.
-    #[prost(message, optional, tag = "6")]
-    pub integer_limits: ::core::option::Option<IntegerLimits>,
-    /// Date Field limits.
-    #[prost(message, optional, tag = "7")]
-    pub date_limits: ::core::option::Option<DateLimits>,
-    /// User Field limits.
-    #[prost(message, optional, tag = "8")]
-    pub user_limits: ::core::option::Option<UserLimits>,
-    /// Selection Field limits.
-    #[prost(message, optional, tag = "9")]
-    pub selection_limits: ::core::option::Option<SelectionLimits>,
-}
-/// Limits for list-variant of a Field type.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListLimits {
-    /// Maximum number of values allowed for the Field type.
-    #[prost(int32, tag = "1")]
-    pub max_entries: i32,
-}
-/// Limits for text Field type.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TextLimits {
-    /// Minimum length allowed for a text Field type.
-    #[prost(int32, tag = "1")]
-    pub min_length: i32,
-    /// Maximum length allowed for a text Field type.
-    #[prost(int32, tag = "2")]
-    pub max_length: i32,
-}
-/// Limits for long text Field type.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LongTextLimits {
-    /// Minimum length allowed for a long text Field type.
-    #[prost(int32, tag = "1")]
-    pub min_length: i32,
-    /// Maximum length allowed for a long text Field type.
-    #[prost(int32, tag = "2")]
-    pub max_length: i32,
-}
-/// Limits for integer Field type.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct IntegerLimits {
-    /// Minimum value for an integer Field type.
-    #[prost(int64, tag = "1")]
-    pub min_value: i64,
-    /// Maximum value for an integer Field type.
-    #[prost(int64, tag = "2")]
-    pub max_value: i64,
-}
-/// Limits for date Field type.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DateLimits {
-    /// Minimum value for the date Field type.
-    #[prost(message, optional, tag = "1")]
-    pub min_value: ::core::option::Option<super::super::super::super::r#type::Date>,
-    /// Maximum value for the date Field type.
-    #[prost(message, optional, tag = "2")]
-    pub max_value: ::core::option::Option<super::super::super::super::r#type::Date>,
-}
-/// Limits for selection Field type.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SelectionLimits {
-    /// Limits for list-variant of a Field type.
-    #[prost(message, optional, tag = "1")]
-    pub list_limits: ::core::option::Option<ListLimits>,
-    /// Maximum ID length for a selection options.
-    #[prost(int32, tag = "2")]
-    pub max_id_length: i32,
-    /// Maximum length for display name.
-    #[prost(int32, tag = "3")]
-    pub max_display_name_length: i32,
-    /// The max number of choices.
-    #[prost(int32, tag = "4")]
-    pub max_choices: i32,
-    /// Maximum number of deleted choices.
-    #[prost(int32, tag = "5")]
-    pub max_deleted_choices: i32,
-}
-/// Limits for Field.Type.USER.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UserLimits {
-    /// Limits for list-variant of a Field type.
-    #[prost(message, optional, tag = "1")]
-    pub list_limits: ::core::option::Option<ListLimits>,
-}
 /// The lifecycle state of an object, such as label, field, or choice. The
 /// lifecycle enforces the following transitions:
 ///
@@ -307,317 +165,6 @@ pub struct LockStatus {
     /// false.
     #[prost(bool, tag = "1")]
     pub locked: bool,
-}
-/// A Lock that can be applied to a Label, Field, or Choice.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LabelLock {
-    /// Output only. Resource name of this LabelLock.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The ID of the Field that should be locked.  Empty if the whole
-    /// Label should be locked.
-    #[prost(string, tag = "2")]
-    pub field_id: ::prost::alloc::string::String,
-    /// The ID of the Selection Field Choice that should be locked.  If present,
-    /// `field_id` must also be present.
-    #[prost(string, tag = "3")]
-    pub choice_id: ::prost::alloc::string::String,
-    /// Output only. The time this LabelLock was created.
-    #[prost(message, optional, tag = "4")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The user whose credentials were used to create the LabelLock.
-    /// This will not be present if no user was responsible for creating the
-    /// LabelLock.
-    #[prost(message, optional, tag = "5")]
-    pub creator: ::core::option::Option<UserInfo>,
-    /// Output only. A timestamp indicating when this LabelLock was scheduled for
-    /// deletion. This will be present only if this LabelLock is in the DELETING
-    /// state.
-    #[prost(message, optional, tag = "6")]
-    pub delete_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The user's capabilities on this LabelLock.
-    #[prost(message, optional, tag = "8")]
-    pub capabilities: ::core::option::Option<label_lock::Capabilities>,
-    /// Output only. This LabelLock's state.
-    #[prost(enumeration = "label_lock::State", tag = "9")]
-    pub state: i32,
-}
-/// Nested message and enum types in `LabelLock`.
-pub mod label_lock {
-    /// A description of a user's capabilities on a LabelLock.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Capabilities {
-        /// True if the user is authorized to view the policy.
-        #[prost(bool, tag = "1")]
-        pub can_view_policy: bool,
-    }
-    /// A description of a LabelLock's state.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unknown state.
-        Unspecified = 0,
-        /// The LabelLock is active and is being enforced by the server.
-        Active = 1,
-        /// The LabelLock is being deleted.  The LabelLock will continue to be
-        /// enforced by the server until it has been fully removed.
-        Deleting = 2,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Active => "ACTIVE",
-                State::Deleting => "DELETING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "ACTIVE" => Some(Self::Active),
-                "DELETING" => Some(Self::Deleting),
-                _ => None,
-            }
-        }
-    }
-}
-/// Describes violations in a request to create or update a Label or its
-/// Fields.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct InvalidArgument {
-    /// Describes all violations in a client request.
-    #[prost(message, repeated, tag = "1")]
-    pub field_violations: ::prost::alloc::vec::Vec<invalid_argument::FieldViolation>,
-}
-/// Nested message and enum types in `InvalidArgument`.
-pub mod invalid_argument {
-    /// Describes the Field in which the violation occurred.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct FieldViolation {
-        /// The path to the field where this violation occurred. This path is
-        /// specified using `FieldMask` format:
-        /// <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask>
-        #[prost(string, tag = "1")]
-        pub field: ::prost::alloc::string::String,
-        /// The detailed reason for this FieldViolation.
-        #[prost(enumeration = "field_violation::Reason", tag = "2")]
-        pub reason: i32,
-        /// A message that describes the violation. This message is intended to
-        /// be shown to end users, and is localized into the requesting user's
-        /// preferred language.
-        #[prost(string, tag = "3")]
-        pub display_message: ::prost::alloc::string::String,
-    }
-    /// Nested message and enum types in `FieldViolation`.
-    pub mod field_violation {
-        /// Possible reasons a field is invalid.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum Reason {
-            /// Unknown reason.
-            Unspecified = 0,
-            /// The referenced field is required.
-            FieldRequired = 1,
-            /// The referenced value was invalid.
-            InvalidValue = 2,
-            /// The specified numeric value is out of the allowed range.
-            ValueOutOfRange = 3,
-            /// The specified string value was too long.
-            StringValueTooLong = 4,
-            /// The number of entries exceeded the maximum.
-            MaxEntriesExceeded = 5,
-            /// The specified field is not found in the Label.
-            FieldNotFound = 6,
-            /// The specified choice is not found in the Field.
-            ChoiceNotFound = 7,
-        }
-        impl Reason {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    Reason::Unspecified => "REASON_UNSPECIFIED",
-                    Reason::FieldRequired => "FIELD_REQUIRED",
-                    Reason::InvalidValue => "INVALID_VALUE",
-                    Reason::ValueOutOfRange => "VALUE_OUT_OF_RANGE",
-                    Reason::StringValueTooLong => "STRING_VALUE_TOO_LONG",
-                    Reason::MaxEntriesExceeded => "MAX_ENTRIES_EXCEEDED",
-                    Reason::FieldNotFound => "FIELD_NOT_FOUND",
-                    Reason::ChoiceNotFound => "CHOICE_NOT_FOUND",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "REASON_UNSPECIFIED" => Some(Self::Unspecified),
-                    "FIELD_REQUIRED" => Some(Self::FieldRequired),
-                    "INVALID_VALUE" => Some(Self::InvalidValue),
-                    "VALUE_OUT_OF_RANGE" => Some(Self::ValueOutOfRange),
-                    "STRING_VALUE_TOO_LONG" => Some(Self::StringValueTooLong),
-                    "MAX_ENTRIES_EXCEEDED" => Some(Self::MaxEntriesExceeded),
-                    "FIELD_NOT_FOUND" => Some(Self::FieldNotFound),
-                    "CHOICE_NOT_FOUND" => Some(Self::ChoiceNotFound),
-                    _ => None,
-                }
-            }
-        }
-    }
-}
-/// Describes what preconditions have failed.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PreconditionFailure {
-    /// Describes all violations in a client request.
-    #[prost(message, repeated, tag = "1")]
-    pub violation: ::prost::alloc::vec::Vec<precondition_failure::Violation>,
-}
-/// Nested message and enum types in `PreconditionFailure`.
-pub mod precondition_failure {
-    /// Specific failure reason.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Violation {
-        /// The path to the field where this violation occurred. This path is
-        /// specified using `FieldMask` format:
-        /// <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask>
-        #[prost(string, tag = "1")]
-        pub field: ::prost::alloc::string::String,
-        /// The type of this violation.
-        #[prost(enumeration = "violation::Reason", tag = "2")]
-        pub reason: i32,
-        /// A message that describes the violation. This message is intended to
-        /// be shown to end users, and is localized into the requesting user's
-        /// preferred language.
-        #[prost(string, tag = "3")]
-        pub display_message: ::prost::alloc::string::String,
-    }
-    /// Nested message and enum types in `Violation`.
-    pub mod violation {
-        /// The possible reasons a the violation occurred.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum Reason {
-            /// Unknown violation type.
-            Unspecified = 0,
-            /// This Resource cannot be Disabled. Only Published resources can be
-            /// Disabled.
-            CannotDisable = 1,
-            /// This Resource cannot be Enabled. Only Disabled resources can be
-            /// Enabled.
-            CannotEnable = 2,
-            /// This Resource cannot be Published. Only Draft or Disabled resources
-            /// can be Published.
-            CannotPublish = 3,
-            /// This Resource cannot be Unpublished. Once published, resources may
-            /// not be set in "Draft" state.
-            CannotUnpublish = 4,
-            /// This Resource cannot be Deleted. Only Disabled resources
-            /// can be Deleted.
-            CannotDelete = 5,
-            /// The request modified a range in a Field, but the new range does
-            /// not include the previous range. When this error happens, `field` points
-            /// at the Field where the violation occurred.
-            CannotRestrictRange = 6,
-            /// The specified change cannot be made to published Resources.
-            CannotChangePublishedField = 7,
-            /// The customer cannot create new labels because the maximum number
-            /// of labels for the customer has been reached.
-            CannotCreateMoreLabels = 8,
-            /// The Field type cannot be changed because the Field has been published.
-            CannotChangePublishedFieldType = 9,
-            /// The Label component is locked and cannot be modified
-            CannotModifyLockedComponent = 10,
-        }
-        impl Reason {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    Reason::Unspecified => "REASON_UNSPECIFIED",
-                    Reason::CannotDisable => "CANNOT_DISABLE",
-                    Reason::CannotEnable => "CANNOT_ENABLE",
-                    Reason::CannotPublish => "CANNOT_PUBLISH",
-                    Reason::CannotUnpublish => "CANNOT_UNPUBLISH",
-                    Reason::CannotDelete => "CANNOT_DELETE",
-                    Reason::CannotRestrictRange => "CANNOT_RESTRICT_RANGE",
-                    Reason::CannotChangePublishedField => "CANNOT_CHANGE_PUBLISHED_FIELD",
-                    Reason::CannotCreateMoreLabels => "CANNOT_CREATE_MORE_LABELS",
-                    Reason::CannotChangePublishedFieldType => {
-                        "CANNOT_CHANGE_PUBLISHED_FIELD_TYPE"
-                    }
-                    Reason::CannotModifyLockedComponent => {
-                        "CANNOT_MODIFY_LOCKED_COMPONENT"
-                    }
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "REASON_UNSPECIFIED" => Some(Self::Unspecified),
-                    "CANNOT_DISABLE" => Some(Self::CannotDisable),
-                    "CANNOT_ENABLE" => Some(Self::CannotEnable),
-                    "CANNOT_PUBLISH" => Some(Self::CannotPublish),
-                    "CANNOT_UNPUBLISH" => Some(Self::CannotUnpublish),
-                    "CANNOT_DELETE" => Some(Self::CannotDelete),
-                    "CANNOT_RESTRICT_RANGE" => Some(Self::CannotRestrictRange),
-                    "CANNOT_CHANGE_PUBLISHED_FIELD" => {
-                        Some(Self::CannotChangePublishedField)
-                    }
-                    "CANNOT_CREATE_MORE_LABELS" => Some(Self::CannotCreateMoreLabels),
-                    "CANNOT_CHANGE_PUBLISHED_FIELD_TYPE" => {
-                        Some(Self::CannotChangePublishedFieldType)
-                    }
-                    "CANNOT_MODIFY_LOCKED_COMPONENT" => {
-                        Some(Self::CannotModifyLockedComponent)
-                    }
-                    _ => None,
-                }
-            }
-        }
-    }
 }
 /// Defines a field that has a display name, data type, and other
 /// configuration options. This field defines the kind of metadata that may be
@@ -1319,6 +866,259 @@ pub mod label {
                 "LABEL_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
                 "SHARED" => Some(Self::Shared),
                 "ADMIN" => Some(Self::Admin),
+                _ => None,
+            }
+        }
+    }
+}
+/// Label constraints governing the structure of a Label; such as, the maximum
+/// number of Fields allowed and maximum length of the label title.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LabelLimits {
+    /// Resource name.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The maximum number of characters allowed for the title.
+    #[prost(int32, tag = "2")]
+    pub max_title_length: i32,
+    /// The maximum number of characters allowed for the description.
+    #[prost(int32, tag = "3")]
+    pub max_description_length: i32,
+    /// The maximum number of Fields allowed within the label.
+    #[prost(int32, tag = "4")]
+    pub max_fields: i32,
+    /// The maximum number of published Fields that can be deleted.
+    #[prost(int32, tag = "5")]
+    pub max_deleted_fields: i32,
+    /// The maximum number of draft revisions that will be kept before deleting
+    /// old drafts.
+    #[prost(int32, tag = "6")]
+    pub max_draft_revisions: i32,
+    /// The limits for Fields.
+    #[prost(message, optional, tag = "7")]
+    pub field_limits: ::core::option::Option<FieldLimits>,
+}
+/// Field constants governing the structure of a Field; such as, the maximum
+/// title length, minimum and maximum field values or length, etc.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FieldLimits {
+    /// Max length for the id.
+    #[prost(int32, tag = "1")]
+    pub max_id_length: i32,
+    /// Limits for Field title.
+    #[prost(int32, tag = "2")]
+    pub max_display_name_length: i32,
+    /// Limits for Field description, also called help text.
+    #[prost(int32, tag = "3")]
+    pub max_description_length: i32,
+    /// The relevant limits for the specified Field.Type.
+    /// Text Field limits.
+    #[prost(message, optional, tag = "4")]
+    pub text_limits: ::core::option::Option<TextLimits>,
+    /// Long text Field limits.
+    #[prost(message, optional, tag = "5")]
+    pub long_text_limits: ::core::option::Option<LongTextLimits>,
+    /// Integer Field limits.
+    #[prost(message, optional, tag = "6")]
+    pub integer_limits: ::core::option::Option<IntegerLimits>,
+    /// Date Field limits.
+    #[prost(message, optional, tag = "7")]
+    pub date_limits: ::core::option::Option<DateLimits>,
+    /// User Field limits.
+    #[prost(message, optional, tag = "8")]
+    pub user_limits: ::core::option::Option<UserLimits>,
+    /// Selection Field limits.
+    #[prost(message, optional, tag = "9")]
+    pub selection_limits: ::core::option::Option<SelectionLimits>,
+}
+/// Limits for list-variant of a Field type.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListLimits {
+    /// Maximum number of values allowed for the Field type.
+    #[prost(int32, tag = "1")]
+    pub max_entries: i32,
+}
+/// Limits for text Field type.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TextLimits {
+    /// Minimum length allowed for a text Field type.
+    #[prost(int32, tag = "1")]
+    pub min_length: i32,
+    /// Maximum length allowed for a text Field type.
+    #[prost(int32, tag = "2")]
+    pub max_length: i32,
+}
+/// Limits for long text Field type.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LongTextLimits {
+    /// Minimum length allowed for a long text Field type.
+    #[prost(int32, tag = "1")]
+    pub min_length: i32,
+    /// Maximum length allowed for a long text Field type.
+    #[prost(int32, tag = "2")]
+    pub max_length: i32,
+}
+/// Limits for integer Field type.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct IntegerLimits {
+    /// Minimum value for an integer Field type.
+    #[prost(int64, tag = "1")]
+    pub min_value: i64,
+    /// Maximum value for an integer Field type.
+    #[prost(int64, tag = "2")]
+    pub max_value: i64,
+}
+/// Limits for date Field type.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DateLimits {
+    /// Minimum value for the date Field type.
+    #[prost(message, optional, tag = "1")]
+    pub min_value: ::core::option::Option<super::super::super::super::r#type::Date>,
+    /// Maximum value for the date Field type.
+    #[prost(message, optional, tag = "2")]
+    pub max_value: ::core::option::Option<super::super::super::super::r#type::Date>,
+}
+/// Limits for selection Field type.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SelectionLimits {
+    /// Limits for list-variant of a Field type.
+    #[prost(message, optional, tag = "1")]
+    pub list_limits: ::core::option::Option<ListLimits>,
+    /// Maximum ID length for a selection options.
+    #[prost(int32, tag = "2")]
+    pub max_id_length: i32,
+    /// Maximum length for display name.
+    #[prost(int32, tag = "3")]
+    pub max_display_name_length: i32,
+    /// The max number of choices.
+    #[prost(int32, tag = "4")]
+    pub max_choices: i32,
+    /// Maximum number of deleted choices.
+    #[prost(int32, tag = "5")]
+    pub max_deleted_choices: i32,
+}
+/// Limits for Field.Type.USER.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UserLimits {
+    /// Limits for list-variant of a Field type.
+    #[prost(message, optional, tag = "1")]
+    pub list_limits: ::core::option::Option<ListLimits>,
+}
+/// The capabilities of a user.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UserCapabilities {
+    /// Output only. Resource name for the user capabilities.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Whether the user is allowed access to the label manager.
+    #[prost(bool, tag = "2")]
+    pub can_access_label_manager: bool,
+    /// Output only. Whether the user is an administrator for the shared labels
+    /// feature.
+    #[prost(bool, tag = "3")]
+    pub can_administrate_labels: bool,
+    /// Output only. Whether the user is allowed to create new shared labels.
+    #[prost(bool, tag = "4")]
+    pub can_create_shared_labels: bool,
+    /// Output only. Whether the user is allowed to create new admin labels.
+    #[prost(bool, tag = "5")]
+    pub can_create_admin_labels: bool,
+}
+/// A Lock that can be applied to a Label, Field, or Choice.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LabelLock {
+    /// Output only. Resource name of this LabelLock.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The ID of the Field that should be locked.  Empty if the whole
+    /// Label should be locked.
+    #[prost(string, tag = "2")]
+    pub field_id: ::prost::alloc::string::String,
+    /// The ID of the Selection Field Choice that should be locked.  If present,
+    /// `field_id` must also be present.
+    #[prost(string, tag = "3")]
+    pub choice_id: ::prost::alloc::string::String,
+    /// Output only. The time this LabelLock was created.
+    #[prost(message, optional, tag = "4")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The user whose credentials were used to create the LabelLock.
+    /// This will not be present if no user was responsible for creating the
+    /// LabelLock.
+    #[prost(message, optional, tag = "5")]
+    pub creator: ::core::option::Option<UserInfo>,
+    /// Output only. A timestamp indicating when this LabelLock was scheduled for
+    /// deletion. This will be present only if this LabelLock is in the DELETING
+    /// state.
+    #[prost(message, optional, tag = "6")]
+    pub delete_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The user's capabilities on this LabelLock.
+    #[prost(message, optional, tag = "8")]
+    pub capabilities: ::core::option::Option<label_lock::Capabilities>,
+    /// Output only. This LabelLock's state.
+    #[prost(enumeration = "label_lock::State", tag = "9")]
+    pub state: i32,
+}
+/// Nested message and enum types in `LabelLock`.
+pub mod label_lock {
+    /// A description of a user's capabilities on a LabelLock.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Capabilities {
+        /// True if the user is authorized to view the policy.
+        #[prost(bool, tag = "1")]
+        pub can_view_policy: bool,
+    }
+    /// A description of a LabelLock's state.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unknown state.
+        Unspecified = 0,
+        /// The LabelLock is active and is being enforced by the server.
+        Active = 1,
+        /// The LabelLock is being deleted.  The LabelLock will continue to be
+        /// enforced by the server until it has been fully removed.
+        Deleting = 2,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Active => "ACTIVE",
+                State::Deleting => "DELETING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "ACTIVE" => Some(Self::Active),
+                "DELETING" => Some(Self::Deleting),
                 _ => None,
             }
         }
@@ -2288,27 +2088,6 @@ impl LabelView {
         }
     }
 }
-/// The capabilities of a user.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UserCapabilities {
-    /// Output only. Resource name for the user capabilities.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Whether the user is allowed access to the label manager.
-    #[prost(bool, tag = "2")]
-    pub can_access_label_manager: bool,
-    /// Output only. Whether the user is an administrator for the shared labels
-    /// feature.
-    #[prost(bool, tag = "3")]
-    pub can_administrate_labels: bool,
-    /// Output only. Whether the user is allowed to create new shared labels.
-    #[prost(bool, tag = "4")]
-    pub can_create_shared_labels: bool,
-    /// Output only. Whether the user is allowed to create new admin labels.
-    #[prost(bool, tag = "5")]
-    pub can_create_admin_labels: bool,
-}
 /// Generated client implementations.
 pub mod label_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
@@ -2369,11 +2148,30 @@ pub mod label_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Gets the user capabilities.
         pub async fn get_user_capabilities(
             &mut self,
             request: impl tonic::IntoRequest<super::GetUserCapabilitiesRequest>,
-        ) -> Result<tonic::Response<super::UserCapabilities>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::UserCapabilities>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2387,13 +2185,24 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/GetUserCapabilities",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "GetUserCapabilities",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// List labels.
         pub async fn list_labels(
             &mut self,
             request: impl tonic::IntoRequest<super::ListLabelsRequest>,
-        ) -> Result<tonic::Response<super::ListLabelsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListLabelsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2407,7 +2216,15 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/ListLabels",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "ListLabels",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Get a label by its resource name.
         /// Resource name may be any of:
@@ -2421,7 +2238,7 @@ pub mod label_service_client {
         pub async fn get_label(
             &mut self,
             request: impl tonic::IntoRequest<super::GetLabelRequest>,
-        ) -> Result<tonic::Response<super::Label>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Label>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2435,14 +2252,22 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/GetLabel",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "GetLabel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Get the constraints on the structure of a Label; such as, the maximum
         /// number of Fields allowed and maximum length of the label title.
         pub async fn get_label_limits(
             &mut self,
             request: impl tonic::IntoRequest<super::GetLabelLimitsRequest>,
-        ) -> Result<tonic::Response<super::LabelLimits>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::LabelLimits>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2456,13 +2281,21 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/GetLabelLimits",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "GetLabelLimits",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a new Label.
         pub async fn create_label(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateLabelRequest>,
-        ) -> Result<tonic::Response<super::Label>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Label>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2476,7 +2309,15 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/CreateLabel",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "CreateLabel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates a single Label by applying a set of update requests resulting in a
         /// new draft revision. The batch update is all-or-nothing: If any of the
@@ -2485,7 +2326,10 @@ pub mod label_service_client {
         pub async fn delta_update_label(
             &mut self,
             request: impl tonic::IntoRequest<super::DeltaUpdateLabelRequest>,
-        ) -> Result<tonic::Response<super::DeltaUpdateLabelResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::DeltaUpdateLabelResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2499,14 +2343,22 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/DeltaUpdateLabel",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "DeltaUpdateLabel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates a Label's `CopyMode`. Changes to this policy are not revisioned, do
         /// not require publishing, and take effect immediately.
         pub async fn update_label_copy_mode(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateLabelCopyModeRequest>,
-        ) -> Result<tonic::Response<super::Label>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Label>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2520,7 +2372,15 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/UpdateLabelCopyMode",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "UpdateLabelCopyMode",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Publish all draft changes to the Label. Once published, the Label may not
         /// return to its draft state. See
@@ -2543,7 +2403,7 @@ pub mod label_service_client {
         pub async fn publish_label(
             &mut self,
             request: impl tonic::IntoRequest<super::PublishLabelRequest>,
-        ) -> Result<tonic::Response<super::Label>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Label>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2557,7 +2417,15 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/PublishLabel",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "PublishLabel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Disable a published Label.
         /// Disabling a Label will result in a new disabled published revision based on
@@ -2569,7 +2437,7 @@ pub mod label_service_client {
         pub async fn disable_label(
             &mut self,
             request: impl tonic::IntoRequest<super::DisableLabelRequest>,
-        ) -> Result<tonic::Response<super::Label>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Label>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2583,7 +2451,15 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/DisableLabel",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "DisableLabel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Enable a disabled Label and restore it to its published state.
         /// This will result in a new published revision based on the current disabled
@@ -2592,7 +2468,7 @@ pub mod label_service_client {
         pub async fn enable_label(
             &mut self,
             request: impl tonic::IntoRequest<super::EnableLabelRequest>,
-        ) -> Result<tonic::Response<super::Label>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Label>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2606,7 +2482,15 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/EnableLabel",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "EnableLabel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Permanently deletes a Label and related metadata on Drive Items.
         ///
@@ -2615,7 +2499,7 @@ pub mod label_service_client {
         pub async fn delete_label(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteLabelRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2629,13 +2513,21 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/DeleteLabel",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "DeleteLabel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists a Label's permissions.
         pub async fn list_label_permissions(
             &mut self,
             request: impl tonic::IntoRequest<super::ListLabelPermissionsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListLabelPermissionsResponse>,
             tonic::Status,
         > {
@@ -2652,7 +2544,15 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/ListLabelPermissions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "ListLabelPermissions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates a Label's permissions. If a permission for the indicated principal
         /// doesn't exist, a new Label Permission is created, otherwise the existing
@@ -2661,7 +2561,10 @@ pub mod label_service_client {
         pub async fn create_label_permission(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateLabelPermissionRequest>,
-        ) -> Result<tonic::Response<super::LabelPermission>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::LabelPermission>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2675,7 +2578,15 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/CreateLabelPermission",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "CreateLabelPermission",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates a Label's permissions. If a permission for the indicated principal
         /// doesn't exist, a new Label Permission is created, otherwise the existing
@@ -2684,7 +2595,10 @@ pub mod label_service_client {
         pub async fn update_label_permission(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateLabelPermissionRequest>,
-        ) -> Result<tonic::Response<super::LabelPermission>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::LabelPermission>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2698,14 +2612,22 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/UpdateLabelPermission",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "UpdateLabelPermission",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a Label's permission. Permissions affect the Label resource as a
         /// whole, are not revisioned, and do not require publishing.
         pub async fn delete_label_permission(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteLabelPermissionRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2719,7 +2641,15 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/DeleteLabelPermission",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "DeleteLabelPermission",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates Label permissions. If a permission for the
         /// indicated principal doesn't exist, a new Label Permission is created,
@@ -2728,7 +2658,7 @@ pub mod label_service_client {
         pub async fn batch_update_label_permissions(
             &mut self,
             request: impl tonic::IntoRequest<super::BatchUpdateLabelPermissionsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::BatchUpdateLabelPermissionsResponse>,
             tonic::Status,
         > {
@@ -2745,14 +2675,22 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/BatchUpdateLabelPermissions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "BatchUpdateLabelPermissions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes Label permissions. Permissions affect the Label resource as a
         /// whole, are not revisioned, and do not require publishing.
         pub async fn batch_delete_label_permissions(
             &mut self,
             request: impl tonic::IntoRequest<super::BatchDeleteLabelPermissionsRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2766,13 +2704,24 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/BatchDeleteLabelPermissions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "BatchDeleteLabelPermissions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists the LabelLocks on a Label.
         pub async fn list_label_locks(
             &mut self,
             request: impl tonic::IntoRequest<super::ListLabelLocksRequest>,
-        ) -> Result<tonic::Response<super::ListLabelLocksResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListLabelLocksResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2786,7 +2735,15 @@ pub mod label_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.drive.labels.v2beta.LabelService/ListLabelLocks",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2beta.LabelService",
+                        "ListLabelLocks",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -2962,6 +2919,227 @@ impl ExceptionType {
             "INVALID_CHOICE_SET_STATE" => Some(Self::InvalidChoiceSetState),
             "INTERNAL_SERVER_ERROR" => Some(Self::InternalServerError),
             _ => None,
+        }
+    }
+}
+/// Describes violations in a request to create or update a Label or its
+/// Fields.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct InvalidArgument {
+    /// Describes all violations in a client request.
+    #[prost(message, repeated, tag = "1")]
+    pub field_violations: ::prost::alloc::vec::Vec<invalid_argument::FieldViolation>,
+}
+/// Nested message and enum types in `InvalidArgument`.
+pub mod invalid_argument {
+    /// Describes the Field in which the violation occurred.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FieldViolation {
+        /// The path to the field where this violation occurred. This path is
+        /// specified using `FieldMask` format:
+        /// <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask>
+        #[prost(string, tag = "1")]
+        pub field: ::prost::alloc::string::String,
+        /// The detailed reason for this FieldViolation.
+        #[prost(enumeration = "field_violation::Reason", tag = "2")]
+        pub reason: i32,
+        /// A message that describes the violation. This message is intended to
+        /// be shown to end users, and is localized into the requesting user's
+        /// preferred language.
+        #[prost(string, tag = "3")]
+        pub display_message: ::prost::alloc::string::String,
+    }
+    /// Nested message and enum types in `FieldViolation`.
+    pub mod field_violation {
+        /// Possible reasons a field is invalid.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum Reason {
+            /// Unknown reason.
+            Unspecified = 0,
+            /// The referenced field is required.
+            FieldRequired = 1,
+            /// The referenced value was invalid.
+            InvalidValue = 2,
+            /// The specified numeric value is out of the allowed range.
+            ValueOutOfRange = 3,
+            /// The specified string value was too long.
+            StringValueTooLong = 4,
+            /// The number of entries exceeded the maximum.
+            MaxEntriesExceeded = 5,
+            /// The specified field is not found in the Label.
+            FieldNotFound = 6,
+            /// The specified choice is not found in the Field.
+            ChoiceNotFound = 7,
+        }
+        impl Reason {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    Reason::Unspecified => "REASON_UNSPECIFIED",
+                    Reason::FieldRequired => "FIELD_REQUIRED",
+                    Reason::InvalidValue => "INVALID_VALUE",
+                    Reason::ValueOutOfRange => "VALUE_OUT_OF_RANGE",
+                    Reason::StringValueTooLong => "STRING_VALUE_TOO_LONG",
+                    Reason::MaxEntriesExceeded => "MAX_ENTRIES_EXCEEDED",
+                    Reason::FieldNotFound => "FIELD_NOT_FOUND",
+                    Reason::ChoiceNotFound => "CHOICE_NOT_FOUND",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "REASON_UNSPECIFIED" => Some(Self::Unspecified),
+                    "FIELD_REQUIRED" => Some(Self::FieldRequired),
+                    "INVALID_VALUE" => Some(Self::InvalidValue),
+                    "VALUE_OUT_OF_RANGE" => Some(Self::ValueOutOfRange),
+                    "STRING_VALUE_TOO_LONG" => Some(Self::StringValueTooLong),
+                    "MAX_ENTRIES_EXCEEDED" => Some(Self::MaxEntriesExceeded),
+                    "FIELD_NOT_FOUND" => Some(Self::FieldNotFound),
+                    "CHOICE_NOT_FOUND" => Some(Self::ChoiceNotFound),
+                    _ => None,
+                }
+            }
+        }
+    }
+}
+/// Describes what preconditions have failed.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PreconditionFailure {
+    /// Describes all violations in a client request.
+    #[prost(message, repeated, tag = "1")]
+    pub violation: ::prost::alloc::vec::Vec<precondition_failure::Violation>,
+}
+/// Nested message and enum types in `PreconditionFailure`.
+pub mod precondition_failure {
+    /// Specific failure reason.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Violation {
+        /// The path to the field where this violation occurred. This path is
+        /// specified using `FieldMask` format:
+        /// <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask>
+        #[prost(string, tag = "1")]
+        pub field: ::prost::alloc::string::String,
+        /// The type of this violation.
+        #[prost(enumeration = "violation::Reason", tag = "2")]
+        pub reason: i32,
+        /// A message that describes the violation. This message is intended to
+        /// be shown to end users, and is localized into the requesting user's
+        /// preferred language.
+        #[prost(string, tag = "3")]
+        pub display_message: ::prost::alloc::string::String,
+    }
+    /// Nested message and enum types in `Violation`.
+    pub mod violation {
+        /// The possible reasons a the violation occurred.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum Reason {
+            /// Unknown violation type.
+            Unspecified = 0,
+            /// This Resource cannot be Disabled. Only Published resources can be
+            /// Disabled.
+            CannotDisable = 1,
+            /// This Resource cannot be Enabled. Only Disabled resources can be
+            /// Enabled.
+            CannotEnable = 2,
+            /// This Resource cannot be Published. Only Draft or Disabled resources
+            /// can be Published.
+            CannotPublish = 3,
+            /// This Resource cannot be Unpublished. Once published, resources may
+            /// not be set in "Draft" state.
+            CannotUnpublish = 4,
+            /// This Resource cannot be Deleted. Only Disabled resources
+            /// can be Deleted.
+            CannotDelete = 5,
+            /// The request modified a range in a Field, but the new range does
+            /// not include the previous range. When this error happens, `field` points
+            /// at the Field where the violation occurred.
+            CannotRestrictRange = 6,
+            /// The specified change cannot be made to published Resources.
+            CannotChangePublishedField = 7,
+            /// The customer cannot create new labels because the maximum number
+            /// of labels for the customer has been reached.
+            CannotCreateMoreLabels = 8,
+            /// The Field type cannot be changed because the Field has been published.
+            CannotChangePublishedFieldType = 9,
+            /// The Label component is locked and cannot be modified
+            CannotModifyLockedComponent = 10,
+        }
+        impl Reason {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    Reason::Unspecified => "REASON_UNSPECIFIED",
+                    Reason::CannotDisable => "CANNOT_DISABLE",
+                    Reason::CannotEnable => "CANNOT_ENABLE",
+                    Reason::CannotPublish => "CANNOT_PUBLISH",
+                    Reason::CannotUnpublish => "CANNOT_UNPUBLISH",
+                    Reason::CannotDelete => "CANNOT_DELETE",
+                    Reason::CannotRestrictRange => "CANNOT_RESTRICT_RANGE",
+                    Reason::CannotChangePublishedField => "CANNOT_CHANGE_PUBLISHED_FIELD",
+                    Reason::CannotCreateMoreLabels => "CANNOT_CREATE_MORE_LABELS",
+                    Reason::CannotChangePublishedFieldType => {
+                        "CANNOT_CHANGE_PUBLISHED_FIELD_TYPE"
+                    }
+                    Reason::CannotModifyLockedComponent => {
+                        "CANNOT_MODIFY_LOCKED_COMPONENT"
+                    }
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "REASON_UNSPECIFIED" => Some(Self::Unspecified),
+                    "CANNOT_DISABLE" => Some(Self::CannotDisable),
+                    "CANNOT_ENABLE" => Some(Self::CannotEnable),
+                    "CANNOT_PUBLISH" => Some(Self::CannotPublish),
+                    "CANNOT_UNPUBLISH" => Some(Self::CannotUnpublish),
+                    "CANNOT_DELETE" => Some(Self::CannotDelete),
+                    "CANNOT_RESTRICT_RANGE" => Some(Self::CannotRestrictRange),
+                    "CANNOT_CHANGE_PUBLISHED_FIELD" => {
+                        Some(Self::CannotChangePublishedField)
+                    }
+                    "CANNOT_CREATE_MORE_LABELS" => Some(Self::CannotCreateMoreLabels),
+                    "CANNOT_CHANGE_PUBLISHED_FIELD_TYPE" => {
+                        Some(Self::CannotChangePublishedFieldType)
+                    }
+                    "CANNOT_MODIFY_LOCKED_COMPONENT" => {
+                        Some(Self::CannotModifyLockedComponent)
+                    }
+                    _ => None,
+                }
+            }
         }
     }
 }

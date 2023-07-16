@@ -340,6 +340,127 @@ pub mod certificate_provider {
         CertificateProviderInstance(super::CertificateProviderInstance),
     }
 }
+/// ClientTlsPolicy is a resource that specifies how a client should authenticate
+/// connections to backends of a service. This resource itself does not affect
+/// configuration unless it is attached to a backend service resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ClientTlsPolicy {
+    /// Required. Name of the ClientTlsPolicy resource. It matches the pattern
+    /// `projects/*/locations/{location}/clientTlsPolicies/{client_tls_policy}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. Free-text description of the resource.
+    #[prost(string, tag = "2")]
+    pub description: ::prost::alloc::string::String,
+    /// Output only. The timestamp when the resource was created.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The timestamp when the resource was updated.
+    #[prost(message, optional, tag = "4")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional. Set of label tags associated with the resource.
+    #[prost(btree_map = "string, string", tag = "5")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Optional. Server Name Indication string to present to the server during TLS
+    /// handshake. E.g: "secure.example.com".
+    #[prost(string, tag = "6")]
+    pub sni: ::prost::alloc::string::String,
+    /// Optional. Defines a mechanism to provision client identity (public and private keys)
+    /// for peer to peer authentication. The presence of this dictates mTLS.
+    #[prost(message, optional, tag = "7")]
+    pub client_certificate: ::core::option::Option<CertificateProvider>,
+    /// Optional. Defines the mechanism to obtain the Certificate Authority certificate to
+    /// validate the server certificate. If empty, client does not validate the
+    /// server certificate.
+    #[prost(message, repeated, tag = "8")]
+    pub server_validation_ca: ::prost::alloc::vec::Vec<ValidationCa>,
+}
+/// Request used by the ListClientTlsPolicies method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListClientTlsPoliciesRequest {
+    /// Required. The project and location from which the ClientTlsPolicies should
+    /// be listed, specified in the format `projects/*/locations/{location}`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Maximum number of ClientTlsPolicies to return per call.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// The value returned by the last `ListClientTlsPoliciesResponse`
+    /// Indicates that this is a continuation of a prior
+    /// `ListClientTlsPolicies` call, and that the system
+    /// should return the next page of data.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// Response returned by the ListClientTlsPolicies method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListClientTlsPoliciesResponse {
+    /// List of ClientTlsPolicy resources.
+    #[prost(message, repeated, tag = "1")]
+    pub client_tls_policies: ::prost::alloc::vec::Vec<ClientTlsPolicy>,
+    /// If there might be more results than those appearing in this response, then
+    /// `next_page_token` is included. To get the next set of results, call this
+    /// method again using the value of `next_page_token` as `page_token`.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request used by the GetClientTlsPolicy method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetClientTlsPolicyRequest {
+    /// Required. A name of the ClientTlsPolicy to get. Must be in the format
+    /// `projects/*/locations/{location}/clientTlsPolicies/*`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request used by the CreateClientTlsPolicy method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateClientTlsPolicyRequest {
+    /// Required. The parent resource of the ClientTlsPolicy. Must be in
+    /// the format `projects/*/locations/{location}`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Short name of the ClientTlsPolicy resource to be created. This value should
+    /// be 1-63 characters long, containing only letters, numbers, hyphens, and
+    /// underscores, and should not start with a number. E.g. "client_mtls_policy".
+    #[prost(string, tag = "2")]
+    pub client_tls_policy_id: ::prost::alloc::string::String,
+    /// Required. ClientTlsPolicy resource to be created.
+    #[prost(message, optional, tag = "3")]
+    pub client_tls_policy: ::core::option::Option<ClientTlsPolicy>,
+}
+/// Request used by UpdateClientTlsPolicy method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateClientTlsPolicyRequest {
+    /// Optional. Field mask is used to specify the fields to be overwritten in the
+    /// ClientTlsPolicy resource by the update.  The fields
+    /// specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the
+    /// mask. If the user does not provide a mask then all fields will be
+    /// overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. Updated ClientTlsPolicy resource.
+    #[prost(message, optional, tag = "2")]
+    pub client_tls_policy: ::core::option::Option<ClientTlsPolicy>,
+}
+/// Request used by the DeleteClientTlsPolicy method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteClientTlsPolicyRequest {
+    /// Required. A name of the ClientTlsPolicy to delete. Must be in
+    /// the format `projects/*/locations/{location}/clientTlsPolicies/*`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
 /// ServerTlsPolicy is a resource that specifies how a server should authenticate
 /// incoming requests. This resource itself does not affect configuration unless
 /// it is attached to a target https proxy or endpoint config selector resource.
@@ -487,127 +608,6 @@ pub struct DeleteServerTlsPolicyRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// ClientTlsPolicy is a resource that specifies how a client should authenticate
-/// connections to backends of a service. This resource itself does not affect
-/// configuration unless it is attached to a backend service resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ClientTlsPolicy {
-    /// Required. Name of the ClientTlsPolicy resource. It matches the pattern
-    /// `projects/*/locations/{location}/clientTlsPolicies/{client_tls_policy}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. Free-text description of the resource.
-    #[prost(string, tag = "2")]
-    pub description: ::prost::alloc::string::String,
-    /// Output only. The timestamp when the resource was created.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The timestamp when the resource was updated.
-    #[prost(message, optional, tag = "4")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Optional. Set of label tags associated with the resource.
-    #[prost(btree_map = "string, string", tag = "5")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Optional. Server Name Indication string to present to the server during TLS
-    /// handshake. E.g: "secure.example.com".
-    #[prost(string, tag = "6")]
-    pub sni: ::prost::alloc::string::String,
-    /// Optional. Defines a mechanism to provision client identity (public and private keys)
-    /// for peer to peer authentication. The presence of this dictates mTLS.
-    #[prost(message, optional, tag = "7")]
-    pub client_certificate: ::core::option::Option<CertificateProvider>,
-    /// Optional. Defines the mechanism to obtain the Certificate Authority certificate to
-    /// validate the server certificate. If empty, client does not validate the
-    /// server certificate.
-    #[prost(message, repeated, tag = "8")]
-    pub server_validation_ca: ::prost::alloc::vec::Vec<ValidationCa>,
-}
-/// Request used by the ListClientTlsPolicies method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListClientTlsPoliciesRequest {
-    /// Required. The project and location from which the ClientTlsPolicies should
-    /// be listed, specified in the format `projects/*/locations/{location}`.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Maximum number of ClientTlsPolicies to return per call.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// The value returned by the last `ListClientTlsPoliciesResponse`
-    /// Indicates that this is a continuation of a prior
-    /// `ListClientTlsPolicies` call, and that the system
-    /// should return the next page of data.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// Response returned by the ListClientTlsPolicies method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListClientTlsPoliciesResponse {
-    /// List of ClientTlsPolicy resources.
-    #[prost(message, repeated, tag = "1")]
-    pub client_tls_policies: ::prost::alloc::vec::Vec<ClientTlsPolicy>,
-    /// If there might be more results than those appearing in this response, then
-    /// `next_page_token` is included. To get the next set of results, call this
-    /// method again using the value of `next_page_token` as `page_token`.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Request used by the GetClientTlsPolicy method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetClientTlsPolicyRequest {
-    /// Required. A name of the ClientTlsPolicy to get. Must be in the format
-    /// `projects/*/locations/{location}/clientTlsPolicies/*`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request used by the CreateClientTlsPolicy method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateClientTlsPolicyRequest {
-    /// Required. The parent resource of the ClientTlsPolicy. Must be in
-    /// the format `projects/*/locations/{location}`.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Short name of the ClientTlsPolicy resource to be created. This value should
-    /// be 1-63 characters long, containing only letters, numbers, hyphens, and
-    /// underscores, and should not start with a number. E.g. "client_mtls_policy".
-    #[prost(string, tag = "2")]
-    pub client_tls_policy_id: ::prost::alloc::string::String,
-    /// Required. ClientTlsPolicy resource to be created.
-    #[prost(message, optional, tag = "3")]
-    pub client_tls_policy: ::core::option::Option<ClientTlsPolicy>,
-}
-/// Request used by UpdateClientTlsPolicy method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateClientTlsPolicyRequest {
-    /// Optional. Field mask is used to specify the fields to be overwritten in the
-    /// ClientTlsPolicy resource by the update.  The fields
-    /// specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the
-    /// mask. If the user does not provide a mask then all fields will be
-    /// overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. Updated ClientTlsPolicy resource.
-    #[prost(message, optional, tag = "2")]
-    pub client_tls_policy: ::core::option::Option<ClientTlsPolicy>,
-}
-/// Request used by the DeleteClientTlsPolicy method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteClientTlsPolicyRequest {
-    /// Required. A name of the ClientTlsPolicy to delete. Must be in
-    /// the format `projects/*/locations/{location}/clientTlsPolicies/*`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
 /// Generated client implementations.
 pub mod network_security_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
@@ -669,11 +669,27 @@ pub mod network_security_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Lists AuthorizationPolicies in a given project and location.
         pub async fn list_authorization_policies(
             &mut self,
             request: impl tonic::IntoRequest<super::ListAuthorizationPoliciesRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListAuthorizationPoliciesResponse>,
             tonic::Status,
         > {
@@ -690,13 +706,24 @@ pub mod network_security_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.networksecurity.v1.NetworkSecurity/ListAuthorizationPolicies",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networksecurity.v1.NetworkSecurity",
+                        "ListAuthorizationPolicies",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets details of a single AuthorizationPolicy.
         pub async fn get_authorization_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::GetAuthorizationPolicyRequest>,
-        ) -> Result<tonic::Response<super::AuthorizationPolicy>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::AuthorizationPolicy>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -710,13 +737,21 @@ pub mod network_security_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.networksecurity.v1.NetworkSecurity/GetAuthorizationPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networksecurity.v1.NetworkSecurity",
+                        "GetAuthorizationPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a new AuthorizationPolicy in a given project and location.
         pub async fn create_authorization_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateAuthorizationPolicyRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -733,13 +768,21 @@ pub mod network_security_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.networksecurity.v1.NetworkSecurity/CreateAuthorizationPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networksecurity.v1.NetworkSecurity",
+                        "CreateAuthorizationPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the parameters of a single AuthorizationPolicy.
         pub async fn update_authorization_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateAuthorizationPolicyRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -756,13 +799,21 @@ pub mod network_security_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.networksecurity.v1.NetworkSecurity/UpdateAuthorizationPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networksecurity.v1.NetworkSecurity",
+                        "UpdateAuthorizationPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a single AuthorizationPolicy.
         pub async fn delete_authorization_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteAuthorizationPolicyRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -779,13 +830,21 @@ pub mod network_security_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.networksecurity.v1.NetworkSecurity/DeleteAuthorizationPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networksecurity.v1.NetworkSecurity",
+                        "DeleteAuthorizationPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists ServerTlsPolicies in a given project and location.
         pub async fn list_server_tls_policies(
             &mut self,
             request: impl tonic::IntoRequest<super::ListServerTlsPoliciesRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListServerTlsPoliciesResponse>,
             tonic::Status,
         > {
@@ -802,13 +861,24 @@ pub mod network_security_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.networksecurity.v1.NetworkSecurity/ListServerTlsPolicies",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networksecurity.v1.NetworkSecurity",
+                        "ListServerTlsPolicies",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets details of a single ServerTlsPolicy.
         pub async fn get_server_tls_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::GetServerTlsPolicyRequest>,
-        ) -> Result<tonic::Response<super::ServerTlsPolicy>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ServerTlsPolicy>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -822,13 +892,21 @@ pub mod network_security_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.networksecurity.v1.NetworkSecurity/GetServerTlsPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networksecurity.v1.NetworkSecurity",
+                        "GetServerTlsPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a new ServerTlsPolicy in a given project and location.
         pub async fn create_server_tls_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateServerTlsPolicyRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -845,13 +923,21 @@ pub mod network_security_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.networksecurity.v1.NetworkSecurity/CreateServerTlsPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networksecurity.v1.NetworkSecurity",
+                        "CreateServerTlsPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the parameters of a single ServerTlsPolicy.
         pub async fn update_server_tls_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateServerTlsPolicyRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -868,13 +954,21 @@ pub mod network_security_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.networksecurity.v1.NetworkSecurity/UpdateServerTlsPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networksecurity.v1.NetworkSecurity",
+                        "UpdateServerTlsPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a single ServerTlsPolicy.
         pub async fn delete_server_tls_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteServerTlsPolicyRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -891,13 +985,21 @@ pub mod network_security_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.networksecurity.v1.NetworkSecurity/DeleteServerTlsPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networksecurity.v1.NetworkSecurity",
+                        "DeleteServerTlsPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists ClientTlsPolicies in a given project and location.
         pub async fn list_client_tls_policies(
             &mut self,
             request: impl tonic::IntoRequest<super::ListClientTlsPoliciesRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListClientTlsPoliciesResponse>,
             tonic::Status,
         > {
@@ -914,13 +1016,24 @@ pub mod network_security_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.networksecurity.v1.NetworkSecurity/ListClientTlsPolicies",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networksecurity.v1.NetworkSecurity",
+                        "ListClientTlsPolicies",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets details of a single ClientTlsPolicy.
         pub async fn get_client_tls_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::GetClientTlsPolicyRequest>,
-        ) -> Result<tonic::Response<super::ClientTlsPolicy>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ClientTlsPolicy>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -934,13 +1047,21 @@ pub mod network_security_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.networksecurity.v1.NetworkSecurity/GetClientTlsPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networksecurity.v1.NetworkSecurity",
+                        "GetClientTlsPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a new ClientTlsPolicy in a given project and location.
         pub async fn create_client_tls_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateClientTlsPolicyRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -957,13 +1078,21 @@ pub mod network_security_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.networksecurity.v1.NetworkSecurity/CreateClientTlsPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networksecurity.v1.NetworkSecurity",
+                        "CreateClientTlsPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the parameters of a single ClientTlsPolicy.
         pub async fn update_client_tls_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateClientTlsPolicyRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -980,13 +1109,21 @@ pub mod network_security_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.networksecurity.v1.NetworkSecurity/UpdateClientTlsPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networksecurity.v1.NetworkSecurity",
+                        "UpdateClientTlsPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a single ClientTlsPolicy.
         pub async fn delete_client_tls_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteClientTlsPolicyRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -1003,7 +1140,15 @@ pub mod network_security_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.networksecurity.v1.NetworkSecurity/DeleteClientTlsPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networksecurity.v1.NetworkSecurity",
+                        "DeleteClientTlsPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

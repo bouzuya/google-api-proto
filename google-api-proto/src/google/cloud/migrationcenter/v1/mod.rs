@@ -4557,11 +4557,30 @@ pub mod migration_center_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Lists all the assets in a given project and location.
         pub async fn list_assets(
             &mut self,
             request: impl tonic::IntoRequest<super::ListAssetsRequest>,
-        ) -> Result<tonic::Response<super::ListAssetsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListAssetsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -4575,13 +4594,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/ListAssets",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "ListAssets",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the details of an asset.
         pub async fn get_asset(
             &mut self,
             request: impl tonic::IntoRequest<super::GetAssetRequest>,
-        ) -> Result<tonic::Response<super::Asset>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Asset>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -4595,13 +4622,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/GetAsset",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "GetAsset",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the parameters of an asset.
         pub async fn update_asset(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateAssetRequest>,
-        ) -> Result<tonic::Response<super::Asset>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Asset>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -4615,13 +4650,24 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/UpdateAsset",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "UpdateAsset",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the parameters of a list of assets.
         pub async fn batch_update_assets(
             &mut self,
             request: impl tonic::IntoRequest<super::BatchUpdateAssetsRequest>,
-        ) -> Result<tonic::Response<super::BatchUpdateAssetsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::BatchUpdateAssetsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -4635,13 +4681,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/BatchUpdateAssets",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "BatchUpdateAssets",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes an asset.
         pub async fn delete_asset(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteAssetRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -4655,13 +4709,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/DeleteAsset",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "DeleteAsset",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes list of Assets.
         pub async fn batch_delete_assets(
             &mut self,
             request: impl tonic::IntoRequest<super::BatchDeleteAssetsRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -4675,13 +4737,24 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/BatchDeleteAssets",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "BatchDeleteAssets",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Reports a set of frames.
         pub async fn report_asset_frames(
             &mut self,
             request: impl tonic::IntoRequest<super::ReportAssetFramesRequest>,
-        ) -> Result<tonic::Response<super::ReportAssetFramesResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ReportAssetFramesResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -4695,13 +4768,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/ReportAssetFrames",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "ReportAssetFrames",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Aggregates the requested fields based on provided function.
         pub async fn aggregate_assets_values(
             &mut self,
             request: impl tonic::IntoRequest<super::AggregateAssetsValuesRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::AggregateAssetsValuesResponse>,
             tonic::Status,
         > {
@@ -4718,13 +4799,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/AggregateAssetsValues",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "AggregateAssetsValues",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates an import job.
         pub async fn create_import_job(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateImportJobRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -4741,13 +4830,24 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/CreateImportJob",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "CreateImportJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists all import jobs.
         pub async fn list_import_jobs(
             &mut self,
             request: impl tonic::IntoRequest<super::ListImportJobsRequest>,
-        ) -> Result<tonic::Response<super::ListImportJobsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListImportJobsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -4761,13 +4861,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/ListImportJobs",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "ListImportJobs",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the details of an import job.
         pub async fn get_import_job(
             &mut self,
             request: impl tonic::IntoRequest<super::GetImportJobRequest>,
-        ) -> Result<tonic::Response<super::ImportJob>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::ImportJob>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -4781,13 +4889,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/GetImportJob",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "GetImportJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes an import job.
         pub async fn delete_import_job(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteImportJobRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -4804,13 +4920,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/DeleteImportJob",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "DeleteImportJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates an import job.
         pub async fn update_import_job(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateImportJobRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -4827,13 +4951,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/UpdateImportJob",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "UpdateImportJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Validates an import job.
         pub async fn validate_import_job(
             &mut self,
             request: impl tonic::IntoRequest<super::ValidateImportJobRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -4850,13 +4982,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/ValidateImportJob",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "ValidateImportJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Runs an import job.
         pub async fn run_import_job(
             &mut self,
             request: impl tonic::IntoRequest<super::RunImportJobRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -4873,13 +5013,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/RunImportJob",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "RunImportJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets an import data file.
         pub async fn get_import_data_file(
             &mut self,
             request: impl tonic::IntoRequest<super::GetImportDataFileRequest>,
-        ) -> Result<tonic::Response<super::ImportDataFile>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::ImportDataFile>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -4893,13 +5041,24 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/GetImportDataFile",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "GetImportDataFile",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// List import data files.
         pub async fn list_import_data_files(
             &mut self,
             request: impl tonic::IntoRequest<super::ListImportDataFilesRequest>,
-        ) -> Result<tonic::Response<super::ListImportDataFilesResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListImportDataFilesResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -4913,13 +5072,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/ListImportDataFiles",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "ListImportDataFiles",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates an import data file.
         pub async fn create_import_data_file(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateImportDataFileRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -4936,13 +5103,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/CreateImportDataFile",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "CreateImportDataFile",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Delete an import data file.
         pub async fn delete_import_data_file(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteImportDataFileRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -4959,13 +5134,24 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/DeleteImportDataFile",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "DeleteImportDataFile",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists all groups in a given project and location.
         pub async fn list_groups(
             &mut self,
             request: impl tonic::IntoRequest<super::ListGroupsRequest>,
-        ) -> Result<tonic::Response<super::ListGroupsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListGroupsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -4979,13 +5165,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/ListGroups",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "ListGroups",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the details of a group.
         pub async fn get_group(
             &mut self,
             request: impl tonic::IntoRequest<super::GetGroupRequest>,
-        ) -> Result<tonic::Response<super::Group>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Group>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -4999,13 +5193,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/GetGroup",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "GetGroup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a new group in a given project and location.
         pub async fn create_group(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateGroupRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -5022,13 +5224,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/CreateGroup",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "CreateGroup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the parameters of a group.
         pub async fn update_group(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateGroupRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -5045,13 +5255,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/UpdateGroup",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "UpdateGroup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a group.
         pub async fn delete_group(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteGroupRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -5068,13 +5286,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/DeleteGroup",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "DeleteGroup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Adds assets to a group.
         pub async fn add_assets_to_group(
             &mut self,
             request: impl tonic::IntoRequest<super::AddAssetsToGroupRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -5091,13 +5317,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/AddAssetsToGroup",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "AddAssetsToGroup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Removes assets from a group.
         pub async fn remove_assets_from_group(
             &mut self,
             request: impl tonic::IntoRequest<super::RemoveAssetsFromGroupRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -5114,13 +5348,24 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/RemoveAssetsFromGroup",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "RemoveAssetsFromGroup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists all error frames in a given source and location.
         pub async fn list_error_frames(
             &mut self,
             request: impl tonic::IntoRequest<super::ListErrorFramesRequest>,
-        ) -> Result<tonic::Response<super::ListErrorFramesResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListErrorFramesResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -5134,13 +5379,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/ListErrorFrames",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "ListErrorFrames",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the details of an error frame.
         pub async fn get_error_frame(
             &mut self,
             request: impl tonic::IntoRequest<super::GetErrorFrameRequest>,
-        ) -> Result<tonic::Response<super::ErrorFrame>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::ErrorFrame>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -5154,13 +5407,24 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/GetErrorFrame",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "GetErrorFrame",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists all the sources in a given project and location.
         pub async fn list_sources(
             &mut self,
             request: impl tonic::IntoRequest<super::ListSourcesRequest>,
-        ) -> Result<tonic::Response<super::ListSourcesResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListSourcesResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -5174,13 +5438,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/ListSources",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "ListSources",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the details of a source.
         pub async fn get_source(
             &mut self,
             request: impl tonic::IntoRequest<super::GetSourceRequest>,
-        ) -> Result<tonic::Response<super::Source>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Source>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -5194,13 +5466,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/GetSource",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "GetSource",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a new source in a given project and location.
         pub async fn create_source(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateSourceRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -5217,13 +5497,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/CreateSource",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "CreateSource",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the parameters of a source.
         pub async fn update_source(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateSourceRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -5240,13 +5528,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/UpdateSource",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "UpdateSource",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a source.
         pub async fn delete_source(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteSourceRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -5263,13 +5559,24 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/DeleteSource",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "DeleteSource",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists all the preference sets in a given project and location.
         pub async fn list_preference_sets(
             &mut self,
             request: impl tonic::IntoRequest<super::ListPreferenceSetsRequest>,
-        ) -> Result<tonic::Response<super::ListPreferenceSetsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListPreferenceSetsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -5283,13 +5590,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/ListPreferenceSets",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "ListPreferenceSets",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the details of a preference set.
         pub async fn get_preference_set(
             &mut self,
             request: impl tonic::IntoRequest<super::GetPreferenceSetRequest>,
-        ) -> Result<tonic::Response<super::PreferenceSet>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::PreferenceSet>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -5303,13 +5618,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/GetPreferenceSet",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "GetPreferenceSet",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a new preference set in a given project and location.
         pub async fn create_preference_set(
             &mut self,
             request: impl tonic::IntoRequest<super::CreatePreferenceSetRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -5326,13 +5649,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/CreatePreferenceSet",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "CreatePreferenceSet",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the parameters of a preference set.
         pub async fn update_preference_set(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdatePreferenceSetRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -5349,13 +5680,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/UpdatePreferenceSet",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "UpdatePreferenceSet",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a preference set.
         pub async fn delete_preference_set(
             &mut self,
             request: impl tonic::IntoRequest<super::DeletePreferenceSetRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -5372,13 +5711,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/DeletePreferenceSet",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "DeletePreferenceSet",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the details of regional settings.
         pub async fn get_settings(
             &mut self,
             request: impl tonic::IntoRequest<super::GetSettingsRequest>,
-        ) -> Result<tonic::Response<super::Settings>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Settings>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -5392,13 +5739,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/GetSettings",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "GetSettings",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the regional-level project settings.
         pub async fn update_settings(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateSettingsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -5415,13 +5770,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/UpdateSettings",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "UpdateSettings",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a report configuration.
         pub async fn create_report_config(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateReportConfigRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -5438,13 +5801,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/CreateReportConfig",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "CreateReportConfig",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets details of a single ReportConfig.
         pub async fn get_report_config(
             &mut self,
             request: impl tonic::IntoRequest<super::GetReportConfigRequest>,
-        ) -> Result<tonic::Response<super::ReportConfig>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::ReportConfig>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -5458,13 +5829,24 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/GetReportConfig",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "GetReportConfig",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists ReportConfigs in a given project and location.
         pub async fn list_report_configs(
             &mut self,
             request: impl tonic::IntoRequest<super::ListReportConfigsRequest>,
-        ) -> Result<tonic::Response<super::ListReportConfigsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListReportConfigsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -5478,13 +5860,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/ListReportConfigs",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "ListReportConfigs",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a ReportConfig.
         pub async fn delete_report_config(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteReportConfigRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -5501,13 +5891,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/DeleteReportConfig",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "DeleteReportConfig",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a report.
         pub async fn create_report(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateReportRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -5524,13 +5922,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/CreateReport",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "CreateReport",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets details of a single Report.
         pub async fn get_report(
             &mut self,
             request: impl tonic::IntoRequest<super::GetReportRequest>,
-        ) -> Result<tonic::Response<super::Report>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Report>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -5544,13 +5950,24 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/GetReport",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "GetReport",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists Reports in a given ReportConfig.
         pub async fn list_reports(
             &mut self,
             request: impl tonic::IntoRequest<super::ListReportsRequest>,
-        ) -> Result<tonic::Response<super::ListReportsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListReportsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -5564,13 +5981,21 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/ListReports",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "ListReports",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a Report.
         pub async fn delete_report(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteReportRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -5587,7 +6012,15 @@ pub mod migration_center_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.migrationcenter.v1.MigrationCenter/DeleteReport",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.migrationcenter.v1.MigrationCenter",
+                        "DeleteReport",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

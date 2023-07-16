@@ -175,6 +175,9 @@ pub struct NodeKubeletConfig {
     /// must be greater than or equal to 1024 and less than 4194304.
     #[prost(int64, tag = "4")]
     pub pod_pids_limit: i64,
+    /// Enable or disable Kubelet read only port.
+    #[prost(bool, optional, tag = "7")]
+    pub insecure_kubelet_readonly_port_enabled: ::core::option::Option<bool>,
 }
 /// Parameters that describe the nodes in a cluster.
 ///
@@ -292,7 +295,7 @@ pub struct NodeConfig {
     pub tags: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     /// Whether the nodes are created as preemptible VM instances. See:
     /// <https://cloud.google.com/compute/docs/instances/preemptible> for more
-    /// inforamtion about preemptible VM instances.
+    /// information about preemptible VM instances.
     #[prost(bool, tag = "10")]
     pub preemptible: bool,
     /// A list of hardware accelerators to be attached to each node.
@@ -489,6 +492,11 @@ pub struct NodeNetworkConfig {
     pub pod_cidr_overprovision_config: ::core::option::Option<
         PodCidrOverprovisionConfig,
     >,
+    /// Output only. [Output only] The utilization of the IPv4 range for the pod.
+    /// The ratio is Usage/[Total number of IPs in the secondary range],
+    /// Usage=numNodes*numZones*podIPsPerNode.
+    #[prost(double, tag = "16")]
+    pub pod_ipv4_range_utilization: f64,
 }
 /// Nested message and enum types in `NodeNetworkConfig`.
 pub mod node_network_config {
@@ -1584,6 +1592,11 @@ pub struct IpAllocationPolicy {
     /// IPAllocationPolicy.
     #[prost(message, optional, tag = "24")]
     pub additional_pod_ranges_config: ::core::option::Option<AdditionalPodRangesConfig>,
+    /// Output only. [Output only] The utilization of the cluster default IPv4
+    /// range for the pod. The ratio is Usage/[Total number of IPs in the secondary
+    /// range], Usage=numNodes*numZones*podIPsPerNode.
+    #[prost(double, tag = "25")]
+    pub default_pod_ipv4_range_utilization: f64,
 }
 /// Nested message and enum types in `IPAllocationPolicy`.
 pub mod ip_allocation_policy {
@@ -2206,6 +2219,9 @@ pub struct Cluster {
     /// Fleet information for the cluster.
     #[prost(message, optional, tag = "140")]
     pub fleet: ::core::option::Option<Fleet>,
+    /// Enable/Disable Security Posture API features for the cluster.
+    #[prost(message, optional, tag = "145")]
+    pub security_posture_config: ::core::option::Option<SecurityPostureConfig>,
 }
 /// Nested message and enum types in `Cluster`.
 pub mod cluster {
@@ -2408,6 +2424,111 @@ pub mod protect_config {
                 "WORKLOAD_VULNERABILITY_MODE_UNSPECIFIED" => Some(Self::Unspecified),
                 "DISABLED" => Some(Self::Disabled),
                 "BASIC" => Some(Self::Basic),
+                _ => None,
+            }
+        }
+    }
+}
+/// SecurityPostureConfig defines the flags needed to enable/disable features for
+/// the Security Posture API.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SecurityPostureConfig {
+    /// Sets which mode to use for Security Posture features.
+    #[prost(enumeration = "security_posture_config::Mode", optional, tag = "1")]
+    pub mode: ::core::option::Option<i32>,
+    /// Sets which mode to use for vulnerability scanning.
+    #[prost(
+        enumeration = "security_posture_config::VulnerabilityMode",
+        optional,
+        tag = "2"
+    )]
+    pub vulnerability_mode: ::core::option::Option<i32>,
+}
+/// Nested message and enum types in `SecurityPostureConfig`.
+pub mod security_posture_config {
+    /// Mode defines enablement mode for GKE Security posture features.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Mode {
+        /// Default value not specified.
+        Unspecified = 0,
+        /// Disables Security Posture features on the cluster.
+        Disabled = 1,
+        /// Applies Security Posture features on the cluster.
+        Basic = 2,
+    }
+    impl Mode {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Mode::Unspecified => "MODE_UNSPECIFIED",
+                Mode::Disabled => "DISABLED",
+                Mode::Basic => "BASIC",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "MODE_UNSPECIFIED" => Some(Self::Unspecified),
+                "DISABLED" => Some(Self::Disabled),
+                "BASIC" => Some(Self::Basic),
+                _ => None,
+            }
+        }
+    }
+    /// VulnerabilityMode defines enablement mode for vulnerability scanning.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum VulnerabilityMode {
+        /// Default value not specified.
+        Unspecified = 0,
+        /// Disables vulnerability scanning on the cluster.
+        VulnerabilityDisabled = 1,
+        /// Applies basic vulnerability scanning on the cluster.
+        VulnerabilityBasic = 2,
+    }
+    impl VulnerabilityMode {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                VulnerabilityMode::Unspecified => "VULNERABILITY_MODE_UNSPECIFIED",
+                VulnerabilityMode::VulnerabilityDisabled => "VULNERABILITY_DISABLED",
+                VulnerabilityMode::VulnerabilityBasic => "VULNERABILITY_BASIC",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "VULNERABILITY_MODE_UNSPECIFIED" => Some(Self::Unspecified),
+                "VULNERABILITY_DISABLED" => Some(Self::VulnerabilityDisabled),
+                "VULNERABILITY_BASIC" => Some(Self::VulnerabilityBasic),
                 _ => None,
             }
         }
@@ -2683,9 +2804,22 @@ pub struct ClusterUpdate {
     /// Kubernetes open source beta apis enabled on the cluster. Only beta apis
     #[prost(message, optional, tag = "122")]
     pub enable_k8s_beta_apis: ::core::option::Option<K8sBetaApiConfig>,
+    /// Enable/Disable Security Posture API features for the cluster.
+    #[prost(message, optional, tag = "124")]
+    pub desired_security_posture_config: ::core::option::Option<SecurityPostureConfig>,
+    /// The desired network performance config.
+    #[prost(message, optional, tag = "125")]
+    pub desired_network_performance_config: ::core::option::Option<
+        network_config::ClusterNetworkPerformanceConfig,
+    >,
     /// Enable/Disable FQDN Network Policy for the cluster.
     #[prost(bool, optional, tag = "126")]
     pub desired_enable_fqdn_network_policy: ::core::option::Option<bool>,
+    /// The desired workload policy configuration for the autopilot cluster.
+    #[prost(message, optional, tag = "128")]
+    pub desired_autopilot_workload_policy_config: ::core::option::Option<
+        WorkloadPolicyConfig,
+    >,
     /// Beta APIs enabled for cluster.
     #[prost(message, optional, tag = "131")]
     pub desired_k8s_beta_apis: ::core::option::Option<K8sBetaApiConfig>,
@@ -2698,6 +2832,20 @@ pub struct AdditionalPodRangesConfig {
     /// Name for pod secondary ipv4 range which has the actual range defined ahead.
     #[prost(string, repeated, tag = "1")]
     pub pod_range_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. [Output only] Information for additional pod range.
+    #[prost(message, repeated, tag = "2")]
+    pub pod_range_info: ::prost::alloc::vec::Vec<RangeInfo>,
+}
+/// RangeInfo contains the range name and the range utilization by this cluster.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RangeInfo {
+    /// Output only. [Output only] Name of a range.
+    #[prost(string, tag = "1")]
+    pub range_name: ::prost::alloc::string::String,
+    /// Output only. [Output only] The utilization of the range.
+    #[prost(double, tag = "2")]
+    pub utilization: f64,
 }
 /// This operation resource represents operations that may have happened or are
 /// happening on the cluster. All fields are output only.
@@ -4298,6 +4446,10 @@ pub mod node_pool {
         /// The type of placement.
         #[prost(enumeration = "placement_policy::Type", tag = "1")]
         pub r#type: i32,
+        /// TPU placement topology for pod slice node pool.
+        /// <https://cloud.google.com/tpu/docs/types-topologies#tpu_topologies>
+        #[prost(string, tag = "2")]
+        pub tpu_topology: ::prost::alloc::string::String,
     }
     /// Nested message and enum types in `PlacementPolicy`.
     pub mod placement_policy {
@@ -4912,6 +5064,9 @@ pub struct AutoprovisioningNodePoolDefaults {
     /// available image types.
     #[prost(string, tag = "10")]
     pub image_type: ::prost::alloc::string::String,
+    /// Enable or disable Kubelet read only port.
+    #[prost(bool, optional, tag = "13")]
+    pub insecure_kubelet_readonly_port_enabled: ::core::option::Option<bool>,
 }
 /// Contains information about amount of some resource in the cluster.
 /// For memory, value should be in GB.
@@ -5166,6 +5321,11 @@ pub struct AcceleratorConfig {
     /// The configuration for GPU sharing options.
     #[prost(message, optional, tag = "5")]
     pub gpu_sharing_config: ::core::option::Option<GpuSharingConfig>,
+    /// The configuration for auto installation of GPU driver.
+    #[prost(message, optional, tag = "6")]
+    pub gpu_driver_installation_config: ::core::option::Option<
+        GpuDriverInstallationConfig,
+    >,
 }
 /// GPUSharingConfig represents the GPU sharing configuration for Hardware
 /// Accelerators.
@@ -5216,6 +5376,69 @@ pub mod gpu_sharing_config {
             match value {
                 "GPU_SHARING_STRATEGY_UNSPECIFIED" => Some(Self::Unspecified),
                 "TIME_SHARING" => Some(Self::TimeSharing),
+                _ => None,
+            }
+        }
+    }
+}
+/// GPUDriverInstallationConfig specifies the version of GPU driver to be auto
+/// installed.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GpuDriverInstallationConfig {
+    /// Mode for how the GPU driver is installed.
+    #[prost(
+        enumeration = "gpu_driver_installation_config::GpuDriverVersion",
+        optional,
+        tag = "1"
+    )]
+    pub gpu_driver_version: ::core::option::Option<i32>,
+}
+/// Nested message and enum types in `GPUDriverInstallationConfig`.
+pub mod gpu_driver_installation_config {
+    /// The GPU driver version to install.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum GpuDriverVersion {
+        /// Default value is to not install any GPU driver.
+        Unspecified = 0,
+        /// Disable GPU driver auto installation and needs manual installation
+        InstallationDisabled = 1,
+        /// "Default" GPU driver in COS and Ubuntu.
+        Default = 2,
+        /// "Latest" GPU driver in COS.
+        Latest = 3,
+    }
+    impl GpuDriverVersion {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                GpuDriverVersion::Unspecified => "GPU_DRIVER_VERSION_UNSPECIFIED",
+                GpuDriverVersion::InstallationDisabled => "INSTALLATION_DISABLED",
+                GpuDriverVersion::Default => "DEFAULT",
+                GpuDriverVersion::Latest => "LATEST",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "GPU_DRIVER_VERSION_UNSPECIFIED" => Some(Self::Unspecified),
+                "INSTALLATION_DISABLED" => Some(Self::InstallationDisabled),
+                "DEFAULT" => Some(Self::Default),
+                "LATEST" => Some(Self::Latest),
                 _ => None,
             }
         }
@@ -5630,9 +5853,71 @@ pub struct NetworkConfig {
     /// cluster.
     #[prost(message, optional, tag = "16")]
     pub gateway_api_config: ::core::option::Option<GatewayApiConfig>,
+    /// Network bandwidth tier configuration.
+    #[prost(message, optional, tag = "18")]
+    pub network_performance_config: ::core::option::Option<
+        network_config::ClusterNetworkPerformanceConfig,
+    >,
     /// Whether FQDN Network Policy is enabled on this cluster.
     #[prost(bool, optional, tag = "19")]
     pub enable_fqdn_network_policy: ::core::option::Option<bool>,
+}
+/// Nested message and enum types in `NetworkConfig`.
+pub mod network_config {
+    /// Configuration of all network bandwidth tiers
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ClusterNetworkPerformanceConfig {
+        /// Specifies the total network bandwidth tier for the NodePool.
+        #[prost(
+            enumeration = "cluster_network_performance_config::Tier",
+            optional,
+            tag = "1"
+        )]
+        pub total_egress_bandwidth_tier: ::core::option::Option<i32>,
+    }
+    /// Nested message and enum types in `ClusterNetworkPerformanceConfig`.
+    pub mod cluster_network_performance_config {
+        /// Node network tier
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum Tier {
+            /// Default value
+            Unspecified = 0,
+            /// Higher bandwidth, actual values based on VM size.
+            Tier1 = 1,
+        }
+        impl Tier {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    Tier::Unspecified => "TIER_UNSPECIFIED",
+                    Tier::Tier1 => "TIER_1",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "TIER_UNSPECIFIED" => Some(Self::Unspecified),
+                    "TIER_1" => Some(Self::Tier1),
+                    _ => None,
+                }
+            }
+        }
+    }
 }
 /// GatewayAPIConfig contains the desired config of Gateway API on this cluster.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -5914,6 +6199,8 @@ pub mod dns_config {
         PlatformDefault = 1,
         /// Use CloudDNS for DNS resolution.
         CloudDns = 2,
+        /// Use KubeDNS for DNS resolution.
+        KubeDns = 3,
     }
     impl Provider {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -5925,6 +6212,7 @@ pub mod dns_config {
                 Provider::Unspecified => "PROVIDER_UNSPECIFIED",
                 Provider::PlatformDefault => "PLATFORM_DEFAULT",
                 Provider::CloudDns => "CLOUD_DNS",
+                Provider::KubeDns => "KUBE_DNS",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -5933,6 +6221,7 @@ pub mod dns_config {
                 "PROVIDER_UNSPECIFIED" => Some(Self::Unspecified),
                 "PLATFORM_DEFAULT" => Some(Self::PlatformDefault),
                 "CLOUD_DNS" => Some(Self::CloudDns),
+                "KUBE_DNS" => Some(Self::KubeDns),
                 _ => None,
             }
         }
@@ -6472,6 +6761,18 @@ pub struct Autopilot {
     /// Enable Autopilot
     #[prost(bool, tag = "1")]
     pub enabled: bool,
+    /// Workload policy configuration for Autopilot.
+    #[prost(message, optional, tag = "2")]
+    pub workload_policy_config: ::core::option::Option<WorkloadPolicyConfig>,
+}
+/// WorkloadPolicyConfig is the configuration of workload policy for autopilot
+/// clusters.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorkloadPolicyConfig {
+    /// If true, workloads can use NET_ADMIN capability.
+    #[prost(bool, optional, tag = "1")]
+    pub allow_net_admin: ::core::option::Option<bool>,
 }
 /// NotificationConfig is the configuration of notifications.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -6757,6 +7058,76 @@ pub struct MonitoringConfig {
     /// in the cluster.
     #[prost(message, optional, tag = "2")]
     pub managed_prometheus_config: ::core::option::Option<ManagedPrometheusConfig>,
+    /// Configuration of Advanced Datapath Observability features.
+    #[prost(message, optional, tag = "3")]
+    pub advanced_datapath_observability_config: ::core::option::Option<
+        AdvancedDatapathObservabilityConfig,
+    >,
+}
+/// AdvancedDatapathObservabilityConfig specifies configuration of observability
+/// features of advanced datapath.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AdvancedDatapathObservabilityConfig {
+    /// Expose flow metrics on nodes
+    #[prost(bool, tag = "1")]
+    pub enable_metrics: bool,
+    /// Method used to make Relay available
+    #[prost(
+        enumeration = "advanced_datapath_observability_config::RelayMode",
+        tag = "2"
+    )]
+    pub relay_mode: i32,
+}
+/// Nested message and enum types in `AdvancedDatapathObservabilityConfig`.
+pub mod advanced_datapath_observability_config {
+    /// Supported Relay modes
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum RelayMode {
+        /// Default value. This shouldn't be used.
+        Unspecified = 0,
+        /// disabled
+        Disabled = 1,
+        /// exposed via internal load balancer
+        InternalVpcLb = 3,
+        /// exposed via external load balancer
+        ExternalLb = 4,
+    }
+    impl RelayMode {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                RelayMode::Unspecified => "RELAY_MODE_UNSPECIFIED",
+                RelayMode::Disabled => "DISABLED",
+                RelayMode::InternalVpcLb => "INTERNAL_VPC_LB",
+                RelayMode::ExternalLb => "EXTERNAL_LB",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "RELAY_MODE_UNSPECIFIED" => Some(Self::Unspecified),
+                "DISABLED" => Some(Self::Disabled),
+                "INTERNAL_VPC_LB" => Some(Self::InternalVpcLb),
+                "EXTERNAL_LB" => Some(Self::ExternalLb),
+                _ => None,
+            }
+        }
+    }
 }
 /// NodePoolLoggingConfig specifies logging configuration for nodepools.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -7160,12 +7531,31 @@ pub mod cluster_manager_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Lists all clusters owned by a project in either the specified zone or all
         /// zones.
         pub async fn list_clusters(
             &mut self,
             request: impl tonic::IntoRequest<super::ListClustersRequest>,
-        ) -> Result<tonic::Response<super::ListClustersResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListClustersResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -7179,13 +7569,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/ListClusters",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "ListClusters",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the details for a specific cluster.
         pub async fn get_cluster(
             &mut self,
             request: impl tonic::IntoRequest<super::GetClusterRequest>,
-        ) -> Result<tonic::Response<super::Cluster>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Cluster>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7199,7 +7597,15 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/GetCluster",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "GetCluster",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a cluster, consisting of the specified number and type of Google
         /// Compute Engine instances.
@@ -7218,7 +7624,7 @@ pub mod cluster_manager_client {
         pub async fn create_cluster(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateClusterRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7232,13 +7638,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/CreateCluster",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "CreateCluster",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the settings for a specific cluster.
         pub async fn update_cluster(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateClusterRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7252,13 +7666,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/UpdateCluster",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "UpdateCluster",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the version and/or image type of a specific node pool.
         pub async fn update_node_pool(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateNodePoolRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7272,13 +7694,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/UpdateNodePool",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "UpdateNodePool",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Sets the autoscaling settings of a specific node pool.
         pub async fn set_node_pool_autoscaling(
             &mut self,
             request: impl tonic::IntoRequest<super::SetNodePoolAutoscalingRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7292,13 +7722,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/SetNodePoolAutoscaling",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "SetNodePoolAutoscaling",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Sets the logging service for a specific cluster.
         pub async fn set_logging_service(
             &mut self,
             request: impl tonic::IntoRequest<super::SetLoggingServiceRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7312,13 +7750,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/SetLoggingService",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "SetLoggingService",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Sets the monitoring service for a specific cluster.
         pub async fn set_monitoring_service(
             &mut self,
             request: impl tonic::IntoRequest<super::SetMonitoringServiceRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7332,13 +7778,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/SetMonitoringService",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "SetMonitoringService",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Sets the addons for a specific cluster.
         pub async fn set_addons_config(
             &mut self,
             request: impl tonic::IntoRequest<super::SetAddonsConfigRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7352,7 +7806,15 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/SetAddonsConfig",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "SetAddonsConfig",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Sets the locations for a specific cluster.
         /// Deprecated. Use
@@ -7361,7 +7823,7 @@ pub mod cluster_manager_client {
         pub async fn set_locations(
             &mut self,
             request: impl tonic::IntoRequest<super::SetLocationsRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7375,13 +7837,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/SetLocations",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "SetLocations",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the master for a specific cluster.
         pub async fn update_master(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateMasterRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7395,7 +7865,15 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/UpdateMaster",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "UpdateMaster",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Sets master auth materials. Currently supports changing the admin password
         /// or a specific cluster, either via password generation or explicitly setting
@@ -7403,7 +7881,7 @@ pub mod cluster_manager_client {
         pub async fn set_master_auth(
             &mut self,
             request: impl tonic::IntoRequest<super::SetMasterAuthRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7417,7 +7895,15 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/SetMasterAuth",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "SetMasterAuth",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes the cluster, including the Kubernetes endpoint and all worker
         /// nodes.
@@ -7431,7 +7917,7 @@ pub mod cluster_manager_client {
         pub async fn delete_cluster(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteClusterRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7445,13 +7931,24 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/DeleteCluster",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "DeleteCluster",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists all operations in a project in the specified zone or all zones.
         pub async fn list_operations(
             &mut self,
             request: impl tonic::IntoRequest<super::ListOperationsRequest>,
-        ) -> Result<tonic::Response<super::ListOperationsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListOperationsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -7465,13 +7962,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/ListOperations",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "ListOperations",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the specified operation.
         pub async fn get_operation(
             &mut self,
             request: impl tonic::IntoRequest<super::GetOperationRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7485,13 +7990,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/GetOperation",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "GetOperation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Cancels the specified operation.
         pub async fn cancel_operation(
             &mut self,
             request: impl tonic::IntoRequest<super::CancelOperationRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7505,13 +8018,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/CancelOperation",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "CancelOperation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns configuration info about the Google Kubernetes Engine service.
         pub async fn get_server_config(
             &mut self,
             request: impl tonic::IntoRequest<super::GetServerConfigRequest>,
-        ) -> Result<tonic::Response<super::ServerConfig>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::ServerConfig>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7525,7 +8046,15 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/GetServerConfig",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "GetServerConfig",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the public component of the cluster signing keys in
         /// JSON Web Key format.
@@ -7534,7 +8063,10 @@ pub mod cluster_manager_client {
         pub async fn get_json_web_keys(
             &mut self,
             request: impl tonic::IntoRequest<super::GetJsonWebKeysRequest>,
-        ) -> Result<tonic::Response<super::GetJsonWebKeysResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::GetJsonWebKeysResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -7548,13 +8080,24 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/GetJSONWebKeys",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "GetJSONWebKeys",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists the node pools for a cluster.
         pub async fn list_node_pools(
             &mut self,
             request: impl tonic::IntoRequest<super::ListNodePoolsRequest>,
-        ) -> Result<tonic::Response<super::ListNodePoolsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListNodePoolsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -7568,13 +8111,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/ListNodePools",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "ListNodePools",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Retrieves the requested node pool.
         pub async fn get_node_pool(
             &mut self,
             request: impl tonic::IntoRequest<super::GetNodePoolRequest>,
-        ) -> Result<tonic::Response<super::NodePool>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::NodePool>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7588,13 +8139,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/GetNodePool",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "GetNodePool",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a node pool for a cluster.
         pub async fn create_node_pool(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateNodePoolRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7608,13 +8167,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/CreateNodePool",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "CreateNodePool",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a node pool from a cluster.
         pub async fn delete_node_pool(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteNodePoolRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7628,14 +8195,22 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/DeleteNodePool",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "DeleteNodePool",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// CompleteNodePoolUpgrade will signal an on-going node pool upgrade to
         /// complete.
         pub async fn complete_node_pool_upgrade(
             &mut self,
             request: impl tonic::IntoRequest<super::CompleteNodePoolUpgradeRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7649,14 +8224,22 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/CompleteNodePoolUpgrade",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "CompleteNodePoolUpgrade",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Rolls back a previously Aborted or Failed NodePool upgrade.
         /// This makes no changes if the last upgrade successfully completed.
         pub async fn rollback_node_pool_upgrade(
             &mut self,
             request: impl tonic::IntoRequest<super::RollbackNodePoolUpgradeRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7670,13 +8253,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/RollbackNodePoolUpgrade",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "RollbackNodePoolUpgrade",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Sets the NodeManagement options for a node pool.
         pub async fn set_node_pool_management(
             &mut self,
             request: impl tonic::IntoRequest<super::SetNodePoolManagementRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7690,13 +8281,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/SetNodePoolManagement",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "SetNodePoolManagement",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Sets labels on a cluster.
         pub async fn set_labels(
             &mut self,
             request: impl tonic::IntoRequest<super::SetLabelsRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7710,13 +8309,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/SetLabels",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "SetLabels",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Enables or disables the ABAC authorization mechanism on a cluster.
         pub async fn set_legacy_abac(
             &mut self,
             request: impl tonic::IntoRequest<super::SetLegacyAbacRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7730,13 +8337,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/SetLegacyAbac",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "SetLegacyAbac",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Starts master IP rotation.
         pub async fn start_ip_rotation(
             &mut self,
             request: impl tonic::IntoRequest<super::StartIpRotationRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7750,13 +8365,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/StartIPRotation",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "StartIPRotation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Completes master IP rotation.
         pub async fn complete_ip_rotation(
             &mut self,
             request: impl tonic::IntoRequest<super::CompleteIpRotationRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7770,7 +8393,15 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/CompleteIPRotation",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "CompleteIPRotation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// SetNodePoolSizeRequest sets the size of a node pool. The new size will be
         /// used for all replicas, including future replicas created by modifying
@@ -7778,7 +8409,7 @@ pub mod cluster_manager_client {
         pub async fn set_node_pool_size(
             &mut self,
             request: impl tonic::IntoRequest<super::SetNodePoolSizeRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7792,13 +8423,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/SetNodePoolSize",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "SetNodePoolSize",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Enables or disables Network Policy for a cluster.
         pub async fn set_network_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::SetNetworkPolicyRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7812,13 +8451,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/SetNetworkPolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "SetNetworkPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Sets the maintenance policy for a cluster.
         pub async fn set_maintenance_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::SetMaintenancePolicyRequest>,
-        ) -> Result<tonic::Response<super::Operation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -7832,13 +8479,21 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/SetMaintenancePolicy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "SetMaintenancePolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists subnetworks that can be used for creating clusters in a project.
         pub async fn list_usable_subnetworks(
             &mut self,
             request: impl tonic::IntoRequest<super::ListUsableSubnetworksRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListUsableSubnetworksResponse>,
             tonic::Status,
         > {
@@ -7855,14 +8510,22 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/ListUsableSubnetworks",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "ListUsableSubnetworks",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Checks the cluster compatibility with Autopilot mode, and returns a list of
         /// compatibility issues.
         pub async fn check_autopilot_compatibility(
             &mut self,
             request: impl tonic::IntoRequest<super::CheckAutopilotCompatibilityRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::CheckAutopilotCompatibilityResponse>,
             tonic::Status,
         > {
@@ -7879,13 +8542,24 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/CheckAutopilotCompatibility",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "CheckAutopilotCompatibility",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Fetches locations that offer Google Kubernetes Engine.
         pub async fn list_locations(
             &mut self,
             request: impl tonic::IntoRequest<super::ListLocationsRequest>,
-        ) -> Result<tonic::Response<super::ListLocationsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListLocationsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -7899,7 +8573,15 @@ pub mod cluster_manager_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.container.v1beta1.ClusterManager/ListLocations",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.container.v1beta1.ClusterManager",
+                        "ListLocations",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

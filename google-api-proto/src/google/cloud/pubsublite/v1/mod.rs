@@ -579,6 +579,22 @@ pub mod publisher_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Establishes a stream with the server for publishing messages. Once the
         /// stream is initialized, the client publishes messages by sending publish
         /// requests on the stream. The server responds with a PublishResponse for each
@@ -589,7 +605,7 @@ pub mod publisher_service_client {
         pub async fn publish(
             &mut self,
             request: impl tonic::IntoStreamingRequest<Message = super::PublishRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<tonic::codec::Streaming<super::PublishResponse>>,
             tonic::Status,
         > {
@@ -606,285 +622,15 @@ pub mod publisher_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.PublisherService/Publish",
             );
-            self.inner.streaming(request.into_streaming_request(), path, codec).await
-        }
-    }
-}
-/// The first streaming request that must be sent on a newly-opened stream. The
-/// client must wait for the response before sending subsequent requests on the
-/// stream.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct InitialCommitCursorRequest {
-    /// The subscription for which to manage committed cursors.
-    #[prost(string, tag = "1")]
-    pub subscription: ::prost::alloc::string::String,
-    /// The partition for which to manage committed cursors. Partitions are zero
-    /// indexed, so `partition` must be in the range [0, topic.num_partitions).
-    #[prost(int64, tag = "2")]
-    pub partition: i64,
-}
-/// Response to an InitialCommitCursorRequest.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct InitialCommitCursorResponse {}
-/// Streaming request to update the committed cursor. Subsequent
-/// SequencedCommitCursorRequests override outstanding ones.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SequencedCommitCursorRequest {
-    /// The new value for the committed cursor.
-    #[prost(message, optional, tag = "1")]
-    pub cursor: ::core::option::Option<Cursor>,
-}
-/// Response to a SequencedCommitCursorRequest.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SequencedCommitCursorResponse {
-    /// The number of outstanding SequencedCommitCursorRequests acknowledged by
-    /// this response. Note that SequencedCommitCursorRequests are acknowledged in
-    /// the order that they are received.
-    #[prost(int64, tag = "1")]
-    pub acknowledged_commits: i64,
-}
-/// A request sent from the client to the server on a stream.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StreamingCommitCursorRequest {
-    /// The type of request this is.
-    #[prost(oneof = "streaming_commit_cursor_request::Request", tags = "1, 2")]
-    pub request: ::core::option::Option<streaming_commit_cursor_request::Request>,
-}
-/// Nested message and enum types in `StreamingCommitCursorRequest`.
-pub mod streaming_commit_cursor_request {
-    /// The type of request this is.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Request {
-        /// Initial request on the stream.
-        #[prost(message, tag = "1")]
-        Initial(super::InitialCommitCursorRequest),
-        /// Request to commit a new cursor value.
-        #[prost(message, tag = "2")]
-        Commit(super::SequencedCommitCursorRequest),
-    }
-}
-/// Response to a StreamingCommitCursorRequest.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StreamingCommitCursorResponse {
-    /// The type of request this is.
-    #[prost(oneof = "streaming_commit_cursor_response::Request", tags = "1, 2")]
-    pub request: ::core::option::Option<streaming_commit_cursor_response::Request>,
-}
-/// Nested message and enum types in `StreamingCommitCursorResponse`.
-pub mod streaming_commit_cursor_response {
-    /// The type of request this is.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Request {
-        /// Initial response on the stream.
-        #[prost(message, tag = "1")]
-        Initial(super::InitialCommitCursorResponse),
-        /// Response to committing a new cursor value.
-        #[prost(message, tag = "2")]
-        Commit(super::SequencedCommitCursorResponse),
-    }
-}
-/// Request for CommitCursor.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CommitCursorRequest {
-    /// The subscription for which to update the cursor.
-    #[prost(string, tag = "1")]
-    pub subscription: ::prost::alloc::string::String,
-    /// The partition for which to update the cursor. Partitions are zero indexed,
-    /// so `partition` must be in the range [0, topic.num_partitions).
-    #[prost(int64, tag = "2")]
-    pub partition: i64,
-    /// The new value for the committed cursor.
-    #[prost(message, optional, tag = "3")]
-    pub cursor: ::core::option::Option<Cursor>,
-}
-/// Response for CommitCursor.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CommitCursorResponse {}
-/// Request for ListPartitionCursors.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListPartitionCursorsRequest {
-    /// Required. The subscription for which to retrieve cursors.
-    /// Structured like
-    /// `projects/{project_number}/locations/{location}/subscriptions/{subscription_id}`.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The maximum number of cursors to return. The service may return fewer than
-    /// this value.
-    /// If unset or zero, all cursors for the parent will be returned.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A page token, received from a previous `ListPartitionCursors` call.
-    /// Provide this to retrieve the subsequent page.
-    ///
-    /// When paginating, all other parameters provided to `ListPartitionCursors`
-    /// must match the call that provided the page token.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// A pair of a Cursor and the partition it is for.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PartitionCursor {
-    /// The partition this is for.
-    #[prost(int64, tag = "1")]
-    pub partition: i64,
-    /// The value of the cursor.
-    #[prost(message, optional, tag = "2")]
-    pub cursor: ::core::option::Option<Cursor>,
-}
-/// Response for ListPartitionCursors
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListPartitionCursorsResponse {
-    /// The partition cursors from this request.
-    #[prost(message, repeated, tag = "1")]
-    pub partition_cursors: ::prost::alloc::vec::Vec<PartitionCursor>,
-    /// A token, which can be sent as `page_token` to retrieve the next page.
-    /// If this field is omitted, there are no subsequent pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Generated client implementations.
-pub mod cursor_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// The service that a subscriber client application uses to manage committed
-    /// cursors while receiving messsages. A cursor represents a subscriber's
-    /// progress within a topic partition for a given subscription.
-    #[derive(Debug, Clone)]
-    pub struct CursorServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> CursorServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> CursorServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            CursorServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Establishes a stream with the server for managing committed cursors.
-        pub async fn streaming_commit_cursor(
-            &mut self,
-            request: impl tonic::IntoStreamingRequest<
-                Message = super::StreamingCommitCursorRequest,
-            >,
-        ) -> Result<
-            tonic::Response<
-                tonic::codec::Streaming<super::StreamingCommitCursorResponse>,
-            >,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.pubsublite.v1.CursorService/StreamingCommitCursor",
-            );
-            self.inner.streaming(request.into_streaming_request(), path, codec).await
-        }
-        /// Updates the committed cursor.
-        pub async fn commit_cursor(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CommitCursorRequest>,
-        ) -> Result<tonic::Response<super::CommitCursorResponse>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.pubsublite.v1.CursorService/CommitCursor",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Returns all committed cursor information for a subscription.
-        pub async fn list_partition_cursors(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListPartitionCursorsRequest>,
-        ) -> Result<
-            tonic::Response<super::ListPartitionCursorsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.pubsublite.v1.CursorService/ListPartitionCursors",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_streaming_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.PublisherService",
+                        "Publish",
+                    ),
+                );
+            self.inner.streaming(req, path, codec).await
         }
     }
 }
@@ -1192,11 +938,27 @@ pub mod subscriber_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Establishes a stream with the server for receiving messages.
         pub async fn subscribe(
             &mut self,
             request: impl tonic::IntoStreamingRequest<Message = super::SubscribeRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<tonic::codec::Streaming<super::SubscribeResponse>>,
             tonic::Status,
         > {
@@ -1213,7 +975,15 @@ pub mod subscriber_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.SubscriberService/Subscribe",
             );
-            self.inner.streaming(request.into_streaming_request(), path, codec).await
+            let mut req = request.into_streaming_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.SubscriberService",
+                        "Subscribe",
+                    ),
+                );
+            self.inner.streaming(req, path, codec).await
         }
     }
 }
@@ -1279,6 +1049,22 @@ pub mod partition_assignment_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Assign partitions for this client to handle for the specified subscription.
         ///
         /// The client must send an InitialPartitionAssignmentRequest first.
@@ -1291,7 +1077,7 @@ pub mod partition_assignment_service_client {
             request: impl tonic::IntoStreamingRequest<
                 Message = super::PartitionAssignmentRequest,
             >,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<tonic::codec::Streaming<super::PartitionAssignment>>,
             tonic::Status,
         > {
@@ -1308,221 +1094,15 @@ pub mod partition_assignment_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.PartitionAssignmentService/AssignPartitions",
             );
-            self.inner.streaming(request.into_streaming_request(), path, codec).await
-        }
-    }
-}
-/// Compute statistics about a range of messages in a given topic and partition.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ComputeMessageStatsRequest {
-    /// Required. The topic for which we should compute message stats.
-    #[prost(string, tag = "1")]
-    pub topic: ::prost::alloc::string::String,
-    /// Required. The partition for which we should compute message stats.
-    #[prost(int64, tag = "2")]
-    pub partition: i64,
-    /// The inclusive start of the range.
-    #[prost(message, optional, tag = "3")]
-    pub start_cursor: ::core::option::Option<Cursor>,
-    /// The exclusive end of the range. The range is empty if end_cursor <=
-    /// start_cursor. Specifying a start_cursor before the first message and an
-    /// end_cursor after the last message will retrieve all messages.
-    #[prost(message, optional, tag = "4")]
-    pub end_cursor: ::core::option::Option<Cursor>,
-}
-/// Response containing stats for messages in the requested topic and partition.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ComputeMessageStatsResponse {
-    /// The count of messages.
-    #[prost(int64, tag = "1")]
-    pub message_count: i64,
-    /// The number of quota bytes accounted to these messages.
-    #[prost(int64, tag = "2")]
-    pub message_bytes: i64,
-    /// The minimum publish timestamp across these messages. Note that publish
-    /// timestamps within a partition are not guaranteed to be non-decreasing. The
-    /// timestamp will be unset if there are no messages.
-    #[prost(message, optional, tag = "3")]
-    pub minimum_publish_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The minimum event timestamp across these messages. For the purposes of this
-    /// computation, if a message does not have an event time, we use the publish
-    /// time. The timestamp will be unset if there are no messages.
-    #[prost(message, optional, tag = "4")]
-    pub minimum_event_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Compute the current head cursor for a partition.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ComputeHeadCursorRequest {
-    /// Required. The topic for which we should compute the head cursor.
-    #[prost(string, tag = "1")]
-    pub topic: ::prost::alloc::string::String,
-    /// Required. The partition for which we should compute the head cursor.
-    #[prost(int64, tag = "2")]
-    pub partition: i64,
-}
-/// Response containing the head cursor for the requested topic and partition.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ComputeHeadCursorResponse {
-    /// The head cursor.
-    #[prost(message, optional, tag = "1")]
-    pub head_cursor: ::core::option::Option<Cursor>,
-}
-/// Compute the corresponding cursor for a publish or event time in a topic
-/// partition.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ComputeTimeCursorRequest {
-    /// Required. The topic for which we should compute the cursor.
-    #[prost(string, tag = "1")]
-    pub topic: ::prost::alloc::string::String,
-    /// Required. The partition for which we should compute the cursor.
-    #[prost(int64, tag = "2")]
-    pub partition: i64,
-    /// Required. The target publish or event time. Specifying a future time will
-    /// return an unset cursor.
-    #[prost(message, optional, tag = "3")]
-    pub target: ::core::option::Option<TimeTarget>,
-}
-/// Response containing the cursor corresponding to a publish or event time in a
-/// topic partition.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ComputeTimeCursorResponse {
-    /// If present, the cursor references the first message with time greater than
-    /// or equal to the specified target time. If such a message cannot be found,
-    /// the cursor will be unset (i.e. `cursor` is not present).
-    #[prost(message, optional, tag = "1")]
-    pub cursor: ::core::option::Option<Cursor>,
-}
-/// Generated client implementations.
-pub mod topic_stats_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// This service allows users to get stats about messages in their topic.
-    #[derive(Debug, Clone)]
-    pub struct TopicStatsServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> TopicStatsServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> TopicStatsServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            TopicStatsServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Compute statistics about a range of messages in a given topic and
-        /// partition.
-        pub async fn compute_message_stats(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ComputeMessageStatsRequest>,
-        ) -> Result<tonic::Response<super::ComputeMessageStatsResponse>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.pubsublite.v1.TopicStatsService/ComputeMessageStats",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Compute the head cursor for the partition.
-        /// The head cursor's offset is guaranteed to be less than or equal to all
-        /// messages which have not yet been acknowledged as published, and
-        /// greater than the offset of any message whose publish has already
-        /// been acknowledged. It is zero if there have never been messages in the
-        /// partition.
-        pub async fn compute_head_cursor(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ComputeHeadCursorRequest>,
-        ) -> Result<tonic::Response<super::ComputeHeadCursorResponse>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.pubsublite.v1.TopicStatsService/ComputeHeadCursor",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
-        }
-        /// Compute the corresponding cursor for a publish or event time in a topic
-        /// partition.
-        pub async fn compute_time_cursor(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ComputeTimeCursorRequest>,
-        ) -> Result<tonic::Response<super::ComputeTimeCursorResponse>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.pubsublite.v1.TopicStatsService/ComputeTimeCursor",
-            );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_streaming_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.PartitionAssignmentService",
+                        "AssignPartitions",
+                    ),
+                );
+            self.inner.streaming(req, path, codec).await
         }
     }
 }
@@ -2015,11 +1595,27 @@ pub mod admin_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Creates a new topic.
         pub async fn create_topic(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateTopicRequest>,
-        ) -> Result<tonic::Response<super::Topic>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Topic>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2033,13 +1629,21 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/CreateTopic",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "CreateTopic",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns the topic configuration.
         pub async fn get_topic(
             &mut self,
             request: impl tonic::IntoRequest<super::GetTopicRequest>,
-        ) -> Result<tonic::Response<super::Topic>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Topic>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2053,13 +1657,24 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/GetTopic",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "GetTopic",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns the partition information for the requested topic.
         pub async fn get_topic_partitions(
             &mut self,
             request: impl tonic::IntoRequest<super::GetTopicPartitionsRequest>,
-        ) -> Result<tonic::Response<super::TopicPartitions>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::TopicPartitions>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2073,13 +1688,24 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/GetTopicPartitions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "GetTopicPartitions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns the list of topics for the given project.
         pub async fn list_topics(
             &mut self,
             request: impl tonic::IntoRequest<super::ListTopicsRequest>,
-        ) -> Result<tonic::Response<super::ListTopicsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListTopicsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2093,13 +1719,21 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/ListTopics",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "ListTopics",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates properties of the specified topic.
         pub async fn update_topic(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateTopicRequest>,
-        ) -> Result<tonic::Response<super::Topic>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Topic>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2113,13 +1747,21 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/UpdateTopic",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "UpdateTopic",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes the specified topic.
         pub async fn delete_topic(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteTopicRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2133,13 +1775,21 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/DeleteTopic",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "DeleteTopic",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists the subscriptions attached to the specified topic.
         pub async fn list_topic_subscriptions(
             &mut self,
             request: impl tonic::IntoRequest<super::ListTopicSubscriptionsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListTopicSubscriptionsResponse>,
             tonic::Status,
         > {
@@ -2156,13 +1806,21 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/ListTopicSubscriptions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "ListTopicSubscriptions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a new subscription.
         pub async fn create_subscription(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateSubscriptionRequest>,
-        ) -> Result<tonic::Response<super::Subscription>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Subscription>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2176,13 +1834,21 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/CreateSubscription",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "CreateSubscription",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns the subscription configuration.
         pub async fn get_subscription(
             &mut self,
             request: impl tonic::IntoRequest<super::GetSubscriptionRequest>,
-        ) -> Result<tonic::Response<super::Subscription>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Subscription>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2196,13 +1862,24 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/GetSubscription",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "GetSubscription",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns the list of subscriptions for the given project.
         pub async fn list_subscriptions(
             &mut self,
             request: impl tonic::IntoRequest<super::ListSubscriptionsRequest>,
-        ) -> Result<tonic::Response<super::ListSubscriptionsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListSubscriptionsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2216,13 +1893,21 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/ListSubscriptions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "ListSubscriptions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates properties of the specified subscription.
         pub async fn update_subscription(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateSubscriptionRequest>,
-        ) -> Result<tonic::Response<super::Subscription>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Subscription>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2236,13 +1921,21 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/UpdateSubscription",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "UpdateSubscription",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes the specified subscription.
         pub async fn delete_subscription(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteSubscriptionRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2256,7 +1949,15 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/DeleteSubscription",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "DeleteSubscription",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Performs an out-of-band seek for a subscription to a specified target,
         /// which may be timestamps or named positions within the message backlog.
@@ -2282,7 +1983,7 @@ pub mod admin_service_client {
         pub async fn seek_subscription(
             &mut self,
             request: impl tonic::IntoRequest<super::SeekSubscriptionRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -2299,13 +2000,21 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/SeekSubscription",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "SeekSubscription",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a new reservation.
         pub async fn create_reservation(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateReservationRequest>,
-        ) -> Result<tonic::Response<super::Reservation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Reservation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2319,13 +2028,21 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/CreateReservation",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "CreateReservation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns the reservation configuration.
         pub async fn get_reservation(
             &mut self,
             request: impl tonic::IntoRequest<super::GetReservationRequest>,
-        ) -> Result<tonic::Response<super::Reservation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Reservation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2339,13 +2056,24 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/GetReservation",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "GetReservation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns the list of reservations for the given project.
         pub async fn list_reservations(
             &mut self,
             request: impl tonic::IntoRequest<super::ListReservationsRequest>,
-        ) -> Result<tonic::Response<super::ListReservationsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListReservationsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -2359,13 +2087,21 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/ListReservations",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "ListReservations",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates properties of the specified reservation.
         pub async fn update_reservation(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateReservationRequest>,
-        ) -> Result<tonic::Response<super::Reservation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Reservation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2379,13 +2115,21 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/UpdateReservation",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "UpdateReservation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes the specified reservation.
         pub async fn delete_reservation(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteReservationRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2399,13 +2143,21 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/DeleteReservation",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "DeleteReservation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists the topics attached to the specified reservation.
         pub async fn list_reservation_topics(
             &mut self,
             request: impl tonic::IntoRequest<super::ListReservationTopicsRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::ListReservationTopicsResponse>,
             tonic::Status,
         > {
@@ -2422,7 +2174,599 @@ pub mod admin_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.pubsublite.v1.AdminService/ListReservationTopics",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.AdminService",
+                        "ListReservationTopics",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// The first streaming request that must be sent on a newly-opened stream. The
+/// client must wait for the response before sending subsequent requests on the
+/// stream.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct InitialCommitCursorRequest {
+    /// The subscription for which to manage committed cursors.
+    #[prost(string, tag = "1")]
+    pub subscription: ::prost::alloc::string::String,
+    /// The partition for which to manage committed cursors. Partitions are zero
+    /// indexed, so `partition` must be in the range [0, topic.num_partitions).
+    #[prost(int64, tag = "2")]
+    pub partition: i64,
+}
+/// Response to an InitialCommitCursorRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct InitialCommitCursorResponse {}
+/// Streaming request to update the committed cursor. Subsequent
+/// SequencedCommitCursorRequests override outstanding ones.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SequencedCommitCursorRequest {
+    /// The new value for the committed cursor.
+    #[prost(message, optional, tag = "1")]
+    pub cursor: ::core::option::Option<Cursor>,
+}
+/// Response to a SequencedCommitCursorRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SequencedCommitCursorResponse {
+    /// The number of outstanding SequencedCommitCursorRequests acknowledged by
+    /// this response. Note that SequencedCommitCursorRequests are acknowledged in
+    /// the order that they are received.
+    #[prost(int64, tag = "1")]
+    pub acknowledged_commits: i64,
+}
+/// A request sent from the client to the server on a stream.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StreamingCommitCursorRequest {
+    /// The type of request this is.
+    #[prost(oneof = "streaming_commit_cursor_request::Request", tags = "1, 2")]
+    pub request: ::core::option::Option<streaming_commit_cursor_request::Request>,
+}
+/// Nested message and enum types in `StreamingCommitCursorRequest`.
+pub mod streaming_commit_cursor_request {
+    /// The type of request this is.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Request {
+        /// Initial request on the stream.
+        #[prost(message, tag = "1")]
+        Initial(super::InitialCommitCursorRequest),
+        /// Request to commit a new cursor value.
+        #[prost(message, tag = "2")]
+        Commit(super::SequencedCommitCursorRequest),
+    }
+}
+/// Response to a StreamingCommitCursorRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StreamingCommitCursorResponse {
+    /// The type of request this is.
+    #[prost(oneof = "streaming_commit_cursor_response::Request", tags = "1, 2")]
+    pub request: ::core::option::Option<streaming_commit_cursor_response::Request>,
+}
+/// Nested message and enum types in `StreamingCommitCursorResponse`.
+pub mod streaming_commit_cursor_response {
+    /// The type of request this is.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Request {
+        /// Initial response on the stream.
+        #[prost(message, tag = "1")]
+        Initial(super::InitialCommitCursorResponse),
+        /// Response to committing a new cursor value.
+        #[prost(message, tag = "2")]
+        Commit(super::SequencedCommitCursorResponse),
+    }
+}
+/// Request for CommitCursor.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CommitCursorRequest {
+    /// The subscription for which to update the cursor.
+    #[prost(string, tag = "1")]
+    pub subscription: ::prost::alloc::string::String,
+    /// The partition for which to update the cursor. Partitions are zero indexed,
+    /// so `partition` must be in the range [0, topic.num_partitions).
+    #[prost(int64, tag = "2")]
+    pub partition: i64,
+    /// The new value for the committed cursor.
+    #[prost(message, optional, tag = "3")]
+    pub cursor: ::core::option::Option<Cursor>,
+}
+/// Response for CommitCursor.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CommitCursorResponse {}
+/// Request for ListPartitionCursors.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListPartitionCursorsRequest {
+    /// Required. The subscription for which to retrieve cursors.
+    /// Structured like
+    /// `projects/{project_number}/locations/{location}/subscriptions/{subscription_id}`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The maximum number of cursors to return. The service may return fewer than
+    /// this value.
+    /// If unset or zero, all cursors for the parent will be returned.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A page token, received from a previous `ListPartitionCursors` call.
+    /// Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to `ListPartitionCursors`
+    /// must match the call that provided the page token.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// A pair of a Cursor and the partition it is for.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PartitionCursor {
+    /// The partition this is for.
+    #[prost(int64, tag = "1")]
+    pub partition: i64,
+    /// The value of the cursor.
+    #[prost(message, optional, tag = "2")]
+    pub cursor: ::core::option::Option<Cursor>,
+}
+/// Response for ListPartitionCursors
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListPartitionCursorsResponse {
+    /// The partition cursors from this request.
+    #[prost(message, repeated, tag = "1")]
+    pub partition_cursors: ::prost::alloc::vec::Vec<PartitionCursor>,
+    /// A token, which can be sent as `page_token` to retrieve the next page.
+    /// If this field is omitted, there are no subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Generated client implementations.
+pub mod cursor_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// The service that a subscriber client application uses to manage committed
+    /// cursors while receiving messsages. A cursor represents a subscriber's
+    /// progress within a topic partition for a given subscription.
+    #[derive(Debug, Clone)]
+    pub struct CursorServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> CursorServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> CursorServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            CursorServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Establishes a stream with the server for managing committed cursors.
+        pub async fn streaming_commit_cursor(
+            &mut self,
+            request: impl tonic::IntoStreamingRequest<
+                Message = super::StreamingCommitCursorRequest,
+            >,
+        ) -> std::result::Result<
+            tonic::Response<
+                tonic::codec::Streaming<super::StreamingCommitCursorResponse>,
+            >,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.pubsublite.v1.CursorService/StreamingCommitCursor",
+            );
+            let mut req = request.into_streaming_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.CursorService",
+                        "StreamingCommitCursor",
+                    ),
+                );
+            self.inner.streaming(req, path, codec).await
+        }
+        /// Updates the committed cursor.
+        pub async fn commit_cursor(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CommitCursorRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::CommitCursorResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.pubsublite.v1.CursorService/CommitCursor",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.CursorService",
+                        "CommitCursor",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Returns all committed cursor information for a subscription.
+        pub async fn list_partition_cursors(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListPartitionCursorsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListPartitionCursorsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.pubsublite.v1.CursorService/ListPartitionCursors",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.CursorService",
+                        "ListPartitionCursors",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Compute statistics about a range of messages in a given topic and partition.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ComputeMessageStatsRequest {
+    /// Required. The topic for which we should compute message stats.
+    #[prost(string, tag = "1")]
+    pub topic: ::prost::alloc::string::String,
+    /// Required. The partition for which we should compute message stats.
+    #[prost(int64, tag = "2")]
+    pub partition: i64,
+    /// The inclusive start of the range.
+    #[prost(message, optional, tag = "3")]
+    pub start_cursor: ::core::option::Option<Cursor>,
+    /// The exclusive end of the range. The range is empty if end_cursor <=
+    /// start_cursor. Specifying a start_cursor before the first message and an
+    /// end_cursor after the last message will retrieve all messages.
+    #[prost(message, optional, tag = "4")]
+    pub end_cursor: ::core::option::Option<Cursor>,
+}
+/// Response containing stats for messages in the requested topic and partition.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ComputeMessageStatsResponse {
+    /// The count of messages.
+    #[prost(int64, tag = "1")]
+    pub message_count: i64,
+    /// The number of quota bytes accounted to these messages.
+    #[prost(int64, tag = "2")]
+    pub message_bytes: i64,
+    /// The minimum publish timestamp across these messages. Note that publish
+    /// timestamps within a partition are not guaranteed to be non-decreasing. The
+    /// timestamp will be unset if there are no messages.
+    #[prost(message, optional, tag = "3")]
+    pub minimum_publish_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The minimum event timestamp across these messages. For the purposes of this
+    /// computation, if a message does not have an event time, we use the publish
+    /// time. The timestamp will be unset if there are no messages.
+    #[prost(message, optional, tag = "4")]
+    pub minimum_event_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Compute the current head cursor for a partition.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ComputeHeadCursorRequest {
+    /// Required. The topic for which we should compute the head cursor.
+    #[prost(string, tag = "1")]
+    pub topic: ::prost::alloc::string::String,
+    /// Required. The partition for which we should compute the head cursor.
+    #[prost(int64, tag = "2")]
+    pub partition: i64,
+}
+/// Response containing the head cursor for the requested topic and partition.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ComputeHeadCursorResponse {
+    /// The head cursor.
+    #[prost(message, optional, tag = "1")]
+    pub head_cursor: ::core::option::Option<Cursor>,
+}
+/// Compute the corresponding cursor for a publish or event time in a topic
+/// partition.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ComputeTimeCursorRequest {
+    /// Required. The topic for which we should compute the cursor.
+    #[prost(string, tag = "1")]
+    pub topic: ::prost::alloc::string::String,
+    /// Required. The partition for which we should compute the cursor.
+    #[prost(int64, tag = "2")]
+    pub partition: i64,
+    /// Required. The target publish or event time. Specifying a future time will
+    /// return an unset cursor.
+    #[prost(message, optional, tag = "3")]
+    pub target: ::core::option::Option<TimeTarget>,
+}
+/// Response containing the cursor corresponding to a publish or event time in a
+/// topic partition.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ComputeTimeCursorResponse {
+    /// If present, the cursor references the first message with time greater than
+    /// or equal to the specified target time. If such a message cannot be found,
+    /// the cursor will be unset (i.e. `cursor` is not present).
+    #[prost(message, optional, tag = "1")]
+    pub cursor: ::core::option::Option<Cursor>,
+}
+/// Generated client implementations.
+pub mod topic_stats_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// This service allows users to get stats about messages in their topic.
+    #[derive(Debug, Clone)]
+    pub struct TopicStatsServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> TopicStatsServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> TopicStatsServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            TopicStatsServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Compute statistics about a range of messages in a given topic and
+        /// partition.
+        pub async fn compute_message_stats(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ComputeMessageStatsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ComputeMessageStatsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.pubsublite.v1.TopicStatsService/ComputeMessageStats",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.TopicStatsService",
+                        "ComputeMessageStats",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Compute the head cursor for the partition.
+        /// The head cursor's offset is guaranteed to be less than or equal to all
+        /// messages which have not yet been acknowledged as published, and
+        /// greater than the offset of any message whose publish has already
+        /// been acknowledged. It is zero if there have never been messages in the
+        /// partition.
+        pub async fn compute_head_cursor(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ComputeHeadCursorRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ComputeHeadCursorResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.pubsublite.v1.TopicStatsService/ComputeHeadCursor",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.TopicStatsService",
+                        "ComputeHeadCursor",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Compute the corresponding cursor for a publish or event time in a topic
+        /// partition.
+        pub async fn compute_time_cursor(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ComputeTimeCursorRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ComputeTimeCursorResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.pubsublite.v1.TopicStatsService/ComputeTimeCursor",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.pubsublite.v1.TopicStatsService",
+                        "ComputeTimeCursor",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

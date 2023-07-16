@@ -509,12 +509,28 @@ pub mod rapid_migration_assessment_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Create a Collector to manage the on-prem appliance which collects
         /// information about Customer assets.
         pub async fn create_collector(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateCollectorRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -531,13 +547,21 @@ pub mod rapid_migration_assessment_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment/CreateCollector",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment",
+                        "CreateCollector",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates an Annotation
         pub async fn create_annotation(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateAnnotationRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -554,13 +578,21 @@ pub mod rapid_migration_assessment_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment/CreateAnnotation",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment",
+                        "CreateAnnotation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets details of a single Annotation.
         pub async fn get_annotation(
             &mut self,
             request: impl tonic::IntoRequest<super::GetAnnotationRequest>,
-        ) -> Result<tonic::Response<super::Annotation>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Annotation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -574,13 +606,24 @@ pub mod rapid_migration_assessment_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment/GetAnnotation",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment",
+                        "GetAnnotation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists Collectors in a given project and location.
         pub async fn list_collectors(
             &mut self,
             request: impl tonic::IntoRequest<super::ListCollectorsRequest>,
-        ) -> Result<tonic::Response<super::ListCollectorsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListCollectorsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -594,13 +637,21 @@ pub mod rapid_migration_assessment_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment/ListCollectors",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment",
+                        "ListCollectors",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets details of a single Collector.
         pub async fn get_collector(
             &mut self,
             request: impl tonic::IntoRequest<super::GetCollectorRequest>,
-        ) -> Result<tonic::Response<super::Collector>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Collector>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -614,13 +665,21 @@ pub mod rapid_migration_assessment_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment/GetCollector",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment",
+                        "GetCollector",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the parameters of a single Collector.
         pub async fn update_collector(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateCollectorRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -637,13 +696,21 @@ pub mod rapid_migration_assessment_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment/UpdateCollector",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment",
+                        "UpdateCollector",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deletes a single Collector - changes state of collector to "Deleting".
         pub async fn delete_collector(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteCollectorRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -660,13 +727,21 @@ pub mod rapid_migration_assessment_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment/DeleteCollector",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment",
+                        "DeleteCollector",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Resumes the given collector.
         pub async fn resume_collector(
             &mut self,
             request: impl tonic::IntoRequest<super::ResumeCollectorRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -683,13 +758,21 @@ pub mod rapid_migration_assessment_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment/ResumeCollector",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment",
+                        "ResumeCollector",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Registers the given collector.
         pub async fn register_collector(
             &mut self,
             request: impl tonic::IntoRequest<super::RegisterCollectorRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -706,13 +789,21 @@ pub mod rapid_migration_assessment_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment/RegisterCollector",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment",
+                        "RegisterCollector",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Pauses the given collector.
         pub async fn pause_collector(
             &mut self,
             request: impl tonic::IntoRequest<super::PauseCollectorRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
         > {
@@ -729,7 +820,15 @@ pub mod rapid_migration_assessment_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment/PauseCollector",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment",
+                        "PauseCollector",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

@@ -116,11 +116,30 @@ pub mod image_versions_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// List ImageVersions for provided location.
         pub async fn list_image_versions(
             &mut self,
             request: impl tonic::IntoRequest<super::ListImageVersionsRequest>,
-        ) -> Result<tonic::Response<super::ListImageVersionsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListImageVersionsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -134,7 +153,15 @@ pub mod image_versions_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.orchestration.airflow.service.v1beta1.ImageVersions/ListImageVersions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.orchestration.airflow.service.v1beta1.ImageVersions",
+                        "ListImageVersions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -244,6 +271,9 @@ pub mod operation_metadata {
         SaveSnapshot = 5,
         /// Loads snapshot of the resource operation.
         LoadSnapshot = 6,
+        /// Triggers failover of environment's Cloud SQL instance (only for highly
+        /// resilient environments).
+        DatabaseFailover = 7,
     }
     impl Type {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -259,6 +289,7 @@ pub mod operation_metadata {
                 Type::Check => "CHECK",
                 Type::SaveSnapshot => "SAVE_SNAPSHOT",
                 Type::LoadSnapshot => "LOAD_SNAPSHOT",
+                Type::DatabaseFailover => "DATABASE_FAILOVER",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -271,6 +302,7 @@ pub mod operation_metadata {
                 "CHECK" => Some(Self::Check),
                 "SAVE_SNAPSHOT" => Some(Self::SaveSnapshot),
                 "LOAD_SNAPSHOT" => Some(Self::LoadSnapshot),
+                "DATABASE_FAILOVER" => Some(Self::DatabaseFailover),
                 _ => None,
             }
         }
@@ -501,6 +533,27 @@ pub struct RestartWebServerRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
+/// Execute Airflow Command request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExecuteAirflowCommandRequest {
+    /// The resource name of the environment in the form:
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}".
+    #[prost(string, tag = "1")]
+    pub environment: ::prost::alloc::string::String,
+    /// Airflow command.
+    #[prost(string, tag = "2")]
+    pub command: ::prost::alloc::string::String,
+    /// Airflow subcommand.
+    #[prost(string, tag = "3")]
+    pub subcommand: ::prost::alloc::string::String,
+    /// Parameters for the Airflow command/subcommand as an array of arguments.
+    /// It may contain positional arguments like `\["my-dag-id"\]`, key-value
+    /// parameters like `\["--foo=bar"\]` or `\["--foo","bar"\]`,
+    /// or other flags like `\["-f"\]`.
+    #[prost(string, repeated, tag = "4")]
+    pub parameters: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
 /// Response to ExecuteAirflowCommandRequest.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -517,6 +570,60 @@ pub struct ExecuteAirflowCommandResponse {
     /// Error message. Empty if there was no error.
     #[prost(string, tag = "4")]
     pub error: ::prost::alloc::string::String,
+}
+/// Stop Airflow Command request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StopAirflowCommandRequest {
+    /// The resource name of the environment in the form:
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}".
+    #[prost(string, tag = "1")]
+    pub environment: ::prost::alloc::string::String,
+    /// The unique ID of the command execution.
+    #[prost(string, tag = "2")]
+    pub execution_id: ::prost::alloc::string::String,
+    /// The name of the pod where the command is executed.
+    #[prost(string, tag = "3")]
+    pub pod: ::prost::alloc::string::String,
+    /// The namespace of the pod where the command is executed.
+    #[prost(string, tag = "4")]
+    pub pod_namespace: ::prost::alloc::string::String,
+    /// If true, the execution is terminated forcefully (SIGKILL). If false, the
+    /// execution is stopped gracefully, giving it time for cleanup.
+    #[prost(bool, tag = "5")]
+    pub force: bool,
+}
+/// Response to StopAirflowCommandRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StopAirflowCommandResponse {
+    /// Whether the execution is still running.
+    #[prost(bool, tag = "1")]
+    pub is_done: bool,
+    /// Output message from stopping execution request.
+    #[prost(string, repeated, tag = "2")]
+    pub output: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Poll Airflow Command request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PollAirflowCommandRequest {
+    /// The resource name of the environment in the form:
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+    #[prost(string, tag = "1")]
+    pub environment: ::prost::alloc::string::String,
+    /// The unique ID of the command execution.
+    #[prost(string, tag = "2")]
+    pub execution_id: ::prost::alloc::string::String,
+    /// The name of the pod where the command is executed.
+    #[prost(string, tag = "3")]
+    pub pod: ::prost::alloc::string::String,
+    /// The namespace of the pod where the command is executed.
+    #[prost(string, tag = "4")]
+    pub pod_namespace: ::prost::alloc::string::String,
+    /// Line number from which new logs should be fetched.
+    #[prost(int32, tag = "5")]
+    pub next_line_number: i32,
 }
 /// Response to PollAirflowCommandRequest.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -615,6 +722,46 @@ pub struct LoadSnapshotRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct LoadSnapshotResponse {}
+/// Request to trigger database failover (only for highly resilient
+/// environments).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DatabaseFailoverRequest {
+    /// Target environment:
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+    #[prost(string, tag = "1")]
+    pub environment: ::prost::alloc::string::String,
+}
+/// Response for DatabaseFailoverRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DatabaseFailoverResponse {}
+/// Request to fetch properties of environment's database.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FetchDatabasePropertiesRequest {
+    /// Required. The resource name of the environment, in the form:
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+    #[prost(string, tag = "1")]
+    pub environment: ::prost::alloc::string::String,
+}
+/// Response for FetchDatabasePropertiesRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FetchDatabasePropertiesResponse {
+    /// The Compute Engine zone that the instance is currently serving from.
+    #[prost(string, tag = "1")]
+    pub primary_gce_zone: ::prost::alloc::string::String,
+    /// The Compute Engine zone that the failover instance is currently serving
+    /// from for a regional Cloud SQL instance.
+    #[prost(string, tag = "2")]
+    pub secondary_gce_zone: ::prost::alloc::string::String,
+    /// The availability status of the failover replica. A false status indicates
+    /// that the failover replica is out of sync. The primary instance can only
+    /// fail over to the failover replica when the status is true.
+    #[prost(bool, tag = "3")]
+    pub is_failover_replica_available: bool,
+}
 /// Configuration information for an environment.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -724,6 +871,12 @@ pub struct EnvironmentConfig {
     /// composer-2.*.*-airflow-*.*.* and newer.
     #[prost(message, optional, tag = "18")]
     pub recovery_config: ::core::option::Option<RecoveryConfig>,
+    /// Optional. Resilience mode of the Cloud Composer Environment.
+    ///
+    /// This field is supported for Cloud Composer environments in versions
+    /// composer-2.2.0-airflow-*.*.* and newer.
+    #[prost(enumeration = "environment_config::ResilienceMode", tag = "20")]
+    pub resilience_mode: i32,
 }
 /// Nested message and enum types in `EnvironmentConfig`.
 pub mod environment_config {
@@ -770,6 +923,45 @@ pub mod environment_config {
                 "ENVIRONMENT_SIZE_SMALL" => Some(Self::Small),
                 "ENVIRONMENT_SIZE_MEDIUM" => Some(Self::Medium),
                 "ENVIRONMENT_SIZE_LARGE" => Some(Self::Large),
+                _ => None,
+            }
+        }
+    }
+    /// Resilience mode of the Cloud Composer Environment.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ResilienceMode {
+        /// Default mode doesn't change environment parameters.
+        Unspecified = 0,
+        /// Enabled High Resilience mode, including Cloud SQL HA.
+        HighResilience = 1,
+    }
+    impl ResilienceMode {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ResilienceMode::Unspecified => "RESILIENCE_MODE_UNSPECIFIED",
+                ResilienceMode::HighResilience => "HIGH_RESILIENCE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "RESILIENCE_MODE_UNSPECIFIED" => Some(Self::Unspecified),
+                "HIGH_RESILIENCE" => Some(Self::HighResilience),
                 _ => None,
             }
         }
@@ -1765,11 +1957,27 @@ pub mod environments_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Create a new environment.
         pub async fn create_environment(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateEnvironmentRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<
                 super::super::super::super::super::super::longrunning::Operation,
             >,
@@ -1788,13 +1996,21 @@ pub mod environments_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.orchestration.airflow.service.v1beta1.Environments/CreateEnvironment",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.orchestration.airflow.service.v1beta1.Environments",
+                        "CreateEnvironment",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Get an existing environment.
         pub async fn get_environment(
             &mut self,
             request: impl tonic::IntoRequest<super::GetEnvironmentRequest>,
-        ) -> Result<tonic::Response<super::Environment>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Environment>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -1808,13 +2024,24 @@ pub mod environments_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.orchestration.airflow.service.v1beta1.Environments/GetEnvironment",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.orchestration.airflow.service.v1beta1.Environments",
+                        "GetEnvironment",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// List environments.
         pub async fn list_environments(
             &mut self,
             request: impl tonic::IntoRequest<super::ListEnvironmentsRequest>,
-        ) -> Result<tonic::Response<super::ListEnvironmentsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListEnvironmentsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -1828,13 +2055,21 @@ pub mod environments_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.orchestration.airflow.service.v1beta1.Environments/ListEnvironments",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.orchestration.airflow.service.v1beta1.Environments",
+                        "ListEnvironments",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Update an environment.
         pub async fn update_environment(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateEnvironmentRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<
                 super::super::super::super::super::super::longrunning::Operation,
             >,
@@ -1853,13 +2088,21 @@ pub mod environments_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.orchestration.airflow.service.v1beta1.Environments/UpdateEnvironment",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.orchestration.airflow.service.v1beta1.Environments",
+                        "UpdateEnvironment",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Delete an environment.
         pub async fn delete_environment(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteEnvironmentRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<
                 super::super::super::super::super::super::longrunning::Operation,
             >,
@@ -1878,13 +2121,21 @@ pub mod environments_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.orchestration.airflow.service.v1beta1.Environments/DeleteEnvironment",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.orchestration.airflow.service.v1beta1.Environments",
+                        "DeleteEnvironment",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Restart Airflow web server.
         pub async fn restart_web_server(
             &mut self,
             request: impl tonic::IntoRequest<super::RestartWebServerRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<
                 super::super::super::super::super::super::longrunning::Operation,
             >,
@@ -1903,7 +2154,15 @@ pub mod environments_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.orchestration.airflow.service.v1beta1.Environments/RestartWebServer",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.orchestration.airflow.service.v1beta1.Environments",
+                        "RestartWebServer",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Check if an upgrade operation on the environment will succeed.
         ///
@@ -1911,7 +2170,7 @@ pub mod environments_client {
         pub async fn check_upgrade(
             &mut self,
             request: impl tonic::IntoRequest<super::CheckUpgradeRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<
                 super::super::super::super::super::super::longrunning::Operation,
             >,
@@ -1930,7 +2189,108 @@ pub mod environments_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.orchestration.airflow.service.v1beta1.Environments/CheckUpgrade",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.orchestration.airflow.service.v1beta1.Environments",
+                        "CheckUpgrade",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Executes Airflow CLI command.
+        pub async fn execute_airflow_command(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ExecuteAirflowCommandRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ExecuteAirflowCommandResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.orchestration.airflow.service.v1beta1.Environments/ExecuteAirflowCommand",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.orchestration.airflow.service.v1beta1.Environments",
+                        "ExecuteAirflowCommand",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Stops Airflow CLI command execution.
+        pub async fn stop_airflow_command(
+            &mut self,
+            request: impl tonic::IntoRequest<super::StopAirflowCommandRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::StopAirflowCommandResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.orchestration.airflow.service.v1beta1.Environments/StopAirflowCommand",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.orchestration.airflow.service.v1beta1.Environments",
+                        "StopAirflowCommand",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Polls Airflow CLI command execution and fetches logs.
+        pub async fn poll_airflow_command(
+            &mut self,
+            request: impl tonic::IntoRequest<super::PollAirflowCommandRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::PollAirflowCommandResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.orchestration.airflow.service.v1beta1.Environments/PollAirflowCommand",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.orchestration.airflow.service.v1beta1.Environments",
+                        "PollAirflowCommand",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates a snapshots of a Cloud Composer environment.
         ///
@@ -1939,7 +2299,7 @@ pub mod environments_client {
         pub async fn save_snapshot(
             &mut self,
             request: impl tonic::IntoRequest<super::SaveSnapshotRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<
                 super::super::super::super::super::super::longrunning::Operation,
             >,
@@ -1958,7 +2318,15 @@ pub mod environments_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.orchestration.airflow.service.v1beta1.Environments/SaveSnapshot",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.orchestration.airflow.service.v1beta1.Environments",
+                        "SaveSnapshot",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Loads a snapshot of a Cloud Composer environment.
         ///
@@ -1967,7 +2335,7 @@ pub mod environments_client {
         pub async fn load_snapshot(
             &mut self,
             request: impl tonic::IntoRequest<super::LoadSnapshotRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<
                 super::super::super::super::super::super::longrunning::Operation,
             >,
@@ -1986,7 +2354,79 @@ pub mod environments_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.cloud.orchestration.airflow.service.v1beta1.Environments/LoadSnapshot",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.orchestration.airflow.service.v1beta1.Environments",
+                        "LoadSnapshot",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Triggers database failover (only for highly resilient environments).
+        pub async fn database_failover(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DatabaseFailoverRequest>,
+        ) -> std::result::Result<
+            tonic::Response<
+                super::super::super::super::super::super::longrunning::Operation,
+            >,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.orchestration.airflow.service.v1beta1.Environments/DatabaseFailover",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.orchestration.airflow.service.v1beta1.Environments",
+                        "DatabaseFailover",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Fetches database properties.
+        pub async fn fetch_database_properties(
+            &mut self,
+            request: impl tonic::IntoRequest<super::FetchDatabasePropertiesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::FetchDatabasePropertiesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.orchestration.airflow.service.v1beta1.Environments/FetchDatabaseProperties",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.orchestration.airflow.service.v1beta1.Environments",
+                        "FetchDatabaseProperties",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

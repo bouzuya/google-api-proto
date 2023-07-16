@@ -2,7 +2,8 @@
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Alert {
-    /// Output only. The unique identifier of the Google account of the customer.
+    /// Output only. The unique identifier of the Google Workspace account of the
+    /// customer.
     #[prost(string, tag = "1")]
     pub customer_id: ::prost::alloc::string::String,
     /// Output only. The unique identifier for the alert.
@@ -35,13 +36,16 @@ pub struct Alert {
     /// * Google Operations
     /// * Mobile device management
     /// * Gmail phishing
+    /// * Data Loss Prevention
     /// * Domain wide takeout
     /// * State sponsored attack
     /// * Google identity
+    /// * Apps outage
     #[prost(string, tag = "7")]
     pub source: ::prost::alloc::string::String,
     /// Optional. The data associated with this alert, for example
-    /// \[google.apps.alertcenter.type.DeviceCompromised\] \[google.apps.alertcenter.type.DeviceCompromised\].
+    /// \[google.apps.alertcenter.type.DeviceCompromised\]
+    /// \[google.apps.alertcenter.type.DeviceCompromised\].
     #[prost(message, optional, tag = "8")]
     pub data: ::core::option::Option<::prost_types::Any>,
     /// Output only. An optional
@@ -58,8 +62,8 @@ pub struct Alert {
     /// Output only. The time this alert was last updated.
     #[prost(message, optional, tag = "13")]
     pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Optional. `etag` is used for optimistic concurrency control as a way to help
-    /// prevent simultaneous updates of an alert from overwriting each other.
+    /// Optional. `etag` is used for optimistic concurrency control as a way to
+    /// help prevent simultaneous updates of an alert from overwriting each other.
     /// It is strongly suggested that systems make use of the `etag` in the
     /// read-modify-write cycle to perform alert updates in order to avoid race
     /// conditions: An `etag` is returned in the response which contains alerts,
@@ -75,7 +79,8 @@ pub struct Alert {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AlertFeedback {
-    /// Output only. The unique identifier of the Google account of the customer.
+    /// Output only. The unique identifier of the Google Workspace account of the
+    /// customer.
     #[prost(string, tag = "1")]
     pub customer_id: ::prost::alloc::string::String,
     /// Output only. The alert identifier.
@@ -98,7 +103,8 @@ pub struct AlertFeedback {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AlertMetadata {
-    /// Output only. The unique identifier of the Google account of the customer.
+    /// Output only. The unique identifier of the Google Workspace account of the
+    /// customer.
     #[prost(string, tag = "1")]
     pub customer_id: ::prost::alloc::string::String,
     /// Output only. The alert identifier.
@@ -131,7 +137,7 @@ pub struct AlertMetadata {
     /// Optional. `etag` is used for optimistic concurrency control as a way to
     /// help prevent simultaneous updates of an alert metadata from overwriting
     /// each other. It is strongly suggested that systems make use of the `etag` in
-    /// the read-modify-write cycle to perform metatdata updates in order to avoid
+    /// the read-modify-write cycle to perform metadata updates in order to avoid
     /// race conditions: An `etag` is returned in the response which contains alert
     /// metadata, and systems are expected to put that etag in the request to
     /// update alert metadata to ensure that their change will be applied to the
@@ -234,11 +240,14 @@ pub mod settings {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BatchDeleteAlertsRequest {
-    /// Optional. The unique identifier of the Google Workspace organization
-    /// account of the customer the alerts are associated with.
+    /// Optional. The unique identifier of the Google Workspace account of the
+    /// customer the alerts are associated with. The `customer_id` must have the
+    /// initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+    /// identity if not provided. [Find your customer
+    /// ID](<https://support.google.com/cloudidentity/answer/10070793>).
     #[prost(string, tag = "1")]
     pub customer_id: ::prost::alloc::string::String,
-    /// Required. list of alert IDs.
+    /// Required. The list of alert IDs to delete.
     #[prost(string, repeated, tag = "2")]
     pub alert_id: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
@@ -249,7 +258,7 @@ pub struct BatchDeleteAlertsResponse {
     /// The successful list of alert IDs.
     #[prost(string, repeated, tag = "1")]
     pub success_alert_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The status details for each failed alert_id.
+    /// The status details for each failed `alert_id`.
     #[prost(btree_map = "string, message", tag = "2")]
     pub failed_alert_status: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
@@ -260,11 +269,14 @@ pub struct BatchDeleteAlertsResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BatchUndeleteAlertsRequest {
-    /// Optional. The unique identifier of the Google Workspace organization
-    /// account of the customer the alerts are associated with.
+    /// Optional. The unique identifier of the Google Workspace account of the
+    /// customer the alerts are associated with. The `customer_id` must have the
+    /// initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+    /// identity if not provided. [Find your customer
+    /// ID](<https://support.google.com/cloudidentity/answer/10070793>).
     #[prost(string, tag = "1")]
     pub customer_id: ::prost::alloc::string::String,
-    /// Required. list of alert IDs.
+    /// Required. The list of alert IDs to undelete.
     #[prost(string, repeated, tag = "2")]
     pub alert_id: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
@@ -275,7 +287,7 @@ pub struct BatchUndeleteAlertsResponse {
     /// The successful list of alert IDs.
     #[prost(string, repeated, tag = "1")]
     pub success_alert_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The status details for each failed alert_id.
+    /// The status details for each failed `alert_id`.
     #[prost(btree_map = "string, message", tag = "2")]
     pub failed_alert_status: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
@@ -286,9 +298,11 @@ pub struct BatchUndeleteAlertsResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListAlertsRequest {
-    /// Optional. The unique identifier of the Google Workspace organization
-    /// account of the customer the alerts are associated with.
-    /// Inferred from the caller identity if not provided.
+    /// Optional. The unique identifier of the Google Workspace account of the
+    /// customer the alerts are associated with. The `customer_id` must have the
+    /// initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+    /// identity if not provided. [Find your customer
+    /// ID](<https://support.google.com/cloudidentity/answer/10070793>).
     #[prost(string, tag = "1")]
     pub customer_id: ::prost::alloc::string::String,
     /// Optional. The requested page size. Server may return fewer items than
@@ -298,13 +312,14 @@ pub struct ListAlertsRequest {
     /// Optional. A token identifying a page of results the server should return.
     /// If empty, a new iteration is started. To continue an iteration, pass in
     /// the value from the previous ListAlertsResponse's
-    /// \[next_page_token][google.apps.alertcenter.v1beta1.ListAlertsResponse.next_page_token\] field.
+    /// \[next_page_token][google.apps.alertcenter.v1beta1.ListAlertsResponse.next_page_token\]
+    /// field.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
     /// Optional. A query string for filtering alert results.
     /// For more details, see [Query
-    /// filters](<https://developers.google.com/admin-sdk/alertcenter/guides/query-filters>) and [Supported
-    /// query filter
+    /// filters](<https://developers.google.com/admin-sdk/alertcenter/guides/query-filters>)
+    /// and [Supported query filter
     /// fields](<https://developers.google.com/admin-sdk/alertcenter/reference/filter-fields#alerts.list>).
     #[prost(string, tag = "4")]
     pub filter: ::prost::alloc::string::String,
@@ -326,8 +341,9 @@ pub struct ListAlertsResponse {
     pub alerts: ::prost::alloc::vec::Vec<Alert>,
     /// The token for the next page. If not empty, indicates that there may be more
     /// alerts that match the listing request; this value can be used in a
-    /// subsequent \[ListAlertsRequest][google.apps.alertcenter.v1beta1.ListAlertsRequest\] to get alerts continuing from last result
-    /// of the current list call.
+    /// subsequent
+    /// \[ListAlertsRequest][google.apps.alertcenter.v1beta1.ListAlertsRequest\] to
+    /// get alerts continuing from last result of the current list call.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
@@ -335,9 +351,11 @@ pub struct ListAlertsResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetAlertRequest {
-    /// Optional. The unique identifier of the Google Workspace organization
-    /// account of the customer the alert is associated with.
-    /// Inferred from the caller identity if not provided.
+    /// Optional. The unique identifier of the Google Workspace account of the
+    /// customer the alert is associated with. The `customer_id` must have the
+    /// initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+    /// identity if not provided. [Find your customer
+    /// ID](<https://support.google.com/cloudidentity/answer/10070793>).
     #[prost(string, tag = "1")]
     pub customer_id: ::prost::alloc::string::String,
     /// Required. The identifier of the alert to retrieve.
@@ -348,9 +366,11 @@ pub struct GetAlertRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteAlertRequest {
-    /// Optional. The unique identifier of the Google Workspace organization
-    /// account of the customer the alert is associated with.
-    /// Inferred from the caller identity if not provided.
+    /// Optional. The unique identifier of the Google Workspace account of the
+    /// customer the alert is associated with. The `customer_id` must have the
+    /// initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+    /// identity if not provided. [Find your customer
+    /// ID](<https://support.google.com/cloudidentity/answer/10070793>).
     #[prost(string, tag = "1")]
     pub customer_id: ::prost::alloc::string::String,
     /// Required. The identifier of the alert to delete.
@@ -361,9 +381,11 @@ pub struct DeleteAlertRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UndeleteAlertRequest {
-    /// Optional. The unique identifier of the Google Workspace organization
-    /// account of the customer the alert is associated with.
-    /// Inferred from the caller identity if not provided.
+    /// Optional. The unique identifier of the Google Workspace account of the
+    /// customer the alert is associated with. The `customer_id` must have the
+    /// initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+    /// identity if not provided. [Find your customer
+    /// ID](<https://support.google.com/cloudidentity/answer/10070793>).
     #[prost(string, tag = "1")]
     pub customer_id: ::prost::alloc::string::String,
     /// Required. The identifier of the alert to undelete.
@@ -374,9 +396,11 @@ pub struct UndeleteAlertRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateAlertFeedbackRequest {
-    /// Optional. The unique identifier of the Google Workspace organization
-    /// account of the customer the alert is associated with.
-    /// Inferred from the caller identity if not provided.
+    /// Optional. The unique identifier of the Google Workspace account of the
+    /// customer the alert is associated with. The `customer_id` must have the
+    /// initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+    /// identity if not provided. [Find your customer
+    /// ID](<https://support.google.com/cloudidentity/answer/10070793>).
     #[prost(string, tag = "1")]
     pub customer_id: ::prost::alloc::string::String,
     /// Required. The identifier of the alert this feedback belongs to.
@@ -390,9 +414,11 @@ pub struct CreateAlertFeedbackRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListAlertFeedbackRequest {
-    /// Optional. The unique identifier of the Google Workspace organization
-    /// account of the customer the alert feedback are associated with.
-    /// Inferred from the caller identity if not provided.
+    /// Optional. The unique identifier of the Google Workspace account of the
+    /// customer the alert is associated with. The `customer_id` must have the
+    /// initial "C" stripped (for example, `046psxkn`). Inferred from the caller
+    /// identity if not provided. [Find your customer
+    /// ID](<https://support.google.com/cloudidentity/answer/10070793>).
     #[prost(string, tag = "1")]
     pub customer_id: ::prost::alloc::string::String,
     /// Required. The alert identifier.
@@ -401,8 +427,8 @@ pub struct ListAlertFeedbackRequest {
     pub alert_id: ::prost::alloc::string::String,
     /// Optional. A query string for filtering alert feedback results.
     /// For more details, see [Query
-    /// filters](<https://developers.google.com/admin-sdk/alertcenter/guides/query-filters>) and [Supported
-    /// query filter
+    /// filters](<https://developers.google.com/admin-sdk/alertcenter/guides/query-filters>)
+    /// and [Supported query filter
     /// fields](<https://developers.google.com/admin-sdk/alertcenter/reference/filter-fields#alerts.feedback.list>).
     #[prost(string, tag = "3")]
     pub filter: ::prost::alloc::string::String,
@@ -420,9 +446,11 @@ pub struct ListAlertFeedbackResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetAlertMetadataRequest {
-    /// Optional. The unique identifier of the Google Workspace organization
-    /// account of the customer the alert metadata is associated with.
-    /// Inferred from the caller identity if not provided.
+    /// Optional. The unique identifier of the Google Workspace account of the
+    /// customer the alert metadata is associated with. The `customer_id` must
+    /// have the initial "C" stripped (for example, `046psxkn`). Inferred from the
+    /// caller identity if not provided. [Find your customer
+    /// ID](<https://support.google.com/cloudidentity/answer/10070793>).
     #[prost(string, tag = "1")]
     pub customer_id: ::prost::alloc::string::String,
     /// Required. The identifier of the alert this metadata belongs to.
@@ -433,9 +461,11 @@ pub struct GetAlertMetadataRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetSettingsRequest {
-    /// Optional. The unique identifier of the Google Workspace organization
-    /// account of the customer the alert settings are associated with.
-    /// Inferred from the caller identity if not provided.
+    /// Optional. The unique identifier of the Google Workspace account of the
+    /// customer the alert settings are associated with. The `customer_id` must/
+    /// have the initial "C" stripped (for example, `046psxkn`). Inferred from the
+    /// caller identity if not provided. [Find your customer
+    /// ID](<https://support.google.com/cloudidentity/answer/10070793>).
     #[prost(string, tag = "1")]
     pub customer_id: ::prost::alloc::string::String,
 }
@@ -443,9 +473,11 @@ pub struct GetSettingsRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateSettingsRequest {
-    /// Optional. The unique identifier of the Google Workspace organization
-    /// account of the customer the alert settings are associated with.
-    /// Inferred from the caller identity if not provided.
+    /// Optional. The unique identifier of the Google Workspace account of the
+    /// customer the alert settings are associated with. The `customer_id` must
+    /// have the initial "C" stripped (for example, `046psxkn`). Inferred from the
+    /// caller identity if not provided. [Find your customer
+    /// ID](<https://support.google.com/cloudidentity/answer/10070793>).
     #[prost(string, tag = "1")]
     pub customer_id: ::prost::alloc::string::String,
     /// The customer settings to update.
@@ -548,11 +580,30 @@ pub mod alert_center_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Lists the alerts.
         pub async fn list_alerts(
             &mut self,
             request: impl tonic::IntoRequest<super::ListAlertsRequest>,
-        ) -> Result<tonic::Response<super::ListAlertsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListAlertsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -566,14 +617,22 @@ pub mod alert_center_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.alertcenter.v1beta1.AlertCenterService/ListAlerts",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.alertcenter.v1beta1.AlertCenterService",
+                        "ListAlerts",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Gets the specified alert. Attempting to get a nonexistent alert returns
         /// `NOT_FOUND` error.
         pub async fn get_alert(
             &mut self,
             request: impl tonic::IntoRequest<super::GetAlertRequest>,
-        ) -> Result<tonic::Response<super::Alert>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Alert>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -587,7 +646,15 @@ pub mod alert_center_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.alertcenter.v1beta1.AlertCenterService/GetAlert",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.alertcenter.v1beta1.AlertCenterService",
+                        "GetAlert",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Marks the specified alert for deletion. An alert that has been marked for
         /// deletion is removed from Alert Center after 30 days.
@@ -597,7 +664,7 @@ pub mod alert_center_service_client {
         pub async fn delete_alert(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteAlertRequest>,
-        ) -> Result<tonic::Response<()>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -611,7 +678,15 @@ pub mod alert_center_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.alertcenter.v1beta1.AlertCenterService/DeleteAlert",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.alertcenter.v1beta1.AlertCenterService",
+                        "DeleteAlert",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Restores, or "undeletes", an alert that was marked for deletion within the
         /// past 30 days. Attempting to undelete an alert which was marked for deletion
@@ -621,7 +696,7 @@ pub mod alert_center_service_client {
         pub async fn undelete_alert(
             &mut self,
             request: impl tonic::IntoRequest<super::UndeleteAlertRequest>,
-        ) -> Result<tonic::Response<super::Alert>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Alert>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -635,7 +710,15 @@ pub mod alert_center_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.alertcenter.v1beta1.AlertCenterService/UndeleteAlert",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.alertcenter.v1beta1.AlertCenterService",
+                        "UndeleteAlert",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Creates new feedback for an alert. Attempting to create a feedback for
         /// a non-existent alert returns `NOT_FOUND` error. Attempting to create a
@@ -644,7 +727,7 @@ pub mod alert_center_service_client {
         pub async fn create_alert_feedback(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateAlertFeedbackRequest>,
-        ) -> Result<tonic::Response<super::AlertFeedback>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::AlertFeedback>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -658,14 +741,25 @@ pub mod alert_center_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.alertcenter.v1beta1.AlertCenterService/CreateAlertFeedback",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.alertcenter.v1beta1.AlertCenterService",
+                        "CreateAlertFeedback",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Lists all the feedback for an alert. Attempting to list feedbacks for
         /// a non-existent alert returns `NOT_FOUND` error.
         pub async fn list_alert_feedback(
             &mut self,
             request: impl tonic::IntoRequest<super::ListAlertFeedbackRequest>,
-        ) -> Result<tonic::Response<super::ListAlertFeedbackResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::ListAlertFeedbackResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -679,14 +773,22 @@ pub mod alert_center_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.alertcenter.v1beta1.AlertCenterService/ListAlertFeedback",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.alertcenter.v1beta1.AlertCenterService",
+                        "ListAlertFeedback",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns the metadata of an alert. Attempting to get metadata for
         /// a non-existent alert returns `NOT_FOUND` error.
         pub async fn get_alert_metadata(
             &mut self,
             request: impl tonic::IntoRequest<super::GetAlertMetadataRequest>,
-        ) -> Result<tonic::Response<super::AlertMetadata>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::AlertMetadata>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -700,13 +802,21 @@ pub mod alert_center_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.alertcenter.v1beta1.AlertCenterService/GetAlertMetadata",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.alertcenter.v1beta1.AlertCenterService",
+                        "GetAlertMetadata",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Returns customer-level settings.
         pub async fn get_settings(
             &mut self,
             request: impl tonic::IntoRequest<super::GetSettingsRequest>,
-        ) -> Result<tonic::Response<super::Settings>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Settings>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -720,13 +830,21 @@ pub mod alert_center_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.alertcenter.v1beta1.AlertCenterService/GetSettings",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.alertcenter.v1beta1.AlertCenterService",
+                        "GetSettings",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Updates the customer-level settings.
         pub async fn update_settings(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateSettingsRequest>,
-        ) -> Result<tonic::Response<super::Settings>, tonic::Status> {
+        ) -> std::result::Result<tonic::Response<super::Settings>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -740,13 +858,24 @@ pub mod alert_center_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.alertcenter.v1beta1.AlertCenterService/UpdateSettings",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.alertcenter.v1beta1.AlertCenterService",
+                        "UpdateSettings",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Performs batch delete operation on alerts.
         pub async fn batch_delete_alerts(
             &mut self,
             request: impl tonic::IntoRequest<super::BatchDeleteAlertsRequest>,
-        ) -> Result<tonic::Response<super::BatchDeleteAlertsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::BatchDeleteAlertsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -760,13 +889,24 @@ pub mod alert_center_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.alertcenter.v1beta1.AlertCenterService/BatchDeleteAlerts",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.alertcenter.v1beta1.AlertCenterService",
+                        "BatchDeleteAlerts",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Performs batch undelete operation on alerts.
         pub async fn batch_undelete_alerts(
             &mut self,
             request: impl tonic::IntoRequest<super::BatchUndeleteAlertsRequest>,
-        ) -> Result<tonic::Response<super::BatchUndeleteAlertsResponse>, tonic::Status> {
+        ) -> std::result::Result<
+            tonic::Response<super::BatchUndeleteAlertsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -780,7 +920,15 @@ pub mod alert_center_service_client {
             let path = http::uri::PathAndQuery::from_static(
                 "/google.apps.alertcenter.v1beta1.AlertCenterService/BatchUndeleteAlerts",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.alertcenter.v1beta1.AlertCenterService",
+                        "BatchUndeleteAlerts",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }

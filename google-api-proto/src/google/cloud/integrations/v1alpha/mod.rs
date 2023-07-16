@@ -1,3 +1,47 @@
+/// Options for how to validate json schemas.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum JsonValidationOption {
+    /// As per the default behavior, no validation will be run. Will not override
+    /// any option set in a Task.
+    Unspecified = 0,
+    /// Do not run any validation against JSON schemas.
+    Skip = 1,
+    /// Validate all potential input JSON parameters against schemas specified in
+    /// IntegrationParameter.
+    PreExecution = 2,
+    /// Validate all potential output JSON parameters against schemas specified in
+    /// IntegrationParameter.
+    PostExecution = 3,
+    /// Perform both PRE_EXECUTION and POST_EXECUTION validations.
+    PrePostExecution = 4,
+}
+impl JsonValidationOption {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            JsonValidationOption::Unspecified => "JSON_VALIDATION_OPTION_UNSPECIFIED",
+            JsonValidationOption::Skip => "SKIP",
+            JsonValidationOption::PreExecution => "PRE_EXECUTION",
+            JsonValidationOption::PostExecution => "POST_EXECUTION",
+            JsonValidationOption::PrePostExecution => "PRE_POST_EXECUTION",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "JSON_VALIDATION_OPTION_UNSPECIFIED" => Some(Self::Unspecified),
+            "SKIP" => Some(Self::Skip),
+            "PRE_EXECUTION" => Some(Self::PreExecution),
+            "POST_EXECUTION" => Some(Self::PostExecution),
+            "PRE_POST_EXECUTION" => Some(Self::PrePostExecution),
+            _ => None,
+        }
+    }
+}
 /// The type of the parameter.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -85,87 +129,6 @@ pub struct EventParameter {
     /// or any proto message.
     #[prost(message, optional, tag = "2")]
     pub value: ::core::option::Option<ValueType>,
-}
-/// Options for how to validate json schemas.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum JsonValidationOption {
-    /// As per the default behavior, no validation will be run. Will not override
-    /// any option set in a Task.
-    Unspecified = 0,
-    /// Do not run any validation against JSON schemas.
-    Skip = 1,
-    /// Validate all potential input JSON parameters against schemas specified in
-    /// IntegrationParameter.
-    PreExecution = 2,
-    /// Validate all potential output JSON parameters against schemas specified in
-    /// IntegrationParameter.
-    PostExecution = 3,
-    /// Perform both PRE_EXECUTION and POST_EXECUTION validations.
-    PrePostExecution = 4,
-}
-impl JsonValidationOption {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            JsonValidationOption::Unspecified => "JSON_VALIDATION_OPTION_UNSPECIFIED",
-            JsonValidationOption::Skip => "SKIP",
-            JsonValidationOption::PreExecution => "PRE_EXECUTION",
-            JsonValidationOption::PostExecution => "POST_EXECUTION",
-            JsonValidationOption::PrePostExecution => "PRE_POST_EXECUTION",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "JSON_VALIDATION_OPTION_UNSPECIFIED" => Some(Self::Unspecified),
-            "SKIP" => Some(Self::Skip),
-            "PRE_EXECUTION" => Some(Self::PreExecution),
-            "POST_EXECUTION" => Some(Self::PostExecution),
-            "PRE_POST_EXECUTION" => Some(Self::PrePostExecution),
-            _ => None,
-        }
-    }
-}
-/// Enum Product.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum Product {
-    /// Default value.
-    Unspecified = 0,
-    /// Integration Platform.
-    Ip = 1,
-    /// Apigee.
-    Apigee = 2,
-    /// Security Command Center.
-    Security = 3,
-}
-impl Product {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            Product::Unspecified => "PRODUCT_UNSPECIFIED",
-            Product::Ip => "IP",
-            Product::Apigee => "APIGEE",
-            Product::Security => "SECURITY",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "PRODUCT_UNSPECIFIED" => Some(Self::Unspecified),
-            "IP" => Some(Self::Ip),
-            "APIGEE" => Some(Self::Apigee),
-            "SECURITY" => Some(Self::Security),
-            _ => None,
-        }
-    }
 }
 /// The task configuration details. This is not the implementation of Task.
 /// There might be multiple TaskConfigs for the same Task.
@@ -518,6 +481,43 @@ pub struct NextTask {
     /// User-provided label that is attached to this edge in the UI.
     #[prost(string, tag = "4")]
     pub display_name: ::prost::alloc::string::String,
+}
+/// Enum Product.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum Product {
+    /// Default value.
+    Unspecified = 0,
+    /// Integration Platform.
+    Ip = 1,
+    /// Apigee.
+    Apigee = 2,
+    /// Security Command Center.
+    Security = 3,
+}
+impl Product {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            Product::Unspecified => "PRODUCT_UNSPECIFIED",
+            Product::Ip => "IP",
+            Product::Apigee => "APIGEE",
+            Product::Security => "SECURITY",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "PRODUCT_UNSPECIFIED" => Some(Self::Unspecified),
+            "IP" => Some(Self::Ip),
+            "APIGEE" => Some(Self::Apigee),
+            "SECURITY" => Some(Self::Security),
+            _ => None,
+        }
+    }
 }
 /// Log entry to log execution info for the monitored resource
 /// `integrations.googleapis.com/IntegrationVersion`.
