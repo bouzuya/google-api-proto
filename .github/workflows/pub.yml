@@ -3,7 +3,7 @@ name: pub
 on:
   workflow_dispatch:
   schedule:
-  - cron: '0 0,6,12,18 * * *'
+    - cron: '0 0,6,12,18 * * *'
 
 # https://docs.github.com/ja/actions/using-jobs/using-concurrency
 concurrency:
@@ -16,22 +16,28 @@ jobs:
     timeout-minutes: 60
 
     steps:
-    - uses: jlumbroso/free-disk-space@main
-      with:
-        tool-cache: false
-        large-packages: false
-        swap-storage: false
-    - uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.MY_GITHUB_TOKEN }}
-        submodules: recursive
-    - uses: arduino/setup-protoc@v1
-    - uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
-        override: true
-        profile: minimal
-    - run: cargo install cargo-release
-    - run: ./pub.sh
-      env:
-        CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+      - uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: false
+          large-packages: false
+          swap-storage: false
+
+      - uses: taiki-e/cache-cargo-install-action@v1
+        with:
+          tool: cargo-release@0.24.11
+
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.MY_GITHUB_TOKEN }}
+          submodules: recursive
+
+      - uses: arduino/setup-protoc@v2
+
+      - run: |
+          rustup set profile minimal
+          rustup update --no-self-update stable
+          rustup override set stable
+
+      - run: ./pub.sh
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}

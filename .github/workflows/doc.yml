@@ -16,16 +16,17 @@ jobs:
     timeout-minutes: 60
 
     steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
-        override: true
-        profile: minimal
-    - run: cargo doc -v --no-deps --all-features --package google-api-proto
-    - uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: target/doc/
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - run: |
+          rustup set profile minimal
+          rustup update --no-self-update stable
+          rustup override set stable
+
+      - run: cargo doc -v --no-deps --all-features --package google-api-proto
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: target/doc/

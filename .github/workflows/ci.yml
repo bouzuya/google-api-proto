@@ -22,15 +22,17 @@ jobs:
         toolchain: [stable, nightly]
 
     steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: recursive
-    - uses: arduino/setup-protoc@v1
-    - uses: actions-rs/toolchain@v1
-      with:
-        toolchain: ${{ matrix.toolchain }}
-        override: true
-        profile: minimal
-    - run: cargo build -v
-    - run: cargo test -v
-    - run: cargo xtask clean generate
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - uses: arduino/setup-protoc@v2
+
+      - run: |
+          rustup set profile minimal
+          rustup update --no-self-update ${{ matrix.toolchain }}
+          rustup override set ${{ matrix.toolchain }}
+
+      - run: cargo build -v
+      - run: cargo test -v
+      - run: cargo xtask clean generate
