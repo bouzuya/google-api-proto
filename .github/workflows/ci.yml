@@ -33,6 +33,6 @@ jobs:
           rustup update --no-self-update ${{ matrix.toolchain }}
           rustup override set ${{ matrix.toolchain }}
 
-      - run: cargo build -v
-      - run: cargo test -v
+      - run: cargo build
+      - run: cargo test
       - run: cargo xtask clean generate

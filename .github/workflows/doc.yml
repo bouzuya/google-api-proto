@@ -25,7 +25,7 @@ jobs:
           rustup update --no-self-update stable
           rustup override set stable
 
-      - run: cargo doc -v --no-deps --all-features --package google-api-proto
+      - run: cargo doc --no-deps --all-features --package google-api-proto
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
