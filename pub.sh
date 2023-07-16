@@ -42,7 +42,6 @@ if [ $(git diff HEAD --name-only google-api-proto | wc -l) -gt 0 ]; then
         --execute \
         --no-confirm \
         --package google-api-proto \
-        --token "$CARGO_REGISTRY_TOKEN" \
         --verbose \
         minor
 fi
