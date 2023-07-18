@@ -486,6 +486,18 @@ pub struct NodeNetworkConfig {
     pub pod_cidr_overprovision_config: ::core::option::Option<
         PodCidrOverprovisionConfig,
     >,
+    /// We specify the additional node networks for this node pool using this list.
+    /// Each node network corresponds to an additional interface
+    #[prost(message, repeated, tag = "14")]
+    pub additional_node_network_configs: ::prost::alloc::vec::Vec<
+        AdditionalNodeNetworkConfig,
+    >,
+    /// We specify the additional pod networks for this node pool using this list.
+    /// Each pod network corresponds to an additional alias IP range for the node
+    #[prost(message, repeated, tag = "15")]
+    pub additional_pod_network_configs: ::prost::alloc::vec::Vec<
+        AdditionalPodNetworkConfig,
+    >,
     /// Output only. [Output only] The utilization of the IPv4 range for the pod.
     /// The ratio is Usage/[Total number of IPs in the secondary range],
     /// Usage=numNodes*numZones*podIPsPerNode.
@@ -544,6 +556,34 @@ pub mod node_network_config {
             }
         }
     }
+}
+/// AdditionalNodeNetworkConfig is the configuration for additional node networks
+/// within the NodeNetworkConfig message
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AdditionalNodeNetworkConfig {
+    /// Name of the VPC where the additional interface belongs
+    #[prost(string, tag = "1")]
+    pub network: ::prost::alloc::string::String,
+    /// Name of the subnetwork where the additional interface belongs
+    #[prost(string, tag = "2")]
+    pub subnetwork: ::prost::alloc::string::String,
+}
+/// AdditionalPodNetworkConfig is the configuration for additional pod networks
+/// within the NodeNetworkConfig message
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AdditionalPodNetworkConfig {
+    /// Name of the subnetwork where the additional pod network belongs
+    #[prost(string, tag = "1")]
+    pub subnetwork: ::prost::alloc::string::String,
+    /// The name of the secondary range on the subnet which provides IP address for
+    /// this pod range
+    #[prost(string, tag = "2")]
+    pub secondary_pod_range: ::prost::alloc::string::String,
+    /// The maximum number of pods per node which use this pod network
+    #[prost(message, optional, tag = "3")]
+    pub max_pods_per_node: ::core::option::Option<MaxPodsConstraint>,
 }
 /// A set of Shielded Instance options.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -3879,6 +3919,11 @@ pub mod node_pool {
         /// The type of placement.
         #[prost(enumeration = "placement_policy::Type", tag = "1")]
         pub r#type: i32,
+        /// If set, refers to the name of a custom resource policy supplied by the
+        /// user. The resource policy must be in the same project and region as the
+        /// node pool. If not found, InvalidArgument error is returned.
+        #[prost(string, tag = "3")]
+        pub policy_name: ::prost::alloc::string::String,
     }
     /// Nested message and enum types in `PlacementPolicy`.
     pub mod placement_policy {
@@ -5119,6 +5164,9 @@ pub struct NetworkConfig {
     /// cluster.
     #[prost(message, optional, tag = "16")]
     pub gateway_api_config: ::core::option::Option<GatewayApiConfig>,
+    /// Whether multi-networking is enabled for this cluster.
+    #[prost(bool, tag = "17")]
+    pub enable_multi_networking: bool,
     /// Network bandwidth tier configuration.
     #[prost(message, optional, tag = "18")]
     pub network_performance_config: ::core::option::Option<

@@ -272,6 +272,7 @@ pub mod cloud;
         feature = "google-cloud-oslogin-v1beta",
         feature = "google-cloud-paymentgateway-issuerswitch-v1",
         feature = "google-cloud-phishingprotection-v1beta1",
+        feature = "google-cloud-policysimulator-v1",
         feature = "google-cloud-policytroubleshooter-v1",
         feature = "google-cloud-privatecatalog-v1beta1",
         feature = "google-cloud-pubsublite-v1",

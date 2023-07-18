@@ -441,6 +441,8 @@ pub mod oslogin;
 pub mod paymentgateway;
 #[cfg(any(feature = "google-cloud-phishingprotection-v1beta1"))]
 pub mod phishingprotection;
+#[cfg(any(feature = "google-cloud-policysimulator-v1"))]
+pub mod policysimulator;
 #[cfg(any(feature = "google-cloud-policytroubleshooter-v1"))]
 pub mod policytroubleshooter;
 #[cfg(any(feature = "google-cloud-privatecatalog-v1beta1"))]
