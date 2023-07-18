@@ -7811,6 +7811,54 @@
 <a href="#7811" id="7811">7811</a>
 <a href="#7812" id="7812">7812</a>
 <a href="#7813" id="7813">7813</a>
+<a href="#7814" id="7814">7814</a>
+<a href="#7815" id="7815">7815</a>
+<a href="#7816" id="7816">7816</a>
+<a href="#7817" id="7817">7817</a>
+<a href="#7818" id="7818">7818</a>
+<a href="#7819" id="7819">7819</a>
+<a href="#7820" id="7820">7820</a>
+<a href="#7821" id="7821">7821</a>
+<a href="#7822" id="7822">7822</a>
+<a href="#7823" id="7823">7823</a>
+<a href="#7824" id="7824">7824</a>
+<a href="#7825" id="7825">7825</a>
+<a href="#7826" id="7826">7826</a>
+<a href="#7827" id="7827">7827</a>
+<a href="#7828" id="7828">7828</a>
+<a href="#7829" id="7829">7829</a>
+<a href="#7830" id="7830">7830</a>
+<a href="#7831" id="7831">7831</a>
+<a href="#7832" id="7832">7832</a>
+<a href="#7833" id="7833">7833</a>
+<a href="#7834" id="7834">7834</a>
+<a href="#7835" id="7835">7835</a>
+<a href="#7836" id="7836">7836</a>
+<a href="#7837" id="7837">7837</a>
+<a href="#7838" id="7838">7838</a>
+<a href="#7839" id="7839">7839</a>
+<a href="#7840" id="7840">7840</a>
+<a href="#7841" id="7841">7841</a>
+<a href="#7842" id="7842">7842</a>
+<a href="#7843" id="7843">7843</a>
+<a href="#7844" id="7844">7844</a>
+<a href="#7845" id="7845">7845</a>
+<a href="#7846" id="7846">7846</a>
+<a href="#7847" id="7847">7847</a>
+<a href="#7848" id="7848">7848</a>
+<a href="#7849" id="7849">7849</a>
+<a href="#7850" id="7850">7850</a>
+<a href="#7851" id="7851">7851</a>
+<a href="#7852" id="7852">7852</a>
+<a href="#7853" id="7853">7853</a>
+<a href="#7854" id="7854">7854</a>
+<a href="#7855" id="7855">7855</a>
+<a href="#7856" id="7856">7856</a>
+<a href="#7857" id="7857">7857</a>
+<a href="#7858" id="7858">7858</a>
+<a href="#7859" id="7859">7859</a>
+<a href="#7860" id="7860">7860</a>
+<a href="#7861" id="7861">7861</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Parameters that can be configured on Linux nodes.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -8299,6 +8347,18 @@
     </span><span class="kw">pub </span>pod_cidr_overprovision_config: ::core::option::Option&lt;
         PodCidrOverprovisionConfig,
     &gt;,
+    <span class="doccomment">/// We specify the additional node networks for this node pool using this list.
+    /// Each node network corresponds to an additional interface
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>additional_node_network_configs: ::prost::alloc::vec::Vec&lt;
+        AdditionalNodeNetworkConfig,
+    &gt;,
+    <span class="doccomment">/// We specify the additional pod networks for this node pool using this list.
+    /// Each pod network corresponds to an additional alias IP range for the node
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>additional_pod_network_configs: ::prost::alloc::vec::Vec&lt;
+        AdditionalPodNetworkConfig,
+    &gt;,
     <span class="doccomment">/// Output only. [Output only] The utilization of the IPv4 range for the pod.
     /// The ratio is Usage/[Total number of IPs in the secondary range],
     /// Usage=numNodes*numZones*podIPsPerNode.
@@ -8357,6 +8417,34 @@
             }
         }
     }
+}
+<span class="doccomment">/// AdditionalNodeNetworkConfig is the configuration for additional node networks
+/// within the NodeNetworkConfig message
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AdditionalNodeNetworkConfig {
+    <span class="doccomment">/// Name of the VPC where the additional interface belongs
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
+    <span class="doccomment">/// Name of the subnetwork where the additional interface belongs
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>subnetwork: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// AdditionalPodNetworkConfig is the configuration for additional pod networks
+/// within the NodeNetworkConfig message
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AdditionalPodNetworkConfig {
+    <span class="doccomment">/// Name of the subnetwork where the additional pod network belongs
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>subnetwork: ::prost::alloc::string::String,
+    <span class="doccomment">/// The name of the secondary range on the subnet which provides IP address for
+    /// this pod range
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>secondary_pod_range: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of pods per node which use this pod network
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>max_pods_per_node: ::core::option::Option&lt;MaxPodsConstraint&gt;,
 }
 <span class="doccomment">/// A set of Shielded Instance options.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -11692,6 +11780,11 @@
         <span class="doccomment">/// The type of placement.
         </span><span class="attr">#[prost(enumeration = <span class="string">&quot;placement_policy::Type&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>r#type: i32,
+        <span class="doccomment">/// If set, refers to the name of a custom resource policy supplied by the
+        /// user. The resource policy must be in the same project and region as the
+        /// node pool. If not found, InvalidArgument error is returned.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>policy_name: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Nested message and enum types in `PlacementPolicy`.
     </span><span class="kw">pub mod </span>placement_policy {
@@ -12932,6 +13025,9 @@
     /// cluster.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
     </span><span class="kw">pub </span>gateway_api_config: ::core::option::Option&lt;GatewayApiConfig&gt;,
+    <span class="doccomment">/// Whether multi-networking is enabled for this cluster.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="kw">pub </span>enable_multi_networking: bool,
     <span class="doccomment">/// Network bandwidth tier configuration.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;18&quot;</span>)]
     </span><span class="kw">pub </span>network_performance_config: ::core::option::Option&lt;

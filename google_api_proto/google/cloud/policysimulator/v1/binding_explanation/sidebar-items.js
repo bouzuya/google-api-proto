@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Membership","RolePermission"],"struct":["AnnotatedMembership"]};
