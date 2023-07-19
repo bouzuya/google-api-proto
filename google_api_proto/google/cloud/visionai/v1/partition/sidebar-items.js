@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["SpatialPartition","TemporalPartition"]};
+window.SIDEBAR_ITEMS = {"struct":["RelativeTemporalPartition","SpatialPartition","TemporalPartition"]};

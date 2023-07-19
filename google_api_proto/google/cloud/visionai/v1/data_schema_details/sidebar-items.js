@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["DataType","Granularity"],"mod":["search_strategy"],"struct":["ProtoAnyConfig","SearchStrategy"]};
+window.SIDEBAR_ITEMS = {"enum":["DataType","Granularity"],"mod":["search_strategy"],"struct":["CustomizedStructConfig","ListConfig","ProtoAnyConfig","SearchStrategy"]};

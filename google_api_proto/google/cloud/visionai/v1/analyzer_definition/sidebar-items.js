@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["DebugOptions","StreamInput"]};
+window.SIDEBAR_ITEMS = {"struct":["DebugOptions","OperatorOption","StreamInput"]};
