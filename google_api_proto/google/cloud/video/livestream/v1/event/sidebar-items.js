@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["State","Task"],"struct":["AdBreakTask","InputSwitchTask","MuteTask","ReturnToProgramTask","UnmuteTask"]};
+window.SIDEBAR_ITEMS = {"enum":["State","Task"],"struct":["AdBreakTask","InputSwitchTask","MuteTask","ReturnToProgramTask","SlateTask","UnmuteTask"]};
