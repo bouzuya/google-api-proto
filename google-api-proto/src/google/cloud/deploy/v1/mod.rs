@@ -10,6 +10,10 @@ pub enum Type {
     ResourceStateChange = 3,
     /// A process aborted.
     ProcessAborted = 4,
+    /// Restriction check failed.
+    RestrictionViolated = 5,
+    /// Resource deleted.
+    ResourceDeleted = 6,
     /// Deprecated: This field is never used. Use release_render log type instead.
     RenderStatuesChange = 2,
 }
@@ -24,6 +28,8 @@ impl Type {
             Type::PubsubNotificationFailure => "TYPE_PUBSUB_NOTIFICATION_FAILURE",
             Type::ResourceStateChange => "TYPE_RESOURCE_STATE_CHANGE",
             Type::ProcessAborted => "TYPE_PROCESS_ABORTED",
+            Type::RestrictionViolated => "TYPE_RESTRICTION_VIOLATED",
+            Type::ResourceDeleted => "TYPE_RESOURCE_DELETED",
             Type::RenderStatuesChange => "TYPE_RENDER_STATUES_CHANGE",
         }
     }
@@ -34,6 +40,8 @@ impl Type {
             "TYPE_PUBSUB_NOTIFICATION_FAILURE" => Some(Self::PubsubNotificationFailure),
             "TYPE_RESOURCE_STATE_CHANGE" => Some(Self::ResourceStateChange),
             "TYPE_PROCESS_ABORTED" => Some(Self::ProcessAborted),
+            "TYPE_RESTRICTION_VIOLATED" => Some(Self::RestrictionViolated),
+            "TYPE_RESOURCE_DELETED" => Some(Self::ResourceDeleted),
             "TYPE_RENDER_STATUES_CHANGE" => Some(Self::RenderStatuesChange),
             _ => None,
         }
@@ -125,7 +133,7 @@ pub struct TargetNotificationEvent {
     #[prost(enumeration = "Type", tag = "3")]
     pub r#type: i32,
 }
-/// A `DeliveryPipeline` resource in the Google Cloud Deploy API.
+/// A `DeliveryPipeline` resource in the Cloud Deploy API.
 ///
 /// A `DeliveryPipeline` defines a pipeline through which a Skaffold
 /// configuration can progress.
@@ -143,15 +151,14 @@ pub struct DeliveryPipeline {
     #[prost(string, tag = "3")]
     pub description: ::prost::alloc::string::String,
     /// User annotations. These attributes can only be set and used by the
-    /// user, and not by Google Cloud Deploy.
+    /// user, and not by Cloud Deploy.
     #[prost(btree_map = "string, string", tag = "4")]
     pub annotations: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
     /// Labels are attributes that can be set and used by both the
-    /// user and by Google Cloud Deploy. Labels must meet the following
-    /// constraints:
+    /// user and by Cloud Deploy. Labels must meet the following constraints:
     ///
     /// * Keys and values can contain only lowercase letters, numeric characters,
     /// underscores, and dashes.
@@ -683,7 +690,7 @@ pub struct DeleteDeliveryPipelineRequest {
     #[prost(string, tag = "5")]
     pub etag: ::prost::alloc::string::String,
 }
-/// A `Target` resource in the Google Cloud Deploy API.
+/// A `Target` resource in the Cloud Deploy API.
 ///
 /// A `Target` defines a location to which a Skaffold configuration
 /// can be deployed.
@@ -704,7 +711,7 @@ pub struct Target {
     #[prost(string, tag = "4")]
     pub description: ::prost::alloc::string::String,
     /// Optional. User annotations. These attributes can only be set and used by
-    /// the user, and not by Google Cloud Deploy. See
+    /// the user, and not by Cloud Deploy. See
     /// <https://google.aip.dev/128#annotations> for more details such as format and
     /// size limitations.
     #[prost(btree_map = "string, string", tag = "5")]
@@ -713,8 +720,7 @@ pub struct Target {
         ::prost::alloc::string::String,
     >,
     /// Optional. Labels are attributes that can be set and used by both the
-    /// user and by Google Cloud Deploy. Labels must meet the following
-    /// constraints:
+    /// user and by Cloud Deploy. Labels must meet the following constraints:
     ///
     /// * Keys and values can contain only lowercase letters, numeric characters,
     /// underscores, and dashes.
@@ -1133,7 +1139,7 @@ pub struct DeleteTargetRequest {
     #[prost(string, tag = "5")]
     pub etag: ::prost::alloc::string::String,
 }
-/// A `Release` resource in the Google Cloud Deploy API.
+/// A `Release` resource in the Cloud Deploy API.
 ///
 /// A `Release` defines a specific Skaffold configuration instance
 /// that can be deployed.
@@ -1152,17 +1158,15 @@ pub struct Release {
     #[prost(string, tag = "3")]
     pub description: ::prost::alloc::string::String,
     /// User annotations. These attributes can only be set and used by the
-    /// user, and not by Google Cloud Deploy. See
-    /// <https://google.aip.dev/128#annotations> for more details such as format and
-    /// size limitations.
+    /// user, and not by Cloud Deploy. See <https://google.aip.dev/128#annotations>
+    /// for more details such as format and size limitations.
     #[prost(btree_map = "string, string", tag = "4")]
     pub annotations: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
     /// Labels are attributes that can be set and used by both the
-    /// user and by Google Cloud Deploy. Labels must meet the following
-    /// constraints:
+    /// user and by Cloud Deploy. Labels must meet the following constraints:
     ///
     /// * Keys and values can contain only lowercase letters, numeric characters,
     /// underscores, and dashes.
@@ -1214,8 +1218,8 @@ pub struct Release {
     #[prost(string, tag = "16")]
     pub etag: ::prost::alloc::string::String,
     /// The Skaffold version to use when operating on this release, such as
-    /// "1.20.0". Not all versions are valid; Google Cloud Deploy supports a
-    /// specific set of versions.
+    /// "1.20.0". Not all versions are valid; Cloud Deploy supports a specific set
+    /// of versions.
     ///
     /// If unset, the most recent supported Skaffold version will be used.
     #[prost(string, tag = "19")]
@@ -1336,13 +1340,13 @@ pub mod release {
             /// No reason for failure is specified.
             Unspecified = 0,
             /// Cloud Build is not available, either because it is not enabled or
-            /// because Google Cloud Deploy has insufficient permissions. See [required
+            /// because Cloud Deploy has insufficient permissions. See [required
             /// permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
             CloudBuildUnavailable = 1,
             /// The render operation did not complete successfully; check Cloud Build
             /// logs.
             ExecutionFailed = 2,
-            /// Cloud Build failed to fulfill Google Cloud Deploy's request. See
+            /// Cloud Build failed to fulfill Cloud Deploy's request. See
             /// failure_message for additional details.
             CloudBuildRequestFailed = 3,
         }
@@ -1647,7 +1651,7 @@ pub struct CreateReleaseRequest {
     #[prost(bool, tag = "5")]
     pub validate_only: bool,
 }
-/// A `Rollout` resource in the Google Cloud Deploy API.
+/// A `Rollout` resource in the Cloud Deploy API.
 ///
 /// A `Rollout` contains information around a specific deployment to a `Target`.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1666,17 +1670,15 @@ pub struct Rollout {
     #[prost(string, tag = "3")]
     pub description: ::prost::alloc::string::String,
     /// User annotations. These attributes can only be set and used by the
-    /// user, and not by Google Cloud Deploy. See
-    /// <https://google.aip.dev/128#annotations> for more details such as format and
-    /// size limitations.
+    /// user, and not by Cloud Deploy. See <https://google.aip.dev/128#annotations>
+    /// for more details such as format and size limitations.
     #[prost(btree_map = "string, string", tag = "4")]
     pub annotations: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
     /// Labels are attributes that can be set and used by both the
-    /// user and by Google Cloud Deploy. Labels must meet the following
-    /// constraints:
+    /// user and by Cloud Deploy. Labels must meet the following constraints:
     ///
     /// * Keys and values can contain only lowercase letters, numeric characters,
     /// underscores, and dashes.
@@ -1905,8 +1907,8 @@ pub mod rollout {
         ReleaseAbandoned = 5,
         /// No skaffold verify configuration was found.
         VerificationConfigNotFound = 6,
-        /// Cloud Build failed to fulfill Google Cloud Deploy's request. See
-        /// failure_message for additional details.
+        /// Cloud Build failed to fulfill Cloud Deploy's request. See failure_message
+        /// for additional details.
         CloudBuildRequestFailed = 7,
     }
     impl FailureCause {
@@ -2443,7 +2445,7 @@ pub struct AbandonReleaseRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AbandonReleaseResponse {}
-/// A `JobRun` resource in the Google Cloud Deploy API.
+/// A `JobRun` resource in the Cloud Deploy API.
 ///
 /// A `JobRun` contains information of a single `Rollout` job evaluation.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2602,7 +2604,7 @@ pub mod deploy_job_run {
         /// No reason for failure is specified.
         Unspecified = 0,
         /// Cloud Build is not available, either because it is not enabled or because
-        /// Google Cloud Deploy has insufficient permissions. See [Required
+        /// Cloud Deploy has insufficient permissions. See [Required
         /// permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
         CloudBuildUnavailable = 1,
         /// The deploy operation did not complete successfully; check Cloud Build
@@ -2613,8 +2615,8 @@ pub mod deploy_job_run {
         /// There were missing resources in the runtime environment required for a
         /// canary deployment. Check the Cloud Build logs for more information.
         MissingResourcesForCanary = 4,
-        /// Cloud Build failed to fulfill Google Cloud Deploy's request. See
-        /// failure_message for additional details.
+        /// Cloud Build failed to fulfill Cloud Deploy's request. See failure_message
+        /// for additional details.
         CloudBuildRequestFailed = 5,
     }
     impl FailureCause {
@@ -2690,7 +2692,7 @@ pub mod verify_job_run {
         /// No reason for failure is specified.
         Unspecified = 0,
         /// Cloud Build is not available, either because it is not enabled or because
-        /// Google Cloud Deploy has insufficient permissions. See [required
+        /// Cloud Deploy has insufficient permissions. See [required
         /// permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
         CloudBuildUnavailable = 1,
         /// The verify operation did not complete successfully; check Cloud Build
@@ -2700,8 +2702,8 @@ pub mod verify_job_run {
         DeadlineExceeded = 3,
         /// No Skaffold verify configuration was found.
         VerificationConfigNotFound = 4,
-        /// Cloud Build failed to fulfill Google Cloud Deploy's request. See
-        /// failure_message for additional details.
+        /// Cloud Build failed to fulfill Cloud Deploy's request. See failure_message
+        /// for additional details.
         CloudBuildRequestFailed = 5,
     }
     impl FailureCause {
