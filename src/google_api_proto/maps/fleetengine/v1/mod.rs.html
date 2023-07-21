@@ -3154,6 +3154,7 @@
 <a href="#3154" id="3154">3154</a>
 <a href="#3155" id="3155">3155</a>
 <a href="#3156" id="3156">3156</a>
+<a href="#3157" id="3157">3157</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Traffic density indicator on a contiguous segment of a path. Given a path
 /// with points P_0, P_1, ... , P_N (zero-based index), the SpeedReadingInterval
 /// defines an interval and describes its traffic using the following categories.
@@ -4201,8 +4202,13 @@
     /// * `vehicle_id`
     /// * `dropoff_point`
     /// * `intermediate_destinations`
+    /// * `vehicle_waypoints`
     ///
-    /// Only `EXCLUSIVE` trips support multiple destinations.
+    /// All other Trip fields are ignored. For example, all trips start with a
+    /// `trip_status` of `NEW` even if you pass in a `trip_status` of `CANCELED` in
+    /// the creation request.
+    ///
+    /// Only `EXCLUSIVE` trips support `intermediate_destinations`.
     ///
     /// When `vehicle_id` is set for a shared trip, you must supply
     /// the list of `Trip.vehicle_waypoints` to specify the order of the remaining
@@ -4218,10 +4224,6 @@
     ///
     /// The `trip_id`, `waypoint_type` and `location` fields are used, and all
     /// other TripWaypoint fields in `vehicle_waypoints` are ignored.
-    ///
-    /// All other Trip fields are ignored. For example, all trips start with a
-    /// `trip_status` of `NEW` even if you pass in a `trip_status` of `CANCELED` in
-    /// the creation request.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>trip: ::core::option::Option&lt;Trip&gt;,
 }

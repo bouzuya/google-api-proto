@@ -4490,6 +4490,22 @@
 <a href="#4490" id="4490">4490</a>
 <a href="#4491" id="4491">4491</a>
 <a href="#4492" id="4492">4492</a>
+<a href="#4493" id="4493">4493</a>
+<a href="#4494" id="4494">4494</a>
+<a href="#4495" id="4495">4495</a>
+<a href="#4496" id="4496">4496</a>
+<a href="#4497" id="4497">4497</a>
+<a href="#4498" id="4498">4498</a>
+<a href="#4499" id="4499">4499</a>
+<a href="#4500" id="4500">4500</a>
+<a href="#4501" id="4501">4501</a>
+<a href="#4502" id="4502">4502</a>
+<a href="#4503" id="4503">4503</a>
+<a href="#4504" id="4504">4504</a>
+<a href="#4505" id="4505">4505</a>
+<a href="#4506" id="4506">4506</a>
+<a href="#4507" id="4507">4507</a>
+<a href="#4508" id="4508">4508</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A \[KeyRing][google.cloud.kms.v1.KeyRing\] is a toplevel logical grouping of
 /// \[CryptoKeys][google.cloud.kms.v1.CryptoKey\].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -4987,6 +5003,14 @@
         </span>Aes128Gcm = <span class="number">41</span>,
         <span class="doccomment">/// AES-GCM (Galois Counter Mode) using 256-bit keys.
         </span>Aes256Gcm = <span class="number">19</span>,
+        <span class="doccomment">/// AES-CBC (Cipher Block Chaining Mode) using 128-bit keys.
+        </span>Aes128Cbc = <span class="number">42</span>,
+        <span class="doccomment">/// AES-CBC (Cipher Block Chaining Mode) using 256-bit keys.
+        </span>Aes256Cbc = <span class="number">43</span>,
+        <span class="doccomment">/// AES-CTR (Counter Mode) using 128-bit keys.
+        </span>Aes128Ctr = <span class="number">44</span>,
+        <span class="doccomment">/// AES-CTR (Counter Mode) using 256-bit keys.
+        </span>Aes256Ctr = <span class="number">45</span>,
         <span class="doccomment">/// RSASSA-PSS 2048 bit key with a SHA256 digest.
         </span>RsaSignPss2048Sha256 = <span class="number">2</span>,
         <span class="doccomment">/// RSASSA-PSS 3072 bit key with a SHA256 digest.
@@ -5064,6 +5088,10 @@
                 </span>}
                 CryptoKeyVersionAlgorithm::Aes128Gcm =&gt; <span class="string">&quot;AES_128_GCM&quot;</span>,
                 CryptoKeyVersionAlgorithm::Aes256Gcm =&gt; <span class="string">&quot;AES_256_GCM&quot;</span>,
+                CryptoKeyVersionAlgorithm::Aes128Cbc =&gt; <span class="string">&quot;AES_128_CBC&quot;</span>,
+                CryptoKeyVersionAlgorithm::Aes256Cbc =&gt; <span class="string">&quot;AES_256_CBC&quot;</span>,
+                CryptoKeyVersionAlgorithm::Aes128Ctr =&gt; <span class="string">&quot;AES_128_CTR&quot;</span>,
+                CryptoKeyVersionAlgorithm::Aes256Ctr =&gt; <span class="string">&quot;AES_256_CTR&quot;</span>,
                 CryptoKeyVersionAlgorithm::RsaSignPss2048Sha256 =&gt; {
                     <span class="string">&quot;RSA_SIGN_PSS_2048_SHA256&quot;
                 </span>}
@@ -5140,6 +5168,10 @@
                 <span class="string">&quot;GOOGLE_SYMMETRIC_ENCRYPTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GoogleSymmetricEncryption),
                 <span class="string">&quot;AES_128_GCM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aes128Gcm),
                 <span class="string">&quot;AES_256_GCM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aes256Gcm),
+                <span class="string">&quot;AES_128_CBC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aes128Cbc),
+                <span class="string">&quot;AES_256_CBC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aes256Cbc),
+                <span class="string">&quot;AES_128_CTR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aes128Ctr),
+                <span class="string">&quot;AES_256_CTR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aes256Ctr),
                 <span class="string">&quot;RSA_SIGN_PSS_2048_SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaSignPss2048Sha256),
                 <span class="string">&quot;RSA_SIGN_PSS_3072_SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaSignPss3072Sha256),
                 <span class="string">&quot;RSA_SIGN_PSS_4096_SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaSignPss4096Sha256),

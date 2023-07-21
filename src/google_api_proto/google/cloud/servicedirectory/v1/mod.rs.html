@@ -1227,6 +1227,86 @@
 <a href="#1227" id="1227">1227</a>
 <a href="#1228" id="1228">1228</a>
 <a href="#1229" id="1229">1229</a>
+<a href="#1230" id="1230">1230</a>
+<a href="#1231" id="1231">1231</a>
+<a href="#1232" id="1232">1232</a>
+<a href="#1233" id="1233">1233</a>
+<a href="#1234" id="1234">1234</a>
+<a href="#1235" id="1235">1235</a>
+<a href="#1236" id="1236">1236</a>
+<a href="#1237" id="1237">1237</a>
+<a href="#1238" id="1238">1238</a>
+<a href="#1239" id="1239">1239</a>
+<a href="#1240" id="1240">1240</a>
+<a href="#1241" id="1241">1241</a>
+<a href="#1242" id="1242">1242</a>
+<a href="#1243" id="1243">1243</a>
+<a href="#1244" id="1244">1244</a>
+<a href="#1245" id="1245">1245</a>
+<a href="#1246" id="1246">1246</a>
+<a href="#1247" id="1247">1247</a>
+<a href="#1248" id="1248">1248</a>
+<a href="#1249" id="1249">1249</a>
+<a href="#1250" id="1250">1250</a>
+<a href="#1251" id="1251">1251</a>
+<a href="#1252" id="1252">1252</a>
+<a href="#1253" id="1253">1253</a>
+<a href="#1254" id="1254">1254</a>
+<a href="#1255" id="1255">1255</a>
+<a href="#1256" id="1256">1256</a>
+<a href="#1257" id="1257">1257</a>
+<a href="#1258" id="1258">1258</a>
+<a href="#1259" id="1259">1259</a>
+<a href="#1260" id="1260">1260</a>
+<a href="#1261" id="1261">1261</a>
+<a href="#1262" id="1262">1262</a>
+<a href="#1263" id="1263">1263</a>
+<a href="#1264" id="1264">1264</a>
+<a href="#1265" id="1265">1265</a>
+<a href="#1266" id="1266">1266</a>
+<a href="#1267" id="1267">1267</a>
+<a href="#1268" id="1268">1268</a>
+<a href="#1269" id="1269">1269</a>
+<a href="#1270" id="1270">1270</a>
+<a href="#1271" id="1271">1271</a>
+<a href="#1272" id="1272">1272</a>
+<a href="#1273" id="1273">1273</a>
+<a href="#1274" id="1274">1274</a>
+<a href="#1275" id="1275">1275</a>
+<a href="#1276" id="1276">1276</a>
+<a href="#1277" id="1277">1277</a>
+<a href="#1278" id="1278">1278</a>
+<a href="#1279" id="1279">1279</a>
+<a href="#1280" id="1280">1280</a>
+<a href="#1281" id="1281">1281</a>
+<a href="#1282" id="1282">1282</a>
+<a href="#1283" id="1283">1283</a>
+<a href="#1284" id="1284">1284</a>
+<a href="#1285" id="1285">1285</a>
+<a href="#1286" id="1286">1286</a>
+<a href="#1287" id="1287">1287</a>
+<a href="#1288" id="1288">1288</a>
+<a href="#1289" id="1289">1289</a>
+<a href="#1290" id="1290">1290</a>
+<a href="#1291" id="1291">1291</a>
+<a href="#1292" id="1292">1292</a>
+<a href="#1293" id="1293">1293</a>
+<a href="#1294" id="1294">1294</a>
+<a href="#1295" id="1295">1295</a>
+<a href="#1296" id="1296">1296</a>
+<a href="#1297" id="1297">1297</a>
+<a href="#1298" id="1298">1298</a>
+<a href="#1299" id="1299">1299</a>
+<a href="#1300" id="1300">1300</a>
+<a href="#1301" id="1301">1301</a>
+<a href="#1302" id="1302">1302</a>
+<a href="#1303" id="1303">1303</a>
+<a href="#1304" id="1304">1304</a>
+<a href="#1305" id="1305">1305</a>
+<a href="#1306" id="1306">1306</a>
+<a href="#1307" id="1307">1307</a>
+<a href="#1308" id="1308">1308</a>
+<a href="#1309" id="1309">1309</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// An individual endpoint that provides a
 /// \[service][google.cloud.servicedirectory.v1.Service\]. The service must
 /// already exist to create an endpoint.
@@ -1237,37 +1317,39 @@
     /// `projects/*/locations/*/namespaces/*/services/*/endpoints/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. An IPv4 or IPv6 address. Service Directory will reject bad
-    /// addresses like:
-    ///    &quot;8.8.8&quot;
-    ///    &quot;8.8.8.8:53&quot;
-    ///    &quot;test:bad:address&quot;
-    ///    &quot;\[::1\]&quot;
-    ///    &quot;\[::1\]:8080&quot;
+    <span class="doccomment">/// Optional. An IPv4 or IPv6 address. Service Directory rejects bad addresses
+    /// like:
+    ///
+    /// *   `8.8.8`
+    /// *   `8.8.8.8:53`
+    /// *   `test:bad:address`
+    /// *   `\[::1\]`
+    /// *   `\[::1\]:8080`
+    ///
     /// Limited to 45 characters.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>address: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Service Directory will reject values outside of [0, 65535].
+    <span class="doccomment">/// Optional. Service Directory rejects values outside of `[0, 65535]`.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>port: i32,
     <span class="doccomment">/// Optional. Annotations for the endpoint. This data can be consumed by
-    /// service clients. Restrictions:
-    ///   - The entire annotations dictionary may contain up to 512 characters,
-    ///     spread accoss all key-value pairs. Annotations that goes beyond any
-    ///     these limits will be rejected.
-    ///   - Valid annotation keys have two segments: an optional prefix and name,
-    ///     separated by a slash (/). The name segment is required and must be 63
-    ///     characters or less, beginning and ending with an alphanumeric character
-    ///     (\[a-z0-9A-Z\]) with dashes (-), underscores (_), dots (.), and
-    ///     alphanumerics between. The prefix is optional. If specified, the prefix
-    ///     must be a DNS subdomain: a series of DNS labels separated by dots (.),
-    ///     not longer than 253 characters in total, followed by a slash (/).
-    ///     Annotations that fails to meet these requirements will be rejected.
-    ///   - The &#39;(*.)google.com/&#39; and &#39;(*.)googleapis.com/&#39; prefixes are reserved
-    ///     for system annotations managed by Service Directory. If the user tries
-    ///     to write to these keyspaces, those entries will be silently ignored by
-    ///     the system.
-    /// Note: This field is equivalent to the &#39;metadata&#39; field in the v1beta1 API.
+    /// service clients.
+    ///
+    /// Restrictions:
+    ///
+    /// *   The entire annotations dictionary may contain up to 512 characters,
+    ///      spread accoss all key-value pairs. Annotations that go beyond this
+    ///      limit are rejected
+    /// *   Valid annotation keys have two segments: an optional prefix and name,
+    ///      separated by a slash (/). The name segment is required and must be 63
+    ///      characters or less, beginning and ending with an alphanumeric character
+    ///      (\[a-z0-9A-Z\]) with dashes (-), underscores (_), dots (.), and
+    ///      alphanumerics between. The prefix is optional. If specified, the prefix
+    ///      must be a DNS subdomain: a series of DNS labels separated by dots (.),
+    ///      not longer than 253 characters in total, followed by a slash (/)
+    ///      Annotations that fails to meet these requirements are rejected.
+    ///
+    /// Note: This field is equivalent to the `metadata` field in the v1beta1 API.
     /// They have the same syntax and read/write to the same location in Service
     /// Directory.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
@@ -1275,6 +1357,19 @@
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
+    <span class="doccomment">/// Immutable. The Google Compute Engine network (VPC) of the endpoint in the
+    /// format `projects/&lt;project number&gt;/locations/global/networks/*`.
+    ///
+    /// The project must be specified by project number (project id is rejected).
+    /// Incorrectly formatted networks are rejected, we also check to make sure
+    /// that you have the servicedirectory.networks.attach permission on the
+    /// project specified.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The globally unique identifier of the endpoint in the UUID4
+    /// format.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An individual service. A service contains a name and optional metadata.
 /// A service must exist before
@@ -1289,23 +1384,22 @@
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Annotations for the service. This data can be consumed by service
     /// clients.
+    ///
     /// Restrictions:
-    ///   - The entire annotations dictionary may contain up to 2000 characters,
-    ///     spread accoss all key-value pairs. Annotations that goes beyond any
-    ///     these limits will be rejected.
-    ///   - Valid annotation keys have two segments: an optional prefix and name,
-    ///     separated by a slash (/). The name segment is required and must be 63
-    ///     characters or less, beginning and ending with an alphanumeric character
-    ///     (\[a-z0-9A-Z\]) with dashes (-), underscores (_), dots (.), and
-    ///     alphanumerics between. The prefix is optional. If specified, the prefix
-    ///     must be a DNS subdomain: a series of DNS labels separated by dots (.),
-    ///     not longer than 253 characters in total, followed by a slash (/).
-    ///     Annotations that fails to meet these requirements will be rejected.
-    ///   - The &#39;(*.)google.com/&#39; and &#39;(*.)googleapis.com/&#39; prefixes are reserved
-    ///     for system annotations managed by Service Directory. If the user tries
-    ///     to write to these keyspaces, those entries will be silently ignored by
-    ///     the system.
-    /// Note: This field is equivalent to the &#39;metadata&#39; field in the v1beta1 API.
+    ///
+    /// *   The entire annotations dictionary may contain up to 2000 characters,
+    ///      spread accoss all key-value pairs. Annotations that go beyond this
+    ///      limit are rejected
+    /// *   Valid annotation keys have two segments: an optional prefix and name,
+    ///      separated by a slash (/). The name segment is required and must be 63
+    ///      characters or less, beginning and ending with an alphanumeric character
+    ///      (\[a-z0-9A-Z\]) with dashes (-), underscores (_), dots (.), and
+    ///      alphanumerics between. The prefix is optional. If specified, the prefix
+    ///      must be a DNS subdomain: a series of DNS labels separated by dots (.),
+    ///      not longer than 253 characters in total, followed by a slash (/).
+    ///      Annotations that fails to meet these requirements are rejected
+    ///
+    /// Note: This field is equivalent to the `metadata` field in the v1beta1 API.
     /// They have the same syntax and read/write to the same location in Service
     /// Directory.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
@@ -1314,10 +1408,15 @@
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Output only. Endpoints associated with this service. Returned on
-    /// LookupService.Resolve. Control plane clients should use
-    /// RegistrationService.ListEndpoints.
+    /// \[LookupService.ResolveService][google.cloud.servicedirectory.v1.LookupService.ResolveService\].
+    /// Control plane clients should use
+    /// \[RegistrationService.ListEndpoints][google.cloud.servicedirectory.v1.RegistrationService.ListEndpoints\].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>endpoints: ::prost::alloc::vec::Vec&lt;Endpoint&gt;,
+    <span class="doccomment">/// Output only. The globally unique identifier of the service in the UUID4
+    /// format.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request message for
 /// \[LookupService.ResolveService][google.cloud.servicedirectory.v1.LookupService.ResolveService\].
@@ -1335,22 +1434,40 @@
     </span><span class="kw">pub </span>max_endpoints: i32,
     <span class="doccomment">/// Optional. The filter applied to the endpoints of the resolved service.
     ///
-    /// General filter string syntax:
-    /// &lt;field&gt; &lt;operator&gt; &lt;value&gt; (&lt;logical connector&gt;)
-    /// &lt;field&gt; can be &quot;name&quot; or &quot;metadata.&lt;key&gt;&quot; for map field.
-    /// &lt;operator&gt; can be &quot;&lt;, &gt;, &lt;=, &gt;=, !=, =, :&quot;. Of which &quot;:&quot; means HAS and is
-    /// roughly the same as &quot;=&quot;.
-    /// &lt;value&gt; must be the same data type as the field.
-    /// &lt;logical connector&gt; can be &quot;AND, OR, NOT&quot;.
+    /// General `filter` string syntax:
+    /// `&lt;field&gt; &lt;operator&gt; &lt;value&gt; (&lt;logical connector&gt;)`
+    ///
+    /// *   `&lt;field&gt;` can be `name`, `address`, `port`, or `annotations.&lt;key&gt;` for
+    ///      map field
+    /// *   `&lt;operator&gt;` can be `&lt;`, `&gt;`, `&lt;=`, `&gt;=`, `!=`, `=`, `:`. Of which `:`
+    ///      means `HAS`, and is roughly the same as `=`
+    /// *   `&lt;value&gt;` must be the same data type as field
+    /// *   `&lt;logical connector&gt;` can be `AND`, `OR`, `NOT`
     ///
     /// Examples of valid filters:
-    /// * &quot;metadata.owner&quot; returns Endpoints that have a label with the
-    ///    key &quot;owner&quot;, this is the same as &quot;metadata:owner&quot;
-    /// * &quot;metadata.protocol=gRPC&quot; returns Endpoints that have key/value
-    ///    &quot;protocol=gRPC&quot;
-    /// * &quot;metadata.owner!=sd AND metadata.foo=bar&quot; returns
-    ///    Endpoints that have &quot;owner&quot; field in metadata with a value that is not
-    ///    &quot;sd&quot; AND have the key/value foo=bar.
+    ///
+    /// *   `annotations.owner` returns endpoints that have a annotation with the
+    ///      key `owner`, this is the same as `annotations:owner`
+    /// *   `annotations.protocol=gRPC` returns endpoints that have key/value
+    ///      `protocol=gRPC`
+    /// *   `address=192.108.1.105` returns endpoints that have this address
+    /// *   `port&gt;8080` returns endpoints that have port number larger than 8080
+    /// *
+    /// `name&gt;projects/my-project/locations/us-east1/namespaces/my-namespace/services/my-service/endpoints/endpoint-c`
+    ///      returns endpoints that have name that is alphabetically later than the
+    ///      string, so &quot;endpoint-e&quot; is returned but &quot;endpoint-a&quot; is not
+    /// *
+    /// `name=projects/my-project/locations/us-central1/namespaces/my-namespace/services/my-service/endpoints/ep-1`
+    ///       returns the endpoint that has an endpoint_id equal to `ep-1`
+    /// *   `annotations.owner!=sd AND annotations.foo=bar` returns endpoints that
+    ///      have `owner` in annotation key but value is not `sd` AND have
+    ///      key/value `foo=bar`
+    /// *   `doesnotexist.foo=bar` returns an empty list. Note that endpoint
+    ///      doesn&#39;t have a field called &quot;doesnotexist&quot;. Since the filter does not
+    ///      match any endpoint, it returns no results
+    ///
+    /// For more information about filtering, see
+    /// [API Filtering](&lt;https://aip.dev/160&gt;).
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>endpoint_filter: ::prost::alloc::string::String,
 }
@@ -1482,14 +1599,18 @@
     /// `projects/*/locations/*/namespaces/*`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Resource labels associated with this Namespace.
-    /// No more than 64 user labels can be associated with a given resource.  Label
+    <span class="doccomment">/// Optional. Resource labels associated with this namespace.
+    /// No more than 64 user labels can be associated with a given resource. Label
     /// keys and values can be no longer than 63 characters.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
+    <span class="doccomment">/// Output only. The globally unique identifier of the namespace in the UUID4
+    /// format.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request message for
 /// \[RegistrationService.CreateNamespace][google.cloud.servicedirectory.v1.RegistrationService.CreateNamespace\].
@@ -1519,7 +1640,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListNamespacesRequest {
     <span class="doccomment">/// Required. The resource name of the project and location whose namespaces
-    /// we&#39;d like to list.
+    /// you&#39;d like to list.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of items to return.
@@ -1529,40 +1650,46 @@
     /// if any.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The filter to list result by.
+    <span class="doccomment">/// Optional. The filter to list results by.
     ///
-    /// General filter string syntax:
-    /// &lt;field&gt; &lt;operator&gt; &lt;value&gt; (&lt;logical connector&gt;)
-    /// &lt;field&gt; can be &quot;name&quot;, or &quot;labels.&lt;key&gt;&quot; for map field.
-    /// &lt;operator&gt; can be &quot;&lt;, &gt;, &lt;=, &gt;=, !=, =, :&quot;. Of which &quot;:&quot; means HAS, and
-    /// is roughly the same as &quot;=&quot;.
-    /// &lt;value&gt; must be the same data type as field.
-    /// &lt;logical connector&gt; can be &quot;AND, OR, NOT&quot;.
+    /// General `filter` string syntax:
+    /// `&lt;field&gt; &lt;operator&gt; &lt;value&gt; (&lt;logical connector&gt;)`
+    ///
+    /// *   `&lt;field&gt;` can be `name` or `labels.&lt;key&gt;` for map field
+    /// *   `&lt;operator&gt;` can be `&lt;`, `&gt;`, `&lt;=`, `&gt;=`, `!=`, `=`, `:`. Of which `:`
+    ///      means `HAS`, and is roughly the same as `=`
+    /// *   `&lt;value&gt;` must be the same data type as field
+    /// *   `&lt;logical connector&gt;` can be `AND`, `OR`, `NOT`
     ///
     /// Examples of valid filters:
-    /// * &quot;labels.owner&quot; returns Namespaces that have a label with the key &quot;owner&quot;
-    ///    this is the same as &quot;labels:owner&quot;.
-    /// * &quot;labels.protocol=gRPC&quot; returns Namespaces that have key/value
-    ///    &quot;protocol=gRPC&quot;.
-    /// * &quot;name&gt;projects/my-project/locations/us-east/namespaces/namespace-c&quot;
-    ///    returns Namespaces that have name that is alphabetically later than the
-    ///    string, so &quot;namespace-e&quot; will be returned but &quot;namespace-a&quot; will not be.
-    /// * &quot;labels.owner!=sd AND labels.foo=bar&quot; returns Namespaces that have
-    ///    &quot;owner&quot; in label key but value is not &quot;sd&quot; AND have key/value foo=bar.
-    /// * &quot;doesnotexist.foo=bar&quot; returns an empty list. Note that Namespace doesn&#39;t
-    ///    have a field called &quot;doesnotexist&quot;. Since the filter does not match any
-    ///    Namespaces, it returns no results.
+    ///
+    /// *   `labels.owner` returns namespaces that have a label with the key
+    ///      `owner`, this is the same as `labels:owner`
+    /// *   `labels.owner=sd` returns namespaces that have key/value
+    ///      `owner=sd`
+    /// *   `name&gt;projects/my-project/locations/us-east1/namespaces/namespace-c`
+    ///      returns namespaces that have name that is alphabetically later than the
+    ///      string, so &quot;namespace-e&quot; is returned but &quot;namespace-a&quot; is not
+    /// *   `labels.owner!=sd AND labels.foo=bar` returns namespaces that have
+    ///      `owner` in label key but value is not `sd` AND have key/value `foo=bar`
+    /// *   `doesnotexist.foo=bar` returns an empty list. Note that namespace
+    ///      doesn&#39;t have a field called &quot;doesnotexist&quot;. Since the filter does not
+    ///      match any namespaces, it returns no results
+    ///
+    /// For more information about filtering, see
+    /// [API Filtering](&lt;https://aip.dev/160&gt;).
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The order to list result by.
+    <span class="doccomment">/// Optional. The order to list results by.
     ///
-    /// General order by string syntax:
-    /// &lt;field&gt; (&lt;asc|desc&gt;) (,)
-    /// &lt;field&gt; allows values {&quot;name&quot;}
-    /// &lt;asc/desc&gt; ascending or descending order by &lt;field&gt;. If this is left
-    /// blank, &quot;asc&quot; is used.
-    /// Note that an empty order_by string result in default order, which is order
-    /// by name in ascending order.
+    /// General `order_by` string syntax: `&lt;field&gt; (&lt;asc|desc&gt;) (,)`
+    ///
+    /// *   `&lt;field&gt;` allows value: `name`
+    /// *   `&lt;asc|desc&gt;` ascending or descending order by `&lt;field&gt;`. If this is
+    ///      left blank, `asc` is used
+    ///
+    /// Note that an empty `order_by` string results in default order, which is
+    /// order by `name` in ascending order.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
@@ -1635,7 +1762,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListServicesRequest {
-    <span class="doccomment">/// Required. The resource name of the namespace whose services we&#39;d
+    <span class="doccomment">/// Required. The resource name of the namespace whose services you&#39;d
     /// like to list.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
@@ -1646,32 +1773,48 @@
     /// if any.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The filter to list result by.
+    <span class="doccomment">/// Optional. The filter to list results by.
     ///
-    /// General filter string syntax:
-    /// &lt;field&gt; &lt;operator&gt; &lt;value&gt; (&lt;logical connector&gt;)
-    /// &lt;field&gt; can be &quot;name&quot;, or &quot;metadata.&lt;key&gt;&quot; for map field.
-    /// &lt;operator&gt; can be &quot;&lt;, &gt;, &lt;=, &gt;=, !=, =, :&quot;. Of which &quot;:&quot; means HAS, and
-    /// is roughly the same as &quot;=&quot;.
-    /// &lt;value&gt; must be the same data type as field.
-    /// &lt;logical connector&gt; can be &quot;AND, OR, NOT&quot;.
+    /// General `filter` string syntax:
+    /// `&lt;field&gt; &lt;operator&gt; &lt;value&gt; (&lt;logical connector&gt;)`
+    ///
+    /// *   `&lt;field&gt;` can be `name` or `annotations.&lt;key&gt;` for map field
+    /// *   `&lt;operator&gt;` can be `&lt;`, `&gt;`, `&lt;=`, `&gt;=`, `!=`, `=`, `:`. Of which `:`
+    ///      means `HAS`, and is roughly the same as `=`
+    /// *   `&lt;value&gt;` must be the same data type as field
+    /// *   `&lt;logical connector&gt;` can be `AND`, `OR`, `NOT`
     ///
     /// Examples of valid filters:
-    /// * &quot;metadata.owner&quot; returns Services that have a label with the key &quot;owner&quot;
-    ///    this is the same as &quot;metadata:owner&quot;.
-    /// * &quot;metadata.protocol=gRPC&quot; returns Services that have key/value
-    ///    &quot;protocol=gRPC&quot;.
-    /// * &quot;name&gt;projects/my-project/locations/us-east/namespaces/my-namespace/services/service-c&quot;
-    ///    returns Services that have name that is alphabetically later than the
-    ///    string, so &quot;service-e&quot; will be returned but &quot;service-a&quot; will not be.
-    /// * &quot;metadata.owner!=sd AND metadata.foo=bar&quot; returns Services that have
-    ///    &quot;owner&quot; in label key but value is not &quot;sd&quot; AND have key/value foo=bar.
-    /// * &quot;doesnotexist.foo=bar&quot; returns an empty list. Note that Service doesn&#39;t
-    ///    have a field called &quot;doesnotexist&quot;. Since the filter does not match any
-    ///    Services, it returns no results.
+    ///
+    /// *   `annotations.owner` returns services that have a annotation with the
+    ///      key `owner`, this is the same as `annotations:owner`
+    /// *   `annotations.protocol=gRPC` returns services that have key/value
+    ///      `protocol=gRPC`
+    /// *
+    /// `name&gt;projects/my-project/locations/us-east1/namespaces/my-namespace/services/service-c`
+    ///      returns services that have name that is alphabetically later than the
+    ///      string, so &quot;service-e&quot; is returned but &quot;service-a&quot; is not
+    /// *   `annotations.owner!=sd AND annotations.foo=bar` returns services that
+    ///      have `owner` in annotation key but value is not `sd` AND have
+    ///      key/value `foo=bar`
+    /// *   `doesnotexist.foo=bar` returns an empty list. Note that service
+    ///      doesn&#39;t have a field called &quot;doesnotexist&quot;. Since the filter does not
+    ///      match any services, it returns no results
+    ///
+    /// For more information about filtering, see
+    /// [API Filtering](&lt;https://aip.dev/160&gt;).
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The order to list result by.
+    <span class="doccomment">/// Optional. The order to list results by.
+    ///
+    /// General `order_by` string syntax: `&lt;field&gt; (&lt;asc|desc&gt;) (,)`
+    ///
+    /// *   `&lt;field&gt;` allows value: `name`
+    /// *   `&lt;asc|desc&gt;` ascending or descending order by `&lt;field&gt;`. If this is
+    ///      left blank, `asc` is used
+    ///
+    /// Note that an empty `order_by` string results in default order, which is
+    /// order by `name` in ascending order.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
@@ -1690,8 +1833,8 @@
 }
 <span class="doccomment">/// The request message for
 /// \[RegistrationService.GetService][google.cloud.servicedirectory.v1.RegistrationService.GetService\].
-/// This should not be used for looking up a service. Insead, use the `resolve`
-/// method as it will contain all endpoints and associated metadata.
+/// This should not be used for looking up a service. Instead, use the `resolve`
+/// method as it contains all endpoints and associated annotations.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetServiceRequest {
@@ -1746,7 +1889,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListEndpointsRequest {
-    <span class="doccomment">/// Required. The resource name of the service whose endpoints we&#39;d like to
+    <span class="doccomment">/// Required. The resource name of the service whose endpoints you&#39;d like to
     /// list.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
@@ -1757,34 +1900,51 @@
     /// if any.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The filter to list result by.
+    <span class="doccomment">/// Optional. The filter to list results by.
     ///
-    /// General filter string syntax:
-    /// &lt;field&gt; &lt;operator&gt; &lt;value&gt; (&lt;logical connector&gt;)
-    /// &lt;field&gt; can be &quot;name&quot;, &quot;address&quot;, &quot;port&quot; or &quot;metadata.&lt;key&gt;&quot; for map field.
-    /// &lt;operator&gt; can be &quot;&lt;, &gt;, &lt;=, &gt;=, !=, =, :&quot;. Of which &quot;:&quot; means HAS, and
-    /// is roughly the same as &quot;=&quot;.
-    /// &lt;value&gt; must be the same data type as field.
-    /// &lt;logical connector&gt; can be &quot;AND, OR, NOT&quot;.
+    /// General `filter` string syntax:
+    /// `&lt;field&gt; &lt;operator&gt; &lt;value&gt; (&lt;logical connector&gt;)`
+    ///
+    /// *   `&lt;field&gt;` can be `name`, `address`, `port`, or `annotations.&lt;key&gt;` for
+    ///       map field
+    /// *   `&lt;operator&gt;` can be `&lt;`, `&gt;`, `&lt;=`, `&gt;=`, `!=`, `=`, `:`. Of which `:`
+    ///      means `HAS`, and is roughly the same as `=`
+    /// *   `&lt;value&gt;` must be the same data type as field
+    /// *   `&lt;logical connector&gt;` can be `AND`, `OR`, `NOT`
     ///
     /// Examples of valid filters:
-    /// * &quot;metadata.owner&quot; returns Endpoints that have a label with the key &quot;owner&quot;
-    ///    this is the same as &quot;metadata:owner&quot;.
-    /// * &quot;metadata.protocol=gRPC&quot; returns Endpoints that have key/value
-    ///    &quot;protocol=gRPC&quot;.
-    /// * &quot;address=192.108.1.105&quot; returns Endpoints that have this address.
-    /// * &quot;port&gt;8080&quot; returns Endpoints that have port number larger than 8080.
-    /// * &quot;name&gt;projects/my-project/locations/us-east/namespaces/my-namespace/services/my-service/endpoints/endpoint-c&quot;
-    ///    returns Endpoints that have name that is alphabetically later than the
-    ///    string, so &quot;endpoint-e&quot; will be returned but &quot;endpoint-a&quot; will not be.
-    /// * &quot;metadata.owner!=sd AND metadata.foo=bar&quot; returns Endpoints that have
-    ///    &quot;owner&quot; in label key but value is not &quot;sd&quot; AND have key/value foo=bar.
-    /// * &quot;doesnotexist.foo=bar&quot; returns an empty list. Note that Endpoint doesn&#39;t
-    ///    have a field called &quot;doesnotexist&quot;. Since the filter does not match any
-    ///    Endpoints, it returns no results.
+    ///
+    /// *   `annotations.owner` returns endpoints that have a annotation with the
+    ///      key `owner`, this is the same as `annotations:owner`
+    /// *   `annotations.protocol=gRPC` returns endpoints that have key/value
+    ///      `protocol=gRPC`
+    /// *   `address=192.108.1.105` returns endpoints that have this address
+    /// *   `port&gt;8080` returns endpoints that have port number larger than 8080
+    /// *
+    /// `name&gt;projects/my-project/locations/us-east1/namespaces/my-namespace/services/my-service/endpoints/endpoint-c`
+    ///      returns endpoints that have name that is alphabetically later than the
+    ///      string, so &quot;endpoint-e&quot; is returned but &quot;endpoint-a&quot; is not
+    /// *   `annotations.owner!=sd AND annotations.foo=bar` returns endpoints that
+    ///      have `owner` in annotation key but value is not `sd` AND have
+    ///      key/value `foo=bar`
+    /// *   `doesnotexist.foo=bar` returns an empty list. Note that endpoint
+    ///      doesn&#39;t have a field called &quot;doesnotexist&quot;. Since the filter does not
+    ///      match any endpoints, it returns no results
+    ///
+    /// For more information about filtering, see
+    /// [API Filtering](&lt;https://aip.dev/160&gt;).
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The order to list result by.
+    <span class="doccomment">/// Optional. The order to list results by.
+    ///
+    /// General `order_by` string syntax: `&lt;field&gt; (&lt;asc|desc&gt;) (,)`
+    ///
+    /// *   `&lt;field&gt;` allows values: `name`, `address`, `port`
+    /// *   `&lt;asc|desc&gt;` ascending or descending order by `&lt;field&gt;`. If this is
+    ///      left blank, `asc` is used
+    ///
+    /// Note that an empty `order_by` string results in default order, which is
+    /// order by `name` in ascending order.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
@@ -1922,7 +2082,7 @@
             <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
             <span class="self">self
         </span>}
-        <span class="doccomment">/// Creates a namespace, and returns the new Namespace.
+        <span class="doccomment">/// Creates a namespace, and returns the new namespace.
         </span><span class="kw">pub async fn </span>create_namespace(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateNamespaceRequest&gt;,
@@ -2066,7 +2226,7 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Creates a service, and returns the new Service.
+        <span class="doccomment">/// Creates a service, and returns the new service.
         </span><span class="kw">pub async fn </span>create_service(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateServiceRequest&gt;,
@@ -2210,7 +2370,7 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Creates a endpoint, and returns the new Endpoint.
+        <span class="doccomment">/// Creates an endpoint, and returns the new endpoint.
         </span><span class="kw">pub async fn </span>create_endpoint(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateEndpointRequest&gt;,
@@ -2269,7 +2429,7 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Gets a endpoint.
+        <span class="doccomment">/// Gets an endpoint.
         </span><span class="kw">pub async fn </span>get_endpoint(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetEndpointRequest&gt;,
@@ -2297,7 +2457,7 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Updates a endpoint.
+        <span class="doccomment">/// Updates an endpoint.
         </span><span class="kw">pub async fn </span>update_endpoint(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdateEndpointRequest&gt;,
@@ -2325,7 +2485,7 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Deletes a endpoint.
+        <span class="doccomment">/// Deletes an endpoint.
         </span><span class="kw">pub async fn </span>delete_endpoint(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteEndpointRequest&gt;,
