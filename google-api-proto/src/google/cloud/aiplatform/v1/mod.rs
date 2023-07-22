@@ -6710,6 +6710,344 @@ pub struct UnmanagedContainerModel {
     #[prost(message, optional, tag = "3")]
     pub container_spec: ::core::option::Option<ModelContainerSpec>,
 }
+/// Instance of a general artifact.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Artifact {
+    /// Output only. The resource name of the Artifact.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// User provided display name of the Artifact.
+    /// May be up to 128 Unicode characters.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// The uniform resource identifier of the artifact file.
+    /// May be empty if there is no actual artifact file.
+    #[prost(string, tag = "6")]
+    pub uri: ::prost::alloc::string::String,
+    /// An eTag used to perform consistent read-modify-write updates. If not set, a
+    /// blind "overwrite" update happens.
+    #[prost(string, tag = "9")]
+    pub etag: ::prost::alloc::string::String,
+    /// The labels with user-defined metadata to organize your Artifacts.
+    ///
+    /// Label keys and values can be no longer than 64 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores and dashes. International characters are allowed.
+    /// No more than 64 user labels can be associated with one Artifact (System
+    /// labels are excluded).
+    #[prost(btree_map = "string, string", tag = "10")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. Timestamp when this Artifact was created.
+    #[prost(message, optional, tag = "11")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp when this Artifact was last updated.
+    #[prost(message, optional, tag = "12")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The state of this Artifact. This is a property of the Artifact, and does
+    /// not imply or capture any ongoing process. This property is managed by
+    /// clients (such as Vertex AI Pipelines), and the system does not prescribe
+    /// or check the validity of state transitions.
+    #[prost(enumeration = "artifact::State", tag = "13")]
+    pub state: i32,
+    /// The title of the schema describing the metadata.
+    ///
+    /// Schema title and version is expected to be registered in earlier Create
+    /// Schema calls. And both are used together as unique identifiers to identify
+    /// schemas within the local metadata store.
+    #[prost(string, tag = "14")]
+    pub schema_title: ::prost::alloc::string::String,
+    /// The version of the schema in schema_name to use.
+    ///
+    /// Schema title and version is expected to be registered in earlier Create
+    /// Schema calls. And both are used together as unique identifiers to identify
+    /// schemas within the local metadata store.
+    #[prost(string, tag = "15")]
+    pub schema_version: ::prost::alloc::string::String,
+    /// Properties of the Artifact.
+    /// Top level metadata keys' heading and trailing spaces will be trimmed.
+    /// The size of this field should not exceed 200KB.
+    #[prost(message, optional, tag = "16")]
+    pub metadata: ::core::option::Option<::prost_types::Struct>,
+    /// Description of the Artifact
+    #[prost(string, tag = "17")]
+    pub description: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Artifact`.
+pub mod artifact {
+    /// Describes the state of the Artifact.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified state for the Artifact.
+        Unspecified = 0,
+        /// A state used by systems like Vertex AI Pipelines to indicate that the
+        /// underlying data item represented by this Artifact is being created.
+        Pending = 1,
+        /// A state indicating that the Artifact should exist, unless something
+        /// external to the system deletes it.
+        Live = 2,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Pending => "PENDING",
+                State::Live => "LIVE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "PENDING" => Some(Self::Pending),
+                "LIVE" => Some(Self::Live),
+                _ => None,
+            }
+        }
+    }
+}
+/// Instance of a general context.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Context {
+    /// Output only. The resource name of the Context.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// User provided display name of the Context.
+    /// May be up to 128 Unicode characters.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// An eTag used to perform consistent read-modify-write updates. If not set, a
+    /// blind "overwrite" update happens.
+    #[prost(string, tag = "8")]
+    pub etag: ::prost::alloc::string::String,
+    /// The labels with user-defined metadata to organize your Contexts.
+    ///
+    /// Label keys and values can be no longer than 64 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores and dashes. International characters are allowed.
+    /// No more than 64 user labels can be associated with one Context (System
+    /// labels are excluded).
+    #[prost(btree_map = "string, string", tag = "9")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. Timestamp when this Context was created.
+    #[prost(message, optional, tag = "10")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp when this Context was last updated.
+    #[prost(message, optional, tag = "11")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. A list of resource names of Contexts that are parents of this
+    /// Context. A Context may have at most 10 parent_contexts.
+    #[prost(string, repeated, tag = "12")]
+    pub parent_contexts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The title of the schema describing the metadata.
+    ///
+    /// Schema title and version is expected to be registered in earlier Create
+    /// Schema calls. And both are used together as unique identifiers to identify
+    /// schemas within the local metadata store.
+    #[prost(string, tag = "13")]
+    pub schema_title: ::prost::alloc::string::String,
+    /// The version of the schema in schema_name to use.
+    ///
+    /// Schema title and version is expected to be registered in earlier Create
+    /// Schema calls. And both are used together as unique identifiers to identify
+    /// schemas within the local metadata store.
+    #[prost(string, tag = "14")]
+    pub schema_version: ::prost::alloc::string::String,
+    /// Properties of the Context.
+    /// Top level metadata keys' heading and trailing spaces will be trimmed.
+    /// The size of this field should not exceed 200KB.
+    #[prost(message, optional, tag = "15")]
+    pub metadata: ::core::option::Option<::prost_types::Struct>,
+    /// Description of the Context
+    #[prost(string, tag = "16")]
+    pub description: ::prost::alloc::string::String,
+}
+/// Instance of a general execution.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Execution {
+    /// Output only. The resource name of the Execution.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// User provided display name of the Execution.
+    /// May be up to 128 Unicode characters.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// The state of this Execution. This is a property of the Execution, and does
+    /// not imply or capture any ongoing process. This property is managed by
+    /// clients (such as Vertex AI Pipelines) and the system does not prescribe
+    /// or check the validity of state transitions.
+    #[prost(enumeration = "execution::State", tag = "6")]
+    pub state: i32,
+    /// An eTag used to perform consistent read-modify-write updates. If not set, a
+    /// blind "overwrite" update happens.
+    #[prost(string, tag = "9")]
+    pub etag: ::prost::alloc::string::String,
+    /// The labels with user-defined metadata to organize your Executions.
+    ///
+    /// Label keys and values can be no longer than 64 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores and dashes. International characters are allowed.
+    /// No more than 64 user labels can be associated with one Execution (System
+    /// labels are excluded).
+    #[prost(btree_map = "string, string", tag = "10")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. Timestamp when this Execution was created.
+    #[prost(message, optional, tag = "11")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp when this Execution was last updated.
+    #[prost(message, optional, tag = "12")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The title of the schema describing the metadata.
+    ///
+    /// Schema title and version is expected to be registered in earlier Create
+    /// Schema calls. And both are used together as unique identifiers to identify
+    /// schemas within the local metadata store.
+    #[prost(string, tag = "13")]
+    pub schema_title: ::prost::alloc::string::String,
+    /// The version of the schema in `schema_title` to use.
+    ///
+    /// Schema title and version is expected to be registered in earlier Create
+    /// Schema calls. And both are used together as unique identifiers to identify
+    /// schemas within the local metadata store.
+    #[prost(string, tag = "14")]
+    pub schema_version: ::prost::alloc::string::String,
+    /// Properties of the Execution.
+    /// Top level metadata keys' heading and trailing spaces will be trimmed.
+    /// The size of this field should not exceed 200KB.
+    #[prost(message, optional, tag = "15")]
+    pub metadata: ::core::option::Option<::prost_types::Struct>,
+    /// Description of the Execution
+    #[prost(string, tag = "16")]
+    pub description: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Execution`.
+pub mod execution {
+    /// Describes the state of the Execution.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified Execution state
+        Unspecified = 0,
+        /// The Execution is new
+        New = 1,
+        /// The Execution is running
+        Running = 2,
+        /// The Execution has finished running
+        Complete = 3,
+        /// The Execution has failed
+        Failed = 4,
+        /// The Execution completed through Cache hit.
+        Cached = 5,
+        /// The Execution was cancelled.
+        Cancelled = 6,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::New => "NEW",
+                State::Running => "RUNNING",
+                State::Complete => "COMPLETE",
+                State::Failed => "FAILED",
+                State::Cached => "CACHED",
+                State::Cancelled => "CANCELLED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "NEW" => Some(Self::New),
+                "RUNNING" => Some(Self::Running),
+                "COMPLETE" => Some(Self::Complete),
+                "FAILED" => Some(Self::Failed),
+                "CACHED" => Some(Self::Cached),
+                "CANCELLED" => Some(Self::Cancelled),
+                _ => None,
+            }
+        }
+    }
+}
+/// Represents the failure policy of a pipeline. Currently, the default of a
+/// pipeline is that the pipeline will continue to run until no more tasks can be
+/// executed, also known as PIPELINE_FAILURE_POLICY_FAIL_SLOW. However, if a
+/// pipeline is set to PIPELINE_FAILURE_POLICY_FAIL_FAST, it will stop scheduling
+/// any new tasks when a task has failed. Any scheduled tasks will continue to
+/// completion.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum PipelineFailurePolicy {
+    /// Default value, and follows fail slow behavior.
+    Unspecified = 0,
+    /// Indicates that the pipeline should continue to run until all possible
+    /// tasks have been scheduled and completed.
+    FailSlow = 1,
+    /// Indicates that the pipeline should stop scheduling new tasks after a task
+    /// has failed.
+    FailFast = 2,
+}
+impl PipelineFailurePolicy {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            PipelineFailurePolicy::Unspecified => "PIPELINE_FAILURE_POLICY_UNSPECIFIED",
+            PipelineFailurePolicy::FailSlow => "PIPELINE_FAILURE_POLICY_FAIL_SLOW",
+            PipelineFailurePolicy::FailFast => "PIPELINE_FAILURE_POLICY_FAIL_FAST",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "PIPELINE_FAILURE_POLICY_UNSPECIFIED" => Some(Self::Unspecified),
+            "PIPELINE_FAILURE_POLICY_FAIL_SLOW" => Some(Self::FailSlow),
+            "PIPELINE_FAILURE_POLICY_FAIL_FAST" => Some(Self::FailFast),
+            _ => None,
+        }
+    }
+}
 /// Describes the state of a pipeline.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -6768,6 +7106,473 @@ impl PipelineState {
             "PIPELINE_STATE_PAUSED" => Some(Self::Paused),
             _ => None,
         }
+    }
+}
+/// Value is the value of the field.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Value {
+    #[prost(oneof = "value::Value", tags = "1, 2, 3")]
+    pub value: ::core::option::Option<value::Value>,
+}
+/// Nested message and enum types in `Value`.
+pub mod value {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Value {
+        /// An integer value.
+        #[prost(int64, tag = "1")]
+        IntValue(i64),
+        /// A double value.
+        #[prost(double, tag = "2")]
+        DoubleValue(f64),
+        /// A string value.
+        #[prost(string, tag = "3")]
+        StringValue(::prost::alloc::string::String),
+    }
+}
+/// An instance of a machine learning PipelineJob.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PipelineJob {
+    /// Output only. The resource name of the PipelineJob.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The display name of the Pipeline.
+    /// The name can be up to 128 characters long and can consist of any UTF-8
+    /// characters.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Output only. Pipeline creation time.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Pipeline start time.
+    #[prost(message, optional, tag = "4")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Pipeline end time.
+    #[prost(message, optional, tag = "5")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp when this PipelineJob was most recently updated.
+    #[prost(message, optional, tag = "6")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The spec of the pipeline.
+    #[prost(message, optional, tag = "7")]
+    pub pipeline_spec: ::core::option::Option<::prost_types::Struct>,
+    /// Output only. The detailed state of the job.
+    #[prost(enumeration = "PipelineState", tag = "8")]
+    pub state: i32,
+    /// Output only. The details of pipeline run. Not available in the list view.
+    #[prost(message, optional, tag = "9")]
+    pub job_detail: ::core::option::Option<PipelineJobDetail>,
+    /// Output only. The error that occurred during pipeline execution.
+    /// Only populated when the pipeline's state is FAILED or CANCELLED.
+    #[prost(message, optional, tag = "10")]
+    pub error: ::core::option::Option<super::super::super::rpc::Status>,
+    /// The labels with user-defined metadata to organize PipelineJob.
+    ///
+    /// Label keys and values can be no longer than 64 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores and dashes. International characters are allowed.
+    ///
+    /// See <https://goo.gl/xmQnxf> for more information and examples of labels.
+    ///
+    /// Note there is some reserved label key for Vertex AI Pipelines.
+    /// - `vertex-ai-pipelines-run-billing-id`, user set value will get overrided.
+    #[prost(btree_map = "string, string", tag = "11")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Runtime config of the pipeline.
+    #[prost(message, optional, tag = "12")]
+    pub runtime_config: ::core::option::Option<pipeline_job::RuntimeConfig>,
+    /// Customer-managed encryption key spec for a pipelineJob. If set, this
+    /// PipelineJob and all of its sub-resources will be secured by this key.
+    #[prost(message, optional, tag = "16")]
+    pub encryption_spec: ::core::option::Option<EncryptionSpec>,
+    /// The service account that the pipeline workload runs as.
+    /// If not specified, the Compute Engine default service account in the project
+    /// will be used.
+    /// See
+    /// <https://cloud.google.com/compute/docs/access/service-accounts#default_service_account>
+    ///
+    /// Users starting the pipeline must have the `iam.serviceAccounts.actAs`
+    /// permission on this service account.
+    #[prost(string, tag = "17")]
+    pub service_account: ::prost::alloc::string::String,
+    /// The full name of the Compute Engine
+    /// \[network\](/compute/docs/networks-and-firewalls#networks) to which the
+    /// Pipeline Job's workload should be peered. For example,
+    /// `projects/12345/global/networks/myVPC`.
+    /// \[Format\](/compute/docs/reference/rest/v1/networks/insert)
+    /// is of the form `projects/{project}/global/networks/{network}`.
+    /// Where {project} is a project number, as in `12345`, and {network} is a
+    /// network name.
+    ///
+    /// Private services access must already be configured for the network.
+    /// Pipeline job will apply the network configuration to the Google Cloud
+    /// resources being launched, if applied, such as Vertex AI
+    /// Training or Dataflow job. If left unspecified, the workload is not peered
+    /// with any network.
+    #[prost(string, tag = "18")]
+    pub network: ::prost::alloc::string::String,
+    /// A list of names for the reserved ip ranges under the VPC network
+    /// that can be used for this Pipeline Job's workload.
+    ///
+    /// If set, we will deploy the Pipeline Job's workload within the provided ip
+    /// ranges. Otherwise, the job will be deployed to any ip ranges under the
+    /// provided VPC network.
+    ///
+    /// Example: \['vertex-ai-ip-range'\].
+    #[prost(string, repeated, tag = "25")]
+    pub reserved_ip_ranges: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// A template uri from where the
+    /// \[PipelineJob.pipeline_spec][google.cloud.aiplatform.v1.PipelineJob.pipeline_spec\],
+    /// if empty, will be downloaded.
+    #[prost(string, tag = "19")]
+    pub template_uri: ::prost::alloc::string::String,
+    /// Output only. Pipeline template metadata. Will fill up fields if
+    /// \[PipelineJob.template_uri][google.cloud.aiplatform.v1.PipelineJob.template_uri\]
+    /// is from supported template registry.
+    #[prost(message, optional, tag = "20")]
+    pub template_metadata: ::core::option::Option<PipelineTemplateMetadata>,
+}
+/// Nested message and enum types in `PipelineJob`.
+pub mod pipeline_job {
+    /// The runtime config of a PipelineJob.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct RuntimeConfig {
+        /// Deprecated. Use
+        /// \[RuntimeConfig.parameter_values][google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.parameter_values\]
+        /// instead. The runtime parameters of the PipelineJob. The parameters will
+        /// be passed into
+        /// \[PipelineJob.pipeline_spec][google.cloud.aiplatform.v1.PipelineJob.pipeline_spec\]
+        /// to replace the placeholders at runtime. This field is used by pipelines
+        /// built using `PipelineJob.pipeline_spec.schema_version` 2.0.0 or lower,
+        /// such as pipelines built using Kubeflow Pipelines SDK 1.8 or lower.
+        #[prost(btree_map = "string, message", tag = "1")]
+        pub parameters: ::prost::alloc::collections::BTreeMap<
+            ::prost::alloc::string::String,
+            super::Value,
+        >,
+        /// Required. A path in a Cloud Storage bucket, which will be treated as the
+        /// root output directory of the pipeline. It is used by the system to
+        /// generate the paths of output artifacts. The artifact paths are generated
+        /// with a sub-path pattern `{job_id}/{task_id}/{output_key}` under the
+        /// specified output directory. The service account specified in this
+        /// pipeline must have the `storage.objects.get` and `storage.objects.create`
+        /// permissions for this bucket.
+        #[prost(string, tag = "2")]
+        pub gcs_output_directory: ::prost::alloc::string::String,
+        /// The runtime parameters of the PipelineJob. The parameters will be
+        /// passed into
+        /// \[PipelineJob.pipeline_spec][google.cloud.aiplatform.v1.PipelineJob.pipeline_spec\]
+        /// to replace the placeholders at runtime. This field is used by pipelines
+        /// built using `PipelineJob.pipeline_spec.schema_version` 2.1.0, such as
+        /// pipelines built using Kubeflow Pipelines SDK 1.9 or higher and the v2
+        /// DSL.
+        #[prost(btree_map = "string, message", tag = "3")]
+        pub parameter_values: ::prost::alloc::collections::BTreeMap<
+            ::prost::alloc::string::String,
+            ::prost_types::Value,
+        >,
+        /// Represents the failure policy of a pipeline. Currently, the default of a
+        /// pipeline is that the pipeline will continue to run until no more tasks
+        /// can be executed, also known as PIPELINE_FAILURE_POLICY_FAIL_SLOW.
+        /// However, if a pipeline is set to PIPELINE_FAILURE_POLICY_FAIL_FAST, it
+        /// will stop scheduling any new tasks when a task has failed. Any scheduled
+        /// tasks will continue to completion.
+        #[prost(enumeration = "super::PipelineFailurePolicy", tag = "4")]
+        pub failure_policy: i32,
+        /// The runtime artifacts of the PipelineJob. The key will be the input
+        /// artifact name and the value would be one of the InputArtifact.
+        #[prost(btree_map = "string, message", tag = "5")]
+        pub input_artifacts: ::prost::alloc::collections::BTreeMap<
+            ::prost::alloc::string::String,
+            runtime_config::InputArtifact,
+        >,
+    }
+    /// Nested message and enum types in `RuntimeConfig`.
+    pub mod runtime_config {
+        /// The type of an input artifact.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct InputArtifact {
+            #[prost(oneof = "input_artifact::Kind", tags = "1")]
+            pub kind: ::core::option::Option<input_artifact::Kind>,
+        }
+        /// Nested message and enum types in `InputArtifact`.
+        pub mod input_artifact {
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            pub enum Kind {
+                /// Artifact resource id from MLMD. Which is the last portion of an
+                /// artifact resource name:
+                /// `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifact_id}`.
+                /// The artifact must stay within the same project, location and default
+                /// metadatastore as the pipeline.
+                #[prost(string, tag = "1")]
+                ArtifactId(::prost::alloc::string::String),
+            }
+        }
+    }
+}
+/// Pipeline template metadata if
+/// \[PipelineJob.template_uri][google.cloud.aiplatform.v1.PipelineJob.template_uri\]
+/// is from supported template registry. Currently, the only supported registry
+/// is Artifact Registry.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PipelineTemplateMetadata {
+    /// The version_name in artifact registry.
+    ///
+    /// Will always be presented in output if the
+    /// \[PipelineJob.template_uri][google.cloud.aiplatform.v1.PipelineJob.template_uri\]
+    /// is from supported template registry.
+    ///
+    /// Format is "sha256:abcdef123456...".
+    #[prost(string, tag = "3")]
+    pub version: ::prost::alloc::string::String,
+}
+/// The runtime detail of PipelineJob.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PipelineJobDetail {
+    /// Output only. The context of the pipeline.
+    #[prost(message, optional, tag = "1")]
+    pub pipeline_context: ::core::option::Option<Context>,
+    /// Output only. The context of the current pipeline run.
+    #[prost(message, optional, tag = "2")]
+    pub pipeline_run_context: ::core::option::Option<Context>,
+    /// Output only. The runtime details of the tasks under the pipeline.
+    #[prost(message, repeated, tag = "3")]
+    pub task_details: ::prost::alloc::vec::Vec<PipelineTaskDetail>,
+}
+/// The runtime detail of a task execution.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PipelineTaskDetail {
+    /// Output only. The system generated ID of the task.
+    #[prost(int64, tag = "1")]
+    pub task_id: i64,
+    /// Output only. The id of the parent task if the task is within a component
+    /// scope. Empty if the task is at the root level.
+    #[prost(int64, tag = "12")]
+    pub parent_task_id: i64,
+    /// Output only. The user specified name of the task that is defined in
+    /// \[pipeline_spec][google.cloud.aiplatform.v1.PipelineJob.pipeline_spec\].
+    #[prost(string, tag = "2")]
+    pub task_name: ::prost::alloc::string::String,
+    /// Output only. Task create time.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Task start time.
+    #[prost(message, optional, tag = "4")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Task end time.
+    #[prost(message, optional, tag = "5")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The detailed execution info.
+    #[prost(message, optional, tag = "6")]
+    pub executor_detail: ::core::option::Option<PipelineTaskExecutorDetail>,
+    /// Output only. State of the task.
+    #[prost(enumeration = "pipeline_task_detail::State", tag = "7")]
+    pub state: i32,
+    /// Output only. The execution metadata of the task.
+    #[prost(message, optional, tag = "8")]
+    pub execution: ::core::option::Option<Execution>,
+    /// Output only. The error that occurred during task execution.
+    /// Only populated when the task's state is FAILED or CANCELLED.
+    #[prost(message, optional, tag = "9")]
+    pub error: ::core::option::Option<super::super::super::rpc::Status>,
+    /// Output only. A list of task status. This field keeps a record of task
+    /// status evolving over time.
+    #[prost(message, repeated, tag = "13")]
+    pub pipeline_task_status: ::prost::alloc::vec::Vec<
+        pipeline_task_detail::PipelineTaskStatus,
+    >,
+    /// Output only. The runtime input artifacts of the task.
+    #[prost(btree_map = "string, message", tag = "10")]
+    pub inputs: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        pipeline_task_detail::ArtifactList,
+    >,
+    /// Output only. The runtime output artifacts of the task.
+    #[prost(btree_map = "string, message", tag = "11")]
+    pub outputs: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        pipeline_task_detail::ArtifactList,
+    >,
+}
+/// Nested message and enum types in `PipelineTaskDetail`.
+pub mod pipeline_task_detail {
+    /// A single record of the task status.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PipelineTaskStatus {
+        /// Output only. Update time of this status.
+        #[prost(message, optional, tag = "1")]
+        pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+        /// Output only. The state of the task.
+        #[prost(enumeration = "State", tag = "2")]
+        pub state: i32,
+        /// Output only. The error that occurred during the state. May be set when
+        /// the state is any of the non-final state (PENDING/RUNNING/CANCELLING) or
+        /// FAILED state. If the state is FAILED, the error here is final and not
+        /// going to be retried. If the state is a non-final state, the error
+        /// indicates a system-error being retried.
+        #[prost(message, optional, tag = "3")]
+        pub error: ::core::option::Option<super::super::super::super::rpc::Status>,
+    }
+    /// A list of artifact metadata.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ArtifactList {
+        /// Output only. A list of artifact metadata.
+        #[prost(message, repeated, tag = "1")]
+        pub artifacts: ::prost::alloc::vec::Vec<super::Artifact>,
+    }
+    /// Specifies state of TaskExecution
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified.
+        Unspecified = 0,
+        /// Specifies pending state for the task.
+        Pending = 1,
+        /// Specifies task is being executed.
+        Running = 2,
+        /// Specifies task completed successfully.
+        Succeeded = 3,
+        /// Specifies Task cancel is in pending state.
+        CancelPending = 4,
+        /// Specifies task is being cancelled.
+        Cancelling = 5,
+        /// Specifies task was cancelled.
+        Cancelled = 6,
+        /// Specifies task failed.
+        Failed = 7,
+        /// Specifies task was skipped due to cache hit.
+        Skipped = 8,
+        /// Specifies that the task was not triggered because the task's trigger
+        /// policy is not satisfied. The trigger policy is specified in the
+        /// `condition` field of
+        /// \[PipelineJob.pipeline_spec][google.cloud.aiplatform.v1.PipelineJob.pipeline_spec\].
+        NotTriggered = 9,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Pending => "PENDING",
+                State::Running => "RUNNING",
+                State::Succeeded => "SUCCEEDED",
+                State::CancelPending => "CANCEL_PENDING",
+                State::Cancelling => "CANCELLING",
+                State::Cancelled => "CANCELLED",
+                State::Failed => "FAILED",
+                State::Skipped => "SKIPPED",
+                State::NotTriggered => "NOT_TRIGGERED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "PENDING" => Some(Self::Pending),
+                "RUNNING" => Some(Self::Running),
+                "SUCCEEDED" => Some(Self::Succeeded),
+                "CANCEL_PENDING" => Some(Self::CancelPending),
+                "CANCELLING" => Some(Self::Cancelling),
+                "CANCELLED" => Some(Self::Cancelled),
+                "FAILED" => Some(Self::Failed),
+                "SKIPPED" => Some(Self::Skipped),
+                "NOT_TRIGGERED" => Some(Self::NotTriggered),
+                _ => None,
+            }
+        }
+    }
+}
+/// The runtime detail of a pipeline executor.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PipelineTaskExecutorDetail {
+    #[prost(oneof = "pipeline_task_executor_detail::Details", tags = "1, 2")]
+    pub details: ::core::option::Option<pipeline_task_executor_detail::Details>,
+}
+/// Nested message and enum types in `PipelineTaskExecutorDetail`.
+pub mod pipeline_task_executor_detail {
+    /// The detail of a container execution. It contains the job names of the
+    /// lifecycle of a container execution.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ContainerDetail {
+        /// Output only. The name of the
+        /// \[CustomJob][google.cloud.aiplatform.v1.CustomJob\] for the main container
+        /// execution.
+        #[prost(string, tag = "1")]
+        pub main_job: ::prost::alloc::string::String,
+        /// Output only. The name of the
+        /// \[CustomJob][google.cloud.aiplatform.v1.CustomJob\] for the
+        /// pre-caching-check container execution. This job will be available if the
+        /// \[PipelineJob.pipeline_spec][google.cloud.aiplatform.v1.PipelineJob.pipeline_spec\]
+        /// specifies the `pre_caching_check` hook in the lifecycle events.
+        #[prost(string, tag = "2")]
+        pub pre_caching_check_job: ::prost::alloc::string::String,
+        /// Output only. The names of the previously failed
+        /// \[CustomJob][google.cloud.aiplatform.v1.CustomJob\] for the main container
+        /// executions. The list includes the all attempts in chronological order.
+        #[prost(string, repeated, tag = "3")]
+        pub failed_main_jobs: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// Output only. The names of the previously failed
+        /// \[CustomJob][google.cloud.aiplatform.v1.CustomJob\] for the
+        /// pre-caching-check container executions. This job will be available if the
+        /// \[PipelineJob.pipeline_spec][google.cloud.aiplatform.v1.PipelineJob.pipeline_spec\]
+        /// specifies the `pre_caching_check` hook in the lifecycle events. The list
+        /// includes the all attempts in chronological order.
+        #[prost(string, repeated, tag = "4")]
+        pub failed_pre_caching_check_jobs: ::prost::alloc::vec::Vec<
+            ::prost::alloc::string::String,
+        >,
+    }
+    /// The detailed info for a custom job executor.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct CustomJobDetail {
+        /// Output only. The name of the
+        /// \[CustomJob][google.cloud.aiplatform.v1.CustomJob\].
+        #[prost(string, tag = "1")]
+        pub job: ::prost::alloc::string::String,
+        /// Output only. The names of the previously failed
+        /// \[CustomJob][google.cloud.aiplatform.v1.CustomJob\]. The list includes the
+        /// all attempts in chronological order.
+        #[prost(string, repeated, tag = "3")]
+        pub failed_jobs: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Details {
+        /// Output only. The detailed info for a container executor.
+        #[prost(message, tag = "1")]
+        ContainerDetail(ContainerDetail),
+        /// Output only. The detailed info for a custom job executor.
+        #[prost(message, tag = "2")]
+        CustomJobDetail(CustomJobDetail),
     }
 }
 /// The TrainingPipeline orchestrates tasks associated with training a Model. It
@@ -7220,6 +8025,841 @@ pub struct StratifiedSplit {
     /// The key provided must be for a categorical column.
     #[prost(string, tag = "4")]
     pub key: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[PipelineService.CreateTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.CreateTrainingPipeline\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateTrainingPipelineRequest {
+    /// Required. The resource name of the Location to create the TrainingPipeline
+    /// in. Format: `projects/{project}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The TrainingPipeline to create.
+    #[prost(message, optional, tag = "2")]
+    pub training_pipeline: ::core::option::Option<TrainingPipeline>,
+}
+/// Request message for
+/// \[PipelineService.GetTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.GetTrainingPipeline\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetTrainingPipelineRequest {
+    /// Required. The name of the TrainingPipeline resource.
+    /// Format:
+    /// `projects/{project}/locations/{location}/trainingPipelines/{training_pipeline}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[PipelineService.ListTrainingPipelines][google.cloud.aiplatform.v1.PipelineService.ListTrainingPipelines\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListTrainingPipelinesRequest {
+    /// Required. The resource name of the Location to list the TrainingPipelines
+    /// from. Format: `projects/{project}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The standard list filter.
+    ///
+    /// Supported fields:
+    ///
+    ///    * `display_name` supports `=`, `!=` comparisons, and `:` wildcard.
+    ///    * `state` supports `=`, `!=` comparisons.
+    ///    * `training_task_definition` `=`, `!=` comparisons, and `:` wildcard.
+    ///    * `create_time` supports `=`, `!=`,`<`, `<=`,`>`, `>=` comparisons.
+    ///      `create_time` must be in RFC 3339 format.
+    ///    * `labels` supports general map functions that is:
+    ///      `labels.key=value` - key:value equality
+    ///      `labels.key:* - key existence
+    ///
+    /// Some examples of using the filter are:
+    ///
+    ///    * `state="PIPELINE_STATE_SUCCEEDED" AND display_name:"my_pipeline_*"`
+    ///    * `state!="PIPELINE_STATE_FAILED" OR display_name="my_pipeline"`
+    ///    * `NOT display_name="my_pipeline"`
+    ///    * `create_time>"2021-05-18T00:00:00Z"`
+    ///    * `training_task_definition:"*automl_text_classification*"`
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// The standard list page size.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// The standard list page token.
+    /// Typically obtained via
+    /// \[ListTrainingPipelinesResponse.next_page_token][google.cloud.aiplatform.v1.ListTrainingPipelinesResponse.next_page_token\]
+    /// of the previous
+    /// \[PipelineService.ListTrainingPipelines][google.cloud.aiplatform.v1.PipelineService.ListTrainingPipelines\]
+    /// call.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Mask specifying which fields to read.
+    #[prost(message, optional, tag = "5")]
+    pub read_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Response message for
+/// \[PipelineService.ListTrainingPipelines][google.cloud.aiplatform.v1.PipelineService.ListTrainingPipelines\]
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListTrainingPipelinesResponse {
+    /// List of TrainingPipelines in the requested page.
+    #[prost(message, repeated, tag = "1")]
+    pub training_pipelines: ::prost::alloc::vec::Vec<TrainingPipeline>,
+    /// A token to retrieve the next page of results.
+    /// Pass to
+    /// \[ListTrainingPipelinesRequest.page_token][google.cloud.aiplatform.v1.ListTrainingPipelinesRequest.page_token\]
+    /// to obtain that page.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[PipelineService.DeleteTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.DeleteTrainingPipeline\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteTrainingPipelineRequest {
+    /// Required. The name of the TrainingPipeline resource to be deleted.
+    /// Format:
+    /// `projects/{project}/locations/{location}/trainingPipelines/{training_pipeline}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[PipelineService.CancelTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.CancelTrainingPipeline\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CancelTrainingPipelineRequest {
+    /// Required. The name of the TrainingPipeline to cancel.
+    /// Format:
+    /// `projects/{project}/locations/{location}/trainingPipelines/{training_pipeline}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[PipelineService.CreatePipelineJob][google.cloud.aiplatform.v1.PipelineService.CreatePipelineJob\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreatePipelineJobRequest {
+    /// Required. The resource name of the Location to create the PipelineJob in.
+    /// Format: `projects/{project}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The PipelineJob to create.
+    #[prost(message, optional, tag = "2")]
+    pub pipeline_job: ::core::option::Option<PipelineJob>,
+    /// The ID to use for the PipelineJob, which will become the final component of
+    /// the PipelineJob name. If not provided, an ID will be automatically
+    /// generated.
+    ///
+    /// This value should be less than 128 characters, and valid characters
+    /// are /\[a-z][0-9\]-/.
+    #[prost(string, tag = "3")]
+    pub pipeline_job_id: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[PipelineService.GetPipelineJob][google.cloud.aiplatform.v1.PipelineService.GetPipelineJob\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetPipelineJobRequest {
+    /// Required. The name of the PipelineJob resource.
+    /// Format:
+    /// `projects/{project}/locations/{location}/pipelineJobs/{pipeline_job}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[PipelineService.ListPipelineJobs][google.cloud.aiplatform.v1.PipelineService.ListPipelineJobs\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListPipelineJobsRequest {
+    /// Required. The resource name of the Location to list the PipelineJobs from.
+    /// Format: `projects/{project}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Lists the PipelineJobs that match the filter expression. The following
+    /// fields are supported:
+    ///
+    /// * `pipeline_name`: Supports `=` and `!=` comparisons.
+    /// * `display_name`: Supports `=`, `!=` comparisons, and `:` wildcard.
+    /// * `pipeline_job_user_id`: Supports `=`, `!=` comparisons, and `:` wildcard.
+    ///    for example, can check if pipeline's display_name contains *step* by
+    ///    doing display_name:\"*step*\"
+    /// * `state`: Supports `=` and `!=` comparisons.
+    /// * `create_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons.
+    ///    Values must be in RFC 3339 format.
+    /// * `update_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons.
+    ///    Values must be in RFC 3339 format.
+    /// * `end_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons.
+    ///    Values must be in RFC 3339 format.
+    /// * `labels`: Supports key-value equality and key presence.
+    /// * `template_uri`: Supports `=`, `!=` comparisons, and `:` wildcard.
+    /// * `template_metadata.version`: Supports `=`, `!=` comparisons, and `:`
+    ///    wildcard.
+    ///
+    /// Filter expressions can be combined together using logical operators
+    /// (`AND` & `OR`).
+    /// For example: `pipeline_name="test" AND create_time>"2020-05-18T13:30:00Z"`.
+    ///
+    /// The syntax to define filter expression is based on
+    /// <https://google.aip.dev/160.>
+    ///
+    /// Examples:
+    ///
+    /// * `create_time>"2021-05-18T00:00:00Z" OR
+    ///    update_time>"2020-05-18T00:00:00Z"` PipelineJobs created or updated
+    ///    after 2020-05-18 00:00:00 UTC.
+    /// * `labels.env = "prod"`
+    ///    PipelineJobs with label "env" set to "prod".
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// The standard list page size.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// The standard list page token.
+    /// Typically obtained via
+    /// \[ListPipelineJobsResponse.next_page_token][google.cloud.aiplatform.v1.ListPipelineJobsResponse.next_page_token\]
+    /// of the previous
+    /// \[PipelineService.ListPipelineJobs][google.cloud.aiplatform.v1.PipelineService.ListPipelineJobs\]
+    /// call.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+    /// A comma-separated list of fields to order by. The default sort order is in
+    /// ascending order. Use "desc" after a field name for descending. You can have
+    /// multiple order_by fields provided e.g. "create_time desc, end_time",
+    /// "end_time, start_time, update_time" For example, using "create_time desc,
+    /// end_time" will order results by create time in descending order, and if
+    /// there are multiple jobs having the same create time, order them by the end
+    /// time in ascending order. if order_by is not specified, it will order by
+    /// default order is create time in descending order. Supported fields:
+    ///
+    ///    * `create_time`
+    ///    * `update_time`
+    ///    * `end_time`
+    ///    * `start_time`
+    #[prost(string, tag = "6")]
+    pub order_by: ::prost::alloc::string::String,
+    /// Mask specifying which fields to read.
+    #[prost(message, optional, tag = "7")]
+    pub read_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Response message for
+/// \[PipelineService.ListPipelineJobs][google.cloud.aiplatform.v1.PipelineService.ListPipelineJobs\]
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListPipelineJobsResponse {
+    /// List of PipelineJobs in the requested page.
+    #[prost(message, repeated, tag = "1")]
+    pub pipeline_jobs: ::prost::alloc::vec::Vec<PipelineJob>,
+    /// A token to retrieve the next page of results.
+    /// Pass to
+    /// \[ListPipelineJobsRequest.page_token][google.cloud.aiplatform.v1.ListPipelineJobsRequest.page_token\]
+    /// to obtain that page.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[PipelineService.DeletePipelineJob][google.cloud.aiplatform.v1.PipelineService.DeletePipelineJob\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeletePipelineJobRequest {
+    /// Required. The name of the PipelineJob resource to be deleted.
+    /// Format:
+    /// `projects/{project}/locations/{location}/pipelineJobs/{pipeline_job}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[PipelineService.CancelPipelineJob][google.cloud.aiplatform.v1.PipelineService.CancelPipelineJob\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CancelPipelineJobRequest {
+    /// Required. The name of the PipelineJob to cancel.
+    /// Format:
+    /// `projects/{project}/locations/{location}/pipelineJobs/{pipeline_job}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Generated client implementations.
+pub mod pipeline_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// A service for creating and managing Vertex AI's pipelines. This includes both
+    /// `TrainingPipeline` resources (used for AutoML and custom training) and
+    /// `PipelineJob` resources (used for Vertex AI Pipelines).
+    #[derive(Debug, Clone)]
+    pub struct PipelineServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> PipelineServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> PipelineServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            PipelineServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Creates a TrainingPipeline. A created TrainingPipeline right away will be
+        /// attempted to be run.
+        pub async fn create_training_pipeline(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateTrainingPipelineRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::TrainingPipeline>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1.PipelineService/CreateTrainingPipeline",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1.PipelineService",
+                        "CreateTrainingPipeline",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets a TrainingPipeline.
+        pub async fn get_training_pipeline(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetTrainingPipelineRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::TrainingPipeline>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1.PipelineService/GetTrainingPipeline",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1.PipelineService",
+                        "GetTrainingPipeline",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists TrainingPipelines in a Location.
+        pub async fn list_training_pipelines(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListTrainingPipelinesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListTrainingPipelinesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1.PipelineService/ListTrainingPipelines",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1.PipelineService",
+                        "ListTrainingPipelines",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a TrainingPipeline.
+        pub async fn delete_training_pipeline(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteTrainingPipelineRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1.PipelineService/DeleteTrainingPipeline",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1.PipelineService",
+                        "DeleteTrainingPipeline",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Cancels a TrainingPipeline.
+        /// Starts asynchronous cancellation on the TrainingPipeline. The server
+        /// makes a best effort to cancel the pipeline, but success is not
+        /// guaranteed. Clients can use
+        /// [PipelineService.GetTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.GetTrainingPipeline]
+        /// or other methods to check whether the cancellation succeeded or whether the
+        /// pipeline completed despite cancellation. On successful cancellation,
+        /// the TrainingPipeline is not deleted; instead it becomes a pipeline with
+        /// a
+        /// [TrainingPipeline.error][google.cloud.aiplatform.v1.TrainingPipeline.error]
+        /// value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
+        /// corresponding to `Code.CANCELLED`, and
+        /// [TrainingPipeline.state][google.cloud.aiplatform.v1.TrainingPipeline.state]
+        /// is set to `CANCELLED`.
+        pub async fn cancel_training_pipeline(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CancelTrainingPipelineRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1.PipelineService/CancelTrainingPipeline",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1.PipelineService",
+                        "CancelTrainingPipeline",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a PipelineJob. A PipelineJob will run immediately when created.
+        pub async fn create_pipeline_job(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreatePipelineJobRequest>,
+        ) -> std::result::Result<tonic::Response<super::PipelineJob>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1.PipelineService/CreatePipelineJob",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1.PipelineService",
+                        "CreatePipelineJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets a PipelineJob.
+        pub async fn get_pipeline_job(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetPipelineJobRequest>,
+        ) -> std::result::Result<tonic::Response<super::PipelineJob>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1.PipelineService/GetPipelineJob",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1.PipelineService",
+                        "GetPipelineJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists PipelineJobs in a Location.
+        pub async fn list_pipeline_jobs(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListPipelineJobsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListPipelineJobsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1.PipelineService/ListPipelineJobs",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1.PipelineService",
+                        "ListPipelineJobs",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a PipelineJob.
+        pub async fn delete_pipeline_job(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeletePipelineJobRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1.PipelineService/DeletePipelineJob",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1.PipelineService",
+                        "DeletePipelineJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Cancels a PipelineJob.
+        /// Starts asynchronous cancellation on the PipelineJob. The server
+        /// makes a best effort to cancel the pipeline, but success is not
+        /// guaranteed. Clients can use
+        /// [PipelineService.GetPipelineJob][google.cloud.aiplatform.v1.PipelineService.GetPipelineJob]
+        /// or other methods to check whether the cancellation succeeded or whether the
+        /// pipeline completed despite cancellation. On successful cancellation,
+        /// the PipelineJob is not deleted; instead it becomes a pipeline with
+        /// a [PipelineJob.error][google.cloud.aiplatform.v1.PipelineJob.error] value
+        /// with a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding
+        /// to `Code.CANCELLED`, and
+        /// [PipelineJob.state][google.cloud.aiplatform.v1.PipelineJob.state] is set to
+        /// `CANCELLED`.
+        pub async fn cancel_pipeline_job(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CancelPipelineJobRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1.PipelineService/CancelPipelineJob",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1.PipelineService",
+                        "CancelPipelineJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// An instance of a Schedule periodically schedules runs to make API calls based
+/// on user specified time specification and API request type.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Schedule {
+    /// Output only. The resource name of the Schedule.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. User provided name of the Schedule.
+    /// The name can be up to 128 characters long and can consist of any UTF-8
+    /// characters.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Optional. Timestamp after which the first run can be scheduled.
+    /// Default to Schedule create time if not specified.
+    #[prost(message, optional, tag = "3")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional. Timestamp after which no new runs can be scheduled.
+    /// If specified, The schedule will be completed when either
+    /// end_time is reached or when scheduled_run_count >= max_run_count.
+    /// If not specified, new runs will keep getting scheduled until this Schedule
+    /// is paused or deleted. Already scheduled runs will be allowed to complete.
+    /// Unset if not specified.
+    #[prost(message, optional, tag = "4")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional. Maximum run count of the schedule.
+    /// If specified, The schedule will be completed when either
+    /// started_run_count >= max_run_count or when end_time is reached.
+    /// If not specified, new runs will keep getting scheduled until this Schedule
+    /// is paused or deleted. Already scheduled runs will be allowed to complete.
+    /// Unset if not specified.
+    #[prost(int64, tag = "16")]
+    pub max_run_count: i64,
+    /// Output only. The number of runs started by this schedule.
+    #[prost(int64, tag = "17")]
+    pub started_run_count: i64,
+    /// Output only. The state of this Schedule.
+    #[prost(enumeration = "schedule::State", tag = "5")]
+    pub state: i32,
+    /// Output only. Timestamp when this Schedule was created.
+    #[prost(message, optional, tag = "6")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp when this Schedule was updated.
+    #[prost(message, optional, tag = "19")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp when this Schedule should schedule the next run.
+    /// Having a next_run_time in the past means the runs are being started
+    /// behind schedule.
+    #[prost(message, optional, tag = "7")]
+    pub next_run_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp when this Schedule was last paused.
+    /// Unset if never paused.
+    #[prost(message, optional, tag = "8")]
+    pub last_pause_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp when this Schedule was last resumed.
+    /// Unset if never resumed from pause.
+    #[prost(message, optional, tag = "9")]
+    pub last_resume_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Required. Maximum number of runs that can be started concurrently for this
+    /// Schedule. This is the limit for starting the scheduled requests and not the
+    /// execution of the operations/jobs created by the requests (if applicable).
+    #[prost(int64, tag = "11")]
+    pub max_concurrent_run_count: i64,
+    /// Optional. Whether new scheduled runs can be queued when max_concurrent_runs
+    /// limit is reached. If set to true, new runs will be queued instead of
+    /// skipped. Default to false.
+    #[prost(bool, tag = "12")]
+    pub allow_queueing: bool,
+    /// Output only. Whether to backfill missed runs when the schedule is resumed
+    /// from PAUSED state. If set to true, all missed runs will be scheduled. New
+    /// runs will be scheduled after the backfill is complete. Default to false.
+    #[prost(bool, tag = "13")]
+    pub catch_up: bool,
+    /// Output only. Response of the last scheduled run.
+    /// This is the response for starting the scheduled requests and not the
+    /// execution of the operations/jobs created by the requests (if applicable).
+    /// Unset if no run has been scheduled yet.
+    #[prost(message, optional, tag = "18")]
+    pub last_scheduled_run_response: ::core::option::Option<schedule::RunResponse>,
+    /// Required.
+    /// The time specification to launch scheduled runs.
+    #[prost(oneof = "schedule::TimeSpecification", tags = "10")]
+    pub time_specification: ::core::option::Option<schedule::TimeSpecification>,
+    /// Required.
+    /// The API request template to launch the scheduled runs.
+    /// User-specified ID is not supported in the request template.
+    #[prost(oneof = "schedule::Request", tags = "14")]
+    pub request: ::core::option::Option<schedule::Request>,
+}
+/// Nested message and enum types in `Schedule`.
+pub mod schedule {
+    /// Status of a scheduled run.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct RunResponse {
+        /// The scheduled run time based on the user-specified schedule.
+        #[prost(message, optional, tag = "1")]
+        pub scheduled_run_time: ::core::option::Option<::prost_types::Timestamp>,
+        /// The response of the scheduled run.
+        #[prost(string, tag = "2")]
+        pub run_response: ::prost::alloc::string::String,
+    }
+    /// Possible state of the schedule.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified.
+        Unspecified = 0,
+        /// The Schedule is active. Runs are being scheduled on the user-specified
+        /// timespec.
+        Active = 1,
+        /// The schedule is paused. No new runs will be created until the schedule
+        /// is resumed. Already started runs will be allowed to complete.
+        Paused = 2,
+        /// The Schedule is completed. No new runs will be scheduled. Already started
+        /// runs will be allowed to complete. Schedules in completed state cannot be
+        /// paused or resumed.
+        Completed = 3,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Active => "ACTIVE",
+                State::Paused => "PAUSED",
+                State::Completed => "COMPLETED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "ACTIVE" => Some(Self::Active),
+                "PAUSED" => Some(Self::Paused),
+                "COMPLETED" => Some(Self::Completed),
+                _ => None,
+            }
+        }
+    }
+    /// Required.
+    /// The time specification to launch scheduled runs.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum TimeSpecification {
+        /// Cron schedule (<https://en.wikipedia.org/wiki/Cron>) to launch scheduled
+        /// runs. To explicitly set a timezone to the cron tab, apply a prefix in the
+        /// cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or "TZ=${IANA_TIME_ZONE}".
+        /// The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone
+        /// database. For example, "CRON_TZ=America/New_York 1 * * * *", or
+        /// "TZ=America/New_York 1 * * * *".
+        #[prost(string, tag = "10")]
+        Cron(::prost::alloc::string::String),
+    }
+    /// Required.
+    /// The API request template to launch the scheduled runs.
+    /// User-specified ID is not supported in the request template.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Request {
+        /// Request for
+        /// \[PipelineService.CreatePipelineJob][google.cloud.aiplatform.v1.PipelineService.CreatePipelineJob\].
+        /// CreatePipelineJobRequest.parent field is required (format:
+        /// projects/{project}/locations/{location}).
+        #[prost(message, tag = "14")]
+        CreatePipelineJobRequest(super::CreatePipelineJobRequest),
+    }
 }
 /// A Model Garden Publisher Model.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -8312,143 +9952,6 @@ pub mod index_service_client {
                     ),
                 );
             self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// Value is the value of the field.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Value {
-    #[prost(oneof = "value::Value", tags = "1, 2, 3")]
-    pub value: ::core::option::Option<value::Value>,
-}
-/// Nested message and enum types in `Value`.
-pub mod value {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Value {
-        /// An integer value.
-        #[prost(int64, tag = "1")]
-        IntValue(i64),
-        /// A double value.
-        #[prost(double, tag = "2")]
-        DoubleValue(f64),
-        /// A string value.
-        #[prost(string, tag = "3")]
-        StringValue(::prost::alloc::string::String),
-    }
-}
-/// Instance of a general artifact.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Artifact {
-    /// Output only. The resource name of the Artifact.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// User provided display name of the Artifact.
-    /// May be up to 128 Unicode characters.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// The uniform resource identifier of the artifact file.
-    /// May be empty if there is no actual artifact file.
-    #[prost(string, tag = "6")]
-    pub uri: ::prost::alloc::string::String,
-    /// An eTag used to perform consistent read-modify-write updates. If not set, a
-    /// blind "overwrite" update happens.
-    #[prost(string, tag = "9")]
-    pub etag: ::prost::alloc::string::String,
-    /// The labels with user-defined metadata to organize your Artifacts.
-    ///
-    /// Label keys and values can be no longer than 64 characters
-    /// (Unicode codepoints), can only contain lowercase letters, numeric
-    /// characters, underscores and dashes. International characters are allowed.
-    /// No more than 64 user labels can be associated with one Artifact (System
-    /// labels are excluded).
-    #[prost(btree_map = "string, string", tag = "10")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. Timestamp when this Artifact was created.
-    #[prost(message, optional, tag = "11")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Timestamp when this Artifact was last updated.
-    #[prost(message, optional, tag = "12")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The state of this Artifact. This is a property of the Artifact, and does
-    /// not imply or capture any ongoing process. This property is managed by
-    /// clients (such as Vertex AI Pipelines), and the system does not prescribe
-    /// or check the validity of state transitions.
-    #[prost(enumeration = "artifact::State", tag = "13")]
-    pub state: i32,
-    /// The title of the schema describing the metadata.
-    ///
-    /// Schema title and version is expected to be registered in earlier Create
-    /// Schema calls. And both are used together as unique identifiers to identify
-    /// schemas within the local metadata store.
-    #[prost(string, tag = "14")]
-    pub schema_title: ::prost::alloc::string::String,
-    /// The version of the schema in schema_name to use.
-    ///
-    /// Schema title and version is expected to be registered in earlier Create
-    /// Schema calls. And both are used together as unique identifiers to identify
-    /// schemas within the local metadata store.
-    #[prost(string, tag = "15")]
-    pub schema_version: ::prost::alloc::string::String,
-    /// Properties of the Artifact.
-    /// Top level metadata keys' heading and trailing spaces will be trimmed.
-    /// The size of this field should not exceed 200KB.
-    #[prost(message, optional, tag = "16")]
-    pub metadata: ::core::option::Option<::prost_types::Struct>,
-    /// Description of the Artifact
-    #[prost(string, tag = "17")]
-    pub description: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `Artifact`.
-pub mod artifact {
-    /// Describes the state of the Artifact.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified state for the Artifact.
-        Unspecified = 0,
-        /// A state used by systems like Vertex AI Pipelines to indicate that the
-        /// underlying data item represented by this Artifact is being created.
-        Pending = 1,
-        /// A state indicating that the Artifact should exist, unless something
-        /// external to the system deletes it.
-        Live = 2,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Pending => "PENDING",
-                State::Live => "LIVE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "PENDING" => Some(Self::Pending),
-                "LIVE" => Some(Self::Live),
-                _ => None,
-            }
         }
     }
 }
@@ -15136,46 +16639,6 @@ pub mod job_service_client {
         }
     }
 }
-/// Represents the failure policy of a pipeline. Currently, the default of a
-/// pipeline is that the pipeline will continue to run until no more tasks can be
-/// executed, also known as PIPELINE_FAILURE_POLICY_FAIL_SLOW. However, if a
-/// pipeline is set to PIPELINE_FAILURE_POLICY_FAIL_FAST, it will stop scheduling
-/// any new tasks when a task has failed. Any scheduled tasks will continue to
-/// completion.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum PipelineFailurePolicy {
-    /// Default value, and follows fail slow behavior.
-    Unspecified = 0,
-    /// Indicates that the pipeline should continue to run until all possible
-    /// tasks have been scheduled and completed.
-    FailSlow = 1,
-    /// Indicates that the pipeline should stop scheduling new tasks after a task
-    /// has failed.
-    FailFast = 2,
-}
-impl PipelineFailurePolicy {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            PipelineFailurePolicy::Unspecified => "PIPELINE_FAILURE_POLICY_UNSPECIFIED",
-            PipelineFailurePolicy::FailSlow => "PIPELINE_FAILURE_POLICY_FAIL_SLOW",
-            PipelineFailurePolicy::FailFast => "PIPELINE_FAILURE_POLICY_FAIL_FAST",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "PIPELINE_FAILURE_POLICY_UNSPECIFIED" => Some(Self::Unspecified),
-            "PIPELINE_FAILURE_POLICY_FAIL_SLOW" => Some(Self::FailSlow),
-            "PIPELINE_FAILURE_POLICY_FAIL_FAST" => Some(Self::FailFast),
-            _ => None,
-        }
-    }
-}
 /// Tensorboard is a physical database that stores users' training metrics.
 /// A default Tensorboard is provided in each region of a Google Cloud project.
 /// If needed users can also create extra Tensorboards in their projects.
@@ -17060,130 +18523,6 @@ pub mod tensorboard_service_client {
         }
     }
 }
-/// Instance of a general execution.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Execution {
-    /// Output only. The resource name of the Execution.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// User provided display name of the Execution.
-    /// May be up to 128 Unicode characters.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// The state of this Execution. This is a property of the Execution, and does
-    /// not imply or capture any ongoing process. This property is managed by
-    /// clients (such as Vertex AI Pipelines) and the system does not prescribe
-    /// or check the validity of state transitions.
-    #[prost(enumeration = "execution::State", tag = "6")]
-    pub state: i32,
-    /// An eTag used to perform consistent read-modify-write updates. If not set, a
-    /// blind "overwrite" update happens.
-    #[prost(string, tag = "9")]
-    pub etag: ::prost::alloc::string::String,
-    /// The labels with user-defined metadata to organize your Executions.
-    ///
-    /// Label keys and values can be no longer than 64 characters
-    /// (Unicode codepoints), can only contain lowercase letters, numeric
-    /// characters, underscores and dashes. International characters are allowed.
-    /// No more than 64 user labels can be associated with one Execution (System
-    /// labels are excluded).
-    #[prost(btree_map = "string, string", tag = "10")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. Timestamp when this Execution was created.
-    #[prost(message, optional, tag = "11")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Timestamp when this Execution was last updated.
-    #[prost(message, optional, tag = "12")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The title of the schema describing the metadata.
-    ///
-    /// Schema title and version is expected to be registered in earlier Create
-    /// Schema calls. And both are used together as unique identifiers to identify
-    /// schemas within the local metadata store.
-    #[prost(string, tag = "13")]
-    pub schema_title: ::prost::alloc::string::String,
-    /// The version of the schema in `schema_title` to use.
-    ///
-    /// Schema title and version is expected to be registered in earlier Create
-    /// Schema calls. And both are used together as unique identifiers to identify
-    /// schemas within the local metadata store.
-    #[prost(string, tag = "14")]
-    pub schema_version: ::prost::alloc::string::String,
-    /// Properties of the Execution.
-    /// Top level metadata keys' heading and trailing spaces will be trimmed.
-    /// The size of this field should not exceed 200KB.
-    #[prost(message, optional, tag = "15")]
-    pub metadata: ::core::option::Option<::prost_types::Struct>,
-    /// Description of the Execution
-    #[prost(string, tag = "16")]
-    pub description: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `Execution`.
-pub mod execution {
-    /// Describes the state of the Execution.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified Execution state
-        Unspecified = 0,
-        /// The Execution is new
-        New = 1,
-        /// The Execution is running
-        Running = 2,
-        /// The Execution has finished running
-        Complete = 3,
-        /// The Execution has failed
-        Failed = 4,
-        /// The Execution completed through Cache hit.
-        Cached = 5,
-        /// The Execution was cancelled.
-        Cancelled = 6,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::New => "NEW",
-                State::Running => "RUNNING",
-                State::Complete => "COMPLETE",
-                State::Failed => "FAILED",
-                State::Cached => "CACHED",
-                State::Cancelled => "CANCELLED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "NEW" => Some(Self::New),
-                "RUNNING" => Some(Self::Running),
-                "COMPLETE" => Some(Self::Complete),
-                "FAILED" => Some(Self::Failed),
-                "CACHED" => Some(Self::Cached),
-                "CANCELLED" => Some(Self::Cancelled),
-                _ => None,
-            }
-        }
-    }
-}
 /// References an API call. It contains more information about long running
 /// operation and Jobs that are triggered by the API call.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -18396,66 +19735,6 @@ pub mod migratable_resource {
         #[prost(message, tag = "4")]
         DataLabelingDataset(DataLabelingDataset),
     }
-}
-/// Instance of a general context.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Context {
-    /// Output only. The resource name of the Context.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// User provided display name of the Context.
-    /// May be up to 128 Unicode characters.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// An eTag used to perform consistent read-modify-write updates. If not set, a
-    /// blind "overwrite" update happens.
-    #[prost(string, tag = "8")]
-    pub etag: ::prost::alloc::string::String,
-    /// The labels with user-defined metadata to organize your Contexts.
-    ///
-    /// Label keys and values can be no longer than 64 characters
-    /// (Unicode codepoints), can only contain lowercase letters, numeric
-    /// characters, underscores and dashes. International characters are allowed.
-    /// No more than 64 user labels can be associated with one Context (System
-    /// labels are excluded).
-    #[prost(btree_map = "string, string", tag = "9")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. Timestamp when this Context was created.
-    #[prost(message, optional, tag = "10")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Timestamp when this Context was last updated.
-    #[prost(message, optional, tag = "11")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. A list of resource names of Contexts that are parents of this
-    /// Context. A Context may have at most 10 parent_contexts.
-    #[prost(string, repeated, tag = "12")]
-    pub parent_contexts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The title of the schema describing the metadata.
-    ///
-    /// Schema title and version is expected to be registered in earlier Create
-    /// Schema calls. And both are used together as unique identifiers to identify
-    /// schemas within the local metadata store.
-    #[prost(string, tag = "13")]
-    pub schema_title: ::prost::alloc::string::String,
-    /// The version of the schema in schema_name to use.
-    ///
-    /// Schema title and version is expected to be registered in earlier Create
-    /// Schema calls. And both are used together as unique identifiers to identify
-    /// schemas within the local metadata store.
-    #[prost(string, tag = "14")]
-    pub schema_version: ::prost::alloc::string::String,
-    /// Properties of the Context.
-    /// Top level metadata keys' heading and trailing spaces will be trimmed.
-    /// The size of this field should not exceed 200KB.
-    #[prost(message, optional, tag = "15")]
-    pub metadata: ::core::option::Option<::prost_types::Struct>,
-    /// Description of the Context
-    #[prost(string, tag = "16")]
-    pub description: ::prost::alloc::string::String,
 }
 /// An edge describing the relationship between an Artifact and an Execution in
 /// a lineage graph.
@@ -24133,450 +25412,6 @@ pub mod index_endpoint_service_client {
         }
     }
 }
-/// An instance of a machine learning PipelineJob.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PipelineJob {
-    /// Output only. The resource name of the PipelineJob.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The display name of the Pipeline.
-    /// The name can be up to 128 characters long and can consist of any UTF-8
-    /// characters.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Output only. Pipeline creation time.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Pipeline start time.
-    #[prost(message, optional, tag = "4")]
-    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Pipeline end time.
-    #[prost(message, optional, tag = "5")]
-    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Timestamp when this PipelineJob was most recently updated.
-    #[prost(message, optional, tag = "6")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The spec of the pipeline.
-    #[prost(message, optional, tag = "7")]
-    pub pipeline_spec: ::core::option::Option<::prost_types::Struct>,
-    /// Output only. The detailed state of the job.
-    #[prost(enumeration = "PipelineState", tag = "8")]
-    pub state: i32,
-    /// Output only. The details of pipeline run. Not available in the list view.
-    #[prost(message, optional, tag = "9")]
-    pub job_detail: ::core::option::Option<PipelineJobDetail>,
-    /// Output only. The error that occurred during pipeline execution.
-    /// Only populated when the pipeline's state is FAILED or CANCELLED.
-    #[prost(message, optional, tag = "10")]
-    pub error: ::core::option::Option<super::super::super::rpc::Status>,
-    /// The labels with user-defined metadata to organize PipelineJob.
-    ///
-    /// Label keys and values can be no longer than 64 characters
-    /// (Unicode codepoints), can only contain lowercase letters, numeric
-    /// characters, underscores and dashes. International characters are allowed.
-    ///
-    /// See <https://goo.gl/xmQnxf> for more information and examples of labels.
-    ///
-    /// Note there is some reserved label key for Vertex AI Pipelines.
-    /// - `vertex-ai-pipelines-run-billing-id`, user set value will get overrided.
-    #[prost(btree_map = "string, string", tag = "11")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Runtime config of the pipeline.
-    #[prost(message, optional, tag = "12")]
-    pub runtime_config: ::core::option::Option<pipeline_job::RuntimeConfig>,
-    /// Customer-managed encryption key spec for a pipelineJob. If set, this
-    /// PipelineJob and all of its sub-resources will be secured by this key.
-    #[prost(message, optional, tag = "16")]
-    pub encryption_spec: ::core::option::Option<EncryptionSpec>,
-    /// The service account that the pipeline workload runs as.
-    /// If not specified, the Compute Engine default service account in the project
-    /// will be used.
-    /// See
-    /// <https://cloud.google.com/compute/docs/access/service-accounts#default_service_account>
-    ///
-    /// Users starting the pipeline must have the `iam.serviceAccounts.actAs`
-    /// permission on this service account.
-    #[prost(string, tag = "17")]
-    pub service_account: ::prost::alloc::string::String,
-    /// The full name of the Compute Engine
-    /// \[network\](/compute/docs/networks-and-firewalls#networks) to which the
-    /// Pipeline Job's workload should be peered. For example,
-    /// `projects/12345/global/networks/myVPC`.
-    /// \[Format\](/compute/docs/reference/rest/v1/networks/insert)
-    /// is of the form `projects/{project}/global/networks/{network}`.
-    /// Where {project} is a project number, as in `12345`, and {network} is a
-    /// network name.
-    ///
-    /// Private services access must already be configured for the network.
-    /// Pipeline job will apply the network configuration to the Google Cloud
-    /// resources being launched, if applied, such as Vertex AI
-    /// Training or Dataflow job. If left unspecified, the workload is not peered
-    /// with any network.
-    #[prost(string, tag = "18")]
-    pub network: ::prost::alloc::string::String,
-    /// A list of names for the reserved ip ranges under the VPC network
-    /// that can be used for this Pipeline Job's workload.
-    ///
-    /// If set, we will deploy the Pipeline Job's workload within the provided ip
-    /// ranges. Otherwise, the job will be deployed to any ip ranges under the
-    /// provided VPC network.
-    ///
-    /// Example: \['vertex-ai-ip-range'\].
-    #[prost(string, repeated, tag = "25")]
-    pub reserved_ip_ranges: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// A template uri from where the
-    /// \[PipelineJob.pipeline_spec][google.cloud.aiplatform.v1.PipelineJob.pipeline_spec\],
-    /// if empty, will be downloaded.
-    #[prost(string, tag = "19")]
-    pub template_uri: ::prost::alloc::string::String,
-    /// Output only. Pipeline template metadata. Will fill up fields if
-    /// \[PipelineJob.template_uri][google.cloud.aiplatform.v1.PipelineJob.template_uri\]
-    /// is from supported template registry.
-    #[prost(message, optional, tag = "20")]
-    pub template_metadata: ::core::option::Option<PipelineTemplateMetadata>,
-}
-/// Nested message and enum types in `PipelineJob`.
-pub mod pipeline_job {
-    /// The runtime config of a PipelineJob.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct RuntimeConfig {
-        /// Deprecated. Use
-        /// \[RuntimeConfig.parameter_values][google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.parameter_values\]
-        /// instead. The runtime parameters of the PipelineJob. The parameters will
-        /// be passed into
-        /// \[PipelineJob.pipeline_spec][google.cloud.aiplatform.v1.PipelineJob.pipeline_spec\]
-        /// to replace the placeholders at runtime. This field is used by pipelines
-        /// built using `PipelineJob.pipeline_spec.schema_version` 2.0.0 or lower,
-        /// such as pipelines built using Kubeflow Pipelines SDK 1.8 or lower.
-        #[prost(btree_map = "string, message", tag = "1")]
-        pub parameters: ::prost::alloc::collections::BTreeMap<
-            ::prost::alloc::string::String,
-            super::Value,
-        >,
-        /// Required. A path in a Cloud Storage bucket, which will be treated as the
-        /// root output directory of the pipeline. It is used by the system to
-        /// generate the paths of output artifacts. The artifact paths are generated
-        /// with a sub-path pattern `{job_id}/{task_id}/{output_key}` under the
-        /// specified output directory. The service account specified in this
-        /// pipeline must have the `storage.objects.get` and `storage.objects.create`
-        /// permissions for this bucket.
-        #[prost(string, tag = "2")]
-        pub gcs_output_directory: ::prost::alloc::string::String,
-        /// The runtime parameters of the PipelineJob. The parameters will be
-        /// passed into
-        /// \[PipelineJob.pipeline_spec][google.cloud.aiplatform.v1.PipelineJob.pipeline_spec\]
-        /// to replace the placeholders at runtime. This field is used by pipelines
-        /// built using `PipelineJob.pipeline_spec.schema_version` 2.1.0, such as
-        /// pipelines built using Kubeflow Pipelines SDK 1.9 or higher and the v2
-        /// DSL.
-        #[prost(btree_map = "string, message", tag = "3")]
-        pub parameter_values: ::prost::alloc::collections::BTreeMap<
-            ::prost::alloc::string::String,
-            ::prost_types::Value,
-        >,
-        /// Represents the failure policy of a pipeline. Currently, the default of a
-        /// pipeline is that the pipeline will continue to run until no more tasks
-        /// can be executed, also known as PIPELINE_FAILURE_POLICY_FAIL_SLOW.
-        /// However, if a pipeline is set to PIPELINE_FAILURE_POLICY_FAIL_FAST, it
-        /// will stop scheduling any new tasks when a task has failed. Any scheduled
-        /// tasks will continue to completion.
-        #[prost(enumeration = "super::PipelineFailurePolicy", tag = "4")]
-        pub failure_policy: i32,
-        /// The runtime artifacts of the PipelineJob. The key will be the input
-        /// artifact name and the value would be one of the InputArtifact.
-        #[prost(btree_map = "string, message", tag = "5")]
-        pub input_artifacts: ::prost::alloc::collections::BTreeMap<
-            ::prost::alloc::string::String,
-            runtime_config::InputArtifact,
-        >,
-    }
-    /// Nested message and enum types in `RuntimeConfig`.
-    pub mod runtime_config {
-        /// The type of an input artifact.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct InputArtifact {
-            #[prost(oneof = "input_artifact::Kind", tags = "1")]
-            pub kind: ::core::option::Option<input_artifact::Kind>,
-        }
-        /// Nested message and enum types in `InputArtifact`.
-        pub mod input_artifact {
-            #[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Oneof)]
-            pub enum Kind {
-                /// Artifact resource id from MLMD. Which is the last portion of an
-                /// artifact resource name:
-                /// `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifact_id}`.
-                /// The artifact must stay within the same project, location and default
-                /// metadatastore as the pipeline.
-                #[prost(string, tag = "1")]
-                ArtifactId(::prost::alloc::string::String),
-            }
-        }
-    }
-}
-/// Pipeline template metadata if
-/// \[PipelineJob.template_uri][google.cloud.aiplatform.v1.PipelineJob.template_uri\]
-/// is from supported template registry. Currently, the only supported registry
-/// is Artifact Registry.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PipelineTemplateMetadata {
-    /// The version_name in artifact registry.
-    ///
-    /// Will always be presented in output if the
-    /// \[PipelineJob.template_uri][google.cloud.aiplatform.v1.PipelineJob.template_uri\]
-    /// is from supported template registry.
-    ///
-    /// Format is "sha256:abcdef123456...".
-    #[prost(string, tag = "3")]
-    pub version: ::prost::alloc::string::String,
-}
-/// The runtime detail of PipelineJob.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PipelineJobDetail {
-    /// Output only. The context of the pipeline.
-    #[prost(message, optional, tag = "1")]
-    pub pipeline_context: ::core::option::Option<Context>,
-    /// Output only. The context of the current pipeline run.
-    #[prost(message, optional, tag = "2")]
-    pub pipeline_run_context: ::core::option::Option<Context>,
-    /// Output only. The runtime details of the tasks under the pipeline.
-    #[prost(message, repeated, tag = "3")]
-    pub task_details: ::prost::alloc::vec::Vec<PipelineTaskDetail>,
-}
-/// The runtime detail of a task execution.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PipelineTaskDetail {
-    /// Output only. The system generated ID of the task.
-    #[prost(int64, tag = "1")]
-    pub task_id: i64,
-    /// Output only. The id of the parent task if the task is within a component
-    /// scope. Empty if the task is at the root level.
-    #[prost(int64, tag = "12")]
-    pub parent_task_id: i64,
-    /// Output only. The user specified name of the task that is defined in
-    /// \[pipeline_spec][google.cloud.aiplatform.v1.PipelineJob.pipeline_spec\].
-    #[prost(string, tag = "2")]
-    pub task_name: ::prost::alloc::string::String,
-    /// Output only. Task create time.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Task start time.
-    #[prost(message, optional, tag = "4")]
-    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Task end time.
-    #[prost(message, optional, tag = "5")]
-    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The detailed execution info.
-    #[prost(message, optional, tag = "6")]
-    pub executor_detail: ::core::option::Option<PipelineTaskExecutorDetail>,
-    /// Output only. State of the task.
-    #[prost(enumeration = "pipeline_task_detail::State", tag = "7")]
-    pub state: i32,
-    /// Output only. The execution metadata of the task.
-    #[prost(message, optional, tag = "8")]
-    pub execution: ::core::option::Option<Execution>,
-    /// Output only. The error that occurred during task execution.
-    /// Only populated when the task's state is FAILED or CANCELLED.
-    #[prost(message, optional, tag = "9")]
-    pub error: ::core::option::Option<super::super::super::rpc::Status>,
-    /// Output only. A list of task status. This field keeps a record of task
-    /// status evolving over time.
-    #[prost(message, repeated, tag = "13")]
-    pub pipeline_task_status: ::prost::alloc::vec::Vec<
-        pipeline_task_detail::PipelineTaskStatus,
-    >,
-    /// Output only. The runtime input artifacts of the task.
-    #[prost(btree_map = "string, message", tag = "10")]
-    pub inputs: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        pipeline_task_detail::ArtifactList,
-    >,
-    /// Output only. The runtime output artifacts of the task.
-    #[prost(btree_map = "string, message", tag = "11")]
-    pub outputs: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        pipeline_task_detail::ArtifactList,
-    >,
-}
-/// Nested message and enum types in `PipelineTaskDetail`.
-pub mod pipeline_task_detail {
-    /// A single record of the task status.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct PipelineTaskStatus {
-        /// Output only. Update time of this status.
-        #[prost(message, optional, tag = "1")]
-        pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-        /// Output only. The state of the task.
-        #[prost(enumeration = "State", tag = "2")]
-        pub state: i32,
-        /// Output only. The error that occurred during the state. May be set when
-        /// the state is any of the non-final state (PENDING/RUNNING/CANCELLING) or
-        /// FAILED state. If the state is FAILED, the error here is final and not
-        /// going to be retried. If the state is a non-final state, the error
-        /// indicates a system-error being retried.
-        #[prost(message, optional, tag = "3")]
-        pub error: ::core::option::Option<super::super::super::super::rpc::Status>,
-    }
-    /// A list of artifact metadata.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ArtifactList {
-        /// Output only. A list of artifact metadata.
-        #[prost(message, repeated, tag = "1")]
-        pub artifacts: ::prost::alloc::vec::Vec<super::Artifact>,
-    }
-    /// Specifies state of TaskExecution
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified.
-        Unspecified = 0,
-        /// Specifies pending state for the task.
-        Pending = 1,
-        /// Specifies task is being executed.
-        Running = 2,
-        /// Specifies task completed successfully.
-        Succeeded = 3,
-        /// Specifies Task cancel is in pending state.
-        CancelPending = 4,
-        /// Specifies task is being cancelled.
-        Cancelling = 5,
-        /// Specifies task was cancelled.
-        Cancelled = 6,
-        /// Specifies task failed.
-        Failed = 7,
-        /// Specifies task was skipped due to cache hit.
-        Skipped = 8,
-        /// Specifies that the task was not triggered because the task's trigger
-        /// policy is not satisfied. The trigger policy is specified in the
-        /// `condition` field of
-        /// \[PipelineJob.pipeline_spec][google.cloud.aiplatform.v1.PipelineJob.pipeline_spec\].
-        NotTriggered = 9,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Pending => "PENDING",
-                State::Running => "RUNNING",
-                State::Succeeded => "SUCCEEDED",
-                State::CancelPending => "CANCEL_PENDING",
-                State::Cancelling => "CANCELLING",
-                State::Cancelled => "CANCELLED",
-                State::Failed => "FAILED",
-                State::Skipped => "SKIPPED",
-                State::NotTriggered => "NOT_TRIGGERED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "PENDING" => Some(Self::Pending),
-                "RUNNING" => Some(Self::Running),
-                "SUCCEEDED" => Some(Self::Succeeded),
-                "CANCEL_PENDING" => Some(Self::CancelPending),
-                "CANCELLING" => Some(Self::Cancelling),
-                "CANCELLED" => Some(Self::Cancelled),
-                "FAILED" => Some(Self::Failed),
-                "SKIPPED" => Some(Self::Skipped),
-                "NOT_TRIGGERED" => Some(Self::NotTriggered),
-                _ => None,
-            }
-        }
-    }
-}
-/// The runtime detail of a pipeline executor.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PipelineTaskExecutorDetail {
-    #[prost(oneof = "pipeline_task_executor_detail::Details", tags = "1, 2")]
-    pub details: ::core::option::Option<pipeline_task_executor_detail::Details>,
-}
-/// Nested message and enum types in `PipelineTaskExecutorDetail`.
-pub mod pipeline_task_executor_detail {
-    /// The detail of a container execution. It contains the job names of the
-    /// lifecycle of a container execution.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ContainerDetail {
-        /// Output only. The name of the
-        /// \[CustomJob][google.cloud.aiplatform.v1.CustomJob\] for the main container
-        /// execution.
-        #[prost(string, tag = "1")]
-        pub main_job: ::prost::alloc::string::String,
-        /// Output only. The name of the
-        /// \[CustomJob][google.cloud.aiplatform.v1.CustomJob\] for the
-        /// pre-caching-check container execution. This job will be available if the
-        /// \[PipelineJob.pipeline_spec][google.cloud.aiplatform.v1.PipelineJob.pipeline_spec\]
-        /// specifies the `pre_caching_check` hook in the lifecycle events.
-        #[prost(string, tag = "2")]
-        pub pre_caching_check_job: ::prost::alloc::string::String,
-        /// Output only. The names of the previously failed
-        /// \[CustomJob][google.cloud.aiplatform.v1.CustomJob\] for the main container
-        /// executions. The list includes the all attempts in chronological order.
-        #[prost(string, repeated, tag = "3")]
-        pub failed_main_jobs: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-        /// Output only. The names of the previously failed
-        /// \[CustomJob][google.cloud.aiplatform.v1.CustomJob\] for the
-        /// pre-caching-check container executions. This job will be available if the
-        /// \[PipelineJob.pipeline_spec][google.cloud.aiplatform.v1.PipelineJob.pipeline_spec\]
-        /// specifies the `pre_caching_check` hook in the lifecycle events. The list
-        /// includes the all attempts in chronological order.
-        #[prost(string, repeated, tag = "4")]
-        pub failed_pre_caching_check_jobs: ::prost::alloc::vec::Vec<
-            ::prost::alloc::string::String,
-        >,
-    }
-    /// The detailed info for a custom job executor.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct CustomJobDetail {
-        /// Output only. The name of the
-        /// \[CustomJob][google.cloud.aiplatform.v1.CustomJob\].
-        #[prost(string, tag = "1")]
-        pub job: ::prost::alloc::string::String,
-        /// Output only. The names of the previously failed
-        /// \[CustomJob][google.cloud.aiplatform.v1.CustomJob\]. The list includes the
-        /// all attempts in chronological order.
-        #[prost(string, repeated, tag = "3")]
-        pub failed_jobs: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    }
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Details {
-        /// Output only. The detailed info for a container executor.
-        #[prost(message, tag = "1")]
-        ContainerDetail(ContainerDetail),
-        /// Output only. The detailed info for a custom job executor.
-        #[prost(message, tag = "2")]
-        CustomJobDetail(CustomJobDetail),
-    }
-}
 /// Request message for
 /// \[FeaturestoreOnlineServingService.WriteFeatureValues][google.cloud.aiplatform.v1.FeaturestoreOnlineServingService.WriteFeatureValues\].
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -24995,269 +25830,184 @@ pub mod featurestore_online_serving_service_client {
     }
 }
 /// Request message for
-/// \[PipelineService.CreateTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.CreateTrainingPipeline\].
+/// \[ScheduleService.CreateSchedule][google.cloud.aiplatform.v1.ScheduleService.CreateSchedule\].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateTrainingPipelineRequest {
-    /// Required. The resource name of the Location to create the TrainingPipeline
-    /// in. Format: `projects/{project}/locations/{location}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The TrainingPipeline to create.
-    #[prost(message, optional, tag = "2")]
-    pub training_pipeline: ::core::option::Option<TrainingPipeline>,
-}
-/// Request message for
-/// \[PipelineService.GetTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.GetTrainingPipeline\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetTrainingPipelineRequest {
-    /// Required. The name of the TrainingPipeline resource.
-    /// Format:
-    /// `projects/{project}/locations/{location}/trainingPipelines/{training_pipeline}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request message for
-/// \[PipelineService.ListTrainingPipelines][google.cloud.aiplatform.v1.PipelineService.ListTrainingPipelines\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListTrainingPipelinesRequest {
-    /// Required. The resource name of the Location to list the TrainingPipelines
-    /// from. Format: `projects/{project}/locations/{location}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The standard list filter.
-    ///
-    /// Supported fields:
-    ///
-    ///    * `display_name` supports `=`, `!=` comparisons, and `:` wildcard.
-    ///    * `state` supports `=`, `!=` comparisons.
-    ///    * `training_task_definition` `=`, `!=` comparisons, and `:` wildcard.
-    ///    * `create_time` supports `=`, `!=`,`<`, `<=`,`>`, `>=` comparisons.
-    ///      `create_time` must be in RFC 3339 format.
-    ///    * `labels` supports general map functions that is:
-    ///      `labels.key=value` - key:value equality
-    ///      `labels.key:* - key existence
-    ///
-    /// Some examples of using the filter are:
-    ///
-    ///    * `state="PIPELINE_STATE_SUCCEEDED" AND display_name:"my_pipeline_*"`
-    ///    * `state!="PIPELINE_STATE_FAILED" OR display_name="my_pipeline"`
-    ///    * `NOT display_name="my_pipeline"`
-    ///    * `create_time>"2021-05-18T00:00:00Z"`
-    ///    * `training_task_definition:"*automl_text_classification*"`
-    #[prost(string, tag = "2")]
-    pub filter: ::prost::alloc::string::String,
-    /// The standard list page size.
-    #[prost(int32, tag = "3")]
-    pub page_size: i32,
-    /// The standard list page token.
-    /// Typically obtained via
-    /// \[ListTrainingPipelinesResponse.next_page_token][google.cloud.aiplatform.v1.ListTrainingPipelinesResponse.next_page_token\]
-    /// of the previous
-    /// \[PipelineService.ListTrainingPipelines][google.cloud.aiplatform.v1.PipelineService.ListTrainingPipelines\]
-    /// call.
-    #[prost(string, tag = "4")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Mask specifying which fields to read.
-    #[prost(message, optional, tag = "5")]
-    pub read_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-/// Response message for
-/// \[PipelineService.ListTrainingPipelines][google.cloud.aiplatform.v1.PipelineService.ListTrainingPipelines\]
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListTrainingPipelinesResponse {
-    /// List of TrainingPipelines in the requested page.
-    #[prost(message, repeated, tag = "1")]
-    pub training_pipelines: ::prost::alloc::vec::Vec<TrainingPipeline>,
-    /// A token to retrieve the next page of results.
-    /// Pass to
-    /// \[ListTrainingPipelinesRequest.page_token][google.cloud.aiplatform.v1.ListTrainingPipelinesRequest.page_token\]
-    /// to obtain that page.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Request message for
-/// \[PipelineService.DeleteTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.DeleteTrainingPipeline\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteTrainingPipelineRequest {
-    /// Required. The name of the TrainingPipeline resource to be deleted.
-    /// Format:
-    /// `projects/{project}/locations/{location}/trainingPipelines/{training_pipeline}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request message for
-/// \[PipelineService.CancelTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.CancelTrainingPipeline\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CancelTrainingPipelineRequest {
-    /// Required. The name of the TrainingPipeline to cancel.
-    /// Format:
-    /// `projects/{project}/locations/{location}/trainingPipelines/{training_pipeline}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request message for
-/// \[PipelineService.CreatePipelineJob][google.cloud.aiplatform.v1.PipelineService.CreatePipelineJob\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreatePipelineJobRequest {
-    /// Required. The resource name of the Location to create the PipelineJob in.
+pub struct CreateScheduleRequest {
+    /// Required. The resource name of the Location to create the Schedule in.
     /// Format: `projects/{project}/locations/{location}`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Required. The PipelineJob to create.
+    /// Required. The Schedule to create.
     #[prost(message, optional, tag = "2")]
-    pub pipeline_job: ::core::option::Option<PipelineJob>,
-    /// The ID to use for the PipelineJob, which will become the final component of
-    /// the PipelineJob name. If not provided, an ID will be automatically
-    /// generated.
-    ///
-    /// This value should be less than 128 characters, and valid characters
-    /// are /\[a-z][0-9\]-/.
-    #[prost(string, tag = "3")]
-    pub pipeline_job_id: ::prost::alloc::string::String,
+    pub schedule: ::core::option::Option<Schedule>,
 }
 /// Request message for
-/// \[PipelineService.GetPipelineJob][google.cloud.aiplatform.v1.PipelineService.GetPipelineJob\].
+/// \[ScheduleService.GetSchedule][google.cloud.aiplatform.v1.ScheduleService.GetSchedule\].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetPipelineJobRequest {
-    /// Required. The name of the PipelineJob resource.
+pub struct GetScheduleRequest {
+    /// Required. The name of the Schedule resource.
     /// Format:
-    /// `projects/{project}/locations/{location}/pipelineJobs/{pipeline_job}`
+    /// `projects/{project}/locations/{location}/schedules/{schedule}`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[PipelineService.ListPipelineJobs][google.cloud.aiplatform.v1.PipelineService.ListPipelineJobs\].
+/// \[ScheduleService.ListSchedules][google.cloud.aiplatform.v1.ScheduleService.ListSchedules\].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListPipelineJobsRequest {
-    /// Required. The resource name of the Location to list the PipelineJobs from.
+pub struct ListSchedulesRequest {
+    /// Required. The resource name of the Location to list the Schedules from.
     /// Format: `projects/{project}/locations/{location}`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Lists the PipelineJobs that match the filter expression. The following
+    /// Lists the Schedules that match the filter expression. The following
     /// fields are supported:
     ///
-    /// * `pipeline_name`: Supports `=` and `!=` comparisons.
     /// * `display_name`: Supports `=`, `!=` comparisons, and `:` wildcard.
-    /// * `pipeline_job_user_id`: Supports `=`, `!=` comparisons, and `:` wildcard.
-    ///    for example, can check if pipeline's display_name contains *step* by
-    ///    doing display_name:\"*step*\"
     /// * `state`: Supports `=` and `!=` comparisons.
+    /// * `request`: Supports existence of the <request_type> check.
+    ///        (e.g. `create_pipeline_job_request:*` --> Schedule has
+    ///        create_pipeline_job_request).
     /// * `create_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons.
-    ///    Values must be in RFC 3339 format.
-    /// * `update_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons.
-    ///    Values must be in RFC 3339 format.
-    /// * `end_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons.
-    ///    Values must be in RFC 3339 format.
-    /// * `labels`: Supports key-value equality and key presence.
-    /// * `template_uri`: Supports `=`, `!=` comparisons, and `:` wildcard.
-    /// * `template_metadata.version`: Supports `=`, `!=` comparisons, and `:`
-    ///    wildcard.
+    ///        Values must be in RFC 3339 format.
+    /// * `start_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons.
+    ///        Values must be in RFC 3339 format.
+    /// * `end_time`: Supports `=`, `!=`, `<`, `>`, `<=`, `>=` comparisons and `:*`
+    ///        existence check. Values must be in RFC 3339 format.
+    /// * `next_run_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=`
+    ///        comparisons. Values must be in RFC 3339 format.
+    ///
     ///
     /// Filter expressions can be combined together using logical operators
-    /// (`AND` & `OR`).
-    /// For example: `pipeline_name="test" AND create_time>"2020-05-18T13:30:00Z"`.
-    ///
+    /// (`NOT`, `AND` & `OR`).
     /// The syntax to define filter expression is based on
     /// <https://google.aip.dev/160.>
     ///
     /// Examples:
     ///
-    /// * `create_time>"2021-05-18T00:00:00Z" OR
-    ///    update_time>"2020-05-18T00:00:00Z"` PipelineJobs created or updated
-    ///    after 2020-05-18 00:00:00 UTC.
-    /// * `labels.env = "prod"`
-    ///    PipelineJobs with label "env" set to "prod".
+    /// * `state="ACTIVE" AND display_name:"my_schedule_*"`
+    /// * `NOT display_name="my_schedule"`
+    /// * `create_time>"2021-05-18T00:00:00Z"`
+    /// * `end_time>"2021-05-18T00:00:00Z" OR NOT end_time:*`
+    /// * `create_pipeline_job_request:*`
     #[prost(string, tag = "2")]
     pub filter: ::prost::alloc::string::String,
     /// The standard list page size.
+    /// Default to 100 if not specified.
     #[prost(int32, tag = "3")]
     pub page_size: i32,
     /// The standard list page token.
     /// Typically obtained via
-    /// \[ListPipelineJobsResponse.next_page_token][google.cloud.aiplatform.v1.ListPipelineJobsResponse.next_page_token\]
+    /// \[ListSchedulesResponse.next_page_token][google.cloud.aiplatform.v1.ListSchedulesResponse.next_page_token\]
     /// of the previous
-    /// \[PipelineService.ListPipelineJobs][google.cloud.aiplatform.v1.PipelineService.ListPipelineJobs\]
+    /// \[ScheduleService.ListSchedules][google.cloud.aiplatform.v1.ScheduleService.ListSchedules\]
     /// call.
     #[prost(string, tag = "4")]
     pub page_token: ::prost::alloc::string::String,
     /// A comma-separated list of fields to order by. The default sort order is in
     /// ascending order. Use "desc" after a field name for descending. You can have
-    /// multiple order_by fields provided e.g. "create_time desc, end_time",
-    /// "end_time, start_time, update_time" For example, using "create_time desc,
-    /// end_time" will order results by create time in descending order, and if
-    /// there are multiple jobs having the same create time, order them by the end
-    /// time in ascending order. if order_by is not specified, it will order by
-    /// default order is create time in descending order. Supported fields:
+    /// multiple order_by fields provided.
     ///
+    /// For example, using "create_time desc, end_time" will order results by
+    /// create time in descending order, and if there are multiple schedules having
+    /// the same create time, order them by the end time in ascending order.
+    ///
+    /// If order_by is not specified, it will order by default with create_time in
+    /// descending order.
+    ///
+    /// Supported fields:
     ///    * `create_time`
-    ///    * `update_time`
-    ///    * `end_time`
     ///    * `start_time`
-    #[prost(string, tag = "6")]
+    ///    * `end_time`
+    ///    * `next_run_time`
+    #[prost(string, tag = "5")]
     pub order_by: ::prost::alloc::string::String,
-    /// Mask specifying which fields to read.
-    #[prost(message, optional, tag = "7")]
-    pub read_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
 /// Response message for
-/// \[PipelineService.ListPipelineJobs][google.cloud.aiplatform.v1.PipelineService.ListPipelineJobs\]
+/// \[ScheduleService.ListSchedules][google.cloud.aiplatform.v1.ScheduleService.ListSchedules\]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListPipelineJobsResponse {
-    /// List of PipelineJobs in the requested page.
+pub struct ListSchedulesResponse {
+    /// List of Schedules in the requested page.
     #[prost(message, repeated, tag = "1")]
-    pub pipeline_jobs: ::prost::alloc::vec::Vec<PipelineJob>,
+    pub schedules: ::prost::alloc::vec::Vec<Schedule>,
     /// A token to retrieve the next page of results.
     /// Pass to
-    /// \[ListPipelineJobsRequest.page_token][google.cloud.aiplatform.v1.ListPipelineJobsRequest.page_token\]
+    /// \[ListSchedulesRequest.page_token][google.cloud.aiplatform.v1.ListSchedulesRequest.page_token\]
     /// to obtain that page.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[PipelineService.DeletePipelineJob][google.cloud.aiplatform.v1.PipelineService.DeletePipelineJob\].
+/// \[ScheduleService.DeleteSchedule][google.cloud.aiplatform.v1.ScheduleService.DeleteSchedule\].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeletePipelineJobRequest {
-    /// Required. The name of the PipelineJob resource to be deleted.
+pub struct DeleteScheduleRequest {
+    /// Required. The name of the Schedule resource to be deleted.
     /// Format:
-    /// `projects/{project}/locations/{location}/pipelineJobs/{pipeline_job}`
+    /// `projects/{project}/locations/{location}/schedules/{schedule}`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[PipelineService.CancelPipelineJob][google.cloud.aiplatform.v1.PipelineService.CancelPipelineJob\].
+/// \[ScheduleService.PauseSchedule][google.cloud.aiplatform.v1.ScheduleService.PauseSchedule\].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CancelPipelineJobRequest {
-    /// Required. The name of the PipelineJob to cancel.
+pub struct PauseScheduleRequest {
+    /// Required. The name of the Schedule resource to be paused.
     /// Format:
-    /// `projects/{project}/locations/{location}/pipelineJobs/{pipeline_job}`
+    /// `projects/{project}/locations/{location}/schedules/{schedule}`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
+/// Request message for
+/// \[ScheduleService.ResumeSchedule][google.cloud.aiplatform.v1.ScheduleService.ResumeSchedule\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResumeScheduleRequest {
+    /// Required. The name of the Schedule resource to be resumed.
+    /// Format:
+    /// `projects/{project}/locations/{location}/schedules/{schedule}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. Whether to backfill missed runs when the schedule is resumed from
+    /// PAUSED state. If set to true, all missed runs will be scheduled. New runs
+    /// will be scheduled after the backfill is complete. This will also update
+    /// \[Schedule.catch_up][google.cloud.aiplatform.v1.Schedule.catch_up\] field.
+    /// Default to false.
+    #[prost(bool, tag = "2")]
+    pub catch_up: bool,
+}
+/// Request message for
+/// \[ScheduleService.UpdateSchedule][google.cloud.aiplatform.v1.ScheduleService.UpdateSchedule\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateScheduleRequest {
+    /// Required. The Schedule which replaces the resource on the server.
+    /// The following restrictions will be applied:
+    ///    * The scheduled request type cannot be changed.
+    ///    * The output_only fields will be ignored if specified.
+    #[prost(message, optional, tag = "1")]
+    pub schedule: ::core::option::Option<Schedule>,
+    /// Required. The update mask applies to the resource. See
+    /// \[google.protobuf.FieldMask][google.protobuf.FieldMask\].
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
 /// Generated client implementations.
-pub mod pipeline_service_client {
+pub mod schedule_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
-    /// A service for creating and managing Vertex AI's pipelines. This includes both
-    /// `TrainingPipeline` resources (used for AutoML and custom training) and
-    /// `PipelineJob` resources (used for Vertex AI Pipelines).
+    /// A service for creating and managing Vertex AI's Schedule resources to
+    /// periodically launch shceudled runs to make API calls.
     #[derive(Debug, Clone)]
-    pub struct PipelineServiceClient<T> {
+    pub struct ScheduleServiceClient<T> {
         inner: tonic::client::Grpc<T>,
     }
-    impl<T> PipelineServiceClient<T>
+    impl<T> ScheduleServiceClient<T>
     where
         T: tonic::client::GrpcService<tonic::body::BoxBody>,
         T::Error: Into<StdError>,
@@ -25275,7 +26025,7 @@ pub mod pipeline_service_client {
         pub fn with_interceptor<F>(
             inner: T,
             interceptor: F,
-        ) -> PipelineServiceClient<InterceptedService<T, F>>
+        ) -> ScheduleServiceClient<InterceptedService<T, F>>
         where
             F: tonic::service::Interceptor,
             T::ResponseBody: Default,
@@ -25289,7 +26039,7 @@ pub mod pipeline_service_client {
                 http::Request<tonic::body::BoxBody>,
             >>::Error: Into<StdError> + Send + Sync,
         {
-            PipelineServiceClient::new(InterceptedService::new(inner, interceptor))
+            ScheduleServiceClient::new(InterceptedService::new(inner, interceptor))
         }
         /// Compress requests with the given encoding.
         ///
@@ -25322,15 +26072,11 @@ pub mod pipeline_service_client {
             self.inner = self.inner.max_encoding_message_size(limit);
             self
         }
-        /// Creates a TrainingPipeline. A created TrainingPipeline right away will be
-        /// attempted to be run.
-        pub async fn create_training_pipeline(
+        /// Creates a Schedule.
+        pub async fn create_schedule(
             &mut self,
-            request: impl tonic::IntoRequest<super::CreateTrainingPipelineRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::TrainingPipeline>,
-            tonic::Status,
-        > {
+            request: impl tonic::IntoRequest<super::CreateScheduleRequest>,
+        ) -> std::result::Result<tonic::Response<super::Schedule>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -25342,84 +26088,22 @@ pub mod pipeline_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1.PipelineService/CreateTrainingPipeline",
+                "/google.cloud.aiplatform.v1.ScheduleService/CreateSchedule",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.aiplatform.v1.PipelineService",
-                        "CreateTrainingPipeline",
+                        "google.cloud.aiplatform.v1.ScheduleService",
+                        "CreateSchedule",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Gets a TrainingPipeline.
-        pub async fn get_training_pipeline(
+        /// Deletes a Schedule.
+        pub async fn delete_schedule(
             &mut self,
-            request: impl tonic::IntoRequest<super::GetTrainingPipelineRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::TrainingPipeline>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1.PipelineService/GetTrainingPipeline",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1.PipelineService",
-                        "GetTrainingPipeline",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists TrainingPipelines in a Location.
-        pub async fn list_training_pipelines(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListTrainingPipelinesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListTrainingPipelinesResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1.PipelineService/ListTrainingPipelines",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1.PipelineService",
-                        "ListTrainingPipelines",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a TrainingPipeline.
-        pub async fn delete_training_pipeline(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteTrainingPipelineRequest>,
+            request: impl tonic::IntoRequest<super::DeleteScheduleRequest>,
         ) -> std::result::Result<
             tonic::Response<super::super::super::super::longrunning::Operation>,
             tonic::Status,
@@ -25435,36 +26119,23 @@ pub mod pipeline_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1.PipelineService/DeleteTrainingPipeline",
+                "/google.cloud.aiplatform.v1.ScheduleService/DeleteSchedule",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.aiplatform.v1.PipelineService",
-                        "DeleteTrainingPipeline",
+                        "google.cloud.aiplatform.v1.ScheduleService",
+                        "DeleteSchedule",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Cancels a TrainingPipeline.
-        /// Starts asynchronous cancellation on the TrainingPipeline. The server
-        /// makes a best effort to cancel the pipeline, but success is not
-        /// guaranteed. Clients can use
-        /// [PipelineService.GetTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.GetTrainingPipeline]
-        /// or other methods to check whether the cancellation succeeded or whether the
-        /// pipeline completed despite cancellation. On successful cancellation,
-        /// the TrainingPipeline is not deleted; instead it becomes a pipeline with
-        /// a
-        /// [TrainingPipeline.error][google.cloud.aiplatform.v1.TrainingPipeline.error]
-        /// value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
-        /// corresponding to `Code.CANCELLED`, and
-        /// [TrainingPipeline.state][google.cloud.aiplatform.v1.TrainingPipeline.state]
-        /// is set to `CANCELLED`.
-        pub async fn cancel_training_pipeline(
+        /// Gets a Schedule.
+        pub async fn get_schedule(
             &mut self,
-            request: impl tonic::IntoRequest<super::CancelTrainingPipelineRequest>,
-        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            request: impl tonic::IntoRequest<super::GetScheduleRequest>,
+        ) -> std::result::Result<tonic::Response<super::Schedule>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -25476,80 +26147,24 @@ pub mod pipeline_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1.PipelineService/CancelTrainingPipeline",
+                "/google.cloud.aiplatform.v1.ScheduleService/GetSchedule",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.aiplatform.v1.PipelineService",
-                        "CancelTrainingPipeline",
+                        "google.cloud.aiplatform.v1.ScheduleService",
+                        "GetSchedule",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Creates a PipelineJob. A PipelineJob will run immediately when created.
-        pub async fn create_pipeline_job(
+        /// Lists Schedules in a Location.
+        pub async fn list_schedules(
             &mut self,
-            request: impl tonic::IntoRequest<super::CreatePipelineJobRequest>,
-        ) -> std::result::Result<tonic::Response<super::PipelineJob>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1.PipelineService/CreatePipelineJob",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1.PipelineService",
-                        "CreatePipelineJob",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets a PipelineJob.
-        pub async fn get_pipeline_job(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetPipelineJobRequest>,
-        ) -> std::result::Result<tonic::Response<super::PipelineJob>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1.PipelineService/GetPipelineJob",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1.PipelineService",
-                        "GetPipelineJob",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists PipelineJobs in a Location.
-        pub async fn list_pipeline_jobs(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListPipelineJobsRequest>,
+            request: impl tonic::IntoRequest<super::ListSchedulesRequest>,
         ) -> std::result::Result<
-            tonic::Response<super::ListPipelineJobsResponse>,
+            tonic::Response<super::ListSchedulesResponse>,
             tonic::Status,
         > {
             self.inner
@@ -25563,65 +26178,25 @@ pub mod pipeline_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1.PipelineService/ListPipelineJobs",
+                "/google.cloud.aiplatform.v1.ScheduleService/ListSchedules",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.aiplatform.v1.PipelineService",
-                        "ListPipelineJobs",
+                        "google.cloud.aiplatform.v1.ScheduleService",
+                        "ListSchedules",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Deletes a PipelineJob.
-        pub async fn delete_pipeline_job(
+        /// Pauses a Schedule. Will mark
+        /// [Schedule.state][google.cloud.aiplatform.v1.Schedule.state] to 'PAUSED'. If
+        /// the schedule is paused, no new runs will be created. Already created runs
+        /// will NOT be paused or canceled.
+        pub async fn pause_schedule(
             &mut self,
-            request: impl tonic::IntoRequest<super::DeletePipelineJobRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1.PipelineService/DeletePipelineJob",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1.PipelineService",
-                        "DeletePipelineJob",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Cancels a PipelineJob.
-        /// Starts asynchronous cancellation on the PipelineJob. The server
-        /// makes a best effort to cancel the pipeline, but success is not
-        /// guaranteed. Clients can use
-        /// [PipelineService.GetPipelineJob][google.cloud.aiplatform.v1.PipelineService.GetPipelineJob]
-        /// or other methods to check whether the cancellation succeeded or whether the
-        /// pipeline completed despite cancellation. On successful cancellation,
-        /// the PipelineJob is not deleted; instead it becomes a pipeline with
-        /// a [PipelineJob.error][google.cloud.aiplatform.v1.PipelineJob.error] value
-        /// with a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding
-        /// to `Code.CANCELLED`, and
-        /// [PipelineJob.state][google.cloud.aiplatform.v1.PipelineJob.state] is set to
-        /// `CANCELLED`.
-        pub async fn cancel_pipeline_job(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CancelPipelineJobRequest>,
+            request: impl tonic::IntoRequest<super::PauseScheduleRequest>,
         ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
@@ -25634,14 +26209,83 @@ pub mod pipeline_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1.PipelineService/CancelPipelineJob",
+                "/google.cloud.aiplatform.v1.ScheduleService/PauseSchedule",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.aiplatform.v1.PipelineService",
-                        "CancelPipelineJob",
+                        "google.cloud.aiplatform.v1.ScheduleService",
+                        "PauseSchedule",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Resumes a paused Schedule to start scheduling new runs. Will mark
+        /// [Schedule.state][google.cloud.aiplatform.v1.Schedule.state] to 'ACTIVE'.
+        /// Only paused Schedule can be resumed.
+        ///
+        /// When the Schedule is resumed, new runs will be scheduled starting from the
+        /// next execution time after the current time based on the time_specification
+        /// in the Schedule. If [Schedule.catchUp][] is set up true, all
+        /// missed runs will be scheduled for backfill first.
+        pub async fn resume_schedule(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ResumeScheduleRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1.ScheduleService/ResumeSchedule",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1.ScheduleService",
+                        "ResumeSchedule",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates an active or paused Schedule.
+        ///
+        /// When the Schedule is updated, new runs will be scheduled starting from the
+        /// updated next execution time after the update time based on the
+        /// time_specification in the updated Schedule. All unstarted runs before the
+        /// update time will be skipped while already created runs will NOT be paused
+        /// or canceled.
+        pub async fn update_schedule(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateScheduleRequest>,
+        ) -> std::result::Result<tonic::Response<super::Schedule>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1.ScheduleService/UpdateSchedule",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1.ScheduleService",
+                        "UpdateSchedule",
                     ),
                 );
             self.inner.unary(req, path, codec).await

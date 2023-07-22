@@ -1402,6 +1402,165 @@ pub mod approval_result {
         }
     }
 }
+/// GitRepoSource describes a repo and ref of a code repository.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GitRepoSource {
+    /// The URI of the repo (e.g. <https://github.com/user/repo.git>).
+    /// Either `uri` or `repository` can be specified and is required.
+    #[prost(string, tag = "1")]
+    pub uri: ::prost::alloc::string::String,
+    /// The branch or tag to use. Must start with "refs/" (required).
+    #[prost(string, tag = "2")]
+    pub r#ref: ::prost::alloc::string::String,
+    /// See RepoType below.
+    #[prost(enumeration = "git_file_source::RepoType", tag = "3")]
+    pub repo_type: i32,
+    /// The source of the SCM repo.
+    #[prost(oneof = "git_repo_source::Source", tags = "6")]
+    pub source: ::core::option::Option<git_repo_source::Source>,
+    /// The resource name of the enterprise config that should be applied
+    /// to this source.
+    #[prost(oneof = "git_repo_source::EnterpriseConfig", tags = "4")]
+    pub enterprise_config: ::core::option::Option<git_repo_source::EnterpriseConfig>,
+}
+/// Nested message and enum types in `GitRepoSource`.
+pub mod git_repo_source {
+    /// The source of the SCM repo.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Source {
+        /// The connected repository resource name, in the format
+        /// `projects/*/locations/*/connections/*/repositories/*`. Either `uri` or
+        /// `repository` can be specified and is required.
+        #[prost(string, tag = "6")]
+        Repository(::prost::alloc::string::String),
+    }
+    /// The resource name of the enterprise config that should be applied
+    /// to this source.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum EnterpriseConfig {
+        /// The full resource name of the github enterprise config.
+        /// Format:
+        /// `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`.
+        /// `projects/{project}/githubEnterpriseConfigs/{id}`.
+        #[prost(string, tag = "4")]
+        GithubEnterpriseConfig(::prost::alloc::string::String),
+    }
+}
+/// GitFileSource describes a file within a (possibly remote) code repository.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GitFileSource {
+    /// The path of the file, with the repo root as the root of the path.
+    #[prost(string, tag = "1")]
+    pub path: ::prost::alloc::string::String,
+    /// The URI of the repo.
+    /// Either uri or repository can be specified.
+    /// If unspecified, the repo from which the trigger invocation originated is
+    /// assumed to be the repo from which to read the specified path.
+    #[prost(string, tag = "2")]
+    pub uri: ::prost::alloc::string::String,
+    /// See RepoType above.
+    #[prost(enumeration = "git_file_source::RepoType", tag = "3")]
+    pub repo_type: i32,
+    /// The branch, tag, arbitrary ref, or SHA version of the repo to use when
+    /// resolving the filename (optional).
+    /// This field respects the same syntax/resolution as described here:
+    /// <https://git-scm.com/docs/gitrevisions>
+    /// If unspecified, the revision from which the trigger invocation originated
+    /// is assumed to be the revision from which to read the specified path.
+    #[prost(string, tag = "4")]
+    pub revision: ::prost::alloc::string::String,
+    /// The source of the SCM repo.
+    #[prost(oneof = "git_file_source::Source", tags = "7")]
+    pub source: ::core::option::Option<git_file_source::Source>,
+    /// The resource name of the enterprise config that should be applied
+    /// to this source.
+    #[prost(oneof = "git_file_source::EnterpriseConfig", tags = "5")]
+    pub enterprise_config: ::core::option::Option<git_file_source::EnterpriseConfig>,
+}
+/// Nested message and enum types in `GitFileSource`.
+pub mod git_file_source {
+    /// The type of the repo, since it may not be explicit from the `repo` field
+    /// (e.g from a URL).
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum RepoType {
+        /// The default, unknown repo type. Don't use it, instead use one of
+        /// the other repo types.
+        Unknown = 0,
+        /// A Google Cloud Source Repositories-hosted repo.
+        CloudSourceRepositories = 1,
+        /// A GitHub-hosted repo not necessarily on "github.com" (i.e. GitHub
+        /// Enterprise).
+        Github = 2,
+        /// A Bitbucket Server-hosted repo.
+        BitbucketServer = 3,
+        /// A GitLab-hosted repo.
+        Gitlab = 4,
+    }
+    impl RepoType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                RepoType::Unknown => "UNKNOWN",
+                RepoType::CloudSourceRepositories => "CLOUD_SOURCE_REPOSITORIES",
+                RepoType::Github => "GITHUB",
+                RepoType::BitbucketServer => "BITBUCKET_SERVER",
+                RepoType::Gitlab => "GITLAB",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNKNOWN" => Some(Self::Unknown),
+                "CLOUD_SOURCE_REPOSITORIES" => Some(Self::CloudSourceRepositories),
+                "GITHUB" => Some(Self::Github),
+                "BITBUCKET_SERVER" => Some(Self::BitbucketServer),
+                "GITLAB" => Some(Self::Gitlab),
+                _ => None,
+            }
+        }
+    }
+    /// The source of the SCM repo.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Source {
+        /// The fully qualified resource name of the Repos API repository.
+        /// Either URI or repository can be specified.
+        /// If unspecified, the repo from which the trigger invocation originated is
+        /// assumed to be the repo from which to read the specified path.
+        #[prost(string, tag = "7")]
+        Repository(::prost::alloc::string::String),
+    }
+    /// The resource name of the enterprise config that should be applied
+    /// to this source.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum EnterpriseConfig {
+        /// The full resource name of the github enterprise config.
+        /// Format:
+        /// `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`.
+        /// `projects/{project}/githubEnterpriseConfigs/{id}`.
+        #[prost(string, tag = "5")]
+        GithubEnterpriseConfig(::prost::alloc::string::String),
+    }
+}
 /// Configuration for an automated build in response to source repository
 /// changes.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1489,6 +1648,14 @@ pub struct BuildTrigger {
     /// Optional. A Common Expression Language string.
     #[prost(string, tag = "30")]
     pub filter: ::prost::alloc::string::String,
+    /// The repo and ref of the repository from which to build. This field
+    /// is used only for those triggers that do not respond to SCM events.
+    /// Triggers that respond to such events build source at whatever commit
+    /// caused the event.
+    /// This field is currently only used by Webhook, Pub/Sub, Manual, and Cron
+    /// triggers.
+    #[prost(message, optional, tag = "26")]
+    pub source_to_build: ::core::option::Option<GitRepoSource>,
     /// The service account used for all user-controlled operations including
     /// UpdateBuildTrigger, RunBuildTrigger, CreateBuild, and CancelBuild.
     /// If no service account is set, then the standard Cloud Build service account
@@ -1502,7 +1669,7 @@ pub struct BuildTrigger {
     pub repository_event_config: ::core::option::Option<RepositoryEventConfig>,
     /// Template describing the Build request to make when the trigger is matched.
     /// At least one of the template fields must be provided.
-    #[prost(oneof = "build_trigger::BuildTemplate", tags = "18, 4, 8")]
+    #[prost(oneof = "build_trigger::BuildTemplate", tags = "18, 4, 8, 24")]
     pub build_template: ::core::option::Option<build_trigger::BuildTemplate>,
 }
 /// Nested message and enum types in `BuildTrigger`.
@@ -1530,6 +1697,9 @@ pub mod build_trigger {
         /// (i.e. cloudbuild.yaml).
         #[prost(string, tag = "8")]
         Filename(::prost::alloc::string::String),
+        /// The file source describing the local or remote Build template.
+        #[prost(message, tag = "24")]
+        GitFileSource(super::GitFileSource),
     }
 }
 /// The configuration of a trigger that creates a build whenever an event from
@@ -2414,6 +2584,69 @@ pub struct ReceiveTriggerWebhookRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ReceiveTriggerWebhookResponse {}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GitHubEnterpriseConfig {
+    /// Optional. The full resource name for the GitHubEnterpriseConfig
+    /// For example:
+    /// "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
+    #[prost(string, tag = "7")]
+    pub name: ::prost::alloc::string::String,
+    /// The URL of the github enterprise host the configuration is for.
+    #[prost(string, tag = "3")]
+    pub host_url: ::prost::alloc::string::String,
+    /// Required. The GitHub app id of the Cloud Build app on the GitHub Enterprise
+    /// server.
+    #[prost(int64, tag = "4")]
+    pub app_id: i64,
+    /// Output only. Time when the installation was associated with the project.
+    #[prost(message, optional, tag = "6")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The key that should be attached to webhook calls to the ReceiveWebhook
+    /// endpoint.
+    #[prost(string, tag = "8")]
+    pub webhook_key: ::prost::alloc::string::String,
+    /// Optional. The network to be used when reaching out to the GitHub
+    /// Enterprise server. The VPC network must be enabled for private
+    /// service connection. This should be set if the GitHub Enterprise server is
+    /// hosted on-premises and not reachable by public internet.
+    /// If this field is left empty, no network peering will occur and calls to
+    /// the GitHub Enterprise server will be made over the public internet.
+    /// Must be in the format
+    /// `projects/{project}/global/networks/{network}`, where {project}
+    /// is a project number or id and {network} is the name of a
+    /// VPC network in the project.
+    #[prost(string, tag = "9")]
+    pub peered_network: ::prost::alloc::string::String,
+    /// Names of secrets in Secret Manager.
+    #[prost(message, optional, tag = "10")]
+    pub secrets: ::core::option::Option<GitHubEnterpriseSecrets>,
+    /// Name to display for this config.
+    #[prost(string, tag = "11")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Optional. SSL certificate to use for requests to GitHub Enterprise.
+    #[prost(string, tag = "12")]
+    pub ssl_ca: ::prost::alloc::string::String,
+}
+/// GitHubEnterpriseSecrets represents the names of all necessary secrets in
+/// Secret Manager for a GitHub Enterprise server.
+/// Format is: projects/<project number>/secrets/<secret name>.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GitHubEnterpriseSecrets {
+    /// The resource name for the private key secret version.
+    #[prost(string, tag = "5")]
+    pub private_key_version_name: ::prost::alloc::string::String,
+    /// The resource name for the webhook secret secret version in Secret Manager.
+    #[prost(string, tag = "6")]
+    pub webhook_secret_version_name: ::prost::alloc::string::String,
+    /// The resource name for the OAuth secret secret version in Secret Manager.
+    #[prost(string, tag = "7")]
+    pub oauth_secret_version_name: ::prost::alloc::string::String,
+    /// The resource name for the OAuth client ID secret version in Secret Manager.
+    #[prost(string, tag = "8")]
+    pub oauth_client_id_version_name: ::prost::alloc::string::String,
+}
 /// Configuration for a `WorkerPool`.
 ///
 /// Cloud Build owns and maintains a pool of workers for general use and have no
