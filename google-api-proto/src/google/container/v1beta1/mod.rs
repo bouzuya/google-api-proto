@@ -410,6 +410,10 @@ pub struct NodeConfig {
     /// Parameters for node pools to be backed by shared sole tenant node groups.
     #[prost(message, optional, tag = "42")]
     pub sole_tenant_config: ::core::option::Option<SoleTenantConfig>,
+    /// HostMaintenancePolicy contains the desired maintenance policy for the
+    /// Google Compute Engine hosts.
+    #[prost(message, optional, tag = "44")]
+    pub host_maintenance_policy: ::core::option::Option<HostMaintenancePolicy>,
 }
 /// Specifies options for controlling advanced machine features.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -492,6 +496,18 @@ pub struct NodeNetworkConfig {
     pub pod_cidr_overprovision_config: ::core::option::Option<
         PodCidrOverprovisionConfig,
     >,
+    /// We specify the additional node networks for this node pool using this list.
+    /// Each node network corresponds to an additional interface
+    #[prost(message, repeated, tag = "14")]
+    pub additional_node_network_configs: ::prost::alloc::vec::Vec<
+        AdditionalNodeNetworkConfig,
+    >,
+    /// We specify the additional pod networks for this node pool using this list.
+    /// Each pod network corresponds to an additional alias IP range for the node
+    #[prost(message, repeated, tag = "15")]
+    pub additional_pod_network_configs: ::prost::alloc::vec::Vec<
+        AdditionalPodNetworkConfig,
+    >,
     /// Output only. [Output only] The utilization of the IPv4 range for the pod.
     /// The ratio is Usage/[Total number of IPs in the secondary range],
     /// Usage=numNodes*numZones*podIPsPerNode.
@@ -554,6 +570,34 @@ pub mod node_network_config {
             }
         }
     }
+}
+/// AdditionalNodeNetworkConfig is the configuration for additional node networks
+/// within the NodeNetworkConfig message
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AdditionalNodeNetworkConfig {
+    /// Name of the VPC where the additional interface belongs
+    #[prost(string, tag = "1")]
+    pub network: ::prost::alloc::string::String,
+    /// Name of the subnetwork where the additional interface belongs
+    #[prost(string, tag = "2")]
+    pub subnetwork: ::prost::alloc::string::String,
+}
+/// AdditionalPodNetworkConfig is the configuration for additional pod networks
+/// within the NodeNetworkConfig message
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AdditionalPodNetworkConfig {
+    /// Name of the subnetwork where the additional pod network belongs
+    #[prost(string, tag = "1")]
+    pub subnetwork: ::prost::alloc::string::String,
+    /// The name of the secondary range on the subnet which provides IP address for
+    /// this pod range
+    #[prost(string, tag = "2")]
+    pub secondary_pod_range: ::prost::alloc::string::String,
+    /// The maximum number of pods per node which use this pod network
+    #[prost(message, optional, tag = "3")]
+    pub max_pods_per_node: ::core::option::Option<MaxPodsConstraint>,
 }
 /// A set of Shielded Instance options.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -819,6 +863,73 @@ pub mod sole_tenant_config {
                     "NOT_IN" => Some(Self::NotIn),
                     _ => None,
                 }
+            }
+        }
+    }
+}
+/// HostMaintenancePolicy contains the maintenance policy for the hosts on which
+/// the GKE VMs run on.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct HostMaintenancePolicy {
+    /// Specifies the frequency of planned maintenance events.
+    #[prost(
+        enumeration = "host_maintenance_policy::MaintenanceInterval",
+        optional,
+        tag = "1"
+    )]
+    pub maintenance_interval: ::core::option::Option<i32>,
+}
+/// Nested message and enum types in `HostMaintenancePolicy`.
+pub mod host_maintenance_policy {
+    /// Allows selecting how infrastructure upgrades should be applied to the
+    /// cluster or node pool.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum MaintenanceInterval {
+        /// The maintenance interval is not explicitly specified.
+        Unspecified = 0,
+        /// Nodes are eligible to receive infrastructure and hypervisor updates as
+        /// they become available.  This may result in more maintenance operations
+        /// (live migrations or terminations) for the node than the PERIODIC option.
+        AsNeeded = 1,
+        /// Nodes receive infrastructure and hypervisor updates on a periodic basis,
+        /// minimizing the number of maintenance operations (live migrations or
+        /// terminations) on an individual VM.  This may mean underlying VMs will
+        /// take longer to receive an update than if it was configured for
+        /// AS_NEEDED.  Security updates will still be applied as soon
+        /// as they are available.
+        Periodic = 2,
+    }
+    impl MaintenanceInterval {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                MaintenanceInterval::Unspecified => "MAINTENANCE_INTERVAL_UNSPECIFIED",
+                MaintenanceInterval::AsNeeded => "AS_NEEDED",
+                MaintenanceInterval::Periodic => "PERIODIC",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "MAINTENANCE_INTERVAL_UNSPECIFIED" => Some(Self::Unspecified),
+                "AS_NEEDED" => Some(Self::AsNeeded),
+                "PERIODIC" => Some(Self::Periodic),
+                _ => None,
             }
         }
     }
@@ -2552,6 +2663,10 @@ pub struct NodeConfigDefaults {
     /// Logging configuration for node pools.
     #[prost(message, optional, tag = "3")]
     pub logging_config: ::core::option::Option<NodePoolLoggingConfig>,
+    /// HostMaintenancePolicy contains the desired maintenance policy for the
+    /// Google Compute Engine hosts.
+    #[prost(message, optional, tag = "5")]
+    pub host_maintenance_policy: ::core::option::Option<HostMaintenancePolicy>,
 }
 /// node pool configs that apply to all auto-provisioned node pools
 /// in autopilot clusters and node auto-provisioning enabled clusters
@@ -2823,6 +2938,10 @@ pub struct ClusterUpdate {
     /// Beta APIs enabled for cluster.
     #[prost(message, optional, tag = "131")]
     pub desired_k8s_beta_apis: ::core::option::Option<K8sBetaApiConfig>,
+    /// HostMaintenancePolicy contains the desired maintenance policy for the
+    /// Google Compute Engine hosts.
+    #[prost(message, optional, tag = "132")]
+    pub desired_host_maintenance_policy: ::core::option::Option<HostMaintenancePolicy>,
 }
 /// AdditionalPodRangesConfig is the configuration for additional pod secondary
 /// ranges supporting the ClusterUpdate message.
@@ -4450,6 +4569,11 @@ pub mod node_pool {
         /// <https://cloud.google.com/tpu/docs/types-topologies#tpu_topologies>
         #[prost(string, tag = "2")]
         pub tpu_topology: ::prost::alloc::string::String,
+        /// If set, refers to the name of a custom resource policy supplied by the
+        /// user. The resource policy must be in the same project and region as the
+        /// node pool. If not found, InvalidArgument error is returned.
+        #[prost(string, tag = "3")]
+        pub policy_name: ::prost::alloc::string::String,
     }
     /// Nested message and enum types in `PlacementPolicy`.
     pub mod placement_policy {
@@ -5853,6 +5977,9 @@ pub struct NetworkConfig {
     /// cluster.
     #[prost(message, optional, tag = "16")]
     pub gateway_api_config: ::core::option::Option<GatewayApiConfig>,
+    /// Whether multi-networking is enabled for this cluster.
+    #[prost(bool, tag = "17")]
+    pub enable_multi_networking: bool,
     /// Network bandwidth tier configuration.
     #[prost(message, optional, tag = "18")]
     pub network_performance_config: ::core::option::Option<
