@@ -3039,6 +3039,12 @@
 <a href="#3039" id="3039">3039</a>
 <a href="#3040" id="3040">3040</a>
 <a href="#3041" id="3041">3041</a>
+<a href="#3042" id="3042">3042</a>
+<a href="#3043" id="3043">3043</a>
+<a href="#3044" id="3044">3044</a>
+<a href="#3045" id="3045">3045</a>
+<a href="#3046" id="3046">3046</a>
+<a href="#3047" id="3047">3047</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Oracle database profile.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3620,6 +3626,12 @@
     <span class="doccomment">/// The ordinal position of the column in the table.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>ordinal_position: i32,
+    <span class="doccomment">/// Column precision.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>precision: i32,
+    <span class="doccomment">/// Column scale.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>scale: i32,
 }
 <span class="doccomment">/// MySQL table.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
