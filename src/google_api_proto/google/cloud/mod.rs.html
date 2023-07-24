@@ -710,6 +710,11 @@
 <a href="#710" id="710">710</a>
 <a href="#711" id="711">711</a>
 <a href="#712" id="712">712</a>
+<a href="#713" id="713">713</a>
+<a href="#714" id="714">714</a>
+<a href="#715" id="715">715</a>
+<a href="#716" id="716">716</a>
+<a href="#717" id="717">717</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-accessapproval-v1&quot;</span>))]
 </span><span class="kw">pub mod </span>accessapproval;
 <span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-advisorynotifications-v1&quot;</span>))]
@@ -838,7 +843,12 @@
 </span><span class="kw">pub mod </span>clouddms;
 <span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-cloudsetup-logging-v1&quot;</span>))]
 </span><span class="kw">pub mod </span>cloudsetup;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-commerce-consumer-procurement-v1alpha1&quot;</span>))]
+<span class="attr">#[cfg(
+    any(
+        feature = <span class="string">&quot;google-cloud-commerce-consumer-procurement-v1&quot;</span>,
+        feature = <span class="string">&quot;google-cloud-commerce-consumer-procurement-v1alpha1&quot;</span>,
+    )
+)]
 </span><span class="kw">pub mod </span>commerce;
 <span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-common&quot;</span>))]
 </span><span class="kw">pub mod </span>common;
