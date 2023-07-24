@@ -178,6 +178,7 @@ pub mod chromeos;
         feature = "google-cloud-clouddms-logging-v1",
         feature = "google-cloud-clouddms-v1",
         feature = "google-cloud-cloudsetup-logging-v1",
+        feature = "google-cloud-commerce-consumer-procurement-v1",
         feature = "google-cloud-commerce-consumer-procurement-v1alpha1",
         feature = "google-cloud-common",
         feature = "google-cloud-compute-v1",
