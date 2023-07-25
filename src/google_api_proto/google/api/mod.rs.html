@@ -4728,6 +4728,60 @@
 <a href="#4728" id="4728">4728</a>
 <a href="#4729" id="4729">4729</a>
 <a href="#4730" id="4730">4730</a>
+<a href="#4731" id="4731">4731</a>
+<a href="#4732" id="4732">4732</a>
+<a href="#4733" id="4733">4733</a>
+<a href="#4734" id="4734">4734</a>
+<a href="#4735" id="4735">4735</a>
+<a href="#4736" id="4736">4736</a>
+<a href="#4737" id="4737">4737</a>
+<a href="#4738" id="4738">4738</a>
+<a href="#4739" id="4739">4739</a>
+<a href="#4740" id="4740">4740</a>
+<a href="#4741" id="4741">4741</a>
+<a href="#4742" id="4742">4742</a>
+<a href="#4743" id="4743">4743</a>
+<a href="#4744" id="4744">4744</a>
+<a href="#4745" id="4745">4745</a>
+<a href="#4746" id="4746">4746</a>
+<a href="#4747" id="4747">4747</a>
+<a href="#4748" id="4748">4748</a>
+<a href="#4749" id="4749">4749</a>
+<a href="#4750" id="4750">4750</a>
+<a href="#4751" id="4751">4751</a>
+<a href="#4752" id="4752">4752</a>
+<a href="#4753" id="4753">4753</a>
+<a href="#4754" id="4754">4754</a>
+<a href="#4755" id="4755">4755</a>
+<a href="#4756" id="4756">4756</a>
+<a href="#4757" id="4757">4757</a>
+<a href="#4758" id="4758">4758</a>
+<a href="#4759" id="4759">4759</a>
+<a href="#4760" id="4760">4760</a>
+<a href="#4761" id="4761">4761</a>
+<a href="#4762" id="4762">4762</a>
+<a href="#4763" id="4763">4763</a>
+<a href="#4764" id="4764">4764</a>
+<a href="#4765" id="4765">4765</a>
+<a href="#4766" id="4766">4766</a>
+<a href="#4767" id="4767">4767</a>
+<a href="#4768" id="4768">4768</a>
+<a href="#4769" id="4769">4769</a>
+<a href="#4770" id="4770">4770</a>
+<a href="#4771" id="4771">4771</a>
+<a href="#4772" id="4772">4772</a>
+<a href="#4773" id="4773">4773</a>
+<a href="#4774" id="4774">4774</a>
+<a href="#4775" id="4775">4775</a>
+<a href="#4776" id="4776">4776</a>
+<a href="#4777" id="4777">4777</a>
+<a href="#4778" id="4778">4778</a>
+<a href="#4779" id="4779">4779</a>
+<a href="#4780" id="4780">4780</a>
+<a href="#4781" id="4781">4781</a>
+<a href="#4782" id="4782">4782</a>
+<a href="#4783" id="4783">4783</a>
+<a href="#4784" id="4784">4784</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-api-apikeys-v2&quot;</span>))]
 </span><span class="kw">pub mod </span>apikeys;
 <span class="attr">#[cfg(
@@ -8555,6 +8609,57 @@
         ::prost::alloc::string::String,
     &gt;,
 }
+<span class="doccomment">/// Google API Policy Annotation
+///
+/// This message defines a simple API policy annotation that can be used to
+/// annotate API request and response message fields with applicable policies.
+/// One field may have multiple applicable policies that must all be satisfied
+/// before a request can be processed. This policy annotation is used to
+/// generate the overall policy that will be used for automatic runtime
+/// policy enforcement and documentation generation.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FieldPolicy {
+    <span class="doccomment">/// Selects one or more request or response message fields to apply this
+    /// `FieldPolicy`.
+    ///
+    /// When a `FieldPolicy` is used in proto annotation, the selector must
+    /// be left as empty. The service config generator will automatically fill
+    /// the correct value.
+    ///
+    /// When a `FieldPolicy` is used in service config, the selector must be a
+    /// comma-separated string with valid request or response field paths,
+    /// such as &quot;foo.bar&quot; or &quot;foo.bar,foo.baz&quot;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>selector: ::prost::alloc::string::String,
+    <span class="doccomment">/// Specifies the required permission(s) for the resource referred to by the
+    /// field. It requires the field contains a valid resource reference, and
+    /// the request must pass the permission checks to proceed. For example,
+    /// &quot;resourcemanager.projects.get&quot;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>resource_permission: ::prost::alloc::string::String,
+    <span class="doccomment">/// Specifies the resource type for the resource referred to by the field.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>resource_type: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Defines policies applying to an RPC method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>MethodPolicy {
+    <span class="doccomment">/// Selects a method to which these policies should be enforced, for example,
+    /// &quot;google.pubsub.v1.Subscriber.CreateSubscription&quot;.
+    ///
+    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
+    /// details.
+    ///
+    /// NOTE: This field must not be set in the proto annotation. It will be
+    /// automatically filled by the service config compiler .
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>selector: ::prost::alloc::string::String,
+    <span class="doccomment">/// Policies that are applicable to the request message.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>request_policies: ::prost::alloc::vec::Vec&lt;FieldPolicy&gt;,
+}
 <span class="doccomment">/// Selects and configures the service controller used by the service.
 ///
 /// Example:
@@ -8569,6 +8674,9 @@
     /// most services is servicecontrol.googleapis.com
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>environment: ::prost::alloc::string::String,
+    <span class="doccomment">/// Defines policies applying to the API methods of the service.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>method_policies: ::prost::alloc::vec::Vec&lt;MethodPolicy&gt;,
 }
 <span class="doccomment">/// `Documentation` provides the information for describing a service.
 ///

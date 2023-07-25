@@ -1304,6 +1304,13 @@
 <a href="#1304" id="1304">1304</a>
 <a href="#1305" id="1305">1305</a>
 <a href="#1306" id="1306">1306</a>
+<a href="#1307" id="1307">1307</a>
+<a href="#1308" id="1308">1308</a>
+<a href="#1309" id="1309">1309</a>
+<a href="#1310" id="1310">1310</a>
+<a href="#1311" id="1311">1311</a>
+<a href="#1312" id="1312">1312</a>
+<a href="#1313" id="1313">1313</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A guest attributes.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1482,7 +1489,7 @@
     <span class="doccomment">/// The user-supplied description of the TPU. Maximum of 512 characters.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The type of hardware accelerators associated with this node.
+    <span class="doccomment">/// Optional. The type of hardware accelerators associated with this node.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>accelerator_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The current state for the TPU Node.
@@ -1561,6 +1568,13 @@
     <span class="doccomment">/// The AccleratorConfig for the TPU Node.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;46&quot;</span>)]
     </span><span class="kw">pub </span>accelerator_config: ::core::option::Option&lt;AcceleratorConfig&gt;,
+    <span class="doccomment">/// Output only. The qualified name of the QueuedResource that requested this
+    /// Node.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;47&quot;</span>)]
+    </span><span class="kw">pub </span>queued_resource: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Whether the Node belongs to a Multislice group.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;48&quot;</span>)]
+    </span><span class="kw">pub </span>multislice_node: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `Node`.
 </span><span class="kw">pub mod </span>node {
@@ -1882,7 +1896,7 @@
     <span class="doccomment">/// The resource name.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// the accelerator type.
+    <span class="doccomment">/// The accelerator type.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
     <span class="doccomment">/// The accelerator config.

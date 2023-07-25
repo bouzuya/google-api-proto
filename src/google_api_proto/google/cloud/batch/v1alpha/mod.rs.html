@@ -1921,6 +1921,28 @@
 <a href="#1921" id="1921">1921</a>
 <a href="#1922" id="1922">1922</a>
 <a href="#1923" id="1923">1923</a>
+<a href="#1924" id="1924">1924</a>
+<a href="#1925" id="1925">1925</a>
+<a href="#1926" id="1926">1926</a>
+<a href="#1927" id="1927">1927</a>
+<a href="#1928" id="1928">1928</a>
+<a href="#1929" id="1929">1929</a>
+<a href="#1930" id="1930">1930</a>
+<a href="#1931" id="1931">1931</a>
+<a href="#1932" id="1932">1932</a>
+<a href="#1933" id="1933">1933</a>
+<a href="#1934" id="1934">1934</a>
+<a href="#1935" id="1935">1935</a>
+<a href="#1936" id="1936">1936</a>
+<a href="#1937" id="1937">1937</a>
+<a href="#1938" id="1938">1938</a>
+<a href="#1939" id="1939">1939</a>
+<a href="#1940" id="1940">1940</a>
+<a href="#1941" id="1941">1941</a>
+<a href="#1942" id="1942">1942</a>
+<a href="#1943" id="1943">1943</a>
+<a href="#1944" id="1944">1944</a>
+<a href="#1945" id="1945">1945</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Volume describes a volume and parameters for it to be mounted to a VM.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3026,21 +3048,24 @@
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>DataSource {
-            <span class="doccomment">/// Name of a public or custom image used as the data source.
+            <span class="doccomment">/// Name of an image used as the data source.
             /// For example, the following are all valid URLs:
             ///
             /// * Specify the image by its family name:
-            /// projects/{project}/global/images/family/{image_family}
+            /// &lt;pre&gt;&lt;code&gt;projects/&lt;var
+            /// class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/global/images/family/&lt;var
+            /// class=&quot;apiparam&quot;&gt;image_family&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
             /// * Specify the image version:
-            /// projects/{project}/global/images/{image_version}
-            ///
+            /// &lt;pre&gt;projects/&lt;var
+            /// class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/global/images/&lt;var
+            /// class=&quot;apiparam&quot;&gt;image_version&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
             /// You can also use Batch customized image in short names.
             /// The following image values are supported for a boot disk:
             ///
-            /// * &quot;batch-debian&quot;: use Batch Debian images.
-            /// * &quot;batch-centos&quot;: use Batch CentOS images.
-            /// * &quot;batch-cos&quot;: use Batch Container-Optimized images.
-            /// * &quot;batch-hpc-centos&quot;: use Batch HPC CentOS images.
+            /// * `batch-debian`: use Batch Debian images.
+            /// * `batch-centos`: use Batch CentOS images.
+            /// * `batch-cos`: use Batch Container-Optimized images.
+            /// * `batch-hpc-centos`: use Batch HPC CentOS images.
             </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
             </span>Image(::prost::alloc::string::String),
             <span class="doccomment">/// Name of a snapshot used as the data source.
@@ -3090,9 +3115,13 @@
         </span><span class="attr">#[deprecated]
         #[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>install_gpu_drivers: bool,
-        <span class="doccomment">/// The accelerator driver version that will be installed for this type.
+        <span class="doccomment">/// Optional. The NVIDIA GPU driver version that should be installed for this
+        /// type.
         ///
-        /// Not yet implemented.
+        /// You can define the specific driver version such as &quot;470.103.01&quot;,
+        /// following the driver version requirements in
+        /// &lt;https://cloud.google.com/compute/docs/gpus/install-drivers-gpu#minimum-driver.&gt;
+        /// Batch will install the specific accelerator driver if qualified.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
         </span><span class="kw">pub </span>driver_version: ::prost::alloc::string::String,
     }
@@ -3143,6 +3172,12 @@
         /// third party location and install them for GPUs specified in
         /// policy.accelerators or instance_template on their behalf. Default is
         /// false.
+        ///
+        /// For Container-Optimized Image cases, Batch will install the
+        /// accelerator driver following milestones of
+        /// &lt;https://cloud.google.com/container-optimized-os/docs/release-notes.&gt; For
+        /// non Container-Optimized Image cases, following
+        /// &lt;https://github.com/GoogleCloudPlatform/compute-gpu-installation/blob/main/linux/install_gpu_driver.py.&gt;
         </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>install_gpu_drivers: bool,
         <span class="attr">#[prost(oneof = <span class="string">&quot;instance_policy_or_template::PolicyTemplate&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
@@ -3173,20 +3208,30 @@
         /// You can specify the network as a full or partial URL.
         ///
         /// For example, the following are all valid URLs:
-        ///
-        /// * &lt;https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}&gt;
-        /// * projects/{project}/global/networks/{network}
-        /// * global/networks/{network}
+        /// &lt;pre&gt;&lt;code&gt;&lt;https://www.googleapis.com/compute/v1/projects/&lt;var&gt;
+        /// class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/global/networks/&lt;var
+        /// class=&quot;apiparam&quot;&gt;network&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
+        /// &lt;pre&gt;&lt;code&gt;projects/&lt;var
+        /// class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/global/networks/&lt;var
+        /// class=&quot;apiparam&quot;&gt;network&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
+        /// &lt;pre&gt;&lt;code&gt;global/networks/&lt;var
+        /// class=&quot;apiparam&quot;&gt;network&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
         <span class="doccomment">/// The URL of an existing subnetwork resource in the network.
         /// You can specify the subnetwork as a full or partial URL.
         ///
         /// For example, the following are all valid URLs:
-        ///
-        /// * &lt;https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}&gt;
-        /// * projects/{project}/regions/{region}/subnetworks/{subnetwork}
-        /// * regions/{region}/subnetworks/{subnetwork}
+        /// &lt;pre&gt;&lt;code&gt;&lt;https://www.googleapis.com/compute/v1/projects/&lt;var&gt;
+        /// class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/regions/&lt;var
+        /// class=&quot;apiparam&quot;&gt;region&lt;/var&gt;/subnetworks/&lt;var
+        /// class=&quot;apiparam&quot;&gt;subnetwork&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
+        /// &lt;pre&gt;&lt;code&gt;projects/&lt;var class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/regions/&lt;var
+        /// class=&quot;apiparam&quot;&gt;region&lt;/var&gt;/subnetworks/&lt;var
+        /// class=&quot;apiparam&quot;&gt;subnetwork&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
+        /// &lt;pre&gt;&lt;code&gt;regions/&lt;var
+        /// class=&quot;apiparam&quot;&gt;region&lt;/var&gt;/subnetworks/&lt;var
+        /// class=&quot;apiparam&quot;&gt;subnetwork&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>subnetwork: ::prost::alloc::string::String,
         <span class="doccomment">/// Default is false (with an external IP address). Required if
@@ -3492,8 +3537,8 @@
     <span class="doccomment">/// List filter.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// Sort results. Supported are &quot;name&quot;, &quot;name desc&quot;, &quot;create_time&quot;,
-    /// &quot;create_time desc&quot;, and &quot;&quot;.
+    <span class="doccomment">/// Optional. Sort results. Supported are &quot;name&quot;, &quot;name desc&quot;, &quot;create_time&quot;,
+    /// and &quot;create_time desc&quot;.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
     <span class="doccomment">/// Page size.
@@ -3531,8 +3576,7 @@
     /// State=RUNNING
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// Sort results. Supported are &quot;name&quot;, &quot;name desc&quot;, &quot;create_time&quot;,
-    /// &quot;create_time desc&quot;, and &quot;&quot;.
+    <span class="doccomment">/// Not implemented.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
     <span class="doccomment">/// Page size.
