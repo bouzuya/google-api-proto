@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Result","ScanType","Scope","State","Trigger"],"struct":["DataProfileResult","DataQualityResult"]};
+window.SIDEBAR_ITEMS = {"enum":["AppliedConfigs","Result","ScanType","Scope","State","Trigger"],"mod":["post_scan_actions_result"],"struct":["DataProfileAppliedConfigs","DataProfileResult","DataQualityAppliedConfigs","DataQualityResult","PostScanActionsResult"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["profile"],"struct":["Profile"]};
+window.SIDEBAR_ITEMS = {"mod":["post_scan_actions_result","profile"],"struct":["PostScanActionsResult","Profile"]};

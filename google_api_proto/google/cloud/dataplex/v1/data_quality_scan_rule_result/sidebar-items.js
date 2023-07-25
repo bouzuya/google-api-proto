@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["EvaluationType","Result","RuleType"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ResourceReference"],"struct":["Path"]};

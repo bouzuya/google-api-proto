@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Service","State","Type"]};
+window.SIDEBAR_ITEMS = {"enum":["ExecutionTrigger","Service","State","Type"]};
