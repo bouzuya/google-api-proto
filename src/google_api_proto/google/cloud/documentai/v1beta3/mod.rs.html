@@ -5064,6 +5064,21 @@
 <a href="#5064" id="5064">5064</a>
 <a href="#5065" id="5065">5065</a>
 <a href="#5066" id="5066">5066</a>
+<a href="#5067" id="5067">5067</a>
+<a href="#5068" id="5068">5068</a>
+<a href="#5069" id="5069">5069</a>
+<a href="#5070" id="5070">5070</a>
+<a href="#5071" id="5071">5071</a>
+<a href="#5072" id="5072">5072</a>
+<a href="#5073" id="5073">5073</a>
+<a href="#5074" id="5074">5074</a>
+<a href="#5075" id="5075">5075</a>
+<a href="#5076" id="5076">5076</a>
+<a href="#5077" id="5077">5077</a>
+<a href="#5078" id="5078">5078</a>
+<a href="#5079" id="5079">5079</a>
+<a href="#5080" id="5080">5080</a>
+<a href="#5081" id="5081">5081</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Encodes the detailed information of a barcode.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -8741,8 +8756,6 @@
 /// \[ImportProcessorVersion][google.cloud.documentai.v1beta3.DocumentProcessorService.ImportProcessorVersion\]
 /// method. Requirements:
 ///
-/// - The source processor version and destination processor
-/// must be in the same location.
 /// - The Document AI [Service
 /// Agent](&lt;https://cloud.google.com/iam/docs/service-agents&gt;) of the destination
 /// project must have [Document AI Editor
@@ -8752,8 +8765,8 @@
 /// The destination project is specified as part of the
 /// \[parent][google.cloud.documentai.v1beta3.ImportProcessorVersionRequest.parent\]
 /// field. The source project is specified as part of the
-/// \[source][google.cloud.documentai.v1beta3.ImportProcessorVersionRequest.processor_version_source\]
-/// field.
+/// \[source\][ImportProcessorVersionRequest.processor_version_source or
+/// ImportProcessorVersionRequest.external_processor_version_source] field.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportProcessorVersionRequest {
@@ -8762,11 +8775,24 @@
     /// `projects/{project}/locations/{location}/processors/{processor}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;import_processor_version_request::Source&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">&quot;import_processor_version_request::Source&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;import_processor_version_request::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ImportProcessorVersionRequest`.
 </span><span class="kw">pub mod </span>import_processor_version_request {
+    <span class="doccomment">/// The external source processor version.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ExternalProcessorVersionSource {
+        <span class="doccomment">/// Required. The processor version name. Format:
+        /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>processor_version: ::prost::alloc::string::String,
+        <span class="doccomment">/// Optional. The Document AI service endpoint. For example,
+        /// &#39;&lt;https://us-documentai.googleapis.com&#39;&gt;
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>service_endpoint: ::prost::alloc::string::String,
+    }
     <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Source {
@@ -8774,6 +8800,10 @@
         /// and destination processor need to be in the same environment and region.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span>ProcessorVersionSource(::prost::alloc::string::String),
+        <span class="doccomment">/// The source processor version to import from, and can be from different
+        /// environment and region than the destination processor.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>ExternalProcessorVersionSource(ExternalProcessorVersionSource),
     }
 }
 <span class="doccomment">/// The response message for the
