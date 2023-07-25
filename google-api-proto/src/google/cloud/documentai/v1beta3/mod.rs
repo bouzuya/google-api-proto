@@ -3675,8 +3675,6 @@ pub struct ListEvaluationsResponse {
 /// \[ImportProcessorVersion][google.cloud.documentai.v1beta3.DocumentProcessorService.ImportProcessorVersion\]
 /// method. Requirements:
 ///
-/// - The source processor version and destination processor
-/// must be in the same location.
 /// - The Document AI [Service
 /// Agent](<https://cloud.google.com/iam/docs/service-agents>) of the destination
 /// project must have [Document AI Editor
@@ -3686,8 +3684,8 @@ pub struct ListEvaluationsResponse {
 /// The destination project is specified as part of the
 /// \[parent][google.cloud.documentai.v1beta3.ImportProcessorVersionRequest.parent\]
 /// field. The source project is specified as part of the
-/// \[source][google.cloud.documentai.v1beta3.ImportProcessorVersionRequest.processor_version_source\]
-/// field.
+/// \[source\][ImportProcessorVersionRequest.processor_version_source or
+/// ImportProcessorVersionRequest.external_processor_version_source] field.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ImportProcessorVersionRequest {
@@ -3696,11 +3694,24 @@ pub struct ImportProcessorVersionRequest {
     /// `projects/{project}/locations/{location}/processors/{processor}`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    #[prost(oneof = "import_processor_version_request::Source", tags = "2")]
+    #[prost(oneof = "import_processor_version_request::Source", tags = "2, 3")]
     pub source: ::core::option::Option<import_processor_version_request::Source>,
 }
 /// Nested message and enum types in `ImportProcessorVersionRequest`.
 pub mod import_processor_version_request {
+    /// The external source processor version.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ExternalProcessorVersionSource {
+        /// Required. The processor version name. Format:
+        /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
+        #[prost(string, tag = "1")]
+        pub processor_version: ::prost::alloc::string::String,
+        /// Optional. The Document AI service endpoint. For example,
+        /// '<https://us-documentai.googleapis.com'>
+        #[prost(string, tag = "2")]
+        pub service_endpoint: ::prost::alloc::string::String,
+    }
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Source {
@@ -3708,6 +3719,10 @@ pub mod import_processor_version_request {
         /// and destination processor need to be in the same environment and region.
         #[prost(string, tag = "2")]
         ProcessorVersionSource(::prost::alloc::string::String),
+        /// The source processor version to import from, and can be from different
+        /// environment and region than the destination processor.
+        #[prost(message, tag = "3")]
+        ExternalProcessorVersionSource(ExternalProcessorVersionSource),
     }
 }
 /// The response message for the
