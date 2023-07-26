@@ -2942,6 +2942,10 @@
 <a href="#2942" id="2942">2942</a>
 <a href="#2943" id="2943">2943</a>
 <a href="#2944" id="2944">2944</a>
+<a href="#2945" id="2945">2945</a>
+<a href="#2946" id="2946">2946</a>
+<a href="#2947" id="2947">2947</a>
+<a href="#2948" id="2948">2948</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A schema resource.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4446,7 +4450,11 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>AvroConfig {
         <span class="doccomment">/// When true, write the subscription name, message_id, publish_time,
-        /// attributes, and ordering_key as additional fields in the output.
+        /// attributes, and ordering_key as additional fields in the output. The
+        /// subscription name, message_id, and publish_time fields are put in their
+        /// own fields while all other message properties other than data (for
+        /// example, an ordering_key, if present) are added as entries in the
+        /// attributes map.
         </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>write_metadata: bool,
     }

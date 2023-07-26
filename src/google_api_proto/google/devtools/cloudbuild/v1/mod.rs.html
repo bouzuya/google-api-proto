@@ -3712,6 +3712,15 @@
 <a href="#3712" id="3712">3712</a>
 <a href="#3713" id="3713">3713</a>
 <a href="#3714" id="3714">3714</a>
+<a href="#3715" id="3715">3715</a>
+<a href="#3716" id="3716">3716</a>
+<a href="#3717" id="3717">3717</a>
+<a href="#3718" id="3718">3718</a>
+<a href="#3719" id="3719">3719</a>
+<a href="#3720" id="3720">3720</a>
+<a href="#3721" id="3721">3721</a>
+<a href="#3722" id="3722">3722</a>
+<a href="#3723" id="3723">3723</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Specifies a build to retry.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4077,6 +4086,11 @@
     /// When script is provided, the user cannot specify the entrypoint or args.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;19&quot;</span>)]
     </span><span class="kw">pub </span>script: ::prost::alloc::string::String,
+    <span class="doccomment">/// Option to include built-in and custom substitutions as env variables
+    /// for this build step. This option will override the global option
+    /// in BuildOption.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="kw">pub </span>automap_substitutions: ::core::option::Option&lt;bool&gt;,
 }
 <span class="doccomment">/// Volume describes a Docker container volume which is mounted into build steps
 /// in order to persist files across build step execution.
@@ -5912,6 +5926,10 @@
     /// overridden in the build configuration file.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;17&quot;</span>)]
     </span><span class="kw">pub </span>dynamic_substitutions: bool,
+    <span class="doccomment">/// Option to include built-in and custom substitutions as env variables
+    /// for all build steps.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="kw">pub </span>automap_substitutions: bool,
     <span class="doccomment">/// Option to define build log streaming behavior to Cloud
     /// Storage.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;build_options::LogStreamingOption&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
