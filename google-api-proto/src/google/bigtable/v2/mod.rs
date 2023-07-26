@@ -1892,4 +1892,8 @@ pub struct FeatureFlags {
     /// requesting RateLimitInfo from MutateRowsResponse.
     #[prost(bool, tag = "3")]
     pub mutate_rows_rate_limit: bool,
+    /// Notify the server that the client supports the last_scanned_row field
+    /// in ReadRowsResponse for long-running sparse scans.
+    #[prost(bool, tag = "4")]
+    pub last_scanned_row_responses: bool,
 }

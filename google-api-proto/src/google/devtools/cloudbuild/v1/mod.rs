@@ -363,6 +363,11 @@ pub struct BuildStep {
     /// When script is provided, the user cannot specify the entrypoint or args.
     #[prost(string, tag = "19")]
     pub script: ::prost::alloc::string::String,
+    /// Option to include built-in and custom substitutions as env variables
+    /// for this build step. This option will override the global option
+    /// in BuildOption.
+    #[prost(bool, optional, tag = "20")]
+    pub automap_substitutions: ::core::option::Option<bool>,
 }
 /// Volume describes a Docker container volume which is mounted into build steps
 /// in order to persist files across build step execution.
@@ -2198,6 +2203,10 @@ pub struct BuildOptions {
     /// overridden in the build configuration file.
     #[prost(bool, tag = "17")]
     pub dynamic_substitutions: bool,
+    /// Option to include built-in and custom substitutions as env variables
+    /// for all build steps.
+    #[prost(bool, tag = "22")]
+    pub automap_substitutions: bool,
     /// Option to define build log streaming behavior to Cloud
     /// Storage.
     #[prost(enumeration = "build_options::LogStreamingOption", tag = "5")]
