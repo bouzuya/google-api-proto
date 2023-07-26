@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["confidential_computing_client","tpm_attestation"],"struct":["Challenge","CreateChallengeRequest","GcpCredentials","TpmAttestation","VerifyAttestationRequest","VerifyAttestationResponse"]};
+window.SIDEBAR_ITEMS = {"enum":["SigningAlgorithm"],"mod":["confidential_computing_client","tpm_attestation"],"struct":["Challenge","ConfidentialSpaceInfo","ContainerImageSignature","CreateChallengeRequest","GcpCredentials","SignedEntity","TokenOptions","TpmAttestation","VerifyAttestationRequest","VerifyAttestationResponse"]};
