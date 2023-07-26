@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Resource","Tier"],"mod":["queueing_policy","tpu"],"struct":["BestEffort","Guaranteed","QueueingPolicy","Tpu"]};
+window.SIDEBAR_ITEMS = {"enum":["Resource","Tier"],"mod":["queueing_policy","tpu"],"struct":["BestEffort","Guaranteed","QueueingPolicy","Spot","Tpu"]};
