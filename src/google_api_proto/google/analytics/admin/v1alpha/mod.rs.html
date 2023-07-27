@@ -9947,6 +9947,39 @@
 <a href="#9947" id="9947">9947</a>
 <a href="#9948" id="9948">9948</a>
 <a href="#9949" id="9949">9949</a>
+<a href="#9950" id="9950">9950</a>
+<a href="#9951" id="9951">9951</a>
+<a href="#9952" id="9952">9952</a>
+<a href="#9953" id="9953">9953</a>
+<a href="#9954" id="9954">9954</a>
+<a href="#9955" id="9955">9955</a>
+<a href="#9956" id="9956">9956</a>
+<a href="#9957" id="9957">9957</a>
+<a href="#9958" id="9958">9958</a>
+<a href="#9959" id="9959">9959</a>
+<a href="#9960" id="9960">9960</a>
+<a href="#9961" id="9961">9961</a>
+<a href="#9962" id="9962">9962</a>
+<a href="#9963" id="9963">9963</a>
+<a href="#9964" id="9964">9964</a>
+<a href="#9965" id="9965">9965</a>
+<a href="#9966" id="9966">9966</a>
+<a href="#9967" id="9967">9967</a>
+<a href="#9968" id="9968">9968</a>
+<a href="#9969" id="9969">9969</a>
+<a href="#9970" id="9970">9970</a>
+<a href="#9971" id="9971">9971</a>
+<a href="#9972" id="9972">9972</a>
+<a href="#9973" id="9973">9973</a>
+<a href="#9974" id="9974">9974</a>
+<a href="#9975" id="9975">9975</a>
+<a href="#9976" id="9976">9976</a>
+<a href="#9977" id="9977">9977</a>
+<a href="#9978" id="9978">9978</a>
+<a href="#9979" id="9979">9979</a>
+<a href="#9980" id="9980">9980</a>
+<a href="#9981" id="9981">9981</a>
+<a href="#9982" id="9982">9982</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A specific filter for a single dimension or metric.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -12487,55 +12520,62 @@
         <span class="doccomment">/// Data-driven attribution distributes credit for the conversion based on
         /// data for each conversion event. Each Data-driven model is specific to
         /// each advertiser and each conversion event.
-        </span>CrossChannelDataDriven = <span class="number">1</span>,
+        /// Previously CROSS_CHANNEL_DATA_DRIVEN
+        </span>PaidAndOrganicChannelsDataDriven = <span class="number">1</span>,
         <span class="doccomment">/// Ignores direct traffic and attributes 100% of the conversion value to the
         /// last channel that the customer clicked through (or engaged view through
         /// for YouTube) before converting.
-        </span>CrossChannelLastClick = <span class="number">2</span>,
+        /// Previously CROSS_CHANNEL_LAST_CLICK
+        </span>PaidAndOrganicChannelsLastClick = <span class="number">2</span>,
         <span class="doccomment">/// Starting in June 2023, new properties can no longer use this model.
         /// See
         /// [Analytics
-        /// Help](&lt;https://support.google.com/analytics/answer/9164320?hl=en#040623&gt;)
+        /// Help](&lt;https://support.google.com/analytics/answer/9164320#040623&gt;)
         /// for more details.
         /// Starting in September 2023, we will sunset this model for all properties.
         ///
         /// Gives all credit for the conversion to the first channel that a customer
         /// clicked (or engaged view through for YouTube) before converting.
-        </span>CrossChannelFirstClick = <span class="number">3</span>,
+        /// Previously CROSS_CHANNEL_FIRST_CLICK
+        </span>PaidAndOrganicChannelsFirstClick = <span class="number">3</span>,
         <span class="doccomment">/// Starting in June 2023, new properties can no longer use this model.
         /// See
         /// [Analytics
-        /// Help](&lt;https://support.google.com/analytics/answer/9164320?hl=en#040623&gt;)
+        /// Help](&lt;https://support.google.com/analytics/answer/9164320#040623&gt;)
         /// for more details.
         /// Starting in September 2023, we will sunset this model for all properties.
         ///
         /// Distributes the credit for the conversion equally across all the channels
         /// a customer clicked (or engaged view through for YouTube) before
         /// converting.
-        </span>CrossChannelLinear = <span class="number">4</span>,
+        /// Previously CROSS_CHANNEL_LINEAR
+        </span>PaidAndOrganicChannelsLinear = <span class="number">4</span>,
         <span class="doccomment">/// Starting in June 2023, new properties can no longer use this model.
         /// See
         /// [Analytics
-        /// Help](&lt;https://support.google.com/analytics/answer/9164320?hl=en#040623&gt;)
+        /// Help](&lt;https://support.google.com/analytics/answer/9164320#040623&gt;)
         /// for more details.
         /// Starting in September 2023, we will sunset this model for all properties.
         ///
         /// Attributes 40% credit to the first and last interaction, and the
         /// remaining 20% credit is distributed evenly to the middle interactions.
-        </span>CrossChannelPositionBased = <span class="number">5</span>,
+        /// Previously CROSS_CHANNEL_POSITION_BASED
+        </span>PaidAndOrganicChannelsPositionBased = <span class="number">5</span>,
         <span class="doccomment">/// Starting in June 2023, new properties can no longer use this model.
         /// See
         /// [Analytics
-        /// Help](&lt;https://support.google.com/analytics/answer/9164320?hl=en#040623&gt;)
+        /// Help](&lt;https://support.google.com/analytics/answer/9164320#040623&gt;)
         /// for more details.
         /// Starting in September 2023, we will sunset this model for all properties.
         ///
         /// Gives more credit to the touchpoints that happened closer in time to
         /// the conversion.
-        </span>CrossChannelTimeDecay = <span class="number">6</span>,
-        <span class="doccomment">/// Attributes 100% of the conversion value to the last Google Ads channel
+        /// Previously CROSS_CHANNEL_TIME_DECAY
+        </span>PaidAndOrganicChannelsTimeDecay = <span class="number">6</span>,
+        <span class="doccomment">/// Attributes 100% of the conversion value to the last Google Paid channel
         /// that the customer clicked through before converting.
-        </span>AdsPreferredLastClick = <span class="number">7</span>,
+        /// Previously ADS_PREFERRED_LAST_CLICK
+        </span>GooglePaidChannelsLastClick = <span class="number">7</span>,
     }
     <span class="kw">impl </span>ReportingAttributionModel {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -12547,24 +12587,26 @@
                 ReportingAttributionModel::Unspecified =&gt; {
                     <span class="string">&quot;REPORTING_ATTRIBUTION_MODEL_UNSPECIFIED&quot;
                 </span>}
-                ReportingAttributionModel::CrossChannelDataDriven =&gt; {
-                    <span class="string">&quot;CROSS_CHANNEL_DATA_DRIVEN&quot;
+                ReportingAttributionModel::PaidAndOrganicChannelsDataDriven =&gt; {
+                    <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_DATA_DRIVEN&quot;
                 </span>}
-                ReportingAttributionModel::CrossChannelLastClick =&gt; {
-                    <span class="string">&quot;CROSS_CHANNEL_LAST_CLICK&quot;
+                ReportingAttributionModel::PaidAndOrganicChannelsLastClick =&gt; {
+                    <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_LAST_CLICK&quot;
                 </span>}
-                ReportingAttributionModel::CrossChannelFirstClick =&gt; {
-                    <span class="string">&quot;CROSS_CHANNEL_FIRST_CLICK&quot;
+                ReportingAttributionModel::PaidAndOrganicChannelsFirstClick =&gt; {
+                    <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_FIRST_CLICK&quot;
                 </span>}
-                ReportingAttributionModel::CrossChannelLinear =&gt; <span class="string">&quot;CROSS_CHANNEL_LINEAR&quot;</span>,
-                ReportingAttributionModel::CrossChannelPositionBased =&gt; {
-                    <span class="string">&quot;CROSS_CHANNEL_POSITION_BASED&quot;
+                ReportingAttributionModel::PaidAndOrganicChannelsLinear =&gt; {
+                    <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_LINEAR&quot;
                 </span>}
-                ReportingAttributionModel::CrossChannelTimeDecay =&gt; {
-                    <span class="string">&quot;CROSS_CHANNEL_TIME_DECAY&quot;
+                ReportingAttributionModel::PaidAndOrganicChannelsPositionBased =&gt; {
+                    <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_POSITION_BASED&quot;
                 </span>}
-                ReportingAttributionModel::AdsPreferredLastClick =&gt; {
-                    <span class="string">&quot;ADS_PREFERRED_LAST_CLICK&quot;
+                ReportingAttributionModel::PaidAndOrganicChannelsTimeDecay =&gt; {
+                    <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_TIME_DECAY&quot;
+                </span>}
+                ReportingAttributionModel::GooglePaidChannelsLastClick =&gt; {
+                    <span class="string">&quot;GOOGLE_PAID_CHANNELS_LAST_CLICK&quot;
                 </span>}
             }
         }
@@ -12572,13 +12614,27 @@
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
                 <span class="string">&quot;REPORTING_ATTRIBUTION_MODEL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CROSS_CHANNEL_DATA_DRIVEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CrossChannelDataDriven),
-                <span class="string">&quot;CROSS_CHANNEL_LAST_CLICK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CrossChannelLastClick),
-                <span class="string">&quot;CROSS_CHANNEL_FIRST_CLICK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CrossChannelFirstClick),
-                <span class="string">&quot;CROSS_CHANNEL_LINEAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CrossChannelLinear),
-                <span class="string">&quot;CROSS_CHANNEL_POSITION_BASED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CrossChannelPositionBased),
-                <span class="string">&quot;CROSS_CHANNEL_TIME_DECAY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CrossChannelTimeDecay),
-                <span class="string">&quot;ADS_PREFERRED_LAST_CLICK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdsPreferredLastClick),
+                <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_DATA_DRIVEN&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaidAndOrganicChannelsDataDriven)
+                }
+                <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_LAST_CLICK&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaidAndOrganicChannelsLastClick)
+                }
+                <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_FIRST_CLICK&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaidAndOrganicChannelsFirstClick)
+                }
+                <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_LINEAR&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaidAndOrganicChannelsLinear)
+                }
+                <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_POSITION_BASED&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaidAndOrganicChannelsPositionBased)
+                }
+                <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS_TIME_DECAY&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaidAndOrganicChannelsTimeDecay)
+                }
+                <span class="string">&quot;GOOGLE_PAID_CHANNELS_LAST_CLICK&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::GooglePaidChannelsLastClick)
+                }
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -12602,10 +12658,15 @@
         <span class="doccomment">/// No data export scope selected yet.
         /// Export scope can never be changed back to this value.
         </span>NotSelectedYet = <span class="number">1</span>,
-        <span class="doccomment">/// The Ads Web Conversion Data export scope is Cross Channel.
-        </span>CrossChannel = <span class="number">2</span>,
-        <span class="doccomment">/// The Ads Web Conversion Data export scope is Ads Preferred.
-        </span>AdsPreferred = <span class="number">3</span>,
+        <span class="doccomment">/// Paid and organic channels are eligible to receive conversion credit, but
+        /// only credit assigned to Google Ads channels will appear in your Ads
+        /// accounts. To learn more, see [Paid and Organic
+        /// channels](&lt;https://support.google.com/analytics/answer/10632359&gt;).
+        </span>PaidAndOrganicChannels = <span class="number">2</span>,
+        <span class="doccomment">/// Only Google Ads paid channels are eligible to receive conversion credit.
+        /// To learn more, see [Google Paid
+        /// channels](&lt;https://support.google.com/analytics/answer/10632359&gt;).
+        </span>GooglePaidChannels = <span class="number">3</span>,
     }
     <span class="kw">impl </span>AdsWebConversionDataExportScope {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -12618,8 +12679,12 @@
                     <span class="string">&quot;ADS_WEB_CONVERSION_DATA_EXPORT_SCOPE_UNSPECIFIED&quot;
                 </span>}
                 AdsWebConversionDataExportScope::NotSelectedYet =&gt; <span class="string">&quot;NOT_SELECTED_YET&quot;</span>,
-                AdsWebConversionDataExportScope::CrossChannel =&gt; <span class="string">&quot;CROSS_CHANNEL&quot;</span>,
-                AdsWebConversionDataExportScope::AdsPreferred =&gt; <span class="string">&quot;ADS_PREFERRED&quot;</span>,
+                AdsWebConversionDataExportScope::PaidAndOrganicChannels =&gt; {
+                    <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS&quot;
+                </span>}
+                AdsWebConversionDataExportScope::GooglePaidChannels =&gt; {
+                    <span class="string">&quot;GOOGLE_PAID_CHANNELS&quot;
+                </span>}
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -12629,8 +12694,8 @@
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified)
                 }
                 <span class="string">&quot;NOT_SELECTED_YET&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotSelectedYet),
-                <span class="string">&quot;CROSS_CHANNEL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CrossChannel),
-                <span class="string">&quot;ADS_PREFERRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdsPreferred),
+                <span class="string">&quot;PAID_AND_ORGANIC_CHANNELS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaidAndOrganicChannels),
+                <span class="string">&quot;GOOGLE_PAID_CHANNELS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GooglePaidChannels),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -14668,7 +14733,8 @@
     <span class="doccomment">/// Required. The measurement protocol secret to update.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>measurement_protocol_secret: ::core::option::Option&lt;MeasurementProtocolSecret&gt;,
-    <span class="doccomment">/// The list of fields to be updated. Omitted fields will not be updated.
+    <span class="doccomment">/// Required. The list of fields to be updated. Omitted fields will not be
+    /// updated.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
