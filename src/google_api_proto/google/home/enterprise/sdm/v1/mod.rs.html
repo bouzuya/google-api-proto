@@ -491,33 +491,7 @@
 <a href="#491" id="491">491</a>
 <a href="#492" id="492">492</a>
 <a href="#493" id="493">493</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Structure resource represents an instance of enterprise managed home or hotel
-/// room.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Structure {
-    <span class="doccomment">/// Output only. The resource name of the structure. For example:
-    /// &quot;enterprises/XYZ/structures/ABC&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Structure traits.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>traits: ::core::option::Option&lt;::prost_types::Struct&gt;,
-}
-<span class="doccomment">/// Room resource represents an instance of sub-space within a structure such as
-/// rooms in a hotel suite or rental apartment.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Room {
-    <span class="doccomment">/// Output only. The resource name of the room. For example:
-    /// &quot;enterprises/XYZ/structures/ABC/rooms/123&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Room traits.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>traits: ::core::option::Option&lt;::prost_types::Struct&gt;,
-}
-<span class="doccomment">/// Device resource represents an instance of enterprise managed device in the
+</pre></div><pre class="rust"><code><span class="doccomment">/// Device resource represents an instance of enterprise managed device in the
 /// property.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -553,6 +527,32 @@
     /// the device is assigned to.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Structure resource represents an instance of enterprise managed home or hotel
+/// room.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Structure {
+    <span class="doccomment">/// Output only. The resource name of the structure. For example:
+    /// &quot;enterprises/XYZ/structures/ABC&quot;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Structure traits.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>traits: ::core::option::Option&lt;::prost_types::Struct&gt;,
+}
+<span class="doccomment">/// Room resource represents an instance of sub-space within a structure such as
+/// rooms in a hotel suite or rental apartment.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Room {
+    <span class="doccomment">/// Output only. The resource name of the room. For example:
+    /// &quot;enterprises/XYZ/structures/ABC/rooms/123&quot;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Room traits.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>traits: ::core::option::Option&lt;::prost_types::Struct&gt;,
 }
 <span class="doccomment">/// Request message for SmartDeviceManagementService.GetDevice
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

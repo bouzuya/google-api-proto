@@ -1706,80 +1706,77 @@
 <a href="#1706" id="1706">1706</a>
 <a href="#1707" id="1707">1707</a>
 <a href="#1708" id="1708">1708</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// An ad group audience view.
-/// Includes performance data from interests and remarketing lists for Display
-/// Network and YouTube Network ads, and remarketing lists for search ads (RLSA),
-/// aggregated at the audience level.
+</pre></div><pre class="rust"><code><span class="doccomment">/// A field or resource (artifact) used by SearchAds360Service.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AdGroupAudienceView {
-    <span class="doccomment">/// Output only. The resource name of the ad group audience view.
-    /// Ad group audience view resource names have the form:
+</span><span class="kw">pub struct </span>SearchAds360Field {
+    <span class="doccomment">/// Output only. The resource name of the artifact.
+    /// Artifact resource names have the form:
     ///
-    /// `customers/{customer_id}/adGroupAudienceViews/{ad_group_id}~{criterion_id}`
+    /// `SearchAds360Fields/{name}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A product group view.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ProductGroupView {
-    <span class="doccomment">/// Output only. The resource name of the product group view.
-    /// Product group view resource names have the form:
+    <span class="doccomment">/// Output only. The name of the artifact.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. The category of the artifact.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::enums::search_ads360_field_category_enum::SearchAds360FieldCategory&quot;</span>,
+        tag = <span class="string">&quot;3&quot;
+    </span>)]
+    </span><span class="kw">pub </span>category: i32,
+    <span class="doccomment">/// Output only. Whether the artifact can be used in a SELECT clause in search
+    /// queries.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="kw">pub </span>selectable: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Whether the artifact can be used in a WHERE clause in search
+    /// queries.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="kw">pub </span>filterable: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Whether the artifact can be used in a ORDER BY clause in
+    /// search queries.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="kw">pub </span>sortable: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. The names of all resources, segments, and metrics that are
+    /// selectable with the described artifact.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;25&quot;</span>)]
+    </span><span class="kw">pub </span>selectable_with: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. The names of all resources that are selectable with the
+    /// described artifact. Fields from these resources do not segment metrics when
+    /// included in search queries.
     ///
-    /// `customers/{customer_id}/productGroupViews/{ad_group_id}~{criterion_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A keyword view.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>KeywordView {
-    <span class="doccomment">/// Output only. The resource name of the keyword view.
-    /// Keyword view resource names have the form:
+    /// This field is only set for artifacts whose category is RESOURCE.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;26&quot;</span>)]
+    </span><span class="kw">pub </span>attribute_resources: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. This field lists the names of all metrics that are selectable
+    /// with the described artifact when it is used in the FROM clause. It is only
+    /// set for artifacts whose category is RESOURCE.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;27&quot;</span>)]
+    </span><span class="kw">pub </span>metrics: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. This field lists the names of all artifacts, whether a segment
+    /// or another resource, that segment metrics when included in search queries
+    /// and when the described artifact is used in the FROM clause. It is only set
+    /// for artifacts whose category is RESOURCE.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;28&quot;</span>)]
+    </span><span class="kw">pub </span>segments: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. Values the artifact can assume if it is a field of type ENUM.
     ///
-    /// `customers/{customer_id}/keywordViews/{ad_group_id}~{criterion_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A location view summarizes the performance of campaigns by
-/// Location criteria.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LocationView {
-    <span class="doccomment">/// Output only. The resource name of the location view.
-    /// Location view resource names have the form:
-    ///
-    /// `customers/{customer_id}/locationViews/{campaign_id}~{criterion_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// An age range view.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AgeRangeView {
-    <span class="doccomment">/// Output only. The resource name of the age range view.
-    /// Age range view resource names have the form:
-    ///
-    /// `customers/{customer_id}/ageRangeViews/{ad_group_id}~{criterion_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Represents a relationship between a campaign and a label.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CampaignLabel {
-    <span class="doccomment">/// Immutable. Name of the resource.
-    /// Campaign label resource names have the form:
-    /// `customers/{customer_id}/campaignLabels/{campaign_id}~{label_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Immutable. The campaign to which the label is attached.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>campaign: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Immutable. The label assigned to the campaign.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>label: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    /// This field is only set for artifacts of category SEGMENT or ATTRIBUTE.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;29&quot;</span>)]
+    </span><span class="kw">pub </span>enum_values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. This field determines the operators that can be used with the
+    /// artifact in WHERE clauses.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::enums::search_ads360_field_data_type_enum::SearchAds360FieldDataType&quot;</span>,
+        tag = <span class="string">&quot;12&quot;
+    </span>)]
+    </span><span class="kw">pub </span>data_type: i32,
+    <span class="doccomment">/// Output only. The URL of proto describing the artifact&#39;s data type.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;30&quot;</span>)]
+    </span><span class="kw">pub </span>type_url: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. Whether the field artifact is repeated.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;31&quot;</span>)]
+    </span><span class="kw">pub </span>is_repeated: ::core::option::Option&lt;bool&gt;,
 }
 <span class="doccomment">/// A custom column.
 /// See Search Ads 360 custom column at
@@ -1827,6 +1824,101 @@
     </span><span class="kw">pub </span>referenced_system_columns: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
     &gt;,
+}
+<span class="doccomment">/// An ad group.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AdGroup {
+    <span class="doccomment">/// Immutable. The resource name of the ad group.
+    /// Ad group resource names have the form:
+    ///
+    /// `customers/{customer_id}/adGroups/{ad_group_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The ID of the ad group.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;34&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// The name of the ad group.
+    ///
+    /// This field is required and should not be empty when creating new ad
+    /// groups.
+    ///
+    /// It must contain fewer than 255 UTF-8 full-width characters.
+    ///
+    /// It must not contain any null (code point 0x0), NL line feed
+    /// (code point 0xA) or carriage return (code point 0xD) characters.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;35&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// The status of the ad group.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::enums::ad_group_status_enum::AdGroupStatus&quot;</span>,
+        tag = <span class="string">&quot;5&quot;
+    </span>)]
+    </span><span class="kw">pub </span>status: i32,
+    <span class="doccomment">/// Immutable. The type of the ad group.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::enums::ad_group_type_enum::AdGroupType&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: i32,
+    <span class="doccomment">/// The ad rotation mode of the ad group.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::enums::ad_group_ad_rotation_mode_enum::AdGroupAdRotationMode&quot;</span>,
+        tag = <span class="string">&quot;22&quot;
+    </span>)]
+    </span><span class="kw">pub </span>ad_rotation_mode: i32,
+    <span class="doccomment">/// The maximum CPC (cost-per-click) bid.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;39&quot;</span>)]
+    </span><span class="kw">pub </span>cpc_bid_micros: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// Output only. The timestamp when this ad_group was created. The timestamp is
+    /// in the customer&#39;s time zone and in &quot;yyyy-MM-dd HH:mm:ss&quot; format.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;60&quot;</span>)]
+    </span><span class="kw">pub </span>creation_time: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The Engine Status for ad group.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::enums::ad_group_engine_status_enum::AdGroupEngineStatus&quot;</span>,
+        optional,
+        tag = <span class="string">&quot;61&quot;
+    </span>)]
+    </span><span class="kw">pub </span>engine_status: ::core::option::Option&lt;i32&gt;,
+    <span class="doccomment">/// Setting for targeting related features.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;25&quot;</span>)]
+    </span><span class="kw">pub </span>targeting_setting: ::core::option::Option&lt;<span class="kw">super</span>::common::TargetingSetting&gt;,
+    <span class="doccomment">/// Output only. The resource names of labels attached to this ad group.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;49&quot;</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. ID of the ad group in the external engine account. This field
+    /// is for non-Google Ads account only, for example, Yahoo Japan, Microsoft,
+    /// Baidu etc. For Google Ads entity, use &quot;ad_group.id&quot; instead.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;50&quot;</span>)]
+    </span><span class="kw">pub </span>engine_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Date when this ad group starts serving ads. By default, the ad
+    /// group starts now or the ad group&#39;s start date, whichever is later. If this
+    /// field is set, then the ad group starts at the beginning of the specified
+    /// date in the customer&#39;s time zone. This field is only available for
+    /// Microsoft Advertising and Facebook gateway accounts.
+    ///
+    /// Format: YYYY-MM-DD
+    /// Example: 2019-03-14
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;51&quot;</span>)]
+    </span><span class="kw">pub </span>start_date: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Date when the ad group ends serving ads. By default, the ad
+    /// group ends on the ad group&#39;s end date. If this field is set, then the ad
+    /// group ends at the end of the specified date in the customer&#39;s time zone.
+    /// This field is only available for Microsoft Advertising and Facebook gateway
+    /// accounts.
+    ///
+    /// Format: YYYY-MM-DD
+    /// Example: 2019-03-14
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;52&quot;</span>)]
+    </span><span class="kw">pub </span>end_date: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The language of the ads and keywords in an ad group. This
+    /// field is only available for Microsoft Advertising accounts. More details:
+    /// &lt;https://docs.microsoft.com/en-us/advertising/guides/ad-languages?view=bingads-13#adlanguage&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;53&quot;</span>)]
+    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The datetime when this ad group was last modified. The
+    /// datetime is in the customer&#39;s time zone and in &quot;yyyy-MM-dd HH:mm:ss.ssssss&quot;
+    /// format.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;55&quot;</span>)]
+    </span><span class="kw">pub </span>last_modified_time: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An ad.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1931,111 +2023,6 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>last_modified_time: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// A field or resource (artifact) used by SearchAds360Service.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SearchAds360Field {
-    <span class="doccomment">/// Output only. The resource name of the artifact.
-    /// Artifact resource names have the form:
-    ///
-    /// `SearchAds360Fields/{name}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The name of the artifact.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;21&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. The category of the artifact.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::search_ads360_field_category_enum::SearchAds360FieldCategory&quot;</span>,
-        tag = <span class="string">&quot;3&quot;
-    </span>)]
-    </span><span class="kw">pub </span>category: i32,
-    <span class="doccomment">/// Output only. Whether the artifact can be used in a SELECT clause in search
-    /// queries.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;22&quot;</span>)]
-    </span><span class="kw">pub </span>selectable: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Output only. Whether the artifact can be used in a WHERE clause in search
-    /// queries.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;23&quot;</span>)]
-    </span><span class="kw">pub </span>filterable: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Output only. Whether the artifact can be used in a ORDER BY clause in
-    /// search queries.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;24&quot;</span>)]
-    </span><span class="kw">pub </span>sortable: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Output only. The names of all resources, segments, and metrics that are
-    /// selectable with the described artifact.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;25&quot;</span>)]
-    </span><span class="kw">pub </span>selectable_with: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. The names of all resources that are selectable with the
-    /// described artifact. Fields from these resources do not segment metrics when
-    /// included in search queries.
-    ///
-    /// This field is only set for artifacts whose category is RESOURCE.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;26&quot;</span>)]
-    </span><span class="kw">pub </span>attribute_resources: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. This field lists the names of all metrics that are selectable
-    /// with the described artifact when it is used in the FROM clause. It is only
-    /// set for artifacts whose category is RESOURCE.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;27&quot;</span>)]
-    </span><span class="kw">pub </span>metrics: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. This field lists the names of all artifacts, whether a segment
-    /// or another resource, that segment metrics when included in search queries
-    /// and when the described artifact is used in the FROM clause. It is only set
-    /// for artifacts whose category is RESOURCE.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;28&quot;</span>)]
-    </span><span class="kw">pub </span>segments: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. Values the artifact can assume if it is a field of type ENUM.
-    ///
-    /// This field is only set for artifacts of category SEGMENT or ATTRIBUTE.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;29&quot;</span>)]
-    </span><span class="kw">pub </span>enum_values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. This field determines the operators that can be used with the
-    /// artifact in WHERE clauses.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::search_ads360_field_data_type_enum::SearchAds360FieldDataType&quot;</span>,
-        tag = <span class="string">&quot;12&quot;
-    </span>)]
-    </span><span class="kw">pub </span>data_type: i32,
-    <span class="doccomment">/// Output only. The URL of proto describing the artifact&#39;s data type.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;30&quot;</span>)]
-    </span><span class="kw">pub </span>type_url: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. Whether the field artifact is repeated.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;31&quot;</span>)]
-    </span><span class="kw">pub </span>is_repeated: ::core::option::Option&lt;bool&gt;,
-}
-<span class="doccomment">/// A webpage view.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>WebpageView {
-    <span class="doccomment">/// Output only. The resource name of the webpage view.
-    /// Webpage view resource names have the form:
-    ///
-    /// `customers/{customer_id}/webpageViews/{ad_group_id}~{criterion_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Represents customer-manager link relationship.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CustomerManagerLink {
-    <span class="doccomment">/// Immutable. Name of the resource.
-    /// CustomerManagerLink resource names have the form:
-    /// `customers/{customer_id}/customerManagerLinks/{manager_customer_id}~{manager_link_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The manager customer linked to the customer.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>manager_customer: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. ID of the customer-manager link. This field is read only.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>manager_link_id: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Status of the link between the customer and the manager.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::manager_link_status_enum::ManagerLinkStatus&quot;</span>,
-        tag = <span class="string">&quot;5&quot;
-    </span>)]
-    </span><span class="kw">pub </span>status: i32,
-}
 <span class="doccomment">/// A relationship between an ad group ad and a label.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2052,100 +2039,19 @@
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>label: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
-<span class="doccomment">/// An ad group.
+<span class="doccomment">/// An ad group audience view.
+/// Includes performance data from interests and remarketing lists for Display
+/// Network and YouTube Network ads, and remarketing lists for search ads (RLSA),
+/// aggregated at the audience level.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AdGroup {
-    <span class="doccomment">/// Immutable. The resource name of the ad group.
-    /// Ad group resource names have the form:
+</span><span class="kw">pub struct </span>AdGroupAudienceView {
+    <span class="doccomment">/// Output only. The resource name of the ad group audience view.
+    /// Ad group audience view resource names have the form:
     ///
-    /// `customers/{customer_id}/adGroups/{ad_group_id}`
+    /// `customers/{customer_id}/adGroupAudienceViews/{ad_group_id}~{criterion_id}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The ID of the ad group.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;34&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// The name of the ad group.
-    ///
-    /// This field is required and should not be empty when creating new ad
-    /// groups.
-    ///
-    /// It must contain fewer than 255 UTF-8 full-width characters.
-    ///
-    /// It must not contain any null (code point 0x0), NL line feed
-    /// (code point 0xA) or carriage return (code point 0xD) characters.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;35&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// The status of the ad group.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::ad_group_status_enum::AdGroupStatus&quot;</span>,
-        tag = <span class="string">&quot;5&quot;
-    </span>)]
-    </span><span class="kw">pub </span>status: i32,
-    <span class="doccomment">/// Immutable. The type of the ad group.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::enums::ad_group_type_enum::AdGroupType&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: i32,
-    <span class="doccomment">/// The ad rotation mode of the ad group.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::ad_group_ad_rotation_mode_enum::AdGroupAdRotationMode&quot;</span>,
-        tag = <span class="string">&quot;22&quot;
-    </span>)]
-    </span><span class="kw">pub </span>ad_rotation_mode: i32,
-    <span class="doccomment">/// The maximum CPC (cost-per-click) bid.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;39&quot;</span>)]
-    </span><span class="kw">pub </span>cpc_bid_micros: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Output only. The timestamp when this ad_group was created. The timestamp is
-    /// in the customer&#39;s time zone and in &quot;yyyy-MM-dd HH:mm:ss&quot; format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;60&quot;</span>)]
-    </span><span class="kw">pub </span>creation_time: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The Engine Status for ad group.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::ad_group_engine_status_enum::AdGroupEngineStatus&quot;</span>,
-        optional,
-        tag = <span class="string">&quot;61&quot;
-    </span>)]
-    </span><span class="kw">pub </span>engine_status: ::core::option::Option&lt;i32&gt;,
-    <span class="doccomment">/// Setting for targeting related features.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;25&quot;</span>)]
-    </span><span class="kw">pub </span>targeting_setting: ::core::option::Option&lt;<span class="kw">super</span>::common::TargetingSetting&gt;,
-    <span class="doccomment">/// Output only. The resource names of labels attached to this ad group.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;49&quot;</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. ID of the ad group in the external engine account. This field
-    /// is for non-Google Ads account only, for example, Yahoo Japan, Microsoft,
-    /// Baidu etc. For Google Ads entity, use &quot;ad_group.id&quot; instead.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;50&quot;</span>)]
-    </span><span class="kw">pub </span>engine_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Date when this ad group starts serving ads. By default, the ad
-    /// group starts now or the ad group&#39;s start date, whichever is later. If this
-    /// field is set, then the ad group starts at the beginning of the specified
-    /// date in the customer&#39;s time zone. This field is only available for
-    /// Microsoft Advertising and Facebook gateway accounts.
-    ///
-    /// Format: YYYY-MM-DD
-    /// Example: 2019-03-14
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;51&quot;</span>)]
-    </span><span class="kw">pub </span>start_date: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Date when the ad group ends serving ads. By default, the ad
-    /// group ends on the ad group&#39;s end date. If this field is set, then the ad
-    /// group ends at the end of the specified date in the customer&#39;s time zone.
-    /// This field is only available for Microsoft Advertising and Facebook gateway
-    /// accounts.
-    ///
-    /// Format: YYYY-MM-DD
-    /// Example: 2019-03-14
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;52&quot;</span>)]
-    </span><span class="kw">pub </span>end_date: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The language of the ads and keywords in an ad group. This
-    /// field is only available for Microsoft Advertising accounts. More details:
-    /// &lt;https://docs.microsoft.com/en-us/advertising/guides/ad-languages?view=bingads-13#adlanguage&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;53&quot;</span>)]
-    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The datetime when this ad group was last modified. The
-    /// datetime is in the customer&#39;s time zone and in &quot;yyyy-MM-dd HH:mm:ss.ssssss&quot;
-    /// format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;55&quot;</span>)]
-    </span><span class="kw">pub </span>last_modified_time: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents an ad group bid modifier.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2180,552 +2086,6 @@
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
         </span>Device(<span class="kw">super</span>::<span class="kw">super</span>::common::DeviceInfo),
     }
-}
-<span class="doccomment">/// A campaign budget.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CampaignBudget {
-    <span class="doccomment">/// Immutable. The resource name of the campaign budget.
-    /// Campaign budget resource names have the form:
-    ///
-    /// `customers/{customer_id}/campaignBudgets/{campaign_budget_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The amount of the budget, in the local currency for the account.
-    /// Amount is specified in micros, where one million is equivalent to one
-    /// currency unit. Monthly spend is capped at 30.4 times this amount.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;21&quot;</span>)]
-    </span><span class="kw">pub </span>amount_micros: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// The delivery method that determines the rate at which the campaign budget
-    /// is spent.
-    ///
-    /// Defaults to STANDARD if unspecified in a create operation.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::budget_delivery_method_enum::BudgetDeliveryMethod&quot;</span>,
-        tag = <span class="string">&quot;7&quot;
-    </span>)]
-    </span><span class="kw">pub </span>delivery_method: i32,
-    <span class="doccomment">/// Immutable. Period over which to spend the budget. Defaults to DAILY if not
-    /// specified.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::enums::budget_period_enum::BudgetPeriod&quot;</span>, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>period: i32,
-}
-<span class="doccomment">/// A label.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Label {
-    <span class="doccomment">/// Immutable. Name of the resource.
-    /// Label resource names have the form:
-    /// `customers/{customer_id}/labels/{label_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. ID of the label. Read only.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// The name of the label.
-    ///
-    /// This field is required and should not be empty when creating a new label.
-    ///
-    /// The length of this string should be between 1 and 80, inclusive.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. Status of the label. Read only.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::enums::label_status_enum::LabelStatus&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>status: i32,
-    <span class="doccomment">/// A type of label displaying text on a colored background.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>text_label: ::core::option::Option&lt;<span class="kw">super</span>::common::TextLabel&gt;,
-}
-<span class="doccomment">/// A link between the given customer and a client customer. CustomerClients only
-/// exist for manager customers. All direct and indirect client customers are
-/// included, as well as the manager itself.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CustomerClient {
-    <span class="doccomment">/// Output only. The resource name of the customer client.
-    /// CustomerClient resource names have the form:
-    /// `customers/{customer_id}/customerClients/{client_customer_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The resource name of the client-customer which is linked to
-    /// the given customer. Read only.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>client_customer: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. Specifies whether this is a hidden account.
-    ///
-    /// Read only.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>hidden: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Output only. Distance between given customer and client. For self link, the
-    /// level value will be 0. Read only.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>level: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Output only. Common Locale Data Repository (CLDR) string representation of
-    /// the time zone of the client, for example, America/Los_Angeles. Read only.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;15&quot;</span>)]
-    </span><span class="kw">pub </span>time_zone: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. Identifies if the client is a test account. Read only.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;16&quot;</span>)]
-    </span><span class="kw">pub </span>test_account: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Output only. Identifies if the client is a manager. Read only.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;17&quot;</span>)]
-    </span><span class="kw">pub </span>manager: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Output only. Descriptive name for the client. Read only.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;18&quot;</span>)]
-    </span><span class="kw">pub </span>descriptive_name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. Currency code (for example, &#39;USD&#39;, &#39;EUR&#39;) for the client. Read
-    /// only.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;19&quot;</span>)]
-    </span><span class="kw">pub </span>currency_code: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. The ID of the client customer. Read only.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;20&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Output only. The resource names of the labels owned by the requesting
-    /// customer that are applied to the client customer. Label resource names have
-    /// the form:
-    ///
-    /// `customers/{customer_id}/labels/{label_id}`
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;21&quot;</span>)]
-    </span><span class="kw">pub </span>applied_labels: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. The status of the client customer. Read only.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::customer_status_enum::CustomerStatus&quot;</span>,
-        tag = <span class="string">&quot;22&quot;
-    </span>)]
-    </span><span class="kw">pub </span>status: i32,
-}
-<span class="doccomment">/// A campaign audience view.
-/// Includes performance data from interests and remarketing lists for Display
-/// Network and YouTube Network ads, and remarketing lists for search ads (RLSA),
-/// aggregated by campaign and audience criterion. This view only includes
-/// audiences attached at the campaign level.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CampaignAudienceView {
-    <span class="doccomment">/// Output only. The resource name of the campaign audience view.
-    /// Campaign audience view resource names have the form:
-    ///
-    /// `customers/{customer_id}/campaignAudienceViews/{campaign_id}~{criterion_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A campaign criterion.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CampaignCriterion {
-    <span class="doccomment">/// Immutable. The resource name of the campaign criterion.
-    /// Campaign criterion resource names have the form:
-    ///
-    /// `customers/{customer_id}/campaignCriteria/{campaign_id}~{criterion_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The ID of the criterion.
-    ///
-    /// This field is ignored during mutate.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;38&quot;</span>)]
-    </span><span class="kw">pub </span>criterion_id: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Output only. The display name of the criterion.
-    ///
-    /// This field is ignored for mutates.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;43&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The modifier for the bids when the criterion matches. The modifier must be
-    /// in the range: 0.1 - 10.0. Most targetable criteria types support modifiers.
-    /// Use 0 to opt out of a Device type.
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;39&quot;</span>)]
-    </span><span class="kw">pub </span>bid_modifier: ::core::option::Option&lt;f32&gt;,
-    <span class="doccomment">/// Immutable. Whether to target (`false`) or exclude (`true`) the criterion.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;40&quot;</span>)]
-    </span><span class="kw">pub </span>negative: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Output only. The type of the criterion.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::enums::criterion_type_enum::CriterionType&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: i32,
-    <span class="doccomment">/// The status of the criterion.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::campaign_criterion_status_enum::CampaignCriterionStatus&quot;</span>,
-        tag = <span class="string">&quot;35&quot;
-    </span>)]
-    </span><span class="kw">pub </span>status: i32,
-    <span class="doccomment">/// Output only. The datetime when this campaign criterion was last modified.
-    /// The datetime is in the customer&#39;s time zone and in &quot;yyyy-MM-dd
-    /// HH:mm:ss.ssssss&quot; format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;44&quot;</span>)]
-    </span><span class="kw">pub </span>last_modified_time: ::prost::alloc::string::String,
-    <span class="doccomment">/// The campaign criterion.
-    ///
-    /// Exactly one must be set.
-    </span><span class="attr">#[prost(
-        oneof = <span class="string">&quot;campaign_criterion::Criterion&quot;</span>,
-        tags = <span class="string">&quot;8, 12, 13, 16, 17, 22, 26, 31, 34&quot;
-    </span>)]
-    </span><span class="kw">pub </span>criterion: ::core::option::Option&lt;campaign_criterion::Criterion&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `CampaignCriterion`.
-</span><span class="kw">pub mod </span>campaign_criterion {
-    <span class="doccomment">/// The campaign criterion.
-    ///
-    /// Exactly one must be set.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Criterion {
-        <span class="doccomment">/// Immutable. Keyword.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
-        </span>Keyword(<span class="kw">super</span>::<span class="kw">super</span>::common::KeywordInfo),
-        <span class="doccomment">/// Immutable. Location.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;12&quot;</span>)]
-        </span>Location(<span class="kw">super</span>::<span class="kw">super</span>::common::LocationInfo),
-        <span class="doccomment">/// Immutable. Device.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
-        </span>Device(<span class="kw">super</span>::<span class="kw">super</span>::common::DeviceInfo),
-        <span class="doccomment">/// Immutable. Age range.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;16&quot;</span>)]
-        </span>AgeRange(<span class="kw">super</span>::<span class="kw">super</span>::common::AgeRangeInfo),
-        <span class="doccomment">/// Immutable. Gender.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;17&quot;</span>)]
-        </span>Gender(<span class="kw">super</span>::<span class="kw">super</span>::common::GenderInfo),
-        <span class="doccomment">/// Immutable. User List.
-        /// The Similar Audiences sunset starts May 2023. Refer to
-        /// &lt;https://ads-developers.googleblog.com/2022/11/announcing-deprecation-and-sunset-of.html&gt;
-        /// for other options.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;22&quot;</span>)]
-        </span>UserList(<span class="kw">super</span>::<span class="kw">super</span>::common::UserListInfo),
-        <span class="doccomment">/// Immutable. Language.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;26&quot;</span>)]
-        </span>Language(<span class="kw">super</span>::<span class="kw">super</span>::common::LanguageInfo),
-        <span class="doccomment">/// Immutable. Webpage.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;31&quot;</span>)]
-        </span>Webpage(<span class="kw">super</span>::<span class="kw">super</span>::common::WebpageInfo),
-        <span class="doccomment">/// Immutable. Location Group
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;34&quot;</span>)]
-        </span>LocationGroup(<span class="kw">super</span>::<span class="kw">super</span>::common::LocationGroupInfo),
-    }
-}
-<span class="doccomment">/// A user list. This is a list of users a customer may target.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UserList {
-    <span class="doccomment">/// Immutable. The resource name of the user list.
-    /// User list resource names have the form:
-    ///
-    /// `customers/{customer_id}/userLists/{user_list_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Id of the user list.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;25&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Name of this user list. Depending on its access_reason, the user list name
-    /// may not be unique (for example, if access_reason=SHARED)
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;27&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. Type of this list.
-    ///
-    /// This field is read-only.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::enums::user_list_type_enum::UserListType&quot;</span>, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: i32,
-}
-<span class="doccomment">/// A gender view.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GenderView {
-    <span class="doccomment">/// Output only. The resource name of the gender view.
-    /// Gender view resource names have the form:
-    ///
-    /// `customers/{customer_id}/genderViews/{ad_group_id}~{criterion_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A bidding strategy.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BiddingStrategy {
-    <span class="doccomment">/// Immutable. The resource name of the bidding strategy.
-    /// Bidding strategy resource names have the form:
-    ///
-    /// `customers/{customer_id}/biddingStrategies/{bidding_strategy_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The ID of the bidding strategy.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;16&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// The name of the bidding strategy.
-    /// All bidding strategies within an account must be named distinctly.
-    ///
-    /// The length of this string should be between 1 and 255, inclusive,
-    /// in UTF-8 bytes, (trimmed).
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;17&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. The status of the bidding strategy.
-    ///
-    /// This field is read-only.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::bidding_strategy_status_enum::BiddingStrategyStatus&quot;</span>,
-        tag = <span class="string">&quot;15&quot;
-    </span>)]
-    </span><span class="kw">pub </span>status: i32,
-    <span class="doccomment">/// Output only. The type of the bidding strategy.
-    /// Create a bidding strategy by setting the bidding scheme.
-    ///
-    /// This field is read-only.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::bidding_strategy_type_enum::BiddingStrategyType&quot;</span>,
-        tag = <span class="string">&quot;5&quot;
-    </span>)]
-    </span><span class="kw">pub </span>r#type: i32,
-    <span class="doccomment">/// Immutable. The currency used by the bidding strategy (ISO 4217 three-letter
-    /// code).
-    ///
-    /// For bidding strategies in manager customers, this currency can be set on
-    /// creation and defaults to the manager customer&#39;s currency. For serving
-    /// customers, this field cannot be set; all strategies in a serving customer
-    /// implicitly use the serving customer&#39;s currency. In all cases the
-    /// effective_currency_code field returns the currency used by the strategy.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;23&quot;</span>)]
-    </span><span class="kw">pub </span>currency_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The currency used by the bidding strategy (ISO 4217
-    /// three-letter code).
-    ///
-    /// For bidding strategies in manager customers, this is the currency set by
-    /// the advertiser when creating the strategy. For serving customers, this is
-    /// the customer&#39;s currency_code.
-    ///
-    /// Bidding strategy metrics are reported in this currency.
-    ///
-    /// This field is read-only.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;20&quot;</span>)]
-    </span><span class="kw">pub </span>effective_currency_code: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. The number of campaigns attached to this bidding strategy.
-    ///
-    /// This field is read-only.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;18&quot;</span>)]
-    </span><span class="kw">pub </span>campaign_count: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Output only. The number of non-removed campaigns attached to this bidding
-    /// strategy.
-    ///
-    /// This field is read-only.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;19&quot;</span>)]
-    </span><span class="kw">pub </span>non_removed_campaign_count: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// The bidding scheme.
-    ///
-    /// Only one can be set.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;bidding_strategy::Scheme&quot;</span>, tags = <span class="string">&quot;7, 21, 22, 9, 48, 10, 11, 12&quot;</span>)]
-    </span><span class="kw">pub </span>scheme: ::core::option::Option&lt;bidding_strategy::Scheme&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `BiddingStrategy`.
-</span><span class="kw">pub mod </span>bidding_strategy {
-    <span class="doccomment">/// The bidding scheme.
-    ///
-    /// Only one can be set.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Scheme {
-        <span class="doccomment">/// A bidding strategy that raises bids for clicks that seem more likely to
-        /// lead to a conversion and lowers them for clicks where they seem less
-        /// likely.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
-        </span>EnhancedCpc(<span class="kw">super</span>::<span class="kw">super</span>::common::EnhancedCpc),
-        <span class="doccomment">/// An automated bidding strategy to help get the most conversion value for
-        /// your campaigns while spending your budget.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;21&quot;</span>)]
-        </span>MaximizeConversionValue(<span class="kw">super</span>::<span class="kw">super</span>::common::MaximizeConversionValue),
-        <span class="doccomment">/// An automated bidding strategy to help get the most conversions for your
-        /// campaigns while spending your budget.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;22&quot;</span>)]
-        </span>MaximizeConversions(<span class="kw">super</span>::<span class="kw">super</span>::common::MaximizeConversions),
-        <span class="doccomment">/// A bidding strategy that sets bids to help get as many conversions as
-        /// possible at the target cost-per-acquisition (CPA) you set.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
-        </span>TargetCpa(<span class="kw">super</span>::<span class="kw">super</span>::common::TargetCpa),
-        <span class="doccomment">/// A bidding strategy that automatically optimizes towards a chosen
-        /// percentage of impressions.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;48&quot;</span>)]
-        </span>TargetImpressionShare(<span class="kw">super</span>::<span class="kw">super</span>::common::TargetImpressionShare),
-        <span class="doccomment">/// A bidding strategy that sets bids based on the target fraction of
-        /// auctions where the advertiser should outrank a specific competitor.
-        /// This field is deprecated. Creating a new bidding strategy with this
-        /// field or attaching bidding strategies with this field to a campaign will
-        /// fail. Mutates to strategies that already have this scheme populated are
-        /// allowed.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
-        </span>TargetOutrankShare(<span class="kw">super</span>::<span class="kw">super</span>::common::TargetOutrankShare),
-        <span class="doccomment">/// A bidding strategy that helps you maximize revenue while averaging a
-        /// specific target Return On Ad Spend (ROAS).
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
-        </span>TargetRoas(<span class="kw">super</span>::<span class="kw">super</span>::common::TargetRoas),
-        <span class="doccomment">/// A bid strategy that sets your bids to help get as many clicks as
-        /// possible within your budget.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;12&quot;</span>)]
-        </span>TargetSpend(<span class="kw">super</span>::<span class="kw">super</span>::common::TargetSpend),
-    }
-}
-<span class="doccomment">/// A dynamic search ads search term view.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DynamicSearchAdsSearchTermView {
-    <span class="doccomment">/// Output only. The resource name of the dynamic search ads search term view.
-    /// Dynamic search ads search term view resource names have the form:
-    ///
-    /// `customers/{customer_id}/dynamicSearchAdsSearchTermViews/{ad_group_id}~{search_term_fingerprint}~{headline_fingerprint}~{landing_page_fingerprint}~{page_url_fingerprint}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The dynamically selected landing page URL of the impression.
-    ///
-    /// This field is read-only.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>landing_page: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// A customer.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Customer {
-    <span class="doccomment">/// Immutable. The resource name of the customer.
-    /// Customer resource names have the form:
-    ///
-    /// `customers/{customer_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The ID of the customer.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;19&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Optional, non-unique descriptive name of the customer.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;20&quot;</span>)]
-    </span><span class="kw">pub </span>descriptive_name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Immutable. The currency in which the account operates.
-    /// A subset of the currency codes from the ISO 4217 standard is
-    /// supported.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;21&quot;</span>)]
-    </span><span class="kw">pub </span>currency_code: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Immutable. The local timezone ID of the customer.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;22&quot;</span>)]
-    </span><span class="kw">pub </span>time_zone: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// The URL template for constructing a tracking URL out of parameters.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;23&quot;</span>)]
-    </span><span class="kw">pub </span>tracking_url_template: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// The URL template for appending params to the final URL.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;24&quot;</span>)]
-    </span><span class="kw">pub </span>final_url_suffix: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Whether auto-tagging is enabled for the customer.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;25&quot;</span>)]
-    </span><span class="kw">pub </span>auto_tagging_enabled: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Output only. Whether the customer is a manager.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;27&quot;</span>)]
-    </span><span class="kw">pub </span>manager: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Output only. Conversion tracking setting for a customer.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>conversion_tracking_setting: ::core::option::Option&lt;ConversionTrackingSetting&gt;,
-    <span class="doccomment">/// Output only. Engine account type, for example, Google Ads, Microsoft
-    /// Advertising, Yahoo Japan, Baidu, Facebook, Engine Track, etc.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::enums::account_type_enum::AccountType&quot;</span>, tag = <span class="string">&quot;31&quot;</span>)]
-    </span><span class="kw">pub </span>account_type: i32,
-    <span class="doccomment">/// Output only. DoubleClick Campaign Manager (DCM) setting for a manager
-    /// customer.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;32&quot;</span>)]
-    </span><span class="kw">pub </span>double_click_campaign_manager_setting: ::core::option::Option&lt;
-        DoubleClickCampaignManagerSetting,
-    &gt;,
-    <span class="doccomment">/// Output only. Account status, for example, Enabled, Paused, Removed, etc.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::account_status_enum::AccountStatus&quot;</span>,
-        tag = <span class="string">&quot;33&quot;
-    </span>)]
-    </span><span class="kw">pub </span>account_status: i32,
-    <span class="doccomment">/// Output only. The datetime when this customer was last modified. The
-    /// datetime is in the customer&#39;s time zone and in &quot;yyyy-MM-dd HH:mm:ss.ssssss&quot;
-    /// format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;34&quot;</span>)]
-    </span><span class="kw">pub </span>last_modified_time: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. ID of the account in the external engine account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;35&quot;</span>)]
-    </span><span class="kw">pub </span>engine_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The status of the customer.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::customer_status_enum::CustomerStatus&quot;</span>,
-        tag = <span class="string">&quot;36&quot;
-    </span>)]
-    </span><span class="kw">pub </span>status: i32,
-    <span class="doccomment">/// Output only. The timestamp when this customer was created. The timestamp is
-    /// in the customer&#39;s time zone and in &quot;yyyy-MM-dd HH:mm:ss&quot; format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;42&quot;</span>)]
-    </span><span class="kw">pub </span>creation_time: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A collection of customer-wide settings related to Search Ads 360 Conversion
-/// Tracking.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ConversionTrackingSetting {
-    <span class="doccomment">/// Output only. The conversion tracking id used for this account. This id
-    /// doesn&#39;t indicate whether the customer uses conversion tracking
-    /// (conversion_tracking_status does). This field is read-only.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>conversion_tracking_id: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Output only. The conversion tracking id of the customer&#39;s manager. This is
-    /// set when the customer is opted into  conversion tracking, and it overrides
-    /// conversion_tracking_id. This field can only be managed through the Google
-    /// Ads UI. This field is read-only.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>google_ads_cross_account_conversion_tracking_id: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Output only. The conversion tracking id of the customer&#39;s manager. This is
-    /// set when the customer is opted into cross-account conversion tracking, and
-    /// it overrides conversion_tracking_id.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;37&quot;</span>)]
-    </span><span class="kw">pub </span>cross_account_conversion_tracking_id: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Output only. Whether the customer has accepted customer data terms. If
-    /// using cross-account conversion tracking, this value is inherited from the
-    /// manager. This field is read-only. For more
-    /// information, see &lt;https://support.google.com/adspolicy/answer/7475709.&gt;
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>accepted_customer_data_terms: bool,
-    <span class="doccomment">/// Output only. Conversion tracking status. It indicates whether the customer
-    /// is using conversion tracking, and who is the conversion tracking owner of
-    /// this customer. If this customer is using cross-account conversion tracking,
-    /// the value returned will differ based on the `login-customer-id` of the
-    /// request.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::conversion_tracking_status_enum::ConversionTrackingStatus&quot;</span>,
-        tag = <span class="string">&quot;6&quot;
-    </span>)]
-    </span><span class="kw">pub </span>conversion_tracking_status: i32,
-    <span class="doccomment">/// Output only. Whether the customer is opted-in for enhanced conversions
-    /// for leads. If using cross-account conversion tracking, this value is
-    /// inherited from the manager. This field is read-only.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>enhanced_conversions_for_leads_enabled: bool,
-    <span class="doccomment">/// Output only. The resource name of the customer where conversions are
-    /// created and managed. This field is read-only.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>google_ads_conversion_customer: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// DoubleClick Campaign Manager (DCM) setting for a manager customer.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DoubleClickCampaignManagerSetting {
-    <span class="doccomment">/// Output only. ID of the Campaign Manager advertiser associated with this
-    /// customer.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>advertiser_id: i64,
-    <span class="doccomment">/// Output only. ID of the Campaign Manager network associated with this
-    /// customer.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>network_id: i64,
-    <span class="doccomment">/// Output only. Time zone of the Campaign Manager network associated with this
-    /// customer in IANA Time Zone Database format, such as America/New_York.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>time_zone: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A relationship between an ad group criterion and a label.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AdGroupCriterionLabel {
-    <span class="doccomment">/// Immutable. The resource name of the ad group criterion label.
-    /// Ad group criterion label resource names have the form:
-    /// `customers/{customer_id}/adGroupCriterionLabels/{ad_group_id}~{criterion_id}~{label_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Immutable. The ad group criterion to which the label is attached.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>ad_group_criterion: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Immutable. The label assigned to the ad group criterion.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>label: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// An ad group criterion.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2874,6 +2234,22 @@
         </span>Location(<span class="kw">super</span>::<span class="kw">super</span>::common::LocationInfo),
     }
 }
+<span class="doccomment">/// A relationship between an ad group criterion and a label.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AdGroupCriterionLabel {
+    <span class="doccomment">/// Immutable. The resource name of the ad group criterion label.
+    /// Ad group criterion label resource names have the form:
+    /// `customers/{customer_id}/adGroupCriterionLabels/{ad_group_id}~{criterion_id}~{label_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Immutable. The ad group criterion to which the label is attached.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>ad_group_criterion: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Immutable. The label assigned to the ad group criterion.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>label: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+}
 <span class="doccomment">/// A relationship between an ad group and a label.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2890,152 +2266,138 @@
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>label: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
-<span class="doccomment">/// A conversion action.
+<span class="doccomment">/// An age range view.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ConversionAction {
-    <span class="doccomment">/// Immutable. The resource name of the conversion action.
-    /// Conversion action resource names have the form:
+</span><span class="kw">pub struct </span>AgeRangeView {
+    <span class="doccomment">/// Output only. The resource name of the age range view.
+    /// Age range view resource names have the form:
     ///
-    /// `customers/{customer_id}/conversionActions/{conversion_action_id}`
+    /// `customers/{customer_id}/ageRangeViews/{ad_group_id}~{criterion_id}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The ID of the conversion action.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;21&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// The name of the conversion action.
+}
+<span class="doccomment">/// A bidding strategy.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BiddingStrategy {
+    <span class="doccomment">/// Immutable. The resource name of the bidding strategy.
+    /// Bidding strategy resource names have the form:
     ///
-    /// This field is required and should not be empty when creating new
-    /// conversion actions.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;22&quot;</span>)]
+    /// `customers/{customer_id}/biddingStrategies/{bidding_strategy_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The ID of the bidding strategy.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// The name of the bidding strategy.
+    /// All bidding strategies within an account must be named distinctly.
+    ///
+    /// The length of this string should be between 1 and 255, inclusive,
+    /// in UTF-8 bytes, (trimmed).
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;17&quot;</span>)]
     </span><span class="kw">pub </span>name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. Timestamp of the Floodlight activity&#39;s creation, formatted in
-    /// ISO 8601.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;33&quot;</span>)]
-    </span><span class="kw">pub </span>creation_time: ::prost::alloc::string::String,
-    <span class="doccomment">/// The status of this conversion action for conversion event accrual.
+    <span class="doccomment">/// Output only. The status of the bidding strategy.
+    ///
+    /// This field is read-only.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::conversion_action_status_enum::ConversionActionStatus&quot;</span>,
-        tag = <span class="string">&quot;4&quot;
+        enumeration = <span class="string">&quot;super::enums::bidding_strategy_status_enum::BiddingStrategyStatus&quot;</span>,
+        tag = <span class="string">&quot;15&quot;
     </span>)]
     </span><span class="kw">pub </span>status: i32,
-    <span class="doccomment">/// Immutable. The type of this conversion action.
+    <span class="doccomment">/// Output only. The type of the bidding strategy.
+    /// Create a bidding strategy by setting the bidding scheme.
+    ///
+    /// This field is read-only.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::conversion_action_type_enum::ConversionActionType&quot;</span>,
+        enumeration = <span class="string">&quot;super::enums::bidding_strategy_type_enum::BiddingStrategyType&quot;</span>,
         tag = <span class="string">&quot;5&quot;
     </span>)]
     </span><span class="kw">pub </span>r#type: i32,
-    <span class="doccomment">/// If a conversion action&#39;s primary_for_goal bit is false, the conversion
-    /// action is non-biddable for all campaigns regardless of their customer
-    /// conversion goal or campaign conversion goal.
-    /// However, custom conversion goals do not respect primary_for_goal, so if
-    /// a campaign has a custom conversion goal configured with a
-    /// primary_for_goal = false conversion action, that conversion action is
-    /// still biddable.
-    /// By default, primary_for_goal will be true if not set. In V9,
-    /// primary_for_goal can only be set to false after creation through an
-    /// &#39;update&#39; operation because it&#39;s not declared as optional.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;31&quot;</span>)]
-    </span><span class="kw">pub </span>primary_for_goal: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// The category of conversions reported for this conversion action.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::conversion_action_category_enum::ConversionActionCategory&quot;</span>,
-        tag = <span class="string">&quot;6&quot;
-    </span>)]
-    </span><span class="kw">pub </span>category: i32,
-    <span class="doccomment">/// Output only. The resource name of the conversion action owner customer, or
-    /// null if this is a system-defined conversion action.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;23&quot;</span>)]
-    </span><span class="kw">pub </span>owner_customer: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Whether this conversion action should be included in the
-    /// &quot;client_account_conversions&quot; metric.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;24&quot;</span>)]
-    </span><span class="kw">pub </span>include_in_client_account_conversions_metric: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// Output only. Whether this conversion action should be included in the
-    /// &quot;conversions&quot; metric.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;32&quot;</span>)]
-    </span><span class="kw">pub </span>include_in_conversions_metric: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// The maximum number of days that may elapse between an interaction
-    /// (for example, a click) and a conversion event.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;25&quot;</span>)]
-    </span><span class="kw">pub </span>click_through_lookback_window_days: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Settings related to the value for conversion events associated with this
-    /// conversion action.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>value_settings: ::core::option::Option&lt;conversion_action::ValueSettings&gt;,
-    <span class="doccomment">/// Settings related to this conversion action&#39;s attribution model.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>attribution_model_settings: ::core::option::Option&lt;
-        conversion_action::AttributionModelSettings,
-    &gt;,
-    <span class="doccomment">/// App ID for an app conversion action.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;28&quot;</span>)]
-    </span><span class="kw">pub </span>app_id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. Floodlight settings for Floodlight conversion types.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;29&quot;</span>)]
-    </span><span class="kw">pub </span>floodlight_settings: ::core::option::Option&lt;
-        conversion_action::FloodlightSettings,
-    &gt;,
+    <span class="doccomment">/// Immutable. The currency used by the bidding strategy (ISO 4217 three-letter
+    /// code).
+    ///
+    /// For bidding strategies in manager customers, this currency can be set on
+    /// creation and defaults to the manager customer&#39;s currency. For serving
+    /// customers, this field cannot be set; all strategies in a serving customer
+    /// implicitly use the serving customer&#39;s currency. In all cases the
+    /// effective_currency_code field returns the currency used by the strategy.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="kw">pub </span>currency_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The currency used by the bidding strategy (ISO 4217
+    /// three-letter code).
+    ///
+    /// For bidding strategies in manager customers, this is the currency set by
+    /// the advertiser when creating the strategy. For serving customers, this is
+    /// the customer&#39;s currency_code.
+    ///
+    /// Bidding strategy metrics are reported in this currency.
+    ///
+    /// This field is read-only.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="kw">pub </span>effective_currency_code: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. The number of campaigns attached to this bidding strategy.
+    ///
+    /// This field is read-only.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="kw">pub </span>campaign_count: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// Output only. The number of non-removed campaigns attached to this bidding
+    /// strategy.
+    ///
+    /// This field is read-only.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="kw">pub </span>non_removed_campaign_count: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// The bidding scheme.
+    ///
+    /// Only one can be set.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;bidding_strategy::Scheme&quot;</span>, tags = <span class="string">&quot;7, 21, 22, 9, 48, 10, 11, 12&quot;</span>)]
+    </span><span class="kw">pub </span>scheme: ::core::option::Option&lt;bidding_strategy::Scheme&gt;,
 }
-<span class="doccomment">/// Nested message and enum types in `ConversionAction`.
-</span><span class="kw">pub mod </span>conversion_action {
-    <span class="doccomment">/// Settings related to this conversion action&#39;s attribution model.
+<span class="doccomment">/// Nested message and enum types in `BiddingStrategy`.
+</span><span class="kw">pub mod </span>bidding_strategy {
+    <span class="doccomment">/// The bidding scheme.
+    ///
+    /// Only one can be set.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>AttributionModelSettings {
-        <span class="doccomment">/// The attribution model type of this conversion action.
-        </span><span class="attr">#[prost(
-            enumeration = <span class="string">&quot;super::super::enums::attribution_model_enum::AttributionModel&quot;</span>,
-            tag = <span class="string">&quot;1&quot;
-        </span>)]
-        </span><span class="kw">pub </span>attribution_model: i32,
-        <span class="doccomment">/// Output only. The status of the data-driven attribution model for the
-        /// conversion action.
-        </span><span class="attr">#[prost(
-            enumeration = <span class="string">&quot;super::super::enums::data_driven_model_status_enum::DataDrivenModelStatus&quot;</span>,
-            tag = <span class="string">&quot;2&quot;
-        </span>)]
-        </span><span class="kw">pub </span>data_driven_model_status: i32,
-    }
-    <span class="doccomment">/// Settings related to the value for conversion events associated with this
-    /// conversion action.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>ValueSettings {
-        <span class="doccomment">/// The value to use when conversion events for this conversion action are
-        /// sent with an invalid, disallowed or missing value, or when
-        /// this conversion action is configured to always use the default value.
-        </span><span class="attr">#[prost(double, optional, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>default_value: ::core::option::Option&lt;f64&gt;,
-        <span class="doccomment">/// The currency code to use when conversion events for this conversion
-        /// action are sent with an invalid or missing currency code, or when this
-        /// conversion action is configured to always use the default value.
-        </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;5&quot;</span>)]
-        </span><span class="kw">pub </span>default_currency_code: ::core::option::Option&lt;
-            ::prost::alloc::string::String,
-        &gt;,
-        <span class="doccomment">/// Controls whether the default value and default currency code are used in
-        /// place of the value and currency code specified in conversion events for
-        /// this conversion action.
-        </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;6&quot;</span>)]
-        </span><span class="kw">pub </span>always_use_default_value: ::core::option::Option&lt;bool&gt;,
-    }
-    <span class="doccomment">/// Settings related to a Floodlight conversion action.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>FloodlightSettings {
-        <span class="doccomment">/// Output only. String used to identify a Floodlight activity group when
-        /// reporting conversions.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>activity_group_tag: ::prost::alloc::string::String,
-        <span class="doccomment">/// Output only. String used to identify a Floodlight activity when reporting
-        /// conversions.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>activity_tag: ::prost::alloc::string::String,
-        <span class="doccomment">/// Output only. ID of the Floodlight activity in DoubleClick Campaign
-        /// Manager (DCM).
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>activity_id: i64,
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Scheme {
+        <span class="doccomment">/// A bidding strategy that raises bids for clicks that seem more likely to
+        /// lead to a conversion and lowers them for clicks where they seem less
+        /// likely.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span>EnhancedCpc(<span class="kw">super</span>::<span class="kw">super</span>::common::EnhancedCpc),
+        <span class="doccomment">/// An automated bidding strategy to help get the most conversion value for
+        /// your campaigns while spending your budget.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;21&quot;</span>)]
+        </span>MaximizeConversionValue(<span class="kw">super</span>::<span class="kw">super</span>::common::MaximizeConversionValue),
+        <span class="doccomment">/// An automated bidding strategy to help get the most conversions for your
+        /// campaigns while spending your budget.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;22&quot;</span>)]
+        </span>MaximizeConversions(<span class="kw">super</span>::<span class="kw">super</span>::common::MaximizeConversions),
+        <span class="doccomment">/// A bidding strategy that sets bids to help get as many conversions as
+        /// possible at the target cost-per-acquisition (CPA) you set.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span>TargetCpa(<span class="kw">super</span>::<span class="kw">super</span>::common::TargetCpa),
+        <span class="doccomment">/// A bidding strategy that automatically optimizes towards a chosen
+        /// percentage of impressions.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;48&quot;</span>)]
+        </span>TargetImpressionShare(<span class="kw">super</span>::<span class="kw">super</span>::common::TargetImpressionShare),
+        <span class="doccomment">/// A bidding strategy that sets bids based on the target fraction of
+        /// auctions where the advertiser should outrank a specific competitor.
+        /// This field is deprecated. Creating a new bidding strategy with this
+        /// field or attaching bidding strategies with this field to a campaign will
+        /// fail. Mutates to strategies that already have this scheme populated are
+        /// allowed.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        </span>TargetOutrankShare(<span class="kw">super</span>::<span class="kw">super</span>::common::TargetOutrankShare),
+        <span class="doccomment">/// A bidding strategy that helps you maximize revenue while averaging a
+        /// specific target Return On Ad Spend (ROAS).
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
+        </span>TargetRoas(<span class="kw">super</span>::<span class="kw">super</span>::common::TargetRoas),
+        <span class="doccomment">/// A bid strategy that sets your bids to help get as many clicks as
+        /// possible within your budget.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;12&quot;</span>)]
+        </span>TargetSpend(<span class="kw">super</span>::<span class="kw">super</span>::common::TargetSpend),
     }
 }
 <span class="doccomment">/// A campaign.
@@ -3413,5 +2775,643 @@
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;41&quot;</span>)]
         </span>TargetCpm(<span class="kw">super</span>::<span class="kw">super</span>::common::TargetCpm),
     }
+}
+<span class="doccomment">/// A campaign audience view.
+/// Includes performance data from interests and remarketing lists for Display
+/// Network and YouTube Network ads, and remarketing lists for search ads (RLSA),
+/// aggregated by campaign and audience criterion. This view only includes
+/// audiences attached at the campaign level.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CampaignAudienceView {
+    <span class="doccomment">/// Output only. The resource name of the campaign audience view.
+    /// Campaign audience view resource names have the form:
+    ///
+    /// `customers/{customer_id}/campaignAudienceViews/{campaign_id}~{criterion_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A campaign budget.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CampaignBudget {
+    <span class="doccomment">/// Immutable. The resource name of the campaign budget.
+    /// Campaign budget resource names have the form:
+    ///
+    /// `customers/{customer_id}/campaignBudgets/{campaign_budget_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The amount of the budget, in the local currency for the account.
+    /// Amount is specified in micros, where one million is equivalent to one
+    /// currency unit. Monthly spend is capped at 30.4 times this amount.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="kw">pub </span>amount_micros: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// The delivery method that determines the rate at which the campaign budget
+    /// is spent.
+    ///
+    /// Defaults to STANDARD if unspecified in a create operation.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::enums::budget_delivery_method_enum::BudgetDeliveryMethod&quot;</span>,
+        tag = <span class="string">&quot;7&quot;
+    </span>)]
+    </span><span class="kw">pub </span>delivery_method: i32,
+    <span class="doccomment">/// Immutable. Period over which to spend the budget. Defaults to DAILY if not
+    /// specified.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::enums::budget_period_enum::BudgetPeriod&quot;</span>, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>period: i32,
+}
+<span class="doccomment">/// A campaign criterion.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CampaignCriterion {
+    <span class="doccomment">/// Immutable. The resource name of the campaign criterion.
+    /// Campaign criterion resource names have the form:
+    ///
+    /// `customers/{customer_id}/campaignCriteria/{campaign_id}~{criterion_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The ID of the criterion.
+    ///
+    /// This field is ignored during mutate.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;38&quot;</span>)]
+    </span><span class="kw">pub </span>criterion_id: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// Output only. The display name of the criterion.
+    ///
+    /// This field is ignored for mutates.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;43&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The modifier for the bids when the criterion matches. The modifier must be
+    /// in the range: 0.1 - 10.0. Most targetable criteria types support modifiers.
+    /// Use 0 to opt out of a Device type.
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;39&quot;</span>)]
+    </span><span class="kw">pub </span>bid_modifier: ::core::option::Option&lt;f32&gt;,
+    <span class="doccomment">/// Immutable. Whether to target (`false`) or exclude (`true`) the criterion.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;40&quot;</span>)]
+    </span><span class="kw">pub </span>negative: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. The type of the criterion.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::enums::criterion_type_enum::CriterionType&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: i32,
+    <span class="doccomment">/// The status of the criterion.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::enums::campaign_criterion_status_enum::CampaignCriterionStatus&quot;</span>,
+        tag = <span class="string">&quot;35&quot;
+    </span>)]
+    </span><span class="kw">pub </span>status: i32,
+    <span class="doccomment">/// Output only. The datetime when this campaign criterion was last modified.
+    /// The datetime is in the customer&#39;s time zone and in &quot;yyyy-MM-dd
+    /// HH:mm:ss.ssssss&quot; format.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;44&quot;</span>)]
+    </span><span class="kw">pub </span>last_modified_time: ::prost::alloc::string::String,
+    <span class="doccomment">/// The campaign criterion.
+    ///
+    /// Exactly one must be set.
+    </span><span class="attr">#[prost(
+        oneof = <span class="string">&quot;campaign_criterion::Criterion&quot;</span>,
+        tags = <span class="string">&quot;8, 12, 13, 16, 17, 22, 26, 31, 34&quot;
+    </span>)]
+    </span><span class="kw">pub </span>criterion: ::core::option::Option&lt;campaign_criterion::Criterion&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `CampaignCriterion`.
+</span><span class="kw">pub mod </span>campaign_criterion {
+    <span class="doccomment">/// The campaign criterion.
+    ///
+    /// Exactly one must be set.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Criterion {
+        <span class="doccomment">/// Immutable. Keyword.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span>Keyword(<span class="kw">super</span>::<span class="kw">super</span>::common::KeywordInfo),
+        <span class="doccomment">/// Immutable. Location.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;12&quot;</span>)]
+        </span>Location(<span class="kw">super</span>::<span class="kw">super</span>::common::LocationInfo),
+        <span class="doccomment">/// Immutable. Device.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
+        </span>Device(<span class="kw">super</span>::<span class="kw">super</span>::common::DeviceInfo),
+        <span class="doccomment">/// Immutable. Age range.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;16&quot;</span>)]
+        </span>AgeRange(<span class="kw">super</span>::<span class="kw">super</span>::common::AgeRangeInfo),
+        <span class="doccomment">/// Immutable. Gender.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;17&quot;</span>)]
+        </span>Gender(<span class="kw">super</span>::<span class="kw">super</span>::common::GenderInfo),
+        <span class="doccomment">/// Immutable. User List.
+        /// The Similar Audiences sunset starts May 2023. Refer to
+        /// &lt;https://ads-developers.googleblog.com/2022/11/announcing-deprecation-and-sunset-of.html&gt;
+        /// for other options.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;22&quot;</span>)]
+        </span>UserList(<span class="kw">super</span>::<span class="kw">super</span>::common::UserListInfo),
+        <span class="doccomment">/// Immutable. Language.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;26&quot;</span>)]
+        </span>Language(<span class="kw">super</span>::<span class="kw">super</span>::common::LanguageInfo),
+        <span class="doccomment">/// Immutable. Webpage.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;31&quot;</span>)]
+        </span>Webpage(<span class="kw">super</span>::<span class="kw">super</span>::common::WebpageInfo),
+        <span class="doccomment">/// Immutable. Location Group
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;34&quot;</span>)]
+        </span>LocationGroup(<span class="kw">super</span>::<span class="kw">super</span>::common::LocationGroupInfo),
+    }
+}
+<span class="doccomment">/// Represents a relationship between a campaign and a label.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CampaignLabel {
+    <span class="doccomment">/// Immutable. Name of the resource.
+    /// Campaign label resource names have the form:
+    /// `customers/{customer_id}/campaignLabels/{campaign_id}~{label_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Immutable. The campaign to which the label is attached.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>campaign: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Immutable. The label assigned to the campaign.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>label: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// A conversion action.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ConversionAction {
+    <span class="doccomment">/// Immutable. The resource name of the conversion action.
+    /// Conversion action resource names have the form:
+    ///
+    /// `customers/{customer_id}/conversionActions/{conversion_action_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The ID of the conversion action.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// The name of the conversion action.
+    ///
+    /// This field is required and should not be empty when creating new
+    /// conversion actions.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. Timestamp of the Floodlight activity&#39;s creation, formatted in
+    /// ISO 8601.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;33&quot;</span>)]
+    </span><span class="kw">pub </span>creation_time: ::prost::alloc::string::String,
+    <span class="doccomment">/// The status of this conversion action for conversion event accrual.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::enums::conversion_action_status_enum::ConversionActionStatus&quot;</span>,
+        tag = <span class="string">&quot;4&quot;
+    </span>)]
+    </span><span class="kw">pub </span>status: i32,
+    <span class="doccomment">/// Immutable. The type of this conversion action.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::enums::conversion_action_type_enum::ConversionActionType&quot;</span>,
+        tag = <span class="string">&quot;5&quot;
+    </span>)]
+    </span><span class="kw">pub </span>r#type: i32,
+    <span class="doccomment">/// If a conversion action&#39;s primary_for_goal bit is false, the conversion
+    /// action is non-biddable for all campaigns regardless of their customer
+    /// conversion goal or campaign conversion goal.
+    /// However, custom conversion goals do not respect primary_for_goal, so if
+    /// a campaign has a custom conversion goal configured with a
+    /// primary_for_goal = false conversion action, that conversion action is
+    /// still biddable.
+    /// By default, primary_for_goal will be true if not set. In V9,
+    /// primary_for_goal can only be set to false after creation through an
+    /// &#39;update&#39; operation because it&#39;s not declared as optional.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;31&quot;</span>)]
+    </span><span class="kw">pub </span>primary_for_goal: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// The category of conversions reported for this conversion action.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::enums::conversion_action_category_enum::ConversionActionCategory&quot;</span>,
+        tag = <span class="string">&quot;6&quot;
+    </span>)]
+    </span><span class="kw">pub </span>category: i32,
+    <span class="doccomment">/// Output only. The resource name of the conversion action owner customer, or
+    /// null if this is a system-defined conversion action.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="kw">pub </span>owner_customer: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Whether this conversion action should be included in the
+    /// &quot;client_account_conversions&quot; metric.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="kw">pub </span>include_in_client_account_conversions_metric: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Whether this conversion action should be included in the
+    /// &quot;conversions&quot; metric.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;32&quot;</span>)]
+    </span><span class="kw">pub </span>include_in_conversions_metric: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// The maximum number of days that may elapse between an interaction
+    /// (for example, a click) and a conversion event.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;25&quot;</span>)]
+    </span><span class="kw">pub </span>click_through_lookback_window_days: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// Settings related to the value for conversion events associated with this
+    /// conversion action.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>value_settings: ::core::option::Option&lt;conversion_action::ValueSettings&gt;,
+    <span class="doccomment">/// Settings related to this conversion action&#39;s attribution model.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>attribution_model_settings: ::core::option::Option&lt;
+        conversion_action::AttributionModelSettings,
+    &gt;,
+    <span class="doccomment">/// App ID for an app conversion action.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;28&quot;</span>)]
+    </span><span class="kw">pub </span>app_id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. Floodlight settings for Floodlight conversion types.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;29&quot;</span>)]
+    </span><span class="kw">pub </span>floodlight_settings: ::core::option::Option&lt;
+        conversion_action::FloodlightSettings,
+    &gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ConversionAction`.
+</span><span class="kw">pub mod </span>conversion_action {
+    <span class="doccomment">/// Settings related to this conversion action&#39;s attribution model.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>AttributionModelSettings {
+        <span class="doccomment">/// The attribution model type of this conversion action.
+        </span><span class="attr">#[prost(
+            enumeration = <span class="string">&quot;super::super::enums::attribution_model_enum::AttributionModel&quot;</span>,
+            tag = <span class="string">&quot;1&quot;
+        </span>)]
+        </span><span class="kw">pub </span>attribution_model: i32,
+        <span class="doccomment">/// Output only. The status of the data-driven attribution model for the
+        /// conversion action.
+        </span><span class="attr">#[prost(
+            enumeration = <span class="string">&quot;super::super::enums::data_driven_model_status_enum::DataDrivenModelStatus&quot;</span>,
+            tag = <span class="string">&quot;2&quot;
+        </span>)]
+        </span><span class="kw">pub </span>data_driven_model_status: i32,
+    }
+    <span class="doccomment">/// Settings related to the value for conversion events associated with this
+    /// conversion action.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ValueSettings {
+        <span class="doccomment">/// The value to use when conversion events for this conversion action are
+        /// sent with an invalid, disallowed or missing value, or when
+        /// this conversion action is configured to always use the default value.
+        </span><span class="attr">#[prost(double, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>default_value: ::core::option::Option&lt;f64&gt;,
+        <span class="doccomment">/// The currency code to use when conversion events for this conversion
+        /// action are sent with an invalid or missing currency code, or when this
+        /// conversion action is configured to always use the default value.
+        </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>default_currency_code: ::core::option::Option&lt;
+            ::prost::alloc::string::String,
+        &gt;,
+        <span class="doccomment">/// Controls whether the default value and default currency code are used in
+        /// place of the value and currency code specified in conversion events for
+        /// this conversion action.
+        </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="kw">pub </span>always_use_default_value: ::core::option::Option&lt;bool&gt;,
+    }
+    <span class="doccomment">/// Settings related to a Floodlight conversion action.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>FloodlightSettings {
+        <span class="doccomment">/// Output only. String used to identify a Floodlight activity group when
+        /// reporting conversions.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>activity_group_tag: ::prost::alloc::string::String,
+        <span class="doccomment">/// Output only. String used to identify a Floodlight activity when reporting
+        /// conversions.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>activity_tag: ::prost::alloc::string::String,
+        <span class="doccomment">/// Output only. ID of the Floodlight activity in DoubleClick Campaign
+        /// Manager (DCM).
+        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>activity_id: i64,
+    }
+}
+<span class="doccomment">/// A customer.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Customer {
+    <span class="doccomment">/// Immutable. The resource name of the customer.
+    /// Customer resource names have the form:
+    ///
+    /// `customers/{customer_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The ID of the customer.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// Optional, non-unique descriptive name of the customer.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="kw">pub </span>descriptive_name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Immutable. The currency in which the account operates.
+    /// A subset of the currency codes from the ISO 4217 standard is
+    /// supported.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="kw">pub </span>currency_code: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Immutable. The local timezone ID of the customer.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="kw">pub </span>time_zone: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// The URL template for constructing a tracking URL out of parameters.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="kw">pub </span>tracking_url_template: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// The URL template for appending params to the final URL.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="kw">pub </span>final_url_suffix: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Whether auto-tagging is enabled for the customer.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;25&quot;</span>)]
+    </span><span class="kw">pub </span>auto_tagging_enabled: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Whether the customer is a manager.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;27&quot;</span>)]
+    </span><span class="kw">pub </span>manager: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Conversion tracking setting for a customer.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>conversion_tracking_setting: ::core::option::Option&lt;ConversionTrackingSetting&gt;,
+    <span class="doccomment">/// Output only. Engine account type, for example, Google Ads, Microsoft
+    /// Advertising, Yahoo Japan, Baidu, Facebook, Engine Track, etc.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::enums::account_type_enum::AccountType&quot;</span>, tag = <span class="string">&quot;31&quot;</span>)]
+    </span><span class="kw">pub </span>account_type: i32,
+    <span class="doccomment">/// Output only. DoubleClick Campaign Manager (DCM) setting for a manager
+    /// customer.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;32&quot;</span>)]
+    </span><span class="kw">pub </span>double_click_campaign_manager_setting: ::core::option::Option&lt;
+        DoubleClickCampaignManagerSetting,
+    &gt;,
+    <span class="doccomment">/// Output only. Account status, for example, Enabled, Paused, Removed, etc.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::enums::account_status_enum::AccountStatus&quot;</span>,
+        tag = <span class="string">&quot;33&quot;
+    </span>)]
+    </span><span class="kw">pub </span>account_status: i32,
+    <span class="doccomment">/// Output only. The datetime when this customer was last modified. The
+    /// datetime is in the customer&#39;s time zone and in &quot;yyyy-MM-dd HH:mm:ss.ssssss&quot;
+    /// format.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;34&quot;</span>)]
+    </span><span class="kw">pub </span>last_modified_time: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. ID of the account in the external engine account.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;35&quot;</span>)]
+    </span><span class="kw">pub </span>engine_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The status of the customer.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::enums::customer_status_enum::CustomerStatus&quot;</span>,
+        tag = <span class="string">&quot;36&quot;
+    </span>)]
+    </span><span class="kw">pub </span>status: i32,
+    <span class="doccomment">/// Output only. The timestamp when this customer was created. The timestamp is
+    /// in the customer&#39;s time zone and in &quot;yyyy-MM-dd HH:mm:ss&quot; format.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;42&quot;</span>)]
+    </span><span class="kw">pub </span>creation_time: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A collection of customer-wide settings related to Search Ads 360 Conversion
+/// Tracking.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ConversionTrackingSetting {
+    <span class="doccomment">/// Output only. The conversion tracking id used for this account. This id
+    /// doesn&#39;t indicate whether the customer uses conversion tracking
+    /// (conversion_tracking_status does). This field is read-only.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>conversion_tracking_id: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// Output only. The conversion tracking id of the customer&#39;s manager. This is
+    /// set when the customer is opted into  conversion tracking, and it overrides
+    /// conversion_tracking_id. This field can only be managed through the Google
+    /// Ads UI. This field is read-only.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>google_ads_cross_account_conversion_tracking_id: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// Output only. The conversion tracking id of the customer&#39;s manager. This is
+    /// set when the customer is opted into cross-account conversion tracking, and
+    /// it overrides conversion_tracking_id.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;37&quot;</span>)]
+    </span><span class="kw">pub </span>cross_account_conversion_tracking_id: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// Output only. Whether the customer has accepted customer data terms. If
+    /// using cross-account conversion tracking, this value is inherited from the
+    /// manager. This field is read-only. For more
+    /// information, see &lt;https://support.google.com/adspolicy/answer/7475709.&gt;
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>accepted_customer_data_terms: bool,
+    <span class="doccomment">/// Output only. Conversion tracking status. It indicates whether the customer
+    /// is using conversion tracking, and who is the conversion tracking owner of
+    /// this customer. If this customer is using cross-account conversion tracking,
+    /// the value returned will differ based on the `login-customer-id` of the
+    /// request.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::enums::conversion_tracking_status_enum::ConversionTrackingStatus&quot;</span>,
+        tag = <span class="string">&quot;6&quot;
+    </span>)]
+    </span><span class="kw">pub </span>conversion_tracking_status: i32,
+    <span class="doccomment">/// Output only. Whether the customer is opted-in for enhanced conversions
+    /// for leads. If using cross-account conversion tracking, this value is
+    /// inherited from the manager. This field is read-only.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>enhanced_conversions_for_leads_enabled: bool,
+    <span class="doccomment">/// Output only. The resource name of the customer where conversions are
+    /// created and managed. This field is read-only.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>google_ads_conversion_customer: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// DoubleClick Campaign Manager (DCM) setting for a manager customer.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DoubleClickCampaignManagerSetting {
+    <span class="doccomment">/// Output only. ID of the Campaign Manager advertiser associated with this
+    /// customer.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>advertiser_id: i64,
+    <span class="doccomment">/// Output only. ID of the Campaign Manager network associated with this
+    /// customer.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>network_id: i64,
+    <span class="doccomment">/// Output only. Time zone of the Campaign Manager network associated with this
+    /// customer in IANA Time Zone Database format, such as America/New_York.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>time_zone: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A link between the given customer and a client customer. CustomerClients only
+/// exist for manager customers. All direct and indirect client customers are
+/// included, as well as the manager itself.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CustomerClient {
+    <span class="doccomment">/// Output only. The resource name of the customer client.
+    /// CustomerClient resource names have the form:
+    /// `customers/{customer_id}/customerClients/{client_customer_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The resource name of the client-customer which is linked to
+    /// the given customer. Read only.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>client_customer: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. Specifies whether this is a hidden account.
+    ///
+    /// Read only.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>hidden: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Distance between given customer and client. For self link, the
+    /// level value will be 0. Read only.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>level: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// Output only. Common Locale Data Repository (CLDR) string representation of
+    /// the time zone of the client, for example, America/Los_Angeles. Read only.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>time_zone: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. Identifies if the client is a test account. Read only.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="kw">pub </span>test_account: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Identifies if the client is a manager. Read only.
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="kw">pub </span>manager: ::core::option::Option&lt;bool&gt;,
+    <span class="doccomment">/// Output only. Descriptive name for the client. Read only.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="kw">pub </span>descriptive_name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. Currency code (for example, &#39;USD&#39;, &#39;EUR&#39;) for the client. Read
+    /// only.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="kw">pub </span>currency_code: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. The ID of the client customer. Read only.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// Output only. The resource names of the labels owned by the requesting
+    /// customer that are applied to the client customer. Label resource names have
+    /// the form:
+    ///
+    /// `customers/{customer_id}/labels/{label_id}`
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="kw">pub </span>applied_labels: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. The status of the client customer. Read only.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::enums::customer_status_enum::CustomerStatus&quot;</span>,
+        tag = <span class="string">&quot;22&quot;
+    </span>)]
+    </span><span class="kw">pub </span>status: i32,
+}
+<span class="doccomment">/// Represents customer-manager link relationship.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CustomerManagerLink {
+    <span class="doccomment">/// Immutable. Name of the resource.
+    /// CustomerManagerLink resource names have the form:
+    /// `customers/{customer_id}/customerManagerLinks/{manager_customer_id}~{manager_link_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The manager customer linked to the customer.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>manager_customer: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. ID of the customer-manager link. This field is read only.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>manager_link_id: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// Status of the link between the customer and the manager.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::enums::manager_link_status_enum::ManagerLinkStatus&quot;</span>,
+        tag = <span class="string">&quot;5&quot;
+    </span>)]
+    </span><span class="kw">pub </span>status: i32,
+}
+<span class="doccomment">/// A dynamic search ads search term view.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DynamicSearchAdsSearchTermView {
+    <span class="doccomment">/// Output only. The resource name of the dynamic search ads search term view.
+    /// Dynamic search ads search term view resource names have the form:
+    ///
+    /// `customers/{customer_id}/dynamicSearchAdsSearchTermViews/{ad_group_id}~{search_term_fingerprint}~{headline_fingerprint}~{landing_page_fingerprint}~{page_url_fingerprint}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The dynamically selected landing page URL of the impression.
+    ///
+    /// This field is read-only.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>landing_page: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// A gender view.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GenderView {
+    <span class="doccomment">/// Output only. The resource name of the gender view.
+    /// Gender view resource names have the form:
+    ///
+    /// `customers/{customer_id}/genderViews/{ad_group_id}~{criterion_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A keyword view.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>KeywordView {
+    <span class="doccomment">/// Output only. The resource name of the keyword view.
+    /// Keyword view resource names have the form:
+    ///
+    /// `customers/{customer_id}/keywordViews/{ad_group_id}~{criterion_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A label.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Label {
+    <span class="doccomment">/// Immutable. Name of the resource.
+    /// Label resource names have the form:
+    /// `customers/{customer_id}/labels/{label_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. ID of the label. Read only.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// The name of the label.
+    ///
+    /// This field is required and should not be empty when creating a new label.
+    ///
+    /// The length of this string should be between 1 and 80, inclusive.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. Status of the label. Read only.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::enums::label_status_enum::LabelStatus&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>status: i32,
+    <span class="doccomment">/// A type of label displaying text on a colored background.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>text_label: ::core::option::Option&lt;<span class="kw">super</span>::common::TextLabel&gt;,
+}
+<span class="doccomment">/// A location view summarizes the performance of campaigns by
+/// Location criteria.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>LocationView {
+    <span class="doccomment">/// Output only. The resource name of the location view.
+    /// Location view resource names have the form:
+    ///
+    /// `customers/{customer_id}/locationViews/{campaign_id}~{criterion_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A product group view.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ProductGroupView {
+    <span class="doccomment">/// Output only. The resource name of the product group view.
+    /// Product group view resource names have the form:
+    ///
+    /// `customers/{customer_id}/productGroupViews/{ad_group_id}~{criterion_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A user list. This is a list of users a customer may target.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UserList {
+    <span class="doccomment">/// Immutable. The resource name of the user list.
+    /// User list resource names have the form:
+    ///
+    /// `customers/{customer_id}/userLists/{user_list_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Id of the user list.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;25&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::core::option::Option&lt;i64&gt;,
+    <span class="doccomment">/// Name of this user list. Depending on its access_reason, the user list name
+    /// may not be unique (for example, if access_reason=SHARED)
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;27&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. Type of this list.
+    ///
+    /// This field is read-only.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::enums::user_list_type_enum::UserListType&quot;</span>, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: i32,
+}
+<span class="doccomment">/// A webpage view.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>WebpageView {
+    <span class="doccomment">/// Output only. The resource name of the webpage view.
+    /// Webpage view resource names have the form:
+    ///
+    /// `customers/{customer_id}/webpageViews/{ad_group_id}~{criterion_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
 }
 </code></pre></div></section></main></body></html>

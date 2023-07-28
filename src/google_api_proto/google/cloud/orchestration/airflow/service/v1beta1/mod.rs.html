@@ -2430,150 +2430,7 @@
 <a href="#2430" id="2430">2430</a>
 <a href="#2431" id="2431">2431</a>
 <a href="#2432" id="2432">2432</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Metadata describing an operation.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>OperationMetadata {
-    <span class="doccomment">/// Output only. The current operation state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;operation_metadata::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Output only. The type of operation being performed.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;operation_metadata::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>operation_type: i32,
-    <span class="doccomment">/// Output only. The resource being operated on, as a [relative resource name](
-    /// /apis/design/resource_names#relative_resource_name).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The UUID of the resource being operated on.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>resource_uuid: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The time the operation was submitted to the server.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The time when the operation terminated, regardless of its
-    /// success. This field is unset if the operation is still ongoing.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `OperationMetadata`.
-</span><span class="kw">pub mod </span>operation_metadata {
-    <span class="doccomment">/// An enum describing the overall state of an operation.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unused.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The operation has been created but is not yet started.
-        </span>Pending = <span class="number">1</span>,
-        <span class="doccomment">/// The operation is underway.
-        </span>Running = <span class="number">2</span>,
-        <span class="doccomment">/// The operation completed successfully.
-        </span>Successful = <span class="number">3</span>,
-        <span class="doccomment">/// The operation is no longer running but did not succeed.
-        </span>Failed = <span class="number">4</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Successful =&gt; <span class="string">&quot;SUCCESSFUL&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;SUCCESSFUL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Successful),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// Type of longrunning operation.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Type {
-        <span class="doccomment">/// Unused.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// A resource creation operation.
-        </span>Create = <span class="number">1</span>,
-        <span class="doccomment">/// A resource deletion operation.
-        </span>Delete = <span class="number">2</span>,
-        <span class="doccomment">/// A resource update operation.
-        </span>Update = <span class="number">3</span>,
-        <span class="doccomment">/// A resource check operation.
-        </span>Check = <span class="number">4</span>,
-        <span class="doccomment">/// Saves snapshot of the resource operation.
-        </span>SaveSnapshot = <span class="number">5</span>,
-        <span class="doccomment">/// Loads snapshot of the resource operation.
-        </span>LoadSnapshot = <span class="number">6</span>,
-        <span class="doccomment">/// Triggers failover of environment&#39;s Cloud SQL instance (only for highly
-        /// resilient environments).
-        </span>DatabaseFailover = <span class="number">7</span>,
-    }
-    <span class="kw">impl </span>Type {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::Create =&gt; <span class="string">&quot;CREATE&quot;</span>,
-                Type::Delete =&gt; <span class="string">&quot;DELETE&quot;</span>,
-                Type::Update =&gt; <span class="string">&quot;UPDATE&quot;</span>,
-                Type::Check =&gt; <span class="string">&quot;CHECK&quot;</span>,
-                Type::SaveSnapshot =&gt; <span class="string">&quot;SAVE_SNAPSHOT&quot;</span>,
-                Type::LoadSnapshot =&gt; <span class="string">&quot;LOAD_SNAPSHOT&quot;</span>,
-                Type::DatabaseFailover =&gt; <span class="string">&quot;DATABASE_FAILOVER&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Create),
-                <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
-                <span class="string">&quot;UPDATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Update),
-                <span class="string">&quot;CHECK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Check),
-                <span class="string">&quot;SAVE_SNAPSHOT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SaveSnapshot),
-                <span class="string">&quot;LOAD_SNAPSHOT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LoadSnapshot),
-                <span class="string">&quot;DATABASE_FAILOVER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DatabaseFailover),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// List ImageVersions in a project and location.
+</pre></div><pre class="rust"><code><span class="doccomment">/// List ImageVersions in a project and location.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListImageVersionsRequest {
@@ -2738,6 +2595,149 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
+    }
+}
+<span class="doccomment">/// Metadata describing an operation.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>OperationMetadata {
+    <span class="doccomment">/// Output only. The current operation state.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;operation_metadata::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Output only. The type of operation being performed.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;operation_metadata::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>operation_type: i32,
+    <span class="doccomment">/// Output only. The resource being operated on, as a [relative resource name](
+    /// /apis/design/resource_names#relative_resource_name).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The UUID of the resource being operated on.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>resource_uuid: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The time the operation was submitted to the server.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The time when the operation terminated, regardless of its
+    /// success. This field is unset if the operation is still ongoing.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `OperationMetadata`.
+</span><span class="kw">pub mod </span>operation_metadata {
+    <span class="doccomment">/// An enum describing the overall state of an operation.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Unused.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The operation has been created but is not yet started.
+        </span>Pending = <span class="number">1</span>,
+        <span class="doccomment">/// The operation is underway.
+        </span>Running = <span class="number">2</span>,
+        <span class="doccomment">/// The operation completed successfully.
+        </span>Successful = <span class="number">3</span>,
+        <span class="doccomment">/// The operation is no longer running but did not succeed.
+        </span>Failed = <span class="number">4</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
+                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
+                State::Successful =&gt; <span class="string">&quot;SUCCESSFUL&quot;</span>,
+                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">&quot;SUCCESSFUL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Successful),
+                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// Type of longrunning operation.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Type {
+        <span class="doccomment">/// Unused.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// A resource creation operation.
+        </span>Create = <span class="number">1</span>,
+        <span class="doccomment">/// A resource deletion operation.
+        </span>Delete = <span class="number">2</span>,
+        <span class="doccomment">/// A resource update operation.
+        </span>Update = <span class="number">3</span>,
+        <span class="doccomment">/// A resource check operation.
+        </span>Check = <span class="number">4</span>,
+        <span class="doccomment">/// Saves snapshot of the resource operation.
+        </span>SaveSnapshot = <span class="number">5</span>,
+        <span class="doccomment">/// Loads snapshot of the resource operation.
+        </span>LoadSnapshot = <span class="number">6</span>,
+        <span class="doccomment">/// Triggers failover of environment&#39;s Cloud SQL instance (only for highly
+        /// resilient environments).
+        </span>DatabaseFailover = <span class="number">7</span>,
+    }
+    <span class="kw">impl </span>Type {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
+                Type::Create =&gt; <span class="string">&quot;CREATE&quot;</span>,
+                Type::Delete =&gt; <span class="string">&quot;DELETE&quot;</span>,
+                Type::Update =&gt; <span class="string">&quot;UPDATE&quot;</span>,
+                Type::Check =&gt; <span class="string">&quot;CHECK&quot;</span>,
+                Type::SaveSnapshot =&gt; <span class="string">&quot;SAVE_SNAPSHOT&quot;</span>,
+                Type::LoadSnapshot =&gt; <span class="string">&quot;LOAD_SNAPSHOT&quot;</span>,
+                Type::DatabaseFailover =&gt; <span class="string">&quot;DATABASE_FAILOVER&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;CREATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Create),
+                <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
+                <span class="string">&quot;UPDATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Update),
+                <span class="string">&quot;CHECK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Check),
+                <span class="string">&quot;SAVE_SNAPSHOT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SaveSnapshot),
+                <span class="string">&quot;LOAD_SNAPSHOT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LoadSnapshot),
+                <span class="string">&quot;DATABASE_FAILOVER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DatabaseFailover),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
     }
 }
 <span class="doccomment">/// Create a new environment.

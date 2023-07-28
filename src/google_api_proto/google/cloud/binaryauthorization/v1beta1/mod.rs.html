@@ -1663,6 +1663,168 @@
         </span>PkixPublicKey(<span class="kw">super</span>::PkixPublicKey),
     }
 }
+<span class="doccomment">/// Represents an auditing event from Continuous Validation.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ContinuousValidationEvent {
+    <span class="doccomment">/// Type of CV event.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;continuous_validation_event::EventType&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="kw">pub </span>event_type: ::core::option::Option&lt;continuous_validation_event::EventType&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ContinuousValidationEvent`.
+</span><span class="kw">pub mod </span>continuous_validation_event {
+    <span class="doccomment">/// An auditing event for one Pod.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ContinuousValidationPodEvent {
+        <span class="doccomment">/// The k8s namespace of the Pod.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="kw">pub </span>pod_namespace: ::prost::alloc::string::String,
+        <span class="doccomment">/// The name of the Pod.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>pod: ::prost::alloc::string::String,
+        <span class="doccomment">/// Deploy time of the Pod from k8s.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>deploy_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+        <span class="doccomment">/// Termination time of the Pod from k8s, or nothing if still running.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+        <span class="doccomment">/// Auditing verdict for this Pod.
+        </span><span class="attr">#[prost(
+            enumeration = <span class="string">&quot;continuous_validation_pod_event::PolicyConformanceVerdict&quot;</span>,
+            tag = <span class="string">&quot;4&quot;
+        </span>)]
+        </span><span class="kw">pub </span>verdict: i32,
+        <span class="doccomment">/// List of images with auditing details.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>images: ::prost::alloc::vec::Vec&lt;
+            continuous_validation_pod_event::ImageDetails,
+        &gt;,
+    }
+    <span class="doccomment">/// Nested message and enum types in `ContinuousValidationPodEvent`.
+    </span><span class="kw">pub mod </span>continuous_validation_pod_event {
+        <span class="doccomment">/// Container image with auditing details.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>ImageDetails {
+            <span class="doccomment">/// The name of the image.
+            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="kw">pub </span>image: ::prost::alloc::string::String,
+            <span class="doccomment">/// The result of the audit for this image.
+            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;image_details::AuditResult&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="kw">pub </span>result: i32,
+            <span class="doccomment">/// Description of the above result.
+            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+        }
+        <span class="doccomment">/// Nested message and enum types in `ImageDetails`.
+        </span><span class="kw">pub mod </span>image_details {
+            <span class="doccomment">/// Result of the audit.
+            </span><span class="attr">#[derive(
+                Clone,
+                Copy,
+                Debug,
+                PartialEq,
+                Eq,
+                Hash,
+                PartialOrd,
+                Ord,
+                ::prost::Enumeration
+            )]
+            #[repr(i32)]
+            </span><span class="kw">pub enum </span>AuditResult {
+                <span class="doccomment">/// Unspecified result. This is an error.
+                </span>Unspecified = <span class="number">0</span>,
+                <span class="doccomment">/// Image is allowed.
+                </span>Allow = <span class="number">1</span>,
+                <span class="doccomment">/// Image is denied.
+                </span>Deny = <span class="number">2</span>,
+            }
+            <span class="kw">impl </span>AuditResult {
+                <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+                ///
+                /// The values are not transformed in any way and thus are considered stable
+                /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+                </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                    <span class="kw">match </span><span class="self">self </span>{
+                        AuditResult::Unspecified =&gt; <span class="string">&quot;AUDIT_RESULT_UNSPECIFIED&quot;</span>,
+                        AuditResult::Allow =&gt; <span class="string">&quot;ALLOW&quot;</span>,
+                        AuditResult::Deny =&gt; <span class="string">&quot;DENY&quot;</span>,
+                    }
+                }
+                <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+                </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                    <span class="kw">match </span>value {
+                        <span class="string">&quot;AUDIT_RESULT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                        <span class="string">&quot;ALLOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Allow),
+                        <span class="string">&quot;DENY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deny),
+                        <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                    }
+                }
+            }
+        }
+        <span class="doccomment">/// Audit time policy conformance verdict.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>PolicyConformanceVerdict {
+            <span class="doccomment">/// We should always have a verdict. This is an error.
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// The pod violates the policy.
+            </span>ViolatesPolicy = <span class="number">1</span>,
+        }
+        <span class="kw">impl </span>PolicyConformanceVerdict {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    PolicyConformanceVerdict::Unspecified =&gt; {
+                        <span class="string">&quot;POLICY_CONFORMANCE_VERDICT_UNSPECIFIED&quot;
+                    </span>}
+                    PolicyConformanceVerdict::ViolatesPolicy =&gt; <span class="string">&quot;VIOLATES_POLICY&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;POLICY_CONFORMANCE_VERDICT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;VIOLATES_POLICY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ViolatesPolicy),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
+    <span class="doccomment">/// An event describing that the project policy is unsupported by CV.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>UnsupportedPolicyEvent {
+        <span class="doccomment">/// A description of the unsupported policy.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// Type of CV event.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>EventType {
+        <span class="doccomment">/// Pod event.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>PodEvent(ContinuousValidationPodEvent),
+        <span class="doccomment">/// Unsupported policy event.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>UnsupportedPolicyEvent(UnsupportedPolicyEvent),
+    }
+}
 <span class="doccomment">/// Request message for \[BinauthzManagementService.GetPolicy][\].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2170,168 +2332,6 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-    }
-}
-<span class="doccomment">/// Represents an auditing event from Continuous Validation.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ContinuousValidationEvent {
-    <span class="doccomment">/// Type of CV event.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;continuous_validation_event::EventType&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
-    </span><span class="kw">pub </span>event_type: ::core::option::Option&lt;continuous_validation_event::EventType&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ContinuousValidationEvent`.
-</span><span class="kw">pub mod </span>continuous_validation_event {
-    <span class="doccomment">/// An auditing event for one Pod.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>ContinuousValidationPodEvent {
-        <span class="doccomment">/// The k8s namespace of the Pod.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-        </span><span class="kw">pub </span>pod_namespace: ::prost::alloc::string::String,
-        <span class="doccomment">/// The name of the Pod.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>pod: ::prost::alloc::string::String,
-        <span class="doccomment">/// Deploy time of the Pod from k8s.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>deploy_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-        <span class="doccomment">/// Termination time of the Pod from k8s, or nothing if still running.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-        <span class="doccomment">/// Auditing verdict for this Pod.
-        </span><span class="attr">#[prost(
-            enumeration = <span class="string">&quot;continuous_validation_pod_event::PolicyConformanceVerdict&quot;</span>,
-            tag = <span class="string">&quot;4&quot;
-        </span>)]
-        </span><span class="kw">pub </span>verdict: i32,
-        <span class="doccomment">/// List of images with auditing details.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
-        </span><span class="kw">pub </span>images: ::prost::alloc::vec::Vec&lt;
-            continuous_validation_pod_event::ImageDetails,
-        &gt;,
-    }
-    <span class="doccomment">/// Nested message and enum types in `ContinuousValidationPodEvent`.
-    </span><span class="kw">pub mod </span>continuous_validation_pod_event {
-        <span class="doccomment">/// Container image with auditing details.
-        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        </span><span class="kw">pub struct </span>ImageDetails {
-            <span class="doccomment">/// The name of the image.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-            </span><span class="kw">pub </span>image: ::prost::alloc::string::String,
-            <span class="doccomment">/// The result of the audit for this image.
-            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;image_details::AuditResult&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-            </span><span class="kw">pub </span>result: i32,
-            <span class="doccomment">/// Description of the above result.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-            </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-        }
-        <span class="doccomment">/// Nested message and enum types in `ImageDetails`.
-        </span><span class="kw">pub mod </span>image_details {
-            <span class="doccomment">/// Result of the audit.
-            </span><span class="attr">#[derive(
-                Clone,
-                Copy,
-                Debug,
-                PartialEq,
-                Eq,
-                Hash,
-                PartialOrd,
-                Ord,
-                ::prost::Enumeration
-            )]
-            #[repr(i32)]
-            </span><span class="kw">pub enum </span>AuditResult {
-                <span class="doccomment">/// Unspecified result. This is an error.
-                </span>Unspecified = <span class="number">0</span>,
-                <span class="doccomment">/// Image is allowed.
-                </span>Allow = <span class="number">1</span>,
-                <span class="doccomment">/// Image is denied.
-                </span>Deny = <span class="number">2</span>,
-            }
-            <span class="kw">impl </span>AuditResult {
-                <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-                ///
-                /// The values are not transformed in any way and thus are considered stable
-                /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-                </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                    <span class="kw">match </span><span class="self">self </span>{
-                        AuditResult::Unspecified =&gt; <span class="string">&quot;AUDIT_RESULT_UNSPECIFIED&quot;</span>,
-                        AuditResult::Allow =&gt; <span class="string">&quot;ALLOW&quot;</span>,
-                        AuditResult::Deny =&gt; <span class="string">&quot;DENY&quot;</span>,
-                    }
-                }
-                <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-                </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                    <span class="kw">match </span>value {
-                        <span class="string">&quot;AUDIT_RESULT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                        <span class="string">&quot;ALLOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Allow),
-                        <span class="string">&quot;DENY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deny),
-                        <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                    }
-                }
-            }
-        }
-        <span class="doccomment">/// Audit time policy conformance verdict.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>PolicyConformanceVerdict {
-            <span class="doccomment">/// We should always have a verdict. This is an error.
-            </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// The pod violates the policy.
-            </span>ViolatesPolicy = <span class="number">1</span>,
-        }
-        <span class="kw">impl </span>PolicyConformanceVerdict {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    PolicyConformanceVerdict::Unspecified =&gt; {
-                        <span class="string">&quot;POLICY_CONFORMANCE_VERDICT_UNSPECIFIED&quot;
-                    </span>}
-                    PolicyConformanceVerdict::ViolatesPolicy =&gt; <span class="string">&quot;VIOLATES_POLICY&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;POLICY_CONFORMANCE_VERDICT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;VIOLATES_POLICY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ViolatesPolicy),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
-    <span class="doccomment">/// An event describing that the project policy is unsupported by CV.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>UnsupportedPolicyEvent {
-        <span class="doccomment">/// A description of the unsupported policy.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Type of CV event.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>EventType {
-        <span class="doccomment">/// Pod event.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>PodEvent(ContinuousValidationPodEvent),
-        <span class="doccomment">/// Unsupported policy event.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>UnsupportedPolicyEvent(UnsupportedPolicyEvent),
     }
 }
 </code></pre></div></section></main></body></html>

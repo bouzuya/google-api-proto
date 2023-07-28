@@ -3081,7 +3081,228 @@
 <a href="#3081" id="3081">3081</a>
 <a href="#3082" id="3082">3082</a>
 <a href="#3083" id="3083">3083</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// The service levels - Storage Pool, Volumes
+</pre></div><pre class="rust"><code><span class="doccomment">/// ListActiveDirectoriesRequest for requesting multiple active directories.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListActiveDirectoriesRequest {
+    <span class="doccomment">/// Required. Parent value for ListActiveDirectoriesRequest
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Requested page size. Server may return fewer items than requested.
+    /// If unspecified, the server will pick an appropriate default.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// A token identifying a page of results the server should return.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Filtering results
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
+    <span class="doccomment">/// Hint for how to order the results
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// ListActiveDirectoriesResponse contains all the active directories requested.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListActiveDirectoriesResponse {
+    <span class="doccomment">/// The list of active directories.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>active_directories: ::prost::alloc::vec::Vec&lt;ActiveDirectory&gt;,
+    <span class="doccomment">/// A token identifying a page of results the server should return.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Locations that could not be reached.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// GetActiveDirectory for getting a single active directory.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetActiveDirectoryRequest {
+    <span class="doccomment">/// Required. Name of the active directory.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// CreateActiveDirectoryRequest for creating an active directory.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateActiveDirectoryRequest {
+    <span class="doccomment">/// Required. Value for parent.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Fields of the to be created active directory.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>active_directory: ::core::option::Option&lt;ActiveDirectory&gt;,
+    <span class="doccomment">/// Required. ID of the active directory to create.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>active_directory_id: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// UpdateActiveDirectoryRequest for updating an active directory.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdateActiveDirectoryRequest {
+    <span class="doccomment">/// Required. Field mask is used to specify the fields to be overwritten in the
+    /// Active Directory resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
+    <span class="doccomment">/// Required. The volume being updated
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>active_directory: ::core::option::Option&lt;ActiveDirectory&gt;,
+}
+<span class="doccomment">/// DeleteActiveDirectoryRequest for deleting a single active directory.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteActiveDirectoryRequest {
+    <span class="doccomment">/// Required. Name of the active directory.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// ActiveDirectory is the public representation of the active directory config.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ActiveDirectory {
+    <span class="doccomment">/// Output only. The resource name of the active directory.
+    /// Format:
+    /// `projects/{project_number}/locations/{location_id}/activeDirectories/{active_directory_id}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Create time of the active directory.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The state of the AD.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;active_directory::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Required. Name of the Active Directory domain
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>domain: ::prost::alloc::string::String,
+    <span class="doccomment">/// The Active Directory site the service will limit Domain Controller
+    /// discovery too.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>site: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Comma separated list of DNS server IP addresses for the Active
+    /// Directory domain.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>dns: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. NetBIOSPrefix is used as a prefix for SMB server name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>net_bios_prefix: ::prost::alloc::string::String,
+    <span class="doccomment">/// The Organizational Unit (OU) within the Windows Active Directory the user
+    /// belongs to.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>organizational_unit: ::prost::alloc::string::String,
+    <span class="doccomment">/// If enabled, AES encryption will be enabled for SMB communication.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>aes_encryption: bool,
+    <span class="doccomment">/// Required. Username of the Active Directory domain administrator.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>username: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Password of the Active Directory domain administrator.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>password: ::prost::alloc::string::String,
+    <span class="doccomment">/// Users to be added to the Built-in Backup Operator active directory group.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>backup_operators: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Domain users to be given the SeSecurityPrivilege.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>security_operators: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Name of the active directory machine. This optional parameter is used only
+    /// while creating kerberos volume
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>kdc_hostname: ::prost::alloc::string::String,
+    <span class="doccomment">/// KDC server IP address for the active directory machine.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>kdc_ip: ::prost::alloc::string::String,
+    <span class="doccomment">/// If enabled, will allow access to local users and LDAP users. If access is
+    /// needed for only LDAP users, it has to be disabled.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="kw">pub </span>nfs_users_with_ldap: bool,
+    <span class="doccomment">/// Description of the active directory.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Specifies whether or not the LDAP traffic needs to be signed.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="kw">pub </span>ldap_signing: bool,
+    <span class="doccomment">/// If enabled, traffic between the SMB server to Domain Controller (DC) will
+    /// be encrypted.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="kw">pub </span>encrypt_dc_connections: bool,
+    <span class="doccomment">/// Labels for the active directory.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Output only. The state details of the Active Directory.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="kw">pub </span>state_details: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `ActiveDirectory`.
+</span><span class="kw">pub mod </span>active_directory {
+    <span class="doccomment">/// The Active Directory States
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Unspecified Active Directory State
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Active Directory State is Creating
+        </span>Creating = <span class="number">1</span>,
+        <span class="doccomment">/// Active Directory State is Ready
+        </span>Ready = <span class="number">2</span>,
+        <span class="doccomment">/// Active Directory State is Updating
+        </span>Updating = <span class="number">3</span>,
+        <span class="doccomment">/// Active Directory State is In use
+        </span>InUse = <span class="number">4</span>,
+        <span class="doccomment">/// Active Directory State is Deleting
+        </span>Deleting = <span class="number">5</span>,
+        <span class="doccomment">/// Active Directory State is Error
+        </span>Error = <span class="number">6</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
+                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
+                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
+                State::InUse =&gt; <span class="string">&quot;IN_USE&quot;</span>,
+                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+                State::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
+                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">&quot;IN_USE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InUse),
+                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// The service levels - Storage Pool, Volumes
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 </span><span class="kw">pub enum </span>ServiceLevel {
@@ -4442,227 +4663,6 @@
     /// projects/{project_id}/locations/{location}/volumes/{volume_id}/replications/{replication_id}.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// ListActiveDirectoriesRequest for requesting multiple active directories.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListActiveDirectoriesRequest {
-    <span class="doccomment">/// Required. Parent value for ListActiveDirectoriesRequest
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Requested page size. Server may return fewer items than requested.
-    /// If unspecified, the server will pick an appropriate default.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// A token identifying a page of results the server should return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Filtering results
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// Hint for how to order the results
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// ListActiveDirectoriesResponse contains all the active directories requested.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListActiveDirectoriesResponse {
-    <span class="doccomment">/// The list of active directories.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>active_directories: ::prost::alloc::vec::Vec&lt;ActiveDirectory&gt;,
-    <span class="doccomment">/// A token identifying a page of results the server should return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// GetActiveDirectory for getting a single active directory.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetActiveDirectoryRequest {
-    <span class="doccomment">/// Required. Name of the active directory.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// CreateActiveDirectoryRequest for creating an active directory.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateActiveDirectoryRequest {
-    <span class="doccomment">/// Required. Value for parent.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Fields of the to be created active directory.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>active_directory: ::core::option::Option&lt;ActiveDirectory&gt;,
-    <span class="doccomment">/// Required. ID of the active directory to create.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>active_directory_id: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// UpdateActiveDirectoryRequest for updating an active directory.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpdateActiveDirectoryRequest {
-    <span class="doccomment">/// Required. Field mask is used to specify the fields to be overwritten in the
-    /// Active Directory resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
-    <span class="doccomment">/// Required. The volume being updated
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>active_directory: ::core::option::Option&lt;ActiveDirectory&gt;,
-}
-<span class="doccomment">/// DeleteActiveDirectoryRequest for deleting a single active directory.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteActiveDirectoryRequest {
-    <span class="doccomment">/// Required. Name of the active directory.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// ActiveDirectory is the public representation of the active directory config.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ActiveDirectory {
-    <span class="doccomment">/// Output only. The resource name of the active directory.
-    /// Format:
-    /// `projects/{project_number}/locations/{location_id}/activeDirectories/{active_directory_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Create time of the active directory.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The state of the AD.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;active_directory::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Required. Name of the Active Directory domain
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>domain: ::prost::alloc::string::String,
-    <span class="doccomment">/// The Active Directory site the service will limit Domain Controller
-    /// discovery too.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>site: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Comma separated list of DNS server IP addresses for the Active
-    /// Directory domain.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>dns: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. NetBIOSPrefix is used as a prefix for SMB server name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>net_bios_prefix: ::prost::alloc::string::String,
-    <span class="doccomment">/// The Organizational Unit (OU) within the Windows Active Directory the user
-    /// belongs to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>organizational_unit: ::prost::alloc::string::String,
-    <span class="doccomment">/// If enabled, AES encryption will be enabled for SMB communication.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>aes_encryption: bool,
-    <span class="doccomment">/// Required. Username of the Active Directory domain administrator.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>username: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Password of the Active Directory domain administrator.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>password: ::prost::alloc::string::String,
-    <span class="doccomment">/// Users to be added to the Built-in Backup Operator active directory group.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>backup_operators: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Domain users to be given the SeSecurityPrivilege.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>security_operators: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Name of the active directory machine. This optional parameter is used only
-    /// while creating kerberos volume
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>kdc_hostname: ::prost::alloc::string::String,
-    <span class="doccomment">/// KDC server IP address for the active directory machine.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
-    </span><span class="kw">pub </span>kdc_ip: ::prost::alloc::string::String,
-    <span class="doccomment">/// If enabled, will allow access to local users and LDAP users. If access is
-    /// needed for only LDAP users, it has to be disabled.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;16&quot;</span>)]
-    </span><span class="kw">pub </span>nfs_users_with_ldap: bool,
-    <span class="doccomment">/// Description of the active directory.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;17&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Specifies whether or not the LDAP traffic needs to be signed.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;18&quot;</span>)]
-    </span><span class="kw">pub </span>ldap_signing: bool,
-    <span class="doccomment">/// If enabled, traffic between the SMB server to Domain Controller (DC) will
-    /// be encrypted.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;19&quot;</span>)]
-    </span><span class="kw">pub </span>encrypt_dc_connections: bool,
-    <span class="doccomment">/// Labels for the active directory.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;20&quot;</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Output only. The state details of the Active Directory.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;21&quot;</span>)]
-    </span><span class="kw">pub </span>state_details: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `ActiveDirectory`.
-</span><span class="kw">pub mod </span>active_directory {
-    <span class="doccomment">/// The Active Directory States
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unspecified Active Directory State
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Active Directory State is Creating
-        </span>Creating = <span class="number">1</span>,
-        <span class="doccomment">/// Active Directory State is Ready
-        </span>Ready = <span class="number">2</span>,
-        <span class="doccomment">/// Active Directory State is Updating
-        </span>Updating = <span class="number">3</span>,
-        <span class="doccomment">/// Active Directory State is In use
-        </span>InUse = <span class="number">4</span>,
-        <span class="doccomment">/// Active Directory State is Deleting
-        </span>Deleting = <span class="number">5</span>,
-        <span class="doccomment">/// Active Directory State is Error
-        </span>Error = <span class="number">6</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::InUse =&gt; <span class="string">&quot;IN_USE&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;IN_USE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InUse),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
 }
 <span class="doccomment">/// ListSnapshotsRequest lists snapshots.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

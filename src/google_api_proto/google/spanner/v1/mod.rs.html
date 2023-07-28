@@ -2775,7 +2775,37 @@
 <a href="#2775" id="2775">2775</a>
 <a href="#2776" id="2776">2776</a>
 <a href="#2777" id="2777">2777</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// KeyRange represents a range of rows in a table or index.
+</pre></div><pre class="rust"><code><span class="doccomment">/// The response for \[Commit][google.spanner.v1.Spanner.Commit\].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CommitResponse {
+    <span class="doccomment">/// The Cloud Spanner timestamp at which the transaction committed.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>commit_timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The statistics about this Commit. Not returned by default.
+    /// For more information, see
+    /// \[CommitRequest.return_commit_stats][google.spanner.v1.CommitRequest.return_commit_stats\].
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>commit_stats: ::core::option::Option&lt;commit_response::CommitStats&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `CommitResponse`.
+</span><span class="kw">pub mod </span>commit_response {
+    <span class="doccomment">/// Additional statistics about a commit.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>CommitStats {
+        <span class="doccomment">/// The total number of mutations for the transaction. Knowing the
+        /// `mutation_count` value can help you maximize the number of mutations
+        /// in a transaction and minimize the number of API round trips. You can
+        /// also monitor this value to prevent transactions from exceeding the system
+        /// \[limit\](&lt;https://cloud.google.com/spanner/quotas#limits_for_creating_reading_updating_and_deleting_data&gt;).
+        /// If the number of mutations exceeds the limit, the server returns
+        /// \[INVALID_ARGUMENT\](&lt;https://cloud.google.com/spanner/docs/reference/rest/v1/Code#ENUM_VALUES.INVALID_ARGUMENT&gt;).
+        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>mutation_count: i64,
+    }
+}
+<span class="doccomment">/// KeyRange represents a range of rows in a table or index.
 ///
 /// A range has a start key and an end key. These keys can be open or
 /// closed, indicating if the range includes rows with that key.
@@ -3018,36 +3048,6 @@
         /// rows were present.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
         </span>Delete(Delete),
-    }
-}
-<span class="doccomment">/// The response for \[Commit][google.spanner.v1.Spanner.Commit\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CommitResponse {
-    <span class="doccomment">/// The Cloud Spanner timestamp at which the transaction committed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>commit_timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The statistics about this Commit. Not returned by default.
-    /// For more information, see
-    /// \[CommitRequest.return_commit_stats][google.spanner.v1.CommitRequest.return_commit_stats\].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>commit_stats: ::core::option::Option&lt;commit_response::CommitStats&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `CommitResponse`.
-</span><span class="kw">pub mod </span>commit_response {
-    <span class="doccomment">/// Additional statistics about a commit.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>CommitStats {
-        <span class="doccomment">/// The total number of mutations for the transaction. Knowing the
-        /// `mutation_count` value can help you maximize the number of mutations
-        /// in a transaction and minimize the number of API round trips. You can
-        /// also monitor this value to prevent transactions from exceeding the system
-        /// \[limit\](&lt;https://cloud.google.com/spanner/quotas#limits_for_creating_reading_updating_and_deleting_data&gt;).
-        /// If the number of mutations exceeds the limit, the server returns
-        /// \[INVALID_ARGUMENT\](&lt;https://cloud.google.com/spanner/docs/reference/rest/v1/Code#ENUM_VALUES.INVALID_ARGUMENT&gt;).
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>mutation_count: i64,
     }
 }
 <span class="doccomment">/// Node information for nodes appearing in a \[QueryPlan.plan_nodes][google.spanner.v1.QueryPlan.plan_nodes\].

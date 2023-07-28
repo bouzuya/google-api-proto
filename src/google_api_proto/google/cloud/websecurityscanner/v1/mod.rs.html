@@ -2014,7 +2014,294 @@
 <a href="#2014" id="2014">2014</a>
 <a href="#2015" id="2015">2015</a>
 <a href="#2016" id="2016">2016</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// ! Information about a vulnerability with an HTML.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Defines a custom error message used by CreateScanConfig and UpdateScanConfig
+/// APIs when scan configuration validation fails. It is also reported as part of
+/// a ScanRunErrorTrace message if scan validation fails due to a scan
+/// configuration error.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ScanConfigError {
+    <span class="doccomment">/// Output only. Indicates the reason code for a configuration failure.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_config_error::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>code: i32,
+    <span class="doccomment">/// Output only. Indicates the full name of the ScanConfig field that triggers this error,
+    /// for example &quot;scan_config.max_qps&quot;. This field is provided for
+    /// troubleshooting purposes only and its actual value can change in the
+    /// future.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>field_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `ScanConfigError`.
+</span><span class="kw">pub mod </span>scan_config_error {
+    <span class="doccomment">/// Output only.
+    /// Defines an error reason code.
+    /// Next id: 44
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Code {
+        <span class="doccomment">/// There is no error.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Indicates an internal server error.
+        /// Please DO NOT USE THIS ERROR CODE unless the root cause is truly unknown.
+        </span>InternalError = <span class="number">1</span>,
+        <span class="doccomment">/// One of the seed URLs is an App Engine URL but we cannot validate the scan
+        /// settings due to an App Engine API backend error.
+        </span>AppengineApiBackendError = <span class="number">2</span>,
+        <span class="doccomment">/// One of the seed URLs is an App Engine URL but we cannot access the
+        /// App Engine API to validate scan settings.
+        </span>AppengineApiNotAccessible = <span class="number">3</span>,
+        <span class="doccomment">/// One of the seed URLs is an App Engine URL but the Default Host of the
+        /// App Engine is not set.
+        </span>AppengineDefaultHostMissing = <span class="number">4</span>,
+        <span class="doccomment">/// Google corporate accounts can not be used for scanning.
+        </span>CannotUseGoogleComAccount = <span class="number">6</span>,
+        <span class="doccomment">/// The account of the scan creator can not be used for scanning.
+        </span>CannotUseOwnerAccount = <span class="number">7</span>,
+        <span class="doccomment">/// This scan targets Compute Engine, but we cannot validate scan settings
+        /// due to a Compute Engine API backend error.
+        </span>ComputeApiBackendError = <span class="number">8</span>,
+        <span class="doccomment">/// This scan targets Compute Engine, but we cannot access the Compute Engine
+        /// API to validate the scan settings.
+        </span>ComputeApiNotAccessible = <span class="number">9</span>,
+        <span class="doccomment">/// The Custom Login URL does not belong to the current project.
+        </span>CustomLoginUrlDoesNotBelongToCurrentProject = <span class="number">10</span>,
+        <span class="doccomment">/// The Custom Login URL is malformed (can not be parsed).
+        </span>CustomLoginUrlMalformed = <span class="number">11</span>,
+        <span class="doccomment">/// The Custom Login URL is mapped to a non-routable IP address in DNS.
+        </span>CustomLoginUrlMappedToNonRoutableAddress = <span class="number">12</span>,
+        <span class="doccomment">/// The Custom Login URL is mapped to an IP address which is not reserved for
+        /// the current project.
+        </span>CustomLoginUrlMappedToUnreservedAddress = <span class="number">13</span>,
+        <span class="doccomment">/// The Custom Login URL has a non-routable IP address.
+        </span>CustomLoginUrlHasNonRoutableIpAddress = <span class="number">14</span>,
+        <span class="doccomment">/// The Custom Login URL has an IP address which is not reserved for the
+        /// current project.
+        </span>CustomLoginUrlHasUnreservedIpAddress = <span class="number">15</span>,
+        <span class="doccomment">/// Another scan with the same name (case-sensitive) already exists.
+        </span>DuplicateScanName = <span class="number">16</span>,
+        <span class="doccomment">/// A field is set to an invalid value.
+        </span>InvalidFieldValue = <span class="number">18</span>,
+        <span class="doccomment">/// There was an error trying to authenticate to the scan target.
+        </span>FailedToAuthenticateToTarget = <span class="number">19</span>,
+        <span class="doccomment">/// Finding type value is not specified in the list findings request.
+        </span>FindingTypeUnspecified = <span class="number">20</span>,
+        <span class="doccomment">/// Scan targets Compute Engine, yet current project was not whitelisted for
+        /// Google Compute Engine Scanning Alpha access.
+        </span>ForbiddenToScanCompute = <span class="number">21</span>,
+        <span class="doccomment">/// User tries to update managed scan
+        </span>ForbiddenUpdateToManagedScan = <span class="number">43</span>,
+        <span class="doccomment">/// The supplied filter is malformed. For example, it can not be parsed, does
+        /// not have a filter type in expression, or the same filter type appears
+        /// more than once.
+        </span>MalformedFilter = <span class="number">22</span>,
+        <span class="doccomment">/// The supplied resource name is malformed (can not be parsed).
+        </span>MalformedResourceName = <span class="number">23</span>,
+        <span class="doccomment">/// The current project is not in an active state.
+        </span>ProjectInactive = <span class="number">24</span>,
+        <span class="doccomment">/// A required field is not set.
+        </span>RequiredField = <span class="number">25</span>,
+        <span class="doccomment">/// Project id, scanconfig id, scanrun id, or finding id are not consistent
+        /// with each other in resource name.
+        </span>ResourceNameInconsistent = <span class="number">26</span>,
+        <span class="doccomment">/// The scan being requested to start is already running.
+        </span>ScanAlreadyRunning = <span class="number">27</span>,
+        <span class="doccomment">/// The scan that was requested to be stopped is not running.
+        </span>ScanNotRunning = <span class="number">28</span>,
+        <span class="doccomment">/// One of the seed URLs does not belong to the current project.
+        </span>SeedUrlDoesNotBelongToCurrentProject = <span class="number">29</span>,
+        <span class="doccomment">/// One of the seed URLs is malformed (can not be parsed).
+        </span>SeedUrlMalformed = <span class="number">30</span>,
+        <span class="doccomment">/// One of the seed URLs is mapped to a non-routable IP address in DNS.
+        </span>SeedUrlMappedToNonRoutableAddress = <span class="number">31</span>,
+        <span class="doccomment">/// One of the seed URLs is mapped to an IP address which is not reserved
+        /// for the current project.
+        </span>SeedUrlMappedToUnreservedAddress = <span class="number">32</span>,
+        <span class="doccomment">/// One of the seed URLs has on-routable IP address.
+        </span>SeedUrlHasNonRoutableIpAddress = <span class="number">33</span>,
+        <span class="doccomment">/// One of the seed URLs has an IP address that is not reserved
+        /// for the current project.
+        </span>SeedUrlHasUnreservedIpAddress = <span class="number">35</span>,
+        <span class="doccomment">/// The Web Security Scanner service account is not configured under the
+        /// project.
+        </span>ServiceAccountNotConfigured = <span class="number">36</span>,
+        <span class="doccomment">/// A project has reached the maximum number of scans.
+        </span>TooManyScans = <span class="number">37</span>,
+        <span class="doccomment">/// Resolving the details of the current project fails.
+        </span>UnableToResolveProjectInfo = <span class="number">38</span>,
+        <span class="doccomment">/// One or more blacklist patterns were in the wrong format.
+        </span>UnsupportedBlacklistPatternFormat = <span class="number">39</span>,
+        <span class="doccomment">/// The supplied filter is not supported.
+        </span>UnsupportedFilter = <span class="number">40</span>,
+        <span class="doccomment">/// The supplied finding type is not supported. For example, we do not
+        /// provide findings of the given finding type.
+        </span>UnsupportedFindingType = <span class="number">41</span>,
+        <span class="doccomment">/// The URL scheme of one or more of the supplied URLs is not supported.
+        </span>UnsupportedUrlScheme = <span class="number">42</span>,
+    }
+    <span class="kw">impl </span>Code {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Code::Unspecified =&gt; <span class="string">&quot;CODE_UNSPECIFIED&quot;</span>,
+                Code::InternalError =&gt; <span class="string">&quot;INTERNAL_ERROR&quot;</span>,
+                Code::AppengineApiBackendError =&gt; <span class="string">&quot;APPENGINE_API_BACKEND_ERROR&quot;</span>,
+                Code::AppengineApiNotAccessible =&gt; <span class="string">&quot;APPENGINE_API_NOT_ACCESSIBLE&quot;</span>,
+                Code::AppengineDefaultHostMissing =&gt; <span class="string">&quot;APPENGINE_DEFAULT_HOST_MISSING&quot;</span>,
+                Code::CannotUseGoogleComAccount =&gt; <span class="string">&quot;CANNOT_USE_GOOGLE_COM_ACCOUNT&quot;</span>,
+                Code::CannotUseOwnerAccount =&gt; <span class="string">&quot;CANNOT_USE_OWNER_ACCOUNT&quot;</span>,
+                Code::ComputeApiBackendError =&gt; <span class="string">&quot;COMPUTE_API_BACKEND_ERROR&quot;</span>,
+                Code::ComputeApiNotAccessible =&gt; <span class="string">&quot;COMPUTE_API_NOT_ACCESSIBLE&quot;</span>,
+                Code::CustomLoginUrlDoesNotBelongToCurrentProject =&gt; {
+                    <span class="string">&quot;CUSTOM_LOGIN_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT&quot;
+                </span>}
+                Code::CustomLoginUrlMalformed =&gt; <span class="string">&quot;CUSTOM_LOGIN_URL_MALFORMED&quot;</span>,
+                Code::CustomLoginUrlMappedToNonRoutableAddress =&gt; {
+                    <span class="string">&quot;CUSTOM_LOGIN_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS&quot;
+                </span>}
+                Code::CustomLoginUrlMappedToUnreservedAddress =&gt; {
+                    <span class="string">&quot;CUSTOM_LOGIN_URL_MAPPED_TO_UNRESERVED_ADDRESS&quot;
+                </span>}
+                Code::CustomLoginUrlHasNonRoutableIpAddress =&gt; {
+                    <span class="string">&quot;CUSTOM_LOGIN_URL_HAS_NON_ROUTABLE_IP_ADDRESS&quot;
+                </span>}
+                Code::CustomLoginUrlHasUnreservedIpAddress =&gt; {
+                    <span class="string">&quot;CUSTOM_LOGIN_URL_HAS_UNRESERVED_IP_ADDRESS&quot;
+                </span>}
+                Code::DuplicateScanName =&gt; <span class="string">&quot;DUPLICATE_SCAN_NAME&quot;</span>,
+                Code::InvalidFieldValue =&gt; <span class="string">&quot;INVALID_FIELD_VALUE&quot;</span>,
+                Code::FailedToAuthenticateToTarget =&gt; <span class="string">&quot;FAILED_TO_AUTHENTICATE_TO_TARGET&quot;</span>,
+                Code::FindingTypeUnspecified =&gt; <span class="string">&quot;FINDING_TYPE_UNSPECIFIED&quot;</span>,
+                Code::ForbiddenToScanCompute =&gt; <span class="string">&quot;FORBIDDEN_TO_SCAN_COMPUTE&quot;</span>,
+                Code::ForbiddenUpdateToManagedScan =&gt; <span class="string">&quot;FORBIDDEN_UPDATE_TO_MANAGED_SCAN&quot;</span>,
+                Code::MalformedFilter =&gt; <span class="string">&quot;MALFORMED_FILTER&quot;</span>,
+                Code::MalformedResourceName =&gt; <span class="string">&quot;MALFORMED_RESOURCE_NAME&quot;</span>,
+                Code::ProjectInactive =&gt; <span class="string">&quot;PROJECT_INACTIVE&quot;</span>,
+                Code::RequiredField =&gt; <span class="string">&quot;REQUIRED_FIELD&quot;</span>,
+                Code::ResourceNameInconsistent =&gt; <span class="string">&quot;RESOURCE_NAME_INCONSISTENT&quot;</span>,
+                Code::ScanAlreadyRunning =&gt; <span class="string">&quot;SCAN_ALREADY_RUNNING&quot;</span>,
+                Code::ScanNotRunning =&gt; <span class="string">&quot;SCAN_NOT_RUNNING&quot;</span>,
+                Code::SeedUrlDoesNotBelongToCurrentProject =&gt; {
+                    <span class="string">&quot;SEED_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT&quot;
+                </span>}
+                Code::SeedUrlMalformed =&gt; <span class="string">&quot;SEED_URL_MALFORMED&quot;</span>,
+                Code::SeedUrlMappedToNonRoutableAddress =&gt; {
+                    <span class="string">&quot;SEED_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS&quot;
+                </span>}
+                Code::SeedUrlMappedToUnreservedAddress =&gt; {
+                    <span class="string">&quot;SEED_URL_MAPPED_TO_UNRESERVED_ADDRESS&quot;
+                </span>}
+                Code::SeedUrlHasNonRoutableIpAddress =&gt; {
+                    <span class="string">&quot;SEED_URL_HAS_NON_ROUTABLE_IP_ADDRESS&quot;
+                </span>}
+                Code::SeedUrlHasUnreservedIpAddress =&gt; {
+                    <span class="string">&quot;SEED_URL_HAS_UNRESERVED_IP_ADDRESS&quot;
+                </span>}
+                Code::ServiceAccountNotConfigured =&gt; <span class="string">&quot;SERVICE_ACCOUNT_NOT_CONFIGURED&quot;</span>,
+                Code::TooManyScans =&gt; <span class="string">&quot;TOO_MANY_SCANS&quot;</span>,
+                Code::UnableToResolveProjectInfo =&gt; <span class="string">&quot;UNABLE_TO_RESOLVE_PROJECT_INFO&quot;</span>,
+                Code::UnsupportedBlacklistPatternFormat =&gt; {
+                    <span class="string">&quot;UNSUPPORTED_BLACKLIST_PATTERN_FORMAT&quot;
+                </span>}
+                Code::UnsupportedFilter =&gt; <span class="string">&quot;UNSUPPORTED_FILTER&quot;</span>,
+                Code::UnsupportedFindingType =&gt; <span class="string">&quot;UNSUPPORTED_FINDING_TYPE&quot;</span>,
+                Code::UnsupportedUrlScheme =&gt; <span class="string">&quot;UNSUPPORTED_URL_SCHEME&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;INTERNAL_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalError),
+                <span class="string">&quot;APPENGINE_API_BACKEND_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AppengineApiBackendError),
+                <span class="string">&quot;APPENGINE_API_NOT_ACCESSIBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AppengineApiNotAccessible),
+                <span class="string">&quot;APPENGINE_DEFAULT_HOST_MISSING&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::AppengineDefaultHostMissing)
+                }
+                <span class="string">&quot;CANNOT_USE_GOOGLE_COM_ACCOUNT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotUseGoogleComAccount),
+                <span class="string">&quot;CANNOT_USE_OWNER_ACCOUNT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotUseOwnerAccount),
+                <span class="string">&quot;COMPUTE_API_BACKEND_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ComputeApiBackendError),
+                <span class="string">&quot;COMPUTE_API_NOT_ACCESSIBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ComputeApiNotAccessible),
+                <span class="string">&quot;CUSTOM_LOGIN_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlDoesNotBelongToCurrentProject)
+                }
+                <span class="string">&quot;CUSTOM_LOGIN_URL_MALFORMED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlMalformed),
+                <span class="string">&quot;CUSTOM_LOGIN_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlMappedToNonRoutableAddress)
+                }
+                <span class="string">&quot;CUSTOM_LOGIN_URL_MAPPED_TO_UNRESERVED_ADDRESS&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlMappedToUnreservedAddress)
+                }
+                <span class="string">&quot;CUSTOM_LOGIN_URL_HAS_NON_ROUTABLE_IP_ADDRESS&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlHasNonRoutableIpAddress)
+                }
+                <span class="string">&quot;CUSTOM_LOGIN_URL_HAS_UNRESERVED_IP_ADDRESS&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlHasUnreservedIpAddress)
+                }
+                <span class="string">&quot;DUPLICATE_SCAN_NAME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DuplicateScanName),
+                <span class="string">&quot;INVALID_FIELD_VALUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidFieldValue),
+                <span class="string">&quot;FAILED_TO_AUTHENTICATE_TO_TARGET&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::FailedToAuthenticateToTarget)
+                }
+                <span class="string">&quot;FINDING_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FindingTypeUnspecified),
+                <span class="string">&quot;FORBIDDEN_TO_SCAN_COMPUTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ForbiddenToScanCompute),
+                <span class="string">&quot;FORBIDDEN_UPDATE_TO_MANAGED_SCAN&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::ForbiddenUpdateToManagedScan)
+                }
+                <span class="string">&quot;MALFORMED_FILTER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MalformedFilter),
+                <span class="string">&quot;MALFORMED_RESOURCE_NAME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MalformedResourceName),
+                <span class="string">&quot;PROJECT_INACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProjectInactive),
+                <span class="string">&quot;REQUIRED_FIELD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RequiredField),
+                <span class="string">&quot;RESOURCE_NAME_INCONSISTENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceNameInconsistent),
+                <span class="string">&quot;SCAN_ALREADY_RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScanAlreadyRunning),
+                <span class="string">&quot;SCAN_NOT_RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScanNotRunning),
+                <span class="string">&quot;SEED_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlDoesNotBelongToCurrentProject)
+                }
+                <span class="string">&quot;SEED_URL_MALFORMED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlMalformed),
+                <span class="string">&quot;SEED_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlMappedToNonRoutableAddress)
+                }
+                <span class="string">&quot;SEED_URL_MAPPED_TO_UNRESERVED_ADDRESS&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlMappedToUnreservedAddress)
+                }
+                <span class="string">&quot;SEED_URL_HAS_NON_ROUTABLE_IP_ADDRESS&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlHasNonRoutableIpAddress)
+                }
+                <span class="string">&quot;SEED_URL_HAS_UNRESERVED_IP_ADDRESS&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlHasUnreservedIpAddress)
+                }
+                <span class="string">&quot;SERVICE_ACCOUNT_NOT_CONFIGURED&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServiceAccountNotConfigured)
+                }
+                <span class="string">&quot;TOO_MANY_SCANS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyScans),
+                <span class="string">&quot;UNABLE_TO_RESOLVE_PROJECT_INFO&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnableToResolveProjectInfo)
+                }
+                <span class="string">&quot;UNSUPPORTED_BLACKLIST_PATTERN_FORMAT&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedBlacklistPatternFormat)
+                }
+                <span class="string">&quot;UNSUPPORTED_FILTER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedFilter),
+                <span class="string">&quot;UNSUPPORTED_FINDING_TYPE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedFindingType),
+                <span class="string">&quot;UNSUPPORTED_URL_SCHEME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedUrlScheme),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// ! Information about a vulnerability with an HTML.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Form {
@@ -2380,6 +2667,23 @@
         }
     }
 }
+<span class="doccomment">/// A CrawledUrl resource represents a URL that was crawled during a ScanRun. Web
+/// Security Scanner Service crawls the web applications, following all links
+/// within the scope of sites, to find the URLs to test against.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CrawledUrl {
+    <span class="doccomment">/// Output only. The http method of the request that was used to visit the URL, in
+    /// uppercase.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>http_method: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The URL that was crawled.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The body of the request that was used to visit the URL.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>body: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// A FindingTypeStats resource represents stats regarding a specific FindingType
 /// of Findings under a given ScanRun.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2391,293 +2695,6 @@
     <span class="doccomment">/// Output only. The count of findings belonging to this finding type.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>finding_count: i32,
-}
-<span class="doccomment">/// Defines a custom error message used by CreateScanConfig and UpdateScanConfig
-/// APIs when scan configuration validation fails. It is also reported as part of
-/// a ScanRunErrorTrace message if scan validation fails due to a scan
-/// configuration error.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ScanConfigError {
-    <span class="doccomment">/// Output only. Indicates the reason code for a configuration failure.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_config_error::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>code: i32,
-    <span class="doccomment">/// Output only. Indicates the full name of the ScanConfig field that triggers this error,
-    /// for example &quot;scan_config.max_qps&quot;. This field is provided for
-    /// troubleshooting purposes only and its actual value can change in the
-    /// future.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>field_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `ScanConfigError`.
-</span><span class="kw">pub mod </span>scan_config_error {
-    <span class="doccomment">/// Output only.
-    /// Defines an error reason code.
-    /// Next id: 44
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Code {
-        <span class="doccomment">/// There is no error.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Indicates an internal server error.
-        /// Please DO NOT USE THIS ERROR CODE unless the root cause is truly unknown.
-        </span>InternalError = <span class="number">1</span>,
-        <span class="doccomment">/// One of the seed URLs is an App Engine URL but we cannot validate the scan
-        /// settings due to an App Engine API backend error.
-        </span>AppengineApiBackendError = <span class="number">2</span>,
-        <span class="doccomment">/// One of the seed URLs is an App Engine URL but we cannot access the
-        /// App Engine API to validate scan settings.
-        </span>AppengineApiNotAccessible = <span class="number">3</span>,
-        <span class="doccomment">/// One of the seed URLs is an App Engine URL but the Default Host of the
-        /// App Engine is not set.
-        </span>AppengineDefaultHostMissing = <span class="number">4</span>,
-        <span class="doccomment">/// Google corporate accounts can not be used for scanning.
-        </span>CannotUseGoogleComAccount = <span class="number">6</span>,
-        <span class="doccomment">/// The account of the scan creator can not be used for scanning.
-        </span>CannotUseOwnerAccount = <span class="number">7</span>,
-        <span class="doccomment">/// This scan targets Compute Engine, but we cannot validate scan settings
-        /// due to a Compute Engine API backend error.
-        </span>ComputeApiBackendError = <span class="number">8</span>,
-        <span class="doccomment">/// This scan targets Compute Engine, but we cannot access the Compute Engine
-        /// API to validate the scan settings.
-        </span>ComputeApiNotAccessible = <span class="number">9</span>,
-        <span class="doccomment">/// The Custom Login URL does not belong to the current project.
-        </span>CustomLoginUrlDoesNotBelongToCurrentProject = <span class="number">10</span>,
-        <span class="doccomment">/// The Custom Login URL is malformed (can not be parsed).
-        </span>CustomLoginUrlMalformed = <span class="number">11</span>,
-        <span class="doccomment">/// The Custom Login URL is mapped to a non-routable IP address in DNS.
-        </span>CustomLoginUrlMappedToNonRoutableAddress = <span class="number">12</span>,
-        <span class="doccomment">/// The Custom Login URL is mapped to an IP address which is not reserved for
-        /// the current project.
-        </span>CustomLoginUrlMappedToUnreservedAddress = <span class="number">13</span>,
-        <span class="doccomment">/// The Custom Login URL has a non-routable IP address.
-        </span>CustomLoginUrlHasNonRoutableIpAddress = <span class="number">14</span>,
-        <span class="doccomment">/// The Custom Login URL has an IP address which is not reserved for the
-        /// current project.
-        </span>CustomLoginUrlHasUnreservedIpAddress = <span class="number">15</span>,
-        <span class="doccomment">/// Another scan with the same name (case-sensitive) already exists.
-        </span>DuplicateScanName = <span class="number">16</span>,
-        <span class="doccomment">/// A field is set to an invalid value.
-        </span>InvalidFieldValue = <span class="number">18</span>,
-        <span class="doccomment">/// There was an error trying to authenticate to the scan target.
-        </span>FailedToAuthenticateToTarget = <span class="number">19</span>,
-        <span class="doccomment">/// Finding type value is not specified in the list findings request.
-        </span>FindingTypeUnspecified = <span class="number">20</span>,
-        <span class="doccomment">/// Scan targets Compute Engine, yet current project was not whitelisted for
-        /// Google Compute Engine Scanning Alpha access.
-        </span>ForbiddenToScanCompute = <span class="number">21</span>,
-        <span class="doccomment">/// User tries to update managed scan
-        </span>ForbiddenUpdateToManagedScan = <span class="number">43</span>,
-        <span class="doccomment">/// The supplied filter is malformed. For example, it can not be parsed, does
-        /// not have a filter type in expression, or the same filter type appears
-        /// more than once.
-        </span>MalformedFilter = <span class="number">22</span>,
-        <span class="doccomment">/// The supplied resource name is malformed (can not be parsed).
-        </span>MalformedResourceName = <span class="number">23</span>,
-        <span class="doccomment">/// The current project is not in an active state.
-        </span>ProjectInactive = <span class="number">24</span>,
-        <span class="doccomment">/// A required field is not set.
-        </span>RequiredField = <span class="number">25</span>,
-        <span class="doccomment">/// Project id, scanconfig id, scanrun id, or finding id are not consistent
-        /// with each other in resource name.
-        </span>ResourceNameInconsistent = <span class="number">26</span>,
-        <span class="doccomment">/// The scan being requested to start is already running.
-        </span>ScanAlreadyRunning = <span class="number">27</span>,
-        <span class="doccomment">/// The scan that was requested to be stopped is not running.
-        </span>ScanNotRunning = <span class="number">28</span>,
-        <span class="doccomment">/// One of the seed URLs does not belong to the current project.
-        </span>SeedUrlDoesNotBelongToCurrentProject = <span class="number">29</span>,
-        <span class="doccomment">/// One of the seed URLs is malformed (can not be parsed).
-        </span>SeedUrlMalformed = <span class="number">30</span>,
-        <span class="doccomment">/// One of the seed URLs is mapped to a non-routable IP address in DNS.
-        </span>SeedUrlMappedToNonRoutableAddress = <span class="number">31</span>,
-        <span class="doccomment">/// One of the seed URLs is mapped to an IP address which is not reserved
-        /// for the current project.
-        </span>SeedUrlMappedToUnreservedAddress = <span class="number">32</span>,
-        <span class="doccomment">/// One of the seed URLs has on-routable IP address.
-        </span>SeedUrlHasNonRoutableIpAddress = <span class="number">33</span>,
-        <span class="doccomment">/// One of the seed URLs has an IP address that is not reserved
-        /// for the current project.
-        </span>SeedUrlHasUnreservedIpAddress = <span class="number">35</span>,
-        <span class="doccomment">/// The Web Security Scanner service account is not configured under the
-        /// project.
-        </span>ServiceAccountNotConfigured = <span class="number">36</span>,
-        <span class="doccomment">/// A project has reached the maximum number of scans.
-        </span>TooManyScans = <span class="number">37</span>,
-        <span class="doccomment">/// Resolving the details of the current project fails.
-        </span>UnableToResolveProjectInfo = <span class="number">38</span>,
-        <span class="doccomment">/// One or more blacklist patterns were in the wrong format.
-        </span>UnsupportedBlacklistPatternFormat = <span class="number">39</span>,
-        <span class="doccomment">/// The supplied filter is not supported.
-        </span>UnsupportedFilter = <span class="number">40</span>,
-        <span class="doccomment">/// The supplied finding type is not supported. For example, we do not
-        /// provide findings of the given finding type.
-        </span>UnsupportedFindingType = <span class="number">41</span>,
-        <span class="doccomment">/// The URL scheme of one or more of the supplied URLs is not supported.
-        </span>UnsupportedUrlScheme = <span class="number">42</span>,
-    }
-    <span class="kw">impl </span>Code {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Code::Unspecified =&gt; <span class="string">&quot;CODE_UNSPECIFIED&quot;</span>,
-                Code::InternalError =&gt; <span class="string">&quot;INTERNAL_ERROR&quot;</span>,
-                Code::AppengineApiBackendError =&gt; <span class="string">&quot;APPENGINE_API_BACKEND_ERROR&quot;</span>,
-                Code::AppengineApiNotAccessible =&gt; <span class="string">&quot;APPENGINE_API_NOT_ACCESSIBLE&quot;</span>,
-                Code::AppengineDefaultHostMissing =&gt; <span class="string">&quot;APPENGINE_DEFAULT_HOST_MISSING&quot;</span>,
-                Code::CannotUseGoogleComAccount =&gt; <span class="string">&quot;CANNOT_USE_GOOGLE_COM_ACCOUNT&quot;</span>,
-                Code::CannotUseOwnerAccount =&gt; <span class="string">&quot;CANNOT_USE_OWNER_ACCOUNT&quot;</span>,
-                Code::ComputeApiBackendError =&gt; <span class="string">&quot;COMPUTE_API_BACKEND_ERROR&quot;</span>,
-                Code::ComputeApiNotAccessible =&gt; <span class="string">&quot;COMPUTE_API_NOT_ACCESSIBLE&quot;</span>,
-                Code::CustomLoginUrlDoesNotBelongToCurrentProject =&gt; {
-                    <span class="string">&quot;CUSTOM_LOGIN_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT&quot;
-                </span>}
-                Code::CustomLoginUrlMalformed =&gt; <span class="string">&quot;CUSTOM_LOGIN_URL_MALFORMED&quot;</span>,
-                Code::CustomLoginUrlMappedToNonRoutableAddress =&gt; {
-                    <span class="string">&quot;CUSTOM_LOGIN_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS&quot;
-                </span>}
-                Code::CustomLoginUrlMappedToUnreservedAddress =&gt; {
-                    <span class="string">&quot;CUSTOM_LOGIN_URL_MAPPED_TO_UNRESERVED_ADDRESS&quot;
-                </span>}
-                Code::CustomLoginUrlHasNonRoutableIpAddress =&gt; {
-                    <span class="string">&quot;CUSTOM_LOGIN_URL_HAS_NON_ROUTABLE_IP_ADDRESS&quot;
-                </span>}
-                Code::CustomLoginUrlHasUnreservedIpAddress =&gt; {
-                    <span class="string">&quot;CUSTOM_LOGIN_URL_HAS_UNRESERVED_IP_ADDRESS&quot;
-                </span>}
-                Code::DuplicateScanName =&gt; <span class="string">&quot;DUPLICATE_SCAN_NAME&quot;</span>,
-                Code::InvalidFieldValue =&gt; <span class="string">&quot;INVALID_FIELD_VALUE&quot;</span>,
-                Code::FailedToAuthenticateToTarget =&gt; <span class="string">&quot;FAILED_TO_AUTHENTICATE_TO_TARGET&quot;</span>,
-                Code::FindingTypeUnspecified =&gt; <span class="string">&quot;FINDING_TYPE_UNSPECIFIED&quot;</span>,
-                Code::ForbiddenToScanCompute =&gt; <span class="string">&quot;FORBIDDEN_TO_SCAN_COMPUTE&quot;</span>,
-                Code::ForbiddenUpdateToManagedScan =&gt; <span class="string">&quot;FORBIDDEN_UPDATE_TO_MANAGED_SCAN&quot;</span>,
-                Code::MalformedFilter =&gt; <span class="string">&quot;MALFORMED_FILTER&quot;</span>,
-                Code::MalformedResourceName =&gt; <span class="string">&quot;MALFORMED_RESOURCE_NAME&quot;</span>,
-                Code::ProjectInactive =&gt; <span class="string">&quot;PROJECT_INACTIVE&quot;</span>,
-                Code::RequiredField =&gt; <span class="string">&quot;REQUIRED_FIELD&quot;</span>,
-                Code::ResourceNameInconsistent =&gt; <span class="string">&quot;RESOURCE_NAME_INCONSISTENT&quot;</span>,
-                Code::ScanAlreadyRunning =&gt; <span class="string">&quot;SCAN_ALREADY_RUNNING&quot;</span>,
-                Code::ScanNotRunning =&gt; <span class="string">&quot;SCAN_NOT_RUNNING&quot;</span>,
-                Code::SeedUrlDoesNotBelongToCurrentProject =&gt; {
-                    <span class="string">&quot;SEED_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT&quot;
-                </span>}
-                Code::SeedUrlMalformed =&gt; <span class="string">&quot;SEED_URL_MALFORMED&quot;</span>,
-                Code::SeedUrlMappedToNonRoutableAddress =&gt; {
-                    <span class="string">&quot;SEED_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS&quot;
-                </span>}
-                Code::SeedUrlMappedToUnreservedAddress =&gt; {
-                    <span class="string">&quot;SEED_URL_MAPPED_TO_UNRESERVED_ADDRESS&quot;
-                </span>}
-                Code::SeedUrlHasNonRoutableIpAddress =&gt; {
-                    <span class="string">&quot;SEED_URL_HAS_NON_ROUTABLE_IP_ADDRESS&quot;
-                </span>}
-                Code::SeedUrlHasUnreservedIpAddress =&gt; {
-                    <span class="string">&quot;SEED_URL_HAS_UNRESERVED_IP_ADDRESS&quot;
-                </span>}
-                Code::ServiceAccountNotConfigured =&gt; <span class="string">&quot;SERVICE_ACCOUNT_NOT_CONFIGURED&quot;</span>,
-                Code::TooManyScans =&gt; <span class="string">&quot;TOO_MANY_SCANS&quot;</span>,
-                Code::UnableToResolveProjectInfo =&gt; <span class="string">&quot;UNABLE_TO_RESOLVE_PROJECT_INFO&quot;</span>,
-                Code::UnsupportedBlacklistPatternFormat =&gt; {
-                    <span class="string">&quot;UNSUPPORTED_BLACKLIST_PATTERN_FORMAT&quot;
-                </span>}
-                Code::UnsupportedFilter =&gt; <span class="string">&quot;UNSUPPORTED_FILTER&quot;</span>,
-                Code::UnsupportedFindingType =&gt; <span class="string">&quot;UNSUPPORTED_FINDING_TYPE&quot;</span>,
-                Code::UnsupportedUrlScheme =&gt; <span class="string">&quot;UNSUPPORTED_URL_SCHEME&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;INTERNAL_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalError),
-                <span class="string">&quot;APPENGINE_API_BACKEND_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AppengineApiBackendError),
-                <span class="string">&quot;APPENGINE_API_NOT_ACCESSIBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AppengineApiNotAccessible),
-                <span class="string">&quot;APPENGINE_DEFAULT_HOST_MISSING&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::AppengineDefaultHostMissing)
-                }
-                <span class="string">&quot;CANNOT_USE_GOOGLE_COM_ACCOUNT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotUseGoogleComAccount),
-                <span class="string">&quot;CANNOT_USE_OWNER_ACCOUNT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotUseOwnerAccount),
-                <span class="string">&quot;COMPUTE_API_BACKEND_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ComputeApiBackendError),
-                <span class="string">&quot;COMPUTE_API_NOT_ACCESSIBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ComputeApiNotAccessible),
-                <span class="string">&quot;CUSTOM_LOGIN_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlDoesNotBelongToCurrentProject)
-                }
-                <span class="string">&quot;CUSTOM_LOGIN_URL_MALFORMED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlMalformed),
-                <span class="string">&quot;CUSTOM_LOGIN_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlMappedToNonRoutableAddress)
-                }
-                <span class="string">&quot;CUSTOM_LOGIN_URL_MAPPED_TO_UNRESERVED_ADDRESS&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlMappedToUnreservedAddress)
-                }
-                <span class="string">&quot;CUSTOM_LOGIN_URL_HAS_NON_ROUTABLE_IP_ADDRESS&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlHasNonRoutableIpAddress)
-                }
-                <span class="string">&quot;CUSTOM_LOGIN_URL_HAS_UNRESERVED_IP_ADDRESS&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlHasUnreservedIpAddress)
-                }
-                <span class="string">&quot;DUPLICATE_SCAN_NAME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DuplicateScanName),
-                <span class="string">&quot;INVALID_FIELD_VALUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidFieldValue),
-                <span class="string">&quot;FAILED_TO_AUTHENTICATE_TO_TARGET&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::FailedToAuthenticateToTarget)
-                }
-                <span class="string">&quot;FINDING_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FindingTypeUnspecified),
-                <span class="string">&quot;FORBIDDEN_TO_SCAN_COMPUTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ForbiddenToScanCompute),
-                <span class="string">&quot;FORBIDDEN_UPDATE_TO_MANAGED_SCAN&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::ForbiddenUpdateToManagedScan)
-                }
-                <span class="string">&quot;MALFORMED_FILTER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MalformedFilter),
-                <span class="string">&quot;MALFORMED_RESOURCE_NAME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MalformedResourceName),
-                <span class="string">&quot;PROJECT_INACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProjectInactive),
-                <span class="string">&quot;REQUIRED_FIELD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RequiredField),
-                <span class="string">&quot;RESOURCE_NAME_INCONSISTENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceNameInconsistent),
-                <span class="string">&quot;SCAN_ALREADY_RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScanAlreadyRunning),
-                <span class="string">&quot;SCAN_NOT_RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScanNotRunning),
-                <span class="string">&quot;SEED_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlDoesNotBelongToCurrentProject)
-                }
-                <span class="string">&quot;SEED_URL_MALFORMED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlMalformed),
-                <span class="string">&quot;SEED_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlMappedToNonRoutableAddress)
-                }
-                <span class="string">&quot;SEED_URL_MAPPED_TO_UNRESERVED_ADDRESS&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlMappedToUnreservedAddress)
-                }
-                <span class="string">&quot;SEED_URL_HAS_NON_ROUTABLE_IP_ADDRESS&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlHasNonRoutableIpAddress)
-                }
-                <span class="string">&quot;SEED_URL_HAS_UNRESERVED_IP_ADDRESS&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlHasUnreservedIpAddress)
-                }
-                <span class="string">&quot;SERVICE_ACCOUNT_NOT_CONFIGURED&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServiceAccountNotConfigured)
-                }
-                <span class="string">&quot;TOO_MANY_SCANS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyScans),
-                <span class="string">&quot;UNABLE_TO_RESOLVE_PROJECT_INFO&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnableToResolveProjectInfo)
-                }
-                <span class="string">&quot;UNSUPPORTED_BLACKLIST_PATTERN_FORMAT&quot; </span>=&gt; {
-                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedBlacklistPatternFormat)
-                }
-                <span class="string">&quot;UNSUPPORTED_FILTER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedFilter),
-                <span class="string">&quot;UNSUPPORTED_FINDING_TYPE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedFindingType),
-                <span class="string">&quot;UNSUPPORTED_URL_SCHEME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedUrlScheme),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
 }
 <span class="doccomment">/// Output only.
 /// Defines an error trace message for a ScanRun.
@@ -3319,23 +3336,6 @@
             }
         }
     }
-}
-<span class="doccomment">/// A CrawledUrl resource represents a URL that was crawled during a ScanRun. Web
-/// Security Scanner Service crawls the web applications, following all links
-/// within the scope of sites, to find the URLs to test against.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CrawledUrl {
-    <span class="doccomment">/// Output only. The http method of the request that was used to visit the URL, in
-    /// uppercase.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>http_method: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The URL that was crawled.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The body of the request that was used to visit the URL.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>body: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `CreateScanConfig` method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

@@ -1161,7 +1161,197 @@
 <a href="#1161" id="1161">1161</a>
 <a href="#1162" id="1162">1162</a>
 <a href="#1163" id="1163">1163</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// An event signifying a change in state of a [migration from Cloud Datastore to
+</pre></div><pre class="rust"><code><span class="doccomment">/// Datastore composite index definition.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Index {
+    <span class="doccomment">/// Output only. Project ID.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The resource ID of the index.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>index_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The entity kind to which this index applies.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The index&#39;s ancestor mode.  Must not be ANCESTOR_MODE_UNSPECIFIED.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;index::AncestorMode&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>ancestor: i32,
+    <span class="doccomment">/// Required. An ordered sequence of property names and their index attributes.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>properties: ::prost::alloc::vec::Vec&lt;index::IndexedProperty&gt;,
+    <span class="doccomment">/// Output only. The state of the index.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;index::State&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `Index`.
+</span><span class="kw">pub mod </span>index {
+    <span class="doccomment">/// A property of an index.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>IndexedProperty {
+        <span class="doccomment">/// Required. The property name to index.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+        <span class="doccomment">/// Required. The indexed property&#39;s direction.  Must not be DIRECTION_UNSPECIFIED.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;Direction&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>direction: i32,
+    }
+    <span class="doccomment">/// For an ordered index, specifies whether each of the entity&#39;s ancestors
+    /// will be included.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>AncestorMode {
+        <span class="doccomment">/// The ancestor mode is unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Do not include the entity&#39;s ancestors in the index.
+        </span><span class="prelude-val">None </span>= <span class="number">1</span>,
+        <span class="doccomment">/// Include all the entity&#39;s ancestors in the index.
+        </span>AllAncestors = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>AncestorMode {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                AncestorMode::Unspecified =&gt; <span class="string">&quot;ANCESTOR_MODE_UNSPECIFIED&quot;</span>,
+                AncestorMode::None =&gt; <span class="string">&quot;NONE&quot;</span>,
+                AncestorMode::AllAncestors =&gt; <span class="string">&quot;ALL_ANCESTORS&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;ANCESTOR_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
+                <span class="string">&quot;ALL_ANCESTORS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AllAncestors),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// The direction determines how a property is indexed.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Direction {
+        <span class="doccomment">/// The direction is unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The property&#39;s values are indexed so as to support sequencing in
+        /// ascending order and also query by &lt;, &gt;, &lt;=, &gt;=, and =.
+        </span>Ascending = <span class="number">1</span>,
+        <span class="doccomment">/// The property&#39;s values are indexed so as to support sequencing in
+        /// descending order and also query by &lt;, &gt;, &lt;=, &gt;=, and =.
+        </span>Descending = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>Direction {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Direction::Unspecified =&gt; <span class="string">&quot;DIRECTION_UNSPECIFIED&quot;</span>,
+                Direction::Ascending =&gt; <span class="string">&quot;ASCENDING&quot;</span>,
+                Direction::Descending =&gt; <span class="string">&quot;DESCENDING&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;DIRECTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ASCENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ascending),
+                <span class="string">&quot;DESCENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Descending),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// The possible set of states of an index.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// The state is unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The index is being created, and cannot be used by queries.
+        /// There is an active long-running operation for the index.
+        /// The index is updated when writing an entity.
+        /// Some index data may exist.
+        </span>Creating = <span class="number">1</span>,
+        <span class="doccomment">/// The index is ready to be used.
+        /// The index is updated when writing an entity.
+        /// The index is fully populated from all stored entities it applies to.
+        </span>Ready = <span class="number">2</span>,
+        <span class="doccomment">/// The index is being deleted, and cannot be used by queries.
+        /// There is an active long-running operation for the index.
+        /// The index is not updated when writing an entity.
+        /// Some index data may exist.
+        </span>Deleting = <span class="number">3</span>,
+        <span class="doccomment">/// The index was being created or deleted, but something went wrong.
+        /// The index cannot by used by queries.
+        /// There is no active long-running operation for the index,
+        /// and the most recently finished long-running operation failed.
+        /// The index is not updated when writing an entity.
+        /// Some index data may exist.
+        </span>Error = <span class="number">4</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
+                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
+                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+                State::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
+                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// An event signifying a change in state of a [migration from Cloud Datastore to
 /// Cloud Firestore in Datastore
 /// mode](&lt;https://cloud.google.com/datastore/docs/upgrade-to-firestore&gt;).
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1363,196 +1553,6 @@
             }
             <span class="string">&quot;REDIRECT_WRITES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RedirectWrites),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// Datastore composite index definition.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Index {
-    <span class="doccomment">/// Output only. Project ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The resource ID of the index.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>index_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The entity kind to which this index applies.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The index&#39;s ancestor mode.  Must not be ANCESTOR_MODE_UNSPECIFIED.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;index::AncestorMode&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>ancestor: i32,
-    <span class="doccomment">/// Required. An ordered sequence of property names and their index attributes.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>properties: ::prost::alloc::vec::Vec&lt;index::IndexedProperty&gt;,
-    <span class="doccomment">/// Output only. The state of the index.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;index::State&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `Index`.
-</span><span class="kw">pub mod </span>index {
-    <span class="doccomment">/// A property of an index.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>IndexedProperty {
-        <span class="doccomment">/// Required. The property name to index.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-        <span class="doccomment">/// Required. The indexed property&#39;s direction.  Must not be DIRECTION_UNSPECIFIED.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;Direction&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>direction: i32,
-    }
-    <span class="doccomment">/// For an ordered index, specifies whether each of the entity&#39;s ancestors
-    /// will be included.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>AncestorMode {
-        <span class="doccomment">/// The ancestor mode is unspecified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Do not include the entity&#39;s ancestors in the index.
-        </span><span class="prelude-val">None </span>= <span class="number">1</span>,
-        <span class="doccomment">/// Include all the entity&#39;s ancestors in the index.
-        </span>AllAncestors = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>AncestorMode {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                AncestorMode::Unspecified =&gt; <span class="string">&quot;ANCESTOR_MODE_UNSPECIFIED&quot;</span>,
-                AncestorMode::None =&gt; <span class="string">&quot;NONE&quot;</span>,
-                AncestorMode::AllAncestors =&gt; <span class="string">&quot;ALL_ANCESTORS&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;ANCESTOR_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
-                <span class="string">&quot;ALL_ANCESTORS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AllAncestors),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// The direction determines how a property is indexed.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Direction {
-        <span class="doccomment">/// The direction is unspecified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The property&#39;s values are indexed so as to support sequencing in
-        /// ascending order and also query by &lt;, &gt;, &lt;=, &gt;=, and =.
-        </span>Ascending = <span class="number">1</span>,
-        <span class="doccomment">/// The property&#39;s values are indexed so as to support sequencing in
-        /// descending order and also query by &lt;, &gt;, &lt;=, &gt;=, and =.
-        </span>Descending = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>Direction {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Direction::Unspecified =&gt; <span class="string">&quot;DIRECTION_UNSPECIFIED&quot;</span>,
-                Direction::Ascending =&gt; <span class="string">&quot;ASCENDING&quot;</span>,
-                Direction::Descending =&gt; <span class="string">&quot;DESCENDING&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;DIRECTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ASCENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ascending),
-                <span class="string">&quot;DESCENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Descending),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// The possible set of states of an index.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// The state is unspecified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The index is being created, and cannot be used by queries.
-        /// There is an active long-running operation for the index.
-        /// The index is updated when writing an entity.
-        /// Some index data may exist.
-        </span>Creating = <span class="number">1</span>,
-        <span class="doccomment">/// The index is ready to be used.
-        /// The index is updated when writing an entity.
-        /// The index is fully populated from all stored entities it applies to.
-        </span>Ready = <span class="number">2</span>,
-        <span class="doccomment">/// The index is being deleted, and cannot be used by queries.
-        /// There is an active long-running operation for the index.
-        /// The index is not updated when writing an entity.
-        /// Some index data may exist.
-        </span>Deleting = <span class="number">3</span>,
-        <span class="doccomment">/// The index was being created or deleted, but something went wrong.
-        /// The index cannot by used by queries.
-        /// There is no active long-running operation for the index,
-        /// and the most recently finished long-running operation failed.
-        /// The index is not updated when writing an entity.
-        /// Some index data may exist.
-        </span>Error = <span class="number">4</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
         }
     }
 }
