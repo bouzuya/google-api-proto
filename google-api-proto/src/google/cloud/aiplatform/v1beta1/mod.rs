@@ -9697,7 +9697,7 @@ pub struct TensorboardBlob {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct PersistentResource {
-    /// Output only. Resource name of a PersistentResource.
+    /// Immutable. Resource name of a PersistentResource.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Optional. The display name of the PersistentResource.
@@ -9764,6 +9764,9 @@ pub struct PersistentResource {
     /// Used for e.g. Ray cluster configuration.
     #[prost(message, optional, tag = "13")]
     pub resource_runtime_spec: ::core::option::Option<ResourceRuntimeSpec>,
+    /// Output only. Runtime information of the Persistent Resource.
+    #[prost(message, optional, tag = "14")]
+    pub resource_runtime: ::core::option::Option<ResourceRuntime>,
     /// Optional. A list of names for the reserved ip ranges under the VPC network
     /// that can be used for this persistent resource.
     ///
@@ -9890,6 +9893,42 @@ pub struct ResourceRuntimeSpec {
     /// Optional. Configure the use of workload identity on the PersistentResource
     #[prost(message, optional, tag = "2")]
     pub service_account_spec: ::core::option::Option<ServiceAccountSpec>,
+    /// Ray cluster configuration.
+    /// Required when creating a dedicated RayCluster on the PersistentResource.
+    #[prost(message, optional, tag = "1")]
+    pub ray_spec: ::core::option::Option<RaySpec>,
+}
+/// Configuration information for the Ray cluster.
+/// For experimental launch, Ray cluster creation and Persistent
+/// cluster creation are 1:1 mapping: We will provision all the nodes within the
+/// Persistent cluster as Ray nodes.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RaySpec {
+    /// Optional. Default image for user to choose a preferred ML framework(e.g.
+    /// tensorflow or Pytorch) by choosing from Vertex prebuild
+    /// images(<https://cloud.google.com/vertex-ai/docs/training/pre-built-containers>).
+    /// Either this or the resource_pool_images is required. Use this field if
+    /// you need all the resource pools to have the same Ray image, Otherwise, use
+    /// the {@code resource_pool_images} field.
+    #[prost(string, tag = "1")]
+    pub image_uri: ::prost::alloc::string::String,
+}
+/// Persistent Cluster runtime information as output
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResourceRuntime {
+    /// Output only. URIs for user to connect to the Cluster.
+    /// Example:
+    /// {
+    ///    "RAY_HEAD_NODE_INTERNAL_IP": "head-node-IP:10001"
+    ///    "RAY_DASHBOARD_URI": "ray-dashboard-address:8888"
+    /// }
+    #[prost(btree_map = "string, string", tag = "1")]
+    pub access_uris: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
 }
 /// Configuration for the use of custom service account to run the workloads.
 #[allow(clippy::derive_partial_eq_without_eq)]
