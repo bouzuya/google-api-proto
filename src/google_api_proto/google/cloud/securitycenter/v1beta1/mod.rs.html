@@ -1814,97 +1814,6 @@
         }
     }
 }
-<span class="doccomment">/// Response of asset discovery run
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>RunAssetDiscoveryResponse {
-    <span class="doccomment">/// The state of an asset discovery run.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;run_asset_discovery_response::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// The duration between asset discovery run start and end
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `RunAssetDiscoveryResponse`.
-</span><span class="kw">pub mod </span>run_asset_discovery_response {
-    <span class="doccomment">/// The state of an asset discovery run.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Asset discovery run state was unspecified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Asset discovery run completed successfully.
-        </span>Completed = <span class="number">1</span>,
-        <span class="doccomment">/// Asset discovery run was cancelled with tasks still pending, as another
-        /// run for the same organization was started with a higher priority.
-        </span>Superseded = <span class="number">2</span>,
-        <span class="doccomment">/// Asset discovery run was killed and terminated.
-        </span>Terminated = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Completed =&gt; <span class="string">&quot;COMPLETED&quot;</span>,
-                State::Superseded =&gt; <span class="string">&quot;SUPERSEDED&quot;</span>,
-                State::Terminated =&gt; <span class="string">&quot;TERMINATED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;COMPLETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
-                <span class="string">&quot;SUPERSEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Superseded),
-                <span class="string">&quot;TERMINATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Terminated),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Security Command Center finding source. A finding source
-/// is an entity or a mechanism that can produce a finding. A source is like a
-/// container of findings that come from the same scanner, logger, monitor, etc.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Source {
-    <span class="doccomment">/// The relative resource name of this source. See:
-    /// &lt;https://cloud.google.com/apis/design/resource_names#relative_resource_name&gt;
-    /// Example:
-    /// &quot;organizations/{organization_id}/sources/{source_id}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The source&#39;s display name.
-    /// A source&#39;s display name must be unique amongst its siblings, for example,
-    /// two sources with the same parent can&#39;t share the same display name.
-    /// The display name must have a length between 1 and 64 characters
-    /// (inclusive).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The description of the source (max of 1024 characters).
-    /// Example:
-    /// &quot;Web Security Scanner is a web security scanner for common
-    /// vulnerabilities in App Engine applications. It can automatically
-    /// scan and detect four common vulnerabilities, including cross-site-scripting
-    /// (XSS), Flash injection, mixed content (HTTP in HTTPS), and
-    /// outdated/insecure libraries.&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-}
 <span class="doccomment">/// Security Command Center representation of a Google Cloud
 /// resource.
 ///
@@ -1976,6 +1885,35 @@
         </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
         </span><span class="kw">pub </span>resource_owners: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
+}
+<span class="doccomment">/// Security Command Center finding source. A finding source
+/// is an entity or a mechanism that can produce a finding. A source is like a
+/// container of findings that come from the same scanner, logger, monitor, etc.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Source {
+    <span class="doccomment">/// The relative resource name of this source. See:
+    /// &lt;https://cloud.google.com/apis/design/resource_names#relative_resource_name&gt;
+    /// Example:
+    /// &quot;organizations/{organization_id}/sources/{source_id}&quot;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The source&#39;s display name.
+    /// A source&#39;s display name must be unique amongst its siblings, for example,
+    /// two sources with the same parent can&#39;t share the same display name.
+    /// The display name must have a length between 1 and 64 characters
+    /// (inclusive).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The description of the source (max of 1024 characters).
+    /// Example:
+    /// &quot;Web Security Scanner is a web security scanner for common
+    /// vulnerabilities in App Engine applications. It can automatically
+    /// scan and detect four common vulnerabilities, including cross-site-scripting
+    /// (XSS), Flash injection, mixed content (HTTP in HTTPS), and
+    /// outdated/insecure libraries.&quot;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// User specified settings that are attached to the Security Command
 /// Center organization.
@@ -3340,6 +3278,68 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
+    }
+}
+<span class="doccomment">/// Response of asset discovery run
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>RunAssetDiscoveryResponse {
+    <span class="doccomment">/// The state of an asset discovery run.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;run_asset_discovery_response::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// The duration between asset discovery run start and end
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `RunAssetDiscoveryResponse`.
+</span><span class="kw">pub mod </span>run_asset_discovery_response {
+    <span class="doccomment">/// The state of an asset discovery run.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Asset discovery run state was unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Asset discovery run completed successfully.
+        </span>Completed = <span class="number">1</span>,
+        <span class="doccomment">/// Asset discovery run was cancelled with tasks still pending, as another
+        /// run for the same organization was started with a higher priority.
+        </span>Superseded = <span class="number">2</span>,
+        <span class="doccomment">/// Asset discovery run was killed and terminated.
+        </span>Terminated = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Completed =&gt; <span class="string">&quot;COMPLETED&quot;</span>,
+                State::Superseded =&gt; <span class="string">&quot;SUPERSEDED&quot;</span>,
+                State::Terminated =&gt; <span class="string">&quot;TERMINATED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;COMPLETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
+                <span class="string">&quot;SUPERSEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Superseded),
+                <span class="string">&quot;TERMINATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Terminated),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
     }
 }
 </code></pre></div></section></main></body></html>

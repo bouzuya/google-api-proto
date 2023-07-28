@@ -28,17 +28,17 @@ written).</p>
 <p>Since index.csv will be keeping updated during the process, please make
 sure there is no custom retention policy applied on the output bucket
 that may avoid file updating.
-(<a href="https://cloud.google.com/storage/docs/bucket-lock?hl=en#retention-policy">https://cloud.google.com/storage/docs/bucket-lock?hl=en#retention-policy</a>)</p>
+(<a href="https://cloud.google.com/storage/docs/bucket-lock#retention-policy">https://cloud.google.com/storage/docs/bucket-lock#retention-policy</a>)</p>
 <p>The naming format of translation output files follows (for target
 language code [trg]): <code>translation_output</code>:
-gs://translation_output/a_b_c_[trg]<em>translation.[extension]
+<code>gs://translation_output/a_b_c_\[trg]_translation.[extension\]</code>
 <code>glossary_translation_output</code>:
-gs://translation_test/a_b_c</em>[trg]_glossary_translation.[extension] The
+<code>gs://translation_test/a_b_c_\[trg]_glossary_translation.[extension\]</code>. The
 output document will maintain the same file format as the input document.</p>
 <p>The naming format of error output files follows (for target language code
-[trg]): <code>error_output</code>: gs://translation_test/a_b_c_[trg]<em>errors.txt
+[trg]): <code>error_output</code>: <code>gs://translation_test/a_b_c_\[trg\]_errors.txt</code>
 <code>glossary_error_output</code>:
-gs://translation_test/a_b_c</em>[trg]_glossary_translation.txt The error
+<code>gs://translation_test/a_b_c_\[trg\]_glossary_translation.txt</code> The error
 output is a txt file containing error details.</p>
 </div></div><h2 id="implementations" class="small-section-header">Implementations<a href="#implementations" class="anchor">§</a></h2><div id="implementations-list"><details class="toggle implementors-toggle" open><summary><section id="impl-Destination" class="impl"><a class="srclink rightside" href="../../../../../../src/google_api_proto/google/cloud/translation/v3beta1/mod.rs.html#1345">source</a><a href="#impl-Destination" class="anchor">§</a><h3 class="code-header">impl <a class="enum" href="enum.Destination.html" title="enum google_api_proto::google::cloud::translation::v3beta1::batch_document_output_config::Destination">Destination</a></h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.encode" class="method"><a class="srclink rightside" href="../../../../../../src/google_api_proto/google/cloud/translation/v3beta1/mod.rs.html#1345">source</a><h4 class="code-header">pub fn <a href="#method.encode" class="fn">encode</a>&lt;B&gt;(&amp;self, buf: <a class="primitive" href="https://doc.rust-lang.org/1.71.0/std/primitive.reference.html">&amp;mut B</a>)<span class="where fmt-newline">where
     B: BufMut,</span></h4></section></summary><div class="docblock"><p>Encodes the message to a buffer.</p>

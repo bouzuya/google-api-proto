@@ -4362,236 +4362,6 @@
         }
     }
 }
-<span class="doccomment">/// A processor version is an implementation of a processor. Each processor
-/// can have multiple versions, pretrained by Google internally or uptrained
-/// by the customer. A processor can only have one default version at a time.
-/// Its document-processing behavior is defined by that version.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ProcessorVersion {
-    <span class="doccomment">/// The resource name of the processor version.
-    /// Format:
-    /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The display name of the processor version.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The schema of the processor version. Describes the output.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>document_schema: ::core::option::Option&lt;DocumentSchema&gt;,
-    <span class="doccomment">/// The state of the processor version.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;processor_version::State&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// The time the processor version was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The most recently invoked evaluation for the processor version.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>latest_evaluation: ::core::option::Option&lt;EvaluationReference&gt;,
-    <span class="doccomment">/// The KMS key name used for encryption.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The KMS key version with which data is encrypted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>kms_key_version_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Denotes that this `ProcessorVersion` is managed by Google.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>google_managed: bool,
-    <span class="doccomment">/// If set, information about the eventual deprecation of this version.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>deprecation_info: ::core::option::Option&lt;processor_version::DeprecationInfo&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ProcessorVersion`.
-</span><span class="kw">pub mod </span>processor_version {
-    <span class="doccomment">/// Information about the upcoming deprecation of this processor version.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>DeprecationInfo {
-        <span class="doccomment">/// The time at which this processor version will be deprecated.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>deprecation_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-        <span class="doccomment">/// If set, the processor version that will be used as a replacement.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>replacement_processor_version: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// The possible states of the processor version.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// The processor version is in an unspecified state.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The processor version is deployed and can be used for processing.
-        </span>Deployed = <span class="number">1</span>,
-        <span class="doccomment">/// The processor version is being deployed.
-        </span>Deploying = <span class="number">2</span>,
-        <span class="doccomment">/// The processor version is not deployed and cannot be used for processing.
-        </span>Undeployed = <span class="number">3</span>,
-        <span class="doccomment">/// The processor version is being undeployed.
-        </span>Undeploying = <span class="number">4</span>,
-        <span class="doccomment">/// The processor version is being created.
-        </span>Creating = <span class="number">5</span>,
-        <span class="doccomment">/// The processor version is being deleted.
-        </span>Deleting = <span class="number">6</span>,
-        <span class="doccomment">/// The processor version failed and is in an indeterminate state.
-        </span>Failed = <span class="number">7</span>,
-        <span class="doccomment">/// The processor version is being imported.
-        </span>Importing = <span class="number">8</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Deployed =&gt; <span class="string">&quot;DEPLOYED&quot;</span>,
-                State::Deploying =&gt; <span class="string">&quot;DEPLOYING&quot;</span>,
-                State::Undeployed =&gt; <span class="string">&quot;UNDEPLOYED&quot;</span>,
-                State::Undeploying =&gt; <span class="string">&quot;UNDEPLOYING&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Importing =&gt; <span class="string">&quot;IMPORTING&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DEPLOYED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deployed),
-                <span class="string">&quot;DEPLOYING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deploying),
-                <span class="string">&quot;UNDEPLOYED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Undeployed),
-                <span class="string">&quot;UNDEPLOYING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Undeploying),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;IMPORTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Importing),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// The first-class citizen for Document AI. Each processor defines how to
-/// extract structural information from a document.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Processor {
-    <span class="doccomment">/// Output only. Immutable. The resource name of the processor.
-    /// Format: `projects/{project}/locations/{location}/processors/{processor}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`.
-    /// To get a list of processor types, see
-    /// \[FetchProcessorTypes][google.cloud.documentai.v1.DocumentProcessorService.FetchProcessorTypes\].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
-    <span class="doccomment">/// The display name of the processor.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The state of the processor.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;processor::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// The default processor version.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>default_processor_version: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Immutable. The http endpoint that can be called to invoke
-    /// processing.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>process_endpoint: ::prost::alloc::string::String,
-    <span class="doccomment">/// The time the processor was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The [KMS key](&lt;https://cloud.google.com/security-key-management&gt;) used for
-    /// encryption and decryption in CMEK scenarios.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `Processor`.
-</span><span class="kw">pub mod </span>processor {
-    <span class="doccomment">/// The possible states of the processor.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// The processor is in an unspecified state.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The processor is enabled, i.e., has an enabled version which can
-        /// currently serve processing requests and all the feature dependencies have
-        /// been successfully initialized.
-        </span>Enabled = <span class="number">1</span>,
-        <span class="doccomment">/// The processor is disabled.
-        </span>Disabled = <span class="number">2</span>,
-        <span class="doccomment">/// The processor is being enabled, will become `ENABLED` if successful.
-        </span>Enabling = <span class="number">3</span>,
-        <span class="doccomment">/// The processor is being disabled, will become `DISABLED` if successful.
-        </span>Disabling = <span class="number">4</span>,
-        <span class="doccomment">/// The processor is being created, will become either `ENABLED` (for
-        /// successful creation) or `FAILED` (for failed ones).
-        /// Once a processor is in this state, it can then be used for document
-        /// processing, but the feature dependencies of the processor might not be
-        /// fully created yet.
-        </span>Creating = <span class="number">5</span>,
-        <span class="doccomment">/// The processor failed during creation or initialization of feature
-        /// dependencies. The user should delete the processor and recreate one as
-        /// all the functionalities of the processor are disabled.
-        </span>Failed = <span class="number">6</span>,
-        <span class="doccomment">/// The processor is being deleted, will be removed if successful.
-        </span>Deleting = <span class="number">7</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Enabled =&gt; <span class="string">&quot;ENABLED&quot;</span>,
-                State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
-                State::Enabling =&gt; <span class="string">&quot;ENABLING&quot;</span>,
-                State::Disabling =&gt; <span class="string">&quot;DISABLING&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
-                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
-                <span class="string">&quot;ENABLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabling),
-                <span class="string">&quot;DISABLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabling),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
 <span class="doccomment">/// Encodes the detailed information of a barcode.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -5888,6 +5658,84 @@
         </span>Content(::prost::bytes::Bytes),
     }
 }
+<span class="doccomment">/// The common metadata for long running operations.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CommonOperationMetadata {
+    <span class="doccomment">/// The state of the operation.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;common_operation_metadata::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// A message providing more details about the current state of processing.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>state_message: ::prost::alloc::string::String,
+    <span class="doccomment">/// A related resource to this operation.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
+    <span class="doccomment">/// The creation time of the operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The last update time of the operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `CommonOperationMetadata`.
+</span><span class="kw">pub mod </span>common_operation_metadata {
+    <span class="doccomment">/// State of the longrunning operation.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Unspecified state.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Operation is still running.
+        </span>Running = <span class="number">1</span>,
+        <span class="doccomment">/// Operation is being cancelled.
+        </span>Cancelling = <span class="number">2</span>,
+        <span class="doccomment">/// Operation succeeded.
+        </span>Succeeded = <span class="number">3</span>,
+        <span class="doccomment">/// Operation failed.
+        </span>Failed = <span class="number">4</span>,
+        <span class="doccomment">/// Operation is cancelled.
+        </span>Cancelled = <span class="number">5</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
+                State::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
+                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
+                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
+                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
 <span class="doccomment">/// Payload message of raw document content (bytes).
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -6047,84 +5895,6 @@
         </span><span class="kw">pub </span>language_hints: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
 }
-<span class="doccomment">/// The common metadata for long running operations.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CommonOperationMetadata {
-    <span class="doccomment">/// The state of the operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;common_operation_metadata::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// A message providing more details about the current state of processing.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>state_message: ::prost::alloc::string::String,
-    <span class="doccomment">/// A related resource to this operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
-    <span class="doccomment">/// The creation time of the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The last update time of the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `CommonOperationMetadata`.
-</span><span class="kw">pub mod </span>common_operation_metadata {
-    <span class="doccomment">/// State of the longrunning operation.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unspecified state.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Operation is still running.
-        </span>Running = <span class="number">1</span>,
-        <span class="doccomment">/// Operation is being cancelled.
-        </span>Cancelling = <span class="number">2</span>,
-        <span class="doccomment">/// Operation succeeded.
-        </span>Succeeded = <span class="number">3</span>,
-        <span class="doccomment">/// Operation failed.
-        </span>Failed = <span class="number">4</span>,
-        <span class="doccomment">/// Operation is cancelled.
-        </span>Cancelled = <span class="number">5</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
 <span class="doccomment">/// A processor type is responsible for performing a certain document
 /// understanding task on a certain type of document.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -6164,6 +5934,236 @@
         /// multi-regional support](/document-ai/docs/regions).
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>location_id: ::prost::alloc::string::String,
+    }
+}
+<span class="doccomment">/// A processor version is an implementation of a processor. Each processor
+/// can have multiple versions, pretrained by Google internally or uptrained
+/// by the customer. A processor can only have one default version at a time.
+/// Its document-processing behavior is defined by that version.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ProcessorVersion {
+    <span class="doccomment">/// The resource name of the processor version.
+    /// Format:
+    /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The display name of the processor version.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The schema of the processor version. Describes the output.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>document_schema: ::core::option::Option&lt;DocumentSchema&gt;,
+    <span class="doccomment">/// The state of the processor version.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;processor_version::State&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// The time the processor version was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The most recently invoked evaluation for the processor version.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>latest_evaluation: ::core::option::Option&lt;EvaluationReference&gt;,
+    <span class="doccomment">/// The KMS key name used for encryption.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The KMS key version with which data is encrypted.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>kms_key_version_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Denotes that this `ProcessorVersion` is managed by Google.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>google_managed: bool,
+    <span class="doccomment">/// If set, information about the eventual deprecation of this version.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>deprecation_info: ::core::option::Option&lt;processor_version::DeprecationInfo&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ProcessorVersion`.
+</span><span class="kw">pub mod </span>processor_version {
+    <span class="doccomment">/// Information about the upcoming deprecation of this processor version.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>DeprecationInfo {
+        <span class="doccomment">/// The time at which this processor version will be deprecated.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>deprecation_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+        <span class="doccomment">/// If set, the processor version that will be used as a replacement.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>replacement_processor_version: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// The possible states of the processor version.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// The processor version is in an unspecified state.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The processor version is deployed and can be used for processing.
+        </span>Deployed = <span class="number">1</span>,
+        <span class="doccomment">/// The processor version is being deployed.
+        </span>Deploying = <span class="number">2</span>,
+        <span class="doccomment">/// The processor version is not deployed and cannot be used for processing.
+        </span>Undeployed = <span class="number">3</span>,
+        <span class="doccomment">/// The processor version is being undeployed.
+        </span>Undeploying = <span class="number">4</span>,
+        <span class="doccomment">/// The processor version is being created.
+        </span>Creating = <span class="number">5</span>,
+        <span class="doccomment">/// The processor version is being deleted.
+        </span>Deleting = <span class="number">6</span>,
+        <span class="doccomment">/// The processor version failed and is in an indeterminate state.
+        </span>Failed = <span class="number">7</span>,
+        <span class="doccomment">/// The processor version is being imported.
+        </span>Importing = <span class="number">8</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Deployed =&gt; <span class="string">&quot;DEPLOYED&quot;</span>,
+                State::Deploying =&gt; <span class="string">&quot;DEPLOYING&quot;</span>,
+                State::Undeployed =&gt; <span class="string">&quot;UNDEPLOYED&quot;</span>,
+                State::Undeploying =&gt; <span class="string">&quot;UNDEPLOYING&quot;</span>,
+                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
+                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Importing =&gt; <span class="string">&quot;IMPORTING&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;DEPLOYED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deployed),
+                <span class="string">&quot;DEPLOYING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deploying),
+                <span class="string">&quot;UNDEPLOYED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Undeployed),
+                <span class="string">&quot;UNDEPLOYING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Undeploying),
+                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">&quot;IMPORTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Importing),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// The first-class citizen for Document AI. Each processor defines how to
+/// extract structural information from a document.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Processor {
+    <span class="doccomment">/// Output only. Immutable. The resource name of the processor.
+    /// Format: `projects/{project}/locations/{location}/processors/{processor}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`.
+    /// To get a list of processor types, see
+    /// \[FetchProcessorTypes][google.cloud.documentai.v1.DocumentProcessorService.FetchProcessorTypes\].
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
+    <span class="doccomment">/// The display name of the processor.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The state of the processor.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;processor::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// The default processor version.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>default_processor_version: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Immutable. The http endpoint that can be called to invoke
+    /// processing.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>process_endpoint: ::prost::alloc::string::String,
+    <span class="doccomment">/// The time the processor was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The [KMS key](&lt;https://cloud.google.com/security-key-management&gt;) used for
+    /// encryption and decryption in CMEK scenarios.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `Processor`.
+</span><span class="kw">pub mod </span>processor {
+    <span class="doccomment">/// The possible states of the processor.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// The processor is in an unspecified state.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The processor is enabled, i.e., has an enabled version which can
+        /// currently serve processing requests and all the feature dependencies have
+        /// been successfully initialized.
+        </span>Enabled = <span class="number">1</span>,
+        <span class="doccomment">/// The processor is disabled.
+        </span>Disabled = <span class="number">2</span>,
+        <span class="doccomment">/// The processor is being enabled, will become `ENABLED` if successful.
+        </span>Enabling = <span class="number">3</span>,
+        <span class="doccomment">/// The processor is being disabled, will become `DISABLED` if successful.
+        </span>Disabling = <span class="number">4</span>,
+        <span class="doccomment">/// The processor is being created, will become either `ENABLED` (for
+        /// successful creation) or `FAILED` (for failed ones).
+        /// Once a processor is in this state, it can then be used for document
+        /// processing, but the feature dependencies of the processor might not be
+        /// fully created yet.
+        </span>Creating = <span class="number">5</span>,
+        <span class="doccomment">/// The processor failed during creation or initialization of feature
+        /// dependencies. The user should delete the processor and recreate one as
+        /// all the functionalities of the processor are disabled.
+        </span>Failed = <span class="number">6</span>,
+        <span class="doccomment">/// The processor is being deleted, will be removed if successful.
+        </span>Deleting = <span class="number">7</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Enabled =&gt; <span class="string">&quot;ENABLED&quot;</span>,
+                State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
+                State::Enabling =&gt; <span class="string">&quot;ENABLING&quot;</span>,
+                State::Disabling =&gt; <span class="string">&quot;DISABLING&quot;</span>,
+                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
+                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
+                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">&quot;ENABLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabling),
+                <span class="string">&quot;DISABLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabling),
+                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
     }
 }
 <span class="doccomment">/// Options for Process API

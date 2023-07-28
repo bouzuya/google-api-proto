@@ -47,9 +47,9 @@ no glossary applied.</p>
 <p>If input file extension is a txt or html, the translation is directly
 written to the output file. If glossary is requested, a separate
 glossary_translations_file has format of
-gs://translation_test/a_b_c_‘trg’_glossary_translations.[extension]</p>
+<code>gs://translation_test/a_b_c_'trg'_glossary_translations.\[extension\]</code></p>
 <p>The format of errors file (for target language code ‘trg’) is:
-gs://translation_test/a_b_c_‘trg’_errors.[extension]</p>
+<code>gs://translation_test/a_b_c_'trg'_errors.\[extension\]</code></p>
 <p>If the input file extension is tsv, errors_file contains the following:
 Column 1: ID of the request provided in the input, if it’s not
 provided in the input, then the input row number is used (0-based).
@@ -59,7 +59,7 @@ Column 4 (only present if a glossary is provided in the request):
 Error when applying the glossary.</p>
 <p>If the input file extension is txt or html, glossary_error_file will be
 generated that contains error details. glossary_error_file has format of
-gs://translation_test/a_b_c_‘trg’_glossary_errors.[extension]</p>
+<code>gs://translation_test/a_b_c_'trg'_glossary_errors.\[extension\]</code></p>
 </div></div><h2 id="implementations" class="small-section-header">Implementations<a href="#implementations" class="anchor">§</a></h2><div id="implementations-list"><details class="toggle implementors-toggle" open><summary><section id="impl-Destination" class="impl"><a class="srclink rightside" href="../../../../../../src/google_api_proto/google/cloud/translation/v3beta1/mod.rs.html#362">source</a><a href="#impl-Destination" class="anchor">§</a><h3 class="code-header">impl <a class="enum" href="enum.Destination.html" title="enum google_api_proto::google::cloud::translation::v3beta1::output_config::Destination">Destination</a></h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.encode" class="method"><a class="srclink rightside" href="../../../../../../src/google_api_proto/google/cloud/translation/v3beta1/mod.rs.html#362">source</a><h4 class="code-header">pub fn <a href="#method.encode" class="fn">encode</a>&lt;B&gt;(&amp;self, buf: <a class="primitive" href="https://doc.rust-lang.org/1.71.0/std/primitive.reference.html">&amp;mut B</a>)<span class="where fmt-newline">where
     B: BufMut,</span></h4></section></summary><div class="docblock"><p>Encodes the message to a buffer.</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.merge" class="method"><a class="srclink rightside" href="../../../../../../src/google_api_proto/google/cloud/translation/v3beta1/mod.rs.html#362">source</a><h4 class="code-header">pub fn <a href="#method.merge" class="fn">merge</a>&lt;B&gt;(

@@ -3155,7 +3155,154 @@
 <a href="#3155" id="3155">3155</a>
 <a href="#3156" id="3156">3156</a>
 <a href="#3157" id="3157">3157</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Traffic density indicator on a contiguous segment of a path. Given a path
+</pre></div><pre class="rust"><code><span class="doccomment">/// A RequestHeader contains fields common to all Fleet Engine RPC requests.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>RequestHeader {
+    <span class="doccomment">/// The BCP-47 language code, such as en-US or sr-Latn. For more information,
+    /// see &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt; If none
+    /// is specified, the response may be in any language, with a preference for
+    /// English if such a name exists. Field value example: `en-US`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. CLDR region code of the region where the request originates.
+    /// Field value example: `US`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>region_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Version of the calling SDK, if applicable.
+    /// The version format is &quot;major.minor.patch&quot;, example: `1.1.2`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>sdk_version: ::prost::alloc::string::String,
+    <span class="doccomment">/// Version of the operating system on which the calling SDK is running.
+    /// Field value examples: `4.4.1`, `12.1`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>os_version: ::prost::alloc::string::String,
+    <span class="doccomment">/// Model of the device on which the calling SDK is running.
+    /// Field value examples: `iPhone12,1`, `SM-G920F`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>device_model: ::prost::alloc::string::String,
+    <span class="doccomment">/// The type of SDK sending the request.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;request_header::SdkType&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>sdk_type: i32,
+    <span class="doccomment">/// Version of the MapSDK which the calling SDK depends on, if applicable.
+    /// The version format is &quot;major.minor.patch&quot;, example: `5.2.1`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>maps_sdk_version: ::prost::alloc::string::String,
+    <span class="doccomment">/// Version of the NavSDK which the calling SDK depends on, if applicable.
+    /// The version format is &quot;major.minor.patch&quot;, example: `2.1.0`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>nav_sdk_version: ::prost::alloc::string::String,
+    <span class="doccomment">/// Platform of the calling SDK.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;request_header::Platform&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>platform: i32,
+    <span class="doccomment">/// Manufacturer of the Android device from the calling SDK, only applicable
+    /// for the Android SDKs.
+    /// Field value example: `Samsung`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>manufacturer: ::prost::alloc::string::String,
+    <span class="doccomment">/// Android API level of the calling SDK, only applicable for the Android SDKs.
+    /// Field value example: `23`.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>android_api_level: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `RequestHeader`.
+</span><span class="kw">pub mod </span>request_header {
+    <span class="doccomment">/// Possible types of SDK.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>SdkType {
+        <span class="doccomment">/// The default value. This value is used if the `sdk_type` is omitted.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The calling SDK is Consumer.
+        </span>Consumer = <span class="number">1</span>,
+        <span class="doccomment">/// The calling SDK is Driver.
+        </span>Driver = <span class="number">2</span>,
+        <span class="doccomment">/// The calling SDK is JavaScript.
+        </span>Javascript = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>SdkType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                SdkType::Unspecified =&gt; <span class="string">&quot;SDK_TYPE_UNSPECIFIED&quot;</span>,
+                SdkType::Consumer =&gt; <span class="string">&quot;CONSUMER&quot;</span>,
+                SdkType::Driver =&gt; <span class="string">&quot;DRIVER&quot;</span>,
+                SdkType::Javascript =&gt; <span class="string">&quot;JAVASCRIPT&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;SDK_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;CONSUMER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Consumer),
+                <span class="string">&quot;DRIVER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Driver),
+                <span class="string">&quot;JAVASCRIPT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Javascript),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// The platform of the calling SDK.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Platform {
+        <span class="doccomment">/// The default value. This value is used if the platform is omitted.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The request is coming from Android.
+        </span>Android = <span class="number">1</span>,
+        <span class="doccomment">/// The request is coming from iOS.
+        </span>Ios = <span class="number">2</span>,
+        <span class="doccomment">/// The request is coming from the web.
+        </span>Web = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>Platform {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Platform::Unspecified =&gt; <span class="string">&quot;PLATFORM_UNSPECIFIED&quot;</span>,
+                Platform::Android =&gt; <span class="string">&quot;ANDROID&quot;</span>,
+                Platform::Ios =&gt; <span class="string">&quot;IOS&quot;</span>,
+                Platform::Web =&gt; <span class="string">&quot;WEB&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;PLATFORM_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ANDROID&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Android),
+                <span class="string">&quot;IOS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ios),
+                <span class="string">&quot;WEB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Web),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Traffic density indicator on a contiguous segment of a path. Given a path
 /// with points P_0, P_1, ... , P_N (zero-based index), the SpeedReadingInterval
 /// defines an interval and describes its traffic using the following categories.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -3668,153 +3815,6 @@
         }
     }
 }
-<span class="doccomment">/// A RequestHeader contains fields common to all Fleet Engine RPC requests.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>RequestHeader {
-    <span class="doccomment">/// The BCP-47 language code, such as en-US or sr-Latn. For more information,
-    /// see &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt; If none
-    /// is specified, the response may be in any language, with a preference for
-    /// English if such a name exists. Field value example: `en-US`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. CLDR region code of the region where the request originates.
-    /// Field value example: `US`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>region_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Version of the calling SDK, if applicable.
-    /// The version format is &quot;major.minor.patch&quot;, example: `1.1.2`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>sdk_version: ::prost::alloc::string::String,
-    <span class="doccomment">/// Version of the operating system on which the calling SDK is running.
-    /// Field value examples: `4.4.1`, `12.1`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>os_version: ::prost::alloc::string::String,
-    <span class="doccomment">/// Model of the device on which the calling SDK is running.
-    /// Field value examples: `iPhone12,1`, `SM-G920F`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>device_model: ::prost::alloc::string::String,
-    <span class="doccomment">/// The type of SDK sending the request.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;request_header::SdkType&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>sdk_type: i32,
-    <span class="doccomment">/// Version of the MapSDK which the calling SDK depends on, if applicable.
-    /// The version format is &quot;major.minor.patch&quot;, example: `5.2.1`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>maps_sdk_version: ::prost::alloc::string::String,
-    <span class="doccomment">/// Version of the NavSDK which the calling SDK depends on, if applicable.
-    /// The version format is &quot;major.minor.patch&quot;, example: `2.1.0`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>nav_sdk_version: ::prost::alloc::string::String,
-    <span class="doccomment">/// Platform of the calling SDK.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;request_header::Platform&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>platform: i32,
-    <span class="doccomment">/// Manufacturer of the Android device from the calling SDK, only applicable
-    /// for the Android SDKs.
-    /// Field value example: `Samsung`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>manufacturer: ::prost::alloc::string::String,
-    <span class="doccomment">/// Android API level of the calling SDK, only applicable for the Android SDKs.
-    /// Field value example: `23`.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>android_api_level: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `RequestHeader`.
-</span><span class="kw">pub mod </span>request_header {
-    <span class="doccomment">/// Possible types of SDK.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>SdkType {
-        <span class="doccomment">/// The default value. This value is used if the `sdk_type` is omitted.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The calling SDK is Consumer.
-        </span>Consumer = <span class="number">1</span>,
-        <span class="doccomment">/// The calling SDK is Driver.
-        </span>Driver = <span class="number">2</span>,
-        <span class="doccomment">/// The calling SDK is JavaScript.
-        </span>Javascript = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>SdkType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                SdkType::Unspecified =&gt; <span class="string">&quot;SDK_TYPE_UNSPECIFIED&quot;</span>,
-                SdkType::Consumer =&gt; <span class="string">&quot;CONSUMER&quot;</span>,
-                SdkType::Driver =&gt; <span class="string">&quot;DRIVER&quot;</span>,
-                SdkType::Javascript =&gt; <span class="string">&quot;JAVASCRIPT&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;SDK_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CONSUMER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Consumer),
-                <span class="string">&quot;DRIVER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Driver),
-                <span class="string">&quot;JAVASCRIPT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Javascript),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// The platform of the calling SDK.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Platform {
-        <span class="doccomment">/// The default value. This value is used if the platform is omitted.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The request is coming from Android.
-        </span>Android = <span class="number">1</span>,
-        <span class="doccomment">/// The request is coming from iOS.
-        </span>Ios = <span class="number">2</span>,
-        <span class="doccomment">/// The request is coming from the web.
-        </span>Web = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>Platform {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Platform::Unspecified =&gt; <span class="string">&quot;PLATFORM_UNSPECIFIED&quot;</span>,
-                Platform::Android =&gt; <span class="string">&quot;ANDROID&quot;</span>,
-                Platform::Ios =&gt; <span class="string">&quot;IOS&quot;</span>,
-                Platform::Web =&gt; <span class="string">&quot;WEB&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;PLATFORM_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ANDROID&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Android),
-                <span class="string">&quot;IOS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ios),
-                <span class="string">&quot;WEB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Web),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
 <span class="doccomment">/// Trip metadata.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4161,6 +4161,511 @@
             <span class="string">&quot;TRIP_VIEW_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
             <span class="string">&quot;SDK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sdk),
             <span class="string">&quot;JOURNEY_SHARING_V1S&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::JourneySharingV1s),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// Vehicle metadata.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Vehicle {
+    <span class="doccomment">/// Output only. The unique name for this vehicle.
+    /// The format is `providers/{provider}/vehicles/{vehicle}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The vehicle state.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;VehicleState&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>vehicle_state: i32,
+    <span class="doccomment">/// Trip types supported by this vehicle.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TripType&quot;</span>, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>supported_trip_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
+    <span class="doccomment">/// Output only. List of `trip_id`&#39;s for trips currently assigned to this
+    /// vehicle.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>current_trips: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Last reported location of the vehicle.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>last_location: ::core::option::Option&lt;VehicleLocation&gt;,
+    <span class="doccomment">/// The total numbers of riders this vehicle can carry.  The driver is not
+    /// considered in this value. This value must be greater than or equal to one.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>maximum_capacity: i32,
+    <span class="doccomment">/// List of vehicle attributes. A vehicle can have at most 50
+    /// attributes, and each attribute must have a unique key.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>attributes: ::prost::alloc::vec::Vec&lt;VehicleAttribute&gt;,
+    <span class="doccomment">/// The type of this vehicle.  Can be used to filter vehicles in
+    /// `SearchVehicles` results.  Also influences ETA and route calculations.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>vehicle_type: ::core::option::Option&lt;vehicle::VehicleType&gt;,
+    <span class="doccomment">/// License plate information for the vehicle.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>license_plate: ::core::option::Option&lt;LicensePlate&gt;,
+    <span class="doccomment">/// Deprecated: Use `Vehicle.waypoints` instead.
+    </span><span class="attr">#[deprecated]
+    #[prost(message, repeated, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>route: ::prost::alloc::vec::Vec&lt;TerminalLocation&gt;,
+    <span class="doccomment">/// The polyline specifying the route the driver app intends to take to
+    /// the next waypoint. This list is also returned in
+    /// `Trip.current_route_segment` for all active trips assigned to the vehicle.
+    ///
+    /// Note: This field is intended only for use by the Driver SDK. Decoding is
+    /// not yet supported.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="kw">pub </span>current_route_segment: ::prost::alloc::string::String,
+    <span class="doccomment">/// Input only. Fleet Engine uses this information to improve journey sharing.
+    /// Note: This field is intended only for use by the Driver SDK.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;28&quot;</span>)]
+    </span><span class="kw">pub </span>current_route_segment_traffic: ::core::option::Option&lt;TrafficPolylineData&gt;,
+    <span class="doccomment">/// Output only. Time when `current_route_segment` was set. It can be stored by
+    /// the client and passed in future `GetVehicle` requests to prevent returning
+    /// routes that haven&#39;t changed.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>current_route_segment_version: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The waypoint where `current_route_segment` ends. This can be supplied by
+    /// drivers on `UpdateVehicle` calls either as a full trip waypoint, a waypoint
+    /// `LatLng`, or as the last `LatLng` of the `current_route_segment`. Fleet
+    /// Engine will then do its best to interpolate to an actual waypoint if it is
+    /// not fully specified. This field is ignored in `UpdateVehicle` calls unless
+    /// `current_route_segment` is also specified.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="kw">pub </span>current_route_segment_end_point: ::core::option::Option&lt;TripWaypoint&gt;,
+    <span class="doccomment">/// The remaining driving distance for the `current_route_segment`.
+    /// This value is also returned in `Trip.remaining_distance_meters` for all
+    /// active trips assigned to the vehicle. The value is unspecified if the
+    /// `current_route_segment` field is empty.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="kw">pub </span>remaining_distance_meters: ::core::option::Option&lt;i32&gt;,
+    <span class="doccomment">/// The ETA to the first entry in the `waypoints` field.  The value is
+    /// unspecified if the `waypoints` field is empty or the
+    /// `Vehicle.current_route_segment` field is empty.
+    ///
+    /// When updating a vehicle, `remaining_time_seconds` takes precedence over
+    /// `eta_to_first_waypoint` in the same request.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="kw">pub </span>eta_to_first_waypoint: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Input only. The remaining driving time for the `current_route_segment`. The
+    /// value is unspecified if the `waypoints` field is empty or the
+    /// `Vehicle.current_route_segment` field is empty. This value should match
+    /// `eta_to_first_waypoint` - `current_time` if all parties are using the same
+    /// clock.
+    ///
+    /// When updating a vehicle, `remaining_time_seconds` takes precedence over
+    /// `eta_to_first_waypoint` in the same request.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;25&quot;</span>)]
+    </span><span class="kw">pub </span>remaining_time_seconds: ::core::option::Option&lt;i32&gt;,
+    <span class="doccomment">/// The remaining waypoints assigned to this Vehicle.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="kw">pub </span>waypoints: ::prost::alloc::vec::Vec&lt;TripWaypoint&gt;,
+    <span class="doccomment">/// Output only. Last time the `waypoints` field was updated. Clients should
+    /// cache this value and pass it in `GetVehicleRequest` to ensure the
+    /// `waypoints` field is only returned if it is updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="kw">pub </span>waypoints_version: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Indicates if the driver accepts back-to-back trips. If `true`,
+    /// `SearchVehicles` may include the vehicle even if it is currently assigned
+    /// to a trip. The default value is `false`.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="kw">pub </span>back_to_back_enabled: bool,
+    <span class="doccomment">/// The vehicle&#39;s navigation status.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;NavigationStatus&quot;</span>, tag = <span class="string">&quot;26&quot;</span>)]
+    </span><span class="kw">pub </span>navigation_status: i32,
+    <span class="doccomment">/// Input only. Information about settings in the mobile device being used by
+    /// the driver.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;27&quot;</span>)]
+    </span><span class="kw">pub </span>device_settings: ::core::option::Option&lt;DeviceSettings&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Vehicle`.
+</span><span class="kw">pub mod </span>vehicle {
+    <span class="doccomment">/// The type of vehicle.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>VehicleType {
+        <span class="doccomment">/// Vehicle type category
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;vehicle_type::Category&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>category: i32,
+    }
+    <span class="doccomment">/// Nested message and enum types in `VehicleType`.
+    </span><span class="kw">pub mod </span>vehicle_type {
+        <span class="doccomment">/// Vehicle type categories
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>Category {
+            <span class="doccomment">/// Default, used for unspecified or unrecognized vehicle categories.
+            </span>Unknown = <span class="number">0</span>,
+            <span class="doccomment">/// An automobile.
+            </span>Auto = <span class="number">1</span>,
+            <span class="doccomment">/// Any vehicle that acts as a taxi (typically licensed or regulated).
+            </span>Taxi = <span class="number">2</span>,
+            <span class="doccomment">/// Generally, a vehicle with a large storage capacity.
+            </span>Truck = <span class="number">3</span>,
+            <span class="doccomment">/// A motorcycle, moped, or other two-wheeled vehicle
+            </span>TwoWheeler = <span class="number">4</span>,
+        }
+        <span class="kw">impl </span>Category {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    Category::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
+                    Category::Auto =&gt; <span class="string">&quot;AUTO&quot;</span>,
+                    Category::Taxi =&gt; <span class="string">&quot;TAXI&quot;</span>,
+                    Category::Truck =&gt; <span class="string">&quot;TRUCK&quot;</span>,
+                    Category::TwoWheeler =&gt; <span class="string">&quot;TWO_WHEELER&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                    <span class="string">&quot;AUTO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Auto),
+                    <span class="string">&quot;TAXI&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Taxi),
+                    <span class="string">&quot;TRUCK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Truck),
+                    <span class="string">&quot;TWO_WHEELER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TwoWheeler),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
+}
+<span class="doccomment">/// Information about the device&#39;s battery.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BatteryInfo {
+    <span class="doccomment">/// Status of the battery, whether full or charging etc.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;BatteryStatus&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>battery_status: i32,
+    <span class="doccomment">/// Status of battery power source.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;PowerSource&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>power_source: i32,
+    <span class="doccomment">/// Current battery percentage \[0-100\].
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>battery_percentage: f32,
+}
+<span class="doccomment">/// Information about various settings on the mobile device.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeviceSettings {
+    <span class="doccomment">/// How location features are set to behave on the device when battery saver is
+    /// on.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;LocationPowerSaveMode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>location_power_save_mode: i32,
+    <span class="doccomment">/// Whether the device is currently in power save mode.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>is_power_save_mode: bool,
+    <span class="doccomment">/// Whether the device is in an interactive state.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>is_interactive: bool,
+    <span class="doccomment">/// Information about the battery state.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>battery_info: ::core::option::Option&lt;BatteryInfo&gt;,
+}
+<span class="doccomment">/// The license plate information of the Vehicle.  To avoid storing
+/// personally-identifiable information, only the minimum information
+/// about the license plate is stored as part of the entity.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>LicensePlate {
+    <span class="doccomment">/// Required. CLDR Country/Region Code.  For example, `US` for United States,
+    /// or `IN` for India.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>country_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// The last digit of the license plate or &quot;-1&quot; to denote no numeric value
+    /// is present in the license plate.
+    ///
+    /// * &quot;ABC 1234&quot; -&gt; &quot;4&quot;
+    /// * &quot;AB 123 CD&quot; -&gt; &quot;3&quot;
+    /// * &quot;ABCDEF&quot; -&gt; &quot;-1&quot;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>last_character: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Describes how clients should color one portion of the polyline along the
+/// route.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VisualTrafficReportPolylineRendering {
+    <span class="doccomment">/// Optional. Road stretches that should be rendered along the polyline.
+    /// Stretches are guaranteed to not overlap, and do not necessarily span the
+    /// full route.
+    ///
+    /// In the absence of a road stretch to style, the client should apply the
+    /// default for the route.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>road_stretch: ::prost::alloc::vec::Vec&lt;
+        visual_traffic_report_polyline_rendering::RoadStretch,
+    &gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `VisualTrafficReportPolylineRendering`.
+</span><span class="kw">pub mod </span>visual_traffic_report_polyline_rendering {
+    <span class="doccomment">/// One road stretch that should be rendered.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>RoadStretch {
+        <span class="doccomment">/// Required. The style to apply.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;road_stretch::Style&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>style: i32,
+        <span class="doccomment">/// Required. The style should be applied between `[offset_meters,
+        /// offset_meters + length_meters)`.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>offset_meters: i32,
+        <span class="doccomment">/// Required. The length of the path where to apply the style.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>length_meters: i32,
+    }
+    <span class="doccomment">/// Nested message and enum types in `RoadStretch`.
+    </span><span class="kw">pub mod </span>road_stretch {
+        <span class="doccomment">/// The traffic style, indicating traffic speed.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>Style {
+            <span class="doccomment">/// No style selected.
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// Traffic is slowing down.
+            </span>SlowerTraffic = <span class="number">1</span>,
+            <span class="doccomment">/// There is a traffic jam.
+            </span>TrafficJam = <span class="number">2</span>,
+        }
+        <span class="kw">impl </span>Style {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    Style::Unspecified =&gt; <span class="string">&quot;STYLE_UNSPECIFIED&quot;</span>,
+                    Style::SlowerTraffic =&gt; <span class="string">&quot;SLOWER_TRAFFIC&quot;</span>,
+                    Style::TrafficJam =&gt; <span class="string">&quot;TRAFFIC_JAM&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;STYLE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;SLOWER_TRAFFIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SlowerTraffic),
+                    <span class="string">&quot;TRAFFIC_JAM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TrafficJam),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
+}
+<span class="doccomment">/// Traffic conditions along the expected vehicle route.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TrafficPolylineData {
+    <span class="doccomment">/// A polyline rendering of how fast traffic is for all regions along
+    /// one stretch of a customer ride.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>traffic_rendering: ::core::option::Option&lt;VisualTrafficReportPolylineRendering&gt;,
+}
+<span class="doccomment">/// The state of a `Vehicle`.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>VehicleState {
+    <span class="doccomment">/// Default, used for unspecified or unrecognized vehicle states.
+    </span>UnknownVehicleState = <span class="number">0</span>,
+    <span class="doccomment">/// The vehicle is not accepting new trips. Note: the vehicle may continue to
+    /// operate in this state while completing a trip assigned to it.
+    </span>Offline = <span class="number">1</span>,
+    <span class="doccomment">/// The vehicle is accepting new trips.
+    </span>Online = <span class="number">2</span>,
+}
+<span class="kw">impl </span>VehicleState {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            VehicleState::UnknownVehicleState =&gt; <span class="string">&quot;UNKNOWN_VEHICLE_STATE&quot;</span>,
+            VehicleState::Offline =&gt; <span class="string">&quot;OFFLINE&quot;</span>,
+            VehicleState::Online =&gt; <span class="string">&quot;ONLINE&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;UNKNOWN_VEHICLE_STATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownVehicleState),
+            <span class="string">&quot;OFFLINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Offline),
+            <span class="string">&quot;ONLINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Online),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// How location features are configured to behave on the mobile device when the
+/// devices &quot;battery saver&quot; feature is on.
+/// (&lt;https://developer.android.com/reference/android/os/PowerManager#getLocationPowerSaveMode(&gt;))
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>LocationPowerSaveMode {
+    <span class="doccomment">/// Undefined LocationPowerSaveMode
+    </span>UnknownLocationPowerSaveMode = <span class="number">0</span>,
+    <span class="doccomment">/// Either the location providers shouldn&#39;t be affected by battery saver, or
+    /// battery saver is off.
+    </span>LocationModeNoChange = <span class="number">1</span>,
+    <span class="doccomment">/// The GPS based location provider should be disabled when battery saver is on
+    /// and the device is non-interactive.
+    </span>LocationModeGpsDisabledWhenScreenOff = <span class="number">2</span>,
+    <span class="doccomment">/// All location providers should be disabled when battery saver is on and the
+    /// device is non-interactive.
+    </span>LocationModeAllDisabledWhenScreenOff = <span class="number">3</span>,
+    <span class="doccomment">/// All the location providers will be kept available, but location fixes
+    /// should only be provided to foreground apps.
+    </span>LocationModeForegroundOnly = <span class="number">4</span>,
+    <span class="doccomment">/// Location will not be turned off, but LocationManager will throttle all
+    /// requests to providers when the device is non-interactive.
+    </span>LocationModeThrottleRequestsWhenScreenOff = <span class="number">5</span>,
+}
+<span class="kw">impl </span>LocationPowerSaveMode {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            LocationPowerSaveMode::UnknownLocationPowerSaveMode =&gt; {
+                <span class="string">&quot;UNKNOWN_LOCATION_POWER_SAVE_MODE&quot;
+            </span>}
+            LocationPowerSaveMode::LocationModeNoChange =&gt; <span class="string">&quot;LOCATION_MODE_NO_CHANGE&quot;</span>,
+            LocationPowerSaveMode::LocationModeGpsDisabledWhenScreenOff =&gt; {
+                <span class="string">&quot;LOCATION_MODE_GPS_DISABLED_WHEN_SCREEN_OFF&quot;
+            </span>}
+            LocationPowerSaveMode::LocationModeAllDisabledWhenScreenOff =&gt; {
+                <span class="string">&quot;LOCATION_MODE_ALL_DISABLED_WHEN_SCREEN_OFF&quot;
+            </span>}
+            LocationPowerSaveMode::LocationModeForegroundOnly =&gt; {
+                <span class="string">&quot;LOCATION_MODE_FOREGROUND_ONLY&quot;
+            </span>}
+            LocationPowerSaveMode::LocationModeThrottleRequestsWhenScreenOff =&gt; {
+                <span class="string">&quot;LOCATION_MODE_THROTTLE_REQUESTS_WHEN_SCREEN_OFF&quot;
+            </span>}
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;UNKNOWN_LOCATION_POWER_SAVE_MODE&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownLocationPowerSaveMode)
+            }
+            <span class="string">&quot;LOCATION_MODE_NO_CHANGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocationModeNoChange),
+            <span class="string">&quot;LOCATION_MODE_GPS_DISABLED_WHEN_SCREEN_OFF&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocationModeGpsDisabledWhenScreenOff)
+            }
+            <span class="string">&quot;LOCATION_MODE_ALL_DISABLED_WHEN_SCREEN_OFF&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocationModeAllDisabledWhenScreenOff)
+            }
+            <span class="string">&quot;LOCATION_MODE_FOREGROUND_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocationModeForegroundOnly),
+            <span class="string">&quot;LOCATION_MODE_THROTTLE_REQUESTS_WHEN_SCREEN_OFF&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocationModeThrottleRequestsWhenScreenOff)
+            }
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// Status of the battery, whether full or charging etc.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>BatteryStatus {
+    <span class="doccomment">/// Battery status unknown.
+    </span>UnknownBatteryStatus = <span class="number">0</span>,
+    <span class="doccomment">/// Battery is being charged.
+    </span>Charging = <span class="number">1</span>,
+    <span class="doccomment">/// Battery is discharging.
+    </span>Discharging = <span class="number">2</span>,
+    <span class="doccomment">/// Battery is full.
+    </span>Full = <span class="number">3</span>,
+    <span class="doccomment">/// Battery is not charging.
+    </span>NotCharging = <span class="number">4</span>,
+    <span class="doccomment">/// Battery is low on power.
+    </span>PowerLow = <span class="number">5</span>,
+}
+<span class="kw">impl </span>BatteryStatus {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            BatteryStatus::UnknownBatteryStatus =&gt; <span class="string">&quot;UNKNOWN_BATTERY_STATUS&quot;</span>,
+            BatteryStatus::Charging =&gt; <span class="string">&quot;BATTERY_STATUS_CHARGING&quot;</span>,
+            BatteryStatus::Discharging =&gt; <span class="string">&quot;BATTERY_STATUS_DISCHARGING&quot;</span>,
+            BatteryStatus::Full =&gt; <span class="string">&quot;BATTERY_STATUS_FULL&quot;</span>,
+            BatteryStatus::NotCharging =&gt; <span class="string">&quot;BATTERY_STATUS_NOT_CHARGING&quot;</span>,
+            BatteryStatus::PowerLow =&gt; <span class="string">&quot;BATTERY_STATUS_POWER_LOW&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;UNKNOWN_BATTERY_STATUS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownBatteryStatus),
+            <span class="string">&quot;BATTERY_STATUS_CHARGING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Charging),
+            <span class="string">&quot;BATTERY_STATUS_DISCHARGING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Discharging),
+            <span class="string">&quot;BATTERY_STATUS_FULL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
+            <span class="string">&quot;BATTERY_STATUS_NOT_CHARGING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotCharging),
+            <span class="string">&quot;BATTERY_STATUS_POWER_LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PowerLow),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// Type of the charger being used to charge the battery.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>PowerSource {
+    <span class="doccomment">/// Power source unknown.
+    </span>UnknownPowerSource = <span class="number">0</span>,
+    <span class="doccomment">/// Power source is an AC charger.
+    </span>Ac = <span class="number">1</span>,
+    <span class="doccomment">/// Power source is a USB port.
+    </span>Usb = <span class="number">2</span>,
+    <span class="doccomment">/// Power source is wireless.
+    </span>Wireless = <span class="number">3</span>,
+    <span class="doccomment">/// Battery is unplugged.
+    </span>Unplugged = <span class="number">4</span>,
+}
+<span class="kw">impl </span>PowerSource {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            PowerSource::UnknownPowerSource =&gt; <span class="string">&quot;UNKNOWN_POWER_SOURCE&quot;</span>,
+            PowerSource::Ac =&gt; <span class="string">&quot;POWER_SOURCE_AC&quot;</span>,
+            PowerSource::Usb =&gt; <span class="string">&quot;POWER_SOURCE_USB&quot;</span>,
+            PowerSource::Wireless =&gt; <span class="string">&quot;POWER_SOURCE_WIRELESS&quot;</span>,
+            PowerSource::Unplugged =&gt; <span class="string">&quot;POWER_SOURCE_UNPLUGGED&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;UNKNOWN_POWER_SOURCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownPowerSource),
+            <span class="string">&quot;POWER_SOURCE_AC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ac),
+            <span class="string">&quot;POWER_SOURCE_USB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Usb),
+            <span class="string">&quot;POWER_SOURCE_WIRELESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Wireless),
+            <span class="string">&quot;POWER_SOURCE_UNPLUGGED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unplugged),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -4674,511 +5179,6 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-    }
-}
-<span class="doccomment">/// Vehicle metadata.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Vehicle {
-    <span class="doccomment">/// Output only. The unique name for this vehicle.
-    /// The format is `providers/{provider}/vehicles/{vehicle}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The vehicle state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;VehicleState&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>vehicle_state: i32,
-    <span class="doccomment">/// Trip types supported by this vehicle.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TripType&quot;</span>, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>supported_trip_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
-    <span class="doccomment">/// Output only. List of `trip_id`&#39;s for trips currently assigned to this
-    /// vehicle.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>current_trips: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Last reported location of the vehicle.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>last_location: ::core::option::Option&lt;VehicleLocation&gt;,
-    <span class="doccomment">/// The total numbers of riders this vehicle can carry.  The driver is not
-    /// considered in this value. This value must be greater than or equal to one.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>maximum_capacity: i32,
-    <span class="doccomment">/// List of vehicle attributes. A vehicle can have at most 50
-    /// attributes, and each attribute must have a unique key.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>attributes: ::prost::alloc::vec::Vec&lt;VehicleAttribute&gt;,
-    <span class="doccomment">/// The type of this vehicle.  Can be used to filter vehicles in
-    /// `SearchVehicles` results.  Also influences ETA and route calculations.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>vehicle_type: ::core::option::Option&lt;vehicle::VehicleType&gt;,
-    <span class="doccomment">/// License plate information for the vehicle.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>license_plate: ::core::option::Option&lt;LicensePlate&gt;,
-    <span class="doccomment">/// Deprecated: Use `Vehicle.waypoints` instead.
-    </span><span class="attr">#[deprecated]
-    #[prost(message, repeated, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>route: ::prost::alloc::vec::Vec&lt;TerminalLocation&gt;,
-    <span class="doccomment">/// The polyline specifying the route the driver app intends to take to
-    /// the next waypoint. This list is also returned in
-    /// `Trip.current_route_segment` for all active trips assigned to the vehicle.
-    ///
-    /// Note: This field is intended only for use by the Driver SDK. Decoding is
-    /// not yet supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;20&quot;</span>)]
-    </span><span class="kw">pub </span>current_route_segment: ::prost::alloc::string::String,
-    <span class="doccomment">/// Input only. Fleet Engine uses this information to improve journey sharing.
-    /// Note: This field is intended only for use by the Driver SDK.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;28&quot;</span>)]
-    </span><span class="kw">pub </span>current_route_segment_traffic: ::core::option::Option&lt;TrafficPolylineData&gt;,
-    <span class="doccomment">/// Output only. Time when `current_route_segment` was set. It can be stored by
-    /// the client and passed in future `GetVehicle` requests to prevent returning
-    /// routes that haven&#39;t changed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
-    </span><span class="kw">pub </span>current_route_segment_version: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The waypoint where `current_route_segment` ends. This can be supplied by
-    /// drivers on `UpdateVehicle` calls either as a full trip waypoint, a waypoint
-    /// `LatLng`, or as the last `LatLng` of the `current_route_segment`. Fleet
-    /// Engine will then do its best to interpolate to an actual waypoint if it is
-    /// not fully specified. This field is ignored in `UpdateVehicle` calls unless
-    /// `current_route_segment` is also specified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;24&quot;</span>)]
-    </span><span class="kw">pub </span>current_route_segment_end_point: ::core::option::Option&lt;TripWaypoint&gt;,
-    <span class="doccomment">/// The remaining driving distance for the `current_route_segment`.
-    /// This value is also returned in `Trip.remaining_distance_meters` for all
-    /// active trips assigned to the vehicle. The value is unspecified if the
-    /// `current_route_segment` field is empty.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;18&quot;</span>)]
-    </span><span class="kw">pub </span>remaining_distance_meters: ::core::option::Option&lt;i32&gt;,
-    <span class="doccomment">/// The ETA to the first entry in the `waypoints` field.  The value is
-    /// unspecified if the `waypoints` field is empty or the
-    /// `Vehicle.current_route_segment` field is empty.
-    ///
-    /// When updating a vehicle, `remaining_time_seconds` takes precedence over
-    /// `eta_to_first_waypoint` in the same request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;19&quot;</span>)]
-    </span><span class="kw">pub </span>eta_to_first_waypoint: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Input only. The remaining driving time for the `current_route_segment`. The
-    /// value is unspecified if the `waypoints` field is empty or the
-    /// `Vehicle.current_route_segment` field is empty. This value should match
-    /// `eta_to_first_waypoint` - `current_time` if all parties are using the same
-    /// clock.
-    ///
-    /// When updating a vehicle, `remaining_time_seconds` takes precedence over
-    /// `eta_to_first_waypoint` in the same request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;25&quot;</span>)]
-    </span><span class="kw">pub </span>remaining_time_seconds: ::core::option::Option&lt;i32&gt;,
-    <span class="doccomment">/// The remaining waypoints assigned to this Vehicle.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;22&quot;</span>)]
-    </span><span class="kw">pub </span>waypoints: ::prost::alloc::vec::Vec&lt;TripWaypoint&gt;,
-    <span class="doccomment">/// Output only. Last time the `waypoints` field was updated. Clients should
-    /// cache this value and pass it in `GetVehicleRequest` to ensure the
-    /// `waypoints` field is only returned if it is updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
-    </span><span class="kw">pub </span>waypoints_version: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Indicates if the driver accepts back-to-back trips. If `true`,
-    /// `SearchVehicles` may include the vehicle even if it is currently assigned
-    /// to a trip. The default value is `false`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;23&quot;</span>)]
-    </span><span class="kw">pub </span>back_to_back_enabled: bool,
-    <span class="doccomment">/// The vehicle&#39;s navigation status.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;NavigationStatus&quot;</span>, tag = <span class="string">&quot;26&quot;</span>)]
-    </span><span class="kw">pub </span>navigation_status: i32,
-    <span class="doccomment">/// Input only. Information about settings in the mobile device being used by
-    /// the driver.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;27&quot;</span>)]
-    </span><span class="kw">pub </span>device_settings: ::core::option::Option&lt;DeviceSettings&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Vehicle`.
-</span><span class="kw">pub mod </span>vehicle {
-    <span class="doccomment">/// The type of vehicle.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>VehicleType {
-        <span class="doccomment">/// Vehicle type category
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;vehicle_type::Category&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>category: i32,
-    }
-    <span class="doccomment">/// Nested message and enum types in `VehicleType`.
-    </span><span class="kw">pub mod </span>vehicle_type {
-        <span class="doccomment">/// Vehicle type categories
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>Category {
-            <span class="doccomment">/// Default, used for unspecified or unrecognized vehicle categories.
-            </span>Unknown = <span class="number">0</span>,
-            <span class="doccomment">/// An automobile.
-            </span>Auto = <span class="number">1</span>,
-            <span class="doccomment">/// Any vehicle that acts as a taxi (typically licensed or regulated).
-            </span>Taxi = <span class="number">2</span>,
-            <span class="doccomment">/// Generally, a vehicle with a large storage capacity.
-            </span>Truck = <span class="number">3</span>,
-            <span class="doccomment">/// A motorcycle, moped, or other two-wheeled vehicle
-            </span>TwoWheeler = <span class="number">4</span>,
-        }
-        <span class="kw">impl </span>Category {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    Category::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
-                    Category::Auto =&gt; <span class="string">&quot;AUTO&quot;</span>,
-                    Category::Taxi =&gt; <span class="string">&quot;TAXI&quot;</span>,
-                    Category::Truck =&gt; <span class="string">&quot;TRUCK&quot;</span>,
-                    Category::TwoWheeler =&gt; <span class="string">&quot;TWO_WHEELER&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                    <span class="string">&quot;AUTO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Auto),
-                    <span class="string">&quot;TAXI&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Taxi),
-                    <span class="string">&quot;TRUCK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Truck),
-                    <span class="string">&quot;TWO_WHEELER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TwoWheeler),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
-}
-<span class="doccomment">/// Information about the device&#39;s battery.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BatteryInfo {
-    <span class="doccomment">/// Status of the battery, whether full or charging etc.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;BatteryStatus&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>battery_status: i32,
-    <span class="doccomment">/// Status of battery power source.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;PowerSource&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>power_source: i32,
-    <span class="doccomment">/// Current battery percentage \[0-100\].
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>battery_percentage: f32,
-}
-<span class="doccomment">/// Information about various settings on the mobile device.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeviceSettings {
-    <span class="doccomment">/// How location features are set to behave on the device when battery saver is
-    /// on.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;LocationPowerSaveMode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>location_power_save_mode: i32,
-    <span class="doccomment">/// Whether the device is currently in power save mode.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>is_power_save_mode: bool,
-    <span class="doccomment">/// Whether the device is in an interactive state.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>is_interactive: bool,
-    <span class="doccomment">/// Information about the battery state.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>battery_info: ::core::option::Option&lt;BatteryInfo&gt;,
-}
-<span class="doccomment">/// The license plate information of the Vehicle.  To avoid storing
-/// personally-identifiable information, only the minimum information
-/// about the license plate is stored as part of the entity.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LicensePlate {
-    <span class="doccomment">/// Required. CLDR Country/Region Code.  For example, `US` for United States,
-    /// or `IN` for India.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>country_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// The last digit of the license plate or &quot;-1&quot; to denote no numeric value
-    /// is present in the license plate.
-    ///
-    /// * &quot;ABC 1234&quot; -&gt; &quot;4&quot;
-    /// * &quot;AB 123 CD&quot; -&gt; &quot;3&quot;
-    /// * &quot;ABCDEF&quot; -&gt; &quot;-1&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>last_character: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Describes how clients should color one portion of the polyline along the
-/// route.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VisualTrafficReportPolylineRendering {
-    <span class="doccomment">/// Optional. Road stretches that should be rendered along the polyline.
-    /// Stretches are guaranteed to not overlap, and do not necessarily span the
-    /// full route.
-    ///
-    /// In the absence of a road stretch to style, the client should apply the
-    /// default for the route.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>road_stretch: ::prost::alloc::vec::Vec&lt;
-        visual_traffic_report_polyline_rendering::RoadStretch,
-    &gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `VisualTrafficReportPolylineRendering`.
-</span><span class="kw">pub mod </span>visual_traffic_report_polyline_rendering {
-    <span class="doccomment">/// One road stretch that should be rendered.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>RoadStretch {
-        <span class="doccomment">/// Required. The style to apply.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;road_stretch::Style&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>style: i32,
-        <span class="doccomment">/// Required. The style should be applied between `[offset_meters,
-        /// offset_meters + length_meters)`.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>offset_meters: i32,
-        <span class="doccomment">/// Required. The length of the path where to apply the style.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>length_meters: i32,
-    }
-    <span class="doccomment">/// Nested message and enum types in `RoadStretch`.
-    </span><span class="kw">pub mod </span>road_stretch {
-        <span class="doccomment">/// The traffic style, indicating traffic speed.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>Style {
-            <span class="doccomment">/// No style selected.
-            </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// Traffic is slowing down.
-            </span>SlowerTraffic = <span class="number">1</span>,
-            <span class="doccomment">/// There is a traffic jam.
-            </span>TrafficJam = <span class="number">2</span>,
-        }
-        <span class="kw">impl </span>Style {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    Style::Unspecified =&gt; <span class="string">&quot;STYLE_UNSPECIFIED&quot;</span>,
-                    Style::SlowerTraffic =&gt; <span class="string">&quot;SLOWER_TRAFFIC&quot;</span>,
-                    Style::TrafficJam =&gt; <span class="string">&quot;TRAFFIC_JAM&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;STYLE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;SLOWER_TRAFFIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SlowerTraffic),
-                    <span class="string">&quot;TRAFFIC_JAM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TrafficJam),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
-}
-<span class="doccomment">/// Traffic conditions along the expected vehicle route.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TrafficPolylineData {
-    <span class="doccomment">/// A polyline rendering of how fast traffic is for all regions along
-    /// one stretch of a customer ride.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>traffic_rendering: ::core::option::Option&lt;VisualTrafficReportPolylineRendering&gt;,
-}
-<span class="doccomment">/// The state of a `Vehicle`.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>VehicleState {
-    <span class="doccomment">/// Default, used for unspecified or unrecognized vehicle states.
-    </span>UnknownVehicleState = <span class="number">0</span>,
-    <span class="doccomment">/// The vehicle is not accepting new trips. Note: the vehicle may continue to
-    /// operate in this state while completing a trip assigned to it.
-    </span>Offline = <span class="number">1</span>,
-    <span class="doccomment">/// The vehicle is accepting new trips.
-    </span>Online = <span class="number">2</span>,
-}
-<span class="kw">impl </span>VehicleState {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            VehicleState::UnknownVehicleState =&gt; <span class="string">&quot;UNKNOWN_VEHICLE_STATE&quot;</span>,
-            VehicleState::Offline =&gt; <span class="string">&quot;OFFLINE&quot;</span>,
-            VehicleState::Online =&gt; <span class="string">&quot;ONLINE&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;UNKNOWN_VEHICLE_STATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownVehicleState),
-            <span class="string">&quot;OFFLINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Offline),
-            <span class="string">&quot;ONLINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Online),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// How location features are configured to behave on the mobile device when the
-/// devices &quot;battery saver&quot; feature is on.
-/// (&lt;https://developer.android.com/reference/android/os/PowerManager#getLocationPowerSaveMode(&gt;))
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>LocationPowerSaveMode {
-    <span class="doccomment">/// Undefined LocationPowerSaveMode
-    </span>UnknownLocationPowerSaveMode = <span class="number">0</span>,
-    <span class="doccomment">/// Either the location providers shouldn&#39;t be affected by battery saver, or
-    /// battery saver is off.
-    </span>LocationModeNoChange = <span class="number">1</span>,
-    <span class="doccomment">/// The GPS based location provider should be disabled when battery saver is on
-    /// and the device is non-interactive.
-    </span>LocationModeGpsDisabledWhenScreenOff = <span class="number">2</span>,
-    <span class="doccomment">/// All location providers should be disabled when battery saver is on and the
-    /// device is non-interactive.
-    </span>LocationModeAllDisabledWhenScreenOff = <span class="number">3</span>,
-    <span class="doccomment">/// All the location providers will be kept available, but location fixes
-    /// should only be provided to foreground apps.
-    </span>LocationModeForegroundOnly = <span class="number">4</span>,
-    <span class="doccomment">/// Location will not be turned off, but LocationManager will throttle all
-    /// requests to providers when the device is non-interactive.
-    </span>LocationModeThrottleRequestsWhenScreenOff = <span class="number">5</span>,
-}
-<span class="kw">impl </span>LocationPowerSaveMode {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            LocationPowerSaveMode::UnknownLocationPowerSaveMode =&gt; {
-                <span class="string">&quot;UNKNOWN_LOCATION_POWER_SAVE_MODE&quot;
-            </span>}
-            LocationPowerSaveMode::LocationModeNoChange =&gt; <span class="string">&quot;LOCATION_MODE_NO_CHANGE&quot;</span>,
-            LocationPowerSaveMode::LocationModeGpsDisabledWhenScreenOff =&gt; {
-                <span class="string">&quot;LOCATION_MODE_GPS_DISABLED_WHEN_SCREEN_OFF&quot;
-            </span>}
-            LocationPowerSaveMode::LocationModeAllDisabledWhenScreenOff =&gt; {
-                <span class="string">&quot;LOCATION_MODE_ALL_DISABLED_WHEN_SCREEN_OFF&quot;
-            </span>}
-            LocationPowerSaveMode::LocationModeForegroundOnly =&gt; {
-                <span class="string">&quot;LOCATION_MODE_FOREGROUND_ONLY&quot;
-            </span>}
-            LocationPowerSaveMode::LocationModeThrottleRequestsWhenScreenOff =&gt; {
-                <span class="string">&quot;LOCATION_MODE_THROTTLE_REQUESTS_WHEN_SCREEN_OFF&quot;
-            </span>}
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;UNKNOWN_LOCATION_POWER_SAVE_MODE&quot; </span>=&gt; {
-                <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownLocationPowerSaveMode)
-            }
-            <span class="string">&quot;LOCATION_MODE_NO_CHANGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocationModeNoChange),
-            <span class="string">&quot;LOCATION_MODE_GPS_DISABLED_WHEN_SCREEN_OFF&quot; </span>=&gt; {
-                <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocationModeGpsDisabledWhenScreenOff)
-            }
-            <span class="string">&quot;LOCATION_MODE_ALL_DISABLED_WHEN_SCREEN_OFF&quot; </span>=&gt; {
-                <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocationModeAllDisabledWhenScreenOff)
-            }
-            <span class="string">&quot;LOCATION_MODE_FOREGROUND_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocationModeForegroundOnly),
-            <span class="string">&quot;LOCATION_MODE_THROTTLE_REQUESTS_WHEN_SCREEN_OFF&quot; </span>=&gt; {
-                <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocationModeThrottleRequestsWhenScreenOff)
-            }
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// Status of the battery, whether full or charging etc.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>BatteryStatus {
-    <span class="doccomment">/// Battery status unknown.
-    </span>UnknownBatteryStatus = <span class="number">0</span>,
-    <span class="doccomment">/// Battery is being charged.
-    </span>Charging = <span class="number">1</span>,
-    <span class="doccomment">/// Battery is discharging.
-    </span>Discharging = <span class="number">2</span>,
-    <span class="doccomment">/// Battery is full.
-    </span>Full = <span class="number">3</span>,
-    <span class="doccomment">/// Battery is not charging.
-    </span>NotCharging = <span class="number">4</span>,
-    <span class="doccomment">/// Battery is low on power.
-    </span>PowerLow = <span class="number">5</span>,
-}
-<span class="kw">impl </span>BatteryStatus {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            BatteryStatus::UnknownBatteryStatus =&gt; <span class="string">&quot;UNKNOWN_BATTERY_STATUS&quot;</span>,
-            BatteryStatus::Charging =&gt; <span class="string">&quot;BATTERY_STATUS_CHARGING&quot;</span>,
-            BatteryStatus::Discharging =&gt; <span class="string">&quot;BATTERY_STATUS_DISCHARGING&quot;</span>,
-            BatteryStatus::Full =&gt; <span class="string">&quot;BATTERY_STATUS_FULL&quot;</span>,
-            BatteryStatus::NotCharging =&gt; <span class="string">&quot;BATTERY_STATUS_NOT_CHARGING&quot;</span>,
-            BatteryStatus::PowerLow =&gt; <span class="string">&quot;BATTERY_STATUS_POWER_LOW&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;UNKNOWN_BATTERY_STATUS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownBatteryStatus),
-            <span class="string">&quot;BATTERY_STATUS_CHARGING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Charging),
-            <span class="string">&quot;BATTERY_STATUS_DISCHARGING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Discharging),
-            <span class="string">&quot;BATTERY_STATUS_FULL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
-            <span class="string">&quot;BATTERY_STATUS_NOT_CHARGING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotCharging),
-            <span class="string">&quot;BATTERY_STATUS_POWER_LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PowerLow),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// Type of the charger being used to charge the battery.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>PowerSource {
-    <span class="doccomment">/// Power source unknown.
-    </span>UnknownPowerSource = <span class="number">0</span>,
-    <span class="doccomment">/// Power source is an AC charger.
-    </span>Ac = <span class="number">1</span>,
-    <span class="doccomment">/// Power source is a USB port.
-    </span>Usb = <span class="number">2</span>,
-    <span class="doccomment">/// Power source is wireless.
-    </span>Wireless = <span class="number">3</span>,
-    <span class="doccomment">/// Battery is unplugged.
-    </span>Unplugged = <span class="number">4</span>,
-}
-<span class="kw">impl </span>PowerSource {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            PowerSource::UnknownPowerSource =&gt; <span class="string">&quot;UNKNOWN_POWER_SOURCE&quot;</span>,
-            PowerSource::Ac =&gt; <span class="string">&quot;POWER_SOURCE_AC&quot;</span>,
-            PowerSource::Usb =&gt; <span class="string">&quot;POWER_SOURCE_USB&quot;</span>,
-            PowerSource::Wireless =&gt; <span class="string">&quot;POWER_SOURCE_WIRELESS&quot;</span>,
-            PowerSource::Unplugged =&gt; <span class="string">&quot;POWER_SOURCE_UNPLUGGED&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;UNKNOWN_POWER_SOURCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownPowerSource),
-            <span class="string">&quot;POWER_SOURCE_AC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ac),
-            <span class="string">&quot;POWER_SOURCE_USB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Usb),
-            <span class="string">&quot;POWER_SOURCE_WIRELESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Wireless),
-            <span class="string">&quot;POWER_SOURCE_UNPLUGGED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unplugged),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
     }
 }
 <span class="doccomment">/// `CreateVehicle` request message.
