@@ -27639,6 +27639,45 @@
 <a href="#27639" id="27639">27639</a>
 <a href="#27640" id="27640">27640</a>
 <a href="#27641" id="27641">27641</a>
+<a href="#27642" id="27642">27642</a>
+<a href="#27643" id="27643">27643</a>
+<a href="#27644" id="27644">27644</a>
+<a href="#27645" id="27645">27645</a>
+<a href="#27646" id="27646">27646</a>
+<a href="#27647" id="27647">27647</a>
+<a href="#27648" id="27648">27648</a>
+<a href="#27649" id="27649">27649</a>
+<a href="#27650" id="27650">27650</a>
+<a href="#27651" id="27651">27651</a>
+<a href="#27652" id="27652">27652</a>
+<a href="#27653" id="27653">27653</a>
+<a href="#27654" id="27654">27654</a>
+<a href="#27655" id="27655">27655</a>
+<a href="#27656" id="27656">27656</a>
+<a href="#27657" id="27657">27657</a>
+<a href="#27658" id="27658">27658</a>
+<a href="#27659" id="27659">27659</a>
+<a href="#27660" id="27660">27660</a>
+<a href="#27661" id="27661">27661</a>
+<a href="#27662" id="27662">27662</a>
+<a href="#27663" id="27663">27663</a>
+<a href="#27664" id="27664">27664</a>
+<a href="#27665" id="27665">27665</a>
+<a href="#27666" id="27666">27666</a>
+<a href="#27667" id="27667">27667</a>
+<a href="#27668" id="27668">27668</a>
+<a href="#27669" id="27669">27669</a>
+<a href="#27670" id="27670">27670</a>
+<a href="#27671" id="27671">27671</a>
+<a href="#27672" id="27672">27672</a>
+<a href="#27673" id="27673">27673</a>
+<a href="#27674" id="27674">27674</a>
+<a href="#27675" id="27675">27675</a>
+<a href="#27676" id="27676">27676</a>
+<a href="#27677" id="27677">27677</a>
+<a href="#27678" id="27678">27678</a>
+<a href="#27679" id="27679">27679</a>
+<a href="#27680" id="27680">27680</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(
     any(
         feature = <span class="string">&quot;google-cloud-aiplatform-v1beta1-schema&quot;</span>,
@@ -37338,7 +37377,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PersistentResource {
-    <span class="doccomment">/// Output only. Resource name of a PersistentResource.
+    <span class="doccomment">/// Immutable. Resource name of a PersistentResource.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The display name of the PersistentResource.
@@ -37405,6 +37444,9 @@
     /// Used for e.g. Ray cluster configuration.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>resource_runtime_spec: ::core::option::Option&lt;ResourceRuntimeSpec&gt;,
+    <span class="doccomment">/// Output only. Runtime information of the Persistent Resource.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>resource_runtime: ::core::option::Option&lt;ResourceRuntime&gt;,
     <span class="doccomment">/// Optional. A list of names for the reserved ip ranges under the VPC network
     /// that can be used for this persistent resource.
     ///
@@ -37531,6 +37573,42 @@
     <span class="doccomment">/// Optional. Configure the use of workload identity on the PersistentResource
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>service_account_spec: ::core::option::Option&lt;ServiceAccountSpec&gt;,
+    <span class="doccomment">/// Ray cluster configuration.
+    /// Required when creating a dedicated RayCluster on the PersistentResource.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>ray_spec: ::core::option::Option&lt;RaySpec&gt;,
+}
+<span class="doccomment">/// Configuration information for the Ray cluster.
+/// For experimental launch, Ray cluster creation and Persistent
+/// cluster creation are 1:1 mapping: We will provision all the nodes within the
+/// Persistent cluster as Ray nodes.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>RaySpec {
+    <span class="doccomment">/// Optional. Default image for user to choose a preferred ML framework(e.g.
+    /// tensorflow or Pytorch) by choosing from Vertex prebuild
+    /// images(&lt;https://cloud.google.com/vertex-ai/docs/training/pre-built-containers&gt;).
+    /// Either this or the resource_pool_images is required. Use this field if
+    /// you need all the resource pools to have the same Ray image, Otherwise, use
+    /// the {@code resource_pool_images} field.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>image_uri: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Persistent Cluster runtime information as output
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ResourceRuntime {
+    <span class="doccomment">/// Output only. URIs for user to connect to the Cluster.
+    /// Example:
+    /// {
+    ///    &quot;RAY_HEAD_NODE_INTERNAL_IP&quot;: &quot;head-node-IP:10001&quot;
+    ///    &quot;RAY_DASHBOARD_URI&quot;: &quot;ray-dashboard-address:8888&quot;
+    /// }
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>access_uris: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
 }
 <span class="doccomment">/// Configuration for the use of custom service account to run the workloads.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
