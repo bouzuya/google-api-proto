@@ -1,65 +1,3 @@
-/// Feedback provided by a user.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UserFeedback {
-    /// Required. The unique identifier for the user feedback.
-    /// User feedback is a singleton resource on a Question.
-    /// Example: `projects/foo/locations/bar/questions/1234/userFeedback`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Free form user feedback, such as a text box.
-    #[prost(string, tag = "2")]
-    pub free_form_feedback: ::prost::alloc::string::String,
-    /// The user feedback rating
-    #[prost(enumeration = "user_feedback::UserFeedbackRating", tag = "3")]
-    pub rating: i32,
-}
-/// Nested message and enum types in `UserFeedback`.
-pub mod user_feedback {
-    /// Enumeration of feedback ratings.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum UserFeedbackRating {
-        /// No rating was specified.
-        Unspecified = 0,
-        /// The user provided positive feedback.
-        Positive = 1,
-        /// The user provided negative feedback.
-        Negative = 2,
-    }
-    impl UserFeedbackRating {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                UserFeedbackRating::Unspecified => "USER_FEEDBACK_RATING_UNSPECIFIED",
-                UserFeedbackRating::Positive => "POSITIVE",
-                UserFeedbackRating::Negative => "NEGATIVE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "USER_FEEDBACK_RATING_UNSPECIFIED" => Some(Self::Unspecified),
-                "POSITIVE" => Some(Self::Positive),
-                "NEGATIVE" => Some(Self::Negative),
-                _ => None,
-            }
-        }
-    }
-}
 /// Describes string annotation from both semantic and formatting perspectives.
 /// Example:
 ///
@@ -1005,6 +943,68 @@ impl InterpretEntity {
             "DIMENSION" => Some(Self::Dimension),
             "METRIC" => Some(Self::Metric),
             _ => None,
+        }
+    }
+}
+/// Feedback provided by a user.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UserFeedback {
+    /// Required. The unique identifier for the user feedback.
+    /// User feedback is a singleton resource on a Question.
+    /// Example: `projects/foo/locations/bar/questions/1234/userFeedback`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Free form user feedback, such as a text box.
+    #[prost(string, tag = "2")]
+    pub free_form_feedback: ::prost::alloc::string::String,
+    /// The user feedback rating
+    #[prost(enumeration = "user_feedback::UserFeedbackRating", tag = "3")]
+    pub rating: i32,
+}
+/// Nested message and enum types in `UserFeedback`.
+pub mod user_feedback {
+    /// Enumeration of feedback ratings.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum UserFeedbackRating {
+        /// No rating was specified.
+        Unspecified = 0,
+        /// The user provided positive feedback.
+        Positive = 1,
+        /// The user provided negative feedback.
+        Negative = 2,
+    }
+    impl UserFeedbackRating {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                UserFeedbackRating::Unspecified => "USER_FEEDBACK_RATING_UNSPECIFIED",
+                UserFeedbackRating::Positive => "POSITIVE",
+                UserFeedbackRating::Negative => "NEGATIVE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "USER_FEEDBACK_RATING_UNSPECIFIED" => Some(Self::Unspecified),
+                "POSITIVE" => Some(Self::Positive),
+                "NEGATIVE" => Some(Self::Negative),
+                _ => None,
+            }
         }
     }
 }

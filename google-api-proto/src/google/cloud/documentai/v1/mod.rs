@@ -376,6 +376,236 @@ pub mod evaluation {
         }
     }
 }
+/// A processor version is an implementation of a processor. Each processor
+/// can have multiple versions, pretrained by Google internally or uptrained
+/// by the customer. A processor can only have one default version at a time.
+/// Its document-processing behavior is defined by that version.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProcessorVersion {
+    /// The resource name of the processor version.
+    /// Format:
+    /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The display name of the processor version.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// The schema of the processor version. Describes the output.
+    #[prost(message, optional, tag = "12")]
+    pub document_schema: ::core::option::Option<DocumentSchema>,
+    /// The state of the processor version.
+    #[prost(enumeration = "processor_version::State", tag = "6")]
+    pub state: i32,
+    /// The time the processor version was created.
+    #[prost(message, optional, tag = "7")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The most recently invoked evaluation for the processor version.
+    #[prost(message, optional, tag = "8")]
+    pub latest_evaluation: ::core::option::Option<EvaluationReference>,
+    /// The KMS key name used for encryption.
+    #[prost(string, tag = "9")]
+    pub kms_key_name: ::prost::alloc::string::String,
+    /// The KMS key version with which data is encrypted.
+    #[prost(string, tag = "10")]
+    pub kms_key_version_name: ::prost::alloc::string::String,
+    /// Output only. Denotes that this `ProcessorVersion` is managed by Google.
+    #[prost(bool, tag = "11")]
+    pub google_managed: bool,
+    /// If set, information about the eventual deprecation of this version.
+    #[prost(message, optional, tag = "13")]
+    pub deprecation_info: ::core::option::Option<processor_version::DeprecationInfo>,
+}
+/// Nested message and enum types in `ProcessorVersion`.
+pub mod processor_version {
+    /// Information about the upcoming deprecation of this processor version.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DeprecationInfo {
+        /// The time at which this processor version will be deprecated.
+        #[prost(message, optional, tag = "1")]
+        pub deprecation_time: ::core::option::Option<::prost_types::Timestamp>,
+        /// If set, the processor version that will be used as a replacement.
+        #[prost(string, tag = "2")]
+        pub replacement_processor_version: ::prost::alloc::string::String,
+    }
+    /// The possible states of the processor version.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// The processor version is in an unspecified state.
+        Unspecified = 0,
+        /// The processor version is deployed and can be used for processing.
+        Deployed = 1,
+        /// The processor version is being deployed.
+        Deploying = 2,
+        /// The processor version is not deployed and cannot be used for processing.
+        Undeployed = 3,
+        /// The processor version is being undeployed.
+        Undeploying = 4,
+        /// The processor version is being created.
+        Creating = 5,
+        /// The processor version is being deleted.
+        Deleting = 6,
+        /// The processor version failed and is in an indeterminate state.
+        Failed = 7,
+        /// The processor version is being imported.
+        Importing = 8,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Deployed => "DEPLOYED",
+                State::Deploying => "DEPLOYING",
+                State::Undeployed => "UNDEPLOYED",
+                State::Undeploying => "UNDEPLOYING",
+                State::Creating => "CREATING",
+                State::Deleting => "DELETING",
+                State::Failed => "FAILED",
+                State::Importing => "IMPORTING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "DEPLOYED" => Some(Self::Deployed),
+                "DEPLOYING" => Some(Self::Deploying),
+                "UNDEPLOYED" => Some(Self::Undeployed),
+                "UNDEPLOYING" => Some(Self::Undeploying),
+                "CREATING" => Some(Self::Creating),
+                "DELETING" => Some(Self::Deleting),
+                "FAILED" => Some(Self::Failed),
+                "IMPORTING" => Some(Self::Importing),
+                _ => None,
+            }
+        }
+    }
+}
+/// The first-class citizen for Document AI. Each processor defines how to
+/// extract structural information from a document.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Processor {
+    /// Output only. Immutable. The resource name of the processor.
+    /// Format: `projects/{project}/locations/{location}/processors/{processor}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`.
+    /// To get a list of processor types, see
+    /// \[FetchProcessorTypes][google.cloud.documentai.v1.DocumentProcessorService.FetchProcessorTypes\].
+    #[prost(string, tag = "2")]
+    pub r#type: ::prost::alloc::string::String,
+    /// The display name of the processor.
+    #[prost(string, tag = "3")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Output only. The state of the processor.
+    #[prost(enumeration = "processor::State", tag = "4")]
+    pub state: i32,
+    /// The default processor version.
+    #[prost(string, tag = "9")]
+    pub default_processor_version: ::prost::alloc::string::String,
+    /// Output only. Immutable. The http endpoint that can be called to invoke
+    /// processing.
+    #[prost(string, tag = "6")]
+    pub process_endpoint: ::prost::alloc::string::String,
+    /// The time the processor was created.
+    #[prost(message, optional, tag = "7")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The [KMS key](<https://cloud.google.com/security-key-management>) used for
+    /// encryption and decryption in CMEK scenarios.
+    #[prost(string, tag = "8")]
+    pub kms_key_name: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Processor`.
+pub mod processor {
+    /// The possible states of the processor.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// The processor is in an unspecified state.
+        Unspecified = 0,
+        /// The processor is enabled, i.e., has an enabled version which can
+        /// currently serve processing requests and all the feature dependencies have
+        /// been successfully initialized.
+        Enabled = 1,
+        /// The processor is disabled.
+        Disabled = 2,
+        /// The processor is being enabled, will become `ENABLED` if successful.
+        Enabling = 3,
+        /// The processor is being disabled, will become `DISABLED` if successful.
+        Disabling = 4,
+        /// The processor is being created, will become either `ENABLED` (for
+        /// successful creation) or `FAILED` (for failed ones).
+        /// Once a processor is in this state, it can then be used for document
+        /// processing, but the feature dependencies of the processor might not be
+        /// fully created yet.
+        Creating = 5,
+        /// The processor failed during creation or initialization of feature
+        /// dependencies. The user should delete the processor and recreate one as
+        /// all the functionalities of the processor are disabled.
+        Failed = 6,
+        /// The processor is being deleted, will be removed if successful.
+        Deleting = 7,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Enabled => "ENABLED",
+                State::Disabled => "DISABLED",
+                State::Enabling => "ENABLING",
+                State::Disabling => "DISABLING",
+                State::Creating => "CREATING",
+                State::Failed => "FAILED",
+                State::Deleting => "DELETING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "ENABLED" => Some(Self::Enabled),
+                "DISABLED" => Some(Self::Disabled),
+                "ENABLING" => Some(Self::Enabling),
+                "DISABLING" => Some(Self::Disabling),
+                "CREATING" => Some(Self::Creating),
+                "FAILED" => Some(Self::Failed),
+                "DELETING" => Some(Self::Deleting),
+                _ => None,
+            }
+        }
+    }
+}
 /// Encodes the detailed information of a barcode.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1672,84 +1902,6 @@ pub mod document {
         Content(::prost::bytes::Bytes),
     }
 }
-/// The common metadata for long running operations.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CommonOperationMetadata {
-    /// The state of the operation.
-    #[prost(enumeration = "common_operation_metadata::State", tag = "1")]
-    pub state: i32,
-    /// A message providing more details about the current state of processing.
-    #[prost(string, tag = "2")]
-    pub state_message: ::prost::alloc::string::String,
-    /// A related resource to this operation.
-    #[prost(string, tag = "5")]
-    pub resource: ::prost::alloc::string::String,
-    /// The creation time of the operation.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The last update time of the operation.
-    #[prost(message, optional, tag = "4")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Nested message and enum types in `CommonOperationMetadata`.
-pub mod common_operation_metadata {
-    /// State of the longrunning operation.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified state.
-        Unspecified = 0,
-        /// Operation is still running.
-        Running = 1,
-        /// Operation is being cancelled.
-        Cancelling = 2,
-        /// Operation succeeded.
-        Succeeded = 3,
-        /// Operation failed.
-        Failed = 4,
-        /// Operation is cancelled.
-        Cancelled = 5,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Running => "RUNNING",
-                State::Cancelling => "CANCELLING",
-                State::Succeeded => "SUCCEEDED",
-                State::Failed => "FAILED",
-                State::Cancelled => "CANCELLED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "RUNNING" => Some(Self::Running),
-                "CANCELLING" => Some(Self::Cancelling),
-                "SUCCEEDED" => Some(Self::Succeeded),
-                "FAILED" => Some(Self::Failed),
-                "CANCELLED" => Some(Self::Cancelled),
-                _ => None,
-            }
-        }
-    }
-}
 /// Payload message of raw document content (bytes).
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1909,6 +2061,84 @@ pub mod ocr_config {
         pub language_hints: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     }
 }
+/// The common metadata for long running operations.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CommonOperationMetadata {
+    /// The state of the operation.
+    #[prost(enumeration = "common_operation_metadata::State", tag = "1")]
+    pub state: i32,
+    /// A message providing more details about the current state of processing.
+    #[prost(string, tag = "2")]
+    pub state_message: ::prost::alloc::string::String,
+    /// A related resource to this operation.
+    #[prost(string, tag = "5")]
+    pub resource: ::prost::alloc::string::String,
+    /// The creation time of the operation.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The last update time of the operation.
+    #[prost(message, optional, tag = "4")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Nested message and enum types in `CommonOperationMetadata`.
+pub mod common_operation_metadata {
+    /// State of the longrunning operation.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified state.
+        Unspecified = 0,
+        /// Operation is still running.
+        Running = 1,
+        /// Operation is being cancelled.
+        Cancelling = 2,
+        /// Operation succeeded.
+        Succeeded = 3,
+        /// Operation failed.
+        Failed = 4,
+        /// Operation is cancelled.
+        Cancelled = 5,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Running => "RUNNING",
+                State::Cancelling => "CANCELLING",
+                State::Succeeded => "SUCCEEDED",
+                State::Failed => "FAILED",
+                State::Cancelled => "CANCELLED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "RUNNING" => Some(Self::Running),
+                "CANCELLING" => Some(Self::Cancelling),
+                "SUCCEEDED" => Some(Self::Succeeded),
+                "FAILED" => Some(Self::Failed),
+                "CANCELLED" => Some(Self::Cancelled),
+                _ => None,
+            }
+        }
+    }
+}
 /// A processor type is responsible for performing a certain document
 /// understanding task on a certain type of document.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1948,236 +2178,6 @@ pub mod processor_type {
         /// multi-regional support](/document-ai/docs/regions).
         #[prost(string, tag = "1")]
         pub location_id: ::prost::alloc::string::String,
-    }
-}
-/// A processor version is an implementation of a processor. Each processor
-/// can have multiple versions, pretrained by Google internally or uptrained
-/// by the customer. A processor can only have one default version at a time.
-/// Its document-processing behavior is defined by that version.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ProcessorVersion {
-    /// The resource name of the processor version.
-    /// Format:
-    /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The display name of the processor version.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// The schema of the processor version. Describes the output.
-    #[prost(message, optional, tag = "12")]
-    pub document_schema: ::core::option::Option<DocumentSchema>,
-    /// The state of the processor version.
-    #[prost(enumeration = "processor_version::State", tag = "6")]
-    pub state: i32,
-    /// The time the processor version was created.
-    #[prost(message, optional, tag = "7")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The most recently invoked evaluation for the processor version.
-    #[prost(message, optional, tag = "8")]
-    pub latest_evaluation: ::core::option::Option<EvaluationReference>,
-    /// The KMS key name used for encryption.
-    #[prost(string, tag = "9")]
-    pub kms_key_name: ::prost::alloc::string::String,
-    /// The KMS key version with which data is encrypted.
-    #[prost(string, tag = "10")]
-    pub kms_key_version_name: ::prost::alloc::string::String,
-    /// Output only. Denotes that this `ProcessorVersion` is managed by Google.
-    #[prost(bool, tag = "11")]
-    pub google_managed: bool,
-    /// If set, information about the eventual deprecation of this version.
-    #[prost(message, optional, tag = "13")]
-    pub deprecation_info: ::core::option::Option<processor_version::DeprecationInfo>,
-}
-/// Nested message and enum types in `ProcessorVersion`.
-pub mod processor_version {
-    /// Information about the upcoming deprecation of this processor version.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct DeprecationInfo {
-        /// The time at which this processor version will be deprecated.
-        #[prost(message, optional, tag = "1")]
-        pub deprecation_time: ::core::option::Option<::prost_types::Timestamp>,
-        /// If set, the processor version that will be used as a replacement.
-        #[prost(string, tag = "2")]
-        pub replacement_processor_version: ::prost::alloc::string::String,
-    }
-    /// The possible states of the processor version.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// The processor version is in an unspecified state.
-        Unspecified = 0,
-        /// The processor version is deployed and can be used for processing.
-        Deployed = 1,
-        /// The processor version is being deployed.
-        Deploying = 2,
-        /// The processor version is not deployed and cannot be used for processing.
-        Undeployed = 3,
-        /// The processor version is being undeployed.
-        Undeploying = 4,
-        /// The processor version is being created.
-        Creating = 5,
-        /// The processor version is being deleted.
-        Deleting = 6,
-        /// The processor version failed and is in an indeterminate state.
-        Failed = 7,
-        /// The processor version is being imported.
-        Importing = 8,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Deployed => "DEPLOYED",
-                State::Deploying => "DEPLOYING",
-                State::Undeployed => "UNDEPLOYED",
-                State::Undeploying => "UNDEPLOYING",
-                State::Creating => "CREATING",
-                State::Deleting => "DELETING",
-                State::Failed => "FAILED",
-                State::Importing => "IMPORTING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "DEPLOYED" => Some(Self::Deployed),
-                "DEPLOYING" => Some(Self::Deploying),
-                "UNDEPLOYED" => Some(Self::Undeployed),
-                "UNDEPLOYING" => Some(Self::Undeploying),
-                "CREATING" => Some(Self::Creating),
-                "DELETING" => Some(Self::Deleting),
-                "FAILED" => Some(Self::Failed),
-                "IMPORTING" => Some(Self::Importing),
-                _ => None,
-            }
-        }
-    }
-}
-/// The first-class citizen for Document AI. Each processor defines how to
-/// extract structural information from a document.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Processor {
-    /// Output only. Immutable. The resource name of the processor.
-    /// Format: `projects/{project}/locations/{location}/processors/{processor}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`.
-    /// To get a list of processor types, see
-    /// \[FetchProcessorTypes][google.cloud.documentai.v1.DocumentProcessorService.FetchProcessorTypes\].
-    #[prost(string, tag = "2")]
-    pub r#type: ::prost::alloc::string::String,
-    /// The display name of the processor.
-    #[prost(string, tag = "3")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Output only. The state of the processor.
-    #[prost(enumeration = "processor::State", tag = "4")]
-    pub state: i32,
-    /// The default processor version.
-    #[prost(string, tag = "9")]
-    pub default_processor_version: ::prost::alloc::string::String,
-    /// Output only. Immutable. The http endpoint that can be called to invoke
-    /// processing.
-    #[prost(string, tag = "6")]
-    pub process_endpoint: ::prost::alloc::string::String,
-    /// The time the processor was created.
-    #[prost(message, optional, tag = "7")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The [KMS key](<https://cloud.google.com/security-key-management>) used for
-    /// encryption and decryption in CMEK scenarios.
-    #[prost(string, tag = "8")]
-    pub kms_key_name: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `Processor`.
-pub mod processor {
-    /// The possible states of the processor.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// The processor is in an unspecified state.
-        Unspecified = 0,
-        /// The processor is enabled, i.e., has an enabled version which can
-        /// currently serve processing requests and all the feature dependencies have
-        /// been successfully initialized.
-        Enabled = 1,
-        /// The processor is disabled.
-        Disabled = 2,
-        /// The processor is being enabled, will become `ENABLED` if successful.
-        Enabling = 3,
-        /// The processor is being disabled, will become `DISABLED` if successful.
-        Disabling = 4,
-        /// The processor is being created, will become either `ENABLED` (for
-        /// successful creation) or `FAILED` (for failed ones).
-        /// Once a processor is in this state, it can then be used for document
-        /// processing, but the feature dependencies of the processor might not be
-        /// fully created yet.
-        Creating = 5,
-        /// The processor failed during creation or initialization of feature
-        /// dependencies. The user should delete the processor and recreate one as
-        /// all the functionalities of the processor are disabled.
-        Failed = 6,
-        /// The processor is being deleted, will be removed if successful.
-        Deleting = 7,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Enabled => "ENABLED",
-                State::Disabled => "DISABLED",
-                State::Enabling => "ENABLING",
-                State::Disabling => "DISABLING",
-                State::Creating => "CREATING",
-                State::Failed => "FAILED",
-                State::Deleting => "DELETING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "ENABLED" => Some(Self::Enabled),
-                "DISABLED" => Some(Self::Disabled),
-                "ENABLING" => Some(Self::Enabling),
-                "DISABLING" => Some(Self::Disabling),
-                "CREATING" => Some(Self::Creating),
-                "FAILED" => Some(Self::Failed),
-                "DELETING" => Some(Self::Deleting),
-                _ => None,
-            }
-        }
     }
 }
 /// Options for Process API

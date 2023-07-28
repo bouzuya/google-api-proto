@@ -1,26 +1,3 @@
-/// A container for \[services][google.cloud.servicedirectory.v1.Service\].
-/// Namespaces allow administrators to group services together and define
-/// permissions for a collection of services.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Namespace {
-    /// Immutable. The resource name for the namespace in the format
-    /// `projects/*/locations/*/namespaces/*`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. Resource labels associated with this namespace.
-    /// No more than 64 user labels can be associated with a given resource. Label
-    /// keys and values can be no longer than 63 characters.
-    #[prost(btree_map = "string, string", tag = "2")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. The globally unique identifier of the namespace in the UUID4
-    /// format.
-    #[prost(string, tag = "5")]
-    pub uid: ::prost::alloc::string::String,
-}
 /// An individual endpoint that provides a
 /// \[service][google.cloud.servicedirectory.v1.Service\]. The service must
 /// already exist to create an endpoint.
@@ -302,6 +279,29 @@ pub mod lookup_service_client {
             self.inner.unary(req, path, codec).await
         }
     }
+}
+/// A container for \[services][google.cloud.servicedirectory.v1.Service\].
+/// Namespaces allow administrators to group services together and define
+/// permissions for a collection of services.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Namespace {
+    /// Immutable. The resource name for the namespace in the format
+    /// `projects/*/locations/*/namespaces/*`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. Resource labels associated with this namespace.
+    /// No more than 64 user labels can be associated with a given resource. Label
+    /// keys and values can be no longer than 63 characters.
+    #[prost(btree_map = "string, string", tag = "2")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. The globally unique identifier of the namespace in the UUID4
+    /// format.
+    #[prost(string, tag = "5")]
+    pub uid: ::prost::alloc::string::String,
 }
 /// The request message for
 /// \[RegistrationService.CreateNamespace][google.cloud.servicedirectory.v1.RegistrationService.CreateNamespace\].

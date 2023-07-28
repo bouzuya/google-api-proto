@@ -1,3 +1,224 @@
+/// ListActiveDirectoriesRequest for requesting multiple active directories.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListActiveDirectoriesRequest {
+    /// Required. Parent value for ListActiveDirectoriesRequest
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Requested page size. Server may return fewer items than requested.
+    /// If unspecified, the server will pick an appropriate default.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Filtering results
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Hint for how to order the results
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// ListActiveDirectoriesResponse contains all the active directories requested.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListActiveDirectoriesResponse {
+    /// The list of active directories.
+    #[prost(message, repeated, tag = "1")]
+    pub active_directories: ::prost::alloc::vec::Vec<ActiveDirectory>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// GetActiveDirectory for getting a single active directory.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetActiveDirectoryRequest {
+    /// Required. Name of the active directory.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// CreateActiveDirectoryRequest for creating an active directory.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateActiveDirectoryRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Fields of the to be created active directory.
+    #[prost(message, optional, tag = "2")]
+    pub active_directory: ::core::option::Option<ActiveDirectory>,
+    /// Required. ID of the active directory to create.
+    #[prost(string, tag = "3")]
+    pub active_directory_id: ::prost::alloc::string::String,
+}
+/// UpdateActiveDirectoryRequest for updating an active directory.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateActiveDirectoryRequest {
+    /// Required. Field mask is used to specify the fields to be overwritten in the
+    /// Active Directory resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The volume being updated
+    #[prost(message, optional, tag = "2")]
+    pub active_directory: ::core::option::Option<ActiveDirectory>,
+}
+/// DeleteActiveDirectoryRequest for deleting a single active directory.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteActiveDirectoryRequest {
+    /// Required. Name of the active directory.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// ActiveDirectory is the public representation of the active directory config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ActiveDirectory {
+    /// Output only. The resource name of the active directory.
+    /// Format:
+    /// `projects/{project_number}/locations/{location_id}/activeDirectories/{active_directory_id}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Create time of the active directory.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The state of the AD.
+    #[prost(enumeration = "active_directory::State", tag = "3")]
+    pub state: i32,
+    /// Required. Name of the Active Directory domain
+    #[prost(string, tag = "4")]
+    pub domain: ::prost::alloc::string::String,
+    /// The Active Directory site the service will limit Domain Controller
+    /// discovery too.
+    #[prost(string, tag = "5")]
+    pub site: ::prost::alloc::string::String,
+    /// Required. Comma separated list of DNS server IP addresses for the Active
+    /// Directory domain.
+    #[prost(string, tag = "6")]
+    pub dns: ::prost::alloc::string::String,
+    /// Required. NetBIOSPrefix is used as a prefix for SMB server name.
+    #[prost(string, tag = "7")]
+    pub net_bios_prefix: ::prost::alloc::string::String,
+    /// The Organizational Unit (OU) within the Windows Active Directory the user
+    /// belongs to.
+    #[prost(string, tag = "8")]
+    pub organizational_unit: ::prost::alloc::string::String,
+    /// If enabled, AES encryption will be enabled for SMB communication.
+    #[prost(bool, tag = "9")]
+    pub aes_encryption: bool,
+    /// Required. Username of the Active Directory domain administrator.
+    #[prost(string, tag = "10")]
+    pub username: ::prost::alloc::string::String,
+    /// Required. Password of the Active Directory domain administrator.
+    #[prost(string, tag = "11")]
+    pub password: ::prost::alloc::string::String,
+    /// Users to be added to the Built-in Backup Operator active directory group.
+    #[prost(string, repeated, tag = "12")]
+    pub backup_operators: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Domain users to be given the SeSecurityPrivilege.
+    #[prost(string, repeated, tag = "13")]
+    pub security_operators: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Name of the active directory machine. This optional parameter is used only
+    /// while creating kerberos volume
+    #[prost(string, tag = "14")]
+    pub kdc_hostname: ::prost::alloc::string::String,
+    /// KDC server IP address for the active directory machine.
+    #[prost(string, tag = "15")]
+    pub kdc_ip: ::prost::alloc::string::String,
+    /// If enabled, will allow access to local users and LDAP users. If access is
+    /// needed for only LDAP users, it has to be disabled.
+    #[prost(bool, tag = "16")]
+    pub nfs_users_with_ldap: bool,
+    /// Description of the active directory.
+    #[prost(string, tag = "17")]
+    pub description: ::prost::alloc::string::String,
+    /// Specifies whether or not the LDAP traffic needs to be signed.
+    #[prost(bool, tag = "18")]
+    pub ldap_signing: bool,
+    /// If enabled, traffic between the SMB server to Domain Controller (DC) will
+    /// be encrypted.
+    #[prost(bool, tag = "19")]
+    pub encrypt_dc_connections: bool,
+    /// Labels for the active directory.
+    #[prost(btree_map = "string, string", tag = "20")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. The state details of the Active Directory.
+    #[prost(string, tag = "21")]
+    pub state_details: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `ActiveDirectory`.
+pub mod active_directory {
+    /// The Active Directory States
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified Active Directory State
+        Unspecified = 0,
+        /// Active Directory State is Creating
+        Creating = 1,
+        /// Active Directory State is Ready
+        Ready = 2,
+        /// Active Directory State is Updating
+        Updating = 3,
+        /// Active Directory State is In use
+        InUse = 4,
+        /// Active Directory State is Deleting
+        Deleting = 5,
+        /// Active Directory State is Error
+        Error = 6,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::Ready => "READY",
+                State::Updating => "UPDATING",
+                State::InUse => "IN_USE",
+                State::Deleting => "DELETING",
+                State::Error => "ERROR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "READY" => Some(Self::Ready),
+                "UPDATING" => Some(Self::Updating),
+                "IN_USE" => Some(Self::InUse),
+                "DELETING" => Some(Self::Deleting),
+                "ERROR" => Some(Self::Error),
+                _ => None,
+            }
+        }
+    }
+}
 /// The service levels - Storage Pool, Volumes
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -1359,227 +1580,6 @@ pub struct ReverseReplicationDirectionRequest {
     /// projects/{project_id}/locations/{location}/volumes/{volume_id}/replications/{replication_id}.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-}
-/// ListActiveDirectoriesRequest for requesting multiple active directories.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListActiveDirectoriesRequest {
-    /// Required. Parent value for ListActiveDirectoriesRequest
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Requested page size. Server may return fewer items than requested.
-    /// If unspecified, the server will pick an appropriate default.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Filtering results
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Hint for how to order the results
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// ListActiveDirectoriesResponse contains all the active directories requested.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListActiveDirectoriesResponse {
-    /// The list of active directories.
-    #[prost(message, repeated, tag = "1")]
-    pub active_directories: ::prost::alloc::vec::Vec<ActiveDirectory>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// GetActiveDirectory for getting a single active directory.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetActiveDirectoryRequest {
-    /// Required. Name of the active directory.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// CreateActiveDirectoryRequest for creating an active directory.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateActiveDirectoryRequest {
-    /// Required. Value for parent.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Fields of the to be created active directory.
-    #[prost(message, optional, tag = "2")]
-    pub active_directory: ::core::option::Option<ActiveDirectory>,
-    /// Required. ID of the active directory to create.
-    #[prost(string, tag = "3")]
-    pub active_directory_id: ::prost::alloc::string::String,
-}
-/// UpdateActiveDirectoryRequest for updating an active directory.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateActiveDirectoryRequest {
-    /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// Active Directory resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The volume being updated
-    #[prost(message, optional, tag = "2")]
-    pub active_directory: ::core::option::Option<ActiveDirectory>,
-}
-/// DeleteActiveDirectoryRequest for deleting a single active directory.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteActiveDirectoryRequest {
-    /// Required. Name of the active directory.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// ActiveDirectory is the public representation of the active directory config.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ActiveDirectory {
-    /// Output only. The resource name of the active directory.
-    /// Format:
-    /// `projects/{project_number}/locations/{location_id}/activeDirectories/{active_directory_id}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Create time of the active directory.
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The state of the AD.
-    #[prost(enumeration = "active_directory::State", tag = "3")]
-    pub state: i32,
-    /// Required. Name of the Active Directory domain
-    #[prost(string, tag = "4")]
-    pub domain: ::prost::alloc::string::String,
-    /// The Active Directory site the service will limit Domain Controller
-    /// discovery too.
-    #[prost(string, tag = "5")]
-    pub site: ::prost::alloc::string::String,
-    /// Required. Comma separated list of DNS server IP addresses for the Active
-    /// Directory domain.
-    #[prost(string, tag = "6")]
-    pub dns: ::prost::alloc::string::String,
-    /// Required. NetBIOSPrefix is used as a prefix for SMB server name.
-    #[prost(string, tag = "7")]
-    pub net_bios_prefix: ::prost::alloc::string::String,
-    /// The Organizational Unit (OU) within the Windows Active Directory the user
-    /// belongs to.
-    #[prost(string, tag = "8")]
-    pub organizational_unit: ::prost::alloc::string::String,
-    /// If enabled, AES encryption will be enabled for SMB communication.
-    #[prost(bool, tag = "9")]
-    pub aes_encryption: bool,
-    /// Required. Username of the Active Directory domain administrator.
-    #[prost(string, tag = "10")]
-    pub username: ::prost::alloc::string::String,
-    /// Required. Password of the Active Directory domain administrator.
-    #[prost(string, tag = "11")]
-    pub password: ::prost::alloc::string::String,
-    /// Users to be added to the Built-in Backup Operator active directory group.
-    #[prost(string, repeated, tag = "12")]
-    pub backup_operators: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Domain users to be given the SeSecurityPrivilege.
-    #[prost(string, repeated, tag = "13")]
-    pub security_operators: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Name of the active directory machine. This optional parameter is used only
-    /// while creating kerberos volume
-    #[prost(string, tag = "14")]
-    pub kdc_hostname: ::prost::alloc::string::String,
-    /// KDC server IP address for the active directory machine.
-    #[prost(string, tag = "15")]
-    pub kdc_ip: ::prost::alloc::string::String,
-    /// If enabled, will allow access to local users and LDAP users. If access is
-    /// needed for only LDAP users, it has to be disabled.
-    #[prost(bool, tag = "16")]
-    pub nfs_users_with_ldap: bool,
-    /// Description of the active directory.
-    #[prost(string, tag = "17")]
-    pub description: ::prost::alloc::string::String,
-    /// Specifies whether or not the LDAP traffic needs to be signed.
-    #[prost(bool, tag = "18")]
-    pub ldap_signing: bool,
-    /// If enabled, traffic between the SMB server to Domain Controller (DC) will
-    /// be encrypted.
-    #[prost(bool, tag = "19")]
-    pub encrypt_dc_connections: bool,
-    /// Labels for the active directory.
-    #[prost(btree_map = "string, string", tag = "20")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. The state details of the Active Directory.
-    #[prost(string, tag = "21")]
-    pub state_details: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `ActiveDirectory`.
-pub mod active_directory {
-    /// The Active Directory States
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified Active Directory State
-        Unspecified = 0,
-        /// Active Directory State is Creating
-        Creating = 1,
-        /// Active Directory State is Ready
-        Ready = 2,
-        /// Active Directory State is Updating
-        Updating = 3,
-        /// Active Directory State is In use
-        InUse = 4,
-        /// Active Directory State is Deleting
-        Deleting = 5,
-        /// Active Directory State is Error
-        Error = 6,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::Ready => "READY",
-                State::Updating => "UPDATING",
-                State::InUse => "IN_USE",
-                State::Deleting => "DELETING",
-                State::Error => "ERROR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "READY" => Some(Self::Ready),
-                "UPDATING" => Some(Self::Updating),
-                "IN_USE" => Some(Self::InUse),
-                "DELETING" => Some(Self::Deleting),
-                "ERROR" => Some(Self::Error),
-                _ => None,
-            }
-        }
-    }
 }
 /// ListSnapshotsRequest lists snapshots.
 #[allow(clippy::derive_partial_eq_without_eq)]
