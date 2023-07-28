@@ -11,22 +11,17 @@ pub struct TextSentimentPredictionInstance {
     #[prost(string, tag = "2")]
     pub mime_type: ::prost::alloc::string::String,
 }
-/// Prediction input format for Image Object Detection.
+/// Prediction input format for Image Segmentation.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImageObjectDetectionPredictionInstance {
-    /// The image bytes or Cloud Storage URI to make the prediction on.
+pub struct ImageSegmentationPredictionInstance {
+    /// The image bytes to make the predictions on.
     #[prost(string, tag = "1")]
     pub content: ::prost::alloc::string::String,
     /// The MIME type of the content of the image. Only the images in below listed
     /// MIME types are supported.
     /// - image/jpeg
-    /// - image/gif
     /// - image/png
-    /// - image/webp
-    /// - image/bmp
-    /// - image/tiff
-    /// - image/vnd.microsoft.icon
     #[prost(string, tag = "2")]
     pub mime_type: ::prost::alloc::string::String,
 }
@@ -56,25 +51,24 @@ pub struct VideoActionRecognitionPredictionInstance {
     #[prost(string, tag = "4")]
     pub time_segment_end: ::prost::alloc::string::String,
 }
-/// Prediction input format for Text Extraction.
+/// Prediction input format for Image Classification.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TextExtractionPredictionInstance {
-    /// The text snippet to make the predictions on.
+pub struct ImageClassificationPredictionInstance {
+    /// The image bytes or Cloud Storage URI to make the prediction on.
     #[prost(string, tag = "1")]
     pub content: ::prost::alloc::string::String,
-    /// The MIME type of the text snippet. The supported MIME types are listed
-    /// below.
-    /// - text/plain
+    /// The MIME type of the content of the image. Only the images in below listed
+    /// MIME types are supported.
+    /// - image/jpeg
+    /// - image/gif
+    /// - image/png
+    /// - image/webp
+    /// - image/bmp
+    /// - image/tiff
+    /// - image/vnd.microsoft.icon
     #[prost(string, tag = "2")]
     pub mime_type: ::prost::alloc::string::String,
-    /// This field is only used for batch prediction. If a key is provided, the
-    /// batch prediction result will by mapped to this key. If omitted, then the
-    /// batch prediction result will contain the entire input instance. Vertex AI
-    /// will not check if keys in the request are duplicates, so it is up to the
-    /// caller to ensure the keys are unique.
-    #[prost(string, tag = "3")]
-    pub key: ::prost::alloc::string::String,
 }
 /// Prediction input format for Video Object Tracking.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -128,37 +122,10 @@ pub struct VideoClassificationPredictionInstance {
     #[prost(string, tag = "4")]
     pub time_segment_end: ::prost::alloc::string::String,
 }
-/// Prediction input format for Text Classification.
+/// Prediction input format for Image Object Detection.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TextClassificationPredictionInstance {
-    /// The text snippet to make the predictions on.
-    #[prost(string, tag = "1")]
-    pub content: ::prost::alloc::string::String,
-    /// The MIME type of the text snippet. The supported MIME types are listed
-    /// below.
-    /// - text/plain
-    #[prost(string, tag = "2")]
-    pub mime_type: ::prost::alloc::string::String,
-}
-/// Prediction input format for Image Segmentation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImageSegmentationPredictionInstance {
-    /// The image bytes to make the predictions on.
-    #[prost(string, tag = "1")]
-    pub content: ::prost::alloc::string::String,
-    /// The MIME type of the content of the image. Only the images in below listed
-    /// MIME types are supported.
-    /// - image/jpeg
-    /// - image/png
-    #[prost(string, tag = "2")]
-    pub mime_type: ::prost::alloc::string::String,
-}
-/// Prediction input format for Image Classification.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImageClassificationPredictionInstance {
+pub struct ImageObjectDetectionPredictionInstance {
     /// The image bytes or Cloud Storage URI to make the prediction on.
     #[prost(string, tag = "1")]
     pub content: ::prost::alloc::string::String,
@@ -171,6 +138,39 @@ pub struct ImageClassificationPredictionInstance {
     /// - image/bmp
     /// - image/tiff
     /// - image/vnd.microsoft.icon
+    #[prost(string, tag = "2")]
+    pub mime_type: ::prost::alloc::string::String,
+}
+/// Prediction input format for Text Extraction.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TextExtractionPredictionInstance {
+    /// The text snippet to make the predictions on.
+    #[prost(string, tag = "1")]
+    pub content: ::prost::alloc::string::String,
+    /// The MIME type of the text snippet. The supported MIME types are listed
+    /// below.
+    /// - text/plain
+    #[prost(string, tag = "2")]
+    pub mime_type: ::prost::alloc::string::String,
+    /// This field is only used for batch prediction. If a key is provided, the
+    /// batch prediction result will by mapped to this key. If omitted, then the
+    /// batch prediction result will contain the entire input instance. Vertex AI
+    /// will not check if keys in the request are duplicates, so it is up to the
+    /// caller to ensure the keys are unique.
+    #[prost(string, tag = "3")]
+    pub key: ::prost::alloc::string::String,
+}
+/// Prediction input format for Text Classification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TextClassificationPredictionInstance {
+    /// The text snippet to make the predictions on.
+    #[prost(string, tag = "1")]
+    pub content: ::prost::alloc::string::String,
+    /// The MIME type of the text snippet. The supported MIME types are listed
+    /// below.
+    /// - text/plain
     #[prost(string, tag = "2")]
     pub mime_type: ::prost::alloc::string::String,
 }

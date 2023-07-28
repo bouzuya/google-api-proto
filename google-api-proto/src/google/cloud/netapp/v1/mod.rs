@@ -1,234 +1,9 @@
-/// ListActiveDirectoriesRequest for requesting multiple active directories.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListActiveDirectoriesRequest {
-    /// Required. Parent value for ListActiveDirectoriesRequest
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Requested page size. Server may return fewer items than requested.
-    /// If unspecified, the server will pick an appropriate default.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Filtering results
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Hint for how to order the results
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// ListActiveDirectoriesResponse contains all the active directories requested.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListActiveDirectoriesResponse {
-    /// The list of active directories.
-    #[prost(message, repeated, tag = "1")]
-    pub active_directories: ::prost::alloc::vec::Vec<ActiveDirectory>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// GetActiveDirectory for getting a single active directory.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetActiveDirectoryRequest {
-    /// Required. Name of the active directory.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// CreateActiveDirectoryRequest for creating an active directory.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateActiveDirectoryRequest {
-    /// Required. Value for parent.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Fields of the to be created active directory.
-    #[prost(message, optional, tag = "2")]
-    pub active_directory: ::core::option::Option<ActiveDirectory>,
-    /// Required. ID of the active directory to create.
-    #[prost(string, tag = "3")]
-    pub active_directory_id: ::prost::alloc::string::String,
-}
-/// UpdateActiveDirectoryRequest for updating an active directory.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateActiveDirectoryRequest {
-    /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// Active Directory resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The volume being updated
-    #[prost(message, optional, tag = "2")]
-    pub active_directory: ::core::option::Option<ActiveDirectory>,
-}
-/// DeleteActiveDirectoryRequest for deleting a single active directory.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteActiveDirectoryRequest {
-    /// Required. Name of the active directory.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// ActiveDirectory is the public representation of the active directory config.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ActiveDirectory {
-    /// Output only. The resource name of the active directory.
-    /// Format:
-    /// `projects/{project_number}/locations/{location_id}/activeDirectories/{active_directory_id}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Create time of the active directory.
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The state of the AD.
-    #[prost(enumeration = "active_directory::State", tag = "3")]
-    pub state: i32,
-    /// Required. Name of the Active Directory domain
-    #[prost(string, tag = "4")]
-    pub domain: ::prost::alloc::string::String,
-    /// The Active Directory site the service will limit Domain Controller
-    /// discovery too.
-    #[prost(string, tag = "5")]
-    pub site: ::prost::alloc::string::String,
-    /// Required. Comma separated list of DNS server IP addresses for the Active
-    /// Directory domain.
-    #[prost(string, tag = "6")]
-    pub dns: ::prost::alloc::string::String,
-    /// Required. NetBIOSPrefix is used as a prefix for SMB server name.
-    #[prost(string, tag = "7")]
-    pub net_bios_prefix: ::prost::alloc::string::String,
-    /// The Organizational Unit (OU) within the Windows Active Directory the user
-    /// belongs to.
-    #[prost(string, tag = "8")]
-    pub organizational_unit: ::prost::alloc::string::String,
-    /// If enabled, AES encryption will be enabled for SMB communication.
-    #[prost(bool, tag = "9")]
-    pub aes_encryption: bool,
-    /// Required. Username of the Active Directory domain administrator.
-    #[prost(string, tag = "10")]
-    pub username: ::prost::alloc::string::String,
-    /// Required. Password of the Active Directory domain administrator.
-    #[prost(string, tag = "11")]
-    pub password: ::prost::alloc::string::String,
-    /// Users to be added to the Built-in Backup Operator active directory group.
-    #[prost(string, repeated, tag = "12")]
-    pub backup_operators: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Domain users to be given the SeSecurityPrivilege.
-    #[prost(string, repeated, tag = "13")]
-    pub security_operators: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Name of the active directory machine. This optional parameter is used only
-    /// while creating kerberos volume
-    #[prost(string, tag = "14")]
-    pub kdc_hostname: ::prost::alloc::string::String,
-    /// KDC server IP address for the active directory machine.
-    #[prost(string, tag = "15")]
-    pub kdc_ip: ::prost::alloc::string::String,
-    /// If enabled, will allow access to local users and LDAP users. If access is
-    /// needed for only LDAP users, it has to be disabled.
-    #[prost(bool, tag = "16")]
-    pub nfs_users_with_ldap: bool,
-    /// Description of the active directory.
-    #[prost(string, tag = "17")]
-    pub description: ::prost::alloc::string::String,
-    /// Specifies whether or not the LDAP traffic needs to be signed.
-    #[prost(bool, tag = "18")]
-    pub ldap_signing: bool,
-    /// If enabled, traffic between the SMB server to Domain Controller (DC) will
-    /// be encrypted.
-    #[prost(bool, tag = "19")]
-    pub encrypt_dc_connections: bool,
-    /// Labels for the active directory.
-    #[prost(btree_map = "string, string", tag = "20")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. The state details of the Active Directory.
-    #[prost(string, tag = "21")]
-    pub state_details: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `ActiveDirectory`.
-pub mod active_directory {
-    /// The Active Directory States
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified Active Directory State
-        Unspecified = 0,
-        /// Active Directory State is Creating
-        Creating = 1,
-        /// Active Directory State is Ready
-        Ready = 2,
-        /// Active Directory State is Updating
-        Updating = 3,
-        /// Active Directory State is In use
-        InUse = 4,
-        /// Active Directory State is Deleting
-        Deleting = 5,
-        /// Active Directory State is Error
-        Error = 6,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::Ready => "READY",
-                State::Updating => "UPDATING",
-                State::InUse => "IN_USE",
-                State::Deleting => "DELETING",
-                State::Error => "ERROR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "READY" => Some(Self::Ready),
-                "UPDATING" => Some(Self::Updating),
-                "IN_USE" => Some(Self::InUse),
-                "DELETING" => Some(Self::Deleting),
-                "ERROR" => Some(Self::Error),
-                _ => None,
-            }
-        }
-    }
-}
-/// ServiceLevel
 /// The service levels - Storage Pool, Volumes
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum ServiceLevel {
-    /// Unspecified service level
     Unspecified = 0,
-    /// Premium
     Premium = 1,
-    /// Extreme
     Extreme = 2,
     /// Standard (Software offering)
     Standard = 3,
@@ -257,7 +32,6 @@ impl ServiceLevel {
         }
     }
 }
-/// EncryptionType
 /// Defined the current volume encryption key source.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -291,7 +65,6 @@ impl EncryptionType {
         }
     }
 }
-/// ListVolumesRequest
 /// Message for requesting list of Volumes
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -313,7 +86,6 @@ pub struct ListVolumesRequest {
     #[prost(string, tag = "5")]
     pub order_by: ::prost::alloc::string::String,
 }
-/// ListVolumesResponse
 /// Message for response to listing Volumes
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -328,7 +100,6 @@ pub struct ListVolumesResponse {
     #[prost(string, repeated, tag = "3")]
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-/// GetVolumeRequest
 /// Message for getting a Volume
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -337,7 +108,6 @@ pub struct GetVolumeRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// CreateVolumeRequest
 /// Message for creating a Volume
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -354,7 +124,6 @@ pub struct CreateVolumeRequest {
     #[prost(message, optional, tag = "3")]
     pub volume: ::core::option::Option<Volume>,
 }
-/// UpdateVolumeRequest
 /// Message for updating a Volume
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -370,7 +139,6 @@ pub struct UpdateVolumeRequest {
     #[prost(message, optional, tag = "2")]
     pub volume: ::core::option::Option<Volume>,
 }
-/// DeleteVolumeRequest
 /// Message for deleting a Volume
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -384,8 +152,7 @@ pub struct DeleteVolumeRequest {
     #[prost(bool, tag = "2")]
     pub force: bool,
 }
-/// RevertVolumeRequest reverts the given volume to the
-/// specified snapshot.
+/// RevertVolumeRequest reverts the given volume to the specified snapshot.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct RevertVolumeRequest {
@@ -399,7 +166,6 @@ pub struct RevertVolumeRequest {
     #[prost(string, tag = "2")]
     pub snapshot_id: ::prost::alloc::string::String,
 }
-/// Volume
 /// Volume provides a filesystem that you can mount.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -570,8 +336,7 @@ pub mod volume {
         }
     }
 }
-/// ExportPolicy
-/// Defined the export policy for the volume.
+/// Defines the export policy for the volume.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ExportPolicy {
@@ -579,7 +344,6 @@ pub struct ExportPolicy {
     #[prost(message, repeated, tag = "1")]
     pub rules: ::prost::alloc::vec::Vec<SimpleExportPolicyRule>,
 }
-/// SimpleExportPolicyRule
 /// An export policy rule describing various export options.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -720,7 +484,6 @@ pub struct MonthlySchedule {
     #[prost(string, optional, tag = "4")]
     pub days_of_month: ::core::option::Option<::prost::alloc::string::String>,
 }
-/// MountOption
 /// View only mount options for a volume.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -759,8 +522,6 @@ pub mod restore_parameters {
         SourceSnapshot(::prost::alloc::string::String),
     }
 }
-/// Protocols
-/// The protocols
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum Protocols {
@@ -797,8 +558,6 @@ impl Protocols {
         }
     }
 }
-/// AccessType
-/// The access types
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum AccessType {
@@ -930,7 +689,6 @@ impl SecurityStyle {
         }
     }
 }
-/// GetKmsConfigRequest
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetKmsConfigRequest {
@@ -938,7 +696,6 @@ pub struct GetKmsConfigRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// ListKmsConfigsRequest
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListKmsConfigsRequest {
@@ -959,7 +716,6 @@ pub struct ListKmsConfigsRequest {
     #[prost(string, tag = "5")]
     pub filter: ::prost::alloc::string::String,
 }
-/// ListKmsConfigsResponse
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListKmsConfigsResponse {
@@ -973,7 +729,6 @@ pub struct ListKmsConfigsResponse {
     #[prost(string, repeated, tag = "3")]
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-/// CreateKmsConfigRequest
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateKmsConfigRequest {
@@ -989,7 +744,6 @@ pub struct CreateKmsConfigRequest {
     #[prost(message, optional, tag = "3")]
     pub kms_config: ::core::option::Option<KmsConfig>,
 }
-/// UpdateKmsConfigRequest
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateKmsConfigRequest {
@@ -1004,7 +758,6 @@ pub struct UpdateKmsConfigRequest {
     #[prost(message, optional, tag = "2")]
     pub kms_config: ::core::option::Option<KmsConfig>,
 }
-/// DeleteKmsConfigRequest
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteKmsConfigRequest {
@@ -1012,7 +765,6 @@ pub struct DeleteKmsConfigRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// EncryptVolumesRequest
 /// EncryptVolumesRequest specifies the KMS config to encrypt existing volumes.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1021,7 +773,6 @@ pub struct EncryptVolumesRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// VerifyKmsConfigRequest
 /// VerifyKmsConfigRequest specifies the KMS config to be validated.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1030,7 +781,6 @@ pub struct VerifyKmsConfigRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// VerifyKmsConfigResponse
 /// VerifyKmsConfigResponse contains the information if the config is correctly
 /// and error message.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1320,7 +1070,6 @@ pub mod replication {
             }
         }
     }
-    /// Replication role
     /// New enum values may be added in future to support different replication
     /// topology.
     #[derive(
@@ -1611,6 +1360,227 @@ pub struct ReverseReplicationDirectionRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
+/// ListActiveDirectoriesRequest for requesting multiple active directories.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListActiveDirectoriesRequest {
+    /// Required. Parent value for ListActiveDirectoriesRequest
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Requested page size. Server may return fewer items than requested.
+    /// If unspecified, the server will pick an appropriate default.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Filtering results
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Hint for how to order the results
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// ListActiveDirectoriesResponse contains all the active directories requested.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListActiveDirectoriesResponse {
+    /// The list of active directories.
+    #[prost(message, repeated, tag = "1")]
+    pub active_directories: ::prost::alloc::vec::Vec<ActiveDirectory>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// GetActiveDirectory for getting a single active directory.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetActiveDirectoryRequest {
+    /// Required. Name of the active directory.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// CreateActiveDirectoryRequest for creating an active directory.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateActiveDirectoryRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Fields of the to be created active directory.
+    #[prost(message, optional, tag = "2")]
+    pub active_directory: ::core::option::Option<ActiveDirectory>,
+    /// Required. ID of the active directory to create.
+    #[prost(string, tag = "3")]
+    pub active_directory_id: ::prost::alloc::string::String,
+}
+/// UpdateActiveDirectoryRequest for updating an active directory.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateActiveDirectoryRequest {
+    /// Required. Field mask is used to specify the fields to be overwritten in the
+    /// Active Directory resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The volume being updated
+    #[prost(message, optional, tag = "2")]
+    pub active_directory: ::core::option::Option<ActiveDirectory>,
+}
+/// DeleteActiveDirectoryRequest for deleting a single active directory.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteActiveDirectoryRequest {
+    /// Required. Name of the active directory.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// ActiveDirectory is the public representation of the active directory config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ActiveDirectory {
+    /// Output only. The resource name of the active directory.
+    /// Format:
+    /// `projects/{project_number}/locations/{location_id}/activeDirectories/{active_directory_id}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Create time of the active directory.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The state of the AD.
+    #[prost(enumeration = "active_directory::State", tag = "3")]
+    pub state: i32,
+    /// Required. Name of the Active Directory domain
+    #[prost(string, tag = "4")]
+    pub domain: ::prost::alloc::string::String,
+    /// The Active Directory site the service will limit Domain Controller
+    /// discovery too.
+    #[prost(string, tag = "5")]
+    pub site: ::prost::alloc::string::String,
+    /// Required. Comma separated list of DNS server IP addresses for the Active
+    /// Directory domain.
+    #[prost(string, tag = "6")]
+    pub dns: ::prost::alloc::string::String,
+    /// Required. NetBIOSPrefix is used as a prefix for SMB server name.
+    #[prost(string, tag = "7")]
+    pub net_bios_prefix: ::prost::alloc::string::String,
+    /// The Organizational Unit (OU) within the Windows Active Directory the user
+    /// belongs to.
+    #[prost(string, tag = "8")]
+    pub organizational_unit: ::prost::alloc::string::String,
+    /// If enabled, AES encryption will be enabled for SMB communication.
+    #[prost(bool, tag = "9")]
+    pub aes_encryption: bool,
+    /// Required. Username of the Active Directory domain administrator.
+    #[prost(string, tag = "10")]
+    pub username: ::prost::alloc::string::String,
+    /// Required. Password of the Active Directory domain administrator.
+    #[prost(string, tag = "11")]
+    pub password: ::prost::alloc::string::String,
+    /// Users to be added to the Built-in Backup Operator active directory group.
+    #[prost(string, repeated, tag = "12")]
+    pub backup_operators: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Domain users to be given the SeSecurityPrivilege.
+    #[prost(string, repeated, tag = "13")]
+    pub security_operators: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Name of the active directory machine. This optional parameter is used only
+    /// while creating kerberos volume
+    #[prost(string, tag = "14")]
+    pub kdc_hostname: ::prost::alloc::string::String,
+    /// KDC server IP address for the active directory machine.
+    #[prost(string, tag = "15")]
+    pub kdc_ip: ::prost::alloc::string::String,
+    /// If enabled, will allow access to local users and LDAP users. If access is
+    /// needed for only LDAP users, it has to be disabled.
+    #[prost(bool, tag = "16")]
+    pub nfs_users_with_ldap: bool,
+    /// Description of the active directory.
+    #[prost(string, tag = "17")]
+    pub description: ::prost::alloc::string::String,
+    /// Specifies whether or not the LDAP traffic needs to be signed.
+    #[prost(bool, tag = "18")]
+    pub ldap_signing: bool,
+    /// If enabled, traffic between the SMB server to Domain Controller (DC) will
+    /// be encrypted.
+    #[prost(bool, tag = "19")]
+    pub encrypt_dc_connections: bool,
+    /// Labels for the active directory.
+    #[prost(btree_map = "string, string", tag = "20")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. The state details of the Active Directory.
+    #[prost(string, tag = "21")]
+    pub state_details: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `ActiveDirectory`.
+pub mod active_directory {
+    /// The Active Directory States
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified Active Directory State
+        Unspecified = 0,
+        /// Active Directory State is Creating
+        Creating = 1,
+        /// Active Directory State is Ready
+        Ready = 2,
+        /// Active Directory State is Updating
+        Updating = 3,
+        /// Active Directory State is In use
+        InUse = 4,
+        /// Active Directory State is Deleting
+        Deleting = 5,
+        /// Active Directory State is Error
+        Error = 6,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::Ready => "READY",
+                State::Updating => "UPDATING",
+                State::InUse => "IN_USE",
+                State::Deleting => "DELETING",
+                State::Error => "ERROR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "READY" => Some(Self::Ready),
+                "UPDATING" => Some(Self::Updating),
+                "IN_USE" => Some(Self::InUse),
+                "DELETING" => Some(Self::Deleting),
+                "ERROR" => Some(Self::Error),
+                _ => None,
+            }
+        }
+    }
+}
 /// ListSnapshotsRequest lists snapshots.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1696,7 +1666,6 @@ pub struct UpdateSnapshotRequest {
     #[prost(message, optional, tag = "2")]
     pub snapshot: ::core::option::Option<Snapshot>,
 }
-/// Snapshot
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Snapshot {
@@ -1790,7 +1759,6 @@ pub mod snapshot {
         }
     }
 }
-/// GetStoragePoolRequest
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetStoragePoolRequest {
@@ -1798,7 +1766,6 @@ pub struct GetStoragePoolRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// ListStoragePoolsRequest
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListStoragePoolsRequest {
@@ -1819,7 +1786,6 @@ pub struct ListStoragePoolsRequest {
     #[prost(string, tag = "5")]
     pub filter: ::prost::alloc::string::String,
 }
-/// ListStoragePoolsResponse
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListStoragePoolsResponse {
@@ -1833,7 +1799,6 @@ pub struct ListStoragePoolsResponse {
     #[prost(string, repeated, tag = "3")]
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-/// CreateStoragePoolRequest
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateStoragePoolRequest {
@@ -1849,7 +1814,6 @@ pub struct CreateStoragePoolRequest {
     #[prost(message, optional, tag = "3")]
     pub storage_pool: ::core::option::Option<StoragePool>,
 }
-/// UpdateStoragePoolRequest
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateStoragePoolRequest {
@@ -1864,7 +1828,6 @@ pub struct UpdateStoragePoolRequest {
     #[prost(message, optional, tag = "2")]
     pub storage_pool: ::core::option::Option<StoragePool>,
 }
-/// DeleteStoragePoolRequest
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteStoragePoolRequest {
@@ -1872,8 +1835,6 @@ pub struct DeleteStoragePoolRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Resources
-/// StoragePool
 /// StoragePool is a container for volumes with a service level and capacity.
 /// Volumes can be created in a pool of sufficient available capacity.
 /// StoragePool capacity is what you are billed for.
@@ -2003,7 +1964,6 @@ pub mod storage_pool {
         }
     }
 }
-/// OperationMetadata
 /// Represents the metadata of the long-running operation.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2109,8 +2069,6 @@ pub mod net_app_client {
             self.inner = self.inner.max_encoding_message_size(limit);
             self
         }
-        /// ListStoragePools
-        ///
         /// Returns descriptions of all storage pools owned by the caller.
         pub async fn list_storage_pools(
             &mut self,
@@ -2130,20 +2088,15 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/ListStoragePools",
+                "/google.cloud.netapp.v1.NetApp/ListStoragePools",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "ListStoragePools",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "ListStoragePools"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// CreateStoragePool
-        ///
         /// Creates a new storage pool.
         pub async fn create_storage_pool(
             &mut self,
@@ -2163,19 +2116,15 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/CreateStoragePool",
+                "/google.cloud.netapp.v1.NetApp/CreateStoragePool",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "CreateStoragePool",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "CreateStoragePool"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// GetStoragePool
         /// Returns the description of the specified storage pool by poolId.
         pub async fn get_storage_pool(
             &mut self,
@@ -2192,20 +2141,15 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/GetStoragePool",
+                "/google.cloud.netapp.v1.NetApp/GetStoragePool",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "GetStoragePool",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "GetStoragePool"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// UpdateStoragePool
-        ///
         /// Updates the storage pool properties with the full spec
         pub async fn update_storage_pool(
             &mut self,
@@ -2225,20 +2169,15 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/UpdateStoragePool",
+                "/google.cloud.netapp.v1.NetApp/UpdateStoragePool",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "UpdateStoragePool",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "UpdateStoragePool"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// DeleteStoragePool
-        ///
         /// Warning! This operation will permanently delete the storage pool.
         pub async fn delete_storage_pool(
             &mut self,
@@ -2258,19 +2197,15 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/DeleteStoragePool",
+                "/google.cloud.netapp.v1.NetApp/DeleteStoragePool",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "DeleteStoragePool",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "DeleteStoragePool"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// ListVolumes
         /// Lists Volumes in a given project.
         pub async fn list_volumes(
             &mut self,
@@ -2290,16 +2225,13 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/ListVolumes",
+                "/google.cloud.netapp.v1.NetApp/ListVolumes",
             );
             let mut req = request.into_request();
             req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.cloud.netapp.v1beta1.NetApp", "ListVolumes"),
-                );
+                .insert(GrpcMethod::new("google.cloud.netapp.v1.NetApp", "ListVolumes"));
             self.inner.unary(req, path, codec).await
         }
-        /// GetVolume
         /// Gets details of a single Volume.
         pub async fn get_volume(
             &mut self,
@@ -2316,16 +2248,13 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/GetVolume",
+                "/google.cloud.netapp.v1.NetApp/GetVolume",
             );
             let mut req = request.into_request();
             req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.cloud.netapp.v1beta1.NetApp", "GetVolume"),
-                );
+                .insert(GrpcMethod::new("google.cloud.netapp.v1.NetApp", "GetVolume"));
             self.inner.unary(req, path, codec).await
         }
-        /// CreateVolume
         /// Creates a new Volume in a given project and location.
         pub async fn create_volume(
             &mut self,
@@ -2345,16 +2274,15 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/CreateVolume",
+                "/google.cloud.netapp.v1.NetApp/CreateVolume",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.cloud.netapp.v1beta1.NetApp", "CreateVolume"),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "CreateVolume"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// UpdateVolume
         /// Updates the parameters of a single Volume.
         pub async fn update_volume(
             &mut self,
@@ -2374,16 +2302,15 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/UpdateVolume",
+                "/google.cloud.netapp.v1.NetApp/UpdateVolume",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.cloud.netapp.v1beta1.NetApp", "UpdateVolume"),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "UpdateVolume"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// DeleteVolume
         /// Deletes a single Volume.
         pub async fn delete_volume(
             &mut self,
@@ -2403,12 +2330,12 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/DeleteVolume",
+                "/google.cloud.netapp.v1.NetApp/DeleteVolume",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.cloud.netapp.v1beta1.NetApp", "DeleteVolume"),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "DeleteVolume"),
                 );
             self.inner.unary(req, path, codec).await
         }
@@ -2433,12 +2360,12 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/RevertVolume",
+                "/google.cloud.netapp.v1.NetApp/RevertVolume",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.cloud.netapp.v1beta1.NetApp", "RevertVolume"),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "RevertVolume"),
                 );
             self.inner.unary(req, path, codec).await
         }
@@ -2461,15 +2388,12 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/ListSnapshots",
+                "/google.cloud.netapp.v1.NetApp/ListSnapshots",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "ListSnapshots",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "ListSnapshots"),
                 );
             self.inner.unary(req, path, codec).await
         }
@@ -2489,13 +2413,11 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/GetSnapshot",
+                "/google.cloud.netapp.v1.NetApp/GetSnapshot",
             );
             let mut req = request.into_request();
             req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.cloud.netapp.v1beta1.NetApp", "GetSnapshot"),
-                );
+                .insert(GrpcMethod::new("google.cloud.netapp.v1.NetApp", "GetSnapshot"));
             self.inner.unary(req, path, codec).await
         }
         /// Create a new snapshot for a volume.
@@ -2517,15 +2439,12 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/CreateSnapshot",
+                "/google.cloud.netapp.v1.NetApp/CreateSnapshot",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "CreateSnapshot",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "CreateSnapshot"),
                 );
             self.inner.unary(req, path, codec).await
         }
@@ -2548,15 +2467,12 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/DeleteSnapshot",
+                "/google.cloud.netapp.v1.NetApp/DeleteSnapshot",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "DeleteSnapshot",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "DeleteSnapshot"),
                 );
             self.inner.unary(req, path, codec).await
         }
@@ -2579,19 +2495,15 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/UpdateSnapshot",
+                "/google.cloud.netapp.v1.NetApp/UpdateSnapshot",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "UpdateSnapshot",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "UpdateSnapshot"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// ListActiveDirectories
         /// Lists active directories.
         pub async fn list_active_directories(
             &mut self,
@@ -2611,19 +2523,18 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/ListActiveDirectories",
+                "/google.cloud.netapp.v1.NetApp/ListActiveDirectories",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
+                        "google.cloud.netapp.v1.NetApp",
                         "ListActiveDirectories",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// DescribeActiveDirectory
         /// Describes a specified active directory.
         pub async fn get_active_directory(
             &mut self,
@@ -2643,13 +2554,13 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/GetActiveDirectory",
+                "/google.cloud.netapp.v1.NetApp/GetActiveDirectory",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
+                        "google.cloud.netapp.v1.NetApp",
                         "GetActiveDirectory",
                     ),
                 );
@@ -2675,19 +2586,18 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/CreateActiveDirectory",
+                "/google.cloud.netapp.v1.NetApp/CreateActiveDirectory",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
+                        "google.cloud.netapp.v1.NetApp",
                         "CreateActiveDirectory",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// UpdateActiveDirectory
         /// Update the parameters of an active directories.
         pub async fn update_active_directory(
             &mut self,
@@ -2707,19 +2617,18 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/UpdateActiveDirectory",
+                "/google.cloud.netapp.v1.NetApp/UpdateActiveDirectory",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
+                        "google.cloud.netapp.v1.NetApp",
                         "UpdateActiveDirectory",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// DeleteActiveDirectory
         /// Delete the active directory specified in the request.
         pub async fn delete_active_directory(
             &mut self,
@@ -2739,20 +2648,18 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/DeleteActiveDirectory",
+                "/google.cloud.netapp.v1.NetApp/DeleteActiveDirectory",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
+                        "google.cloud.netapp.v1.NetApp",
                         "DeleteActiveDirectory",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// ListKmsConfigs
-        ///
         /// Returns descriptions of all KMS configs owned by the caller.
         pub async fn list_kms_configs(
             &mut self,
@@ -2772,20 +2679,15 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/ListKmsConfigs",
+                "/google.cloud.netapp.v1.NetApp/ListKmsConfigs",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "ListKmsConfigs",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "ListKmsConfigs"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// CreateKmsConfig
-        ///
         /// Creates a new KMS config.
         pub async fn create_kms_config(
             &mut self,
@@ -2805,19 +2707,15 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/CreateKmsConfig",
+                "/google.cloud.netapp.v1.NetApp/CreateKmsConfig",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "CreateKmsConfig",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "CreateKmsConfig"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// GetKmsConfig
         /// Returns the description of the specified KMS config by kms_config_id.
         pub async fn get_kms_config(
             &mut self,
@@ -2834,17 +2732,15 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/GetKmsConfig",
+                "/google.cloud.netapp.v1.NetApp/GetKmsConfig",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.cloud.netapp.v1beta1.NetApp", "GetKmsConfig"),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "GetKmsConfig"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// UpdateKmsConfig
-        ///
         /// Updates the Kms config properties with the full spec
         pub async fn update_kms_config(
             &mut self,
@@ -2864,20 +2760,15 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/UpdateKmsConfig",
+                "/google.cloud.netapp.v1.NetApp/UpdateKmsConfig",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "UpdateKmsConfig",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "UpdateKmsConfig"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// EncryptVolumes
-        ///
         /// Encrypt the existing volumes without CMEK encryption with the desired the
         /// KMS config for the whole region.
         pub async fn encrypt_volumes(
@@ -2898,20 +2789,15 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/EncryptVolumes",
+                "/google.cloud.netapp.v1.NetApp/EncryptVolumes",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "EncryptVolumes",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "EncryptVolumes"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// VerifyKmsConfigRequest
-        ///
         /// Verifies KMS config reachability.
         pub async fn verify_kms_config(
             &mut self,
@@ -2931,20 +2817,15 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/VerifyKmsConfig",
+                "/google.cloud.netapp.v1.NetApp/VerifyKmsConfig",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "VerifyKmsConfig",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "VerifyKmsConfig"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// DeleteKmsConfig
-        ///
         /// Warning! This operation will permanently delete the Kms config.
         pub async fn delete_kms_config(
             &mut self,
@@ -2964,15 +2845,12 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/DeleteKmsConfig",
+                "/google.cloud.netapp.v1.NetApp/DeleteKmsConfig",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "DeleteKmsConfig",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "DeleteKmsConfig"),
                 );
             self.inner.unary(req, path, codec).await
         }
@@ -2995,15 +2873,12 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/ListReplications",
+                "/google.cloud.netapp.v1.NetApp/ListReplications",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "ListReplications",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "ListReplications"),
                 );
             self.inner.unary(req, path, codec).await
         }
@@ -3023,15 +2898,12 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/GetReplication",
+                "/google.cloud.netapp.v1.NetApp/GetReplication",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "GetReplication",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "GetReplication"),
                 );
             self.inner.unary(req, path, codec).await
         }
@@ -3054,15 +2926,12 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/CreateReplication",
+                "/google.cloud.netapp.v1.NetApp/CreateReplication",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "CreateReplication",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "CreateReplication"),
                 );
             self.inner.unary(req, path, codec).await
         }
@@ -3085,15 +2954,12 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/DeleteReplication",
+                "/google.cloud.netapp.v1.NetApp/DeleteReplication",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "DeleteReplication",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "DeleteReplication"),
                 );
             self.inner.unary(req, path, codec).await
         }
@@ -3116,15 +2982,12 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/UpdateReplication",
+                "/google.cloud.netapp.v1.NetApp/UpdateReplication",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "UpdateReplication",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "UpdateReplication"),
                 );
             self.inner.unary(req, path, codec).await
         }
@@ -3147,15 +3010,12 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/StopReplication",
+                "/google.cloud.netapp.v1.NetApp/StopReplication",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "StopReplication",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "StopReplication"),
                 );
             self.inner.unary(req, path, codec).await
         }
@@ -3178,20 +3038,17 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/ResumeReplication",
+                "/google.cloud.netapp.v1.NetApp/ResumeReplication",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
-                        "ResumeReplication",
-                    ),
+                    GrpcMethod::new("google.cloud.netapp.v1.NetApp", "ResumeReplication"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// ReverseReplicationDirection reverses direction of replication. Source
-        /// becomes destination and destination becomes source.
+        /// Reverses direction of replication. Source becomes destination and
+        /// destination becomes source.
         pub async fn reverse_replication_direction(
             &mut self,
             request: impl tonic::IntoRequest<super::ReverseReplicationDirectionRequest>,
@@ -3210,13 +3067,13 @@ pub mod net_app_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.netapp.v1beta1.NetApp/ReverseReplicationDirection",
+                "/google.cloud.netapp.v1.NetApp/ReverseReplicationDirection",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.cloud.netapp.v1beta1.NetApp",
+                        "google.cloud.netapp.v1.NetApp",
                         "ReverseReplicationDirection",
                     ),
                 );
