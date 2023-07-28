@@ -33,6 +33,9 @@ if [ $(git diff HEAD --name-only google-api-proto | wc -l) -gt 0 ]; then
   git add google-api-proto
   git commit -m "google-api-proto: regenerate code"
 
+  echo "Push changes"
+  git push origin master
+
   echo "Publish to crates.io"
   cargo release \
         --execute \
