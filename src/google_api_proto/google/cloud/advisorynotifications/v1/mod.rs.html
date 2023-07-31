@@ -433,6 +433,14 @@
 <a href="#433" id="433">433</a>
 <a href="#434" id="434">434</a>
 <a href="#435" id="435">435</a>
+<a href="#436" id="436">436</a>
+<a href="#437" id="437">437</a>
+<a href="#438" id="438">438</a>
+<a href="#439" id="439">439</a>
+<a href="#440" id="440">440</a>
+<a href="#441" id="441">441</a>
+<a href="#442" id="442">442</a>
+<a href="#443" id="443">443</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A notification object for notifying customers about security and privacy
 /// issues.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -703,6 +711,10 @@
     </span>SecurityPrivacyAdvisory = <span class="number">1</span>,
     <span class="doccomment">/// Sensitive action notifications
     </span>SensitiveActions = <span class="number">2</span>,
+    <span class="doccomment">/// General security MSA
+    </span>SecurityMsa = <span class="number">3</span>,
+    <span class="doccomment">/// Threat horizons MSA
+    </span>ThreatHorizons = <span class="number">4</span>,
 }
 <span class="kw">impl </span>NotificationType {
     <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -716,6 +728,8 @@
                 <span class="string">&quot;NOTIFICATION_TYPE_SECURITY_PRIVACY_ADVISORY&quot;
             </span>}
             NotificationType::SensitiveActions =&gt; <span class="string">&quot;NOTIFICATION_TYPE_SENSITIVE_ACTIONS&quot;</span>,
+            NotificationType::SecurityMsa =&gt; <span class="string">&quot;NOTIFICATION_TYPE_SECURITY_MSA&quot;</span>,
+            NotificationType::ThreatHorizons =&gt; <span class="string">&quot;NOTIFICATION_TYPE_THREAT_HORIZONS&quot;</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -726,6 +740,8 @@
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SecurityPrivacyAdvisory)
             }
             <span class="string">&quot;NOTIFICATION_TYPE_SENSITIVE_ACTIONS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SensitiveActions),
+            <span class="string">&quot;NOTIFICATION_TYPE_SECURITY_MSA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SecurityMsa),
+            <span class="string">&quot;NOTIFICATION_TYPE_THREAT_HORIZONS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ThreatHorizons),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }

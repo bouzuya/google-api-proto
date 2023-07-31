@@ -3721,6 +3721,11 @@
 <a href="#3721" id="3721">3721</a>
 <a href="#3722" id="3722">3722</a>
 <a href="#3723" id="3723">3723</a>
+<a href="#3724" id="3724">3724</a>
+<a href="#3725" id="3725">3725</a>
+<a href="#3726" id="3726">3726</a>
+<a href="#3727" id="3727">3727</a>
+<a href="#3728" id="3728">3728</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Specifies a build to retry.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -5890,6 +5895,11 @@
     <span class="doccomment">/// Required. `BuildTrigger` to update.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>trigger: ::core::option::Option&lt;BuildTrigger&gt;,
+    <span class="doccomment">/// Update mask for the resource. If this is set,
+    /// the server will only update the fields specified in the field mask.
+    /// Otherwise, a full update of the mutable resource fields will be performed.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Optional arguments to enable specific features of builds.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
