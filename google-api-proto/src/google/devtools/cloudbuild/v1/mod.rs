@@ -2167,6 +2167,11 @@ pub struct UpdateBuildTriggerRequest {
     /// Required. `BuildTrigger` to update.
     #[prost(message, optional, tag = "3")]
     pub trigger: ::core::option::Option<BuildTrigger>,
+    /// Update mask for the resource. If this is set,
+    /// the server will only update the fields specified in the field mask.
+    /// Otherwise, a full update of the mutable resource fields will be performed.
+    #[prost(message, optional, tag = "5")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
 /// Optional arguments to enable specific features of builds.
 #[allow(clippy::derive_partial_eq_without_eq)]
