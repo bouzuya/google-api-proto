@@ -4572,379 +4572,6 @@
         }
     }
 }
-<span class="doccomment">/// Response message for DocumentLinkService.ListLinkedTargets.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListLinkedTargetsResponse {
-    <span class="doccomment">/// Target document-links.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>document_links: ::prost::alloc::vec::Vec&lt;DocumentLink&gt;,
-    <span class="doccomment">/// A token, which can be sent as `page_token` to retrieve the next page.
-    /// If this field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Request message for DocumentLinkService.ListLinkedTargets.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListLinkedTargetsRequest {
-    <span class="doccomment">/// Required. The name of the document, for which all target links are
-    /// returned. Format:
-    /// projects/{project_number}/locations/{location}/documents/{target_document_id}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The meta information collected about the document creator, used to enforce
-    /// access control for the service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
-}
-<span class="doccomment">/// Response message for DocumentLinkService.ListLinkedSources.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListLinkedSourcesResponse {
-    <span class="doccomment">/// Source document-links.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>document_links: ::prost::alloc::vec::Vec&lt;DocumentLink&gt;,
-    <span class="doccomment">/// A token, which can be sent as `page_token` to retrieve the next page.
-    /// If this field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Response message for DocumentLinkService.ListLinkedSources.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListLinkedSourcesRequest {
-    <span class="doccomment">/// Required. The name of the document, for which all source links are
-    /// returned. Format:
-    /// projects/{project_number}/locations/{location}/documents/{source_document_id}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of document-links to return. The service may return
-    /// fewer than this value.
-    ///
-    /// If unspecified, at most 50 document-links will be returned.
-    /// The maximum value is 1000; values above 1000 will be coerced to 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// A page token, received from a previous `ListLinkedSources` call.
-    /// Provide this to retrieve the subsequent page.
-    ///
-    /// When paginating, all other parameters provided to `ListLinkedSources`
-    /// must match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// The meta information collected about the document creator, used to enforce
-    /// access control for the service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
-}
-<span class="doccomment">/// A document-link between source and target document.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DocumentLink {
-    <span class="doccomment">/// Name of this document-link.
-    /// It is required that the parent derived form the name to be consistent with
-    /// the source document reference. Otherwise an exception will be thrown.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documents/{source_document_id}/documentLinks/{document_link_id}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Document references of the source document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>source_document_reference: ::core::option::Option&lt;DocumentReference&gt;,
-    <span class="doccomment">/// Document references of the target document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>target_document_reference: ::core::option::Option&lt;DocumentReference&gt;,
-    <span class="doccomment">/// Description of this document-link.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The time when the documentLink is last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The time when the documentLink is created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The state of the documentlink. If target node has been deleted, the
-    /// link is marked as invalid. Removing a source node will result in removal
-    /// of all associated links.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;document_link::State&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `DocumentLink`.
-</span><span class="kw">pub mod </span>document_link {
-    <span class="doccomment">/// The state of a document-link.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unknown state of documentlink.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The documentlink has both source and target documents detected.
-        </span>Active = <span class="number">1</span>,
-        <span class="doccomment">/// Target document is deleted, and mark the documentlink as soft-deleted.
-        </span>SoftDeleted = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::SoftDeleted =&gt; <span class="string">&quot;SOFT_DELETED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;SOFT_DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SoftDeleted),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Request message for DocumentLinkService.CreateDocumentLink.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateDocumentLinkRequest {
-    <span class="doccomment">/// Required. Parent of the document-link to be created.
-    /// parent of document-link should be a document.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documents/{source_document_id}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Document links associated with the source documents
-    /// (source_document_id).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>document_link: ::core::option::Option&lt;DocumentLink&gt;,
-    <span class="doccomment">/// The meta information collected about the document creator, used to enforce
-    /// access control for the service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
-}
-<span class="doccomment">/// Request message for DocumentLinkService.DeleteDocumentLink.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteDocumentLinkRequest {
-    <span class="doccomment">/// Required. The name of the document-link to be deleted.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documents/{source_document_id}/documentLinks/{document_link_id}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The meta information collected about the document creator, used to enforce
-    /// access control for the service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>document_link_service_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// This service lets you manage document-links.
-    /// Document-Links are treated as sub-resources under source documents.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>DocumentLinkServiceClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; DocumentLinkServiceClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; DocumentLinkServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            DocumentLinkServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Return all target document-links from the document.
-        </span><span class="kw">pub async fn </span>list_linked_targets(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListLinkedTargetsRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListLinkedTargetsResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.contentwarehouse.v1.DocumentLinkService/ListLinkedTargets&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.contentwarehouse.v1.DocumentLinkService&quot;</span>,
-                        <span class="string">&quot;ListLinkedTargets&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Return all source document-links from the document.
-        </span><span class="kw">pub async fn </span>list_linked_sources(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListLinkedSourcesRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListLinkedSourcesResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.contentwarehouse.v1.DocumentLinkService/ListLinkedSources&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.contentwarehouse.v1.DocumentLinkService&quot;</span>,
-                        <span class="string">&quot;ListLinkedSources&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Create a link between a source document and a target document.
-        </span><span class="kw">pub async fn </span>create_document_link(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateDocumentLinkRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::DocumentLink&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.contentwarehouse.v1.DocumentLinkService/CreateDocumentLink&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.contentwarehouse.v1.DocumentLinkService&quot;</span>,
-                        <span class="string">&quot;CreateDocumentLink&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Remove the link between the source and target documents.
-        </span><span class="kw">pub async fn </span>delete_document_link(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteDocumentLinkRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;()&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.contentwarehouse.v1.DocumentLinkService/DeleteDocumentLink&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.contentwarehouse.v1.DocumentLinkService&quot;</span>,
-                        <span class="string">&quot;DeleteDocumentLink&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-    }
-}
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DocumentQuery {
@@ -5276,100 +4903,69 @@
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>property_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
-<span class="doccomment">/// A document schema used to define document structure.
+<span class="doccomment">/// The histogram request.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DocumentSchema {
-    <span class="doccomment">/// The resource name of the document schema.
+</span><span class="kw">pub struct </span>HistogramQuery {
+    <span class="doccomment">/// An expression specifies a histogram request against matching documents for
+    /// searches.
+    ///
+    /// See
+    /// \[SearchDocumentsRequest.histogram_queries][google.cloud.contentwarehouse.v1.SearchDocumentsRequest.histogram_queries\]
+    /// for details about syntax.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>histogram_query: ::prost::alloc::string::String,
+    <span class="doccomment">/// Controls if the histogram query requires the return of a precise count.
+    /// Enable this flag may adversely impact performance.
+    ///
+    /// Defaults to true.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>require_precise_result_size: bool,
+    <span class="doccomment">/// Optional. Filter the result of histogram query by the property names. It
+    /// only works with histogram query count(&#39;FilterableProperties&#39;). It is an
+    /// optional. It will perform histogram on all the property names for all the
+    /// document schemas. Setting this field will have a better performance.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>filters: ::core::option::Option&lt;HistogramQueryPropertyNameFilter&gt;,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>HistogramQueryPropertyNameFilter {
+    <span class="doccomment">/// This filter specifies the exact document schema(s)
+    /// \[Document.document_schema_name][google.cloud.contentwarehouse.v1.Document.document_schema_name\]
+    /// to run histogram query against. It is optional. It will perform histogram
+    /// for property names for all the document schemas if it is not set.
+    ///
+    /// At most 10 document schema names are allowed.
     /// Format:
     /// projects/{project_number}/locations/{location}/documentSchemas/{document_schema_id}.
-    ///
-    /// The name is ignored when creating a document schema.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Name of the schema given by the user. Must be unique per project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Document details.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>property_definitions: ::prost::alloc::vec::Vec&lt;PropertyDefinition&gt;,
-    <span class="doccomment">/// Document Type, true refers the document is a folder, otherwise it is
-    /// a typical document.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>document_is_folder: bool,
-    <span class="doccomment">/// Output only. The time when the document schema is last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The time when the document schema is created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Schema description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Defines the metadata for a schema property.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PropertyDefinition {
-    <span class="doccomment">/// Required. The name of the metadata property.
-    /// Must be unique within a document schema and is case insensitive.
-    /// Names must be non-blank, start with a letter, and can contain alphanumeric
-    /// characters and: /, :, -, _, and .
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The display-name for the property, used for front-end.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Whether the property can have multiple values.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>is_repeatable: bool,
-    <span class="doccomment">/// Whether the property can be filtered. If this is a sub-property, all the
-    /// parent properties must be marked filterable.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>is_filterable: bool,
-    <span class="doccomment">/// Indicates that the property should be included in a global search.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>is_searchable: bool,
-    <span class="doccomment">/// Whether the property is user supplied metadata.
-    /// This out-of-the box placeholder setting can be used to tag derived
-    /// properties. Its value and interpretation logic should be implemented by API
-    /// user.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>is_metadata: bool,
-    <span class="doccomment">/// Whether the property is mandatory.
-    /// Default is &#39;false&#39;, i.e. populating property value can be skipped.
-    /// If &#39;true&#39; then user must populate the value for this property.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>is_required: bool,
-    <span class="doccomment">/// The retrieval importance of the property during search.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;property_definition::RetrievalImportance&quot;</span>, tag = <span class="string">&quot;18&quot;</span>)]
-    </span><span class="kw">pub </span>retrieval_importance: i32,
-    <span class="doccomment">/// The mapping information between this property to another schema source.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;19&quot;</span>)]
-    </span><span class="kw">pub </span>schema_sources: ::prost::alloc::vec::Vec&lt;property_definition::SchemaSource&gt;,
-    <span class="doccomment">/// Type of the property.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>document_schemas: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// It is optional. It will perform histogram for all the property names if it
+    /// is not set.
+    /// The properties need to be defined with the is_filterable flag set to
+    /// true and the name of the property should be in the format:
+    /// &quot;schemaId.propertyName&quot;. The property needs to be defined in the schema.
+    /// Example: the schema id is abc. Then the name of property for property
+    /// MORTGAGE_TYPE will be &quot;abc.MORTGAGE_TYPE&quot;.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>property_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// By default, the y_axis is HISTOGRAM_YAXIS_DOCUMENT if this field is not
+    /// set.
     </span><span class="attr">#[prost(
-        oneof = <span class="string">&quot;property_definition::ValueTypeOptions&quot;</span>,
-        tags = <span class="string">&quot;7, 8, 9, 10, 11, 13, 15, 16&quot;
+        enumeration = <span class="string">&quot;histogram_query_property_name_filter::HistogramYAxis&quot;</span>,
+        tag = <span class="string">&quot;3&quot;
     </span>)]
-    </span><span class="kw">pub </span>value_type_options: ::core::option::Option&lt;
-        property_definition::ValueTypeOptions,
-    &gt;,
+    </span><span class="kw">pub </span>y_axis: i32,
 }
-<span class="doccomment">/// Nested message and enum types in `PropertyDefinition`.
-</span><span class="kw">pub mod </span>property_definition {
-    <span class="doccomment">/// The schema source information.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>SchemaSource {
-        <span class="doccomment">/// The schema name in the source.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-        <span class="doccomment">/// The Doc AI processor type name.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>processor_type: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Stores the retrieval importance.
+<span class="doccomment">/// Nested message and enum types in `HistogramQueryPropertyNameFilter`.
+</span><span class="kw">pub mod </span>histogram_query_property_name_filter {
+    <span class="doccomment">/// The result of the histogram query count(&#39;FilterableProperties&#39;) using
+    /// HISTOGRAM_YAXIS_DOCUMENT will be:
+    /// invoice_id: 2
+    /// address: 1
+    /// payment_method: 2
+    /// line_item_description: 1
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -5382,128 +4978,399 @@
         ::prost::Enumeration
     )]
     #[repr(i32)]
-    </span><span class="kw">pub enum </span>RetrievalImportance {
-        <span class="doccomment">/// No importance specified. Default medium importance.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Highest importance.
-        </span>Highest = <span class="number">1</span>,
-        <span class="doccomment">/// Higher importance.
-        </span>Higher = <span class="number">2</span>,
-        <span class="doccomment">/// High importance.
-        </span>High = <span class="number">3</span>,
-        <span class="doccomment">/// Medium importance.
-        </span>Medium = <span class="number">4</span>,
-        <span class="doccomment">/// Low importance (negative).
-        </span>Low = <span class="number">5</span>,
-        <span class="doccomment">/// Lowest importance (negative).
-        </span>Lowest = <span class="number">6</span>,
+    </span><span class="kw">pub enum </span>HistogramYAxis {
+        <span class="doccomment">/// Count the documents per property name.
+        </span>HistogramYaxisDocument = <span class="number">0</span>,
+        <span class="doccomment">/// Count the properties per property name.
+        </span>HistogramYaxisProperty = <span class="number">1</span>,
     }
-    <span class="kw">impl </span>RetrievalImportance {
+    <span class="kw">impl </span>HistogramYAxis {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                RetrievalImportance::Unspecified =&gt; <span class="string">&quot;RETRIEVAL_IMPORTANCE_UNSPECIFIED&quot;</span>,
-                RetrievalImportance::Highest =&gt; <span class="string">&quot;HIGHEST&quot;</span>,
-                RetrievalImportance::Higher =&gt; <span class="string">&quot;HIGHER&quot;</span>,
-                RetrievalImportance::High =&gt; <span class="string">&quot;HIGH&quot;</span>,
-                RetrievalImportance::Medium =&gt; <span class="string">&quot;MEDIUM&quot;</span>,
-                RetrievalImportance::Low =&gt; <span class="string">&quot;LOW&quot;</span>,
-                RetrievalImportance::Lowest =&gt; <span class="string">&quot;LOWEST&quot;</span>,
+                HistogramYAxis::HistogramYaxisDocument =&gt; <span class="string">&quot;HISTOGRAM_YAXIS_DOCUMENT&quot;</span>,
+                HistogramYAxis::HistogramYaxisProperty =&gt; <span class="string">&quot;HISTOGRAM_YAXIS_PROPERTY&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RETRIEVAL_IMPORTANCE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;HIGHEST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Highest),
-                <span class="string">&quot;HIGHER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Higher),
-                <span class="string">&quot;HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
-                <span class="string">&quot;MEDIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
-                <span class="string">&quot;LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
-                <span class="string">&quot;LOWEST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Lowest),
+                <span class="string">&quot;HISTOGRAM_YAXIS_DOCUMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HistogramYaxisDocument),
+                <span class="string">&quot;HISTOGRAM_YAXIS_PROPERTY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HistogramYaxisProperty),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
     }
-    <span class="doccomment">/// Type of the property.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>ValueTypeOptions {
-        <span class="doccomment">/// Integer property.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
-        </span>IntegerTypeOptions(<span class="kw">super</span>::IntegerTypeOptions),
-        <span class="doccomment">/// Float property.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
-        </span>FloatTypeOptions(<span class="kw">super</span>::FloatTypeOptions),
-        <span class="doccomment">/// Text/string property.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
-        </span>TextTypeOptions(<span class="kw">super</span>::TextTypeOptions),
-        <span class="doccomment">/// Nested structured data property.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
-        </span>PropertyTypeOptions(<span class="kw">super</span>::PropertyTypeOptions),
-        <span class="doccomment">/// Enum/categorical property.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
-        </span>EnumTypeOptions(<span class="kw">super</span>::EnumTypeOptions),
-        <span class="doccomment">/// Date time property.
-        /// It is not supported by CMEK compliant deployment.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
-        </span>DateTimeTypeOptions(<span class="kw">super</span>::DateTimeTypeOptions),
-        <span class="doccomment">/// Map property.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;15&quot;</span>)]
-        </span>MapTypeOptions(<span class="kw">super</span>::MapTypeOptions),
-        <span class="doccomment">/// Timestamp property.
-        /// It is not supported by CMEK compliant deployment.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;16&quot;</span>)]
-        </span>TimestampTypeOptions(<span class="kw">super</span>::TimestampTypeOptions),
+}
+<span class="doccomment">/// Histogram result that matches
+/// \[HistogramQuery][google.cloud.contentwarehouse.v1.HistogramQuery\] specified
+/// in searches.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>HistogramQueryResult {
+    <span class="doccomment">/// Requested histogram expression.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>histogram_query: ::prost::alloc::string::String,
+    <span class="doccomment">/// A map from the values of the facet associated with distinct values to the
+    /// number of matching entries with corresponding value.
+    ///
+    /// The key format is:
+    ///
+    /// * (for string histogram) string values stored in the field.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, int64&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>histogram: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        i64,
+    &gt;,
+}
+<span class="doccomment">/// Request Option for processing Cloud AI Document in CW Document.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CloudAiDocumentOption {
+    <span class="doccomment">/// Whether to convert all the entities to properties.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>enable_entities_conversions: bool,
+    <span class="doccomment">/// If set, only selected entities will be converted to properties.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>customized_entities_properties_conversions: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+}
+<span class="doccomment">/// Request message for DocumentService.CreateDocument.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateDocumentRequest {
+    <span class="doccomment">/// Required. The parent name.
+    /// Format: projects/{project_number}/locations/{location}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The document to create.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>document: ::core::option::Option&lt;Document&gt;,
+    <span class="doccomment">/// The meta information collected about the end user, used to enforce access
+    /// control for the service.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
+    <span class="doccomment">/// Default document policy during creation.
+    /// This refers to an Identity and Access (IAM) policy, which specifies access
+    /// controls for the Document.
+    /// Conditions defined in the policy will be ignored.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>policy: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::Policy&gt;,
+    <span class="doccomment">/// Request Option for processing Cloud AI Document in Document Warehouse.
+    /// This field offers limited support for mapping entities from Cloud AI
+    /// Document to Warehouse Document. Please consult with product team before
+    /// using this field and other available options.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>cloud_ai_document_option: ::core::option::Option&lt;CloudAiDocumentOption&gt;,
+    <span class="doccomment">/// Field mask for creating Document fields. If mask path is empty,
+    /// it means all fields are masked.
+    /// For the `FieldMask` definition,
+    /// see
+    /// &lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask.&gt;
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>create_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
+}
+<span class="doccomment">/// Request message for DocumentService.GetDocument.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetDocumentRequest {
+    <span class="doccomment">/// Required. The name of the document to retrieve.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{document_id} or
+    /// projects/{project_number}/locations/{location}/documents/referenceId/{reference_id}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The meta information collected about the end user, used to enforce access
+    /// control for the service.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
+}
+<span class="doccomment">/// Request message for DocumentService.UpdateDocument.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdateDocumentRequest {
+    <span class="doccomment">/// Required. The name of the document to update.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{document_id}
+    /// or
+    /// projects/{project_number}/locations/{location}/documents/referenceId/{reference_id}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The document to update.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>document: ::core::option::Option&lt;Document&gt;,
+    <span class="doccomment">/// The meta information collected about the end user, used to enforce access
+    /// control for the service.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
+    <span class="doccomment">/// Request Option for processing Cloud AI Document in Document Warehouse.
+    /// This field offers limited support for mapping entities from Cloud AI
+    /// Document to Warehouse Document. Please consult with product team before
+    /// using this field and other available options.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>cloud_ai_document_option: ::core::option::Option&lt;CloudAiDocumentOption&gt;,
+    <span class="doccomment">/// Options for the update operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>update_options: ::core::option::Option&lt;UpdateOptions&gt;,
+}
+<span class="doccomment">/// Request message for DocumentService.DeleteDocument.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteDocumentRequest {
+    <span class="doccomment">/// Required. The name of the document to delete.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{document_id}
+    /// or
+    /// projects/{project_number}/locations/{location}/documents/referenceId/{reference_id}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The meta information collected about the end user, used to enforce access
+    /// control for the service.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
+}
+<span class="doccomment">/// Request message for DocumentService.SearchDocuments.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SearchDocumentsRequest {
+    <span class="doccomment">/// Required. The parent, which owns this collection of documents.
+    /// Format: projects/{project_number}/locations/{location}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// The meta information collected about the end user, used to enforce access
+    /// control and improve the search quality of the service.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
+    <span class="doccomment">/// Query used to search against documents (keyword, filters, etc.).
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>document_query: ::core::option::Option&lt;DocumentQuery&gt;,
+    <span class="doccomment">/// An integer that specifies the current offset (that is, starting result
+    /// location, amongst the documents deemed by the API as relevant) in search
+    /// results. This field is only considered if
+    /// \[page_token][google.cloud.contentwarehouse.v1.SearchDocumentsRequest.page_token\]
+    /// is unset.
+    ///
+    /// The maximum allowed value is 5000. Otherwise an error is thrown.
+    ///
+    /// For example, 0 means to  return results starting from the first matching
+    /// document, and 10 means to return from the 11th document. This can be used
+    /// for pagination, (for example, pageSize = 10 and offset = 10 means to return
+    /// from the second page).
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>offset: i32,
+    <span class="doccomment">/// A limit on the number of documents returned in the search results.
+    /// Increasing this value above the default value of 10 can increase search
+    /// response time. The value can be between 1 and 100.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// The token specifying the current offset within search results.
+    /// See
+    /// \[SearchDocumentsResponse.next_page_token][google.cloud.contentwarehouse.v1.SearchDocumentsResponse.next_page_token\]
+    /// for an explanation of how to obtain the next set of query results.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// The criteria determining how search results are sorted. For non-empty
+    /// query, default is `&quot;relevance desc&quot;`. For empty query, default is
+    /// `&quot;upload_date desc&quot;`.
+    ///
+    /// Supported options are:
+    ///
+    /// * `&quot;relevance desc&quot;`: By relevance descending, as determined by the API
+    ///    algorithms.
+    /// * `&quot;upload_date desc&quot;`: By upload date descending.
+    /// * `&quot;upload_date&quot;`: By upload date ascending.
+    /// * `&quot;update_date desc&quot;`: By last updated date descending.
+    /// * `&quot;update_date&quot;`: By last updated date ascending.
+    /// * `&quot;retrieval_importance desc&quot;`: By retrieval importance of properties
+    ///    descending. This feature is still under development, please do not use
+    ///    unless otherwise instructed to do so.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
+    <span class="doccomment">/// An expression specifying a histogram request against matching
+    /// documents. Expression syntax is an aggregation function call with
+    /// histogram facets and other options.
+    ///
+    /// The following aggregation functions are supported:
+    ///
+    /// * `count(string_histogram_facet)`: Count the number of matching entities
+    /// for each distinct attribute value.
+    ///
+    /// Data types:
+    ///
+    /// * Histogram facet (aka filterable properties): Facet names with format
+    /// &amp;lt;schema id&amp;gt;.&amp;lt;facet&amp;gt;. Facets will have the
+    /// format of: `\[a-zA-Z][a-zA-Z0-9_:/-.\]`. If the facet is a child
+    /// facet, then the parent hierarchy needs to be specified separated by
+    /// dots in the prefix after the schema id. Thus, the format for a multi-
+    /// level facet is: &amp;lt;schema id&amp;gt;.&amp;lt;parent facet name&amp;gt;.
+    /// &amp;lt;child facet name&amp;gt;. Example:
+    /// schema123.root_parent_facet.middle_facet.child_facet
+    /// * DocumentSchemaId: (with no schema id prefix) to get
+    /// histograms for each document type (returns the schema id path, e.g.
+    /// projects/12345/locations/us-west/documentSchemas/abc123).
+    ///
+    /// Example expression:
+    ///
+    /// * Document type counts:
+    ///    count(&#39;DocumentSchemaId&#39;)
+    ///
+    /// * For schema id, abc123, get the counts for MORTGAGE_TYPE:
+    ///    count(&#39;abc123.MORTGAGE_TYPE&#39;)
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>histogram_queries: ::prost::alloc::vec::Vec&lt;HistogramQuery&gt;,
+    <span class="doccomment">/// Controls if the search document request requires the return of a total size
+    /// of matched documents. See
+    /// \[SearchDocumentsResponse.total_size][google.cloud.contentwarehouse.v1.SearchDocumentsResponse.total_size\].
+    ///
+    /// Enabling this flag may adversely impact performance. Hint: If this is
+    /// used with pagination, set this flag on the initial query but set this
+    /// to false on subsequent page calls (keep the total count locally).
+    ///
+    /// Defaults to false.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>require_total_size: bool,
+    <span class="doccomment">/// Controls if the search document request requires the return of a total size
+    /// of matched documents. See
+    /// \[SearchDocumentsResponse.total_size][google.cloud.contentwarehouse.v1.SearchDocumentsResponse.total_size\].
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;search_documents_request::TotalResultSize&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>total_result_size: i32,
+    <span class="doccomment">/// Experimental, do not use.
+    /// The limit on the number of documents returned for the question-answering
+    /// feature. To enable the question-answering feature, set
+    /// \[DocumentQuery].[is_nl_query][\] to true.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>qa_size_limit: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `SearchDocumentsRequest`.
+</span><span class="kw">pub mod </span>search_documents_request {
+    <span class="doccomment">/// The total number of matching documents.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>TotalResultSize {
+        <span class="doccomment">/// Total number calculation will be skipped.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Estimate total number. The total result size will be accurated up to
+        /// 10,000. This option will add cost and latency to your request.
+        </span>EstimatedSize = <span class="number">1</span>,
+        <span class="doccomment">/// It may adversely impact performance. The limit is 1000,000.
+        </span>ActualSize = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>TotalResultSize {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                TotalResultSize::Unspecified =&gt; <span class="string">&quot;TOTAL_RESULT_SIZE_UNSPECIFIED&quot;</span>,
+                TotalResultSize::EstimatedSize =&gt; <span class="string">&quot;ESTIMATED_SIZE&quot;</span>,
+                TotalResultSize::ActualSize =&gt; <span class="string">&quot;ACTUAL_SIZE&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;TOTAL_RESULT_SIZE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ESTIMATED_SIZE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EstimatedSize),
+                <span class="string">&quot;ACTUAL_SIZE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ActualSize),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
     }
 }
-<span class="doccomment">/// Configurations for an integer property.
+<span class="doccomment">/// Request message for DocumentService.LockDocument.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>IntegerTypeOptions {}
-<span class="doccomment">/// Configurations for a float property.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FloatTypeOptions {}
-<span class="doccomment">/// Configurations for a text property.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextTypeOptions {}
-<span class="doccomment">/// Configurations for a date time property.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DateTimeTypeOptions {}
-<span class="doccomment">/// Configurations for a Map property.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>MapTypeOptions {}
-<span class="doccomment">/// Configurations for a timestamp property.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TimestampTypeOptions {}
-<span class="doccomment">/// Configurations for a nested structured data property.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PropertyTypeOptions {
-    <span class="doccomment">/// Required. List of property definitions.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>property_definitions: ::prost::alloc::vec::Vec&lt;PropertyDefinition&gt;,
+</span><span class="kw">pub struct </span>LockDocumentRequest {
+    <span class="doccomment">/// Required. The name of the document to lock.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{document}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The collection the document connects to.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>collection_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The user information who locks the document.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>locking_user: ::core::option::Option&lt;UserInfo&gt;,
 }
-<span class="doccomment">/// Configurations for an enum/categorical property.
+<span class="doccomment">/// Request message for DocumentService.FetchAcl
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>EnumTypeOptions {
-    <span class="doccomment">/// Required. List of possible enum values.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>possible_values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Make sure the Enum property value provided in the document is in the
-    /// possile value list during document creation. The validation check runs by
-    /// default.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>validation_check_disabled: bool,
+</span><span class="kw">pub struct </span>FetchAclRequest {
+    <span class="doccomment">/// Required. REQUIRED: The resource for which the policy is being requested.
+    /// Format for document:
+    /// projects/{project_number}/locations/{location}/documents/{document_id}.
+    /// Format for collection:
+    /// projects/{project_number}/locations/{location}/collections/{collection_id}.
+    /// Format for project: projects/{project_number}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
+    <span class="doccomment">/// The meta information collected about the end user, used to enforce access
+    /// control for the service.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
+    <span class="doccomment">/// For Get Project ACL only. Authorization check for end user will be ignored
+    /// when project_owner=true.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>project_owner: bool,
+}
+<span class="doccomment">/// Request message for DocumentService.SetAcl.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SetAclRequest {
+    <span class="doccomment">/// Required. REQUIRED: The resource for which the policy is being requested.
+    /// Format for document:
+    /// projects/{project_number}/locations/{location}/documents/{document_id}.
+    /// Format for collection:
+    /// projects/{project_number}/locations/{location}/collections/{collection_id}.
+    /// Format for project: projects/{project_number}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. REQUIRED: The complete policy to be applied to the `resource`.
+    /// The size of the policy is limited to a few 10s of KB. This refers to an
+    /// Identity and Access (IAM) policy, which specifies access controls for the
+    /// Document.
+    ///
+    /// You can set ACL with condition for projects only.
+    ///
+    /// Supported operators are: `=`, `!=`, `&lt;`, `&lt;=`, `&gt;`, and `&gt;=` where
+    /// the left of the operator is `DocumentSchemaId` or property name and the
+    /// right of the operator is a number or a quoted string. You must escape
+    /// backslash (\\) and quote (\&quot;) characters.
+    ///
+    /// Boolean expressions (AND/OR) are supported up to 3 levels of nesting (for
+    /// example, &quot;((A AND B AND C) OR D) AND E&quot;), a maximum of 10 comparisons are
+    /// allowed in the expression. The expression must be &lt; 6000 bytes in length.
+    ///
+    /// Sample condition:
+    ///      `&quot;DocumentSchemaId = \&quot;some schema id\&quot; OR SchemaId.floatPropertyName
+    ///      &gt;= 10&quot;`
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>policy: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::Policy&gt;,
+    <span class="doccomment">/// The meta information collected about the end user, used to enforce access
+    /// control for the service.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
+    <span class="doccomment">/// For Set Project ACL only. Authorization check for end user will be ignored
+    /// when project_owner=true.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>project_owner: bool,
 }
 <span class="doccomment">/// Represents a set of rules from a single customer.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5979,475 +5846,6 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The histogram request.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>HistogramQuery {
-    <span class="doccomment">/// An expression specifies a histogram request against matching documents for
-    /// searches.
-    ///
-    /// See
-    /// \[SearchDocumentsRequest.histogram_queries][google.cloud.contentwarehouse.v1.SearchDocumentsRequest.histogram_queries\]
-    /// for details about syntax.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>histogram_query: ::prost::alloc::string::String,
-    <span class="doccomment">/// Controls if the histogram query requires the return of a precise count.
-    /// Enable this flag may adversely impact performance.
-    ///
-    /// Defaults to true.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>require_precise_result_size: bool,
-    <span class="doccomment">/// Optional. Filter the result of histogram query by the property names. It
-    /// only works with histogram query count(&#39;FilterableProperties&#39;). It is an
-    /// optional. It will perform histogram on all the property names for all the
-    /// document schemas. Setting this field will have a better performance.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>filters: ::core::option::Option&lt;HistogramQueryPropertyNameFilter&gt;,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>HistogramQueryPropertyNameFilter {
-    <span class="doccomment">/// This filter specifies the exact document schema(s)
-    /// \[Document.document_schema_name][google.cloud.contentwarehouse.v1.Document.document_schema_name\]
-    /// to run histogram query against. It is optional. It will perform histogram
-    /// for property names for all the document schemas if it is not set.
-    ///
-    /// At most 10 document schema names are allowed.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documentSchemas/{document_schema_id}.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>document_schemas: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// It is optional. It will perform histogram for all the property names if it
-    /// is not set.
-    /// The properties need to be defined with the is_filterable flag set to
-    /// true and the name of the property should be in the format:
-    /// &quot;schemaId.propertyName&quot;. The property needs to be defined in the schema.
-    /// Example: the schema id is abc. Then the name of property for property
-    /// MORTGAGE_TYPE will be &quot;abc.MORTGAGE_TYPE&quot;.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>property_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// By default, the y_axis is HISTOGRAM_YAXIS_DOCUMENT if this field is not
-    /// set.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;histogram_query_property_name_filter::HistogramYAxis&quot;</span>,
-        tag = <span class="string">&quot;3&quot;
-    </span>)]
-    </span><span class="kw">pub </span>y_axis: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `HistogramQueryPropertyNameFilter`.
-</span><span class="kw">pub mod </span>histogram_query_property_name_filter {
-    <span class="doccomment">/// The result of the histogram query count(&#39;FilterableProperties&#39;) using
-    /// HISTOGRAM_YAXIS_DOCUMENT will be:
-    /// invoice_id: 2
-    /// address: 1
-    /// payment_method: 2
-    /// line_item_description: 1
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>HistogramYAxis {
-        <span class="doccomment">/// Count the documents per property name.
-        </span>HistogramYaxisDocument = <span class="number">0</span>,
-        <span class="doccomment">/// Count the properties per property name.
-        </span>HistogramYaxisProperty = <span class="number">1</span>,
-    }
-    <span class="kw">impl </span>HistogramYAxis {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                HistogramYAxis::HistogramYaxisDocument =&gt; <span class="string">&quot;HISTOGRAM_YAXIS_DOCUMENT&quot;</span>,
-                HistogramYAxis::HistogramYaxisProperty =&gt; <span class="string">&quot;HISTOGRAM_YAXIS_PROPERTY&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;HISTOGRAM_YAXIS_DOCUMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HistogramYaxisDocument),
-                <span class="string">&quot;HISTOGRAM_YAXIS_PROPERTY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HistogramYaxisProperty),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Histogram result that matches
-/// \[HistogramQuery][google.cloud.contentwarehouse.v1.HistogramQuery\] specified
-/// in searches.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>HistogramQueryResult {
-    <span class="doccomment">/// Requested histogram expression.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>histogram_query: ::prost::alloc::string::String,
-    <span class="doccomment">/// A map from the values of the facet associated with distinct values to the
-    /// number of matching entries with corresponding value.
-    ///
-    /// The key format is:
-    ///
-    /// * (for string histogram) string values stored in the field.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, int64&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>histogram: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        i64,
-    &gt;,
-}
-<span class="doccomment">/// Request Option for processing Cloud AI Document in CW Document.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CloudAiDocumentOption {
-    <span class="doccomment">/// Whether to convert all the entities to properties.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>enable_entities_conversions: bool,
-    <span class="doccomment">/// If set, only selected entities will be converted to properties.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>customized_entities_properties_conversions: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-}
-<span class="doccomment">/// Request message for DocumentService.CreateDocument.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateDocumentRequest {
-    <span class="doccomment">/// Required. The parent name.
-    /// Format: projects/{project_number}/locations/{location}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The document to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>document: ::core::option::Option&lt;Document&gt;,
-    <span class="doccomment">/// The meta information collected about the end user, used to enforce access
-    /// control for the service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
-    <span class="doccomment">/// Default document policy during creation.
-    /// This refers to an Identity and Access (IAM) policy, which specifies access
-    /// controls for the Document.
-    /// Conditions defined in the policy will be ignored.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>policy: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::Policy&gt;,
-    <span class="doccomment">/// Request Option for processing Cloud AI Document in Document Warehouse.
-    /// This field offers limited support for mapping entities from Cloud AI
-    /// Document to Warehouse Document. Please consult with product team before
-    /// using this field and other available options.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>cloud_ai_document_option: ::core::option::Option&lt;CloudAiDocumentOption&gt;,
-    <span class="doccomment">/// Field mask for creating Document fields. If mask path is empty,
-    /// it means all fields are masked.
-    /// For the `FieldMask` definition,
-    /// see
-    /// &lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask.&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>create_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
-}
-<span class="doccomment">/// Request message for DocumentService.GetDocument.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetDocumentRequest {
-    <span class="doccomment">/// Required. The name of the document to retrieve.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documents/{document_id} or
-    /// projects/{project_number}/locations/{location}/documents/referenceId/{reference_id}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The meta information collected about the end user, used to enforce access
-    /// control for the service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
-}
-<span class="doccomment">/// Request message for DocumentService.UpdateDocument.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpdateDocumentRequest {
-    <span class="doccomment">/// Required. The name of the document to update.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documents/{document_id}
-    /// or
-    /// projects/{project_number}/locations/{location}/documents/referenceId/{reference_id}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The document to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>document: ::core::option::Option&lt;Document&gt;,
-    <span class="doccomment">/// The meta information collected about the end user, used to enforce access
-    /// control for the service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
-    <span class="doccomment">/// Request Option for processing Cloud AI Document in Document Warehouse.
-    /// This field offers limited support for mapping entities from Cloud AI
-    /// Document to Warehouse Document. Please consult with product team before
-    /// using this field and other available options.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>cloud_ai_document_option: ::core::option::Option&lt;CloudAiDocumentOption&gt;,
-    <span class="doccomment">/// Options for the update operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>update_options: ::core::option::Option&lt;UpdateOptions&gt;,
-}
-<span class="doccomment">/// Request message for DocumentService.DeleteDocument.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteDocumentRequest {
-    <span class="doccomment">/// Required. The name of the document to delete.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documents/{document_id}
-    /// or
-    /// projects/{project_number}/locations/{location}/documents/referenceId/{reference_id}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The meta information collected about the end user, used to enforce access
-    /// control for the service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
-}
-<span class="doccomment">/// Request message for DocumentService.SearchDocuments.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SearchDocumentsRequest {
-    <span class="doccomment">/// Required. The parent, which owns this collection of documents.
-    /// Format: projects/{project_number}/locations/{location}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The meta information collected about the end user, used to enforce access
-    /// control and improve the search quality of the service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
-    <span class="doccomment">/// Query used to search against documents (keyword, filters, etc.).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>document_query: ::core::option::Option&lt;DocumentQuery&gt;,
-    <span class="doccomment">/// An integer that specifies the current offset (that is, starting result
-    /// location, amongst the documents deemed by the API as relevant) in search
-    /// results. This field is only considered if
-    /// \[page_token][google.cloud.contentwarehouse.v1.SearchDocumentsRequest.page_token\]
-    /// is unset.
-    ///
-    /// The maximum allowed value is 5000. Otherwise an error is thrown.
-    ///
-    /// For example, 0 means to  return results starting from the first matching
-    /// document, and 10 means to return from the 11th document. This can be used
-    /// for pagination, (for example, pageSize = 10 and offset = 10 means to return
-    /// from the second page).
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>offset: i32,
-    <span class="doccomment">/// A limit on the number of documents returned in the search results.
-    /// Increasing this value above the default value of 10 can increase search
-    /// response time. The value can be between 1 and 100.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// The token specifying the current offset within search results.
-    /// See
-    /// \[SearchDocumentsResponse.next_page_token][google.cloud.contentwarehouse.v1.SearchDocumentsResponse.next_page_token\]
-    /// for an explanation of how to obtain the next set of query results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// The criteria determining how search results are sorted. For non-empty
-    /// query, default is `&quot;relevance desc&quot;`. For empty query, default is
-    /// `&quot;upload_date desc&quot;`.
-    ///
-    /// Supported options are:
-    ///
-    /// * `&quot;relevance desc&quot;`: By relevance descending, as determined by the API
-    ///    algorithms.
-    /// * `&quot;upload_date desc&quot;`: By upload date descending.
-    /// * `&quot;upload_date&quot;`: By upload date ascending.
-    /// * `&quot;update_date desc&quot;`: By last updated date descending.
-    /// * `&quot;update_date&quot;`: By last updated date ascending.
-    /// * `&quot;retrieval_importance desc&quot;`: By retrieval importance of properties
-    ///    descending. This feature is still under development, please do not use
-    ///    unless otherwise instructed to do so.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
-    <span class="doccomment">/// An expression specifying a histogram request against matching
-    /// documents. Expression syntax is an aggregation function call with
-    /// histogram facets and other options.
-    ///
-    /// The following aggregation functions are supported:
-    ///
-    /// * `count(string_histogram_facet)`: Count the number of matching entities
-    /// for each distinct attribute value.
-    ///
-    /// Data types:
-    ///
-    /// * Histogram facet (aka filterable properties): Facet names with format
-    /// &amp;lt;schema id&amp;gt;.&amp;lt;facet&amp;gt;. Facets will have the
-    /// format of: `\[a-zA-Z][a-zA-Z0-9_:/-.\]`. If the facet is a child
-    /// facet, then the parent hierarchy needs to be specified separated by
-    /// dots in the prefix after the schema id. Thus, the format for a multi-
-    /// level facet is: &amp;lt;schema id&amp;gt;.&amp;lt;parent facet name&amp;gt;.
-    /// &amp;lt;child facet name&amp;gt;. Example:
-    /// schema123.root_parent_facet.middle_facet.child_facet
-    /// * DocumentSchemaId: (with no schema id prefix) to get
-    /// histograms for each document type (returns the schema id path, e.g.
-    /// projects/12345/locations/us-west/documentSchemas/abc123).
-    ///
-    /// Example expression:
-    ///
-    /// * Document type counts:
-    ///    count(&#39;DocumentSchemaId&#39;)
-    ///
-    /// * For schema id, abc123, get the counts for MORTGAGE_TYPE:
-    ///    count(&#39;abc123.MORTGAGE_TYPE&#39;)
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>histogram_queries: ::prost::alloc::vec::Vec&lt;HistogramQuery&gt;,
-    <span class="doccomment">/// Controls if the search document request requires the return of a total size
-    /// of matched documents. See
-    /// \[SearchDocumentsResponse.total_size][google.cloud.contentwarehouse.v1.SearchDocumentsResponse.total_size\].
-    ///
-    /// Enabling this flag may adversely impact performance. Hint: If this is
-    /// used with pagination, set this flag on the initial query but set this
-    /// to false on subsequent page calls (keep the total count locally).
-    ///
-    /// Defaults to false.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>require_total_size: bool,
-    <span class="doccomment">/// Controls if the search document request requires the return of a total size
-    /// of matched documents. See
-    /// \[SearchDocumentsResponse.total_size][google.cloud.contentwarehouse.v1.SearchDocumentsResponse.total_size\].
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;search_documents_request::TotalResultSize&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>total_result_size: i32,
-    <span class="doccomment">/// Experimental, do not use.
-    /// The limit on the number of documents returned for the question-answering
-    /// feature. To enable the question-answering feature, set
-    /// \[DocumentQuery].[is_nl_query][\] to true.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>qa_size_limit: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `SearchDocumentsRequest`.
-</span><span class="kw">pub mod </span>search_documents_request {
-    <span class="doccomment">/// The total number of matching documents.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>TotalResultSize {
-        <span class="doccomment">/// Total number calculation will be skipped.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Estimate total number. The total result size will be accurated up to
-        /// 10,000. This option will add cost and latency to your request.
-        </span>EstimatedSize = <span class="number">1</span>,
-        <span class="doccomment">/// It may adversely impact performance. The limit is 1000,000.
-        </span>ActualSize = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>TotalResultSize {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                TotalResultSize::Unspecified =&gt; <span class="string">&quot;TOTAL_RESULT_SIZE_UNSPECIFIED&quot;</span>,
-                TotalResultSize::EstimatedSize =&gt; <span class="string">&quot;ESTIMATED_SIZE&quot;</span>,
-                TotalResultSize::ActualSize =&gt; <span class="string">&quot;ACTUAL_SIZE&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;TOTAL_RESULT_SIZE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ESTIMATED_SIZE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EstimatedSize),
-                <span class="string">&quot;ACTUAL_SIZE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ActualSize),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Request message for DocumentService.LockDocument.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LockDocumentRequest {
-    <span class="doccomment">/// Required. The name of the document to lock.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documents/{document}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The collection the document connects to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>collection_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The user information who locks the document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>locking_user: ::core::option::Option&lt;UserInfo&gt;,
-}
-<span class="doccomment">/// Request message for DocumentService.FetchAcl
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FetchAclRequest {
-    <span class="doccomment">/// Required. REQUIRED: The resource for which the policy is being requested.
-    /// Format for document:
-    /// projects/{project_number}/locations/{location}/documents/{document_id}.
-    /// Format for collection:
-    /// projects/{project_number}/locations/{location}/collections/{collection_id}.
-    /// Format for project: projects/{project_number}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
-    <span class="doccomment">/// The meta information collected about the end user, used to enforce access
-    /// control for the service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
-    <span class="doccomment">/// For Get Project ACL only. Authorization check for end user will be ignored
-    /// when project_owner=true.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>project_owner: bool,
-}
-<span class="doccomment">/// Request message for DocumentService.SetAcl.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SetAclRequest {
-    <span class="doccomment">/// Required. REQUIRED: The resource for which the policy is being requested.
-    /// Format for document:
-    /// projects/{project_number}/locations/{location}/documents/{document_id}.
-    /// Format for collection:
-    /// projects/{project_number}/locations/{location}/collections/{collection_id}.
-    /// Format for project: projects/{project_number}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. REQUIRED: The complete policy to be applied to the `resource`.
-    /// The size of the policy is limited to a few 10s of KB. This refers to an
-    /// Identity and Access (IAM) policy, which specifies access controls for the
-    /// Document.
-    ///
-    /// You can set ACL with condition for projects only.
-    ///
-    /// Supported operators are: `=`, `!=`, `&lt;`, `&lt;=`, `&gt;`, and `&gt;=` where
-    /// the left of the operator is `DocumentSchemaId` or property name and the
-    /// right of the operator is a number or a quoted string. You must escape
-    /// backslash (\\) and quote (\&quot;) characters.
-    ///
-    /// Boolean expressions (AND/OR) are supported up to 3 levels of nesting (for
-    /// example, &quot;((A AND B AND C) OR D) AND E&quot;), a maximum of 10 comparisons are
-    /// allowed in the expression. The expression must be &lt; 6000 bytes in length.
-    ///
-    /// Sample condition:
-    ///      `&quot;DocumentSchemaId = \&quot;some schema id\&quot; OR SchemaId.floatPropertyName
-    ///      &gt;= 10&quot;`
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>policy: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::Policy&gt;,
-    <span class="doccomment">/// The meta information collected about the end user, used to enforce access
-    /// control for the service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
-    <span class="doccomment">/// For Set Project ACL only. Authorization check for end user will be ignored
-    /// when project_owner=true.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>project_owner: bool,
-}
 <span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>rule_set_service_client {
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
@@ -6669,41 +6067,607 @@
         </span>}
     }
 }
-<span class="doccomment">/// Represents a list of synonyms for a given context.
-/// For example a context &quot;sales&quot; could contain:
-/// Synonym 1: sale, invoice, bill, order
-/// Synonym 2: money, credit, finance, payment
-/// Synonym 3: shipping, freight, transport
-/// Each SynonymSets should be disjoint
+<span class="doccomment">/// Response message for DocumentLinkService.ListLinkedTargets.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SynonymSet {
-    <span class="doccomment">/// The resource name of the SynonymSet
-    /// This is mandatory for google.api.resource.
+</span><span class="kw">pub struct </span>ListLinkedTargetsResponse {
+    <span class="doccomment">/// Target document-links.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>document_links: ::prost::alloc::vec::Vec&lt;DocumentLink&gt;,
+    <span class="doccomment">/// A token, which can be sent as `page_token` to retrieve the next page.
+    /// If this field is omitted, there are no subsequent pages.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Request message for DocumentLinkService.ListLinkedTargets.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListLinkedTargetsRequest {
+    <span class="doccomment">/// Required. The name of the document, for which all target links are
+    /// returned. Format:
+    /// projects/{project_number}/locations/{location}/documents/{target_document_id}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// The meta information collected about the document creator, used to enforce
+    /// access control for the service.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
+}
+<span class="doccomment">/// Response message for DocumentLinkService.ListLinkedSources.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListLinkedSourcesResponse {
+    <span class="doccomment">/// Source document-links.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>document_links: ::prost::alloc::vec::Vec&lt;DocumentLink&gt;,
+    <span class="doccomment">/// A token, which can be sent as `page_token` to retrieve the next page.
+    /// If this field is omitted, there are no subsequent pages.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Response message for DocumentLinkService.ListLinkedSources.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListLinkedSourcesRequest {
+    <span class="doccomment">/// Required. The name of the document, for which all source links are
+    /// returned. Format:
+    /// projects/{project_number}/locations/{location}/documents/{source_document_id}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of document-links to return. The service may return
+    /// fewer than this value.
+    ///
+    /// If unspecified, at most 50 document-links will be returned.
+    /// The maximum value is 1000; values above 1000 will be coerced to 1000.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// A page token, received from a previous `ListLinkedSources` call.
+    /// Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to `ListLinkedSources`
+    /// must match the call that provided the page token.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// The meta information collected about the document creator, used to enforce
+    /// access control for the service.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
+}
+<span class="doccomment">/// A document-link between source and target document.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DocumentLink {
+    <span class="doccomment">/// Name of this document-link.
+    /// It is required that the parent derived form the name to be consistent with
+    /// the source document reference. Otherwise an exception will be thrown.
     /// Format:
-    /// projects/{project_number}/locations/{location}/synonymSets/{context}.
+    /// projects/{project_number}/locations/{location}/documents/{source_document_id}/documentLinks/{document_link_id}.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// This is a freeform field. Example contexts can be &quot;sales,&quot; &quot;engineering,&quot;
-    /// &quot;real estate,&quot; &quot;accounting,&quot; etc.
-    /// The context can be supplied during search requests.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>context: ::prost::alloc::string::String,
-    <span class="doccomment">/// List of Synonyms for the context.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>synonyms: ::prost::alloc::vec::Vec&lt;synonym_set::Synonym&gt;,
+    <span class="doccomment">/// Document references of the source document.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>source_document_reference: ::core::option::Option&lt;DocumentReference&gt;,
+    <span class="doccomment">/// Document references of the target document.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>target_document_reference: ::core::option::Option&lt;DocumentReference&gt;,
+    <span class="doccomment">/// Description of this document-link.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The time when the documentLink is last updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The time when the documentLink is created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The state of the documentlink. If target node has been deleted, the
+    /// link is marked as invalid. Removing a source node will result in removal
+    /// of all associated links.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;document_link::State&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
 }
-<span class="doccomment">/// Nested message and enum types in `SynonymSet`.
-</span><span class="kw">pub mod </span>synonym_set {
-    <span class="doccomment">/// Represents a list of words given by the customer
-    /// All these words are synonyms of each other.
+<span class="doccomment">/// Nested message and enum types in `DocumentLink`.
+</span><span class="kw">pub mod </span>document_link {
+    <span class="doccomment">/// The state of a document-link.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Unknown state of documentlink.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The documentlink has both source and target documents detected.
+        </span>Active = <span class="number">1</span>,
+        <span class="doccomment">/// Target document is deleted, and mark the documentlink as soft-deleted.
+        </span>SoftDeleted = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
+                State::SoftDeleted =&gt; <span class="string">&quot;SOFT_DELETED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">&quot;SOFT_DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SoftDeleted),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Request message for DocumentLinkService.CreateDocumentLink.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateDocumentLinkRequest {
+    <span class="doccomment">/// Required. Parent of the document-link to be created.
+    /// parent of document-link should be a document.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{source_document_id}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Document links associated with the source documents
+    /// (source_document_id).
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>document_link: ::core::option::Option&lt;DocumentLink&gt;,
+    <span class="doccomment">/// The meta information collected about the document creator, used to enforce
+    /// access control for the service.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
+}
+<span class="doccomment">/// Request message for DocumentLinkService.DeleteDocumentLink.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteDocumentLinkRequest {
+    <span class="doccomment">/// Required. The name of the document-link to be deleted.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{source_document_id}/documentLinks/{document_link_id}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The meta information collected about the document creator, used to enforce
+    /// access control for the service.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>request_metadata: ::core::option::Option&lt;RequestMetadata&gt;,
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>document_link_service_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// This service lets you manage document-links.
+    /// Document-Links are treated as sub-resources under source documents.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>DocumentLinkServiceClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; DocumentLinkServiceClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; DocumentLinkServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            DocumentLinkServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Return all target document-links from the document.
+        </span><span class="kw">pub async fn </span>list_linked_targets(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListLinkedTargetsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListLinkedTargetsResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.contentwarehouse.v1.DocumentLinkService/ListLinkedTargets&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.contentwarehouse.v1.DocumentLinkService&quot;</span>,
+                        <span class="string">&quot;ListLinkedTargets&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Return all source document-links from the document.
+        </span><span class="kw">pub async fn </span>list_linked_sources(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListLinkedSourcesRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListLinkedSourcesResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.contentwarehouse.v1.DocumentLinkService/ListLinkedSources&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.contentwarehouse.v1.DocumentLinkService&quot;</span>,
+                        <span class="string">&quot;ListLinkedSources&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Create a link between a source document and a target document.
+        </span><span class="kw">pub async fn </span>create_document_link(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateDocumentLinkRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::DocumentLink&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.contentwarehouse.v1.DocumentLinkService/CreateDocumentLink&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.contentwarehouse.v1.DocumentLinkService&quot;</span>,
+                        <span class="string">&quot;CreateDocumentLink&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Remove the link between the source and target documents.
+        </span><span class="kw">pub async fn </span>delete_document_link(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteDocumentLinkRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;()&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.contentwarehouse.v1.DocumentLinkService/DeleteDocumentLink&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.contentwarehouse.v1.DocumentLinkService&quot;</span>,
+                        <span class="string">&quot;DeleteDocumentLink&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
+}
+<span class="doccomment">/// A document schema used to define document structure.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DocumentSchema {
+    <span class="doccomment">/// The resource name of the document schema.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documentSchemas/{document_schema_id}.
+    ///
+    /// The name is ignored when creating a document schema.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Name of the schema given by the user. Must be unique per project.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Document details.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>property_definitions: ::prost::alloc::vec::Vec&lt;PropertyDefinition&gt;,
+    <span class="doccomment">/// Document Type, true refers the document is a folder, otherwise it is
+    /// a typical document.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>document_is_folder: bool,
+    <span class="doccomment">/// Output only. The time when the document schema is last updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The time when the document schema is created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Schema description.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Defines the metadata for a schema property.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PropertyDefinition {
+    <span class="doccomment">/// Required. The name of the metadata property.
+    /// Must be unique within a document schema and is case insensitive.
+    /// Names must be non-blank, start with a letter, and can contain alphanumeric
+    /// characters and: /, :, -, _, and .
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The display-name for the property, used for front-end.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Whether the property can have multiple values.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>is_repeatable: bool,
+    <span class="doccomment">/// Whether the property can be filtered. If this is a sub-property, all the
+    /// parent properties must be marked filterable.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>is_filterable: bool,
+    <span class="doccomment">/// Indicates that the property should be included in a global search.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>is_searchable: bool,
+    <span class="doccomment">/// Whether the property is user supplied metadata.
+    /// This out-of-the box placeholder setting can be used to tag derived
+    /// properties. Its value and interpretation logic should be implemented by API
+    /// user.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>is_metadata: bool,
+    <span class="doccomment">/// Whether the property is mandatory.
+    /// Default is &#39;false&#39;, i.e. populating property value can be skipped.
+    /// If &#39;true&#39; then user must populate the value for this property.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>is_required: bool,
+    <span class="doccomment">/// The retrieval importance of the property during search.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;property_definition::RetrievalImportance&quot;</span>, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="kw">pub </span>retrieval_importance: i32,
+    <span class="doccomment">/// The mapping information between this property to another schema source.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="kw">pub </span>schema_sources: ::prost::alloc::vec::Vec&lt;property_definition::SchemaSource&gt;,
+    <span class="doccomment">/// Type of the property.
+    </span><span class="attr">#[prost(
+        oneof = <span class="string">&quot;property_definition::ValueTypeOptions&quot;</span>,
+        tags = <span class="string">&quot;7, 8, 9, 10, 11, 13, 15, 16&quot;
+    </span>)]
+    </span><span class="kw">pub </span>value_type_options: ::core::option::Option&lt;
+        property_definition::ValueTypeOptions,
+    &gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `PropertyDefinition`.
+</span><span class="kw">pub mod </span>property_definition {
+    <span class="doccomment">/// The schema source information.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Synonym {
-        <span class="doccomment">/// For example: sale, invoice, bill, order
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>words: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    </span><span class="kw">pub struct </span>SchemaSource {
+        <span class="doccomment">/// The schema name in the source.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+        <span class="doccomment">/// The Doc AI processor type name.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>processor_type: ::prost::alloc::string::String,
     }
+    <span class="doccomment">/// Stores the retrieval importance.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>RetrievalImportance {
+        <span class="doccomment">/// No importance specified. Default medium importance.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Highest importance.
+        </span>Highest = <span class="number">1</span>,
+        <span class="doccomment">/// Higher importance.
+        </span>Higher = <span class="number">2</span>,
+        <span class="doccomment">/// High importance.
+        </span>High = <span class="number">3</span>,
+        <span class="doccomment">/// Medium importance.
+        </span>Medium = <span class="number">4</span>,
+        <span class="doccomment">/// Low importance (negative).
+        </span>Low = <span class="number">5</span>,
+        <span class="doccomment">/// Lowest importance (negative).
+        </span>Lowest = <span class="number">6</span>,
+    }
+    <span class="kw">impl </span>RetrievalImportance {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                RetrievalImportance::Unspecified =&gt; <span class="string">&quot;RETRIEVAL_IMPORTANCE_UNSPECIFIED&quot;</span>,
+                RetrievalImportance::Highest =&gt; <span class="string">&quot;HIGHEST&quot;</span>,
+                RetrievalImportance::Higher =&gt; <span class="string">&quot;HIGHER&quot;</span>,
+                RetrievalImportance::High =&gt; <span class="string">&quot;HIGH&quot;</span>,
+                RetrievalImportance::Medium =&gt; <span class="string">&quot;MEDIUM&quot;</span>,
+                RetrievalImportance::Low =&gt; <span class="string">&quot;LOW&quot;</span>,
+                RetrievalImportance::Lowest =&gt; <span class="string">&quot;LOWEST&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;RETRIEVAL_IMPORTANCE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;HIGHEST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Highest),
+                <span class="string">&quot;HIGHER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Higher),
+                <span class="string">&quot;HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
+                <span class="string">&quot;MEDIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
+                <span class="string">&quot;LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
+                <span class="string">&quot;LOWEST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Lowest),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// Type of the property.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>ValueTypeOptions {
+        <span class="doccomment">/// Integer property.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span>IntegerTypeOptions(<span class="kw">super</span>::IntegerTypeOptions),
+        <span class="doccomment">/// Float property.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span>FloatTypeOptions(<span class="kw">super</span>::FloatTypeOptions),
+        <span class="doccomment">/// Text/string property.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span>TextTypeOptions(<span class="kw">super</span>::TextTypeOptions),
+        <span class="doccomment">/// Nested structured data property.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        </span>PropertyTypeOptions(<span class="kw">super</span>::PropertyTypeOptions),
+        <span class="doccomment">/// Enum/categorical property.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
+        </span>EnumTypeOptions(<span class="kw">super</span>::EnumTypeOptions),
+        <span class="doccomment">/// Date time property.
+        /// It is not supported by CMEK compliant deployment.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
+        </span>DateTimeTypeOptions(<span class="kw">super</span>::DateTimeTypeOptions),
+        <span class="doccomment">/// Map property.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;15&quot;</span>)]
+        </span>MapTypeOptions(<span class="kw">super</span>::MapTypeOptions),
+        <span class="doccomment">/// Timestamp property.
+        /// It is not supported by CMEK compliant deployment.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;16&quot;</span>)]
+        </span>TimestampTypeOptions(<span class="kw">super</span>::TimestampTypeOptions),
+    }
+}
+<span class="doccomment">/// Configurations for an integer property.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>IntegerTypeOptions {}
+<span class="doccomment">/// Configurations for a float property.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FloatTypeOptions {}
+<span class="doccomment">/// Configurations for a text property.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextTypeOptions {}
+<span class="doccomment">/// Configurations for a date time property.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DateTimeTypeOptions {}
+<span class="doccomment">/// Configurations for a Map property.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>MapTypeOptions {}
+<span class="doccomment">/// Configurations for a timestamp property.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TimestampTypeOptions {}
+<span class="doccomment">/// Configurations for a nested structured data property.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PropertyTypeOptions {
+    <span class="doccomment">/// Required. List of property definitions.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>property_definitions: ::prost::alloc::vec::Vec&lt;PropertyDefinition&gt;,
+}
+<span class="doccomment">/// Configurations for an enum/categorical property.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EnumTypeOptions {
+    <span class="doccomment">/// Required. List of possible enum values.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>possible_values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Make sure the Enum property value provided in the document is in the
+    /// possile value list during document creation. The validation check runs by
+    /// default.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>validation_check_disabled: bool,
 }
 <span class="doccomment">/// Request message for DocumentSchemaService.CreateDocumentSchema.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -7008,322 +6972,40 @@
         </span>}
     }
 }
-<span class="doccomment">/// Request message for SynonymSetService.CreateSynonymSet.
+<span class="doccomment">/// Represents a list of synonyms for a given context.
+/// For example a context &quot;sales&quot; could contain:
+/// Synonym 1: sale, invoice, bill, order
+/// Synonym 2: money, credit, finance, payment
+/// Synonym 3: shipping, freight, transport
+/// Each SynonymSets should be disjoint
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateSynonymSetRequest {
-    <span class="doccomment">/// Required. The parent name.
-    /// Format: projects/{project_number}/locations/{location}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The synonymSet to be created for a context
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>synonym_set: ::core::option::Option&lt;SynonymSet&gt;,
-}
-<span class="doccomment">/// Request message for SynonymSetService.GetSynonymSet.
-/// Will return synonymSet for a certain context.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetSynonymSetRequest {
-    <span class="doccomment">/// Required. The name of the synonymSet to retrieve
+</span><span class="kw">pub struct </span>SynonymSet {
+    <span class="doccomment">/// The resource name of the SynonymSet
+    /// This is mandatory for google.api.resource.
     /// Format:
     /// projects/{project_number}/locations/{location}/synonymSets/{context}.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Request message for SynonymSetService.ListSynonymSets.
-/// Will return all synonymSets belonging to the customer project.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListSynonymSetsRequest {
-    <span class="doccomment">/// Required. The parent name.
-    /// Format: projects/{project_number}/locations/{location}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of synonymSets to return. The service may return
-    /// fewer than this value.
-    /// If unspecified, at most 50 rule sets will be returned.
-    /// The maximum value is 1000; values above 1000 will be coerced to 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// A page token, received from a previous `ListSynonymSets` call.
-    /// Provide this to retrieve the subsequent page.
-    ///
-    /// When paginating, all other parameters provided to `ListSynonymSets`
-    /// must match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Response message for SynonymSetService.ListSynonymSets.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListSynonymSetsResponse {
-    <span class="doccomment">/// The synonymSets from the specified parent.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>synonym_sets: ::prost::alloc::vec::Vec&lt;SynonymSet&gt;,
-    <span class="doccomment">/// A page token, received from a previous `ListSynonymSets` call.
-    /// Provide this to retrieve the subsequent page.
+    <span class="doccomment">/// This is a freeform field. Example contexts can be &quot;sales,&quot; &quot;engineering,&quot;
+    /// &quot;real estate,&quot; &quot;accounting,&quot; etc.
+    /// The context can be supplied during search requests.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+    </span><span class="kw">pub </span>context: ::prost::alloc::string::String,
+    <span class="doccomment">/// List of Synonyms for the context.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>synonyms: ::prost::alloc::vec::Vec&lt;synonym_set::Synonym&gt;,
 }
-<span class="doccomment">/// Request message for SynonymSetService.UpdateSynonymSet.
-/// Removes the SynonymSet for the specified context and replaces
-/// it with the SynonymSet in this request.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpdateSynonymSetRequest {
-    <span class="doccomment">/// Required. The name of the synonymSet to update
-    /// Format:
-    /// projects/{project_number}/locations/{location}/synonymSets/{context}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The synonymSet to be updated for the customer
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>synonym_set: ::core::option::Option&lt;SynonymSet&gt;,
-}
-<span class="doccomment">/// Request message for SynonymSetService.DeleteSynonymSet.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteSynonymSetRequest {
-    <span class="doccomment">/// Required. The name of the synonymSet to delete
-    /// Format:
-    /// projects/{project_number}/locations/{location}/synonymSets/{context}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Metadata object for CreateDocument request (currently empty).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateDocumentMetadata {}
-<span class="doccomment">/// Metadata object for UpdateDocument request (currently empty).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpdateDocumentMetadata {}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>synonym_set_service_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// A Service that manage/custom customer specified SynonymSets.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>SynonymSetServiceClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; SynonymSetServiceClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; SynonymSetServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            SynonymSetServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Creates a SynonymSet for a single context.
-        /// Throws an ALREADY_EXISTS exception if a synonymset already exists
-        /// for the context.
-        </span><span class="kw">pub async fn </span>create_synonym_set(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateSynonymSetRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::SynonymSet&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.contentwarehouse.v1.SynonymSetService/CreateSynonymSet&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.contentwarehouse.v1.SynonymSetService&quot;</span>,
-                        <span class="string">&quot;CreateSynonymSet&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Gets a SynonymSet for a particular context.
-        /// Throws a NOT_FOUND exception if the Synonymset
-        /// does not exist
-        </span><span class="kw">pub async fn </span>get_synonym_set(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetSynonymSetRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::SynonymSet&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.contentwarehouse.v1.SynonymSetService/GetSynonymSet&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.contentwarehouse.v1.SynonymSetService&quot;</span>,
-                        <span class="string">&quot;GetSynonymSet&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Remove the existing SynonymSet for the context and replaces it
-        /// with a new one.
-        /// Throws a NOT_FOUND exception if the SynonymSet is not found.
-        </span><span class="kw">pub async fn </span>update_synonym_set(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdateSynonymSetRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::SynonymSet&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.contentwarehouse.v1.SynonymSetService/UpdateSynonymSet&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.contentwarehouse.v1.SynonymSetService&quot;</span>,
-                        <span class="string">&quot;UpdateSynonymSet&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Deletes a SynonymSet for a given context.
-        /// Throws a NOT_FOUND exception if the SynonymSet is not found.
-        </span><span class="kw">pub async fn </span>delete_synonym_set(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteSynonymSetRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;()&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.contentwarehouse.v1.SynonymSetService/DeleteSynonymSet&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.contentwarehouse.v1.SynonymSetService&quot;</span>,
-                        <span class="string">&quot;DeleteSynonymSet&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Returns all SynonymSets (for all contexts) for the specified location.
-        </span><span class="kw">pub async fn </span>list_synonym_sets(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListSynonymSetsRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListSynonymSetsResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.contentwarehouse.v1.SynonymSetService/ListSynonymSets&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.contentwarehouse.v1.SynonymSetService&quot;</span>,
-                        <span class="string">&quot;ListSynonymSets&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
+<span class="doccomment">/// Nested message and enum types in `SynonymSet`.
+</span><span class="kw">pub mod </span>synonym_set {
+    <span class="doccomment">/// Represents a list of words given by the customer
+    /// All these words are synonyms of each other.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Synonym {
+        <span class="doccomment">/// For example: sale, invoice, bill, order
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>words: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
 }
 <span class="doccomment">/// Response message for DocumentService.CreateDocument.
@@ -7796,6 +7478,324 @@
                     GrpcMethod::new(
                         <span class="string">&quot;google.cloud.contentwarehouse.v1.DocumentService&quot;</span>,
                         <span class="string">&quot;SetAcl&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
+}
+<span class="doccomment">/// Request message for SynonymSetService.CreateSynonymSet.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateSynonymSetRequest {
+    <span class="doccomment">/// Required. The parent name.
+    /// Format: projects/{project_number}/locations/{location}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The synonymSet to be created for a context
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>synonym_set: ::core::option::Option&lt;SynonymSet&gt;,
+}
+<span class="doccomment">/// Request message for SynonymSetService.GetSynonymSet.
+/// Will return synonymSet for a certain context.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetSynonymSetRequest {
+    <span class="doccomment">/// Required. The name of the synonymSet to retrieve
+    /// Format:
+    /// projects/{project_number}/locations/{location}/synonymSets/{context}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Request message for SynonymSetService.ListSynonymSets.
+/// Will return all synonymSets belonging to the customer project.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListSynonymSetsRequest {
+    <span class="doccomment">/// Required. The parent name.
+    /// Format: projects/{project_number}/locations/{location}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of synonymSets to return. The service may return
+    /// fewer than this value.
+    /// If unspecified, at most 50 rule sets will be returned.
+    /// The maximum value is 1000; values above 1000 will be coerced to 1000.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// A page token, received from a previous `ListSynonymSets` call.
+    /// Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to `ListSynonymSets`
+    /// must match the call that provided the page token.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Response message for SynonymSetService.ListSynonymSets.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListSynonymSetsResponse {
+    <span class="doccomment">/// The synonymSets from the specified parent.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>synonym_sets: ::prost::alloc::vec::Vec&lt;SynonymSet&gt;,
+    <span class="doccomment">/// A page token, received from a previous `ListSynonymSets` call.
+    /// Provide this to retrieve the subsequent page.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Request message for SynonymSetService.UpdateSynonymSet.
+/// Removes the SynonymSet for the specified context and replaces
+/// it with the SynonymSet in this request.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdateSynonymSetRequest {
+    <span class="doccomment">/// Required. The name of the synonymSet to update
+    /// Format:
+    /// projects/{project_number}/locations/{location}/synonymSets/{context}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The synonymSet to be updated for the customer
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>synonym_set: ::core::option::Option&lt;SynonymSet&gt;,
+}
+<span class="doccomment">/// Request message for SynonymSetService.DeleteSynonymSet.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteSynonymSetRequest {
+    <span class="doccomment">/// Required. The name of the synonymSet to delete
+    /// Format:
+    /// projects/{project_number}/locations/{location}/synonymSets/{context}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Metadata object for CreateDocument request (currently empty).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateDocumentMetadata {}
+<span class="doccomment">/// Metadata object for UpdateDocument request (currently empty).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdateDocumentMetadata {}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>synonym_set_service_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// A Service that manage/custom customer specified SynonymSets.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>SynonymSetServiceClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; SynonymSetServiceClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; SynonymSetServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            SynonymSetServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Creates a SynonymSet for a single context.
+        /// Throws an ALREADY_EXISTS exception if a synonymset already exists
+        /// for the context.
+        </span><span class="kw">pub async fn </span>create_synonym_set(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateSynonymSetRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::SynonymSet&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.contentwarehouse.v1.SynonymSetService/CreateSynonymSet&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.contentwarehouse.v1.SynonymSetService&quot;</span>,
+                        <span class="string">&quot;CreateSynonymSet&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Gets a SynonymSet for a particular context.
+        /// Throws a NOT_FOUND exception if the Synonymset
+        /// does not exist
+        </span><span class="kw">pub async fn </span>get_synonym_set(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetSynonymSetRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::SynonymSet&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.contentwarehouse.v1.SynonymSetService/GetSynonymSet&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.contentwarehouse.v1.SynonymSetService&quot;</span>,
+                        <span class="string">&quot;GetSynonymSet&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Remove the existing SynonymSet for the context and replaces it
+        /// with a new one.
+        /// Throws a NOT_FOUND exception if the SynonymSet is not found.
+        </span><span class="kw">pub async fn </span>update_synonym_set(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdateSynonymSetRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::SynonymSet&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.contentwarehouse.v1.SynonymSetService/UpdateSynonymSet&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.contentwarehouse.v1.SynonymSetService&quot;</span>,
+                        <span class="string">&quot;UpdateSynonymSet&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Deletes a SynonymSet for a given context.
+        /// Throws a NOT_FOUND exception if the SynonymSet is not found.
+        </span><span class="kw">pub async fn </span>delete_synonym_set(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteSynonymSetRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;()&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.contentwarehouse.v1.SynonymSetService/DeleteSynonymSet&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.contentwarehouse.v1.SynonymSetService&quot;</span>,
+                        <span class="string">&quot;DeleteSynonymSet&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Returns all SynonymSets (for all contexts) for the specified location.
+        </span><span class="kw">pub async fn </span>list_synonym_sets(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListSynonymSetsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListSynonymSetsResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.contentwarehouse.v1.SynonymSetService/ListSynonymSets&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.contentwarehouse.v1.SynonymSetService&quot;</span>,
+                        <span class="string">&quot;ListSynonymSets&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

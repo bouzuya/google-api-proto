@@ -174,20 +174,7 @@
 <a href="#174" id="174">174</a>
 <a href="#175" id="175">175</a>
 <a href="#176" id="176">176</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Prediction input format for Text Sentiment.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextSentimentPredictionInstance {
-    <span class="doccomment">/// The text snippet to make the predictions on.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
-    <span class="doccomment">/// The MIME type of the text snippet. The supported MIME types are listed
-    /// below.
-    /// - text/plain
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Prediction input format for Image Object Detection.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Prediction input format for Image Object Detection.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImageObjectDetectionPredictionInstance {
@@ -206,10 +193,10 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Prediction input format for Video Action Recognition.
+<span class="doccomment">/// Prediction input format for Video Object Tracking.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VideoActionRecognitionPredictionInstance {
+</span><span class="kw">pub struct </span>VideoObjectTrackingPredictionInstance {
     <span class="doccomment">/// The Google Cloud Storage location of the video on which to perform the
     /// prediction.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
@@ -232,6 +219,19 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>time_segment_end: ::prost::alloc::string::String,
 }
+<span class="doccomment">/// Prediction input format for Text Sentiment.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextSentimentPredictionInstance {
+    <span class="doccomment">/// The text snippet to make the predictions on.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
+    <span class="doccomment">/// The MIME type of the text snippet. The supported MIME types are listed
+    /// below.
+    /// - text/plain
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// Prediction input format for Text Extraction.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -252,10 +252,37 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Prediction input format for Video Object Tracking.
+<span class="doccomment">/// Prediction input format for Text Classification.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VideoObjectTrackingPredictionInstance {
+</span><span class="kw">pub struct </span>TextClassificationPredictionInstance {
+    <span class="doccomment">/// The text snippet to make the predictions on.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
+    <span class="doccomment">/// The MIME type of the text snippet. The supported MIME types are listed
+    /// below.
+    /// - text/plain
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Prediction input format for Image Segmentation.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImageSegmentationPredictionInstance {
+    <span class="doccomment">/// The image bytes to make the predictions on.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
+    <span class="doccomment">/// The MIME type of the content of the image. Only the images in below listed
+    /// MIME types are supported.
+    /// - image/jpeg
+    /// - image/png
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Prediction input format for Video Action Recognition.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VideoActionRecognitionPredictionInstance {
     <span class="doccomment">/// The Google Cloud Storage location of the video on which to perform the
     /// prediction.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
@@ -303,33 +330,6 @@
     /// means the end of the video.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>time_segment_end: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Prediction input format for Text Classification.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextClassificationPredictionInstance {
-    <span class="doccomment">/// The text snippet to make the predictions on.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
-    <span class="doccomment">/// The MIME type of the text snippet. The supported MIME types are listed
-    /// below.
-    /// - text/plain
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Prediction input format for Image Segmentation.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImageSegmentationPredictionInstance {
-    <span class="doccomment">/// The image bytes to make the predictions on.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
-    <span class="doccomment">/// The MIME type of the content of the image. Only the images in below listed
-    /// MIME types are supported.
-    /// - image/jpeg
-    /// - image/png
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Prediction input format for Image Classification.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

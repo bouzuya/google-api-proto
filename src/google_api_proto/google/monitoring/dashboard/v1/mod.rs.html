@@ -2148,7 +2148,16 @@
 <a href="#2148" id="2148">2148</a>
 <a href="#2149" id="2149">2149</a>
 <a href="#2150" id="2150">2150</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// A filter to reduce the amount of data charted in relevant widgets.
+</pre></div><pre class="rust"><code><span class="doccomment">/// A widget that groups the other widgets. All widgets that are within
+/// the area spanned by the grouping widget are considered member widgets.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CollapsibleGroup {
+    <span class="doccomment">/// The collapsed state of the widget on first page load.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>collapsed: bool,
+}
+<span class="doccomment">/// A filter to reduce the amount of data charted in relevant widgets.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DashboardFilter {
@@ -2242,15 +2251,6 @@
     ///      projects/\[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID\]
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A widget that groups the other widgets. All widgets that are within
-/// the area spanned by the grouping widget are considered member widgets.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CollapsibleGroup {
-    <span class="doccomment">/// The collapsed state of the widget on first page load.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>collapsed: bool,
 }
 <span class="doccomment">/// A widget that displays a stream of log.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
