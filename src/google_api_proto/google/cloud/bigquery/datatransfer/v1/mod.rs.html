@@ -1685,6 +1685,30 @@
 <a href="#1685" id="1685">1685</a>
 <a href="#1686" id="1686">1686</a>
 <a href="#1687" id="1687">1687</a>
+<a href="#1688" id="1688">1688</a>
+<a href="#1689" id="1689">1689</a>
+<a href="#1690" id="1690">1690</a>
+<a href="#1691" id="1691">1691</a>
+<a href="#1692" id="1692">1692</a>
+<a href="#1693" id="1693">1693</a>
+<a href="#1694" id="1694">1694</a>
+<a href="#1695" id="1695">1695</a>
+<a href="#1696" id="1696">1696</a>
+<a href="#1697" id="1697">1697</a>
+<a href="#1698" id="1698">1698</a>
+<a href="#1699" id="1699">1699</a>
+<a href="#1700" id="1700">1700</a>
+<a href="#1701" id="1701">1701</a>
+<a href="#1702" id="1702">1702</a>
+<a href="#1703" id="1703">1703</a>
+<a href="#1704" id="1704">1704</a>
+<a href="#1705" id="1705">1705</a>
+<a href="#1706" id="1706">1706</a>
+<a href="#1707" id="1707">1707</a>
+<a href="#1708" id="1708">1708</a>
+<a href="#1709" id="1709">1709</a>
+<a href="#1710" id="1710">1710</a>
+<a href="#1711" id="1711">1711</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Represents preferences for sending email notifications for transfer run
 /// events.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1819,6 +1843,13 @@
     /// the user information is not available, this field will not be populated.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;27&quot;</span>)]
     </span><span class="kw">pub </span>owner_info: ::core::option::Option&lt;UserInfo&gt;,
+    <span class="doccomment">/// The encryption configuration part. Currently, it is only used for the
+    /// optional KMS key name. The BigQuery service account of your project must be
+    /// granted permissions to use the key. Read methods will return the key name
+    /// applied in effect. Write methods will apply the key if it is present, or
+    /// otherwise try to apply project default keys if it is absent.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;28&quot;</span>)]
+    </span><span class="kw">pub </span>encryption_configuration: ::core::option::Option&lt;EncryptionConfiguration&gt;,
     <span class="doccomment">/// The desination of the transfer config.
     </span><span class="attr">#[prost(oneof = <span class="string">&quot;transfer_config::Destination&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>destination: ::core::option::Option&lt;transfer_config::Destination&gt;,
@@ -1833,6 +1864,14 @@
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span>DestinationDatasetId(::prost::alloc::string::String),
     }
+}
+<span class="doccomment">/// Represents the encryption configuration for a transfer.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EncryptionConfiguration {
+    <span class="doccomment">/// The name of the KMS key used for encrypting BigQuery data.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>kms_key_name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Represents a data transfer run.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2145,6 +2184,8 @@
         </span>Record = <span class="number">5</span>,
         <span class="doccomment">/// Page ID for a Google+ Page.
         </span>PlusPage = <span class="number">6</span>,
+        <span class="doccomment">/// List of strings parameter.
+        </span>List = <span class="number">7</span>,
     }
     <span class="kw">impl </span>Type {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -2160,6 +2201,7 @@
                 Type::Boolean =&gt; <span class="string">&quot;BOOLEAN&quot;</span>,
                 Type::Record =&gt; <span class="string">&quot;RECORD&quot;</span>,
                 Type::PlusPage =&gt; <span class="string">&quot;PLUS_PAGE&quot;</span>,
+                Type::List =&gt; <span class="string">&quot;LIST&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -2172,6 +2214,7 @@
                 <span class="string">&quot;BOOLEAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Boolean),
                 <span class="string">&quot;RECORD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Record),
                 <span class="string">&quot;PLUS_PAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PlusPage),
+                <span class="string">&quot;LIST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::List),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2806,11 +2849,16 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Time {
-        <span class="doccomment">/// Time range for the transfer runs that should be started.
+        <span class="doccomment">/// A time_range start and end timestamp for historical data files or reports
+        /// that are scheduled to be transferred by the scheduled transfer run.
+        /// requested_time_range must be a past time and cannot include future time
+        /// values.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
         </span>RequestedTimeRange(TimeRange),
-        <span class="doccomment">/// Specific run_time for a transfer run to be started. The
-        /// requested_run_time must not be in the future.
+        <span class="doccomment">/// A run_time timestamp for historical data files or reports
+        /// that are scheduled to be transferred by the scheduled transfer run.
+        /// requested_run_time must be a past time and cannot include future time
+        /// values.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
         </span>RequestedRunTime(::prost_types::Timestamp),
     }

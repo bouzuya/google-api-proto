@@ -2885,6 +2885,87 @@
 <a href="#2885" id="2885">2885</a>
 <a href="#2886" id="2886">2886</a>
 <a href="#2887" id="2887">2887</a>
+<a href="#2888" id="2888">2888</a>
+<a href="#2889" id="2889">2889</a>
+<a href="#2890" id="2890">2890</a>
+<a href="#2891" id="2891">2891</a>
+<a href="#2892" id="2892">2892</a>
+<a href="#2893" id="2893">2893</a>
+<a href="#2894" id="2894">2894</a>
+<a href="#2895" id="2895">2895</a>
+<a href="#2896" id="2896">2896</a>
+<a href="#2897" id="2897">2897</a>
+<a href="#2898" id="2898">2898</a>
+<a href="#2899" id="2899">2899</a>
+<a href="#2900" id="2900">2900</a>
+<a href="#2901" id="2901">2901</a>
+<a href="#2902" id="2902">2902</a>
+<a href="#2903" id="2903">2903</a>
+<a href="#2904" id="2904">2904</a>
+<a href="#2905" id="2905">2905</a>
+<a href="#2906" id="2906">2906</a>
+<a href="#2907" id="2907">2907</a>
+<a href="#2908" id="2908">2908</a>
+<a href="#2909" id="2909">2909</a>
+<a href="#2910" id="2910">2910</a>
+<a href="#2911" id="2911">2911</a>
+<a href="#2912" id="2912">2912</a>
+<a href="#2913" id="2913">2913</a>
+<a href="#2914" id="2914">2914</a>
+<a href="#2915" id="2915">2915</a>
+<a href="#2916" id="2916">2916</a>
+<a href="#2917" id="2917">2917</a>
+<a href="#2918" id="2918">2918</a>
+<a href="#2919" id="2919">2919</a>
+<a href="#2920" id="2920">2920</a>
+<a href="#2921" id="2921">2921</a>
+<a href="#2922" id="2922">2922</a>
+<a href="#2923" id="2923">2923</a>
+<a href="#2924" id="2924">2924</a>
+<a href="#2925" id="2925">2925</a>
+<a href="#2926" id="2926">2926</a>
+<a href="#2927" id="2927">2927</a>
+<a href="#2928" id="2928">2928</a>
+<a href="#2929" id="2929">2929</a>
+<a href="#2930" id="2930">2930</a>
+<a href="#2931" id="2931">2931</a>
+<a href="#2932" id="2932">2932</a>
+<a href="#2933" id="2933">2933</a>
+<a href="#2934" id="2934">2934</a>
+<a href="#2935" id="2935">2935</a>
+<a href="#2936" id="2936">2936</a>
+<a href="#2937" id="2937">2937</a>
+<a href="#2938" id="2938">2938</a>
+<a href="#2939" id="2939">2939</a>
+<a href="#2940" id="2940">2940</a>
+<a href="#2941" id="2941">2941</a>
+<a href="#2942" id="2942">2942</a>
+<a href="#2943" id="2943">2943</a>
+<a href="#2944" id="2944">2944</a>
+<a href="#2945" id="2945">2945</a>
+<a href="#2946" id="2946">2946</a>
+<a href="#2947" id="2947">2947</a>
+<a href="#2948" id="2948">2948</a>
+<a href="#2949" id="2949">2949</a>
+<a href="#2950" id="2950">2950</a>
+<a href="#2951" id="2951">2951</a>
+<a href="#2952" id="2952">2952</a>
+<a href="#2953" id="2953">2953</a>
+<a href="#2954" id="2954">2954</a>
+<a href="#2955" id="2955">2955</a>
+<a href="#2956" id="2956">2956</a>
+<a href="#2957" id="2957">2957</a>
+<a href="#2958" id="2958">2958</a>
+<a href="#2959" id="2959">2959</a>
+<a href="#2960" id="2960">2960</a>
+<a href="#2961" id="2961">2961</a>
+<a href="#2962" id="2962">2962</a>
+<a href="#2963" id="2963">2963</a>
+<a href="#2964" id="2964">2964</a>
+<a href="#2965" id="2965">2965</a>
+<a href="#2966" id="2966">2966</a>
+<a href="#2967" id="2967">2967</a>
+<a href="#2968" id="2968">2968</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A Firestore document.
 ///
 /// Must not exceed 1 MiB - 4 bytes.
@@ -3590,7 +3671,7 @@
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
         </span><span class="kw">pub </span>alias: ::prost::alloc::string::String,
         <span class="doccomment">/// The type of aggregation to perform, required.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;aggregation::Operator&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">&quot;aggregation::Operator&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
         </span><span class="kw">pub </span>operator: ::core::option::Option&lt;aggregation::Operator&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `Aggregation`.
@@ -3622,6 +3703,56 @@
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>up_to: ::core::option::Option&lt;i64&gt;,
         }
+        <span class="doccomment">/// Sum of the values of the requested field.
+        ///
+        /// * Only numeric values will be aggregated. All non-numeric values
+        /// including `NULL` are skipped.
+        ///
+        /// * If the aggregated values contain `NaN`, returns `NaN`. Infinity math
+        /// follows IEEE-754 standards.
+        ///
+        /// * If the aggregated value set is empty, returns 0.
+        ///
+        /// * Returns a 64-bit integer if all aggregated numbers are integers and the
+        /// sum result does not overflow. Otherwise, the result is returned as a
+        /// double. Note that even if all the aggregated values are integers, the
+        /// result is returned as a double if it cannot fit within a 64-bit signed
+        /// integer. When this occurs, the returned value will lose precision.
+        ///
+        /// * When underflow occurs, floating-point aggregation is non-deterministic.
+        /// This means that running the same query repeatedly without any changes to
+        /// the underlying values could produce slightly different results each
+        /// time. In those cases, values should be stored as integers over
+        /// floating-point numbers.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>Sum {
+            <span class="doccomment">/// The field to aggregate on.
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="kw">pub </span>field: ::core::option::Option&lt;
+                <span class="kw">super</span>::<span class="kw">super</span>::structured_query::FieldReference,
+            &gt;,
+        }
+        <span class="doccomment">/// Average of the values of the requested field.
+        ///
+        /// * Only numeric values will be aggregated. All non-numeric values
+        /// including `NULL` are skipped.
+        ///
+        /// * If the aggregated values contain `NaN`, returns `NaN`. Infinity math
+        /// follows IEEE-754 standards.
+        ///
+        /// * If the aggregated value set is empty, returns `NULL`.
+        ///
+        /// * Always returns the result as a double.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>Avg {
+            <span class="doccomment">/// The field to aggregate on.
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="kw">pub </span>field: ::core::option::Option&lt;
+                <span class="kw">super</span>::<span class="kw">super</span>::structured_query::FieldReference,
+            &gt;,
+        }
         <span class="doccomment">/// The type of aggregation to perform, required.
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Oneof)]
@@ -3629,6 +3760,12 @@
             <span class="doccomment">/// Count aggregator.
             </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
             </span>Count(Count),
+            <span class="doccomment">/// Sum aggregator.
+            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            </span>Sum(Sum),
+            <span class="doccomment">/// Average aggregator.
+            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+            </span>Avg(Avg),
         }
     }
     <span class="doccomment">/// The base query to aggregate over.
@@ -3776,6 +3913,9 @@
 <span class="doccomment">/// Nested message and enum types in `TransactionOptions`.
 </span><span class="kw">pub mod </span>transaction_options {
     <span class="doccomment">/// Options for a transaction that can be used to read and write documents.
+    ///
+    /// Firestore does not allow 3rd party auth requests to create read-write.
+    /// transactions.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ReadWrite {
@@ -3800,7 +3940,10 @@
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>ConsistencySelector {
             <span class="doccomment">/// Reads documents at the given time.
-            /// This may not be older than 60 seconds.
+            ///
+            /// This must be a microsecond precision timestamp within the past one
+            /// hour, or if Point-in-Time Recovery is enabled, can additionally be a
+            /// whole minute timestamp within the past 7 days.
             </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
             </span>ReadTime(::prost_types::Timestamp),
         }
@@ -4118,15 +4261,15 @@
     /// client must manually determine which documents no longer match the target.
     ///
     /// The client can use the `unchanged_names` bloom filter to assist with
-    /// this determination.
+    /// this determination by testing ALL the document names against the filter;
+    /// if the document name is NOT in the filter, it means the document no
+    /// longer matches the target.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>count: i32,
-    <span class="doccomment">/// A bloom filter that contains the UTF-8 byte encodings of the resource names
-    /// of the documents that match
+    <span class="doccomment">/// A bloom filter that, despite its name, contains the UTF-8 byte encodings of
+    /// the resource names of ALL the documents that match
     /// \[target_id][google.firestore.v1.ExistenceFilter.target_id\], in the form
-    /// `projects/{project_id}/databases/{database_id}/documents/{document_path}`
-    /// that have NOT changed since the query results indicated by the resume token
-    /// or timestamp given in `Target.resume_type`.
+    /// `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
     ///
     /// This bloom filter may be omitted at the server&#39;s discretion, such as if it
     /// is deemed that the client will not make use of it or if it is too
@@ -4170,7 +4313,10 @@
         </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;3&quot;</span>)]
         </span>Transaction(::prost::bytes::Bytes),
         <span class="doccomment">/// Reads the version of the document at the given time.
-        /// This may not be older than 270 seconds.
+        ///
+        /// This must be a microsecond precision timestamp within the past one hour,
+        /// or if Point-in-Time Recovery is enabled, can additionally be a whole
+        /// minute timestamp within the past 7 days.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
         </span>ReadTime(::prost_types::Timestamp),
     }
@@ -4254,7 +4400,9 @@
         </span>Transaction(::prost::bytes::Bytes),
         <span class="doccomment">/// Perform the read at the provided time.
         ///
-        /// This may not be older than 270 seconds.
+        /// This must be a microsecond precision timestamp within the past one hour,
+        /// or if Point-in-Time Recovery is enabled, can additionally be a whole
+        /// minute timestamp within the past 7 days.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
         </span>ReadTime(::prost_types::Timestamp),
     }
@@ -4393,7 +4541,10 @@
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
         </span>NewTransaction(<span class="kw">super</span>::TransactionOptions),
         <span class="doccomment">/// Reads documents as they were at the given time.
-        /// This may not be older than 270 seconds.
+        ///
+        /// This must be a microsecond precision timestamp within the past one hour,
+        /// or if Point-in-Time Recovery is enabled, can additionally be a whole
+        /// minute timestamp within the past 7 days.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
         </span>ReadTime(::prost_types::Timestamp),
     }
@@ -4552,7 +4703,10 @@
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
         </span>NewTransaction(<span class="kw">super</span>::TransactionOptions),
         <span class="doccomment">/// Reads documents as they were at the given time.
-        /// This may not be older than 270 seconds.
+        ///
+        /// This must be a microsecond precision timestamp within the past one hour,
+        /// or if Point-in-Time Recovery is enabled, can additionally be a whole
+        /// minute timestamp within the past 7 days.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
         </span>ReadTime(::prost_types::Timestamp),
     }
@@ -4659,9 +4813,9 @@
         </span>NewTransaction(<span class="kw">super</span>::TransactionOptions),
         <span class="doccomment">/// Executes the query at the given timestamp.
         ///
-        /// Requires:
-        ///
-        /// * Cannot be more than 270 seconds in the past.
+        /// This must be a microsecond precision timestamp within the past one hour,
+        /// or if Point-in-Time Recovery is enabled, can additionally be a whole
+        /// minute timestamp within the past 7 days.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
         </span>ReadTime(::prost_types::Timestamp),
     }
@@ -4767,7 +4921,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ConsistencySelector {
         <span class="doccomment">/// Reads documents as they were at the given time.
-        /// This may not be older than 270 seconds.
+        ///
+        /// This must be a microsecond precision timestamp within the past one hour,
+        /// or if Point-in-Time Recovery is enabled, can additionally be a whole
+        /// minute timestamp within the past 7 days.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
         </span>ReadTime(::prost_types::Timestamp),
     }
@@ -4973,8 +5130,9 @@
     </span><span class="kw">pub </span>target_type: ::core::option::Option&lt;target::TargetType&gt;,
     <span class="doccomment">/// When to start listening.
     ///
-    /// If not specified, all matching Documents are returned before any
-    /// subsequent changes.
+    /// If specified, only the matching Documents that have been updated AFTER the
+    /// `resume_token` or `read_time` will be returned. Otherwise, all matching
+    /// Documents are returned before any subsequent changes.
     </span><span class="attr">#[prost(oneof = <span class="string">&quot;target::ResumeType&quot;</span>, tags = <span class="string">&quot;4, 11&quot;</span>)]
     </span><span class="kw">pub </span>resume_type: ::core::option::Option&lt;target::ResumeType&gt;,
 }
@@ -5031,8 +5189,9 @@
     }
     <span class="doccomment">/// When to start listening.
     ///
-    /// If not specified, all matching Documents are returned before any
-    /// subsequent changes.
+    /// If specified, only the matching Documents that have been updated AFTER the
+    /// `resume_token` or `read_time` will be returned. Otherwise, all matching
+    /// Documents are returned before any subsequent changes.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ResumeType {
@@ -5183,7 +5342,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ConsistencySelector {
         <span class="doccomment">/// Reads documents as they were at the given time.
-        /// This may not be older than 270 seconds.
+        ///
+        /// This must be a microsecond precision timestamp within the past one hour,
+        /// or if Point-in-Time Recovery is enabled, can additionally be a whole
+        /// minute timestamp within the past 7 days.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
         </span>ReadTime(::prost_types::Timestamp),
     }
