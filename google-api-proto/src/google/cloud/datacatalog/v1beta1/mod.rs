@@ -1375,11 +1375,11 @@ pub mod field_type {
 }
 /// Detailed counts on the entry's usage.
 /// Caveats:
-///    - Only BigQuery tables have usage stats
-///    - The usage stats only include BigQuery query jobs
-///    - The usage stats might be underestimated, e.g. wildcard table references
-///      are not yet counted in usage computation
-///      <https://cloud.google.com/bigquery/docs/querying-wildcard-tables>
+/// - Only BigQuery tables have usage stats
+/// - The usage stats only include BigQuery query jobs
+/// - The usage stats might be underestimated, e.g. wildcard table references
+/// are not yet counted in usage computation
+/// <https://cloud.google.com/bigquery/docs/querying-wildcard-tables>
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UsageStats {
