@@ -180,68 +180,6 @@ pub mod search_ads360_field_data_type_enum {
         }
     }
 }
-/// The value type of custom columns.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomColumnValueTypeEnum {}
-/// Nested message and enum types in `CustomColumnValueTypeEnum`.
-pub mod custom_column_value_type_enum {
-    /// Enum containing possible custom column value types.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum CustomColumnValueType {
-        /// Not specified.
-        Unspecified = 0,
-        /// Unknown.
-        Unknown = 1,
-        /// The custom column value is a string.
-        String = 2,
-        /// The custom column value is an int64 number.
-        Int64 = 3,
-        /// The custom column value is a double number.
-        Double = 4,
-        /// The custom column value is a boolean.
-        Boolean = 5,
-    }
-    impl CustomColumnValueType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                CustomColumnValueType::Unspecified => "UNSPECIFIED",
-                CustomColumnValueType::Unknown => "UNKNOWN",
-                CustomColumnValueType::String => "STRING",
-                CustomColumnValueType::Int64 => "INT64",
-                CustomColumnValueType::Double => "DOUBLE",
-                CustomColumnValueType::Boolean => "BOOLEAN",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UNSPECIFIED" => Some(Self::Unspecified),
-                "UNKNOWN" => Some(Self::Unknown),
-                "STRING" => Some(Self::String),
-                "INT64" => Some(Self::Int64),
-                "DOUBLE" => Some(Self::Double),
-                "BOOLEAN" => Some(Self::Boolean),
-                _ => None,
-            }
-        }
-    }
-}
 /// Container for enum describing types of payable and free interactions.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4760,6 +4698,68 @@ pub mod user_list_type_enum {
                 "RULE_BASED" => Some(Self::RuleBased),
                 "SIMILAR" => Some(Self::Similar),
                 "CRM_BASED" => Some(Self::CrmBased),
+                _ => None,
+            }
+        }
+    }
+}
+/// The value type of custom columns.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomColumnValueTypeEnum {}
+/// Nested message and enum types in `CustomColumnValueTypeEnum`.
+pub mod custom_column_value_type_enum {
+    /// Enum containing possible custom column value types.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum CustomColumnValueType {
+        /// Not specified.
+        Unspecified = 0,
+        /// Unknown.
+        Unknown = 1,
+        /// The custom column value is a string.
+        String = 2,
+        /// The custom column value is an int64 number.
+        Int64 = 3,
+        /// The custom column value is a double number.
+        Double = 4,
+        /// The custom column value is a boolean.
+        Boolean = 5,
+    }
+    impl CustomColumnValueType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                CustomColumnValueType::Unspecified => "UNSPECIFIED",
+                CustomColumnValueType::Unknown => "UNKNOWN",
+                CustomColumnValueType::String => "STRING",
+                CustomColumnValueType::Int64 => "INT64",
+                CustomColumnValueType::Double => "DOUBLE",
+                CustomColumnValueType::Boolean => "BOOLEAN",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNSPECIFIED" => Some(Self::Unspecified),
+                "UNKNOWN" => Some(Self::Unknown),
+                "STRING" => Some(Self::String),
+                "INT64" => Some(Self::Int64),
+                "DOUBLE" => Some(Self::Double),
+                "BOOLEAN" => Some(Self::Boolean),
                 _ => None,
             }
         }
