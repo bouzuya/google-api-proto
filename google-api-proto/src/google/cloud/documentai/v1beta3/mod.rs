@@ -1950,661 +1950,6 @@ pub mod batch_dataset_documents {
         Filter(::prost::alloc::string::String),
     }
 }
-/// A processor type is responsible for performing a certain document
-/// understanding task on a certain type of document.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ProcessorType {
-    /// The resource name of the processor type.
-    /// Format: `projects/{project}/processorTypes/{processor_type}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`.
-    #[prost(string, tag = "2")]
-    pub r#type: ::prost::alloc::string::String,
-    /// The processor category, used by UI to group processor types.
-    #[prost(string, tag = "3")]
-    pub category: ::prost::alloc::string::String,
-    /// The locations in which this processor is available.
-    #[prost(message, repeated, tag = "4")]
-    pub available_locations: ::prost::alloc::vec::Vec<processor_type::LocationInfo>,
-    /// Whether the processor type allows creation. If true, users can create a
-    /// processor of this processor type. Otherwise, users need to request access.
-    #[prost(bool, tag = "6")]
-    pub allow_creation: bool,
-    /// Launch stage of the processor type
-    #[prost(enumeration = "super::super::super::api::LaunchStage", tag = "8")]
-    pub launch_stage: i32,
-    /// A set of Cloud Storage URIs of sample documents for this processor.
-    #[prost(string, repeated, tag = "9")]
-    pub sample_document_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Nested message and enum types in `ProcessorType`.
-pub mod processor_type {
-    /// The location information about where the processor is available.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct LocationInfo {
-        /// The location ID. For supported locations, refer to [regional and
-        /// multi-regional support](/document-ai/docs/regions).
-        #[prost(string, tag = "1")]
-        pub location_id: ::prost::alloc::string::String,
-    }
-}
-/// The common metadata for long running operations.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CommonOperationMetadata {
-    /// The state of the operation.
-    #[prost(enumeration = "common_operation_metadata::State", tag = "1")]
-    pub state: i32,
-    /// A message providing more details about the current state of processing.
-    #[prost(string, tag = "2")]
-    pub state_message: ::prost::alloc::string::String,
-    /// A related resource to this operation.
-    #[prost(string, tag = "5")]
-    pub resource: ::prost::alloc::string::String,
-    /// The creation time of the operation.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The last update time of the operation.
-    #[prost(message, optional, tag = "4")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Nested message and enum types in `CommonOperationMetadata`.
-pub mod common_operation_metadata {
-    /// State of the longrunning operation.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified state.
-        Unspecified = 0,
-        /// Operation is still running.
-        Running = 1,
-        /// Operation is being cancelled.
-        Cancelling = 2,
-        /// Operation succeeded.
-        Succeeded = 3,
-        /// Operation failed.
-        Failed = 4,
-        /// Operation is cancelled.
-        Cancelled = 5,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Running => "RUNNING",
-                State::Cancelling => "CANCELLING",
-                State::Succeeded => "SUCCEEDED",
-                State::Failed => "FAILED",
-                State::Cancelled => "CANCELLED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "RUNNING" => Some(Self::Running),
-                "CANCELLING" => Some(Self::Cancelling),
-                "SUCCEEDED" => Some(Self::Succeeded),
-                "FAILED" => Some(Self::Failed),
-                "CANCELLED" => Some(Self::Cancelled),
-                _ => None,
-            }
-        }
-    }
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateDatasetRequest {
-    /// Required. The `name` field of the `Dataset` is used to identify the
-    /// resource to be updated.
-    #[prost(message, optional, tag = "1")]
-    pub dataset: ::core::option::Option<Dataset>,
-    /// The update mask applies to the resource.
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateDatasetOperationMetadata {
-    /// The basic metadata of the long running operation.
-    #[prost(message, optional, tag = "1")]
-    pub common_metadata: ::core::option::Option<CommonOperationMetadata>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImportDocumentsRequest {
-    /// Required. The dataset resource name.
-    /// Format:
-    /// projects/{project}/locations/{location}/processors/{processor}/dataset
-    #[prost(string, tag = "1")]
-    pub dataset: ::prost::alloc::string::String,
-    /// Required. The Cloud Storage uri containing raw documents that must be
-    /// imported.
-    #[prost(message, repeated, tag = "4")]
-    pub batch_documents_import_configs: ::prost::alloc::vec::Vec<
-        import_documents_request::BatchDocumentsImportConfig,
-    >,
-}
-/// Nested message and enum types in `ImportDocumentsRequest`.
-pub mod import_documents_request {
-    /// Config for importing documents.
-    /// Each batch can have its own dataset split type.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct BatchDocumentsImportConfig {
-        /// The common config to specify a set of documents used as input.
-        #[prost(message, optional, tag = "1")]
-        pub batch_input_config: ::core::option::Option<super::BatchDocumentsInputConfig>,
-        #[prost(oneof = "batch_documents_import_config::SplitTypeConfig", tags = "2, 3")]
-        pub split_type_config: ::core::option::Option<
-            batch_documents_import_config::SplitTypeConfig,
-        >,
-    }
-    /// Nested message and enum types in `BatchDocumentsImportConfig`.
-    pub mod batch_documents_import_config {
-        /// The config for auto-split.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct AutoSplitConfig {
-            /// Ratio of training dataset split.
-            #[prost(float, tag = "1")]
-            pub training_split_ratio: f32,
-        }
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum SplitTypeConfig {
-            /// Target dataset split where the documents must be stored.
-            #[prost(enumeration = "super::super::DatasetSplitType", tag = "2")]
-            DatasetSplit(i32),
-            /// If set, documents will be automatically split into training and test
-            /// split category with the specified ratio.
-            #[prost(message, tag = "3")]
-            AutoSplitConfig(AutoSplitConfig),
-        }
-    }
-}
-/// Response of the import document operation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImportDocumentsResponse {}
-/// Metadata of the import document operation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImportDocumentsMetadata {
-    /// The basic metadata of the long running operation.
-    #[prost(message, optional, tag = "1")]
-    pub common_metadata: ::core::option::Option<CommonOperationMetadata>,
-    /// The list of response details of each document.
-    #[prost(message, repeated, tag = "2")]
-    pub individual_import_statuses: ::prost::alloc::vec::Vec<
-        import_documents_metadata::IndividualImportStatus,
-    >,
-    /// Validation statuses of the batch documents import config.
-    #[prost(message, repeated, tag = "4")]
-    pub import_config_validation_results: ::prost::alloc::vec::Vec<
-        import_documents_metadata::ImportConfigValidationResult,
-    >,
-    /// Total number of the documents that are qualified for importing.
-    #[prost(int32, tag = "3")]
-    pub total_document_count: i32,
-}
-/// Nested message and enum types in `ImportDocumentsMetadata`.
-pub mod import_documents_metadata {
-    /// The status of each individual document in the import process.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct IndividualImportStatus {
-        /// The source Cloud Storage URI of the document.
-        #[prost(string, tag = "1")]
-        pub input_gcs_source: ::prost::alloc::string::String,
-        /// The status of the importing of the document.
-        #[prost(message, optional, tag = "2")]
-        pub status: ::core::option::Option<super::super::super::super::rpc::Status>,
-        /// The document id of imported document if it was successful, otherwise
-        /// empty.
-        #[prost(message, optional, tag = "4")]
-        pub output_document_id: ::core::option::Option<super::DocumentId>,
-    }
-    /// The validation status of each import config. Status is set to errors if
-    /// there is no documents to import in the import_config, or OK if the
-    /// operation will try to proceed at least one document.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ImportConfigValidationResult {
-        /// The source Cloud Storage URI specified in the import config.
-        #[prost(string, tag = "1")]
-        pub input_gcs_source: ::prost::alloc::string::String,
-        /// The validation status of import config.
-        #[prost(message, optional, tag = "2")]
-        pub status: ::core::option::Option<super::super::super::super::rpc::Status>,
-    }
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetDocumentRequest {
-    /// Required. The resource name of the dataset that the document belongs to .
-    /// Format:
-    /// projects/{project}/locations/{location}/processors/{processor}/dataset
-    #[prost(string, tag = "1")]
-    pub dataset: ::prost::alloc::string::String,
-    /// Required. Document identifier.
-    #[prost(message, optional, tag = "2")]
-    pub document_id: ::core::option::Option<DocumentId>,
-    /// If set, only fields listed here will be returned. Otherwise, all fields
-    /// will be returned by default.
-    #[prost(message, optional, tag = "3")]
-    pub read_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// List of pages for which the fields specified in the `read_mask` must
-    /// be served.
-    #[prost(message, optional, tag = "4")]
-    pub page_range: ::core::option::Option<DocumentPageRange>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetDocumentResponse {
-    #[prost(message, optional, tag = "1")]
-    pub document: ::core::option::Option<Document>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BatchDeleteDocumentsRequest {
-    /// Required. The dataset resource name.
-    /// Format:
-    /// projects/{project}/locations/{location}/processors/{processor}/dataset
-    #[prost(string, tag = "1")]
-    pub dataset: ::prost::alloc::string::String,
-    /// Required. Dataset documents input. If given `filter`, all documents
-    /// satisfying the filter will be deleted. If given documentIds, a maximum of
-    /// 50 documents can be deleted in a batch. The request will be rejected if
-    /// more than 50 document_ids are provided.
-    #[prost(message, optional, tag = "3")]
-    pub dataset_documents: ::core::option::Option<BatchDatasetDocuments>,
-}
-/// Response of the delete documents operation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BatchDeleteDocumentsResponse {}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BatchDeleteDocumentsMetadata {
-    /// The basic metadata of the long running operation.
-    #[prost(message, optional, tag = "1")]
-    pub common_metadata: ::core::option::Option<CommonOperationMetadata>,
-    /// The list of response details of each document.
-    #[prost(message, repeated, tag = "2")]
-    pub individual_batch_delete_statuses: ::prost::alloc::vec::Vec<
-        batch_delete_documents_metadata::IndividualBatchDeleteStatus,
-    >,
-    /// Total number of documents deleting from dataset.
-    #[prost(int32, tag = "3")]
-    pub total_document_count: i32,
-    /// Total number of documents that failed to be deleted in storage.
-    #[prost(int32, tag = "4")]
-    pub error_document_count: i32,
-}
-/// Nested message and enum types in `BatchDeleteDocumentsMetadata`.
-pub mod batch_delete_documents_metadata {
-    /// The status of each individual document in the batch delete process.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct IndividualBatchDeleteStatus {
-        /// The document id of the document.
-        #[prost(message, optional, tag = "1")]
-        pub document_id: ::core::option::Option<super::DocumentId>,
-        /// The status of deleting the document in storage.
-        #[prost(message, optional, tag = "2")]
-        pub status: ::core::option::Option<super::super::super::super::rpc::Status>,
-    }
-}
-/// Request for `GetDatasetSchema`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetDatasetSchemaRequest {
-    /// Required. The dataset schema resource name.
-    /// Format:
-    /// projects/{project}/locations/{location}/processors/{processor}/dataset/datasetSchema
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// If set, only returns the visible fields of the schema.
-    #[prost(bool, tag = "2")]
-    pub visible_fields_only: bool,
-}
-/// Request for `UpdateDatasetSchema`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateDatasetSchemaRequest {
-    /// Required. The name field of the `DatasetSchema` is used to identify the
-    /// resource to be updated.
-    #[prost(message, optional, tag = "1")]
-    pub dataset_schema: ::core::option::Option<DatasetSchema>,
-    /// The update mask applies to the resource.
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-/// Range of pages present in a document.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DocumentPageRange {
-    /// First page number (one-based index) to be returned.
-    #[prost(int32, tag = "1")]
-    pub start: i32,
-    /// Last page number (one-based index) to be returned.
-    #[prost(int32, tag = "2")]
-    pub end: i32,
-}
-/// Documents belonging to a dataset will be split into different groups
-/// referred to as splits: train, test.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum DatasetSplitType {
-    /// Default value if the enum is not set.
-    /// go/protodosdonts#do-include-an-unspecified-value-in-an-enum
-    Unspecified = 0,
-    /// Identifies the train documents.
-    DatasetSplitTrain = 1,
-    /// Identifies the test documents.
-    DatasetSplitTest = 2,
-    /// Identifies the unassigned documents.
-    DatasetSplitUnassigned = 3,
-}
-impl DatasetSplitType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            DatasetSplitType::Unspecified => "DATASET_SPLIT_TYPE_UNSPECIFIED",
-            DatasetSplitType::DatasetSplitTrain => "DATASET_SPLIT_TRAIN",
-            DatasetSplitType::DatasetSplitTest => "DATASET_SPLIT_TEST",
-            DatasetSplitType::DatasetSplitUnassigned => "DATASET_SPLIT_UNASSIGNED",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "DATASET_SPLIT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "DATASET_SPLIT_TRAIN" => Some(Self::DatasetSplitTrain),
-            "DATASET_SPLIT_TEST" => Some(Self::DatasetSplitTest),
-            "DATASET_SPLIT_UNASSIGNED" => Some(Self::DatasetSplitUnassigned),
-            _ => None,
-        }
-    }
-}
-/// Generated client implementations.
-pub mod document_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Service to call Cloud DocumentAI to manage document collection (dataset).
-    #[derive(Debug, Clone)]
-    pub struct DocumentServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> DocumentServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> DocumentServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            DocumentServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Updates metadata associated with a dataset.
-        pub async fn update_dataset(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateDatasetRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.documentai.v1beta3.DocumentService/UpdateDataset",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.documentai.v1beta3.DocumentService",
-                        "UpdateDataset",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Import documents into a dataset.
-        pub async fn import_documents(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ImportDocumentsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.documentai.v1beta3.DocumentService/ImportDocuments",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.documentai.v1beta3.DocumentService",
-                        "ImportDocuments",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Returns relevant fields present in the requested document.
-        pub async fn get_document(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetDocumentRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::GetDocumentResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.documentai.v1beta3.DocumentService/GetDocument",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.documentai.v1beta3.DocumentService",
-                        "GetDocument",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a set of documents.
-        pub async fn batch_delete_documents(
-            &mut self,
-            request: impl tonic::IntoRequest<super::BatchDeleteDocumentsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.documentai.v1beta3.DocumentService/BatchDeleteDocuments",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.documentai.v1beta3.DocumentService",
-                        "BatchDeleteDocuments",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets the `DatasetSchema` of a `Dataset`.
-        pub async fn get_dataset_schema(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetDatasetSchemaRequest>,
-        ) -> std::result::Result<tonic::Response<super::DatasetSchema>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.documentai.v1beta3.DocumentService/GetDatasetSchema",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.documentai.v1beta3.DocumentService",
-                        "GetDatasetSchema",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates a `DatasetSchema`.
-        pub async fn update_dataset_schema(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateDatasetSchemaRequest>,
-        ) -> std::result::Result<tonic::Response<super::DatasetSchema>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.documentai.v1beta3.DocumentService/UpdateDatasetSchema",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.documentai.v1beta3.DocumentService",
-                        "UpdateDatasetSchema",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
 /// Gives a short summary of an evaluation, and links to the evaluation itself.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3032,6 +2377,125 @@ pub mod processor {
                 _ => None,
             }
         }
+    }
+}
+/// The common metadata for long running operations.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CommonOperationMetadata {
+    /// The state of the operation.
+    #[prost(enumeration = "common_operation_metadata::State", tag = "1")]
+    pub state: i32,
+    /// A message providing more details about the current state of processing.
+    #[prost(string, tag = "2")]
+    pub state_message: ::prost::alloc::string::String,
+    /// A related resource to this operation.
+    #[prost(string, tag = "5")]
+    pub resource: ::prost::alloc::string::String,
+    /// The creation time of the operation.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The last update time of the operation.
+    #[prost(message, optional, tag = "4")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Nested message and enum types in `CommonOperationMetadata`.
+pub mod common_operation_metadata {
+    /// State of the longrunning operation.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified state.
+        Unspecified = 0,
+        /// Operation is still running.
+        Running = 1,
+        /// Operation is being cancelled.
+        Cancelling = 2,
+        /// Operation succeeded.
+        Succeeded = 3,
+        /// Operation failed.
+        Failed = 4,
+        /// Operation is cancelled.
+        Cancelled = 5,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Running => "RUNNING",
+                State::Cancelling => "CANCELLING",
+                State::Succeeded => "SUCCEEDED",
+                State::Failed => "FAILED",
+                State::Cancelled => "CANCELLED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "RUNNING" => Some(Self::Running),
+                "CANCELLING" => Some(Self::Cancelling),
+                "SUCCEEDED" => Some(Self::Succeeded),
+                "FAILED" => Some(Self::Failed),
+                "CANCELLED" => Some(Self::Cancelled),
+                _ => None,
+            }
+        }
+    }
+}
+/// A processor type is responsible for performing a certain document
+/// understanding task on a certain type of document.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProcessorType {
+    /// The resource name of the processor type.
+    /// Format: `projects/{project}/processorTypes/{processor_type}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`.
+    #[prost(string, tag = "2")]
+    pub r#type: ::prost::alloc::string::String,
+    /// The processor category, used by UI to group processor types.
+    #[prost(string, tag = "3")]
+    pub category: ::prost::alloc::string::String,
+    /// The locations in which this processor is available.
+    #[prost(message, repeated, tag = "4")]
+    pub available_locations: ::prost::alloc::vec::Vec<processor_type::LocationInfo>,
+    /// Whether the processor type allows creation. If true, users can create a
+    /// processor of this processor type. Otherwise, users need to request access.
+    #[prost(bool, tag = "6")]
+    pub allow_creation: bool,
+    /// Launch stage of the processor type
+    #[prost(enumeration = "super::super::super::api::LaunchStage", tag = "8")]
+    pub launch_stage: i32,
+    /// A set of Cloud Storage URIs of sample documents for this processor.
+    #[prost(string, repeated, tag = "9")]
+    pub sample_document_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Nested message and enum types in `ProcessorType`.
+pub mod processor_type {
+    /// The location information about where the processor is available.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct LocationInfo {
+        /// The location ID. For supported locations, refer to [regional and
+        /// multi-regional support](/document-ai/docs/regions).
+        #[prost(string, tag = "1")]
+        pub location_id: ::prost::alloc::string::String,
     }
 }
 /// Options for Process API
@@ -5073,6 +4537,542 @@ pub mod document_processor_service_client {
                     GrpcMethod::new(
                         "google.cloud.documentai.v1beta3.DocumentProcessorService",
                         "ImportProcessorVersion",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateDatasetRequest {
+    /// Required. The `name` field of the `Dataset` is used to identify the
+    /// resource to be updated.
+    #[prost(message, optional, tag = "1")]
+    pub dataset: ::core::option::Option<Dataset>,
+    /// The update mask applies to the resource.
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateDatasetOperationMetadata {
+    /// The basic metadata of the long running operation.
+    #[prost(message, optional, tag = "1")]
+    pub common_metadata: ::core::option::Option<CommonOperationMetadata>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ImportDocumentsRequest {
+    /// Required. The dataset resource name.
+    /// Format:
+    /// projects/{project}/locations/{location}/processors/{processor}/dataset
+    #[prost(string, tag = "1")]
+    pub dataset: ::prost::alloc::string::String,
+    /// Required. The Cloud Storage uri containing raw documents that must be
+    /// imported.
+    #[prost(message, repeated, tag = "4")]
+    pub batch_documents_import_configs: ::prost::alloc::vec::Vec<
+        import_documents_request::BatchDocumentsImportConfig,
+    >,
+}
+/// Nested message and enum types in `ImportDocumentsRequest`.
+pub mod import_documents_request {
+    /// Config for importing documents.
+    /// Each batch can have its own dataset split type.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct BatchDocumentsImportConfig {
+        /// The common config to specify a set of documents used as input.
+        #[prost(message, optional, tag = "1")]
+        pub batch_input_config: ::core::option::Option<super::BatchDocumentsInputConfig>,
+        #[prost(oneof = "batch_documents_import_config::SplitTypeConfig", tags = "2, 3")]
+        pub split_type_config: ::core::option::Option<
+            batch_documents_import_config::SplitTypeConfig,
+        >,
+    }
+    /// Nested message and enum types in `BatchDocumentsImportConfig`.
+    pub mod batch_documents_import_config {
+        /// The config for auto-split.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct AutoSplitConfig {
+            /// Ratio of training dataset split.
+            #[prost(float, tag = "1")]
+            pub training_split_ratio: f32,
+        }
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum SplitTypeConfig {
+            /// Target dataset split where the documents must be stored.
+            #[prost(enumeration = "super::super::DatasetSplitType", tag = "2")]
+            DatasetSplit(i32),
+            /// If set, documents will be automatically split into training and test
+            /// split category with the specified ratio.
+            #[prost(message, tag = "3")]
+            AutoSplitConfig(AutoSplitConfig),
+        }
+    }
+}
+/// Response of the import document operation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ImportDocumentsResponse {}
+/// Metadata of the import document operation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ImportDocumentsMetadata {
+    /// The basic metadata of the long running operation.
+    #[prost(message, optional, tag = "1")]
+    pub common_metadata: ::core::option::Option<CommonOperationMetadata>,
+    /// The list of response details of each document.
+    #[prost(message, repeated, tag = "2")]
+    pub individual_import_statuses: ::prost::alloc::vec::Vec<
+        import_documents_metadata::IndividualImportStatus,
+    >,
+    /// Validation statuses of the batch documents import config.
+    #[prost(message, repeated, tag = "4")]
+    pub import_config_validation_results: ::prost::alloc::vec::Vec<
+        import_documents_metadata::ImportConfigValidationResult,
+    >,
+    /// Total number of the documents that are qualified for importing.
+    #[prost(int32, tag = "3")]
+    pub total_document_count: i32,
+}
+/// Nested message and enum types in `ImportDocumentsMetadata`.
+pub mod import_documents_metadata {
+    /// The status of each individual document in the import process.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct IndividualImportStatus {
+        /// The source Cloud Storage URI of the document.
+        #[prost(string, tag = "1")]
+        pub input_gcs_source: ::prost::alloc::string::String,
+        /// The status of the importing of the document.
+        #[prost(message, optional, tag = "2")]
+        pub status: ::core::option::Option<super::super::super::super::rpc::Status>,
+        /// The document id of imported document if it was successful, otherwise
+        /// empty.
+        #[prost(message, optional, tag = "4")]
+        pub output_document_id: ::core::option::Option<super::DocumentId>,
+    }
+    /// The validation status of each import config. Status is set to errors if
+    /// there is no documents to import in the import_config, or OK if the
+    /// operation will try to proceed at least one document.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ImportConfigValidationResult {
+        /// The source Cloud Storage URI specified in the import config.
+        #[prost(string, tag = "1")]
+        pub input_gcs_source: ::prost::alloc::string::String,
+        /// The validation status of import config.
+        #[prost(message, optional, tag = "2")]
+        pub status: ::core::option::Option<super::super::super::super::rpc::Status>,
+    }
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetDocumentRequest {
+    /// Required. The resource name of the dataset that the document belongs to .
+    /// Format:
+    /// projects/{project}/locations/{location}/processors/{processor}/dataset
+    #[prost(string, tag = "1")]
+    pub dataset: ::prost::alloc::string::String,
+    /// Required. Document identifier.
+    #[prost(message, optional, tag = "2")]
+    pub document_id: ::core::option::Option<DocumentId>,
+    /// If set, only fields listed here will be returned. Otherwise, all fields
+    /// will be returned by default.
+    #[prost(message, optional, tag = "3")]
+    pub read_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// List of pages for which the fields specified in the `read_mask` must
+    /// be served.
+    #[prost(message, optional, tag = "4")]
+    pub page_range: ::core::option::Option<DocumentPageRange>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetDocumentResponse {
+    #[prost(message, optional, tag = "1")]
+    pub document: ::core::option::Option<Document>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchDeleteDocumentsRequest {
+    /// Required. The dataset resource name.
+    /// Format:
+    /// projects/{project}/locations/{location}/processors/{processor}/dataset
+    #[prost(string, tag = "1")]
+    pub dataset: ::prost::alloc::string::String,
+    /// Required. Dataset documents input. If given `filter`, all documents
+    /// satisfying the filter will be deleted. If given documentIds, a maximum of
+    /// 50 documents can be deleted in a batch. The request will be rejected if
+    /// more than 50 document_ids are provided.
+    #[prost(message, optional, tag = "3")]
+    pub dataset_documents: ::core::option::Option<BatchDatasetDocuments>,
+}
+/// Response of the delete documents operation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchDeleteDocumentsResponse {}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchDeleteDocumentsMetadata {
+    /// The basic metadata of the long running operation.
+    #[prost(message, optional, tag = "1")]
+    pub common_metadata: ::core::option::Option<CommonOperationMetadata>,
+    /// The list of response details of each document.
+    #[prost(message, repeated, tag = "2")]
+    pub individual_batch_delete_statuses: ::prost::alloc::vec::Vec<
+        batch_delete_documents_metadata::IndividualBatchDeleteStatus,
+    >,
+    /// Total number of documents deleting from dataset.
+    #[prost(int32, tag = "3")]
+    pub total_document_count: i32,
+    /// Total number of documents that failed to be deleted in storage.
+    #[prost(int32, tag = "4")]
+    pub error_document_count: i32,
+}
+/// Nested message and enum types in `BatchDeleteDocumentsMetadata`.
+pub mod batch_delete_documents_metadata {
+    /// The status of each individual document in the batch delete process.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct IndividualBatchDeleteStatus {
+        /// The document id of the document.
+        #[prost(message, optional, tag = "1")]
+        pub document_id: ::core::option::Option<super::DocumentId>,
+        /// The status of deleting the document in storage.
+        #[prost(message, optional, tag = "2")]
+        pub status: ::core::option::Option<super::super::super::super::rpc::Status>,
+    }
+}
+/// Request for `GetDatasetSchema`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetDatasetSchemaRequest {
+    /// Required. The dataset schema resource name.
+    /// Format:
+    /// projects/{project}/locations/{location}/processors/{processor}/dataset/datasetSchema
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// If set, only returns the visible fields of the schema.
+    #[prost(bool, tag = "2")]
+    pub visible_fields_only: bool,
+}
+/// Request for `UpdateDatasetSchema`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateDatasetSchemaRequest {
+    /// Required. The name field of the `DatasetSchema` is used to identify the
+    /// resource to be updated.
+    #[prost(message, optional, tag = "1")]
+    pub dataset_schema: ::core::option::Option<DatasetSchema>,
+    /// The update mask applies to the resource.
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Range of pages present in a document.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DocumentPageRange {
+    /// First page number (one-based index) to be returned.
+    #[prost(int32, tag = "1")]
+    pub start: i32,
+    /// Last page number (one-based index) to be returned.
+    #[prost(int32, tag = "2")]
+    pub end: i32,
+}
+/// Documents belonging to a dataset will be split into different groups
+/// referred to as splits: train, test.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum DatasetSplitType {
+    /// Default value if the enum is not set.
+    /// go/protodosdonts#do-include-an-unspecified-value-in-an-enum
+    Unspecified = 0,
+    /// Identifies the train documents.
+    DatasetSplitTrain = 1,
+    /// Identifies the test documents.
+    DatasetSplitTest = 2,
+    /// Identifies the unassigned documents.
+    DatasetSplitUnassigned = 3,
+}
+impl DatasetSplitType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            DatasetSplitType::Unspecified => "DATASET_SPLIT_TYPE_UNSPECIFIED",
+            DatasetSplitType::DatasetSplitTrain => "DATASET_SPLIT_TRAIN",
+            DatasetSplitType::DatasetSplitTest => "DATASET_SPLIT_TEST",
+            DatasetSplitType::DatasetSplitUnassigned => "DATASET_SPLIT_UNASSIGNED",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "DATASET_SPLIT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "DATASET_SPLIT_TRAIN" => Some(Self::DatasetSplitTrain),
+            "DATASET_SPLIT_TEST" => Some(Self::DatasetSplitTest),
+            "DATASET_SPLIT_UNASSIGNED" => Some(Self::DatasetSplitUnassigned),
+            _ => None,
+        }
+    }
+}
+/// Generated client implementations.
+pub mod document_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Service to call Cloud DocumentAI to manage document collection (dataset).
+    #[derive(Debug, Clone)]
+    pub struct DocumentServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> DocumentServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> DocumentServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            DocumentServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Updates metadata associated with a dataset.
+        pub async fn update_dataset(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateDatasetRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.documentai.v1beta3.DocumentService/UpdateDataset",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.documentai.v1beta3.DocumentService",
+                        "UpdateDataset",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Import documents into a dataset.
+        pub async fn import_documents(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ImportDocumentsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.documentai.v1beta3.DocumentService/ImportDocuments",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.documentai.v1beta3.DocumentService",
+                        "ImportDocuments",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Returns relevant fields present in the requested document.
+        pub async fn get_document(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetDocumentRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::GetDocumentResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.documentai.v1beta3.DocumentService/GetDocument",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.documentai.v1beta3.DocumentService",
+                        "GetDocument",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a set of documents.
+        pub async fn batch_delete_documents(
+            &mut self,
+            request: impl tonic::IntoRequest<super::BatchDeleteDocumentsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.documentai.v1beta3.DocumentService/BatchDeleteDocuments",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.documentai.v1beta3.DocumentService",
+                        "BatchDeleteDocuments",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets the `DatasetSchema` of a `Dataset`.
+        pub async fn get_dataset_schema(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetDatasetSchemaRequest>,
+        ) -> std::result::Result<tonic::Response<super::DatasetSchema>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.documentai.v1beta3.DocumentService/GetDatasetSchema",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.documentai.v1beta3.DocumentService",
+                        "GetDatasetSchema",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates a `DatasetSchema`.
+        pub async fn update_dataset_schema(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateDatasetSchemaRequest>,
+        ) -> std::result::Result<tonic::Response<super::DatasetSchema>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.documentai.v1beta3.DocumentService/UpdateDatasetSchema",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.documentai.v1beta3.DocumentService",
+                        "UpdateDatasetSchema",
                     ),
                 );
             self.inner.unary(req, path, codec).await

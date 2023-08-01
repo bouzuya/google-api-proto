@@ -1,60 +1,294 @@
-/// Represents customer client link relationship.
+/// Represents a bid-modifiable only criterion at the campaign level.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomerClientLink {
-    /// Immutable. Name of the resource.
-    /// CustomerClientLink resource names have the form:
-    /// `customers/{customer_id}/customerClientLinks/{client_customer_id}~{manager_link_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The client customer linked to this customer.
-    #[prost(string, optional, tag = "7")]
-    pub client_customer: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. This is uniquely identifies a customer client link. Read only.
-    #[prost(int64, optional, tag = "8")]
-    pub manager_link_id: ::core::option::Option<i64>,
-    /// This is the status of the link between client and manager.
-    #[prost(
-        enumeration = "super::enums::manager_link_status_enum::ManagerLinkStatus",
-        tag = "5"
-    )]
-    pub status: i32,
-    /// The visibility of the link. Users can choose whether or not to see hidden
-    /// links in the Google Ads UI.
-    /// Default value is false
-    #[prost(bool, optional, tag = "9")]
-    pub hidden: ::core::option::Option<bool>,
-}
-/// An ad group feed.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AdGroupFeed {
-    /// Immutable. The resource name of the ad group feed.
-    /// Ad group feed resource names have the form:
+pub struct CampaignBidModifier {
+    /// Immutable. The resource name of the campaign bid modifier.
+    /// Campaign bid modifier resource names have the form:
     ///
-    /// `customers/{customer_id}/adGroupFeeds/{ad_group_id}~{feed_id}
+    /// `customers/{customer_id}/campaignBidModifiers/{campaign_id}~{criterion_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The feed being linked to the ad group.
+    /// Output only. The campaign to which this criterion belongs.
+    #[prost(string, optional, tag = "6")]
+    pub campaign: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The ID of the criterion to bid modify.
+    ///
+    /// This field is ignored for mutates.
+    #[prost(int64, optional, tag = "7")]
+    pub criterion_id: ::core::option::Option<i64>,
+    /// The modifier for the bid when the criterion matches.
+    #[prost(double, optional, tag = "8")]
+    pub bid_modifier: ::core::option::Option<f64>,
+    /// The criterion of this campaign bid modifier.
+    ///
+    /// Required in create operations starting in V5.
+    #[prost(oneof = "campaign_bid_modifier::Criterion", tags = "5")]
+    pub criterion: ::core::option::Option<campaign_bid_modifier::Criterion>,
+}
+/// Nested message and enum types in `CampaignBidModifier`.
+pub mod campaign_bid_modifier {
+    /// The criterion of this campaign bid modifier.
+    ///
+    /// Required in create operations starting in V5.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Criterion {
+        /// Immutable. Criterion for interaction type. Only supported for search
+        /// campaigns.
+        #[prost(message, tag = "5")]
+        InteractionType(super::super::common::InteractionTypeInfo),
+    }
+}
+/// Asset is a part of an ad which can be shared across multiple ads.
+/// It can be an image (ImageAsset), a video (YoutubeVideoAsset), etc.
+/// Assets are immutable and cannot be removed. To stop an asset from serving,
+/// remove the asset from the entity that is using it.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Asset {
+    /// Immutable. The resource name of the asset.
+    /// Asset resource names have the form:
+    ///
+    /// `customers/{customer_id}/assets/{asset_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The ID of the asset.
+    #[prost(int64, optional, tag = "11")]
+    pub id: ::core::option::Option<i64>,
+    /// Optional name of the asset.
+    #[prost(string, optional, tag = "12")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Type of the asset.
+    #[prost(enumeration = "super::enums::asset_type_enum::AssetType", tag = "4")]
+    pub r#type: i32,
+    /// A list of possible final URLs after all cross domain redirects.
+    #[prost(string, repeated, tag = "14")]
+    pub final_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// A list of possible final mobile URLs after all cross domain redirects.
+    #[prost(string, repeated, tag = "16")]
+    pub final_mobile_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// URL template for constructing a tracking URL.
+    #[prost(string, optional, tag = "17")]
+    pub tracking_url_template: ::core::option::Option<::prost::alloc::string::String>,
+    /// A list of mappings to be used for substituting URL custom parameter tags in
+    /// the tracking_url_template, final_urls, and/or final_mobile_urls.
+    #[prost(message, repeated, tag = "18")]
+    pub url_custom_parameters: ::prost::alloc::vec::Vec<super::common::CustomParameter>,
+    /// URL template for appending params to landing page URLs served with parallel
+    /// tracking.
+    #[prost(string, optional, tag = "19")]
+    pub final_url_suffix: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Source of the asset.
+    #[prost(enumeration = "super::enums::asset_source_enum::AssetSource", tag = "38")]
+    pub source: i32,
+    /// Output only. Policy information for the asset.
+    #[prost(message, optional, tag = "13")]
+    pub policy_summary: ::core::option::Option<AssetPolicySummary>,
+    /// Output only. Policy information for the asset for each FieldType.
+    #[prost(message, repeated, tag = "40")]
+    pub field_type_policy_summaries: ::prost::alloc::vec::Vec<
+        AssetFieldTypePolicySummary,
+    >,
+    /// The specific type of the asset.
+    #[prost(
+        oneof = "asset::AssetData",
+        tags = "5, 6, 7, 8, 9, 10, 15, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 39, 41"
+    )]
+    pub asset_data: ::core::option::Option<asset::AssetData>,
+}
+/// Nested message and enum types in `Asset`.
+pub mod asset {
+    /// The specific type of the asset.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum AssetData {
+        /// Immutable. A YouTube video asset.
+        #[prost(message, tag = "5")]
+        YoutubeVideoAsset(super::super::common::YoutubeVideoAsset),
+        /// Immutable. A media bundle asset.
+        #[prost(message, tag = "6")]
+        MediaBundleAsset(super::super::common::MediaBundleAsset),
+        /// Output only. An image asset.
+        #[prost(message, tag = "7")]
+        ImageAsset(super::super::common::ImageAsset),
+        /// Immutable. A text asset.
+        #[prost(message, tag = "8")]
+        TextAsset(super::super::common::TextAsset),
+        /// A lead form asset.
+        #[prost(message, tag = "9")]
+        LeadFormAsset(super::super::common::LeadFormAsset),
+        /// A book on google asset.
+        #[prost(message, tag = "10")]
+        BookOnGoogleAsset(super::super::common::BookOnGoogleAsset),
+        /// A promotion asset.
+        #[prost(message, tag = "15")]
+        PromotionAsset(super::super::common::PromotionAsset),
+        /// A callout asset.
+        #[prost(message, tag = "20")]
+        CalloutAsset(super::super::common::CalloutAsset),
+        /// A structured snippet asset.
+        #[prost(message, tag = "21")]
+        StructuredSnippetAsset(super::super::common::StructuredSnippetAsset),
+        /// A sitelink asset.
+        #[prost(message, tag = "22")]
+        SitelinkAsset(super::super::common::SitelinkAsset),
+        /// A page feed asset.
+        #[prost(message, tag = "23")]
+        PageFeedAsset(super::super::common::PageFeedAsset),
+        /// A dynamic education asset.
+        #[prost(message, tag = "24")]
+        DynamicEducationAsset(super::super::common::DynamicEducationAsset),
+        /// A mobile app asset.
+        #[prost(message, tag = "25")]
+        MobileAppAsset(super::super::common::MobileAppAsset),
+        /// A hotel callout asset.
+        #[prost(message, tag = "26")]
+        HotelCalloutAsset(super::super::common::HotelCalloutAsset),
+        /// A call asset.
+        #[prost(message, tag = "27")]
+        CallAsset(super::super::common::CallAsset),
+        /// A price asset.
+        #[prost(message, tag = "28")]
+        PriceAsset(super::super::common::PriceAsset),
+        /// Immutable. A call to action asset.
+        #[prost(message, tag = "29")]
+        CallToActionAsset(super::super::common::CallToActionAsset),
+        /// A dynamic real estate asset.
+        #[prost(message, tag = "30")]
+        DynamicRealEstateAsset(super::super::common::DynamicRealEstateAsset),
+        /// A dynamic custom asset.
+        #[prost(message, tag = "31")]
+        DynamicCustomAsset(super::super::common::DynamicCustomAsset),
+        /// A dynamic hotels and rentals asset.
+        #[prost(message, tag = "32")]
+        DynamicHotelsAndRentalsAsset(super::super::common::DynamicHotelsAndRentalsAsset),
+        /// A dynamic flights asset.
+        #[prost(message, tag = "33")]
+        DynamicFlightsAsset(super::super::common::DynamicFlightsAsset),
+        /// Immutable. A discovery carousel card asset.
+        #[prost(message, tag = "34")]
+        DiscoveryCarouselCardAsset(super::super::common::DiscoveryCarouselCardAsset),
+        /// A dynamic travel asset.
+        #[prost(message, tag = "35")]
+        DynamicTravelAsset(super::super::common::DynamicTravelAsset),
+        /// A dynamic local asset.
+        #[prost(message, tag = "36")]
+        DynamicLocalAsset(super::super::common::DynamicLocalAsset),
+        /// A dynamic jobs asset.
+        #[prost(message, tag = "37")]
+        DynamicJobsAsset(super::super::common::DynamicJobsAsset),
+        /// Output only. A location asset.
+        #[prost(message, tag = "39")]
+        LocationAsset(super::super::common::LocationAsset),
+        /// Immutable. A hotel property asset.
+        #[prost(message, tag = "41")]
+        HotelPropertyAsset(super::super::common::HotelPropertyAsset),
+    }
+}
+/// Contains policy information for an asset under AssetFieldType context.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AssetFieldTypePolicySummary {
+    /// Output only. FieldType of this asset.
+    #[prost(
+        enumeration = "super::enums::asset_field_type_enum::AssetFieldType",
+        optional,
+        tag = "1"
+    )]
+    pub asset_field_type: ::core::option::Option<i32>,
+    /// Output only. Source of this asset.
+    #[prost(
+        enumeration = "super::enums::asset_source_enum::AssetSource",
+        optional,
+        tag = "2"
+    )]
+    pub asset_source: ::core::option::Option<i32>,
+    /// Output only. Policy summary.
+    #[prost(message, optional, tag = "3")]
+    pub policy_summary_info: ::core::option::Option<AssetPolicySummary>,
+}
+/// Contains policy information for an asset.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AssetPolicySummary {
+    /// Output only. The list of policy findings for this asset.
+    #[prost(message, repeated, tag = "1")]
+    pub policy_topic_entries: ::prost::alloc::vec::Vec<super::common::PolicyTopicEntry>,
+    /// Output only. Where in the review process this asset is.
+    #[prost(
+        enumeration = "super::enums::policy_review_status_enum::PolicyReviewStatus",
+        tag = "2"
+    )]
+    pub review_status: i32,
+    /// Output only. The overall approval status of this asset, calculated based on
+    /// the status of its individual policy topic entries.
+    #[prost(
+        enumeration = "super::enums::policy_approval_status_enum::PolicyApprovalStatus",
+        tag = "3"
+    )]
+    pub approval_status: i32,
+}
+/// The biddability setting for the specified campaign only for all
+/// conversion actions with a matching category and origin.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CampaignConversionGoal {
+    /// Immutable. The resource name of the campaign conversion goal.
+    /// Campaign conversion goal resource names have the form:
+    ///
+    /// `customers/{customer_id}/campaignConversionGoals/{campaign_id}~{category}~{origin}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The campaign with which this campaign conversion goal is
+    /// associated.
+    #[prost(string, tag = "2")]
+    pub campaign: ::prost::alloc::string::String,
+    /// The conversion category of this campaign conversion goal.
+    #[prost(
+        enumeration = "super::enums::conversion_action_category_enum::ConversionActionCategory",
+        tag = "3"
+    )]
+    pub category: i32,
+    /// The conversion origin of this campaign conversion goal.
+    #[prost(
+        enumeration = "super::enums::conversion_origin_enum::ConversionOrigin",
+        tag = "4"
+    )]
+    pub origin: i32,
+    /// The biddability of the campaign conversion goal.
+    #[prost(bool, tag = "5")]
+    pub biddable: bool,
+}
+/// A campaign feed.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CampaignFeed {
+    /// Immutable. The resource name of the campaign feed.
+    /// Campaign feed resource names have the form:
+    ///
+    /// `customers/{customer_id}/campaignFeeds/{campaign_id}~{feed_id}
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The feed to which the CampaignFeed belongs.
     #[prost(string, optional, tag = "7")]
     pub feed: ::core::option::Option<::prost::alloc::string::String>,
-    /// Immutable. The ad group being linked to the feed.
+    /// Immutable. The campaign to which the CampaignFeed belongs.
     #[prost(string, optional, tag = "8")]
-    pub ad_group: ::core::option::Option<::prost::alloc::string::String>,
+    pub campaign: ::core::option::Option<::prost::alloc::string::String>,
     /// Indicates which placeholder types the feed may populate under the connected
-    /// ad group. Required.
+    /// campaign. Required.
     #[prost(
         enumeration = "super::enums::placeholder_type_enum::PlaceholderType",
         repeated,
         tag = "4"
     )]
     pub placeholder_types: ::prost::alloc::vec::Vec<i32>,
-    /// Matching function associated with the AdGroupFeed.
+    /// Matching function associated with the CampaignFeed.
     /// The matching function is used to filter the set of feed items selected.
     /// Required.
     #[prost(message, optional, tag = "5")]
     pub matching_function: ::core::option::Option<super::common::MatchingFunction>,
-    /// Output only. Status of the ad group feed.
+    /// Output only. Status of the campaign feed.
     /// This field is read-only.
     #[prost(
         enumeration = "super::enums::feed_link_status_enum::FeedLinkStatus",
@@ -62,972 +296,592 @@ pub struct AdGroupFeed {
     )]
     pub status: i32,
 }
-/// A Keyword Plan ad group keyword.
-/// Max number of keyword plan keywords per plan: 10000.
+/// A customer.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct KeywordPlanAdGroupKeyword {
-    /// Immutable. The resource name of the Keyword Plan ad group keyword.
-    /// KeywordPlanAdGroupKeyword resource names have the form:
+pub struct Customer {
+    /// Immutable. The resource name of the customer.
+    /// Customer resource names have the form:
     ///
-    /// `customers/{customer_id}/keywordPlanAdGroupKeywords/{kp_ad_group_keyword_id}`
+    /// `customers/{customer_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// The Keyword Plan ad group to which this keyword belongs.
-    #[prost(string, optional, tag = "8")]
-    pub keyword_plan_ad_group: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The ID of the Keyword Plan keyword.
-    #[prost(int64, optional, tag = "9")]
-    pub id: ::core::option::Option<i64>,
-    /// The keyword text.
-    #[prost(string, optional, tag = "10")]
-    pub text: ::core::option::Option<::prost::alloc::string::String>,
-    /// The keyword match type.
-    #[prost(
-        enumeration = "super::enums::keyword_match_type_enum::KeywordMatchType",
-        tag = "5"
-    )]
-    pub match_type: i32,
-    /// A keyword level max cpc bid in micros (for example, $1 = 1mm). The currency
-    /// is the same as the account currency code. This will override any CPC bid
-    /// set at the keyword plan ad group level. Not applicable for negative
-    /// keywords. (negative = true) This field is Optional.
-    #[prost(int64, optional, tag = "11")]
-    pub cpc_bid_micros: ::core::option::Option<i64>,
-    /// Immutable. If true, the keyword is negative.
-    #[prost(bool, optional, tag = "12")]
-    pub negative: ::core::option::Option<bool>,
-}
-/// A conversion value rule
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ConversionValueRule {
-    /// Immutable. The resource name of the conversion value rule.
-    /// Conversion value rule resource names have the form:
-    ///
-    /// `customers/{customer_id}/conversionValueRules/{conversion_value_rule_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the conversion value rule.
-    #[prost(int64, tag = "2")]
-    pub id: i64,
-    /// Action applied when the rule is triggered.
-    #[prost(message, optional, tag = "3")]
-    pub action: ::core::option::Option<conversion_value_rule::ValueRuleAction>,
-    /// Condition for Geo location that must be satisfied for the value rule to
-    /// apply.
-    #[prost(message, optional, tag = "4")]
-    pub geo_location_condition: ::core::option::Option<
-        conversion_value_rule::ValueRuleGeoLocationCondition,
-    >,
-    /// Condition for device type that must be satisfied for the value rule to
-    /// apply.
-    #[prost(message, optional, tag = "5")]
-    pub device_condition: ::core::option::Option<
-        conversion_value_rule::ValueRuleDeviceCondition,
-    >,
-    /// Condition for audience that must be satisfied for the value rule to apply.
-    #[prost(message, optional, tag = "6")]
-    pub audience_condition: ::core::option::Option<
-        conversion_value_rule::ValueRuleAudienceCondition,
-    >,
-    /// Output only. The resource name of the conversion value rule's owner
-    /// customer. When the value rule is inherited from a manager customer,
-    /// owner_customer will be the resource name of the manager whereas the
-    /// customer in the resource_name will be of the requesting serving customer.
-    /// ** Read-only **
-    #[prost(string, tag = "7")]
-    pub owner_customer: ::prost::alloc::string::String,
-    /// The status of the conversion value rule.
-    #[prost(
-        enumeration = "super::enums::conversion_value_rule_status_enum::ConversionValueRuleStatus",
-        tag = "8"
-    )]
-    pub status: i32,
-}
-/// Nested message and enum types in `ConversionValueRule`.
-pub mod conversion_value_rule {
-    /// Action applied when rule is applied.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ValueRuleAction {
-        /// Specifies applied operation.
-        #[prost(
-            enumeration = "super::super::enums::value_rule_operation_enum::ValueRuleOperation",
-            tag = "1"
-        )]
-        pub operation: i32,
-        /// Specifies applied value.
-        #[prost(double, tag = "2")]
-        pub value: f64,
-    }
-    /// Condition on Geo dimension.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ValueRuleGeoLocationCondition {
-        /// Geo locations that advertisers want to exclude.
-        #[prost(string, repeated, tag = "1")]
-        pub excluded_geo_target_constants: ::prost::alloc::vec::Vec<
-            ::prost::alloc::string::String,
-        >,
-        /// Excluded Geo location match type.
-        #[prost(
-            enumeration = "super::super::enums::value_rule_geo_location_match_type_enum::ValueRuleGeoLocationMatchType",
-            tag = "2"
-        )]
-        pub excluded_geo_match_type: i32,
-        /// Geo locations that advertisers want to include.
-        #[prost(string, repeated, tag = "3")]
-        pub geo_target_constants: ::prost::alloc::vec::Vec<
-            ::prost::alloc::string::String,
-        >,
-        /// Included Geo location match type.
-        #[prost(
-            enumeration = "super::super::enums::value_rule_geo_location_match_type_enum::ValueRuleGeoLocationMatchType",
-            tag = "4"
-        )]
-        pub geo_match_type: i32,
-    }
-    /// Condition on Device dimension.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ValueRuleDeviceCondition {
-        /// Value for device type condition.
-        #[prost(
-            enumeration = "super::super::enums::value_rule_device_type_enum::ValueRuleDeviceType",
-            repeated,
-            tag = "1"
-        )]
-        pub device_types: ::prost::alloc::vec::Vec<i32>,
-    }
-    /// Condition on Audience dimension.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ValueRuleAudienceCondition {
-        /// User Lists.
-        /// The Similar Audiences sunset starts May 2023. Refer to
-        /// <https://ads-developers.googleblog.com/2022/11/announcing-deprecation-and-sunset-of.html>
-        /// for other options.
-        #[prost(string, repeated, tag = "1")]
-        pub user_lists: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-        /// User Interests.
-        #[prost(string, repeated, tag = "2")]
-        pub user_interests: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    }
-}
-/// A Keyword Plan campaign.
-/// Max number of keyword plan campaigns per plan allowed: 1.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct KeywordPlanCampaign {
-    /// Immutable. The resource name of the Keyword Plan campaign.
-    /// KeywordPlanCampaign resource names have the form:
-    ///
-    /// `customers/{customer_id}/keywordPlanCampaigns/{kp_campaign_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// The keyword plan this campaign belongs to.
-    #[prost(string, optional, tag = "9")]
-    pub keyword_plan: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The ID of the Keyword Plan campaign.
-    #[prost(int64, optional, tag = "10")]
-    pub id: ::core::option::Option<i64>,
-    /// The name of the Keyword Plan campaign.
-    ///
-    /// This field is required and should not be empty when creating Keyword Plan
-    /// campaigns.
-    #[prost(string, optional, tag = "11")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// The languages targeted for the Keyword Plan campaign.
-    /// Max allowed: 1.
-    #[prost(string, repeated, tag = "12")]
-    pub language_constants: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Targeting network.
-    ///
-    /// This field is required and should not be empty when creating Keyword Plan
-    /// campaigns.
-    #[prost(
-        enumeration = "super::enums::keyword_plan_network_enum::KeywordPlanNetwork",
-        tag = "6"
-    )]
-    pub keyword_plan_network: i32,
-    /// A default max cpc bid in micros, and in the account currency, for all ad
-    /// groups under the campaign.
-    ///
-    /// This field is required and should not be empty when creating Keyword Plan
-    /// campaigns.
-    #[prost(int64, optional, tag = "13")]
-    pub cpc_bid_micros: ::core::option::Option<i64>,
-    /// The geo targets.
-    /// Max number allowed: 20.
-    #[prost(message, repeated, tag = "8")]
-    pub geo_targets: ::prost::alloc::vec::Vec<KeywordPlanGeoTarget>,
-}
-/// A geo target.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct KeywordPlanGeoTarget {
-    /// Required. The resource name of the geo target.
-    #[prost(string, optional, tag = "2")]
-    pub geo_target_constant: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// Represents the data sharing connection between a Google Ads account and
-/// another account
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccountLink {
-    /// Immutable. Resource name of the account link.
-    /// AccountLink resource names have the form:
-    /// `customers/{customer_id}/accountLinks/{account_link_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the link.
-    /// This field is read only.
-    #[prost(int64, optional, tag = "8")]
-    pub account_link_id: ::core::option::Option<i64>,
-    /// The status of the link.
-    #[prost(
-        enumeration = "super::enums::account_link_status_enum::AccountLinkStatus",
-        tag = "3"
-    )]
-    pub status: i32,
-    /// Output only. The type of the linked account.
-    #[prost(
-        enumeration = "super::enums::linked_account_type_enum::LinkedAccountType",
-        tag = "4"
-    )]
-    pub r#type: i32,
-    /// An account linked to this Google Ads account.
-    #[prost(oneof = "account_link::LinkedAccount", tags = "5, 6, 7, 9, 10")]
-    pub linked_account: ::core::option::Option<account_link::LinkedAccount>,
-}
-/// Nested message and enum types in `AccountLink`.
-pub mod account_link {
-    /// An account linked to this Google Ads account.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum LinkedAccount {
-        /// Immutable. A third party app analytics link.
-        #[prost(message, tag = "5")]
-        ThirdPartyAppAnalytics(super::ThirdPartyAppAnalyticsLinkIdentifier),
-        /// Output only. Data partner link.
-        #[prost(message, tag = "6")]
-        DataPartner(super::DataPartnerLinkIdentifier),
-        /// Output only. Google Ads link.
-        #[prost(message, tag = "7")]
-        GoogleAds(super::GoogleAdsLinkIdentifier),
-        /// Output only. Hotel link
-        #[prost(message, tag = "9")]
-        HotelCenter(super::HotelCenterLinkIdentifier),
-        /// Output only. Advertising Partner link
-        #[prost(message, tag = "10")]
-        AdvertisingPartner(super::AdvertisingPartnerLinkIdentifier),
-    }
-}
-/// The identifiers of a Third Party App Analytics Link.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ThirdPartyAppAnalyticsLinkIdentifier {
-    /// Immutable. The ID of the app analytics provider.
-    /// This field should not be empty when creating a new third
-    /// party app analytics link. It is unable to be modified after the creation of
-    /// the link.
-    #[prost(int64, optional, tag = "4")]
-    pub app_analytics_provider_id: ::core::option::Option<i64>,
-    /// Immutable. A string that uniquely identifies a mobile application from
-    /// which the data was collected to the Google Ads API. For iOS, the ID string
-    /// is the 9 digit string that appears at the end of an App Store URL (for
-    /// example, "422689480" for "Gmail" whose App Store link is
-    /// <https://apps.apple.com/us/app/gmail-email-by-google/id422689480>). For
-    /// Android, the ID string is the application's package name (for example,
-    /// "com.google.android.gm" for "Gmail" given Google Play link
-    /// <https://play.google.com/store/apps/details?id=com.google.android.gm>)
-    /// This field should not be empty when creating a new third
-    /// party app analytics link. It is unable to be modified after the creation of
-    /// the link.
-    #[prost(string, optional, tag = "5")]
-    pub app_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Immutable. The vendor of the app.
-    /// This field should not be empty when creating a new third
-    /// party app analytics link. It is unable to be modified after the creation of
-    /// the link.
-    #[prost(
-        enumeration = "super::enums::mobile_app_vendor_enum::MobileAppVendor",
-        tag = "3"
-    )]
-    pub app_vendor: i32,
-}
-/// The identifier for Data Partner account.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DataPartnerLinkIdentifier {
-    /// Immutable. The customer ID of the Data partner account.
-    /// This field is required and should not be empty when creating a new
-    /// data partner link. It is unable to be modified after the creation of
-    /// the link.
-    #[prost(int64, optional, tag = "1")]
-    pub data_partner_id: ::core::option::Option<i64>,
-}
-/// The identifier for Hotel account.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct HotelCenterLinkIdentifier {
-    /// Output only. The hotel center id of the hotel account.
-    #[prost(int64, tag = "1")]
-    pub hotel_center_id: i64,
-}
-/// The identifier for Google Ads account.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GoogleAdsLinkIdentifier {
-    /// Immutable. The resource name of the Google Ads account.
-    /// This field is required and should not be empty when creating a new
-    /// Google Ads link. It is unable to be modified after the creation of
-    /// the link.
-    #[prost(string, optional, tag = "3")]
-    pub customer: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// The identifier for the Advertising Partner Google Ads account.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AdvertisingPartnerLinkIdentifier {
-    /// Immutable. The resource name of the advertising partner Google Ads account.
-    /// This field is required and should not be empty when creating a new
-    /// Advertising Partner link. It is unable to be modified after the creation of
-    /// the link.
-    #[prost(string, optional, tag = "1")]
-    pub customer: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// A conversion custom variable
-/// See "About custom variables for conversions" at
-/// <https://support.google.com/google-ads/answer/9964350>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ConversionCustomVariable {
-    /// Immutable. The resource name of the conversion custom variable.
-    /// Conversion custom variable resource names have the form:
-    ///
-    /// `customers/{customer_id}/conversionCustomVariables/{conversion_custom_variable_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the conversion custom variable.
-    #[prost(int64, tag = "2")]
-    pub id: i64,
-    /// Required. The name of the conversion custom variable.
-    /// Name should be unique. The maximum length of name is 100 characters.
-    /// There should not be any extra spaces before and after.
-    #[prost(string, tag = "3")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Immutable. The tag of the conversion custom variable. It is used
-    /// in the event snippet and sent to Google Ads along with conversion pings.
-    /// For conversion uploads in Google Ads API, the resource name of the
-    /// conversion custom variable is used. Tag should be unique. The maximum size
-    /// of tag is 100 bytes. There should not be any extra spaces before and after.
-    /// Currently only lowercase letters, numbers and underscores are allowed in
-    /// the tag.
-    #[prost(string, tag = "4")]
-    pub tag: ::prost::alloc::string::String,
-    /// The status of the conversion custom variable for conversion event accrual.
-    #[prost(
-        enumeration = "super::enums::conversion_custom_variable_status_enum::ConversionCustomVariableStatus",
-        tag = "5"
-    )]
-    pub status: i32,
-    /// Output only. The resource name of the customer that owns the conversion
-    /// custom variable.
-    #[prost(string, tag = "6")]
-    pub owner_customer: ::prost::alloc::string::String,
-}
-/// A Google ads experiment for users to experiment changes on multiple
-/// campaigns, compare the performance, and apply the effective changes.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExperimentArm {
-    /// Immutable. The resource name of the experiment arm.
-    /// Experiment arm resource names have the form:
-    ///
-    /// `customers/{customer_id}/experimentArms/{TrialArm.trial_id}~{TrialArm.trial_arm_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The experiment to which the ExperimentArm belongs.
-    #[prost(string, tag = "8")]
-    pub experiment: ::prost::alloc::string::String,
-    /// Required. The name of the experiment arm. It must have a minimum length of
-    /// 1 and maximum length of 1024. It must be unique under an experiment.
-    #[prost(string, tag = "3")]
-    pub name: ::prost::alloc::string::String,
-    /// Whether this arm is a control arm. A control arm is the arm against
-    /// which the other arms are compared.
-    #[prost(bool, tag = "4")]
-    pub control: bool,
-    /// Traffic split of the trial arm. The value should be between 1 and 100
-    /// and must total 100 between the two trial arms.
-    #[prost(int64, tag = "5")]
-    pub traffic_split: i64,
-    /// List of campaigns in the trial arm. The max length is one.
-    #[prost(string, repeated, tag = "6")]
-    pub campaigns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. The in design campaigns in the treatment experiment arm.
-    #[prost(string, repeated, tag = "7")]
-    pub in_design_campaigns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// A media file.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MediaFile {
-    /// Immutable. The resource name of the media file.
-    /// Media file resource names have the form:
-    ///
-    /// `customers/{customer_id}/mediaFiles/{media_file_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the media file.
-    #[prost(int64, optional, tag = "12")]
-    pub id: ::core::option::Option<i64>,
-    /// Immutable. Type of the media file.
-    #[prost(enumeration = "super::enums::media_type_enum::MediaType", tag = "5")]
-    pub r#type: i32,
-    /// Output only. The mime type of the media file.
-    #[prost(enumeration = "super::enums::mime_type_enum::MimeType", tag = "6")]
-    pub mime_type: i32,
-    /// Immutable. The URL of where the original media file was downloaded from (or
-    /// a file name). Only used for media of type AUDIO and IMAGE.
-    #[prost(string, optional, tag = "13")]
-    pub source_url: ::core::option::Option<::prost::alloc::string::String>,
-    /// Immutable. The name of the media file. The name can be used by clients to
-    /// help identify previously uploaded media.
-    #[prost(string, optional, tag = "14")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The size of the media file in bytes.
-    #[prost(int64, optional, tag = "15")]
-    pub file_size: ::core::option::Option<i64>,
-    /// The specific type of the media file.
-    #[prost(oneof = "media_file::Mediatype", tags = "3, 4, 10, 11")]
-    pub mediatype: ::core::option::Option<media_file::Mediatype>,
-}
-/// Nested message and enum types in `MediaFile`.
-pub mod media_file {
-    /// The specific type of the media file.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Mediatype {
-        /// Immutable. Encapsulates an Image.
-        #[prost(message, tag = "3")]
-        Image(super::MediaImage),
-        /// Immutable. A ZIP archive media the content of which contains HTML5
-        /// assets.
-        #[prost(message, tag = "4")]
-        MediaBundle(super::MediaBundle),
-        /// Output only. Encapsulates an Audio.
-        #[prost(message, tag = "10")]
-        Audio(super::MediaAudio),
-        /// Immutable. Encapsulates a Video.
-        #[prost(message, tag = "11")]
-        Video(super::MediaVideo),
-    }
-}
-/// Encapsulates an Image.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MediaImage {
-    /// Immutable. Raw image data.
-    #[prost(bytes = "bytes", optional, tag = "4")]
-    pub data: ::core::option::Option<::prost::bytes::Bytes>,
-    /// Output only. The url to the full size version of the image.
-    #[prost(string, optional, tag = "2")]
-    pub full_size_image_url: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The url to the preview size version of the image.
-    #[prost(string, optional, tag = "3")]
-    pub preview_size_image_url: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// Represents a ZIP archive media the content of which contains HTML5 assets.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MediaBundle {
-    /// Immutable. Raw zipped data.
-    #[prost(bytes = "bytes", optional, tag = "3")]
-    pub data: ::core::option::Option<::prost::bytes::Bytes>,
-    /// Output only. The url to access the uploaded zipped data.
-    /// For example, <https://tpc.googlesyndication.com/simgad/123>
-    /// This field is read-only.
-    #[prost(string, optional, tag = "2")]
-    pub url: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// Encapsulates an Audio.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MediaAudio {
-    /// Output only. The duration of the Audio in milliseconds.
-    #[prost(int64, optional, tag = "2")]
-    pub ad_duration_millis: ::core::option::Option<i64>,
-}
-/// Encapsulates a Video.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MediaVideo {
-    /// Output only. The duration of the Video in milliseconds.
-    #[prost(int64, optional, tag = "5")]
-    pub ad_duration_millis: ::core::option::Option<i64>,
-    /// Immutable. The YouTube video ID (as seen in YouTube URLs). Adding prefix
-    /// "<https://www.youtube.com/watch?v="> to this ID will get the YouTube
-    /// streaming URL for this video.
-    #[prost(string, optional, tag = "6")]
-    pub youtube_video_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The Advertising Digital Identification code for this video, as
-    /// defined by the American Association of Advertising Agencies, used mainly
-    /// for television commercials.
-    #[prost(string, optional, tag = "7")]
-    pub advertising_id_code: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The Industry Standard Commercial Identifier code for this
-    /// video, used mainly for television commercials.
-    #[prost(string, optional, tag = "8")]
-    pub isci_code: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// Represents a bidding seasonality adjustment.
-///
-/// See "About seasonality adjustments" at
-/// <https://support.google.com/google-ads/answer/10369906.>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BiddingSeasonalityAdjustment {
-    /// Immutable. The resource name of the seasonality adjustment.
-    /// Seasonality adjustment resource names have the form:
-    ///
-    /// `customers/{customer_id}/biddingSeasonalityAdjustments/{seasonality_adjustment_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the seasonality adjustment.
-    #[prost(int64, tag = "2")]
-    pub seasonality_adjustment_id: i64,
-    /// The scope of the seasonality adjustment.
-    #[prost(
-        enumeration = "super::enums::seasonality_event_scope_enum::SeasonalityEventScope",
-        tag = "3"
-    )]
-    pub scope: i32,
-    /// Output only. The status of the seasonality adjustment.
-    #[prost(
-        enumeration = "super::enums::seasonality_event_status_enum::SeasonalityEventStatus",
-        tag = "4"
-    )]
-    pub status: i32,
-    /// Required. The inclusive start time of the seasonality adjustment in
-    /// yyyy-MM-dd HH:mm:ss format.
-    ///
-    /// A seasonality adjustment is forward looking and should be used for events
-    /// that start and end in the future.
-    #[prost(string, tag = "5")]
-    pub start_date_time: ::prost::alloc::string::String,
-    /// Required. The exclusive end time of the seasonality adjustment in
-    /// yyyy-MM-dd HH:mm:ss format.
-    ///
-    /// The length of [start_date_time, end_date_time) interval must be
-    /// within (0, 14 days].
-    #[prost(string, tag = "6")]
-    pub end_date_time: ::prost::alloc::string::String,
-    /// The name of the seasonality adjustment. The name can be at most 255
-    /// characters.
-    #[prost(string, tag = "7")]
-    pub name: ::prost::alloc::string::String,
-    /// The description of the seasonality adjustment. The description can be at
-    /// most 2048 characters.
-    #[prost(string, tag = "8")]
-    pub description: ::prost::alloc::string::String,
-    /// If not specified, all devices will be included in this adjustment.
-    /// Otherwise, only the specified targeted devices will be included in this
-    /// adjustment.
-    #[prost(enumeration = "super::enums::device_enum::Device", repeated, tag = "9")]
-    pub devices: ::prost::alloc::vec::Vec<i32>,
-    /// Conversion rate modifier estimated based on expected conversion rate
-    /// changes. When this field is unset or set to 1.0 no adjustment will be
-    /// applied to traffic. The allowed range is 0.1 to 10.0.
-    #[prost(double, tag = "10")]
-    pub conversion_rate_modifier: f64,
-    /// The seasonality adjustment will apply to the campaigns listed when the
-    /// scope of this adjustment is CAMPAIGN. The maximum number of campaigns per
-    /// event is 2000.
-    /// Note: a seasonality adjustment with both advertising_channel_types and
-    /// campaign_ids is not supported.
-    #[prost(string, repeated, tag = "11")]
-    pub campaigns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The seasonality adjustment will apply to all the campaigns under the listed
-    /// channels retroactively as well as going forward when the scope of this
-    /// adjustment is CHANNEL.
-    /// The supported advertising channel types are DISPLAY, SEARCH and SHOPPING.
-    /// Note: a seasonality adjustment with both advertising_channel_types and
-    /// campaign_ids is not supported.
-    #[prost(
-        enumeration = "super::enums::advertising_channel_type_enum::AdvertisingChannelType",
-        repeated,
-        tag = "12"
-    )]
-    pub advertising_channel_types: ::prost::alloc::vec::Vec<i32>,
-}
-/// A campaign draft.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CampaignDraft {
-    /// Immutable. The resource name of the campaign draft.
-    /// Campaign draft resource names have the form:
-    ///
-    /// `customers/{customer_id}/campaignDrafts/{base_campaign_id}~{draft_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the draft.
-    ///
-    /// This field is read-only.
-    #[prost(int64, optional, tag = "9")]
-    pub draft_id: ::core::option::Option<i64>,
-    /// Immutable. The base campaign to which the draft belongs.
-    #[prost(string, optional, tag = "10")]
-    pub base_campaign: ::core::option::Option<::prost::alloc::string::String>,
-    /// The name of the campaign draft.
-    ///
-    /// This field is required and should not be empty when creating new
-    /// campaign drafts.
-    ///
-    /// It must not contain any null (code point 0x0), NL line feed
-    /// (code point 0xA) or carriage return (code point 0xD) characters.
-    #[prost(string, optional, tag = "11")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Resource name of the Campaign that results from overlaying the
-    /// draft changes onto the base campaign.
-    ///
-    /// This field is read-only.
-    #[prost(string, optional, tag = "12")]
-    pub draft_campaign: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The status of the campaign draft. This field is read-only.
-    ///
-    /// When a new campaign draft is added, the status defaults to PROPOSED.
-    #[prost(
-        enumeration = "super::enums::campaign_draft_status_enum::CampaignDraftStatus",
-        tag = "6"
-    )]
-    pub status: i32,
-    /// Output only. Whether there is an experiment based on this draft currently
-    /// serving.
-    #[prost(bool, optional, tag = "13")]
-    pub has_experiment_running: ::core::option::Option<bool>,
-    /// Output only. The resource name of the long-running operation that can be
-    /// used to poll for completion of draft promotion. This is only set if the
-    /// draft promotion is in progress or finished.
-    #[prost(string, optional, tag = "14")]
-    pub long_running_operation: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// SharedSets are used for sharing criterion exclusions across multiple
-/// campaigns.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SharedSet {
-    /// Immutable. The resource name of the shared set.
-    /// Shared set resource names have the form:
-    ///
-    /// `customers/{customer_id}/sharedSets/{shared_set_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of this shared set. Read only.
-    #[prost(int64, optional, tag = "8")]
-    pub id: ::core::option::Option<i64>,
-    /// Immutable. The type of this shared set: each shared set holds only a single
-    /// kind of resource. Required. Immutable.
-    #[prost(
-        enumeration = "super::enums::shared_set_type_enum::SharedSetType",
-        tag = "3"
-    )]
-    pub r#type: i32,
-    /// The name of this shared set. Required.
-    /// Shared Sets must have names that are unique among active shared sets of
-    /// the same type.
-    /// The length of this string should be between 1 and 255 UTF-8 bytes,
-    /// inclusive.
-    #[prost(string, optional, tag = "9")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The status of this shared set. Read only.
-    #[prost(
-        enumeration = "super::enums::shared_set_status_enum::SharedSetStatus",
-        tag = "5"
-    )]
-    pub status: i32,
-    /// Output only. The number of shared criteria within this shared set. Read
-    /// only.
-    #[prost(int64, optional, tag = "10")]
-    pub member_count: ::core::option::Option<i64>,
-    /// Output only. The number of campaigns associated with this shared set. Read
-    /// only.
-    #[prost(int64, optional, tag = "11")]
-    pub reference_count: ::core::option::Option<i64>,
-}
-/// A campaign budget.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CampaignBudget {
-    /// Immutable. The resource name of the campaign budget.
-    /// Campaign budget resource names have the form:
-    ///
-    /// `customers/{customer_id}/campaignBudgets/{campaign_budget_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the campaign budget.
-    ///
-    /// A campaign budget is created using the CampaignBudgetService create
-    /// operation and is assigned a budget ID. A budget ID can be shared across
-    /// different campaigns; the system will then allocate the campaign budget
-    /// among different campaigns to get optimum results.
+    /// Output only. The ID of the customer.
     #[prost(int64, optional, tag = "19")]
     pub id: ::core::option::Option<i64>,
-    /// The name of the campaign budget.
-    ///
-    /// When creating a campaign budget through CampaignBudgetService, every
-    /// explicitly shared campaign budget must have a non-null, non-empty name.
-    /// Campaign budgets that are not explicitly shared derive their name from the
-    /// attached campaign's name.
-    ///
-    /// The length of this string must be between 1 and 255, inclusive,
-    /// in UTF-8 bytes, (trimmed).
+    /// Optional, non-unique descriptive name of the customer.
     #[prost(string, optional, tag = "20")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// The amount of the budget, in the local currency for the account.
-    /// Amount is specified in micros, where one million is equivalent to one
-    /// currency unit. Monthly spend is capped at 30.4 times this amount.
-    #[prost(int64, optional, tag = "21")]
-    pub amount_micros: ::core::option::Option<i64>,
-    /// The lifetime amount of the budget, in the local currency for the account.
-    /// Amount is specified in micros, where one million is equivalent to one
-    /// currency unit.
-    #[prost(int64, optional, tag = "22")]
-    pub total_amount_micros: ::core::option::Option<i64>,
-    /// Output only. The status of this campaign budget. This field is read-only.
-    #[prost(enumeration = "super::enums::budget_status_enum::BudgetStatus", tag = "6")]
-    pub status: i32,
-    /// The delivery method that determines the rate at which the campaign budget
-    /// is spent.
-    ///
-    /// Defaults to STANDARD if unspecified in a create operation.
-    #[prost(
-        enumeration = "super::enums::budget_delivery_method_enum::BudgetDeliveryMethod",
-        tag = "7"
-    )]
-    pub delivery_method: i32,
-    /// Specifies whether the budget is explicitly shared. Defaults to true if
-    /// unspecified in a create operation.
-    ///
-    /// If true, the budget was created with the purpose of sharing
-    /// across one or more campaigns.
-    ///
-    /// If false, the budget was created with the intention of only being used
-    /// with a single campaign. The budget's name and status will stay in sync
-    /// with the campaign's name and status. Attempting to share the budget with a
-    /// second campaign will result in an error.
-    ///
-    /// A non-shared budget can become an explicitly shared. The same operation
-    /// must also assign the budget a name.
-    ///
-    /// A shared campaign budget can never become non-shared.
-    #[prost(bool, optional, tag = "23")]
-    pub explicitly_shared: ::core::option::Option<bool>,
-    /// Output only. The number of campaigns actively using the budget.
-    ///
-    /// This field is read-only.
-    #[prost(int64, optional, tag = "24")]
-    pub reference_count: ::core::option::Option<i64>,
-    /// Output only. Indicates whether there is a recommended budget for this
-    /// campaign budget.
-    ///
-    /// This field is read-only.
+    pub descriptive_name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Immutable. The currency in which the account operates.
+    /// A subset of the currency codes from the ISO 4217 standard is
+    /// supported.
+    #[prost(string, optional, tag = "21")]
+    pub currency_code: ::core::option::Option<::prost::alloc::string::String>,
+    /// Immutable. The local timezone ID of the customer.
+    #[prost(string, optional, tag = "22")]
+    pub time_zone: ::core::option::Option<::prost::alloc::string::String>,
+    /// The URL template for constructing a tracking URL out of parameters.
+    /// Only mutable in an `update` operation.
+    #[prost(string, optional, tag = "23")]
+    pub tracking_url_template: ::core::option::Option<::prost::alloc::string::String>,
+    /// The URL template for appending params to the final URL.
+    /// Only mutable in an `update` operation.
+    #[prost(string, optional, tag = "24")]
+    pub final_url_suffix: ::core::option::Option<::prost::alloc::string::String>,
+    /// Whether auto-tagging is enabled for the customer.
     #[prost(bool, optional, tag = "25")]
-    pub has_recommended_budget: ::core::option::Option<bool>,
-    /// Output only. The recommended budget amount. If no recommendation is
-    /// available, this will be set to the budget amount. Amount is specified in
-    /// micros, where one million is equivalent to one currency unit.
+    pub auto_tagging_enabled: ::core::option::Option<bool>,
+    /// Output only. Whether the Customer has a Partners program badge. If the
+    /// Customer is not associated with the Partners program, this will be false.
+    /// For more information, see
+    /// <https://support.google.com/partners/answer/3125774.>
+    #[prost(bool, optional, tag = "26")]
+    pub has_partners_badge: ::core::option::Option<bool>,
+    /// Output only. Whether the customer is a manager.
+    #[prost(bool, optional, tag = "27")]
+    pub manager: ::core::option::Option<bool>,
+    /// Output only. Whether the customer is a test account.
+    #[prost(bool, optional, tag = "28")]
+    pub test_account: ::core::option::Option<bool>,
+    /// Call reporting setting for a customer. Only mutable in an `update`
+    /// operation.
+    #[prost(message, optional, tag = "10")]
+    pub call_reporting_setting: ::core::option::Option<CallReportingSetting>,
+    /// Output only. Conversion tracking setting for a customer.
+    #[prost(message, optional, tag = "14")]
+    pub conversion_tracking_setting: ::core::option::Option<ConversionTrackingSetting>,
+    /// Output only. Remarketing setting for a customer.
+    #[prost(message, optional, tag = "15")]
+    pub remarketing_setting: ::core::option::Option<RemarketingSetting>,
+    /// Output only. Reasons why the customer is not eligible to use
+    /// PaymentMode.CONVERSIONS. If the list is empty, the customer is eligible.
+    /// This field is read-only.
+    #[prost(
+        enumeration = "super::enums::customer_pay_per_conversion_eligibility_failure_reason_enum::CustomerPayPerConversionEligibilityFailureReason",
+        repeated,
+        packed = "false",
+        tag = "16"
+    )]
+    pub pay_per_conversion_eligibility_failure_reasons: ::prost::alloc::vec::Vec<i32>,
+    /// Output only. Optimization score of the customer.
+    ///
+    /// Optimization score is an estimate of how well a customer's campaigns are
+    /// set to perform. It ranges from 0% (0.0) to 100% (1.0). This field is null
+    /// for all manager customers, and for unscored non-manager customers.
+    ///
+    /// See "About optimization score" at
+    /// <https://support.google.com/google-ads/answer/9061546.>
     ///
     /// This field is read-only.
-    #[prost(int64, optional, tag = "26")]
-    pub recommended_budget_amount_micros: ::core::option::Option<i64>,
-    /// Immutable. Period over which to spend the budget. Defaults to DAILY if not
-    /// specified.
-    #[prost(enumeration = "super::enums::budget_period_enum::BudgetPeriod", tag = "13")]
-    pub period: i32,
-    /// Output only. The estimated change in weekly clicks if the recommended
-    /// budget is applied.
+    #[prost(double, optional, tag = "29")]
+    pub optimization_score: ::core::option::Option<f64>,
+    /// Output only. Optimization score weight of the customer.
+    ///
+    /// Optimization score weight can be used to compare/aggregate optimization
+    /// scores across multiple non-manager customers. The aggregate optimization
+    /// score of a manager is computed as the sum over all of their customers of
+    /// `Customer.optimization_score * Customer.optimization_score_weight`. This
+    /// field is 0 for all manager customers, and for unscored non-manager
+    /// customers.
     ///
     /// This field is read-only.
-    #[prost(int64, optional, tag = "27")]
-    pub recommended_budget_estimated_change_weekly_clicks: ::core::option::Option<i64>,
-    /// Output only. The estimated change in weekly cost in micros if the
-    /// recommended budget is applied. One million is equivalent to one currency
-    /// unit.
-    ///
-    /// This field is read-only.
-    #[prost(int64, optional, tag = "28")]
-    pub recommended_budget_estimated_change_weekly_cost_micros: ::core::option::Option<
-        i64,
+    #[prost(double, tag = "30")]
+    pub optimization_score_weight: f64,
+    /// Output only. The status of the customer.
+    #[prost(
+        enumeration = "super::enums::customer_status_enum::CustomerStatus",
+        tag = "36"
+    )]
+    pub status: i32,
+    /// Output only. True if feed based location has been migrated to asset based
+    /// location.
+    #[prost(bool, optional, tag = "38")]
+    pub location_asset_auto_migration_done: ::core::option::Option<bool>,
+    /// Output only. True if feed based image has been migrated to asset based
+    /// image.
+    #[prost(bool, optional, tag = "39")]
+    pub image_asset_auto_migration_done: ::core::option::Option<bool>,
+    /// Output only. Timestamp of migration from feed based location to asset base
+    /// location in yyyy-MM-dd HH:mm:ss format.
+    #[prost(string, optional, tag = "40")]
+    pub location_asset_auto_migration_done_date_time: ::core::option::Option<
+        ::prost::alloc::string::String,
     >,
-    /// Output only. The estimated change in weekly interactions if the recommended
-    /// budget is applied.
-    ///
-    /// This field is read-only.
-    #[prost(int64, optional, tag = "29")]
-    pub recommended_budget_estimated_change_weekly_interactions: ::core::option::Option<
-        i64,
+    /// Output only. Timestamp of migration from feed based image to asset base
+    /// image in yyyy-MM-dd HH:mm:ss format.
+    #[prost(string, optional, tag = "41")]
+    pub image_asset_auto_migration_done_date_time: ::core::option::Option<
+        ::prost::alloc::string::String,
     >,
-    /// Output only. The estimated change in weekly views if the recommended budget
-    /// is applied.
-    ///
-    /// This field is read-only.
-    #[prost(int64, optional, tag = "30")]
-    pub recommended_budget_estimated_change_weekly_views: ::core::option::Option<i64>,
-    /// Immutable. The type of the campaign budget.
-    #[prost(enumeration = "super::enums::budget_type_enum::BudgetType", tag = "18")]
-    pub r#type: i32,
-    /// ID of the portfolio bidding strategy that this shared campaign budget
-    /// is aligned with. When a bidding strategy and a campaign budget are aligned,
-    /// they are attached to the same set of campaigns. After a campaign budget is
-    /// aligned with a bidding strategy, campaigns that are added to the campaign
-    /// budget must also use the aligned bidding strategy.
-    #[prost(int64, tag = "31")]
-    pub aligned_bidding_strategy_id: i64,
 }
-/// A CustomerSkAdNetworkConversionValueSchema.
+/// Call reporting setting for a customer. Only mutable in an `update` operation.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomerSkAdNetworkConversionValueSchema {
-    /// Output only. The resource name of the schema.
-    /// CustomerSkAdNetworkConversionValueSchema resource names have the form:
-    /// customers/{customer_id}/customerSkAdNetworkConversionValueSchemas/{account_link_id}
+pub struct CallReportingSetting {
+    /// Enable reporting of phone call events by redirecting them through Google
+    /// System.
+    #[prost(bool, optional, tag = "10")]
+    pub call_reporting_enabled: ::core::option::Option<bool>,
+    /// Whether to enable call conversion reporting.
+    #[prost(bool, optional, tag = "11")]
+    pub call_conversion_reporting_enabled: ::core::option::Option<bool>,
+    /// Customer-level call conversion action to attribute a call conversion to.
+    /// If not set a default conversion action is used. Only in effect when
+    /// call_conversion_reporting_enabled is set to true.
+    #[prost(string, optional, tag = "12")]
+    pub call_conversion_action: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// A collection of customer-wide settings related to Google Ads Conversion
+/// Tracking.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ConversionTrackingSetting {
+    /// Output only. The conversion tracking id used for this account. This id
+    /// doesn't indicate whether the customer uses conversion tracking
+    /// (conversion_tracking_status does). This field is read-only.
+    #[prost(int64, optional, tag = "3")]
+    pub conversion_tracking_id: ::core::option::Option<i64>,
+    /// Output only. The conversion tracking id of the customer's manager. This is
+    /// set when the customer is opted into cross account conversion tracking, and
+    /// it overrides conversion_tracking_id. This field can only be managed through
+    /// the Google Ads UI. This field is read-only.
+    #[prost(int64, optional, tag = "4")]
+    pub cross_account_conversion_tracking_id: ::core::option::Option<i64>,
+    /// Output only. Whether the customer has accepted customer data terms. If
+    /// using cross-account conversion tracking, this value is inherited from the
+    /// manager. This field is read-only. For more
+    /// information, see <https://support.google.com/adspolicy/answer/7475709.>
+    #[prost(bool, tag = "5")]
+    pub accepted_customer_data_terms: bool,
+    /// Output only. Conversion tracking status. It indicates whether the customer
+    /// is using conversion tracking, and who is the conversion tracking owner of
+    /// this customer. If this customer is using cross-account conversion tracking,
+    /// the value returned will differ based on the `login-customer-id` of the
+    /// request.
+    #[prost(
+        enumeration = "super::enums::conversion_tracking_status_enum::ConversionTrackingStatus",
+        tag = "6"
+    )]
+    pub conversion_tracking_status: i32,
+    /// Output only. Whether the customer is opted-in for enhanced conversions
+    /// for leads. If using cross-account conversion tracking, this value is
+    /// inherited from the manager. This field is read-only.
+    #[prost(bool, tag = "7")]
+    pub enhanced_conversions_for_leads_enabled: bool,
+    /// Output only. The resource name of the customer where conversions are
+    /// created and managed. This field is read-only.
+    #[prost(string, tag = "8")]
+    pub google_ads_conversion_customer: ::prost::alloc::string::String,
+}
+/// Remarketing setting for a customer.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RemarketingSetting {
+    /// Output only. The Google tag.
+    #[prost(string, optional, tag = "2")]
+    pub google_global_site_tag: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// A Keyword Planner plan.
+/// Max number of saved keyword plans: 10000.
+/// It's possible to remove plans if limit is reached.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct KeywordPlan {
+    /// Immutable. The resource name of the Keyword Planner plan.
+    /// KeywordPlan resource names have the form:
+    ///
+    /// `customers/{customer_id}/keywordPlans/{kp_plan_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The schema for the specified resource.
-    #[prost(message, optional, tag = "2")]
-    pub schema: ::core::option::Option<
-        customer_sk_ad_network_conversion_value_schema::SkAdNetworkConversionValueSchema,
-    >,
+    /// Output only. The ID of the keyword plan.
+    #[prost(int64, optional, tag = "5")]
+    pub id: ::core::option::Option<i64>,
+    /// The name of the keyword plan.
+    ///
+    /// This field is required and should not be empty when creating new keyword
+    /// plans.
+    #[prost(string, optional, tag = "6")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// The date period used for forecasting the plan.
+    #[prost(message, optional, tag = "4")]
+    pub forecast_period: ::core::option::Option<KeywordPlanForecastPeriod>,
 }
-/// Nested message and enum types in `CustomerSkAdNetworkConversionValueSchema`.
-pub mod customer_sk_ad_network_conversion_value_schema {
-    /// The CustomerLink specific SkAdNetworkConversionValueSchema.
+/// The forecasting period associated with the keyword plan.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct KeywordPlanForecastPeriod {
+    /// Required. The date used for forecasting the Plan.
+    #[prost(oneof = "keyword_plan_forecast_period::Interval", tags = "1, 2")]
+    pub interval: ::core::option::Option<keyword_plan_forecast_period::Interval>,
+}
+/// Nested message and enum types in `KeywordPlanForecastPeriod`.
+pub mod keyword_plan_forecast_period {
+    /// Required. The date used for forecasting the Plan.
     #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct SkAdNetworkConversionValueSchema {
-        /// Required. Output only. Apple App Store app ID.
-        #[prost(string, tag = "1")]
-        pub app_id: ::prost::alloc::string::String,
-        /// Output only. A time window (measured in hours) post install after which
-        /// the App Attribution Partner or advertiser stops calling
-        /// updateConversionValue
-        /// (<https://developer.apple.com/documentation/storekit/skadnetwork/3566697-updateconversionvalue>).
-        #[prost(int32, tag = "2")]
-        pub measurement_window_hours: i32,
-        /// Output only. Fine grained conversion value mappings.
-        #[prost(message, repeated, tag = "3")]
-        pub fine_grained_conversion_value_mappings: ::prost::alloc::vec::Vec<
-            sk_ad_network_conversion_value_schema::FineGrainedConversionValueMappings,
-        >,
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Interval {
+        /// A future date range relative to the current date used for forecasting.
+        #[prost(
+            enumeration = "super::super::enums::keyword_plan_forecast_interval_enum::KeywordPlanForecastInterval",
+            tag = "1"
+        )]
+        DateInterval(i32),
+        /// The custom date range used for forecasting. It cannot be greater than
+        /// a year.
+        /// The start and end dates must be in the future. Otherwise, an error will
+        /// be returned when the forecasting action is performed.
+        /// The start and end dates are inclusive.
+        #[prost(message, tag = "2")]
+        DateRange(super::super::common::DateRange),
     }
-    /// Nested message and enum types in `SkAdNetworkConversionValueSchema`.
-    pub mod sk_ad_network_conversion_value_schema {
-        /// Mappings for fine grained conversion value.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct FineGrainedConversionValueMappings {
-            /// Output only. Fine grained conversion value. Valid values are in the
-            /// inclusive range \[0,63\].
-            #[prost(int32, tag = "1")]
-            pub fine_grained_conversion_value: i32,
-            /// Output only. Conversion events the fine grained conversion value maps
-            /// to.
-            #[prost(message, optional, tag = "2")]
-            pub conversion_value_mapping: ::core::option::Option<ConversionValueMapping>,
-        }
-        /// Represent mapping from one conversion value to one or more conversion
-        /// events.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct ConversionValueMapping {
-            /// Output only. The minimum of the time range in which a user was last
-            /// active during the measurement window.
-            #[prost(int64, tag = "1")]
-            pub min_time_post_install_hours: i64,
-            /// Output only. The maximum of the time range in which a user was last
-            /// active during the measurement window.
-            #[prost(int64, tag = "2")]
-            pub max_time_post_install_hours: i64,
-            /// Output only. The conversion value may be mapped to multiple events with
-            /// various attributes.
-            #[prost(message, repeated, tag = "3")]
-            pub mapped_events: ::prost::alloc::vec::Vec<Event>,
-        }
-        /// Defines a Google conversion event that the conversion value is mapped to.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct Event {
-            /// Output only. Google event name represented by this conversion value.
-            #[prost(string, tag = "1")]
-            pub mapped_event_name: ::prost::alloc::string::String,
-            /// Output only. The reported currency for the event_revenue. ISO 4217
-            /// three-letter currency code, for example, "USD"
-            #[prost(string, tag = "2")]
-            pub currency_code: ::prost::alloc::string::String,
-            /// Either a range or specific value for event revenue.
-            #[prost(oneof = "event::RevenueRate", tags = "3, 4")]
-            pub revenue_rate: ::core::option::Option<event::RevenueRate>,
-            /// Either a range or specific value for event counter.
-            #[prost(oneof = "event::EventRate", tags = "5, 6")]
-            pub event_rate: ::core::option::Option<event::EventRate>,
-        }
-        /// Nested message and enum types in `Event`.
-        pub mod event {
-            /// Defines a range for revenue values.
-            #[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            pub struct RevenueRange {
-                /// Output only. For revenue ranges, the minimum value in `currency_code`
-                /// for which this conversion value would be updated. A value of 0 will
-                /// be treated as unset.
-                #[prost(double, tag = "3")]
-                pub min_event_revenue: f64,
-                /// Output only. For revenue ranges, the maximum value in `currency_code`
-                /// for which this conversion value would be updated. A value of 0 will
-                /// be treated as unset.
-                #[prost(double, tag = "4")]
-                pub max_event_revenue: f64,
-            }
-            /// Defines a range for event counter values.
-            #[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            pub struct EventOccurrenceRange {
-                /// Output only. For event counter ranges, the minimum of the defined
-                /// range. A value of 0 will be treated as unset.
-                #[prost(int64, tag = "1")]
-                pub min_event_count: i64,
-                /// Output only. For event counter ranges, the maximum of the defined
-                /// range. A value of 0 will be treated as unset.
-                #[prost(int64, tag = "2")]
-                pub max_event_count: i64,
-            }
-            /// Either a range or specific value for event revenue.
-            #[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Oneof)]
-            pub enum RevenueRate {
-                /// Output only. The event revenue range.
-                #[prost(message, tag = "3")]
-                EventRevenueRange(RevenueRange),
-                /// Output only. The specific event revenue value.
-                #[prost(double, tag = "4")]
-                EventRevenueValue(f64),
-            }
-            /// Either a range or specific value for event counter.
-            #[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Oneof)]
-            pub enum EventRate {
-                /// Output only. The event counter range.
-                #[prost(message, tag = "5")]
-                EventOccurrenceRange(EventOccurrenceRange),
-                /// Output only. For specific event counter values.
-                #[prost(int64, tag = "6")]
-                EventCounter(i64),
-            }
-        }
+}
+/// An ad.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Ad {
+    /// Immutable. The resource name of the ad.
+    /// Ad resource names have the form:
+    ///
+    /// `customers/{customer_id}/ads/{ad_id}`
+    #[prost(string, tag = "37")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The ID of the ad.
+    #[prost(int64, optional, tag = "40")]
+    pub id: ::core::option::Option<i64>,
+    /// The list of possible final URLs after all cross-domain redirects for the
+    /// ad.
+    #[prost(string, repeated, tag = "41")]
+    pub final_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// A list of final app URLs that will be used on mobile if the user has the
+    /// specific app installed.
+    #[prost(message, repeated, tag = "35")]
+    pub final_app_urls: ::prost::alloc::vec::Vec<super::common::FinalAppUrl>,
+    /// The list of possible final mobile URLs after all cross-domain redirects
+    /// for the ad.
+    #[prost(string, repeated, tag = "42")]
+    pub final_mobile_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The URL template for constructing a tracking URL.
+    #[prost(string, optional, tag = "43")]
+    pub tracking_url_template: ::core::option::Option<::prost::alloc::string::String>,
+    /// The suffix to use when constructing a final URL.
+    #[prost(string, optional, tag = "44")]
+    pub final_url_suffix: ::core::option::Option<::prost::alloc::string::String>,
+    /// The list of mappings that can be used to substitute custom parameter tags
+    /// in a `tracking_url_template`, `final_urls`, or `mobile_final_urls`.
+    /// For mutates, use url custom parameter operations.
+    #[prost(message, repeated, tag = "10")]
+    pub url_custom_parameters: ::prost::alloc::vec::Vec<super::common::CustomParameter>,
+    /// The URL that appears in the ad description for some ad formats.
+    #[prost(string, optional, tag = "45")]
+    pub display_url: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The type of ad.
+    #[prost(enumeration = "super::enums::ad_type_enum::AdType", tag = "5")]
+    pub r#type: i32,
+    /// Output only. Indicates if this ad was automatically added by Google Ads and
+    /// not by a user. For example, this could happen when ads are automatically
+    /// created as suggestions for new ads based on knowledge of how existing ads
+    /// are performing.
+    #[prost(bool, optional, tag = "46")]
+    pub added_by_google_ads: ::core::option::Option<bool>,
+    /// The device preference for the ad. You can only specify a preference for
+    /// mobile devices. When this preference is set the ad will be preferred over
+    /// other ads when being displayed on a mobile device. The ad can still be
+    /// displayed on other device types, for example, if no other ads are
+    /// available. If unspecified (no device preference), all devices are targeted.
+    /// This is only supported by some ad types.
+    #[prost(enumeration = "super::enums::device_enum::Device", tag = "20")]
+    pub device_preference: i32,
+    /// Additional URLs for the ad that are tagged with a unique identifier that
+    /// can be referenced from other fields in the ad.
+    #[prost(message, repeated, tag = "26")]
+    pub url_collections: ::prost::alloc::vec::Vec<super::common::UrlCollection>,
+    /// Immutable. The name of the ad. This is only used to be able to identify the
+    /// ad. It does not need to be unique and does not affect the served ad. The
+    /// name field is currently only supported for DisplayUploadAd, ImageAd,
+    /// ShoppingComparisonListingAd and VideoAd.
+    #[prost(string, optional, tag = "47")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. If this ad is system managed, then this field will indicate
+    /// the source. This field is read-only.
+    #[prost(
+        enumeration = "super::enums::system_managed_resource_source_enum::SystemManagedResourceSource",
+        tag = "27"
+    )]
+    pub system_managed_resource_source: i32,
+    /// Details pertinent to the ad type. Exactly one value must be set.
+    #[prost(
+        oneof = "ad::AdData",
+        tags = "6, 7, 49, 14, 15, 17, 18, 22, 24, 39, 25, 28, 29, 30, 31, 32, 33, 34, 36, 48, 50, 51, 52, 54"
+    )]
+    pub ad_data: ::core::option::Option<ad::AdData>,
+}
+/// Nested message and enum types in `Ad`.
+pub mod ad {
+    /// Details pertinent to the ad type. Exactly one value must be set.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum AdData {
+        /// Immutable. Details pertaining to a text ad.
+        #[prost(message, tag = "6")]
+        TextAd(super::super::common::TextAdInfo),
+        /// Details pertaining to an expanded text ad.
+        #[prost(message, tag = "7")]
+        ExpandedTextAd(super::super::common::ExpandedTextAdInfo),
+        /// Details pertaining to a call ad.
+        #[prost(message, tag = "49")]
+        CallAd(super::super::common::CallAdInfo),
+        /// Immutable. Details pertaining to an Expanded Dynamic Search Ad.
+        /// This type of ad has its headline, final URLs, and display URL
+        /// auto-generated at serving time according to domain name specific
+        /// information provided by `dynamic_search_ads_setting` linked at the
+        /// campaign level.
+        #[prost(message, tag = "14")]
+        ExpandedDynamicSearchAd(super::super::common::ExpandedDynamicSearchAdInfo),
+        /// Details pertaining to a hotel ad.
+        #[prost(message, tag = "15")]
+        HotelAd(super::super::common::HotelAdInfo),
+        /// Details pertaining to a Smart Shopping ad.
+        #[prost(message, tag = "17")]
+        ShoppingSmartAd(super::super::common::ShoppingSmartAdInfo),
+        /// Details pertaining to a Shopping product ad.
+        #[prost(message, tag = "18")]
+        ShoppingProductAd(super::super::common::ShoppingProductAdInfo),
+        /// Immutable. Details pertaining to an Image ad.
+        #[prost(message, tag = "22")]
+        ImageAd(super::super::common::ImageAdInfo),
+        /// Details pertaining to a Video ad.
+        #[prost(message, tag = "24")]
+        VideoAd(super::super::common::VideoAdInfo),
+        /// Details pertaining to a Video responsive ad.
+        #[prost(message, tag = "39")]
+        VideoResponsiveAd(super::super::common::VideoResponsiveAdInfo),
+        /// Details pertaining to a responsive search ad.
+        #[prost(message, tag = "25")]
+        ResponsiveSearchAd(super::super::common::ResponsiveSearchAdInfo),
+        /// Details pertaining to a legacy responsive display ad.
+        #[prost(message, tag = "28")]
+        LegacyResponsiveDisplayAd(super::super::common::LegacyResponsiveDisplayAdInfo),
+        /// Details pertaining to an app ad.
+        #[prost(message, tag = "29")]
+        AppAd(super::super::common::AppAdInfo),
+        /// Immutable. Details pertaining to a legacy app install ad.
+        #[prost(message, tag = "30")]
+        LegacyAppInstallAd(super::super::common::LegacyAppInstallAdInfo),
+        /// Details pertaining to a responsive display ad.
+        #[prost(message, tag = "31")]
+        ResponsiveDisplayAd(super::super::common::ResponsiveDisplayAdInfo),
+        /// Details pertaining to a local ad.
+        #[prost(message, tag = "32")]
+        LocalAd(super::super::common::LocalAdInfo),
+        /// Details pertaining to a display upload ad.
+        #[prost(message, tag = "33")]
+        DisplayUploadAd(super::super::common::DisplayUploadAdInfo),
+        /// Details pertaining to an app engagement ad.
+        #[prost(message, tag = "34")]
+        AppEngagementAd(super::super::common::AppEngagementAdInfo),
+        /// Details pertaining to a Shopping Comparison Listing ad.
+        #[prost(message, tag = "36")]
+        ShoppingComparisonListingAd(
+            super::super::common::ShoppingComparisonListingAdInfo,
+        ),
+        /// Details pertaining to a Smart campaign ad.
+        #[prost(message, tag = "48")]
+        SmartCampaignAd(super::super::common::SmartCampaignAdInfo),
+        /// Details pertaining to an app pre-registration ad.
+        #[prost(message, tag = "50")]
+        AppPreRegistrationAd(super::super::common::AppPreRegistrationAdInfo),
+        /// Details pertaining to a discovery multi asset ad.
+        #[prost(message, tag = "51")]
+        DiscoveryMultiAssetAd(super::super::common::DiscoveryMultiAssetAdInfo),
+        /// Details pertaining to a discovery carousel ad.
+        #[prost(message, tag = "52")]
+        DiscoveryCarouselAd(super::super::common::DiscoveryCarouselAdInfo),
+        /// Details pertaining to a travel ad.
+        #[prost(message, tag = "54")]
+        TravelAd(super::super::common::TravelAdInfo),
     }
+}
+/// Represents an ad group bid modifier.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AdGroupBidModifier {
+    /// Immutable. The resource name of the ad group bid modifier.
+    /// Ad group bid modifier resource names have the form:
+    ///
+    /// `customers/{customer_id}/adGroupBidModifiers/{ad_group_id}~{criterion_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The ad group to which this criterion belongs.
+    #[prost(string, optional, tag = "13")]
+    pub ad_group: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The ID of the criterion to bid modify.
+    ///
+    /// This field is ignored for mutates.
+    #[prost(int64, optional, tag = "14")]
+    pub criterion_id: ::core::option::Option<i64>,
+    /// The modifier for the bid when the criterion matches. The modifier must be
+    /// in the range: 0.1 - 10.0. The range is 1.0 - 6.0 for PreferredContent.
+    /// Use 0 to opt out of a Device type.
+    #[prost(double, optional, tag = "15")]
+    pub bid_modifier: ::core::option::Option<f64>,
+    /// Output only. The base ad group from which this draft/trial adgroup bid
+    /// modifier was created. If ad_group is a base ad group then this field will
+    /// be equal to ad_group. If the ad group was created in the draft or trial and
+    /// has no corresponding base ad group, then this field will be null. This
+    /// field is readonly.
+    #[prost(string, optional, tag = "16")]
+    pub base_ad_group: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Bid modifier source.
+    #[prost(
+        enumeration = "super::enums::bid_modifier_source_enum::BidModifierSource",
+        tag = "10"
+    )]
+    pub bid_modifier_source: i32,
+    /// The criterion of this ad group bid modifier.
+    ///
+    /// Required in create operations starting in V5.
+    #[prost(oneof = "ad_group_bid_modifier::Criterion", tags = "5, 6, 7, 8, 11, 17")]
+    pub criterion: ::core::option::Option<ad_group_bid_modifier::Criterion>,
+}
+/// Nested message and enum types in `AdGroupBidModifier`.
+pub mod ad_group_bid_modifier {
+    /// The criterion of this ad group bid modifier.
+    ///
+    /// Required in create operations starting in V5.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Criterion {
+        /// Immutable. Criterion for hotel date selection (default dates versus user
+        /// selected).
+        #[prost(message, tag = "5")]
+        HotelDateSelectionType(super::super::common::HotelDateSelectionTypeInfo),
+        /// Immutable. Criterion for number of days prior to the stay the booking is
+        /// being made.
+        #[prost(message, tag = "6")]
+        HotelAdvanceBookingWindow(super::super::common::HotelAdvanceBookingWindowInfo),
+        /// Immutable. Criterion for length of hotel stay in nights.
+        #[prost(message, tag = "7")]
+        HotelLengthOfStay(super::super::common::HotelLengthOfStayInfo),
+        /// Immutable. Criterion for day of the week the booking is for.
+        #[prost(message, tag = "8")]
+        HotelCheckInDay(super::super::common::HotelCheckInDayInfo),
+        /// Immutable. A device criterion.
+        #[prost(message, tag = "11")]
+        Device(super::super::common::DeviceInfo),
+        /// Immutable. Criterion for a hotel check-in date range.
+        #[prost(message, tag = "17")]
+        HotelCheckInDateRange(super::super::common::HotelCheckInDateRangeInfo),
+    }
+}
+/// A payments account, which can be used to set up billing for an Ads customer.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PaymentsAccount {
+    /// Output only. The resource name of the payments account.
+    /// PaymentsAccount resource names have the form:
+    ///
+    /// `customers/{customer_id}/paymentsAccounts/{payments_account_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. A 16 digit ID used to identify a payments account.
+    #[prost(string, optional, tag = "8")]
+    pub payments_account_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The name of the payments account.
+    #[prost(string, optional, tag = "9")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The currency code of the payments account.
+    /// A subset of the currency codes derived from the ISO 4217 standard is
+    /// supported.
+    #[prost(string, optional, tag = "10")]
+    pub currency_code: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. A 12 digit ID used to identify the payments profile associated
+    /// with the payments account.
+    #[prost(string, optional, tag = "11")]
+    pub payments_profile_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. A secondary payments profile ID present in uncommon
+    /// situations, for example, when a sequential liability agreement has been
+    /// arranged.
+    #[prost(string, optional, tag = "12")]
+    pub secondary_payments_profile_id: ::core::option::Option<
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. Paying manager of this payment account.
+    #[prost(string, optional, tag = "13")]
+    pub paying_manager_customer: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// A job containing offline user data of store visitors, or user list members
+/// that will be processed asynchronously. The uploaded data isn't readable and
+/// the processing results of the job can only be read using
+/// GoogleAdsService.Search/SearchStream.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OfflineUserDataJob {
+    /// Immutable. The resource name of the offline user data job.
+    /// Offline user data job resource names have the form:
+    ///
+    /// `customers/{customer_id}/offlineUserDataJobs/{offline_user_data_job_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. ID of this offline user data job.
+    #[prost(int64, optional, tag = "9")]
+    pub id: ::core::option::Option<i64>,
+    /// Immutable. User specified job ID.
+    #[prost(int64, optional, tag = "10")]
+    pub external_id: ::core::option::Option<i64>,
+    /// Immutable. Type of the job.
+    #[prost(
+        enumeration = "super::enums::offline_user_data_job_type_enum::OfflineUserDataJobType",
+        tag = "4"
+    )]
+    pub r#type: i32,
+    /// Output only. Status of the job.
+    #[prost(
+        enumeration = "super::enums::offline_user_data_job_status_enum::OfflineUserDataJobStatus",
+        tag = "5"
+    )]
+    pub status: i32,
+    /// Output only. Reason for the processing failure, if status is FAILED.
+    #[prost(
+        enumeration = "super::enums::offline_user_data_job_failure_reason_enum::OfflineUserDataJobFailureReason",
+        tag = "6"
+    )]
+    pub failure_reason: i32,
+    /// Output only. Metadata of offline user data job depicting match rate range.
+    #[prost(message, optional, tag = "11")]
+    pub operation_metadata: ::core::option::Option<OfflineUserDataJobMetadata>,
+    /// Metadata of the job.
+    #[prost(oneof = "offline_user_data_job::Metadata", tags = "7, 8")]
+    pub metadata: ::core::option::Option<offline_user_data_job::Metadata>,
+}
+/// Nested message and enum types in `OfflineUserDataJob`.
+pub mod offline_user_data_job {
+    /// Metadata of the job.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Metadata {
+        /// Immutable. Metadata for data updates to a CRM-based user list.
+        #[prost(message, tag = "7")]
+        CustomerMatchUserListMetadata(
+            super::super::common::CustomerMatchUserListMetadata,
+        ),
+        /// Immutable. Metadata for store sales data update.
+        #[prost(message, tag = "8")]
+        StoreSalesMetadata(super::super::common::StoreSalesMetadata),
+    }
+}
+/// Metadata of offline user data job.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OfflineUserDataJobMetadata {
+    /// Output only. Match rate of the Customer Match user list upload. Describes
+    /// the estimated match rate when the status of the job is "RUNNING" and final
+    /// match rate when the final match rate is available after the status of the
+    /// job is "SUCCESS/FAILED".
+    #[prost(
+        enumeration = "super::enums::offline_user_data_job_match_rate_range_enum::OfflineUserDataJobMatchRateRange",
+        tag = "1"
+    )]
+    pub match_rate_range: i32,
 }
 /// A campaign.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1647,172 +1501,541 @@ pub mod campaign {
         TargetCpm(super::super::common::TargetCpm),
     }
 }
-/// AssetGroupListingGroupFilter represents a listing group filter tree node in
-/// an asset group.
+/// An invoice. All invoice information is snapshotted to match the PDF invoice.
+/// For invoices older than the launch of InvoiceService, the snapshotted
+/// information may not match the PDF invoice.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AssetGroupListingGroupFilter {
-    /// Immutable. The resource name of the asset group listing group filter.
-    /// Asset group listing group filter resource name have the form:
+pub struct Invoice {
+    /// Output only. The resource name of the invoice. Multiple customers can share
+    /// a given invoice, so multiple resource names may point to the same invoice.
+    /// Invoice resource names have the form:
     ///
-    /// `customers/{customer_id}/assetGroupListingGroupFilters/{asset_group_id}~{listing_group_filter_id}`
+    /// `customers/{customer_id}/invoices/{invoice_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The asset group which this asset group listing group filter is
-    /// part of.
-    #[prost(string, tag = "2")]
-    pub asset_group: ::prost::alloc::string::String,
-    /// Output only. The ID of the ListingGroupFilter.
-    #[prost(int64, tag = "3")]
-    pub id: i64,
-    /// Immutable. Type of a listing group filter node.
-    #[prost(
-        enumeration = "super::enums::listing_group_filter_type_enum::ListingGroupFilterType",
-        tag = "4"
-    )]
+    /// Output only. The ID of the invoice. It appears on the invoice PDF as
+    /// "Invoice number".
+    #[prost(string, optional, tag = "25")]
+    pub id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The type of invoice.
+    #[prost(enumeration = "super::enums::invoice_type_enum::InvoiceType", tag = "3")]
     pub r#type: i32,
-    /// Immutable. The vertical the current node tree represents. All nodes in the
-    /// same tree must belong to the same vertical.
-    #[prost(
-        enumeration = "super::enums::listing_group_filter_vertical_enum::ListingGroupFilterVertical",
-        tag = "5"
-    )]
-    pub vertical: i32,
-    /// Dimension value with which this listing group is refining its parent.
-    /// Undefined for the root group.
-    #[prost(message, optional, tag = "6")]
-    pub case_value: ::core::option::Option<ListingGroupFilterDimension>,
-    /// Immutable. Resource name of the parent listing group subdivision. Null for
-    /// the root listing group filter node.
-    #[prost(string, tag = "7")]
-    pub parent_listing_group_filter: ::prost::alloc::string::String,
+    /// Output only. The resource name of this invoice's billing setup.
+    ///
+    /// `customers/{customer_id}/billingSetups/{billing_setup_id}`
+    #[prost(string, optional, tag = "26")]
+    pub billing_setup: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. A 16 digit ID used to identify the payments account associated
+    /// with the billing setup, for example, "1234-5678-9012-3456". It appears on
+    /// the invoice PDF as "Billing Account Number".
+    #[prost(string, optional, tag = "27")]
+    pub payments_account_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. A 12 digit ID used to identify the payments profile associated
+    /// with the billing setup, for example, "1234-5678-9012". It appears on the
+    /// invoice PDF as "Billing ID".
+    #[prost(string, optional, tag = "28")]
+    pub payments_profile_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The issue date in yyyy-mm-dd format. It appears on the invoice
+    /// PDF as either "Issue date" or "Invoice date".
+    #[prost(string, optional, tag = "29")]
+    pub issue_date: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The due date in yyyy-mm-dd format.
+    #[prost(string, optional, tag = "30")]
+    pub due_date: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The service period date range of this invoice. The end date is
+    /// inclusive.
+    #[prost(message, optional, tag = "9")]
+    pub service_date_range: ::core::option::Option<super::common::DateRange>,
+    /// Output only. The currency code. All costs are returned in this currency. A
+    /// subset of the currency codes derived from the ISO 4217 standard is
+    /// supported.
+    #[prost(string, optional, tag = "31")]
+    pub currency_code: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The pretax subtotal amount of invoice level adjustments, in
+    /// micros.
+    #[prost(int64, tag = "19")]
+    pub adjustments_subtotal_amount_micros: i64,
+    /// Output only. The sum of taxes on the invoice level adjustments, in micros.
+    #[prost(int64, tag = "20")]
+    pub adjustments_tax_amount_micros: i64,
+    /// Output only. The total amount of invoice level adjustments, in micros.
+    #[prost(int64, tag = "21")]
+    pub adjustments_total_amount_micros: i64,
+    /// Output only. The pretax subtotal amount of invoice level regulatory costs,
+    /// in micros.
+    #[prost(int64, tag = "22")]
+    pub regulatory_costs_subtotal_amount_micros: i64,
+    /// Output only. The sum of taxes on the invoice level regulatory costs, in
+    /// micros.
+    #[prost(int64, tag = "23")]
+    pub regulatory_costs_tax_amount_micros: i64,
+    /// Output only. The total amount of invoice level regulatory costs, in micros.
+    #[prost(int64, tag = "24")]
+    pub regulatory_costs_total_amount_micros: i64,
+    /// Output only. The pretax subtotal amount, in micros. This equals the
+    /// sum of the AccountBudgetSummary subtotal amounts,
+    /// Invoice.adjustments_subtotal_amount_micros, and
+    /// Invoice.regulatory_costs_subtotal_amount_micros.
+    /// Starting with v6, the Invoice.regulatory_costs_subtotal_amount_micros is no
+    /// longer included.
+    #[prost(int64, optional, tag = "33")]
+    pub subtotal_amount_micros: ::core::option::Option<i64>,
+    /// Output only. The sum of all taxes on the invoice, in micros. This equals
+    /// the sum of the AccountBudgetSummary tax amounts, plus taxes not associated
+    /// with a specific account budget.
+    #[prost(int64, optional, tag = "34")]
+    pub tax_amount_micros: ::core::option::Option<i64>,
+    /// Output only. The total amount, in micros. This equals the sum of
+    /// Invoice.subtotal_amount_micros and Invoice.tax_amount_micros.
+    /// Starting with v6, Invoice.regulatory_costs_subtotal_amount_micros is
+    /// also added as it is no longer already included in
+    /// Invoice.tax_amount_micros.
+    #[prost(int64, optional, tag = "35")]
+    pub total_amount_micros: ::core::option::Option<i64>,
+    /// Output only. The resource name of the original invoice corrected, wrote
+    /// off, or canceled by this invoice, if applicable. If `corrected_invoice` is
+    /// set, `replaced_invoices` will not be set. Invoice resource names have the
+    /// form:
+    ///
+    /// `customers/{customer_id}/invoices/{invoice_id}`
+    #[prost(string, optional, tag = "36")]
+    pub corrected_invoice: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The resource name of the original invoice(s) being rebilled or
+    /// replaced by this invoice, if applicable. There might be multiple replaced
+    /// invoices due to invoice consolidation. The replaced invoices may not belong
+    /// to the same payments account. If `replaced_invoices` is set,
+    /// `corrected_invoice` will not be set. Invoice resource names have the form:
+    ///
+    /// `customers/{customer_id}/invoices/{invoice_id}`
+    #[prost(string, repeated, tag = "37")]
+    pub replaced_invoices: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. The URL to a PDF copy of the invoice. Users need to pass in
+    /// their OAuth token to request the PDF with this URL.
+    #[prost(string, optional, tag = "38")]
+    pub pdf_url: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The list of summarized account budget information associated
+    /// with this invoice.
+    #[prost(message, repeated, tag = "18")]
+    pub account_budget_summaries: ::prost::alloc::vec::Vec<
+        invoice::AccountBudgetSummary,
+    >,
+    /// Output only. The list of summarized account information associated with
+    /// this invoice.
+    #[prost(message, repeated, tag = "39")]
+    pub account_summaries: ::prost::alloc::vec::Vec<invoice::AccountSummary>,
 }
-/// Listing dimensions for the asset group listing group filter.
+/// Nested message and enum types in `Invoice`.
+pub mod invoice {
+    /// Represents a summarized view at account level.
+    /// AccountSummary fields are accessible only to customers on the allow-list.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AccountSummary {
+        /// Output only. The account associated with the account summary.
+        #[prost(string, optional, tag = "1")]
+        pub customer: ::core::option::Option<::prost::alloc::string::String>,
+        /// Output only. Pretax billing correction subtotal amount, in micros.
+        #[prost(int64, optional, tag = "2")]
+        pub billing_correction_subtotal_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Tax on billing correction, in micros.
+        #[prost(int64, optional, tag = "3")]
+        pub billing_correction_tax_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Total billing correction amount, in micros.
+        #[prost(int64, optional, tag = "4")]
+        pub billing_correction_total_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Pretax coupon adjustment subtotal amount, in micros.
+        #[prost(int64, optional, tag = "5")]
+        pub coupon_adjustment_subtotal_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Tax on coupon adjustment, in micros.
+        #[prost(int64, optional, tag = "6")]
+        pub coupon_adjustment_tax_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Total coupon adjustment amount, in micros.
+        #[prost(int64, optional, tag = "7")]
+        pub coupon_adjustment_total_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Pretax excess credit adjustment subtotal amount, in micros.
+        #[prost(int64, optional, tag = "8")]
+        pub excess_credit_adjustment_subtotal_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Tax on excess credit adjustment, in micros.
+        #[prost(int64, optional, tag = "9")]
+        pub excess_credit_adjustment_tax_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Total excess credit adjustment amount, in micros.
+        #[prost(int64, optional, tag = "10")]
+        pub excess_credit_adjustment_total_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Pretax regulatory costs subtotal amount, in micros.
+        #[prost(int64, optional, tag = "11")]
+        pub regulatory_costs_subtotal_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Tax on regulatory costs, in micros.
+        #[prost(int64, optional, tag = "12")]
+        pub regulatory_costs_tax_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Total regulatory costs amount, in micros.
+        #[prost(int64, optional, tag = "13")]
+        pub regulatory_costs_total_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Total pretax subtotal amount attributable to the account
+        /// during the service period, in micros.
+        #[prost(int64, optional, tag = "14")]
+        pub subtotal_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Total tax amount attributable to the account during the
+        /// service period, in micros.
+        #[prost(int64, optional, tag = "15")]
+        pub tax_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Total amount attributable to the account during the service
+        /// period, in micros. This equals the sum of the subtotal_amount_micros and
+        /// tax_amount_micros.
+        #[prost(int64, optional, tag = "16")]
+        pub total_amount_micros: ::core::option::Option<i64>,
+    }
+    /// Represents a summarized account budget billable cost.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AccountBudgetSummary {
+        /// Output only. The resource name of the customer associated with this
+        /// account budget. This contains the customer ID, which appears on the
+        /// invoice PDF as "Account ID". Customer resource names have the form:
+        ///
+        /// `customers/{customer_id}`
+        #[prost(string, optional, tag = "10")]
+        pub customer: ::core::option::Option<::prost::alloc::string::String>,
+        /// Output only. The descriptive name of the account budget's customer. It
+        /// appears on the invoice PDF as "Account".
+        #[prost(string, optional, tag = "11")]
+        pub customer_descriptive_name: ::core::option::Option<
+            ::prost::alloc::string::String,
+        >,
+        /// Output only. The resource name of the account budget associated with this
+        /// summarized billable cost. AccountBudget resource names have the form:
+        ///
+        /// `customers/{customer_id}/accountBudgets/{account_budget_id}`
+        #[prost(string, optional, tag = "12")]
+        pub account_budget: ::core::option::Option<::prost::alloc::string::String>,
+        /// Output only. The name of the account budget. It appears on the invoice
+        /// PDF as "Account budget".
+        #[prost(string, optional, tag = "13")]
+        pub account_budget_name: ::core::option::Option<::prost::alloc::string::String>,
+        /// Output only. The purchase order number of the account budget. It appears
+        /// on the invoice PDF as "Purchase order".
+        #[prost(string, optional, tag = "14")]
+        pub purchase_order_number: ::core::option::Option<
+            ::prost::alloc::string::String,
+        >,
+        /// Output only. The pretax subtotal amount attributable to this budget
+        /// during the service period, in micros.
+        #[prost(int64, optional, tag = "15")]
+        pub subtotal_amount_micros: ::core::option::Option<i64>,
+        /// Output only. The tax amount attributable to this budget during the
+        /// service period, in micros.
+        #[prost(int64, optional, tag = "16")]
+        pub tax_amount_micros: ::core::option::Option<i64>,
+        /// Output only. The total amount attributable to this budget during the
+        /// service period, in micros. This equals the sum of the account budget
+        /// subtotal amount and the account budget tax amount.
+        #[prost(int64, optional, tag = "17")]
+        pub total_amount_micros: ::core::option::Option<i64>,
+        /// Output only. The billable activity date range of the account budget,
+        /// within the service date range of this invoice. The end date is inclusive.
+        /// This can be different from the account budget's start and end time.
+        #[prost(message, optional, tag = "9")]
+        pub billable_activity_date_range: ::core::option::Option<
+            super::super::common::DateRange,
+        >,
+        /// Output only. Accessible only to customers on the allow-list.
+        /// The pretax served amount attributable to this budget during the service
+        /// period, in micros. This is only useful to reconcile invoice and delivery
+        /// data.
+        #[prost(int64, optional, tag = "18")]
+        pub served_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Accessible only to customers on the allow-list.
+        /// The pretax billed amount attributable to this budget during the
+        /// service period, in micros. This does not account for any adjustments.
+        #[prost(int64, optional, tag = "19")]
+        pub billed_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Accessible only to customers on the allow-list.
+        /// The pretax overdelivery amount attributable to this budget during the
+        /// service period, in micros (negative value).
+        #[prost(int64, optional, tag = "20")]
+        pub overdelivery_amount_micros: ::core::option::Option<i64>,
+        /// Output only. Accessible only to customers on the allow-list.
+        /// The pretax invalid activity amount attributable to this budget in
+        /// previous months, in micros (negative value).
+        #[prost(int64, optional, tag = "21")]
+        pub invalid_activity_amount_micros: ::core::option::Option<i64>,
+        /// Output only. The list of summarized invalid activity credits with
+        /// original linkages.
+        #[prost(message, repeated, tag = "22")]
+        pub invalid_activity_summaries: ::prost::alloc::vec::Vec<InvalidActivitySummary>,
+    }
+    /// Details about the invalid activity for the invoice that contain
+    /// additional details about invoice against which corrections are made.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct InvalidActivitySummary {
+        /// Output only. Original month of service related to this invalid activity
+        /// credit.
+        #[prost(
+            enumeration = "super::super::enums::month_of_year_enum::MonthOfYear",
+            optional,
+            tag = "1"
+        )]
+        pub original_month_of_service: ::core::option::Option<i32>,
+        /// Output only. Original year of service related to this invalid activity
+        /// credit.
+        #[prost(string, optional, tag = "2")]
+        pub original_year_of_service: ::core::option::Option<
+            ::prost::alloc::string::String,
+        >,
+        /// Output only. Original invoice number related to this invalid activity
+        /// credit.
+        #[prost(string, optional, tag = "3")]
+        pub original_invoice_id: ::core::option::Option<::prost::alloc::string::String>,
+        /// Output only. Original account budget name related to this invalid
+        /// activity credit.
+        #[prost(string, optional, tag = "4")]
+        pub original_account_budget_name: ::core::option::Option<
+            ::prost::alloc::string::String,
+        >,
+        /// Output only. Original purchase order number related to this invalid
+        /// activity credit.
+        #[prost(string, optional, tag = "5")]
+        pub original_purchase_order_number: ::core::option::Option<
+            ::prost::alloc::string::String,
+        >,
+        /// Output only. Invalid activity amount in micros.
+        #[prost(int64, optional, tag = "6")]
+        pub amount_micros: ::core::option::Option<i64>,
+    }
+}
+/// A custom audience. This is a list of users by interest.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListingGroupFilterDimension {
-    /// Dimension of one of the types below is always present.
+pub struct CustomAudience {
+    /// Immutable. The resource name of the custom audience.
+    /// Custom audience resource names have the form:
+    ///
+    /// `customers/{customer_id}/customAudiences/{custom_audience_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. ID of the custom audience.
+    #[prost(int64, tag = "2")]
+    pub id: i64,
+    /// Output only. Status of this custom audience. Indicates whether the custom
+    /// audience is enabled or removed.
     #[prost(
-        oneof = "listing_group_filter_dimension::Dimension",
-        tags = "1, 2, 3, 4, 5, 6, 7"
+        enumeration = "super::enums::custom_audience_status_enum::CustomAudienceStatus",
+        tag = "3"
     )]
-    pub dimension: ::core::option::Option<listing_group_filter_dimension::Dimension>,
+    pub status: i32,
+    /// Name of the custom audience. It should be unique for all custom audiences
+    /// created by a customer.
+    /// This field is required for creating operations.
+    #[prost(string, tag = "4")]
+    pub name: ::prost::alloc::string::String,
+    /// Type of the custom audience.
+    /// ("INTEREST" OR "PURCHASE_INTENT" is not allowed for newly created custom
+    /// audience but kept for existing audiences)
+    #[prost(
+        enumeration = "super::enums::custom_audience_type_enum::CustomAudienceType",
+        tag = "5"
+    )]
+    pub r#type: i32,
+    /// Description of this custom audience.
+    #[prost(string, tag = "6")]
+    pub description: ::prost::alloc::string::String,
+    /// List of custom audience members that this custom audience is composed of.
+    /// Members can be added during CustomAudience creation. If members are
+    /// presented in UPDATE operation, existing members will be overridden.
+    #[prost(message, repeated, tag = "7")]
+    pub members: ::prost::alloc::vec::Vec<CustomAudienceMember>,
 }
-/// Nested message and enum types in `ListingGroupFilterDimension`.
-pub mod listing_group_filter_dimension {
-    /// One element of a bidding category at a certain level. Top-level categories
-    /// are at level 1, their children at level 2, and so on. We currently support
-    /// up to 5 levels. The user must specify a dimension type that indicates the
-    /// level of the category. All cases of the same subdivision must have the same
-    /// dimension type (category level).
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ProductBiddingCategory {
-        /// ID of the product bidding category.
-        ///
-        /// This ID is equivalent to the google_product_category ID as described in
-        /// this article: <https://support.google.com/merchants/answer/6324436>
-        #[prost(int64, optional, tag = "1")]
-        pub id: ::core::option::Option<i64>,
-        /// Indicates the level of the category in the taxonomy.
-        #[prost(
-            enumeration = "super::super::enums::listing_group_filter_bidding_category_level_enum::ListingGroupFilterBiddingCategoryLevel",
-            tag = "2"
-        )]
-        pub level: i32,
-    }
-    /// Brand of the product.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ProductBrand {
-        /// String value of the product brand.
-        #[prost(string, optional, tag = "1")]
-        pub value: ::core::option::Option<::prost::alloc::string::String>,
-    }
-    /// Locality of a product offer.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ProductChannel {
-        /// Value of the locality.
-        #[prost(
-            enumeration = "super::super::enums::listing_group_filter_product_channel_enum::ListingGroupFilterProductChannel",
-            tag = "1"
-        )]
-        pub channel: i32,
-    }
-    /// Condition of a product offer.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ProductCondition {
-        /// Value of the condition.
-        #[prost(
-            enumeration = "super::super::enums::listing_group_filter_product_condition_enum::ListingGroupFilterProductCondition",
-            tag = "1"
-        )]
-        pub condition: i32,
-    }
-    /// Custom attribute of a product offer.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ProductCustomAttribute {
-        /// String value of the product custom attribute.
-        #[prost(string, optional, tag = "1")]
-        pub value: ::core::option::Option<::prost::alloc::string::String>,
-        /// Indicates the index of the custom attribute.
-        #[prost(
-            enumeration = "super::super::enums::listing_group_filter_custom_attribute_index_enum::ListingGroupFilterCustomAttributeIndex",
-            tag = "2"
-        )]
-        pub index: i32,
-    }
-    /// Item id of a product offer.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ProductItemId {
-        /// Value of the id.
-        #[prost(string, optional, tag = "1")]
-        pub value: ::core::option::Option<::prost::alloc::string::String>,
-    }
-    /// Type of a product offer.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ProductType {
-        /// Value of the type.
-        #[prost(string, optional, tag = "1")]
-        pub value: ::core::option::Option<::prost::alloc::string::String>,
-        /// Level of the type.
-        #[prost(
-            enumeration = "super::super::enums::listing_group_filter_product_type_level_enum::ListingGroupFilterProductTypeLevel",
-            tag = "2"
-        )]
-        pub level: i32,
-    }
-    /// Dimension of one of the types below is always present.
+/// A member of custom audience. A member can be a KEYWORD, URL,
+/// PLACE_CATEGORY or APP. It can only be created or removed but not changed.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomAudienceMember {
+    /// The type of custom audience member, KEYWORD, URL, PLACE_CATEGORY or APP.
+    #[prost(
+        enumeration = "super::enums::custom_audience_member_type_enum::CustomAudienceMemberType",
+        tag = "1"
+    )]
+    pub member_type: i32,
+    /// The CustomAudienceMember value. One field is populated depending on the
+    /// member type.
+    #[prost(oneof = "custom_audience_member::Value", tags = "2, 3, 4, 5")]
+    pub value: ::core::option::Option<custom_audience_member::Value>,
+}
+/// Nested message and enum types in `CustomAudienceMember`.
+pub mod custom_audience_member {
+    /// The CustomAudienceMember value. One field is populated depending on the
+    /// member type.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Dimension {
-        /// Bidding category of a product offer.
-        #[prost(message, tag = "1")]
-        ProductBiddingCategory(ProductBiddingCategory),
-        /// Brand of a product offer.
-        #[prost(message, tag = "2")]
-        ProductBrand(ProductBrand),
-        /// Locality of a product offer.
-        #[prost(message, tag = "3")]
-        ProductChannel(ProductChannel),
-        /// Condition of a product offer.
-        #[prost(message, tag = "4")]
-        ProductCondition(ProductCondition),
-        /// Custom attribute of a product offer.
-        #[prost(message, tag = "5")]
-        ProductCustomAttribute(ProductCustomAttribute),
-        /// Item id of a product offer.
-        #[prost(message, tag = "6")]
-        ProductItemId(ProductItemId),
-        /// Type of a product offer.
-        #[prost(message, tag = "7")]
-        ProductType(ProductType),
+    pub enum Value {
+        /// A keyword or keyword phrase — at most 10 words and 80 characters.
+        /// Languages with double-width characters such as Chinese, Japanese,
+        /// or Korean, are allowed 40 characters, which describes the user's
+        /// interests or actions.
+        #[prost(string, tag = "2")]
+        Keyword(::prost::alloc::string::String),
+        /// An HTTP URL, protocol-included — at most 2048 characters, which includes
+        /// contents users have interests in.
+        #[prost(string, tag = "3")]
+        Url(::prost::alloc::string::String),
+        /// A place type described by a place category users visit.
+        #[prost(int64, tag = "4")]
+        PlaceCategory(i64),
+        /// A package name of Android apps which users installed such as
+        /// com.google.example.
+        #[prost(string, tag = "5")]
+        App(::prost::alloc::string::String),
     }
+}
+/// A campaign extension setting.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CampaignExtensionSetting {
+    /// Immutable. The resource name of the campaign extension setting.
+    /// CampaignExtensionSetting resource names have the form:
+    ///
+    /// `customers/{customer_id}/campaignExtensionSettings/{campaign_id}~{extension_type}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The extension type of the customer extension setting.
+    #[prost(enumeration = "super::enums::extension_type_enum::ExtensionType", tag = "2")]
+    pub extension_type: i32,
+    /// Immutable. The resource name of the campaign. The linked extension feed
+    /// items will serve under this campaign. Campaign resource names have the
+    /// form:
+    ///
+    /// `customers/{customer_id}/campaigns/{campaign_id}`
+    #[prost(string, optional, tag = "6")]
+    pub campaign: ::core::option::Option<::prost::alloc::string::String>,
+    /// The resource names of the extension feed items to serve under the campaign.
+    /// ExtensionFeedItem resource names have the form:
+    ///
+    /// `customers/{customer_id}/extensionFeedItems/{feed_item_id}`
+    #[prost(string, repeated, tag = "7")]
+    pub extension_feed_items: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The device for which the extensions will serve. Optional.
+    #[prost(
+        enumeration = "super::enums::extension_setting_device_enum::ExtensionSettingDevice",
+        tag = "5"
+    )]
+    pub device: i32,
+}
+/// A customer extension setting.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomerExtensionSetting {
+    /// Immutable. The resource name of the customer extension setting.
+    /// CustomerExtensionSetting resource names have the form:
+    ///
+    /// `customers/{customer_id}/customerExtensionSettings/{extension_type}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The extension type of the customer extension setting.
+    #[prost(enumeration = "super::enums::extension_type_enum::ExtensionType", tag = "2")]
+    pub extension_type: i32,
+    /// The resource names of the extension feed items to serve under the customer.
+    /// ExtensionFeedItem resource names have the form:
+    ///
+    /// `customers/{customer_id}/extensionFeedItems/{feed_item_id}`
+    #[prost(string, repeated, tag = "5")]
+    pub extension_feed_items: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The device for which the extensions will serve. Optional.
+    #[prost(
+        enumeration = "super::enums::extension_setting_device_enum::ExtensionSettingDevice",
+        tag = "4"
+    )]
+    pub device: i32,
+}
+/// A negative criterion for exclusions at the customer level.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomerNegativeCriterion {
+    /// Immutable. The resource name of the customer negative criterion.
+    /// Customer negative criterion resource names have the form:
+    ///
+    /// `customers/{customer_id}/customerNegativeCriteria/{criterion_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The ID of the criterion.
+    #[prost(int64, optional, tag = "10")]
+    pub id: ::core::option::Option<i64>,
+    /// Output only. The type of the criterion.
+    #[prost(enumeration = "super::enums::criterion_type_enum::CriterionType", tag = "3")]
+    pub r#type: i32,
+    /// The customer negative criterion.
+    ///
+    /// Exactly one must be set.
+    #[prost(oneof = "customer_negative_criterion::Criterion", tags = "4, 5, 6, 7, 8, 9")]
+    pub criterion: ::core::option::Option<customer_negative_criterion::Criterion>,
+}
+/// Nested message and enum types in `CustomerNegativeCriterion`.
+pub mod customer_negative_criterion {
+    /// The customer negative criterion.
+    ///
+    /// Exactly one must be set.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Criterion {
+        /// Immutable. ContentLabel.
+        #[prost(message, tag = "4")]
+        ContentLabel(super::super::common::ContentLabelInfo),
+        /// Immutable. MobileApplication.
+        #[prost(message, tag = "5")]
+        MobileApplication(super::super::common::MobileApplicationInfo),
+        /// Immutable. MobileAppCategory.
+        #[prost(message, tag = "6")]
+        MobileAppCategory(super::super::common::MobileAppCategoryInfo),
+        /// Immutable. Placement.
+        #[prost(message, tag = "7")]
+        Placement(super::super::common::PlacementInfo),
+        /// Immutable. YouTube Video.
+        #[prost(message, tag = "8")]
+        YoutubeVideo(super::super::common::YouTubeVideoInfo),
+        /// Immutable. YouTube Channel.
+        #[prost(message, tag = "9")]
+        YoutubeChannel(super::super::common::YouTubeChannelInfo),
+    }
+}
+/// Audience is an effective targeting option that lets you
+/// intersect different segment attributes, such as detailed demographics and
+/// affinities, to create audiences that represent sections of your target
+/// segments.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Audience {
+    /// Immutable. The resource name of the audience.
+    /// Audience names have the form:
+    ///
+    /// `customers/{customer_id}/audiences/{audience_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. ID of the audience.
+    #[prost(int64, tag = "2")]
+    pub id: i64,
+    /// Output only. Status of this audience. Indicates whether the audience
+    /// is enabled or removed.
+    #[prost(
+        enumeration = "super::enums::audience_status_enum::AudienceStatus",
+        tag = "3"
+    )]
+    pub status: i32,
+    /// Required. Name of the audience. It should be unique across all
+    /// audiences. It must have a minimum length of 1 and
+    /// maximum length of 255.
+    #[prost(string, tag = "4")]
+    pub name: ::prost::alloc::string::String,
+    /// Description of this audience.
+    #[prost(string, tag = "5")]
+    pub description: ::prost::alloc::string::String,
+    /// Positive dimensions specifying the audience composition.
+    #[prost(message, repeated, tag = "6")]
+    pub dimensions: ::prost::alloc::vec::Vec<super::common::AudienceDimension>,
+    /// Negative dimension specifying the audience composition.
+    #[prost(message, optional, tag = "7")]
+    pub exclusion_dimension: ::core::option::Option<
+        super::common::AudienceExclusionDimension,
+    >,
 }
 /// Represents a set of feed items. The set can be used and shared among certain
 /// feed item features. For instance, the set can be referenced within the
@@ -1867,633 +2090,100 @@ pub mod feed_item_set {
         ),
     }
 }
-/// An ad group.
+/// A conversion value rule set
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AdGroup {
-    /// Immutable. The resource name of the ad group.
-    /// Ad group resource names have the form:
+pub struct ConversionValueRuleSet {
+    /// Immutable. The resource name of the conversion value rule set.
+    /// Conversion value rule set resource names have the form:
     ///
-    /// `customers/{customer_id}/adGroups/{ad_group_id}`
+    /// `customers/{customer_id}/conversionValueRuleSets/{conversion_value_rule_set_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the ad group.
-    #[prost(int64, optional, tag = "34")]
-    pub id: ::core::option::Option<i64>,
-    /// The name of the ad group.
-    ///
-    /// This field is required and should not be empty when creating new ad
-    /// groups.
-    ///
-    /// It must contain fewer than 255 UTF-8 full-width characters.
-    ///
-    /// It must not contain any null (code point 0x0), NL line feed
-    /// (code point 0xA) or carriage return (code point 0xD) characters.
-    #[prost(string, optional, tag = "35")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// The status of the ad group.
+    /// Output only. The ID of the conversion value rule set.
+    #[prost(int64, tag = "2")]
+    pub id: i64,
+    /// Resource names of rules within the rule set.
+    #[prost(string, repeated, tag = "3")]
+    pub conversion_value_rules: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Defines dimensions for Value Rule conditions. The condition types of value
+    /// rules within this value rule set must be of these dimensions. The first
+    /// entry in this list is the primary dimension of the included value rules.
+    /// When using value rule primary dimension segmentation, conversion values
+    /// will be segmented into the values adjusted by value rules and the original
+    /// values, if some value rules apply.
     #[prost(
-        enumeration = "super::enums::ad_group_status_enum::AdGroupStatus",
-        tag = "5"
-    )]
-    pub status: i32,
-    /// Immutable. The type of the ad group.
-    #[prost(enumeration = "super::enums::ad_group_type_enum::AdGroupType", tag = "12")]
-    pub r#type: i32,
-    /// The ad rotation mode of the ad group.
-    #[prost(
-        enumeration = "super::enums::ad_group_ad_rotation_mode_enum::AdGroupAdRotationMode",
-        tag = "22"
-    )]
-    pub ad_rotation_mode: i32,
-    /// Output only. For draft or experiment ad groups, this field is the resource
-    /// name of the base ad group from which this ad group was created. If a draft
-    /// or experiment ad group does not have a base ad group, then this field is
-    /// null.
-    ///
-    /// For base ad groups, this field equals the ad group resource name.
-    ///
-    /// This field is read-only.
-    #[prost(string, optional, tag = "36")]
-    pub base_ad_group: ::core::option::Option<::prost::alloc::string::String>,
-    /// The URL template for constructing a tracking URL.
-    #[prost(string, optional, tag = "37")]
-    pub tracking_url_template: ::core::option::Option<::prost::alloc::string::String>,
-    /// The list of mappings used to substitute custom parameter tags in a
-    /// `tracking_url_template`, `final_urls`, or `mobile_final_urls`.
-    #[prost(message, repeated, tag = "6")]
-    pub url_custom_parameters: ::prost::alloc::vec::Vec<super::common::CustomParameter>,
-    /// Immutable. The campaign to which the ad group belongs.
-    #[prost(string, optional, tag = "38")]
-    pub campaign: ::core::option::Option<::prost::alloc::string::String>,
-    /// The maximum CPC (cost-per-click) bid.
-    #[prost(int64, optional, tag = "39")]
-    pub cpc_bid_micros: ::core::option::Option<i64>,
-    /// Output only. Value will be same as that of the CPC (cost-per-click) bid
-    /// value when the bidding strategy is one of manual cpc, enhanced cpc, page
-    /// one promoted or target outrank share, otherwise the value will be null.
-    #[prost(int64, optional, tag = "57")]
-    pub effective_cpc_bid_micros: ::core::option::Option<i64>,
-    /// The maximum CPM (cost-per-thousand viewable impressions) bid.
-    #[prost(int64, optional, tag = "40")]
-    pub cpm_bid_micros: ::core::option::Option<i64>,
-    /// The target CPA (cost-per-acquisition). If the ad group's campaign
-    /// bidding strategy is TargetCpa or MaximizeConversions (with its target_cpa
-    /// field set), then this field overrides the target CPA specified in the
-    /// campaign's bidding strategy.
-    /// Otherwise, this value is ignored.
-    #[prost(int64, optional, tag = "41")]
-    pub target_cpa_micros: ::core::option::Option<i64>,
-    /// The CPV (cost-per-view) bid.
-    #[prost(int64, optional, tag = "42")]
-    pub cpv_bid_micros: ::core::option::Option<i64>,
-    /// Average amount in micros that the advertiser is willing to pay for every
-    /// thousand times the ad is shown.
-    #[prost(int64, optional, tag = "43")]
-    pub target_cpm_micros: ::core::option::Option<i64>,
-    /// The target ROAS (return-on-ad-spend) override. If the ad group's campaign
-    /// bidding strategy is TargetRoas or MaximizeConversionValue (with its
-    /// target_roas field set), then this field overrides the target ROAS specified
-    /// in the campaign's bidding strategy.
-    /// Otherwise, this value is ignored.
-    #[prost(double, optional, tag = "44")]
-    pub target_roas: ::core::option::Option<f64>,
-    /// The percent cpc bid amount, expressed as a fraction of the advertised price
-    /// for some good or service. The valid range for the fraction is [0,1) and the
-    /// value stored here is 1,000,000 * \[fraction\].
-    #[prost(int64, optional, tag = "45")]
-    pub percent_cpc_bid_micros: ::core::option::Option<i64>,
-    /// True if optimized targeting is enabled. Optimized Targeting is the
-    /// replacement for Audience Expansion.
-    #[prost(bool, tag = "59")]
-    pub optimized_targeting_enabled: bool,
-    /// Allows advertisers to specify a targeting dimension on which to place
-    /// absolute bids. This is only applicable for campaigns that target only the
-    /// display network and not search.
-    #[prost(
-        enumeration = "super::enums::targeting_dimension_enum::TargetingDimension",
-        tag = "23"
-    )]
-    pub display_custom_bid_dimension: i32,
-    /// URL template for appending params to Final URL.
-    #[prost(string, optional, tag = "46")]
-    pub final_url_suffix: ::core::option::Option<::prost::alloc::string::String>,
-    /// Setting for targeting related features.
-    #[prost(message, optional, tag = "25")]
-    pub targeting_setting: ::core::option::Option<super::common::TargetingSetting>,
-    /// Immutable. Setting for audience related features.
-    #[prost(message, optional, tag = "56")]
-    pub audience_setting: ::core::option::Option<ad_group::AudienceSetting>,
-    /// Output only. The effective target CPA (cost-per-acquisition).
-    /// This field is read-only.
-    #[prost(int64, optional, tag = "47")]
-    pub effective_target_cpa_micros: ::core::option::Option<i64>,
-    /// Output only. Source of the effective target CPA.
-    /// This field is read-only.
-    #[prost(
-        enumeration = "super::enums::bidding_source_enum::BiddingSource",
-        tag = "29"
-    )]
-    pub effective_target_cpa_source: i32,
-    /// Output only. The effective target ROAS (return-on-ad-spend).
-    /// This field is read-only.
-    #[prost(double, optional, tag = "48")]
-    pub effective_target_roas: ::core::option::Option<f64>,
-    /// Output only. Source of the effective target ROAS.
-    /// This field is read-only.
-    #[prost(
-        enumeration = "super::enums::bidding_source_enum::BiddingSource",
-        tag = "32"
-    )]
-    pub effective_target_roas_source: i32,
-    /// Output only. The resource names of labels attached to this ad group.
-    #[prost(string, repeated, tag = "49")]
-    pub labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The asset field types that should be excluded from this ad group. Asset
-    /// links with these field types will not be inherited by this ad group from
-    /// the upper levels.
-    #[prost(
-        enumeration = "super::enums::asset_field_type_enum::AssetFieldType",
+        enumeration = "super::enums::value_rule_set_dimension_enum::ValueRuleSetDimension",
         repeated,
-        tag = "54"
-    )]
-    pub excluded_parent_asset_field_types: ::prost::alloc::vec::Vec<i32>,
-    /// The asset set types that should be excluded from this ad group. Asset set
-    /// links with these types will not be inherited by this ad group from the
-    /// upper levels.
-    /// Location group types (GMB_DYNAMIC_LOCATION_GROUP,
-    /// CHAIN_DYNAMIC_LOCATION_GROUP, and STATIC_LOCATION_GROUP) are child types of
-    /// LOCATION_SYNC. Therefore, if LOCATION_SYNC is set for this field, all
-    /// location group asset sets are not allowed to be linked to this ad group,
-    /// and all Location Extension (LE) and Affiliate Location Extensions (ALE)
-    /// will not be served under this ad group.
-    /// Only LOCATION_SYNC is currently supported.
-    #[prost(
-        enumeration = "super::enums::asset_set_type_enum::AssetSetType",
-        repeated,
-        tag = "58"
-    )]
-    pub excluded_parent_asset_set_types: ::prost::alloc::vec::Vec<i32>,
-}
-/// Nested message and enum types in `AdGroup`.
-pub mod ad_group {
-    /// Settings for the audience targeting.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct AudienceSetting {
-        /// Immutable. If true, this ad group uses an Audience resource for audience
-        /// targeting. If false, this ad group may use audience segment criteria
-        /// instead.
-        #[prost(bool, tag = "1")]
-        pub use_audience_grouped: bool,
-    }
-}
-/// A feed item.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FeedItem {
-    /// Immutable. The resource name of the feed item.
-    /// Feed item resource names have the form:
-    ///
-    /// `customers/{customer_id}/feedItems/{feed_id}~{feed_item_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The feed to which this feed item belongs.
-    #[prost(string, optional, tag = "11")]
-    pub feed: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The ID of this feed item.
-    #[prost(int64, optional, tag = "12")]
-    pub id: ::core::option::Option<i64>,
-    /// Start time in which this feed item is effective and can begin serving. The
-    /// time is in the customer's time zone.
-    /// The format is "YYYY-MM-DD HH:MM:SS".
-    /// Examples: "2018-03-05 09:15:00" or "2018-02-01 14:34:30"
-    #[prost(string, optional, tag = "13")]
-    pub start_date_time: ::core::option::Option<::prost::alloc::string::String>,
-    /// End time in which this feed item is no longer effective and will stop
-    /// serving. The time is in the customer's time zone.
-    /// The format is "YYYY-MM-DD HH:MM:SS".
-    /// Examples: "2018-03-05 09:15:00" or "2018-02-01 14:34:30"
-    #[prost(string, optional, tag = "14")]
-    pub end_date_time: ::core::option::Option<::prost::alloc::string::String>,
-    /// The feed item's attribute values.
-    #[prost(message, repeated, tag = "6")]
-    pub attribute_values: ::prost::alloc::vec::Vec<FeedItemAttributeValue>,
-    /// Geo targeting restriction specifies the type of location that can be used
-    /// for targeting.
-    #[prost(
-        enumeration = "super::enums::geo_targeting_restriction_enum::GeoTargetingRestriction",
-        tag = "7"
-    )]
-    pub geo_targeting_restriction: i32,
-    /// The list of mappings used to substitute custom parameter tags in a
-    /// `tracking_url_template`, `final_urls`, or `mobile_final_urls`.
-    #[prost(message, repeated, tag = "8")]
-    pub url_custom_parameters: ::prost::alloc::vec::Vec<super::common::CustomParameter>,
-    /// Output only. Status of the feed item.
-    /// This field is read-only.
-    #[prost(
-        enumeration = "super::enums::feed_item_status_enum::FeedItemStatus",
-        tag = "9"
-    )]
-    pub status: i32,
-    /// Output only. List of info about a feed item's validation and approval state
-    /// for active feed mappings. There will be an entry in the list for each type
-    /// of feed mapping associated with the feed, for example, a feed with a
-    /// sitelink and a call feed mapping would cause every feed item associated
-    /// with that feed to have an entry in this list for both sitelink and call.
-    /// This field is read-only.
-    #[prost(message, repeated, tag = "10")]
-    pub policy_infos: ::prost::alloc::vec::Vec<FeedItemPlaceholderPolicyInfo>,
-}
-/// A feed item attribute value.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FeedItemAttributeValue {
-    /// Id of the feed attribute for which the value is associated with.
-    #[prost(int64, optional, tag = "11")]
-    pub feed_attribute_id: ::core::option::Option<i64>,
-    /// Int64 value. Should be set if feed_attribute_id refers to a feed attribute
-    /// of type INT64.
-    #[prost(int64, optional, tag = "12")]
-    pub integer_value: ::core::option::Option<i64>,
-    /// Bool value. Should be set if feed_attribute_id refers to a feed attribute
-    /// of type BOOLEAN.
-    #[prost(bool, optional, tag = "13")]
-    pub boolean_value: ::core::option::Option<bool>,
-    /// String value. Should be set if feed_attribute_id refers to a feed attribute
-    /// of type STRING, URL or DATE_TIME.
-    /// For STRING the maximum length is 1500 characters. For URL the maximum
-    /// length is 2076 characters. For DATE_TIME the string must be in the format
-    /// "YYYYMMDD HHMMSS".
-    #[prost(string, optional, tag = "14")]
-    pub string_value: ::core::option::Option<::prost::alloc::string::String>,
-    /// Double value. Should be set if feed_attribute_id refers to a feed attribute
-    /// of type DOUBLE.
-    #[prost(double, optional, tag = "15")]
-    pub double_value: ::core::option::Option<f64>,
-    /// Price value. Should be set if feed_attribute_id refers to a feed attribute
-    /// of type PRICE.
-    #[prost(message, optional, tag = "6")]
-    pub price_value: ::core::option::Option<super::common::Money>,
-    /// Repeated int64 value. Should be set if feed_attribute_id refers to a feed
-    /// attribute of type INT64_LIST.
-    #[prost(int64, repeated, tag = "16")]
-    pub integer_values: ::prost::alloc::vec::Vec<i64>,
-    /// Repeated bool value. Should be set if feed_attribute_id refers to a feed
-    /// attribute of type BOOLEAN_LIST.
-    #[prost(bool, repeated, tag = "17")]
-    pub boolean_values: ::prost::alloc::vec::Vec<bool>,
-    /// Repeated string value. Should be set if feed_attribute_id refers to a feed
-    /// attribute of type STRING_LIST, URL_LIST or DATE_TIME_LIST.
-    /// For STRING_LIST and URL_LIST the total size of the list in bytes may not
-    /// exceed 3000. For DATE_TIME_LIST the number of elements may not exceed 200.
-    ///
-    /// For STRING_LIST the maximum length of each string element is 1500
-    /// characters. For URL_LIST the maximum length is 2076 characters. For
-    /// DATE_TIME the format of the string must be the same as start and end time
-    /// for the feed item.
-    #[prost(string, repeated, tag = "18")]
-    pub string_values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Repeated double value. Should be set if feed_attribute_id refers to a feed
-    /// attribute of type DOUBLE_LIST.
-    #[prost(double, repeated, tag = "19")]
-    pub double_values: ::prost::alloc::vec::Vec<f64>,
-}
-/// Policy, validation, and quality approval info for a feed item for the
-/// specified placeholder type.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FeedItemPlaceholderPolicyInfo {
-    /// Output only. The placeholder type.
-    #[prost(
-        enumeration = "super::enums::placeholder_type_enum::PlaceholderType",
-        tag = "10"
-    )]
-    pub placeholder_type_enum: i32,
-    /// Output only. The FeedMapping that contains the placeholder type.
-    #[prost(string, optional, tag = "11")]
-    pub feed_mapping_resource_name: ::core::option::Option<
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. Where the placeholder type is in the review process.
-    #[prost(
-        enumeration = "super::enums::policy_review_status_enum::PolicyReviewStatus",
-        tag = "3"
-    )]
-    pub review_status: i32,
-    /// Output only. The overall approval status of the placeholder type,
-    /// calculated based on the status of its individual policy topic entries.
-    #[prost(
-        enumeration = "super::enums::policy_approval_status_enum::PolicyApprovalStatus",
         tag = "4"
     )]
-    pub approval_status: i32,
-    /// Output only. The list of policy findings for the placeholder type.
-    #[prost(message, repeated, tag = "5")]
-    pub policy_topic_entries: ::prost::alloc::vec::Vec<super::common::PolicyTopicEntry>,
-    /// Output only. The validation status of the palceholder type.
+    pub dimensions: ::prost::alloc::vec::Vec<i32>,
+    /// Output only. The resource name of the conversion value rule set's owner
+    /// customer. When the value rule set is inherited from a manager customer,
+    /// owner_customer will be the resource name of the manager whereas the
+    /// customer in the resource_name will be of the requesting serving customer.
+    /// ** Read-only **
+    #[prost(string, tag = "5")]
+    pub owner_customer: ::prost::alloc::string::String,
+    /// Immutable. Defines the scope where the conversion value rule set is
+    /// attached.
     #[prost(
-        enumeration = "super::enums::feed_item_validation_status_enum::FeedItemValidationStatus",
+        enumeration = "super::enums::value_rule_set_attachment_type_enum::ValueRuleSetAttachmentType",
         tag = "6"
     )]
-    pub validation_status: i32,
-    /// Output only. List of placeholder type validation errors.
-    #[prost(message, repeated, tag = "7")]
-    pub validation_errors: ::prost::alloc::vec::Vec<FeedItemValidationError>,
-    /// Output only. Placeholder type quality evaluation approval status.
+    pub attachment_type: i32,
+    /// The resource name of the campaign when the conversion value rule
+    /// set is attached to a campaign.
+    #[prost(string, tag = "7")]
+    pub campaign: ::prost::alloc::string::String,
+    /// Output only. The status of the conversion value rule set.
+    /// ** Read-only **
     #[prost(
-        enumeration = "super::enums::feed_item_quality_approval_status_enum::FeedItemQualityApprovalStatus",
+        enumeration = "super::enums::conversion_value_rule_set_status_enum::ConversionValueRuleSetStatus",
         tag = "8"
     )]
-    pub quality_approval_status: i32,
-    /// Output only. List of placeholder type quality evaluation disapproval
-    /// reasons.
+    pub status: i32,
+    /// Immutable. The conversion action categories of the conversion value rule
+    /// set.
     #[prost(
-        enumeration = "super::enums::feed_item_quality_disapproval_reason_enum::FeedItemQualityDisapprovalReason",
+        enumeration = "super::enums::conversion_action_category_enum::ConversionActionCategory",
         repeated,
         packed = "false",
         tag = "9"
     )]
-    pub quality_disapproval_reasons: ::prost::alloc::vec::Vec<i32>,
+    pub conversion_action_categories: ::prost::alloc::vec::Vec<i32>,
 }
-/// Stores a validation error and the set of offending feed attributes which
-/// together are responsible for causing a feed item validation error.
+/// An ad group extension setting.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FeedItemValidationError {
-    /// Output only. Error code indicating what validation error was triggered. The
-    /// description of the error can be found in the 'description' field.
-    #[prost(
-        enumeration = "super::errors::feed_item_validation_error_enum::FeedItemValidationError",
-        tag = "1"
-    )]
-    pub validation_error: i32,
-    /// Output only. The description of the validation error.
+pub struct AdGroupExtensionSetting {
+    /// Immutable. The resource name of the ad group extension setting.
+    /// AdGroupExtensionSetting resource names have the form:
+    ///
+    /// `customers/{customer_id}/adGroupExtensionSettings/{ad_group_id}~{extension_type}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The extension type of the ad group extension setting.
+    #[prost(enumeration = "super::enums::extension_type_enum::ExtensionType", tag = "2")]
+    pub extension_type: i32,
+    /// Immutable. The resource name of the ad group. The linked extension feed
+    /// items will serve under this ad group. AdGroup resource names have the form:
+    ///
+    /// `customers/{customer_id}/adGroups/{ad_group_id}`
     #[prost(string, optional, tag = "6")]
-    pub description: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Set of feed attributes in the feed item flagged during
-    /// validation. If empty, no specific feed attributes can be associated with
-    /// the error (for example, error across the entire feed item).
-    #[prost(int64, repeated, packed = "false", tag = "7")]
-    pub feed_attribute_ids: ::prost::alloc::vec::Vec<i64>,
-    /// Output only. Any extra information related to this error which is not
-    /// captured by validation_error and feed_attribute_id (for example,
-    /// placeholder field IDs when feed_attribute_id is not mapped). Note that
-    /// extra_info is not localized.
-    #[prost(string, optional, tag = "8")]
-    pub extra_info: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// An asset group.
-/// AssetGroupAsset is used to link an asset to the asset group.
-/// AssetGroupSignal is used to associate a signal to an asset group.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AssetGroup {
-    /// Immutable. The resource name of the asset group.
-    /// Asset group resource names have the form:
+    pub ad_group: ::core::option::Option<::prost::alloc::string::String>,
+    /// The resource names of the extension feed items to serve under the ad group.
+    /// ExtensionFeedItem resource names have the form:
     ///
-    /// `customers/{customer_id}/assetGroups/{asset_group_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the asset group.
-    #[prost(int64, tag = "9")]
-    pub id: i64,
-    /// Immutable. The campaign with which this asset group is associated.
-    /// The asset which is linked to the asset group.
-    #[prost(string, tag = "2")]
-    pub campaign: ::prost::alloc::string::String,
-    /// Required. Name of the asset group. Required. It must have a minimum length
-    /// of 1 and maximum length of 128. It must be unique under a campaign.
-    #[prost(string, tag = "3")]
-    pub name: ::prost::alloc::string::String,
-    /// A list of final URLs after all cross domain redirects. In performance max,
-    /// by default, the urls are eligible for expansion unless opted out.
-    #[prost(string, repeated, tag = "4")]
-    pub final_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// A list of final mobile URLs after all cross domain redirects. In
-    /// performance max, by default, the urls are eligible for expansion
-    /// unless opted out.
-    #[prost(string, repeated, tag = "5")]
-    pub final_mobile_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The status of the asset group.
+    /// `customers/{customer_id}/extensionFeedItems/{feed_item_id}`
+    #[prost(string, repeated, tag = "7")]
+    pub extension_feed_items: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The device for which the extensions will serve. Optional.
     #[prost(
-        enumeration = "super::enums::asset_group_status_enum::AssetGroupStatus",
-        tag = "6"
-    )]
-    pub status: i32,
-    /// First part of text that may appear appended to the url displayed in
-    /// the ad.
-    #[prost(string, tag = "7")]
-    pub path1: ::prost::alloc::string::String,
-    /// Second part of text that may appear appended to the url displayed in
-    /// the ad. This field can only be set when path1 is set.
-    #[prost(string, tag = "8")]
-    pub path2: ::prost::alloc::string::String,
-    /// Output only. Overall ad strength of this asset group.
-    #[prost(enumeration = "super::enums::ad_strength_enum::AdStrength", tag = "10")]
-    pub ad_strength: i32,
-}
-/// Settings for configuring Smart campaigns.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SmartCampaignSetting {
-    /// Immutable. The resource name of the Smart campaign setting.
-    /// Smart campaign setting resource names have the form:
-    ///
-    /// `customers/{customer_id}/smartCampaignSettings/{campaign_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The campaign to which these settings apply.
-    #[prost(string, tag = "2")]
-    pub campaign: ::prost::alloc::string::String,
-    /// Phone number and country code.
-    #[prost(message, optional, tag = "3")]
-    pub phone_number: ::core::option::Option<smart_campaign_setting::PhoneNumber>,
-    /// The language code to advertise in from the set of
-    /// [supported language codes]
-    /// (<https://developers.google.com/google-ads/api/reference/data/codes-formats#languages>).
-    #[prost(string, tag = "7")]
-    pub advertising_language_code: ::prost::alloc::string::String,
-    /// The landing page of this campaign.
-    #[prost(oneof = "smart_campaign_setting::LandingPage", tags = "8, 9")]
-    pub landing_page: ::core::option::Option<smart_campaign_setting::LandingPage>,
-    /// The business setting of this campaign.
-    #[prost(oneof = "smart_campaign_setting::BusinessSetting", tags = "5, 10")]
-    pub business_setting: ::core::option::Option<
-        smart_campaign_setting::BusinessSetting,
-    >,
-}
-/// Nested message and enum types in `SmartCampaignSetting`.
-pub mod smart_campaign_setting {
-    /// Phone number and country code in smart campaign settings.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct PhoneNumber {
-        /// Phone number of the smart campaign.
-        #[prost(string, optional, tag = "1")]
-        pub phone_number: ::core::option::Option<::prost::alloc::string::String>,
-        /// Upper-case, two-letter country code as defined by ISO-3166.
-        #[prost(string, optional, tag = "2")]
-        pub country_code: ::core::option::Option<::prost::alloc::string::String>,
-    }
-    /// Settings for configuring a business profile optimized for ads as this
-    /// campaign's landing page.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct AdOptimizedBusinessProfileSetting {
-        /// Enabling a lead form on your business profile enables prospective
-        /// customers to contact your business by filling out a simple form,
-        /// and you'll receive their information through email.
-        #[prost(bool, optional, tag = "1")]
-        pub include_lead_form: ::core::option::Option<bool>,
-    }
-    /// The landing page of this campaign.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum LandingPage {
-        /// The user-provided landing page URL for this Campaign.
-        #[prost(string, tag = "8")]
-        FinalUrl(::prost::alloc::string::String),
-        /// Settings for configuring a business profile optimized for ads as this
-        /// campaign's landing page.  This campaign must be linked to a business
-        /// profile to use this option.  For more information on this feature,
-        /// consult <https://support.google.com/google-ads/answer/9827068.>
-        #[prost(message, tag = "9")]
-        AdOptimizedBusinessProfileSetting(AdOptimizedBusinessProfileSetting),
-    }
-    /// The business setting of this campaign.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum BusinessSetting {
-        /// The name of the business.
-        #[prost(string, tag = "5")]
-        BusinessName(::prost::alloc::string::String),
-        /// The resource name of a Business Profile location.
-        /// Business Profile location resource names can be fetched through the
-        /// Business Profile API and adhere to the following format:
-        /// `locations/{locationId}`.
-        ///
-        /// See the [Business Profile API]
-        /// (<https://developers.google.com/my-business/reference/businessinformation/rest/v1/accounts.locations>)
-        /// for additional details.
-        #[prost(string, tag = "10")]
-        BusinessProfileLocation(::prost::alloc::string::String),
-    }
-}
-/// Represents a link between a FeedItem and a FeedItemSet.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FeedItemSetLink {
-    /// Immutable. The resource name of the feed item set link.
-    /// Feed item set link resource names have the form:
-    /// `customers/{customer_id}/feedItemSetLinks/{feed_id}~{feed_item_set_id}~{feed_item_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The linked FeedItem.
-    #[prost(string, tag = "2")]
-    pub feed_item: ::prost::alloc::string::String,
-    /// Immutable. The linked FeedItemSet.
-    #[prost(string, tag = "3")]
-    pub feed_item_set: ::prost::alloc::string::String,
-}
-/// A field or resource (artifact) used by GoogleAdsService.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GoogleAdsField {
-    /// Output only. The resource name of the artifact.
-    /// Artifact resource names have the form:
-    ///
-    /// `googleAdsFields/{name}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The name of the artifact.
-    #[prost(string, optional, tag = "21")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The category of the artifact.
-    #[prost(
-        enumeration = "super::enums::google_ads_field_category_enum::GoogleAdsFieldCategory",
-        tag = "3"
-    )]
-    pub category: i32,
-    /// Output only. Whether the artifact can be used in a SELECT clause in search
-    /// queries.
-    #[prost(bool, optional, tag = "22")]
-    pub selectable: ::core::option::Option<bool>,
-    /// Output only. Whether the artifact can be used in a WHERE clause in search
-    /// queries.
-    #[prost(bool, optional, tag = "23")]
-    pub filterable: ::core::option::Option<bool>,
-    /// Output only. Whether the artifact can be used in a ORDER BY clause in
-    /// search queries.
-    #[prost(bool, optional, tag = "24")]
-    pub sortable: ::core::option::Option<bool>,
-    /// Output only. The names of all resources, segments, and metrics that are
-    /// selectable with the described artifact.
-    #[prost(string, repeated, tag = "25")]
-    pub selectable_with: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. The names of all resources that are selectable with the
-    /// described artifact. Fields from these resources do not segment metrics when
-    /// included in search queries.
-    ///
-    /// This field is only set for artifacts whose category is RESOURCE.
-    #[prost(string, repeated, tag = "26")]
-    pub attribute_resources: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. This field lists the names of all metrics that are selectable
-    /// with the described artifact when it is used in the FROM clause. It is only
-    /// set for artifacts whose category is RESOURCE.
-    #[prost(string, repeated, tag = "27")]
-    pub metrics: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. This field lists the names of all artifacts, whether a segment
-    /// or another resource, that segment metrics when included in search queries
-    /// and when the described artifact is used in the FROM clause. It is only set
-    /// for artifacts whose category is RESOURCE.
-    #[prost(string, repeated, tag = "28")]
-    pub segments: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. Values the artifact can assume if it is a field of type ENUM.
-    ///
-    /// This field is only set for artifacts of category SEGMENT or ATTRIBUTE.
-    #[prost(string, repeated, tag = "29")]
-    pub enum_values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. This field determines the operators that can be used with the
-    /// artifact in WHERE clauses.
-    #[prost(
-        enumeration = "super::enums::google_ads_field_data_type_enum::GoogleAdsFieldDataType",
-        tag = "12"
-    )]
-    pub data_type: i32,
-    /// Output only. The URL of proto describing the artifact's data type.
-    #[prost(string, optional, tag = "30")]
-    pub type_url: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Whether the field artifact is repeated.
-    #[prost(bool, optional, tag = "31")]
-    pub is_repeated: ::core::option::Option<bool>,
-}
-/// Custom conversion goal that can make arbitrary conversion actions biddable.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomConversionGoal {
-    /// Immutable. The resource name of the custom conversion goal.
-    /// Custom conversion goal resource names have the form:
-    ///
-    /// `customers/{customer_id}/customConversionGoals/{goal_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The ID for this custom conversion goal.
-    #[prost(int64, tag = "2")]
-    pub id: i64,
-    /// The name for this custom conversion goal.
-    #[prost(string, tag = "3")]
-    pub name: ::prost::alloc::string::String,
-    /// Conversion actions that the custom conversion goal makes biddable.
-    #[prost(string, repeated, tag = "4")]
-    pub conversion_actions: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The status of the custom conversion goal.
-    #[prost(
-        enumeration = "super::enums::custom_conversion_goal_status_enum::CustomConversionGoalStatus",
+        enumeration = "super::enums::extension_setting_device_enum::ExtensionSettingDevice",
         tag = "5"
     )]
-    pub status: i32,
+    pub device: i32,
 }
 /// A conversion action.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2681,29 +2371,450 @@ pub mod conversion_action {
         pub property_name: ::prost::alloc::string::String,
     }
 }
-/// AssetSetAsset is the link between an asset and an asset set.
-/// Adding an AssetSetAsset links an asset with an asset set.
+/// An asset group.
+/// AssetGroupAsset is used to link an asset to the asset group.
+/// AssetGroupSignal is used to associate a signal to an asset group.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AssetSetAsset {
-    /// Immutable. The resource name of the asset set asset.
-    /// Asset set asset resource names have the form:
+pub struct AssetGroup {
+    /// Immutable. The resource name of the asset group.
+    /// Asset group resource names have the form:
     ///
-    /// `customers/{customer_id}/assetSetAssets/{asset_set_id}~{asset_id}`
+    /// `customers/{customer_id}/assetGroups/{asset_group_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The asset set which this asset set asset is linking to.
+    /// Output only. The ID of the asset group.
+    #[prost(int64, tag = "9")]
+    pub id: i64,
+    /// Immutable. The campaign with which this asset group is associated.
+    /// The asset which is linked to the asset group.
     #[prost(string, tag = "2")]
-    pub asset_set: ::prost::alloc::string::String,
-    /// Immutable. The asset which this asset set asset is linking to.
+    pub campaign: ::prost::alloc::string::String,
+    /// Required. Name of the asset group. Required. It must have a minimum length
+    /// of 1 and maximum length of 128. It must be unique under a campaign.
     #[prost(string, tag = "3")]
-    pub asset: ::prost::alloc::string::String,
-    /// Output only. The status of the asset set asset. Read-only.
+    pub name: ::prost::alloc::string::String,
+    /// A list of final URLs after all cross domain redirects. In performance max,
+    /// by default, the urls are eligible for expansion unless opted out.
+    #[prost(string, repeated, tag = "4")]
+    pub final_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// A list of final mobile URLs after all cross domain redirects. In
+    /// performance max, by default, the urls are eligible for expansion
+    /// unless opted out.
+    #[prost(string, repeated, tag = "5")]
+    pub final_mobile_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The status of the asset group.
     #[prost(
-        enumeration = "super::enums::asset_set_asset_status_enum::AssetSetAssetStatus",
-        tag = "4"
+        enumeration = "super::enums::asset_group_status_enum::AssetGroupStatus",
+        tag = "6"
     )]
     pub status: i32,
+    /// First part of text that may appear appended to the url displayed in
+    /// the ad.
+    #[prost(string, tag = "7")]
+    pub path1: ::prost::alloc::string::String,
+    /// Second part of text that may appear appended to the url displayed in
+    /// the ad. This field can only be set when path1 is set.
+    #[prost(string, tag = "8")]
+    pub path2: ::prost::alloc::string::String,
+    /// Output only. Overall ad strength of this asset group.
+    #[prost(enumeration = "super::enums::ad_strength_enum::AdStrength", tag = "10")]
+    pub ad_strength: i32,
+}
+/// SharedSets are used for sharing criterion exclusions across multiple
+/// campaigns.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SharedSet {
+    /// Immutable. The resource name of the shared set.
+    /// Shared set resource names have the form:
+    ///
+    /// `customers/{customer_id}/sharedSets/{shared_set_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The ID of this shared set. Read only.
+    #[prost(int64, optional, tag = "8")]
+    pub id: ::core::option::Option<i64>,
+    /// Immutable. The type of this shared set: each shared set holds only a single
+    /// kind of resource. Required. Immutable.
+    #[prost(
+        enumeration = "super::enums::shared_set_type_enum::SharedSetType",
+        tag = "3"
+    )]
+    pub r#type: i32,
+    /// The name of this shared set. Required.
+    /// Shared Sets must have names that are unique among active shared sets of
+    /// the same type.
+    /// The length of this string should be between 1 and 255 UTF-8 bytes,
+    /// inclusive.
+    #[prost(string, optional, tag = "9")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The status of this shared set. Read only.
+    #[prost(
+        enumeration = "super::enums::shared_set_status_enum::SharedSetStatus",
+        tag = "5"
+    )]
+    pub status: i32,
+    /// Output only. The number of shared criteria within this shared set. Read
+    /// only.
+    #[prost(int64, optional, tag = "10")]
+    pub member_count: ::core::option::Option<i64>,
+    /// Output only. The number of campaigns associated with this shared set. Read
+    /// only.
+    #[prost(int64, optional, tag = "11")]
+    pub reference_count: ::core::option::Option<i64>,
+}
+/// Conversion goal settings for a Campaign.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ConversionGoalCampaignConfig {
+    /// Immutable. The resource name of the conversion goal campaign config.
+    /// Conversion goal campaign config resource names have the form:
+    ///
+    /// `customers/{customer_id}/conversionGoalCampaignConfigs/{campaign_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The campaign with which this conversion goal campaign config is
+    /// associated.
+    #[prost(string, tag = "2")]
+    pub campaign: ::prost::alloc::string::String,
+    /// The level of goal config the campaign is using.
+    #[prost(
+        enumeration = "super::enums::goal_config_level_enum::GoalConfigLevel",
+        tag = "3"
+    )]
+    pub goal_config_level: i32,
+    /// The custom conversion goal the campaign is using for optimization.
+    #[prost(string, tag = "4")]
+    pub custom_conversion_goal: ::prost::alloc::string::String,
+}
+/// A conversion custom variable
+/// See "About custom variables for conversions" at
+/// <https://support.google.com/google-ads/answer/9964350>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ConversionCustomVariable {
+    /// Immutable. The resource name of the conversion custom variable.
+    /// Conversion custom variable resource names have the form:
+    ///
+    /// `customers/{customer_id}/conversionCustomVariables/{conversion_custom_variable_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The ID of the conversion custom variable.
+    #[prost(int64, tag = "2")]
+    pub id: i64,
+    /// Required. The name of the conversion custom variable.
+    /// Name should be unique. The maximum length of name is 100 characters.
+    /// There should not be any extra spaces before and after.
+    #[prost(string, tag = "3")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Immutable. The tag of the conversion custom variable. It is used
+    /// in the event snippet and sent to Google Ads along with conversion pings.
+    /// For conversion uploads in Google Ads API, the resource name of the
+    /// conversion custom variable is used. Tag should be unique. The maximum size
+    /// of tag is 100 bytes. There should not be any extra spaces before and after.
+    /// Currently only lowercase letters, numbers and underscores are allowed in
+    /// the tag.
+    #[prost(string, tag = "4")]
+    pub tag: ::prost::alloc::string::String,
+    /// The status of the conversion custom variable for conversion event accrual.
+    #[prost(
+        enumeration = "super::enums::conversion_custom_variable_status_enum::ConversionCustomVariableStatus",
+        tag = "5"
+    )]
+    pub status: i32,
+    /// Output only. The resource name of the customer that owns the conversion
+    /// custom variable.
+    #[prost(string, tag = "6")]
+    pub owner_customer: ::prost::alloc::string::String,
+}
+/// A customer feed.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomerFeed {
+    /// Immutable. The resource name of the customer feed.
+    /// Customer feed resource names have the form:
+    ///
+    /// `customers/{customer_id}/customerFeeds/{feed_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The feed being linked to the customer.
+    #[prost(string, optional, tag = "6")]
+    pub feed: ::core::option::Option<::prost::alloc::string::String>,
+    /// Indicates which placeholder types the feed may populate under the connected
+    /// customer. Required.
+    #[prost(
+        enumeration = "super::enums::placeholder_type_enum::PlaceholderType",
+        repeated,
+        tag = "3"
+    )]
+    pub placeholder_types: ::prost::alloc::vec::Vec<i32>,
+    /// Matching function associated with the CustomerFeed.
+    /// The matching function is used to filter the set of feed items selected.
+    /// Required.
+    #[prost(message, optional, tag = "4")]
+    pub matching_function: ::core::option::Option<super::common::MatchingFunction>,
+    /// Output only. Status of the customer feed.
+    /// This field is read-only.
+    #[prost(
+        enumeration = "super::enums::feed_link_status_enum::FeedLinkStatus",
+        tag = "5"
+    )]
+    pub status: i32,
+}
+/// An ad parameter that is used to update numeric values (such as prices or
+/// inventory levels) in any text line of an ad (including URLs). There can
+/// be a maximum of two AdParameters per ad group criterion. (One with
+/// parameter_index = 1 and one with parameter_index = 2.)
+/// In the ad the parameters are referenced by a placeholder of the form
+/// "{param#:value}". For example, "{param1:$17}"
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AdParameter {
+    /// Immutable. The resource name of the ad parameter.
+    /// Ad parameter resource names have the form:
+    ///
+    /// `customers/{customer_id}/adParameters/{ad_group_id}~{criterion_id}~{parameter_index}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The ad group criterion that this ad parameter belongs to.
+    #[prost(string, optional, tag = "5")]
+    pub ad_group_criterion: ::core::option::Option<::prost::alloc::string::String>,
+    /// Immutable. The unique index of this ad parameter. Must be either 1 or 2.
+    #[prost(int64, optional, tag = "6")]
+    pub parameter_index: ::core::option::Option<i64>,
+    /// Numeric value to insert into the ad text. The following restrictions
+    ///   apply:
+    ///   - Can use comma or period as a separator, with an optional period or
+    ///     comma (respectively) for fractional values. For example, 1,000,000.00
+    ///     and 2.000.000,10 are valid.
+    ///   - Can be prepended or appended with a currency symbol. For example,
+    ///     $99.99 is valid.
+    ///   - Can be prepended or appended with a currency code. For example, 99.99USD
+    ///     and EUR200 are valid.
+    ///   - Can use '%'. For example, 1.0% and 1,0% are valid.
+    ///   - Can use plus or minus. For example, -10.99 and 25+ are valid.
+    ///   - Can use '/' between two numbers. For example 4/1 and 0.95/0.45 are
+    ///     valid.
+    #[prost(string, optional, tag = "7")]
+    pub insertion_text: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// A feed mapping.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeedMapping {
+    /// Immutable. The resource name of the feed mapping.
+    /// Feed mapping resource names have the form:
+    ///
+    /// `customers/{customer_id}/feedMappings/{feed_id}~{feed_mapping_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The feed of this feed mapping.
+    #[prost(string, optional, tag = "7")]
+    pub feed: ::core::option::Option<::prost::alloc::string::String>,
+    /// Immutable. Feed attributes to field mappings. These mappings are a
+    /// one-to-many relationship meaning that 1 feed attribute can be used to
+    /// populate multiple placeholder fields, but 1 placeholder field can only draw
+    /// data from 1 feed attribute. Ad Customizer is an exception, 1 placeholder
+    /// field can be mapped to multiple feed attributes. Required.
+    #[prost(message, repeated, tag = "5")]
+    pub attribute_field_mappings: ::prost::alloc::vec::Vec<AttributeFieldMapping>,
+    /// Output only. Status of the feed mapping.
+    /// This field is read-only.
+    #[prost(
+        enumeration = "super::enums::feed_mapping_status_enum::FeedMappingStatus",
+        tag = "6"
+    )]
+    pub status: i32,
+    /// Feed mapping target. Can be either a placeholder or a criterion. For a
+    /// given feed, the active FeedMappings must have unique targets. Required.
+    #[prost(oneof = "feed_mapping::Target", tags = "3, 4")]
+    pub target: ::core::option::Option<feed_mapping::Target>,
+}
+/// Nested message and enum types in `FeedMapping`.
+pub mod feed_mapping {
+    /// Feed mapping target. Can be either a placeholder or a criterion. For a
+    /// given feed, the active FeedMappings must have unique targets. Required.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Target {
+        /// Immutable. The placeholder type of this mapping (for example, if the
+        /// mapping maps feed attributes to placeholder fields).
+        #[prost(
+            enumeration = "super::super::enums::placeholder_type_enum::PlaceholderType",
+            tag = "3"
+        )]
+        PlaceholderType(i32),
+        /// Immutable. The criterion type of this mapping (for example, if the
+        /// mapping maps feed attributes to criterion fields).
+        #[prost(
+            enumeration = "super::super::enums::feed_mapping_criterion_type_enum::FeedMappingCriterionType",
+            tag = "4"
+        )]
+        CriterionType(i32),
+    }
+}
+/// Maps from feed attribute id to a placeholder or criterion field id.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AttributeFieldMapping {
+    /// Immutable. Feed attribute from which to map.
+    #[prost(int64, optional, tag = "24")]
+    pub feed_attribute_id: ::core::option::Option<i64>,
+    /// Output only. The placeholder field ID. If a placeholder field enum is not
+    /// published in the current API version, then this field will be populated and
+    /// the field oneof will be empty. This field is read-only.
+    #[prost(int64, optional, tag = "25")]
+    pub field_id: ::core::option::Option<i64>,
+    /// Placeholder or criterion field to be populated using data from
+    /// the above feed attribute. Required.
+    #[prost(
+        oneof = "attribute_field_mapping::Field",
+        tags = "3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 26"
+    )]
+    pub field: ::core::option::Option<attribute_field_mapping::Field>,
+}
+/// Nested message and enum types in `AttributeFieldMapping`.
+pub mod attribute_field_mapping {
+    /// Placeholder or criterion field to be populated using data from
+    /// the above feed attribute. Required.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Field {
+        /// Immutable. Sitelink Placeholder Fields.
+        #[prost(
+            enumeration = "super::super::enums::sitelink_placeholder_field_enum::SitelinkPlaceholderField",
+            tag = "3"
+        )]
+        SitelinkField(i32),
+        /// Immutable. Call Placeholder Fields.
+        #[prost(
+            enumeration = "super::super::enums::call_placeholder_field_enum::CallPlaceholderField",
+            tag = "4"
+        )]
+        CallField(i32),
+        /// Immutable. App Placeholder Fields.
+        #[prost(
+            enumeration = "super::super::enums::app_placeholder_field_enum::AppPlaceholderField",
+            tag = "5"
+        )]
+        AppField(i32),
+        /// Output only. Location Placeholder Fields. This field is read-only.
+        #[prost(
+            enumeration = "super::super::enums::location_placeholder_field_enum::LocationPlaceholderField",
+            tag = "6"
+        )]
+        LocationField(i32),
+        /// Output only. Affiliate Location Placeholder Fields. This field is
+        /// read-only.
+        #[prost(
+            enumeration = "super::super::enums::affiliate_location_placeholder_field_enum::AffiliateLocationPlaceholderField",
+            tag = "7"
+        )]
+        AffiliateLocationField(i32),
+        /// Immutable. Callout Placeholder Fields.
+        #[prost(
+            enumeration = "super::super::enums::callout_placeholder_field_enum::CalloutPlaceholderField",
+            tag = "8"
+        )]
+        CalloutField(i32),
+        /// Immutable. Structured Snippet Placeholder Fields.
+        #[prost(
+            enumeration = "super::super::enums::structured_snippet_placeholder_field_enum::StructuredSnippetPlaceholderField",
+            tag = "9"
+        )]
+        StructuredSnippetField(i32),
+        /// Immutable. Message Placeholder Fields.
+        #[prost(
+            enumeration = "super::super::enums::message_placeholder_field_enum::MessagePlaceholderField",
+            tag = "10"
+        )]
+        MessageField(i32),
+        /// Immutable. Price Placeholder Fields.
+        #[prost(
+            enumeration = "super::super::enums::price_placeholder_field_enum::PricePlaceholderField",
+            tag = "11"
+        )]
+        PriceField(i32),
+        /// Immutable. Promotion Placeholder Fields.
+        #[prost(
+            enumeration = "super::super::enums::promotion_placeholder_field_enum::PromotionPlaceholderField",
+            tag = "12"
+        )]
+        PromotionField(i32),
+        /// Immutable. Ad Customizer Placeholder Fields
+        #[prost(
+            enumeration = "super::super::enums::ad_customizer_placeholder_field_enum::AdCustomizerPlaceholderField",
+            tag = "13"
+        )]
+        AdCustomizerField(i32),
+        /// Immutable. Dynamic Search Ad Page Feed Fields.
+        #[prost(
+            enumeration = "super::super::enums::dsa_page_feed_criterion_field_enum::DsaPageFeedCriterionField",
+            tag = "14"
+        )]
+        DsaPageFeedField(i32),
+        /// Immutable. Location Target Fields.
+        #[prost(
+            enumeration = "super::super::enums::location_extension_targeting_criterion_field_enum::LocationExtensionTargetingCriterionField",
+            tag = "15"
+        )]
+        LocationExtensionTargetingField(i32),
+        /// Immutable. Education Placeholder Fields
+        #[prost(
+            enumeration = "super::super::enums::education_placeholder_field_enum::EducationPlaceholderField",
+            tag = "16"
+        )]
+        EducationField(i32),
+        /// Immutable. Flight Placeholder Fields
+        #[prost(
+            enumeration = "super::super::enums::flight_placeholder_field_enum::FlightPlaceholderField",
+            tag = "17"
+        )]
+        FlightField(i32),
+        /// Immutable. Custom Placeholder Fields
+        #[prost(
+            enumeration = "super::super::enums::custom_placeholder_field_enum::CustomPlaceholderField",
+            tag = "18"
+        )]
+        CustomField(i32),
+        /// Immutable. Hotel Placeholder Fields
+        #[prost(
+            enumeration = "super::super::enums::hotel_placeholder_field_enum::HotelPlaceholderField",
+            tag = "19"
+        )]
+        HotelField(i32),
+        /// Immutable. Real Estate Placeholder Fields
+        #[prost(
+            enumeration = "super::super::enums::real_estate_placeholder_field_enum::RealEstatePlaceholderField",
+            tag = "20"
+        )]
+        RealEstateField(i32),
+        /// Immutable. Travel Placeholder Fields
+        #[prost(
+            enumeration = "super::super::enums::travel_placeholder_field_enum::TravelPlaceholderField",
+            tag = "21"
+        )]
+        TravelField(i32),
+        /// Immutable. Local Placeholder Fields
+        #[prost(
+            enumeration = "super::super::enums::local_placeholder_field_enum::LocalPlaceholderField",
+            tag = "22"
+        )]
+        LocalField(i32),
+        /// Immutable. Job Placeholder Fields
+        #[prost(
+            enumeration = "super::super::enums::job_placeholder_field_enum::JobPlaceholderField",
+            tag = "23"
+        )]
+        JobField(i32),
+        /// Immutable. Image Placeholder Fields
+        #[prost(
+            enumeration = "super::super::enums::image_placeholder_field_enum::ImagePlaceholderField",
+            tag = "26"
+        )]
+        ImageField(i32),
+    }
 }
 /// Represents a view of BiddingStrategies owned by and shared with the customer.
 ///
@@ -3341,170 +3452,312 @@ pub mod account_budget_proposal {
         ApprovedSpendingLimitType(i32),
     }
 }
-/// An ad.
+/// Represents the data sharing connection between a Google Ads account and
+/// another account
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Ad {
-    /// Immutable. The resource name of the ad.
-    /// Ad resource names have the form:
-    ///
-    /// `customers/{customer_id}/ads/{ad_id}`
-    #[prost(string, tag = "37")]
+pub struct AccountLink {
+    /// Immutable. Resource name of the account link.
+    /// AccountLink resource names have the form:
+    /// `customers/{customer_id}/accountLinks/{account_link_id}`
+    #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the ad.
-    #[prost(int64, optional, tag = "40")]
-    pub id: ::core::option::Option<i64>,
-    /// The list of possible final URLs after all cross-domain redirects for the
-    /// ad.
-    #[prost(string, repeated, tag = "41")]
-    pub final_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// A list of final app URLs that will be used on mobile if the user has the
-    /// specific app installed.
-    #[prost(message, repeated, tag = "35")]
-    pub final_app_urls: ::prost::alloc::vec::Vec<super::common::FinalAppUrl>,
-    /// The list of possible final mobile URLs after all cross-domain redirects
-    /// for the ad.
-    #[prost(string, repeated, tag = "42")]
-    pub final_mobile_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The URL template for constructing a tracking URL.
-    #[prost(string, optional, tag = "43")]
-    pub tracking_url_template: ::core::option::Option<::prost::alloc::string::String>,
-    /// The suffix to use when constructing a final URL.
-    #[prost(string, optional, tag = "44")]
-    pub final_url_suffix: ::core::option::Option<::prost::alloc::string::String>,
-    /// The list of mappings that can be used to substitute custom parameter tags
-    /// in a `tracking_url_template`, `final_urls`, or `mobile_final_urls`.
-    /// For mutates, use url custom parameter operations.
-    #[prost(message, repeated, tag = "10")]
-    pub url_custom_parameters: ::prost::alloc::vec::Vec<super::common::CustomParameter>,
-    /// The URL that appears in the ad description for some ad formats.
-    #[prost(string, optional, tag = "45")]
-    pub display_url: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The type of ad.
-    #[prost(enumeration = "super::enums::ad_type_enum::AdType", tag = "5")]
+    /// Output only. The ID of the link.
+    /// This field is read only.
+    #[prost(int64, optional, tag = "8")]
+    pub account_link_id: ::core::option::Option<i64>,
+    /// The status of the link.
+    #[prost(
+        enumeration = "super::enums::account_link_status_enum::AccountLinkStatus",
+        tag = "3"
+    )]
+    pub status: i32,
+    /// Output only. The type of the linked account.
+    #[prost(
+        enumeration = "super::enums::linked_account_type_enum::LinkedAccountType",
+        tag = "4"
+    )]
     pub r#type: i32,
-    /// Output only. Indicates if this ad was automatically added by Google Ads and
-    /// not by a user. For example, this could happen when ads are automatically
-    /// created as suggestions for new ads based on knowledge of how existing ads
-    /// are performing.
-    #[prost(bool, optional, tag = "46")]
-    pub added_by_google_ads: ::core::option::Option<bool>,
-    /// The device preference for the ad. You can only specify a preference for
-    /// mobile devices. When this preference is set the ad will be preferred over
-    /// other ads when being displayed on a mobile device. The ad can still be
-    /// displayed on other device types, for example, if no other ads are
-    /// available. If unspecified (no device preference), all devices are targeted.
-    /// This is only supported by some ad types.
-    #[prost(enumeration = "super::enums::device_enum::Device", tag = "20")]
-    pub device_preference: i32,
-    /// Additional URLs for the ad that are tagged with a unique identifier that
-    /// can be referenced from other fields in the ad.
-    #[prost(message, repeated, tag = "26")]
-    pub url_collections: ::prost::alloc::vec::Vec<super::common::UrlCollection>,
-    /// Immutable. The name of the ad. This is only used to be able to identify the
-    /// ad. It does not need to be unique and does not affect the served ad. The
-    /// name field is currently only supported for DisplayUploadAd, ImageAd,
-    /// ShoppingComparisonListingAd and VideoAd.
-    #[prost(string, optional, tag = "47")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. If this ad is system managed, then this field will indicate
-    /// the source. This field is read-only.
-    #[prost(
-        enumeration = "super::enums::system_managed_resource_source_enum::SystemManagedResourceSource",
-        tag = "27"
-    )]
-    pub system_managed_resource_source: i32,
-    /// Details pertinent to the ad type. Exactly one value must be set.
-    #[prost(
-        oneof = "ad::AdData",
-        tags = "6, 7, 49, 14, 15, 17, 18, 22, 24, 39, 25, 28, 29, 30, 31, 32, 33, 34, 36, 48, 50, 51, 52, 54"
-    )]
-    pub ad_data: ::core::option::Option<ad::AdData>,
+    /// An account linked to this Google Ads account.
+    #[prost(oneof = "account_link::LinkedAccount", tags = "5, 6, 7, 9, 10")]
+    pub linked_account: ::core::option::Option<account_link::LinkedAccount>,
 }
-/// Nested message and enum types in `Ad`.
-pub mod ad {
-    /// Details pertinent to the ad type. Exactly one value must be set.
+/// Nested message and enum types in `AccountLink`.
+pub mod account_link {
+    /// An account linked to this Google Ads account.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum AdData {
-        /// Immutable. Details pertaining to a text ad.
+    pub enum LinkedAccount {
+        /// Immutable. A third party app analytics link.
+        #[prost(message, tag = "5")]
+        ThirdPartyAppAnalytics(super::ThirdPartyAppAnalyticsLinkIdentifier),
+        /// Output only. Data partner link.
         #[prost(message, tag = "6")]
-        TextAd(super::super::common::TextAdInfo),
-        /// Details pertaining to an expanded text ad.
+        DataPartner(super::DataPartnerLinkIdentifier),
+        /// Output only. Google Ads link.
         #[prost(message, tag = "7")]
-        ExpandedTextAd(super::super::common::ExpandedTextAdInfo),
-        /// Details pertaining to a call ad.
-        #[prost(message, tag = "49")]
-        CallAd(super::super::common::CallAdInfo),
-        /// Immutable. Details pertaining to an Expanded Dynamic Search Ad.
-        /// This type of ad has its headline, final URLs, and display URL
-        /// auto-generated at serving time according to domain name specific
-        /// information provided by `dynamic_search_ads_setting` linked at the
-        /// campaign level.
-        #[prost(message, tag = "14")]
-        ExpandedDynamicSearchAd(super::super::common::ExpandedDynamicSearchAdInfo),
-        /// Details pertaining to a hotel ad.
-        #[prost(message, tag = "15")]
-        HotelAd(super::super::common::HotelAdInfo),
-        /// Details pertaining to a Smart Shopping ad.
-        #[prost(message, tag = "17")]
-        ShoppingSmartAd(super::super::common::ShoppingSmartAdInfo),
-        /// Details pertaining to a Shopping product ad.
-        #[prost(message, tag = "18")]
-        ShoppingProductAd(super::super::common::ShoppingProductAdInfo),
-        /// Immutable. Details pertaining to an Image ad.
-        #[prost(message, tag = "22")]
-        ImageAd(super::super::common::ImageAdInfo),
-        /// Details pertaining to a Video ad.
-        #[prost(message, tag = "24")]
-        VideoAd(super::super::common::VideoAdInfo),
-        /// Details pertaining to a Video responsive ad.
-        #[prost(message, tag = "39")]
-        VideoResponsiveAd(super::super::common::VideoResponsiveAdInfo),
-        /// Details pertaining to a responsive search ad.
-        #[prost(message, tag = "25")]
-        ResponsiveSearchAd(super::super::common::ResponsiveSearchAdInfo),
-        /// Details pertaining to a legacy responsive display ad.
-        #[prost(message, tag = "28")]
-        LegacyResponsiveDisplayAd(super::super::common::LegacyResponsiveDisplayAdInfo),
-        /// Details pertaining to an app ad.
-        #[prost(message, tag = "29")]
-        AppAd(super::super::common::AppAdInfo),
-        /// Immutable. Details pertaining to a legacy app install ad.
-        #[prost(message, tag = "30")]
-        LegacyAppInstallAd(super::super::common::LegacyAppInstallAdInfo),
-        /// Details pertaining to a responsive display ad.
-        #[prost(message, tag = "31")]
-        ResponsiveDisplayAd(super::super::common::ResponsiveDisplayAdInfo),
-        /// Details pertaining to a local ad.
-        #[prost(message, tag = "32")]
-        LocalAd(super::super::common::LocalAdInfo),
-        /// Details pertaining to a display upload ad.
-        #[prost(message, tag = "33")]
-        DisplayUploadAd(super::super::common::DisplayUploadAdInfo),
-        /// Details pertaining to an app engagement ad.
-        #[prost(message, tag = "34")]
-        AppEngagementAd(super::super::common::AppEngagementAdInfo),
-        /// Details pertaining to a Shopping Comparison Listing ad.
-        #[prost(message, tag = "36")]
-        ShoppingComparisonListingAd(
-            super::super::common::ShoppingComparisonListingAdInfo,
-        ),
-        /// Details pertaining to a Smart campaign ad.
-        #[prost(message, tag = "48")]
-        SmartCampaignAd(super::super::common::SmartCampaignAdInfo),
-        /// Details pertaining to an app pre-registration ad.
-        #[prost(message, tag = "50")]
-        AppPreRegistrationAd(super::super::common::AppPreRegistrationAdInfo),
-        /// Details pertaining to a discovery multi asset ad.
-        #[prost(message, tag = "51")]
-        DiscoveryMultiAssetAd(super::super::common::DiscoveryMultiAssetAdInfo),
-        /// Details pertaining to a discovery carousel ad.
-        #[prost(message, tag = "52")]
-        DiscoveryCarouselAd(super::super::common::DiscoveryCarouselAdInfo),
-        /// Details pertaining to a travel ad.
-        #[prost(message, tag = "54")]
-        TravelAd(super::super::common::TravelAdInfo),
+        GoogleAds(super::GoogleAdsLinkIdentifier),
+        /// Output only. Hotel link
+        #[prost(message, tag = "9")]
+        HotelCenter(super::HotelCenterLinkIdentifier),
+        /// Output only. Advertising Partner link
+        #[prost(message, tag = "10")]
+        AdvertisingPartner(super::AdvertisingPartnerLinkIdentifier),
+    }
+}
+/// The identifiers of a Third Party App Analytics Link.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ThirdPartyAppAnalyticsLinkIdentifier {
+    /// Immutable. The ID of the app analytics provider.
+    /// This field should not be empty when creating a new third
+    /// party app analytics link. It is unable to be modified after the creation of
+    /// the link.
+    #[prost(int64, optional, tag = "4")]
+    pub app_analytics_provider_id: ::core::option::Option<i64>,
+    /// Immutable. A string that uniquely identifies a mobile application from
+    /// which the data was collected to the Google Ads API. For iOS, the ID string
+    /// is the 9 digit string that appears at the end of an App Store URL (for
+    /// example, "422689480" for "Gmail" whose App Store link is
+    /// <https://apps.apple.com/us/app/gmail-email-by-google/id422689480>). For
+    /// Android, the ID string is the application's package name (for example,
+    /// "com.google.android.gm" for "Gmail" given Google Play link
+    /// <https://play.google.com/store/apps/details?id=com.google.android.gm>)
+    /// This field should not be empty when creating a new third
+    /// party app analytics link. It is unable to be modified after the creation of
+    /// the link.
+    #[prost(string, optional, tag = "5")]
+    pub app_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Immutable. The vendor of the app.
+    /// This field should not be empty when creating a new third
+    /// party app analytics link. It is unable to be modified after the creation of
+    /// the link.
+    #[prost(
+        enumeration = "super::enums::mobile_app_vendor_enum::MobileAppVendor",
+        tag = "3"
+    )]
+    pub app_vendor: i32,
+}
+/// The identifier for Data Partner account.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DataPartnerLinkIdentifier {
+    /// Immutable. The customer ID of the Data partner account.
+    /// This field is required and should not be empty when creating a new
+    /// data partner link. It is unable to be modified after the creation of
+    /// the link.
+    #[prost(int64, optional, tag = "1")]
+    pub data_partner_id: ::core::option::Option<i64>,
+}
+/// The identifier for Hotel account.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct HotelCenterLinkIdentifier {
+    /// Output only. The hotel center id of the hotel account.
+    #[prost(int64, tag = "1")]
+    pub hotel_center_id: i64,
+}
+/// The identifier for Google Ads account.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GoogleAdsLinkIdentifier {
+    /// Immutable. The resource name of the Google Ads account.
+    /// This field is required and should not be empty when creating a new
+    /// Google Ads link. It is unable to be modified after the creation of
+    /// the link.
+    #[prost(string, optional, tag = "3")]
+    pub customer: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// The identifier for the Advertising Partner Google Ads account.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AdvertisingPartnerLinkIdentifier {
+    /// Immutable. The resource name of the advertising partner Google Ads account.
+    /// This field is required and should not be empty when creating a new
+    /// Advertising Partner link. It is unable to be modified after the creation of
+    /// the link.
+    #[prost(string, optional, tag = "1")]
+    pub customer: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// An ad group.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AdGroup {
+    /// Immutable. The resource name of the ad group.
+    /// Ad group resource names have the form:
+    ///
+    /// `customers/{customer_id}/adGroups/{ad_group_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The ID of the ad group.
+    #[prost(int64, optional, tag = "34")]
+    pub id: ::core::option::Option<i64>,
+    /// The name of the ad group.
+    ///
+    /// This field is required and should not be empty when creating new ad
+    /// groups.
+    ///
+    /// It must contain fewer than 255 UTF-8 full-width characters.
+    ///
+    /// It must not contain any null (code point 0x0), NL line feed
+    /// (code point 0xA) or carriage return (code point 0xD) characters.
+    #[prost(string, optional, tag = "35")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// The status of the ad group.
+    #[prost(
+        enumeration = "super::enums::ad_group_status_enum::AdGroupStatus",
+        tag = "5"
+    )]
+    pub status: i32,
+    /// Immutable. The type of the ad group.
+    #[prost(enumeration = "super::enums::ad_group_type_enum::AdGroupType", tag = "12")]
+    pub r#type: i32,
+    /// The ad rotation mode of the ad group.
+    #[prost(
+        enumeration = "super::enums::ad_group_ad_rotation_mode_enum::AdGroupAdRotationMode",
+        tag = "22"
+    )]
+    pub ad_rotation_mode: i32,
+    /// Output only. For draft or experiment ad groups, this field is the resource
+    /// name of the base ad group from which this ad group was created. If a draft
+    /// or experiment ad group does not have a base ad group, then this field is
+    /// null.
+    ///
+    /// For base ad groups, this field equals the ad group resource name.
+    ///
+    /// This field is read-only.
+    #[prost(string, optional, tag = "36")]
+    pub base_ad_group: ::core::option::Option<::prost::alloc::string::String>,
+    /// The URL template for constructing a tracking URL.
+    #[prost(string, optional, tag = "37")]
+    pub tracking_url_template: ::core::option::Option<::prost::alloc::string::String>,
+    /// The list of mappings used to substitute custom parameter tags in a
+    /// `tracking_url_template`, `final_urls`, or `mobile_final_urls`.
+    #[prost(message, repeated, tag = "6")]
+    pub url_custom_parameters: ::prost::alloc::vec::Vec<super::common::CustomParameter>,
+    /// Immutable. The campaign to which the ad group belongs.
+    #[prost(string, optional, tag = "38")]
+    pub campaign: ::core::option::Option<::prost::alloc::string::String>,
+    /// The maximum CPC (cost-per-click) bid.
+    #[prost(int64, optional, tag = "39")]
+    pub cpc_bid_micros: ::core::option::Option<i64>,
+    /// Output only. Value will be same as that of the CPC (cost-per-click) bid
+    /// value when the bidding strategy is one of manual cpc, enhanced cpc, page
+    /// one promoted or target outrank share, otherwise the value will be null.
+    #[prost(int64, optional, tag = "57")]
+    pub effective_cpc_bid_micros: ::core::option::Option<i64>,
+    /// The maximum CPM (cost-per-thousand viewable impressions) bid.
+    #[prost(int64, optional, tag = "40")]
+    pub cpm_bid_micros: ::core::option::Option<i64>,
+    /// The target CPA (cost-per-acquisition). If the ad group's campaign
+    /// bidding strategy is TargetCpa or MaximizeConversions (with its target_cpa
+    /// field set), then this field overrides the target CPA specified in the
+    /// campaign's bidding strategy.
+    /// Otherwise, this value is ignored.
+    #[prost(int64, optional, tag = "41")]
+    pub target_cpa_micros: ::core::option::Option<i64>,
+    /// The CPV (cost-per-view) bid.
+    #[prost(int64, optional, tag = "42")]
+    pub cpv_bid_micros: ::core::option::Option<i64>,
+    /// Average amount in micros that the advertiser is willing to pay for every
+    /// thousand times the ad is shown.
+    #[prost(int64, optional, tag = "43")]
+    pub target_cpm_micros: ::core::option::Option<i64>,
+    /// The target ROAS (return-on-ad-spend) override. If the ad group's campaign
+    /// bidding strategy is TargetRoas or MaximizeConversionValue (with its
+    /// target_roas field set), then this field overrides the target ROAS specified
+    /// in the campaign's bidding strategy.
+    /// Otherwise, this value is ignored.
+    #[prost(double, optional, tag = "44")]
+    pub target_roas: ::core::option::Option<f64>,
+    /// The percent cpc bid amount, expressed as a fraction of the advertised price
+    /// for some good or service. The valid range for the fraction is [0,1) and the
+    /// value stored here is 1,000,000 * \[fraction\].
+    #[prost(int64, optional, tag = "45")]
+    pub percent_cpc_bid_micros: ::core::option::Option<i64>,
+    /// True if optimized targeting is enabled. Optimized Targeting is the
+    /// replacement for Audience Expansion.
+    #[prost(bool, tag = "59")]
+    pub optimized_targeting_enabled: bool,
+    /// Allows advertisers to specify a targeting dimension on which to place
+    /// absolute bids. This is only applicable for campaigns that target only the
+    /// display network and not search.
+    #[prost(
+        enumeration = "super::enums::targeting_dimension_enum::TargetingDimension",
+        tag = "23"
+    )]
+    pub display_custom_bid_dimension: i32,
+    /// URL template for appending params to Final URL.
+    #[prost(string, optional, tag = "46")]
+    pub final_url_suffix: ::core::option::Option<::prost::alloc::string::String>,
+    /// Setting for targeting related features.
+    #[prost(message, optional, tag = "25")]
+    pub targeting_setting: ::core::option::Option<super::common::TargetingSetting>,
+    /// Immutable. Setting for audience related features.
+    #[prost(message, optional, tag = "56")]
+    pub audience_setting: ::core::option::Option<ad_group::AudienceSetting>,
+    /// Output only. The effective target CPA (cost-per-acquisition).
+    /// This field is read-only.
+    #[prost(int64, optional, tag = "47")]
+    pub effective_target_cpa_micros: ::core::option::Option<i64>,
+    /// Output only. Source of the effective target CPA.
+    /// This field is read-only.
+    #[prost(
+        enumeration = "super::enums::bidding_source_enum::BiddingSource",
+        tag = "29"
+    )]
+    pub effective_target_cpa_source: i32,
+    /// Output only. The effective target ROAS (return-on-ad-spend).
+    /// This field is read-only.
+    #[prost(double, optional, tag = "48")]
+    pub effective_target_roas: ::core::option::Option<f64>,
+    /// Output only. Source of the effective target ROAS.
+    /// This field is read-only.
+    #[prost(
+        enumeration = "super::enums::bidding_source_enum::BiddingSource",
+        tag = "32"
+    )]
+    pub effective_target_roas_source: i32,
+    /// Output only. The resource names of labels attached to this ad group.
+    #[prost(string, repeated, tag = "49")]
+    pub labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The asset field types that should be excluded from this ad group. Asset
+    /// links with these field types will not be inherited by this ad group from
+    /// the upper levels.
+    #[prost(
+        enumeration = "super::enums::asset_field_type_enum::AssetFieldType",
+        repeated,
+        tag = "54"
+    )]
+    pub excluded_parent_asset_field_types: ::prost::alloc::vec::Vec<i32>,
+    /// The asset set types that should be excluded from this ad group. Asset set
+    /// links with these types will not be inherited by this ad group from the
+    /// upper levels.
+    /// Location group types (GMB_DYNAMIC_LOCATION_GROUP,
+    /// CHAIN_DYNAMIC_LOCATION_GROUP, and STATIC_LOCATION_GROUP) are child types of
+    /// LOCATION_SYNC. Therefore, if LOCATION_SYNC is set for this field, all
+    /// location group asset sets are not allowed to be linked to this ad group,
+    /// and all Location Extension (LE) and Affiliate Location Extensions (ALE)
+    /// will not be served under this ad group.
+    /// Only LOCATION_SYNC is currently supported.
+    #[prost(
+        enumeration = "super::enums::asset_set_type_enum::AssetSetType",
+        repeated,
+        tag = "58"
+    )]
+    pub excluded_parent_asset_set_types: ::prost::alloc::vec::Vec<i32>,
+}
+/// Nested message and enum types in `AdGroup`.
+pub mod ad_group {
+    /// Settings for the audience targeting.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AudienceSetting {
+        /// Immutable. If true, this ad group uses an Audience resource for audience
+        /// targeting. If false, this ad group may use audience segment criteria
+        /// instead.
+        #[prost(bool, tag = "1")]
+        pub use_audience_grouped: bool,
     }
 }
 /// An ad group ad.
@@ -3771,78 +4024,6 @@ pub struct AdGroupAudienceView {
     /// `customers/{customer_id}/adGroupAudienceViews/{ad_group_id}~{criterion_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-}
-/// Represents an ad group bid modifier.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AdGroupBidModifier {
-    /// Immutable. The resource name of the ad group bid modifier.
-    /// Ad group bid modifier resource names have the form:
-    ///
-    /// `customers/{customer_id}/adGroupBidModifiers/{ad_group_id}~{criterion_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The ad group to which this criterion belongs.
-    #[prost(string, optional, tag = "13")]
-    pub ad_group: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The ID of the criterion to bid modify.
-    ///
-    /// This field is ignored for mutates.
-    #[prost(int64, optional, tag = "14")]
-    pub criterion_id: ::core::option::Option<i64>,
-    /// The modifier for the bid when the criterion matches. The modifier must be
-    /// in the range: 0.1 - 10.0. The range is 1.0 - 6.0 for PreferredContent.
-    /// Use 0 to opt out of a Device type.
-    #[prost(double, optional, tag = "15")]
-    pub bid_modifier: ::core::option::Option<f64>,
-    /// Output only. The base ad group from which this draft/trial adgroup bid
-    /// modifier was created. If ad_group is a base ad group then this field will
-    /// be equal to ad_group. If the ad group was created in the draft or trial and
-    /// has no corresponding base ad group, then this field will be null. This
-    /// field is readonly.
-    #[prost(string, optional, tag = "16")]
-    pub base_ad_group: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Bid modifier source.
-    #[prost(
-        enumeration = "super::enums::bid_modifier_source_enum::BidModifierSource",
-        tag = "10"
-    )]
-    pub bid_modifier_source: i32,
-    /// The criterion of this ad group bid modifier.
-    ///
-    /// Required in create operations starting in V5.
-    #[prost(oneof = "ad_group_bid_modifier::Criterion", tags = "5, 6, 7, 8, 11, 17")]
-    pub criterion: ::core::option::Option<ad_group_bid_modifier::Criterion>,
-}
-/// Nested message and enum types in `AdGroupBidModifier`.
-pub mod ad_group_bid_modifier {
-    /// The criterion of this ad group bid modifier.
-    ///
-    /// Required in create operations starting in V5.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Criterion {
-        /// Immutable. Criterion for hotel date selection (default dates versus user
-        /// selected).
-        #[prost(message, tag = "5")]
-        HotelDateSelectionType(super::super::common::HotelDateSelectionTypeInfo),
-        /// Immutable. Criterion for number of days prior to the stay the booking is
-        /// being made.
-        #[prost(message, tag = "6")]
-        HotelAdvanceBookingWindow(super::super::common::HotelAdvanceBookingWindowInfo),
-        /// Immutable. Criterion for length of hotel stay in nights.
-        #[prost(message, tag = "7")]
-        HotelLengthOfStay(super::super::common::HotelLengthOfStayInfo),
-        /// Immutable. Criterion for day of the week the booking is for.
-        #[prost(message, tag = "8")]
-        HotelCheckInDay(super::super::common::HotelCheckInDayInfo),
-        /// Immutable. A device criterion.
-        #[prost(message, tag = "11")]
-        Device(super::super::common::DeviceInfo),
-        /// Immutable. Criterion for a hotel check-in date range.
-        #[prost(message, tag = "17")]
-        HotelCheckInDateRange(super::super::common::HotelCheckInDateRangeInfo),
-    }
 }
 /// An ad group criterion.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -4276,37 +4457,42 @@ pub struct AdGroupCustomizer {
     #[prost(message, optional, tag = "5")]
     pub value: ::core::option::Option<super::common::CustomizerValue>,
 }
-/// An ad group extension setting.
+/// An ad group feed.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AdGroupExtensionSetting {
-    /// Immutable. The resource name of the ad group extension setting.
-    /// AdGroupExtensionSetting resource names have the form:
+pub struct AdGroupFeed {
+    /// Immutable. The resource name of the ad group feed.
+    /// Ad group feed resource names have the form:
     ///
-    /// `customers/{customer_id}/adGroupExtensionSettings/{ad_group_id}~{extension_type}`
+    /// `customers/{customer_id}/adGroupFeeds/{ad_group_id}~{feed_id}
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The extension type of the ad group extension setting.
-    #[prost(enumeration = "super::enums::extension_type_enum::ExtensionType", tag = "2")]
-    pub extension_type: i32,
-    /// Immutable. The resource name of the ad group. The linked extension feed
-    /// items will serve under this ad group. AdGroup resource names have the form:
-    ///
-    /// `customers/{customer_id}/adGroups/{ad_group_id}`
-    #[prost(string, optional, tag = "6")]
+    /// Immutable. The feed being linked to the ad group.
+    #[prost(string, optional, tag = "7")]
+    pub feed: ::core::option::Option<::prost::alloc::string::String>,
+    /// Immutable. The ad group being linked to the feed.
+    #[prost(string, optional, tag = "8")]
     pub ad_group: ::core::option::Option<::prost::alloc::string::String>,
-    /// The resource names of the extension feed items to serve under the ad group.
-    /// ExtensionFeedItem resource names have the form:
-    ///
-    /// `customers/{customer_id}/extensionFeedItems/{feed_item_id}`
-    #[prost(string, repeated, tag = "7")]
-    pub extension_feed_items: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The device for which the extensions will serve. Optional.
+    /// Indicates which placeholder types the feed may populate under the connected
+    /// ad group. Required.
     #[prost(
-        enumeration = "super::enums::extension_setting_device_enum::ExtensionSettingDevice",
-        tag = "5"
+        enumeration = "super::enums::placeholder_type_enum::PlaceholderType",
+        repeated,
+        tag = "4"
     )]
-    pub device: i32,
+    pub placeholder_types: ::prost::alloc::vec::Vec<i32>,
+    /// Matching function associated with the AdGroupFeed.
+    /// The matching function is used to filter the set of feed items selected.
+    /// Required.
+    #[prost(message, optional, tag = "5")]
+    pub matching_function: ::core::option::Option<super::common::MatchingFunction>,
+    /// Output only. Status of the ad group feed.
+    /// This field is read-only.
+    #[prost(
+        enumeration = "super::enums::feed_link_status_enum::FeedLinkStatus",
+        tag = "6"
+    )]
+    pub status: i32,
 }
 /// A relationship between an ad group and a label.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -4391,43 +4577,6 @@ pub mod ad_group_simulation {
         TargetRoasPointList(super::super::common::TargetRoasSimulationPointList),
     }
 }
-/// An ad parameter that is used to update numeric values (such as prices or
-/// inventory levels) in any text line of an ad (including URLs). There can
-/// be a maximum of two AdParameters per ad group criterion. (One with
-/// parameter_index = 1 and one with parameter_index = 2.)
-/// In the ad the parameters are referenced by a placeholder of the form
-/// "{param#:value}". For example, "{param1:$17}"
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AdParameter {
-    /// Immutable. The resource name of the ad parameter.
-    /// Ad parameter resource names have the form:
-    ///
-    /// `customers/{customer_id}/adParameters/{ad_group_id}~{criterion_id}~{parameter_index}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The ad group criterion that this ad parameter belongs to.
-    #[prost(string, optional, tag = "5")]
-    pub ad_group_criterion: ::core::option::Option<::prost::alloc::string::String>,
-    /// Immutable. The unique index of this ad parameter. Must be either 1 or 2.
-    #[prost(int64, optional, tag = "6")]
-    pub parameter_index: ::core::option::Option<i64>,
-    /// Numeric value to insert into the ad text. The following restrictions
-    ///   apply:
-    ///   - Can use comma or period as a separator, with an optional period or
-    ///     comma (respectively) for fractional values. For example, 1,000,000.00
-    ///     and 2.000.000,10 are valid.
-    ///   - Can be prepended or appended with a currency symbol. For example,
-    ///     $99.99 is valid.
-    ///   - Can be prepended or appended with a currency code. For example, 99.99USD
-    ///     and EUR200 are valid.
-    ///   - Can use '%'. For example, 1.0% and 1,0% are valid.
-    ///   - Can use plus or minus. For example, -10.99 and 25+ are valid.
-    ///   - Can use '/' between two numbers. For example 4/1 and 0.95/0.45 are
-    ///     valid.
-    #[prost(string, optional, tag = "7")]
-    pub insertion_text: ::core::option::Option<::prost::alloc::string::String>,
-}
 /// An ad schedule view summarizes the performance of campaigns by
 /// AdSchedule criteria.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -4450,195 +4599,6 @@ pub struct AgeRangeView {
     /// `customers/{customer_id}/ageRangeViews/{ad_group_id}~{criterion_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-}
-/// Asset is a part of an ad which can be shared across multiple ads.
-/// It can be an image (ImageAsset), a video (YoutubeVideoAsset), etc.
-/// Assets are immutable and cannot be removed. To stop an asset from serving,
-/// remove the asset from the entity that is using it.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Asset {
-    /// Immutable. The resource name of the asset.
-    /// Asset resource names have the form:
-    ///
-    /// `customers/{customer_id}/assets/{asset_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the asset.
-    #[prost(int64, optional, tag = "11")]
-    pub id: ::core::option::Option<i64>,
-    /// Optional name of the asset.
-    #[prost(string, optional, tag = "12")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Type of the asset.
-    #[prost(enumeration = "super::enums::asset_type_enum::AssetType", tag = "4")]
-    pub r#type: i32,
-    /// A list of possible final URLs after all cross domain redirects.
-    #[prost(string, repeated, tag = "14")]
-    pub final_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// A list of possible final mobile URLs after all cross domain redirects.
-    #[prost(string, repeated, tag = "16")]
-    pub final_mobile_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// URL template for constructing a tracking URL.
-    #[prost(string, optional, tag = "17")]
-    pub tracking_url_template: ::core::option::Option<::prost::alloc::string::String>,
-    /// A list of mappings to be used for substituting URL custom parameter tags in
-    /// the tracking_url_template, final_urls, and/or final_mobile_urls.
-    #[prost(message, repeated, tag = "18")]
-    pub url_custom_parameters: ::prost::alloc::vec::Vec<super::common::CustomParameter>,
-    /// URL template for appending params to landing page URLs served with parallel
-    /// tracking.
-    #[prost(string, optional, tag = "19")]
-    pub final_url_suffix: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Source of the asset.
-    #[prost(enumeration = "super::enums::asset_source_enum::AssetSource", tag = "38")]
-    pub source: i32,
-    /// Output only. Policy information for the asset.
-    #[prost(message, optional, tag = "13")]
-    pub policy_summary: ::core::option::Option<AssetPolicySummary>,
-    /// Output only. Policy information for the asset for each FieldType.
-    #[prost(message, repeated, tag = "40")]
-    pub field_type_policy_summaries: ::prost::alloc::vec::Vec<
-        AssetFieldTypePolicySummary,
-    >,
-    /// The specific type of the asset.
-    #[prost(
-        oneof = "asset::AssetData",
-        tags = "5, 6, 7, 8, 9, 10, 15, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 39, 41"
-    )]
-    pub asset_data: ::core::option::Option<asset::AssetData>,
-}
-/// Nested message and enum types in `Asset`.
-pub mod asset {
-    /// The specific type of the asset.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum AssetData {
-        /// Immutable. A YouTube video asset.
-        #[prost(message, tag = "5")]
-        YoutubeVideoAsset(super::super::common::YoutubeVideoAsset),
-        /// Immutable. A media bundle asset.
-        #[prost(message, tag = "6")]
-        MediaBundleAsset(super::super::common::MediaBundleAsset),
-        /// Output only. An image asset.
-        #[prost(message, tag = "7")]
-        ImageAsset(super::super::common::ImageAsset),
-        /// Immutable. A text asset.
-        #[prost(message, tag = "8")]
-        TextAsset(super::super::common::TextAsset),
-        /// A lead form asset.
-        #[prost(message, tag = "9")]
-        LeadFormAsset(super::super::common::LeadFormAsset),
-        /// A book on google asset.
-        #[prost(message, tag = "10")]
-        BookOnGoogleAsset(super::super::common::BookOnGoogleAsset),
-        /// A promotion asset.
-        #[prost(message, tag = "15")]
-        PromotionAsset(super::super::common::PromotionAsset),
-        /// A callout asset.
-        #[prost(message, tag = "20")]
-        CalloutAsset(super::super::common::CalloutAsset),
-        /// A structured snippet asset.
-        #[prost(message, tag = "21")]
-        StructuredSnippetAsset(super::super::common::StructuredSnippetAsset),
-        /// A sitelink asset.
-        #[prost(message, tag = "22")]
-        SitelinkAsset(super::super::common::SitelinkAsset),
-        /// A page feed asset.
-        #[prost(message, tag = "23")]
-        PageFeedAsset(super::super::common::PageFeedAsset),
-        /// A dynamic education asset.
-        #[prost(message, tag = "24")]
-        DynamicEducationAsset(super::super::common::DynamicEducationAsset),
-        /// A mobile app asset.
-        #[prost(message, tag = "25")]
-        MobileAppAsset(super::super::common::MobileAppAsset),
-        /// A hotel callout asset.
-        #[prost(message, tag = "26")]
-        HotelCalloutAsset(super::super::common::HotelCalloutAsset),
-        /// A call asset.
-        #[prost(message, tag = "27")]
-        CallAsset(super::super::common::CallAsset),
-        /// A price asset.
-        #[prost(message, tag = "28")]
-        PriceAsset(super::super::common::PriceAsset),
-        /// Immutable. A call to action asset.
-        #[prost(message, tag = "29")]
-        CallToActionAsset(super::super::common::CallToActionAsset),
-        /// A dynamic real estate asset.
-        #[prost(message, tag = "30")]
-        DynamicRealEstateAsset(super::super::common::DynamicRealEstateAsset),
-        /// A dynamic custom asset.
-        #[prost(message, tag = "31")]
-        DynamicCustomAsset(super::super::common::DynamicCustomAsset),
-        /// A dynamic hotels and rentals asset.
-        #[prost(message, tag = "32")]
-        DynamicHotelsAndRentalsAsset(super::super::common::DynamicHotelsAndRentalsAsset),
-        /// A dynamic flights asset.
-        #[prost(message, tag = "33")]
-        DynamicFlightsAsset(super::super::common::DynamicFlightsAsset),
-        /// Immutable. A discovery carousel card asset.
-        #[prost(message, tag = "34")]
-        DiscoveryCarouselCardAsset(super::super::common::DiscoveryCarouselCardAsset),
-        /// A dynamic travel asset.
-        #[prost(message, tag = "35")]
-        DynamicTravelAsset(super::super::common::DynamicTravelAsset),
-        /// A dynamic local asset.
-        #[prost(message, tag = "36")]
-        DynamicLocalAsset(super::super::common::DynamicLocalAsset),
-        /// A dynamic jobs asset.
-        #[prost(message, tag = "37")]
-        DynamicJobsAsset(super::super::common::DynamicJobsAsset),
-        /// Output only. A location asset.
-        #[prost(message, tag = "39")]
-        LocationAsset(super::super::common::LocationAsset),
-        /// Immutable. A hotel property asset.
-        #[prost(message, tag = "41")]
-        HotelPropertyAsset(super::super::common::HotelPropertyAsset),
-    }
-}
-/// Contains policy information for an asset under AssetFieldType context.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AssetFieldTypePolicySummary {
-    /// Output only. FieldType of this asset.
-    #[prost(
-        enumeration = "super::enums::asset_field_type_enum::AssetFieldType",
-        optional,
-        tag = "1"
-    )]
-    pub asset_field_type: ::core::option::Option<i32>,
-    /// Output only. Source of this asset.
-    #[prost(
-        enumeration = "super::enums::asset_source_enum::AssetSource",
-        optional,
-        tag = "2"
-    )]
-    pub asset_source: ::core::option::Option<i32>,
-    /// Output only. Policy summary.
-    #[prost(message, optional, tag = "3")]
-    pub policy_summary_info: ::core::option::Option<AssetPolicySummary>,
-}
-/// Contains policy information for an asset.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AssetPolicySummary {
-    /// Output only. The list of policy findings for this asset.
-    #[prost(message, repeated, tag = "1")]
-    pub policy_topic_entries: ::prost::alloc::vec::Vec<super::common::PolicyTopicEntry>,
-    /// Output only. Where in the review process this asset is.
-    #[prost(
-        enumeration = "super::enums::policy_review_status_enum::PolicyReviewStatus",
-        tag = "2"
-    )]
-    pub review_status: i32,
-    /// Output only. The overall approval status of this asset, calculated based on
-    /// the status of its individual policy topic entries.
-    #[prost(
-        enumeration = "super::enums::policy_approval_status_enum::PolicyApprovalStatus",
-        tag = "3"
-    )]
-    pub approval_status: i32,
 }
 /// An asset field type view.
 /// This view reports non-overcounted metrics for each asset field type when the
@@ -4698,6 +4658,173 @@ pub struct AssetGroupAsset {
     /// Output only. The policy information for this asset group asset.
     #[prost(message, optional, tag = "7")]
     pub policy_summary: ::core::option::Option<super::common::PolicySummary>,
+}
+/// AssetGroupListingGroupFilter represents a listing group filter tree node in
+/// an asset group.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AssetGroupListingGroupFilter {
+    /// Immutable. The resource name of the asset group listing group filter.
+    /// Asset group listing group filter resource name have the form:
+    ///
+    /// `customers/{customer_id}/assetGroupListingGroupFilters/{asset_group_id}~{listing_group_filter_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The asset group which this asset group listing group filter is
+    /// part of.
+    #[prost(string, tag = "2")]
+    pub asset_group: ::prost::alloc::string::String,
+    /// Output only. The ID of the ListingGroupFilter.
+    #[prost(int64, tag = "3")]
+    pub id: i64,
+    /// Immutable. Type of a listing group filter node.
+    #[prost(
+        enumeration = "super::enums::listing_group_filter_type_enum::ListingGroupFilterType",
+        tag = "4"
+    )]
+    pub r#type: i32,
+    /// Immutable. The vertical the current node tree represents. All nodes in the
+    /// same tree must belong to the same vertical.
+    #[prost(
+        enumeration = "super::enums::listing_group_filter_vertical_enum::ListingGroupFilterVertical",
+        tag = "5"
+    )]
+    pub vertical: i32,
+    /// Dimension value with which this listing group is refining its parent.
+    /// Undefined for the root group.
+    #[prost(message, optional, tag = "6")]
+    pub case_value: ::core::option::Option<ListingGroupFilterDimension>,
+    /// Immutable. Resource name of the parent listing group subdivision. Null for
+    /// the root listing group filter node.
+    #[prost(string, tag = "7")]
+    pub parent_listing_group_filter: ::prost::alloc::string::String,
+}
+/// Listing dimensions for the asset group listing group filter.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListingGroupFilterDimension {
+    /// Dimension of one of the types below is always present.
+    #[prost(
+        oneof = "listing_group_filter_dimension::Dimension",
+        tags = "1, 2, 3, 4, 5, 6, 7"
+    )]
+    pub dimension: ::core::option::Option<listing_group_filter_dimension::Dimension>,
+}
+/// Nested message and enum types in `ListingGroupFilterDimension`.
+pub mod listing_group_filter_dimension {
+    /// One element of a bidding category at a certain level. Top-level categories
+    /// are at level 1, their children at level 2, and so on. We currently support
+    /// up to 5 levels. The user must specify a dimension type that indicates the
+    /// level of the category. All cases of the same subdivision must have the same
+    /// dimension type (category level).
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ProductBiddingCategory {
+        /// ID of the product bidding category.
+        ///
+        /// This ID is equivalent to the google_product_category ID as described in
+        /// this article: <https://support.google.com/merchants/answer/6324436>
+        #[prost(int64, optional, tag = "1")]
+        pub id: ::core::option::Option<i64>,
+        /// Indicates the level of the category in the taxonomy.
+        #[prost(
+            enumeration = "super::super::enums::listing_group_filter_bidding_category_level_enum::ListingGroupFilterBiddingCategoryLevel",
+            tag = "2"
+        )]
+        pub level: i32,
+    }
+    /// Brand of the product.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ProductBrand {
+        /// String value of the product brand.
+        #[prost(string, optional, tag = "1")]
+        pub value: ::core::option::Option<::prost::alloc::string::String>,
+    }
+    /// Locality of a product offer.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ProductChannel {
+        /// Value of the locality.
+        #[prost(
+            enumeration = "super::super::enums::listing_group_filter_product_channel_enum::ListingGroupFilterProductChannel",
+            tag = "1"
+        )]
+        pub channel: i32,
+    }
+    /// Condition of a product offer.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ProductCondition {
+        /// Value of the condition.
+        #[prost(
+            enumeration = "super::super::enums::listing_group_filter_product_condition_enum::ListingGroupFilterProductCondition",
+            tag = "1"
+        )]
+        pub condition: i32,
+    }
+    /// Custom attribute of a product offer.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ProductCustomAttribute {
+        /// String value of the product custom attribute.
+        #[prost(string, optional, tag = "1")]
+        pub value: ::core::option::Option<::prost::alloc::string::String>,
+        /// Indicates the index of the custom attribute.
+        #[prost(
+            enumeration = "super::super::enums::listing_group_filter_custom_attribute_index_enum::ListingGroupFilterCustomAttributeIndex",
+            tag = "2"
+        )]
+        pub index: i32,
+    }
+    /// Item id of a product offer.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ProductItemId {
+        /// Value of the id.
+        #[prost(string, optional, tag = "1")]
+        pub value: ::core::option::Option<::prost::alloc::string::String>,
+    }
+    /// Type of a product offer.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ProductType {
+        /// Value of the type.
+        #[prost(string, optional, tag = "1")]
+        pub value: ::core::option::Option<::prost::alloc::string::String>,
+        /// Level of the type.
+        #[prost(
+            enumeration = "super::super::enums::listing_group_filter_product_type_level_enum::ListingGroupFilterProductTypeLevel",
+            tag = "2"
+        )]
+        pub level: i32,
+    }
+    /// Dimension of one of the types below is always present.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Dimension {
+        /// Bidding category of a product offer.
+        #[prost(message, tag = "1")]
+        ProductBiddingCategory(ProductBiddingCategory),
+        /// Brand of a product offer.
+        #[prost(message, tag = "2")]
+        ProductBrand(ProductBrand),
+        /// Locality of a product offer.
+        #[prost(message, tag = "3")]
+        ProductChannel(ProductChannel),
+        /// Condition of a product offer.
+        #[prost(message, tag = "4")]
+        ProductCondition(ProductCondition),
+        /// Custom attribute of a product offer.
+        #[prost(message, tag = "5")]
+        ProductCustomAttribute(ProductCustomAttribute),
+        /// Item id of a product offer.
+        #[prost(message, tag = "6")]
+        ProductItemId(ProductItemId),
+        /// Type of a product offer.
+        #[prost(message, tag = "7")]
+        ProductType(ProductType),
+    }
 }
 /// An asset group product group view.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -4826,6 +4953,30 @@ pub mod asset_set {
         ChainLocationGroup(super::super::common::ChainLocationGroup),
     }
 }
+/// AssetSetAsset is the link between an asset and an asset set.
+/// Adding an AssetSetAsset links an asset with an asset set.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AssetSetAsset {
+    /// Immutable. The resource name of the asset set asset.
+    /// Asset set asset resource names have the form:
+    ///
+    /// `customers/{customer_id}/assetSetAssets/{asset_set_id}~{asset_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The asset set which this asset set asset is linking to.
+    #[prost(string, tag = "2")]
+    pub asset_set: ::prost::alloc::string::String,
+    /// Immutable. The asset which this asset set asset is linking to.
+    #[prost(string, tag = "3")]
+    pub asset: ::prost::alloc::string::String,
+    /// Output only. The status of the asset set asset. Read-only.
+    #[prost(
+        enumeration = "super::enums::asset_set_asset_status_enum::AssetSetAssetStatus",
+        tag = "4"
+    )]
+    pub status: i32,
+}
 /// An asset set type view.
 /// This view reports non-overcounted metrics for each asset set type. Child
 /// asset set types are not included in this report. Their stats are aggregated
@@ -4842,46 +4993,6 @@ pub struct AssetSetTypeView {
     /// Output only. The asset set type of the asset set type view.
     #[prost(enumeration = "super::enums::asset_set_type_enum::AssetSetType", tag = "3")]
     pub asset_set_type: i32,
-}
-/// Audience is an effective targeting option that lets you
-/// intersect different segment attributes, such as detailed demographics and
-/// affinities, to create audiences that represent sections of your target
-/// segments.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Audience {
-    /// Immutable. The resource name of the audience.
-    /// Audience names have the form:
-    ///
-    /// `customers/{customer_id}/audiences/{audience_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. ID of the audience.
-    #[prost(int64, tag = "2")]
-    pub id: i64,
-    /// Output only. Status of this audience. Indicates whether the audience
-    /// is enabled or removed.
-    #[prost(
-        enumeration = "super::enums::audience_status_enum::AudienceStatus",
-        tag = "3"
-    )]
-    pub status: i32,
-    /// Required. Name of the audience. It should be unique across all
-    /// audiences. It must have a minimum length of 1 and
-    /// maximum length of 255.
-    #[prost(string, tag = "4")]
-    pub name: ::prost::alloc::string::String,
-    /// Description of this audience.
-    #[prost(string, tag = "5")]
-    pub description: ::prost::alloc::string::String,
-    /// Positive dimensions specifying the audience composition.
-    #[prost(message, repeated, tag = "6")]
-    pub dimensions: ::prost::alloc::vec::Vec<super::common::AudienceDimension>,
-    /// Negative dimension specifying the audience composition.
-    #[prost(message, optional, tag = "7")]
-    pub exclusion_dimension: ::core::option::Option<
-        super::common::AudienceExclusionDimension,
-    >,
 }
 /// A list of mutates being processed asynchronously. The mutates are uploaded
 /// by the user. The mutates themselves aren't readable and the results of the
@@ -5026,6 +5137,86 @@ pub struct BiddingDataExclusion {
         enumeration = "super::enums::advertising_channel_type_enum::AdvertisingChannelType",
         repeated,
         tag = "11"
+    )]
+    pub advertising_channel_types: ::prost::alloc::vec::Vec<i32>,
+}
+/// Represents a bidding seasonality adjustment.
+///
+/// See "About seasonality adjustments" at
+/// <https://support.google.com/google-ads/answer/10369906.>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BiddingSeasonalityAdjustment {
+    /// Immutable. The resource name of the seasonality adjustment.
+    /// Seasonality adjustment resource names have the form:
+    ///
+    /// `customers/{customer_id}/biddingSeasonalityAdjustments/{seasonality_adjustment_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The ID of the seasonality adjustment.
+    #[prost(int64, tag = "2")]
+    pub seasonality_adjustment_id: i64,
+    /// The scope of the seasonality adjustment.
+    #[prost(
+        enumeration = "super::enums::seasonality_event_scope_enum::SeasonalityEventScope",
+        tag = "3"
+    )]
+    pub scope: i32,
+    /// Output only. The status of the seasonality adjustment.
+    #[prost(
+        enumeration = "super::enums::seasonality_event_status_enum::SeasonalityEventStatus",
+        tag = "4"
+    )]
+    pub status: i32,
+    /// Required. The inclusive start time of the seasonality adjustment in
+    /// yyyy-MM-dd HH:mm:ss format.
+    ///
+    /// A seasonality adjustment is forward looking and should be used for events
+    /// that start and end in the future.
+    #[prost(string, tag = "5")]
+    pub start_date_time: ::prost::alloc::string::String,
+    /// Required. The exclusive end time of the seasonality adjustment in
+    /// yyyy-MM-dd HH:mm:ss format.
+    ///
+    /// The length of [start_date_time, end_date_time) interval must be
+    /// within (0, 14 days].
+    #[prost(string, tag = "6")]
+    pub end_date_time: ::prost::alloc::string::String,
+    /// The name of the seasonality adjustment. The name can be at most 255
+    /// characters.
+    #[prost(string, tag = "7")]
+    pub name: ::prost::alloc::string::String,
+    /// The description of the seasonality adjustment. The description can be at
+    /// most 2048 characters.
+    #[prost(string, tag = "8")]
+    pub description: ::prost::alloc::string::String,
+    /// If not specified, all devices will be included in this adjustment.
+    /// Otherwise, only the specified targeted devices will be included in this
+    /// adjustment.
+    #[prost(enumeration = "super::enums::device_enum::Device", repeated, tag = "9")]
+    pub devices: ::prost::alloc::vec::Vec<i32>,
+    /// Conversion rate modifier estimated based on expected conversion rate
+    /// changes. When this field is unset or set to 1.0 no adjustment will be
+    /// applied to traffic. The allowed range is 0.1 to 10.0.
+    #[prost(double, tag = "10")]
+    pub conversion_rate_modifier: f64,
+    /// The seasonality adjustment will apply to the campaigns listed when the
+    /// scope of this adjustment is CAMPAIGN. The maximum number of campaigns per
+    /// event is 2000.
+    /// Note: a seasonality adjustment with both advertising_channel_types and
+    /// campaign_ids is not supported.
+    #[prost(string, repeated, tag = "11")]
+    pub campaigns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The seasonality adjustment will apply to all the campaigns under the listed
+    /// channels retroactively as well as going forward when the scope of this
+    /// adjustment is CHANNEL.
+    /// The supported advertising channel types are DISPLAY, SEARCH and SHOPPING.
+    /// Note: a seasonality adjustment with both advertising_channel_types and
+    /// campaign_ids is not supported.
+    #[prost(
+        enumeration = "super::enums::advertising_channel_type_enum::AdvertisingChannelType",
+        repeated,
+        tag = "12"
     )]
     pub advertising_channel_types: ::prost::alloc::vec::Vec<i32>,
 }
@@ -5482,77 +5673,135 @@ pub struct CampaignAudienceView {
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
 }
-/// Represents a bid-modifiable only criterion at the campaign level.
+/// A campaign budget.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CampaignBidModifier {
-    /// Immutable. The resource name of the campaign bid modifier.
-    /// Campaign bid modifier resource names have the form:
+pub struct CampaignBudget {
+    /// Immutable. The resource name of the campaign budget.
+    /// Campaign budget resource names have the form:
     ///
-    /// `customers/{customer_id}/campaignBidModifiers/{campaign_id}~{criterion_id}`
+    /// `customers/{customer_id}/campaignBudgets/{campaign_budget_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The campaign to which this criterion belongs.
-    #[prost(string, optional, tag = "6")]
-    pub campaign: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The ID of the criterion to bid modify.
+    /// Output only. The ID of the campaign budget.
     ///
-    /// This field is ignored for mutates.
-    #[prost(int64, optional, tag = "7")]
-    pub criterion_id: ::core::option::Option<i64>,
-    /// The modifier for the bid when the criterion matches.
-    #[prost(double, optional, tag = "8")]
-    pub bid_modifier: ::core::option::Option<f64>,
-    /// The criterion of this campaign bid modifier.
+    /// A campaign budget is created using the CampaignBudgetService create
+    /// operation and is assigned a budget ID. A budget ID can be shared across
+    /// different campaigns; the system will then allocate the campaign budget
+    /// among different campaigns to get optimum results.
+    #[prost(int64, optional, tag = "19")]
+    pub id: ::core::option::Option<i64>,
+    /// The name of the campaign budget.
     ///
-    /// Required in create operations starting in V5.
-    #[prost(oneof = "campaign_bid_modifier::Criterion", tags = "5")]
-    pub criterion: ::core::option::Option<campaign_bid_modifier::Criterion>,
-}
-/// Nested message and enum types in `CampaignBidModifier`.
-pub mod campaign_bid_modifier {
-    /// The criterion of this campaign bid modifier.
+    /// When creating a campaign budget through CampaignBudgetService, every
+    /// explicitly shared campaign budget must have a non-null, non-empty name.
+    /// Campaign budgets that are not explicitly shared derive their name from the
+    /// attached campaign's name.
     ///
-    /// Required in create operations starting in V5.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Criterion {
-        /// Immutable. Criterion for interaction type. Only supported for search
-        /// campaigns.
-        #[prost(message, tag = "5")]
-        InteractionType(super::super::common::InteractionTypeInfo),
-    }
-}
-/// The biddability setting for the specified campaign only for all
-/// conversion actions with a matching category and origin.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CampaignConversionGoal {
-    /// Immutable. The resource name of the campaign conversion goal.
-    /// Campaign conversion goal resource names have the form:
+    /// The length of this string must be between 1 and 255, inclusive,
+    /// in UTF-8 bytes, (trimmed).
+    #[prost(string, optional, tag = "20")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// The amount of the budget, in the local currency for the account.
+    /// Amount is specified in micros, where one million is equivalent to one
+    /// currency unit. Monthly spend is capped at 30.4 times this amount.
+    #[prost(int64, optional, tag = "21")]
+    pub amount_micros: ::core::option::Option<i64>,
+    /// The lifetime amount of the budget, in the local currency for the account.
+    /// Amount is specified in micros, where one million is equivalent to one
+    /// currency unit.
+    #[prost(int64, optional, tag = "22")]
+    pub total_amount_micros: ::core::option::Option<i64>,
+    /// Output only. The status of this campaign budget. This field is read-only.
+    #[prost(enumeration = "super::enums::budget_status_enum::BudgetStatus", tag = "6")]
+    pub status: i32,
+    /// The delivery method that determines the rate at which the campaign budget
+    /// is spent.
     ///
-    /// `customers/{customer_id}/campaignConversionGoals/{campaign_id}~{category}~{origin}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The campaign with which this campaign conversion goal is
-    /// associated.
-    #[prost(string, tag = "2")]
-    pub campaign: ::prost::alloc::string::String,
-    /// The conversion category of this campaign conversion goal.
+    /// Defaults to STANDARD if unspecified in a create operation.
     #[prost(
-        enumeration = "super::enums::conversion_action_category_enum::ConversionActionCategory",
-        tag = "3"
+        enumeration = "super::enums::budget_delivery_method_enum::BudgetDeliveryMethod",
+        tag = "7"
     )]
-    pub category: i32,
-    /// The conversion origin of this campaign conversion goal.
-    #[prost(
-        enumeration = "super::enums::conversion_origin_enum::ConversionOrigin",
-        tag = "4"
-    )]
-    pub origin: i32,
-    /// The biddability of the campaign conversion goal.
-    #[prost(bool, tag = "5")]
-    pub biddable: bool,
+    pub delivery_method: i32,
+    /// Specifies whether the budget is explicitly shared. Defaults to true if
+    /// unspecified in a create operation.
+    ///
+    /// If true, the budget was created with the purpose of sharing
+    /// across one or more campaigns.
+    ///
+    /// If false, the budget was created with the intention of only being used
+    /// with a single campaign. The budget's name and status will stay in sync
+    /// with the campaign's name and status. Attempting to share the budget with a
+    /// second campaign will result in an error.
+    ///
+    /// A non-shared budget can become an explicitly shared. The same operation
+    /// must also assign the budget a name.
+    ///
+    /// A shared campaign budget can never become non-shared.
+    #[prost(bool, optional, tag = "23")]
+    pub explicitly_shared: ::core::option::Option<bool>,
+    /// Output only. The number of campaigns actively using the budget.
+    ///
+    /// This field is read-only.
+    #[prost(int64, optional, tag = "24")]
+    pub reference_count: ::core::option::Option<i64>,
+    /// Output only. Indicates whether there is a recommended budget for this
+    /// campaign budget.
+    ///
+    /// This field is read-only.
+    #[prost(bool, optional, tag = "25")]
+    pub has_recommended_budget: ::core::option::Option<bool>,
+    /// Output only. The recommended budget amount. If no recommendation is
+    /// available, this will be set to the budget amount. Amount is specified in
+    /// micros, where one million is equivalent to one currency unit.
+    ///
+    /// This field is read-only.
+    #[prost(int64, optional, tag = "26")]
+    pub recommended_budget_amount_micros: ::core::option::Option<i64>,
+    /// Immutable. Period over which to spend the budget. Defaults to DAILY if not
+    /// specified.
+    #[prost(enumeration = "super::enums::budget_period_enum::BudgetPeriod", tag = "13")]
+    pub period: i32,
+    /// Output only. The estimated change in weekly clicks if the recommended
+    /// budget is applied.
+    ///
+    /// This field is read-only.
+    #[prost(int64, optional, tag = "27")]
+    pub recommended_budget_estimated_change_weekly_clicks: ::core::option::Option<i64>,
+    /// Output only. The estimated change in weekly cost in micros if the
+    /// recommended budget is applied. One million is equivalent to one currency
+    /// unit.
+    ///
+    /// This field is read-only.
+    #[prost(int64, optional, tag = "28")]
+    pub recommended_budget_estimated_change_weekly_cost_micros: ::core::option::Option<
+        i64,
+    >,
+    /// Output only. The estimated change in weekly interactions if the recommended
+    /// budget is applied.
+    ///
+    /// This field is read-only.
+    #[prost(int64, optional, tag = "29")]
+    pub recommended_budget_estimated_change_weekly_interactions: ::core::option::Option<
+        i64,
+    >,
+    /// Output only. The estimated change in weekly views if the recommended budget
+    /// is applied.
+    ///
+    /// This field is read-only.
+    #[prost(int64, optional, tag = "30")]
+    pub recommended_budget_estimated_change_weekly_views: ::core::option::Option<i64>,
+    /// Immutable. The type of the campaign budget.
+    #[prost(enumeration = "super::enums::budget_type_enum::BudgetType", tag = "18")]
+    pub r#type: i32,
+    /// ID of the portfolio bidding strategy that this shared campaign budget
+    /// is aligned with. When a bidding strategy and a campaign budget are aligned,
+    /// they are attached to the same set of campaigns. After a campaign budget is
+    /// aligned with a bidding strategy, campaigns that are added to the campaign
+    /// budget must also use the aligned bidding strategy.
+    #[prost(int64, tag = "31")]
+    pub aligned_bidding_strategy_id: i64,
 }
 /// A campaign criterion.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -5794,75 +6043,56 @@ pub struct CampaignCustomizer {
     #[prost(message, optional, tag = "5")]
     pub value: ::core::option::Option<super::common::CustomizerValue>,
 }
-/// A campaign extension setting.
+/// A campaign draft.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CampaignExtensionSetting {
-    /// Immutable. The resource name of the campaign extension setting.
-    /// CampaignExtensionSetting resource names have the form:
+pub struct CampaignDraft {
+    /// Immutable. The resource name of the campaign draft.
+    /// Campaign draft resource names have the form:
     ///
-    /// `customers/{customer_id}/campaignExtensionSettings/{campaign_id}~{extension_type}`
+    /// `customers/{customer_id}/campaignDrafts/{base_campaign_id}~{draft_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The extension type of the customer extension setting.
-    #[prost(enumeration = "super::enums::extension_type_enum::ExtensionType", tag = "2")]
-    pub extension_type: i32,
-    /// Immutable. The resource name of the campaign. The linked extension feed
-    /// items will serve under this campaign. Campaign resource names have the
-    /// form:
+    /// Output only. The ID of the draft.
     ///
-    /// `customers/{customer_id}/campaigns/{campaign_id}`
-    #[prost(string, optional, tag = "6")]
-    pub campaign: ::core::option::Option<::prost::alloc::string::String>,
-    /// The resource names of the extension feed items to serve under the campaign.
-    /// ExtensionFeedItem resource names have the form:
-    ///
-    /// `customers/{customer_id}/extensionFeedItems/{feed_item_id}`
-    #[prost(string, repeated, tag = "7")]
-    pub extension_feed_items: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The device for which the extensions will serve. Optional.
-    #[prost(
-        enumeration = "super::enums::extension_setting_device_enum::ExtensionSettingDevice",
-        tag = "5"
-    )]
-    pub device: i32,
-}
-/// A campaign feed.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CampaignFeed {
-    /// Immutable. The resource name of the campaign feed.
-    /// Campaign feed resource names have the form:
-    ///
-    /// `customers/{customer_id}/campaignFeeds/{campaign_id}~{feed_id}
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The feed to which the CampaignFeed belongs.
-    #[prost(string, optional, tag = "7")]
-    pub feed: ::core::option::Option<::prost::alloc::string::String>,
-    /// Immutable. The campaign to which the CampaignFeed belongs.
-    #[prost(string, optional, tag = "8")]
-    pub campaign: ::core::option::Option<::prost::alloc::string::String>,
-    /// Indicates which placeholder types the feed may populate under the connected
-    /// campaign. Required.
-    #[prost(
-        enumeration = "super::enums::placeholder_type_enum::PlaceholderType",
-        repeated,
-        tag = "4"
-    )]
-    pub placeholder_types: ::prost::alloc::vec::Vec<i32>,
-    /// Matching function associated with the CampaignFeed.
-    /// The matching function is used to filter the set of feed items selected.
-    /// Required.
-    #[prost(message, optional, tag = "5")]
-    pub matching_function: ::core::option::Option<super::common::MatchingFunction>,
-    /// Output only. Status of the campaign feed.
     /// This field is read-only.
+    #[prost(int64, optional, tag = "9")]
+    pub draft_id: ::core::option::Option<i64>,
+    /// Immutable. The base campaign to which the draft belongs.
+    #[prost(string, optional, tag = "10")]
+    pub base_campaign: ::core::option::Option<::prost::alloc::string::String>,
+    /// The name of the campaign draft.
+    ///
+    /// This field is required and should not be empty when creating new
+    /// campaign drafts.
+    ///
+    /// It must not contain any null (code point 0x0), NL line feed
+    /// (code point 0xA) or carriage return (code point 0xD) characters.
+    #[prost(string, optional, tag = "11")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Resource name of the Campaign that results from overlaying the
+    /// draft changes onto the base campaign.
+    ///
+    /// This field is read-only.
+    #[prost(string, optional, tag = "12")]
+    pub draft_campaign: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The status of the campaign draft. This field is read-only.
+    ///
+    /// When a new campaign draft is added, the status defaults to PROPOSED.
     #[prost(
-        enumeration = "super::enums::feed_link_status_enum::FeedLinkStatus",
+        enumeration = "super::enums::campaign_draft_status_enum::CampaignDraftStatus",
         tag = "6"
     )]
     pub status: i32,
+    /// Output only. Whether there is an experiment based on this draft currently
+    /// serving.
+    #[prost(bool, optional, tag = "13")]
+    pub has_experiment_running: ::core::option::Option<bool>,
+    /// Output only. The resource name of the long-running operation that can be
+    /// used to poll for completion of draft promotion. This is only set if the
+    /// draft promotion is in progress or finished.
+    #[prost(string, optional, tag = "14")]
+    pub long_running_operation: ::core::option::Option<::prost::alloc::string::String>,
 }
 /// A campaign group.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -6309,6 +6539,202 @@ pub mod feed_attribute_operation {
         }
     }
 }
+/// A feed item.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeedItem {
+    /// Immutable. The resource name of the feed item.
+    /// Feed item resource names have the form:
+    ///
+    /// `customers/{customer_id}/feedItems/{feed_id}~{feed_item_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The feed to which this feed item belongs.
+    #[prost(string, optional, tag = "11")]
+    pub feed: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The ID of this feed item.
+    #[prost(int64, optional, tag = "12")]
+    pub id: ::core::option::Option<i64>,
+    /// Start time in which this feed item is effective and can begin serving. The
+    /// time is in the customer's time zone.
+    /// The format is "YYYY-MM-DD HH:MM:SS".
+    /// Examples: "2018-03-05 09:15:00" or "2018-02-01 14:34:30"
+    #[prost(string, optional, tag = "13")]
+    pub start_date_time: ::core::option::Option<::prost::alloc::string::String>,
+    /// End time in which this feed item is no longer effective and will stop
+    /// serving. The time is in the customer's time zone.
+    /// The format is "YYYY-MM-DD HH:MM:SS".
+    /// Examples: "2018-03-05 09:15:00" or "2018-02-01 14:34:30"
+    #[prost(string, optional, tag = "14")]
+    pub end_date_time: ::core::option::Option<::prost::alloc::string::String>,
+    /// The feed item's attribute values.
+    #[prost(message, repeated, tag = "6")]
+    pub attribute_values: ::prost::alloc::vec::Vec<FeedItemAttributeValue>,
+    /// Geo targeting restriction specifies the type of location that can be used
+    /// for targeting.
+    #[prost(
+        enumeration = "super::enums::geo_targeting_restriction_enum::GeoTargetingRestriction",
+        tag = "7"
+    )]
+    pub geo_targeting_restriction: i32,
+    /// The list of mappings used to substitute custom parameter tags in a
+    /// `tracking_url_template`, `final_urls`, or `mobile_final_urls`.
+    #[prost(message, repeated, tag = "8")]
+    pub url_custom_parameters: ::prost::alloc::vec::Vec<super::common::CustomParameter>,
+    /// Output only. Status of the feed item.
+    /// This field is read-only.
+    #[prost(
+        enumeration = "super::enums::feed_item_status_enum::FeedItemStatus",
+        tag = "9"
+    )]
+    pub status: i32,
+    /// Output only. List of info about a feed item's validation and approval state
+    /// for active feed mappings. There will be an entry in the list for each type
+    /// of feed mapping associated with the feed, for example, a feed with a
+    /// sitelink and a call feed mapping would cause every feed item associated
+    /// with that feed to have an entry in this list for both sitelink and call.
+    /// This field is read-only.
+    #[prost(message, repeated, tag = "10")]
+    pub policy_infos: ::prost::alloc::vec::Vec<FeedItemPlaceholderPolicyInfo>,
+}
+/// A feed item attribute value.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeedItemAttributeValue {
+    /// Id of the feed attribute for which the value is associated with.
+    #[prost(int64, optional, tag = "11")]
+    pub feed_attribute_id: ::core::option::Option<i64>,
+    /// Int64 value. Should be set if feed_attribute_id refers to a feed attribute
+    /// of type INT64.
+    #[prost(int64, optional, tag = "12")]
+    pub integer_value: ::core::option::Option<i64>,
+    /// Bool value. Should be set if feed_attribute_id refers to a feed attribute
+    /// of type BOOLEAN.
+    #[prost(bool, optional, tag = "13")]
+    pub boolean_value: ::core::option::Option<bool>,
+    /// String value. Should be set if feed_attribute_id refers to a feed attribute
+    /// of type STRING, URL or DATE_TIME.
+    /// For STRING the maximum length is 1500 characters. For URL the maximum
+    /// length is 2076 characters. For DATE_TIME the string must be in the format
+    /// "YYYYMMDD HHMMSS".
+    #[prost(string, optional, tag = "14")]
+    pub string_value: ::core::option::Option<::prost::alloc::string::String>,
+    /// Double value. Should be set if feed_attribute_id refers to a feed attribute
+    /// of type DOUBLE.
+    #[prost(double, optional, tag = "15")]
+    pub double_value: ::core::option::Option<f64>,
+    /// Price value. Should be set if feed_attribute_id refers to a feed attribute
+    /// of type PRICE.
+    #[prost(message, optional, tag = "6")]
+    pub price_value: ::core::option::Option<super::common::Money>,
+    /// Repeated int64 value. Should be set if feed_attribute_id refers to a feed
+    /// attribute of type INT64_LIST.
+    #[prost(int64, repeated, tag = "16")]
+    pub integer_values: ::prost::alloc::vec::Vec<i64>,
+    /// Repeated bool value. Should be set if feed_attribute_id refers to a feed
+    /// attribute of type BOOLEAN_LIST.
+    #[prost(bool, repeated, tag = "17")]
+    pub boolean_values: ::prost::alloc::vec::Vec<bool>,
+    /// Repeated string value. Should be set if feed_attribute_id refers to a feed
+    /// attribute of type STRING_LIST, URL_LIST or DATE_TIME_LIST.
+    /// For STRING_LIST and URL_LIST the total size of the list in bytes may not
+    /// exceed 3000. For DATE_TIME_LIST the number of elements may not exceed 200.
+    ///
+    /// For STRING_LIST the maximum length of each string element is 1500
+    /// characters. For URL_LIST the maximum length is 2076 characters. For
+    /// DATE_TIME the format of the string must be the same as start and end time
+    /// for the feed item.
+    #[prost(string, repeated, tag = "18")]
+    pub string_values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Repeated double value. Should be set if feed_attribute_id refers to a feed
+    /// attribute of type DOUBLE_LIST.
+    #[prost(double, repeated, tag = "19")]
+    pub double_values: ::prost::alloc::vec::Vec<f64>,
+}
+/// Policy, validation, and quality approval info for a feed item for the
+/// specified placeholder type.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeedItemPlaceholderPolicyInfo {
+    /// Output only. The placeholder type.
+    #[prost(
+        enumeration = "super::enums::placeholder_type_enum::PlaceholderType",
+        tag = "10"
+    )]
+    pub placeholder_type_enum: i32,
+    /// Output only. The FeedMapping that contains the placeholder type.
+    #[prost(string, optional, tag = "11")]
+    pub feed_mapping_resource_name: ::core::option::Option<
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. Where the placeholder type is in the review process.
+    #[prost(
+        enumeration = "super::enums::policy_review_status_enum::PolicyReviewStatus",
+        tag = "3"
+    )]
+    pub review_status: i32,
+    /// Output only. The overall approval status of the placeholder type,
+    /// calculated based on the status of its individual policy topic entries.
+    #[prost(
+        enumeration = "super::enums::policy_approval_status_enum::PolicyApprovalStatus",
+        tag = "4"
+    )]
+    pub approval_status: i32,
+    /// Output only. The list of policy findings for the placeholder type.
+    #[prost(message, repeated, tag = "5")]
+    pub policy_topic_entries: ::prost::alloc::vec::Vec<super::common::PolicyTopicEntry>,
+    /// Output only. The validation status of the palceholder type.
+    #[prost(
+        enumeration = "super::enums::feed_item_validation_status_enum::FeedItemValidationStatus",
+        tag = "6"
+    )]
+    pub validation_status: i32,
+    /// Output only. List of placeholder type validation errors.
+    #[prost(message, repeated, tag = "7")]
+    pub validation_errors: ::prost::alloc::vec::Vec<FeedItemValidationError>,
+    /// Output only. Placeholder type quality evaluation approval status.
+    #[prost(
+        enumeration = "super::enums::feed_item_quality_approval_status_enum::FeedItemQualityApprovalStatus",
+        tag = "8"
+    )]
+    pub quality_approval_status: i32,
+    /// Output only. List of placeholder type quality evaluation disapproval
+    /// reasons.
+    #[prost(
+        enumeration = "super::enums::feed_item_quality_disapproval_reason_enum::FeedItemQualityDisapprovalReason",
+        repeated,
+        packed = "false",
+        tag = "9"
+    )]
+    pub quality_disapproval_reasons: ::prost::alloc::vec::Vec<i32>,
+}
+/// Stores a validation error and the set of offending feed attributes which
+/// together are responsible for causing a feed item validation error.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeedItemValidationError {
+    /// Output only. Error code indicating what validation error was triggered. The
+    /// description of the error can be found in the 'description' field.
+    #[prost(
+        enumeration = "super::errors::feed_item_validation_error_enum::FeedItemValidationError",
+        tag = "1"
+    )]
+    pub validation_error: i32,
+    /// Output only. The description of the validation error.
+    #[prost(string, optional, tag = "6")]
+    pub description: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Set of feed attributes in the feed item flagged during
+    /// validation. If empty, no specific feed attributes can be associated with
+    /// the error (for example, error across the entire feed item).
+    #[prost(int64, repeated, packed = "false", tag = "7")]
+    pub feed_attribute_ids: ::prost::alloc::vec::Vec<i64>,
+    /// Output only. Any extra information related to this error which is not
+    /// captured by validation_error and feed_attribute_id (for example,
+    /// placeholder field IDs when feed_attribute_id is not mapped). Note that
+    /// extra_info is not localized.
+    #[prost(string, optional, tag = "8")]
+    pub extra_info: ::core::option::Option<::prost::alloc::string::String>,
+}
 /// Describes the granular change of returned resources of certain resource
 /// types. Changes made through the UI or API in the past 30 days are included.
 /// Previous and new values of the changed fields are shown. ChangeEvent could
@@ -6599,92 +7025,122 @@ pub struct CombinedAudience {
     #[prost(string, tag = "5")]
     pub description: ::prost::alloc::string::String,
 }
-/// Conversion goal settings for a Campaign.
+/// A conversion value rule
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ConversionGoalCampaignConfig {
-    /// Immutable. The resource name of the conversion goal campaign config.
-    /// Conversion goal campaign config resource names have the form:
+pub struct ConversionValueRule {
+    /// Immutable. The resource name of the conversion value rule.
+    /// Conversion value rule resource names have the form:
     ///
-    /// `customers/{customer_id}/conversionGoalCampaignConfigs/{campaign_id}`
+    /// `customers/{customer_id}/conversionValueRules/{conversion_value_rule_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The campaign with which this conversion goal campaign config is
-    /// associated.
-    #[prost(string, tag = "2")]
-    pub campaign: ::prost::alloc::string::String,
-    /// The level of goal config the campaign is using.
-    #[prost(
-        enumeration = "super::enums::goal_config_level_enum::GoalConfigLevel",
-        tag = "3"
-    )]
-    pub goal_config_level: i32,
-    /// The custom conversion goal the campaign is using for optimization.
-    #[prost(string, tag = "4")]
-    pub custom_conversion_goal: ::prost::alloc::string::String,
-}
-/// A conversion value rule set
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ConversionValueRuleSet {
-    /// Immutable. The resource name of the conversion value rule set.
-    /// Conversion value rule set resource names have the form:
-    ///
-    /// `customers/{customer_id}/conversionValueRuleSets/{conversion_value_rule_set_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the conversion value rule set.
+    /// Output only. The ID of the conversion value rule.
     #[prost(int64, tag = "2")]
     pub id: i64,
-    /// Resource names of rules within the rule set.
-    #[prost(string, repeated, tag = "3")]
-    pub conversion_value_rules: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Defines dimensions for Value Rule conditions. The condition types of value
-    /// rules within this value rule set must be of these dimensions. The first
-    /// entry in this list is the primary dimension of the included value rules.
-    /// When using value rule primary dimension segmentation, conversion values
-    /// will be segmented into the values adjusted by value rules and the original
-    /// values, if some value rules apply.
-    #[prost(
-        enumeration = "super::enums::value_rule_set_dimension_enum::ValueRuleSetDimension",
-        repeated,
-        tag = "4"
-    )]
-    pub dimensions: ::prost::alloc::vec::Vec<i32>,
-    /// Output only. The resource name of the conversion value rule set's owner
-    /// customer. When the value rule set is inherited from a manager customer,
+    /// Action applied when the rule is triggered.
+    #[prost(message, optional, tag = "3")]
+    pub action: ::core::option::Option<conversion_value_rule::ValueRuleAction>,
+    /// Condition for Geo location that must be satisfied for the value rule to
+    /// apply.
+    #[prost(message, optional, tag = "4")]
+    pub geo_location_condition: ::core::option::Option<
+        conversion_value_rule::ValueRuleGeoLocationCondition,
+    >,
+    /// Condition for device type that must be satisfied for the value rule to
+    /// apply.
+    #[prost(message, optional, tag = "5")]
+    pub device_condition: ::core::option::Option<
+        conversion_value_rule::ValueRuleDeviceCondition,
+    >,
+    /// Condition for audience that must be satisfied for the value rule to apply.
+    #[prost(message, optional, tag = "6")]
+    pub audience_condition: ::core::option::Option<
+        conversion_value_rule::ValueRuleAudienceCondition,
+    >,
+    /// Output only. The resource name of the conversion value rule's owner
+    /// customer. When the value rule is inherited from a manager customer,
     /// owner_customer will be the resource name of the manager whereas the
     /// customer in the resource_name will be of the requesting serving customer.
     /// ** Read-only **
-    #[prost(string, tag = "5")]
-    pub owner_customer: ::prost::alloc::string::String,
-    /// Immutable. Defines the scope where the conversion value rule set is
-    /// attached.
-    #[prost(
-        enumeration = "super::enums::value_rule_set_attachment_type_enum::ValueRuleSetAttachmentType",
-        tag = "6"
-    )]
-    pub attachment_type: i32,
-    /// The resource name of the campaign when the conversion value rule
-    /// set is attached to a campaign.
     #[prost(string, tag = "7")]
-    pub campaign: ::prost::alloc::string::String,
-    /// Output only. The status of the conversion value rule set.
-    /// ** Read-only **
+    pub owner_customer: ::prost::alloc::string::String,
+    /// The status of the conversion value rule.
     #[prost(
-        enumeration = "super::enums::conversion_value_rule_set_status_enum::ConversionValueRuleSetStatus",
+        enumeration = "super::enums::conversion_value_rule_status_enum::ConversionValueRuleStatus",
         tag = "8"
     )]
     pub status: i32,
-    /// Immutable. The conversion action categories of the conversion value rule
-    /// set.
-    #[prost(
-        enumeration = "super::enums::conversion_action_category_enum::ConversionActionCategory",
-        repeated,
-        packed = "false",
-        tag = "9"
-    )]
-    pub conversion_action_categories: ::prost::alloc::vec::Vec<i32>,
+}
+/// Nested message and enum types in `ConversionValueRule`.
+pub mod conversion_value_rule {
+    /// Action applied when rule is applied.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ValueRuleAction {
+        /// Specifies applied operation.
+        #[prost(
+            enumeration = "super::super::enums::value_rule_operation_enum::ValueRuleOperation",
+            tag = "1"
+        )]
+        pub operation: i32,
+        /// Specifies applied value.
+        #[prost(double, tag = "2")]
+        pub value: f64,
+    }
+    /// Condition on Geo dimension.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ValueRuleGeoLocationCondition {
+        /// Geo locations that advertisers want to exclude.
+        #[prost(string, repeated, tag = "1")]
+        pub excluded_geo_target_constants: ::prost::alloc::vec::Vec<
+            ::prost::alloc::string::String,
+        >,
+        /// Excluded Geo location match type.
+        #[prost(
+            enumeration = "super::super::enums::value_rule_geo_location_match_type_enum::ValueRuleGeoLocationMatchType",
+            tag = "2"
+        )]
+        pub excluded_geo_match_type: i32,
+        /// Geo locations that advertisers want to include.
+        #[prost(string, repeated, tag = "3")]
+        pub geo_target_constants: ::prost::alloc::vec::Vec<
+            ::prost::alloc::string::String,
+        >,
+        /// Included Geo location match type.
+        #[prost(
+            enumeration = "super::super::enums::value_rule_geo_location_match_type_enum::ValueRuleGeoLocationMatchType",
+            tag = "4"
+        )]
+        pub geo_match_type: i32,
+    }
+    /// Condition on Device dimension.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ValueRuleDeviceCondition {
+        /// Value for device type condition.
+        #[prost(
+            enumeration = "super::super::enums::value_rule_device_type_enum::ValueRuleDeviceType",
+            repeated,
+            tag = "1"
+        )]
+        pub device_types: ::prost::alloc::vec::Vec<i32>,
+    }
+    /// Condition on Audience dimension.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ValueRuleAudienceCondition {
+        /// User Lists.
+        /// The Similar Audiences sunset starts May 2023. Refer to
+        /// <https://ads-developers.googleblog.com/2022/11/announcing-deprecation-and-sunset-of.html>
+        /// for other options.
+        #[prost(string, repeated, tag = "1")]
+        pub user_lists: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// User Interests.
+        #[prost(string, repeated, tag = "2")]
+        pub user_interests: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
 }
 /// A currency constant.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -6711,89 +7167,31 @@ pub struct CurrencyConstant {
     #[prost(int64, optional, tag = "9")]
     pub billable_unit_micros: ::core::option::Option<i64>,
 }
-/// A custom audience. This is a list of users by interest.
+/// Custom conversion goal that can make arbitrary conversion actions biddable.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomAudience {
-    /// Immutable. The resource name of the custom audience.
-    /// Custom audience resource names have the form:
+pub struct CustomConversionGoal {
+    /// Immutable. The resource name of the custom conversion goal.
+    /// Custom conversion goal resource names have the form:
     ///
-    /// `customers/{customer_id}/customAudiences/{custom_audience_id}`
+    /// `customers/{customer_id}/customConversionGoals/{goal_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Output only. ID of the custom audience.
+    /// Immutable. The ID for this custom conversion goal.
     #[prost(int64, tag = "2")]
     pub id: i64,
-    /// Output only. Status of this custom audience. Indicates whether the custom
-    /// audience is enabled or removed.
-    #[prost(
-        enumeration = "super::enums::custom_audience_status_enum::CustomAudienceStatus",
-        tag = "3"
-    )]
-    pub status: i32,
-    /// Name of the custom audience. It should be unique for all custom audiences
-    /// created by a customer.
-    /// This field is required for creating operations.
-    #[prost(string, tag = "4")]
+    /// The name for this custom conversion goal.
+    #[prost(string, tag = "3")]
     pub name: ::prost::alloc::string::String,
-    /// Type of the custom audience.
-    /// ("INTEREST" OR "PURCHASE_INTENT" is not allowed for newly created custom
-    /// audience but kept for existing audiences)
+    /// Conversion actions that the custom conversion goal makes biddable.
+    #[prost(string, repeated, tag = "4")]
+    pub conversion_actions: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The status of the custom conversion goal.
     #[prost(
-        enumeration = "super::enums::custom_audience_type_enum::CustomAudienceType",
+        enumeration = "super::enums::custom_conversion_goal_status_enum::CustomConversionGoalStatus",
         tag = "5"
     )]
-    pub r#type: i32,
-    /// Description of this custom audience.
-    #[prost(string, tag = "6")]
-    pub description: ::prost::alloc::string::String,
-    /// List of custom audience members that this custom audience is composed of.
-    /// Members can be added during CustomAudience creation. If members are
-    /// presented in UPDATE operation, existing members will be overridden.
-    #[prost(message, repeated, tag = "7")]
-    pub members: ::prost::alloc::vec::Vec<CustomAudienceMember>,
-}
-/// A member of custom audience. A member can be a KEYWORD, URL,
-/// PLACE_CATEGORY or APP. It can only be created or removed but not changed.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomAudienceMember {
-    /// The type of custom audience member, KEYWORD, URL, PLACE_CATEGORY or APP.
-    #[prost(
-        enumeration = "super::enums::custom_audience_member_type_enum::CustomAudienceMemberType",
-        tag = "1"
-    )]
-    pub member_type: i32,
-    /// The CustomAudienceMember value. One field is populated depending on the
-    /// member type.
-    #[prost(oneof = "custom_audience_member::Value", tags = "2, 3, 4, 5")]
-    pub value: ::core::option::Option<custom_audience_member::Value>,
-}
-/// Nested message and enum types in `CustomAudienceMember`.
-pub mod custom_audience_member {
-    /// The CustomAudienceMember value. One field is populated depending on the
-    /// member type.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Value {
-        /// A keyword or keyword phrase — at most 10 words and 80 characters.
-        /// Languages with double-width characters such as Chinese, Japanese,
-        /// or Korean, are allowed 40 characters, which describes the user's
-        /// interests or actions.
-        #[prost(string, tag = "2")]
-        Keyword(::prost::alloc::string::String),
-        /// An HTTP URL, protocol-included — at most 2048 characters, which includes
-        /// contents users have interests in.
-        #[prost(string, tag = "3")]
-        Url(::prost::alloc::string::String),
-        /// A place type described by a place category users visit.
-        #[prost(int64, tag = "4")]
-        PlaceCategory(i64),
-        /// A package name of Android apps which users installed such as
-        /// com.google.example.
-        #[prost(string, tag = "5")]
-        App(::prost::alloc::string::String),
-    }
+    pub status: i32,
 }
 /// A custom interest. This is a list of users by interest.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -6851,191 +7249,6 @@ pub struct CustomInterestMember {
     /// member_type is URL.
     #[prost(string, optional, tag = "3")]
     pub parameter: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// A customer.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Customer {
-    /// Immutable. The resource name of the customer.
-    /// Customer resource names have the form:
-    ///
-    /// `customers/{customer_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the customer.
-    #[prost(int64, optional, tag = "19")]
-    pub id: ::core::option::Option<i64>,
-    /// Optional, non-unique descriptive name of the customer.
-    #[prost(string, optional, tag = "20")]
-    pub descriptive_name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Immutable. The currency in which the account operates.
-    /// A subset of the currency codes from the ISO 4217 standard is
-    /// supported.
-    #[prost(string, optional, tag = "21")]
-    pub currency_code: ::core::option::Option<::prost::alloc::string::String>,
-    /// Immutable. The local timezone ID of the customer.
-    #[prost(string, optional, tag = "22")]
-    pub time_zone: ::core::option::Option<::prost::alloc::string::String>,
-    /// The URL template for constructing a tracking URL out of parameters.
-    /// Only mutable in an `update` operation.
-    #[prost(string, optional, tag = "23")]
-    pub tracking_url_template: ::core::option::Option<::prost::alloc::string::String>,
-    /// The URL template for appending params to the final URL.
-    /// Only mutable in an `update` operation.
-    #[prost(string, optional, tag = "24")]
-    pub final_url_suffix: ::core::option::Option<::prost::alloc::string::String>,
-    /// Whether auto-tagging is enabled for the customer.
-    #[prost(bool, optional, tag = "25")]
-    pub auto_tagging_enabled: ::core::option::Option<bool>,
-    /// Output only. Whether the Customer has a Partners program badge. If the
-    /// Customer is not associated with the Partners program, this will be false.
-    /// For more information, see
-    /// <https://support.google.com/partners/answer/3125774.>
-    #[prost(bool, optional, tag = "26")]
-    pub has_partners_badge: ::core::option::Option<bool>,
-    /// Output only. Whether the customer is a manager.
-    #[prost(bool, optional, tag = "27")]
-    pub manager: ::core::option::Option<bool>,
-    /// Output only. Whether the customer is a test account.
-    #[prost(bool, optional, tag = "28")]
-    pub test_account: ::core::option::Option<bool>,
-    /// Call reporting setting for a customer. Only mutable in an `update`
-    /// operation.
-    #[prost(message, optional, tag = "10")]
-    pub call_reporting_setting: ::core::option::Option<CallReportingSetting>,
-    /// Output only. Conversion tracking setting for a customer.
-    #[prost(message, optional, tag = "14")]
-    pub conversion_tracking_setting: ::core::option::Option<ConversionTrackingSetting>,
-    /// Output only. Remarketing setting for a customer.
-    #[prost(message, optional, tag = "15")]
-    pub remarketing_setting: ::core::option::Option<RemarketingSetting>,
-    /// Output only. Reasons why the customer is not eligible to use
-    /// PaymentMode.CONVERSIONS. If the list is empty, the customer is eligible.
-    /// This field is read-only.
-    #[prost(
-        enumeration = "super::enums::customer_pay_per_conversion_eligibility_failure_reason_enum::CustomerPayPerConversionEligibilityFailureReason",
-        repeated,
-        packed = "false",
-        tag = "16"
-    )]
-    pub pay_per_conversion_eligibility_failure_reasons: ::prost::alloc::vec::Vec<i32>,
-    /// Output only. Optimization score of the customer.
-    ///
-    /// Optimization score is an estimate of how well a customer's campaigns are
-    /// set to perform. It ranges from 0% (0.0) to 100% (1.0). This field is null
-    /// for all manager customers, and for unscored non-manager customers.
-    ///
-    /// See "About optimization score" at
-    /// <https://support.google.com/google-ads/answer/9061546.>
-    ///
-    /// This field is read-only.
-    #[prost(double, optional, tag = "29")]
-    pub optimization_score: ::core::option::Option<f64>,
-    /// Output only. Optimization score weight of the customer.
-    ///
-    /// Optimization score weight can be used to compare/aggregate optimization
-    /// scores across multiple non-manager customers. The aggregate optimization
-    /// score of a manager is computed as the sum over all of their customers of
-    /// `Customer.optimization_score * Customer.optimization_score_weight`. This
-    /// field is 0 for all manager customers, and for unscored non-manager
-    /// customers.
-    ///
-    /// This field is read-only.
-    #[prost(double, tag = "30")]
-    pub optimization_score_weight: f64,
-    /// Output only. The status of the customer.
-    #[prost(
-        enumeration = "super::enums::customer_status_enum::CustomerStatus",
-        tag = "36"
-    )]
-    pub status: i32,
-    /// Output only. True if feed based location has been migrated to asset based
-    /// location.
-    #[prost(bool, optional, tag = "38")]
-    pub location_asset_auto_migration_done: ::core::option::Option<bool>,
-    /// Output only. True if feed based image has been migrated to asset based
-    /// image.
-    #[prost(bool, optional, tag = "39")]
-    pub image_asset_auto_migration_done: ::core::option::Option<bool>,
-    /// Output only. Timestamp of migration from feed based location to asset base
-    /// location in yyyy-MM-dd HH:mm:ss format.
-    #[prost(string, optional, tag = "40")]
-    pub location_asset_auto_migration_done_date_time: ::core::option::Option<
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. Timestamp of migration from feed based image to asset base
-    /// image in yyyy-MM-dd HH:mm:ss format.
-    #[prost(string, optional, tag = "41")]
-    pub image_asset_auto_migration_done_date_time: ::core::option::Option<
-        ::prost::alloc::string::String,
-    >,
-}
-/// Call reporting setting for a customer. Only mutable in an `update` operation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CallReportingSetting {
-    /// Enable reporting of phone call events by redirecting them through Google
-    /// System.
-    #[prost(bool, optional, tag = "10")]
-    pub call_reporting_enabled: ::core::option::Option<bool>,
-    /// Whether to enable call conversion reporting.
-    #[prost(bool, optional, tag = "11")]
-    pub call_conversion_reporting_enabled: ::core::option::Option<bool>,
-    /// Customer-level call conversion action to attribute a call conversion to.
-    /// If not set a default conversion action is used. Only in effect when
-    /// call_conversion_reporting_enabled is set to true.
-    #[prost(string, optional, tag = "12")]
-    pub call_conversion_action: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// A collection of customer-wide settings related to Google Ads Conversion
-/// Tracking.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ConversionTrackingSetting {
-    /// Output only. The conversion tracking id used for this account. This id
-    /// doesn't indicate whether the customer uses conversion tracking
-    /// (conversion_tracking_status does). This field is read-only.
-    #[prost(int64, optional, tag = "3")]
-    pub conversion_tracking_id: ::core::option::Option<i64>,
-    /// Output only. The conversion tracking id of the customer's manager. This is
-    /// set when the customer is opted into cross account conversion tracking, and
-    /// it overrides conversion_tracking_id. This field can only be managed through
-    /// the Google Ads UI. This field is read-only.
-    #[prost(int64, optional, tag = "4")]
-    pub cross_account_conversion_tracking_id: ::core::option::Option<i64>,
-    /// Output only. Whether the customer has accepted customer data terms. If
-    /// using cross-account conversion tracking, this value is inherited from the
-    /// manager. This field is read-only. For more
-    /// information, see <https://support.google.com/adspolicy/answer/7475709.>
-    #[prost(bool, tag = "5")]
-    pub accepted_customer_data_terms: bool,
-    /// Output only. Conversion tracking status. It indicates whether the customer
-    /// is using conversion tracking, and who is the conversion tracking owner of
-    /// this customer. If this customer is using cross-account conversion tracking,
-    /// the value returned will differ based on the `login-customer-id` of the
-    /// request.
-    #[prost(
-        enumeration = "super::enums::conversion_tracking_status_enum::ConversionTrackingStatus",
-        tag = "6"
-    )]
-    pub conversion_tracking_status: i32,
-    /// Output only. Whether the customer is opted-in for enhanced conversions
-    /// for leads. If using cross-account conversion tracking, this value is
-    /// inherited from the manager. This field is read-only.
-    #[prost(bool, tag = "7")]
-    pub enhanced_conversions_for_leads_enabled: bool,
-    /// Output only. The resource name of the customer where conversions are
-    /// created and managed. This field is read-only.
-    #[prost(string, tag = "8")]
-    pub google_ads_conversion_customer: ::prost::alloc::string::String,
-}
-/// Remarketing setting for a customer.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RemarketingSetting {
-    /// Output only. The Google tag.
-    #[prost(string, optional, tag = "2")]
-    pub google_global_site_tag: ::core::option::Option<::prost::alloc::string::String>,
 }
 /// CustomerAssetSet is the linkage between a customer and an asset set.
 /// Adding a CustomerAssetSet links an asset set with a customer.
@@ -7119,6 +7332,33 @@ pub struct CustomerClient {
     )]
     pub status: i32,
 }
+/// Represents customer client link relationship.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomerClientLink {
+    /// Immutable. Name of the resource.
+    /// CustomerClientLink resource names have the form:
+    /// `customers/{customer_id}/customerClientLinks/{client_customer_id}~{manager_link_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The client customer linked to this customer.
+    #[prost(string, optional, tag = "7")]
+    pub client_customer: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. This is uniquely identifies a customer client link. Read only.
+    #[prost(int64, optional, tag = "8")]
+    pub manager_link_id: ::core::option::Option<i64>,
+    /// This is the status of the link between client and manager.
+    #[prost(
+        enumeration = "super::enums::manager_link_status_enum::ManagerLinkStatus",
+        tag = "5"
+    )]
+    pub status: i32,
+    /// The visibility of the link. Users can choose whether or not to see hidden
+    /// links in the Google Ads UI.
+    /// Default value is false
+    #[prost(bool, optional, tag = "9")]
+    pub hidden: ::core::option::Option<bool>,
+}
 /// Biddability control for conversion actions with a matching category and
 /// origin.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -7175,66 +7415,6 @@ pub struct CustomerCustomizer {
     #[prost(message, optional, tag = "4")]
     pub value: ::core::option::Option<super::common::CustomizerValue>,
 }
-/// A customer extension setting.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomerExtensionSetting {
-    /// Immutable. The resource name of the customer extension setting.
-    /// CustomerExtensionSetting resource names have the form:
-    ///
-    /// `customers/{customer_id}/customerExtensionSettings/{extension_type}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The extension type of the customer extension setting.
-    #[prost(enumeration = "super::enums::extension_type_enum::ExtensionType", tag = "2")]
-    pub extension_type: i32,
-    /// The resource names of the extension feed items to serve under the customer.
-    /// ExtensionFeedItem resource names have the form:
-    ///
-    /// `customers/{customer_id}/extensionFeedItems/{feed_item_id}`
-    #[prost(string, repeated, tag = "5")]
-    pub extension_feed_items: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The device for which the extensions will serve. Optional.
-    #[prost(
-        enumeration = "super::enums::extension_setting_device_enum::ExtensionSettingDevice",
-        tag = "4"
-    )]
-    pub device: i32,
-}
-/// A customer feed.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomerFeed {
-    /// Immutable. The resource name of the customer feed.
-    /// Customer feed resource names have the form:
-    ///
-    /// `customers/{customer_id}/customerFeeds/{feed_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The feed being linked to the customer.
-    #[prost(string, optional, tag = "6")]
-    pub feed: ::core::option::Option<::prost::alloc::string::String>,
-    /// Indicates which placeholder types the feed may populate under the connected
-    /// customer. Required.
-    #[prost(
-        enumeration = "super::enums::placeholder_type_enum::PlaceholderType",
-        repeated,
-        tag = "3"
-    )]
-    pub placeholder_types: ::prost::alloc::vec::Vec<i32>,
-    /// Matching function associated with the CustomerFeed.
-    /// The matching function is used to filter the set of feed items selected.
-    /// Required.
-    #[prost(message, optional, tag = "4")]
-    pub matching_function: ::core::option::Option<super::common::MatchingFunction>,
-    /// Output only. Status of the customer feed.
-    /// This field is read-only.
-    #[prost(
-        enumeration = "super::enums::feed_link_status_enum::FeedLinkStatus",
-        tag = "5"
-    )]
-    pub status: i32,
-}
 /// Represents a relationship between a customer and a label. This customer may
 /// not have access to all the labels attached to it. Additional CustomerLabels
 /// may be returned by increasing permissions with login-customer-id.
@@ -7278,56 +7458,6 @@ pub struct CustomerManagerLink {
         tag = "5"
     )]
     pub status: i32,
-}
-/// A negative criterion for exclusions at the customer level.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomerNegativeCriterion {
-    /// Immutable. The resource name of the customer negative criterion.
-    /// Customer negative criterion resource names have the form:
-    ///
-    /// `customers/{customer_id}/customerNegativeCriteria/{criterion_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the criterion.
-    #[prost(int64, optional, tag = "10")]
-    pub id: ::core::option::Option<i64>,
-    /// Output only. The type of the criterion.
-    #[prost(enumeration = "super::enums::criterion_type_enum::CriterionType", tag = "3")]
-    pub r#type: i32,
-    /// The customer negative criterion.
-    ///
-    /// Exactly one must be set.
-    #[prost(oneof = "customer_negative_criterion::Criterion", tags = "4, 5, 6, 7, 8, 9")]
-    pub criterion: ::core::option::Option<customer_negative_criterion::Criterion>,
-}
-/// Nested message and enum types in `CustomerNegativeCriterion`.
-pub mod customer_negative_criterion {
-    /// The customer negative criterion.
-    ///
-    /// Exactly one must be set.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Criterion {
-        /// Immutable. ContentLabel.
-        #[prost(message, tag = "4")]
-        ContentLabel(super::super::common::ContentLabelInfo),
-        /// Immutable. MobileApplication.
-        #[prost(message, tag = "5")]
-        MobileApplication(super::super::common::MobileApplicationInfo),
-        /// Immutable. MobileAppCategory.
-        #[prost(message, tag = "6")]
-        MobileAppCategory(super::super::common::MobileAppCategoryInfo),
-        /// Immutable. Placement.
-        #[prost(message, tag = "7")]
-        Placement(super::super::common::PlacementInfo),
-        /// Immutable. YouTube Video.
-        #[prost(message, tag = "8")]
-        YoutubeVideo(super::super::common::YouTubeVideoInfo),
-        /// Immutable. YouTube Channel.
-        #[prost(message, tag = "9")]
-        YoutubeChannel(super::super::common::YouTubeChannelInfo),
-    }
 }
 /// Represents the permission of a single user onto a single customer.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -7713,6 +7843,39 @@ pub struct Experiment {
     )]
     pub promote_status: i32,
 }
+/// A Google ads experiment for users to experiment changes on multiple
+/// campaigns, compare the performance, and apply the effective changes.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExperimentArm {
+    /// Immutable. The resource name of the experiment arm.
+    /// Experiment arm resource names have the form:
+    ///
+    /// `customers/{customer_id}/experimentArms/{TrialArm.trial_id}~{TrialArm.trial_arm_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The experiment to which the ExperimentArm belongs.
+    #[prost(string, tag = "8")]
+    pub experiment: ::prost::alloc::string::String,
+    /// Required. The name of the experiment arm. It must have a minimum length of
+    /// 1 and maximum length of 1024. It must be unique under an experiment.
+    #[prost(string, tag = "3")]
+    pub name: ::prost::alloc::string::String,
+    /// Whether this arm is a control arm. A control arm is the arm against
+    /// which the other arms are compared.
+    #[prost(bool, tag = "4")]
+    pub control: bool,
+    /// Traffic split of the trial arm. The value should be between 1 and 100
+    /// and must total 100 between the two trial arms.
+    #[prost(int64, tag = "5")]
+    pub traffic_split: i64,
+    /// List of campaigns in the trial arm. The max length is one.
+    #[prost(string, repeated, tag = "6")]
+    pub campaigns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. The in design campaigns in the treatment experiment arm.
+    #[prost(string, repeated, tag = "7")]
+    pub in_design_campaigns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
 /// An extension feed item.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -7842,6 +8005,22 @@ pub mod extension_feed_item {
         TargetedAdGroup(::prost::alloc::string::String),
     }
 }
+/// Represents a link between a FeedItem and a FeedItemSet.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeedItemSetLink {
+    /// Immutable. The resource name of the feed item set link.
+    /// Feed item set link resource names have the form:
+    /// `customers/{customer_id}/feedItemSetLinks/{feed_id}~{feed_item_set_id}~{feed_item_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The linked FeedItem.
+    #[prost(string, tag = "2")]
+    pub feed_item: ::prost::alloc::string::String,
+    /// Immutable. The linked FeedItemSet.
+    #[prost(string, tag = "3")]
+    pub feed_item_set: ::prost::alloc::string::String,
+}
 /// A feed item target.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -7902,223 +8081,6 @@ pub mod feed_item_target {
         /// Immutable. The targeted schedule.
         #[prost(message, tag = "10")]
         AdSchedule(super::super::common::AdScheduleInfo),
-    }
-}
-/// A feed mapping.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FeedMapping {
-    /// Immutable. The resource name of the feed mapping.
-    /// Feed mapping resource names have the form:
-    ///
-    /// `customers/{customer_id}/feedMappings/{feed_id}~{feed_mapping_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The feed of this feed mapping.
-    #[prost(string, optional, tag = "7")]
-    pub feed: ::core::option::Option<::prost::alloc::string::String>,
-    /// Immutable. Feed attributes to field mappings. These mappings are a
-    /// one-to-many relationship meaning that 1 feed attribute can be used to
-    /// populate multiple placeholder fields, but 1 placeholder field can only draw
-    /// data from 1 feed attribute. Ad Customizer is an exception, 1 placeholder
-    /// field can be mapped to multiple feed attributes. Required.
-    #[prost(message, repeated, tag = "5")]
-    pub attribute_field_mappings: ::prost::alloc::vec::Vec<AttributeFieldMapping>,
-    /// Output only. Status of the feed mapping.
-    /// This field is read-only.
-    #[prost(
-        enumeration = "super::enums::feed_mapping_status_enum::FeedMappingStatus",
-        tag = "6"
-    )]
-    pub status: i32,
-    /// Feed mapping target. Can be either a placeholder or a criterion. For a
-    /// given feed, the active FeedMappings must have unique targets. Required.
-    #[prost(oneof = "feed_mapping::Target", tags = "3, 4")]
-    pub target: ::core::option::Option<feed_mapping::Target>,
-}
-/// Nested message and enum types in `FeedMapping`.
-pub mod feed_mapping {
-    /// Feed mapping target. Can be either a placeholder or a criterion. For a
-    /// given feed, the active FeedMappings must have unique targets. Required.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Target {
-        /// Immutable. The placeholder type of this mapping (for example, if the
-        /// mapping maps feed attributes to placeholder fields).
-        #[prost(
-            enumeration = "super::super::enums::placeholder_type_enum::PlaceholderType",
-            tag = "3"
-        )]
-        PlaceholderType(i32),
-        /// Immutable. The criterion type of this mapping (for example, if the
-        /// mapping maps feed attributes to criterion fields).
-        #[prost(
-            enumeration = "super::super::enums::feed_mapping_criterion_type_enum::FeedMappingCriterionType",
-            tag = "4"
-        )]
-        CriterionType(i32),
-    }
-}
-/// Maps from feed attribute id to a placeholder or criterion field id.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AttributeFieldMapping {
-    /// Immutable. Feed attribute from which to map.
-    #[prost(int64, optional, tag = "24")]
-    pub feed_attribute_id: ::core::option::Option<i64>,
-    /// Output only. The placeholder field ID. If a placeholder field enum is not
-    /// published in the current API version, then this field will be populated and
-    /// the field oneof will be empty. This field is read-only.
-    #[prost(int64, optional, tag = "25")]
-    pub field_id: ::core::option::Option<i64>,
-    /// Placeholder or criterion field to be populated using data from
-    /// the above feed attribute. Required.
-    #[prost(
-        oneof = "attribute_field_mapping::Field",
-        tags = "3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 26"
-    )]
-    pub field: ::core::option::Option<attribute_field_mapping::Field>,
-}
-/// Nested message and enum types in `AttributeFieldMapping`.
-pub mod attribute_field_mapping {
-    /// Placeholder or criterion field to be populated using data from
-    /// the above feed attribute. Required.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Field {
-        /// Immutable. Sitelink Placeholder Fields.
-        #[prost(
-            enumeration = "super::super::enums::sitelink_placeholder_field_enum::SitelinkPlaceholderField",
-            tag = "3"
-        )]
-        SitelinkField(i32),
-        /// Immutable. Call Placeholder Fields.
-        #[prost(
-            enumeration = "super::super::enums::call_placeholder_field_enum::CallPlaceholderField",
-            tag = "4"
-        )]
-        CallField(i32),
-        /// Immutable. App Placeholder Fields.
-        #[prost(
-            enumeration = "super::super::enums::app_placeholder_field_enum::AppPlaceholderField",
-            tag = "5"
-        )]
-        AppField(i32),
-        /// Output only. Location Placeholder Fields. This field is read-only.
-        #[prost(
-            enumeration = "super::super::enums::location_placeholder_field_enum::LocationPlaceholderField",
-            tag = "6"
-        )]
-        LocationField(i32),
-        /// Output only. Affiliate Location Placeholder Fields. This field is
-        /// read-only.
-        #[prost(
-            enumeration = "super::super::enums::affiliate_location_placeholder_field_enum::AffiliateLocationPlaceholderField",
-            tag = "7"
-        )]
-        AffiliateLocationField(i32),
-        /// Immutable. Callout Placeholder Fields.
-        #[prost(
-            enumeration = "super::super::enums::callout_placeholder_field_enum::CalloutPlaceholderField",
-            tag = "8"
-        )]
-        CalloutField(i32),
-        /// Immutable. Structured Snippet Placeholder Fields.
-        #[prost(
-            enumeration = "super::super::enums::structured_snippet_placeholder_field_enum::StructuredSnippetPlaceholderField",
-            tag = "9"
-        )]
-        StructuredSnippetField(i32),
-        /// Immutable. Message Placeholder Fields.
-        #[prost(
-            enumeration = "super::super::enums::message_placeholder_field_enum::MessagePlaceholderField",
-            tag = "10"
-        )]
-        MessageField(i32),
-        /// Immutable. Price Placeholder Fields.
-        #[prost(
-            enumeration = "super::super::enums::price_placeholder_field_enum::PricePlaceholderField",
-            tag = "11"
-        )]
-        PriceField(i32),
-        /// Immutable. Promotion Placeholder Fields.
-        #[prost(
-            enumeration = "super::super::enums::promotion_placeholder_field_enum::PromotionPlaceholderField",
-            tag = "12"
-        )]
-        PromotionField(i32),
-        /// Immutable. Ad Customizer Placeholder Fields
-        #[prost(
-            enumeration = "super::super::enums::ad_customizer_placeholder_field_enum::AdCustomizerPlaceholderField",
-            tag = "13"
-        )]
-        AdCustomizerField(i32),
-        /// Immutable. Dynamic Search Ad Page Feed Fields.
-        #[prost(
-            enumeration = "super::super::enums::dsa_page_feed_criterion_field_enum::DsaPageFeedCriterionField",
-            tag = "14"
-        )]
-        DsaPageFeedField(i32),
-        /// Immutable. Location Target Fields.
-        #[prost(
-            enumeration = "super::super::enums::location_extension_targeting_criterion_field_enum::LocationExtensionTargetingCriterionField",
-            tag = "15"
-        )]
-        LocationExtensionTargetingField(i32),
-        /// Immutable. Education Placeholder Fields
-        #[prost(
-            enumeration = "super::super::enums::education_placeholder_field_enum::EducationPlaceholderField",
-            tag = "16"
-        )]
-        EducationField(i32),
-        /// Immutable. Flight Placeholder Fields
-        #[prost(
-            enumeration = "super::super::enums::flight_placeholder_field_enum::FlightPlaceholderField",
-            tag = "17"
-        )]
-        FlightField(i32),
-        /// Immutable. Custom Placeholder Fields
-        #[prost(
-            enumeration = "super::super::enums::custom_placeholder_field_enum::CustomPlaceholderField",
-            tag = "18"
-        )]
-        CustomField(i32),
-        /// Immutable. Hotel Placeholder Fields
-        #[prost(
-            enumeration = "super::super::enums::hotel_placeholder_field_enum::HotelPlaceholderField",
-            tag = "19"
-        )]
-        HotelField(i32),
-        /// Immutable. Real Estate Placeholder Fields
-        #[prost(
-            enumeration = "super::super::enums::real_estate_placeholder_field_enum::RealEstatePlaceholderField",
-            tag = "20"
-        )]
-        RealEstateField(i32),
-        /// Immutable. Travel Placeholder Fields
-        #[prost(
-            enumeration = "super::super::enums::travel_placeholder_field_enum::TravelPlaceholderField",
-            tag = "21"
-        )]
-        TravelField(i32),
-        /// Immutable. Local Placeholder Fields
-        #[prost(
-            enumeration = "super::super::enums::local_placeholder_field_enum::LocalPlaceholderField",
-            tag = "22"
-        )]
-        LocalField(i32),
-        /// Immutable. Job Placeholder Fields
-        #[prost(
-            enumeration = "super::super::enums::job_placeholder_field_enum::JobPlaceholderField",
-            tag = "23"
-        )]
-        JobField(i32),
-        /// Immutable. Image Placeholder Fields
-        #[prost(
-            enumeration = "super::super::enums::image_placeholder_field_enum::ImagePlaceholderField",
-            tag = "26"
-        )]
-        ImageField(i32),
     }
 }
 /// A feed placeholder view.
@@ -8342,60 +8304,6 @@ pub struct IncomeRangeView {
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
 }
-/// A Keyword Planner plan.
-/// Max number of saved keyword plans: 10000.
-/// It's possible to remove plans if limit is reached.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct KeywordPlan {
-    /// Immutable. The resource name of the Keyword Planner plan.
-    /// KeywordPlan resource names have the form:
-    ///
-    /// `customers/{customer_id}/keywordPlans/{kp_plan_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the keyword plan.
-    #[prost(int64, optional, tag = "5")]
-    pub id: ::core::option::Option<i64>,
-    /// The name of the keyword plan.
-    ///
-    /// This field is required and should not be empty when creating new keyword
-    /// plans.
-    #[prost(string, optional, tag = "6")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// The date period used for forecasting the plan.
-    #[prost(message, optional, tag = "4")]
-    pub forecast_period: ::core::option::Option<KeywordPlanForecastPeriod>,
-}
-/// The forecasting period associated with the keyword plan.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct KeywordPlanForecastPeriod {
-    /// Required. The date used for forecasting the Plan.
-    #[prost(oneof = "keyword_plan_forecast_period::Interval", tags = "1, 2")]
-    pub interval: ::core::option::Option<keyword_plan_forecast_period::Interval>,
-}
-/// Nested message and enum types in `KeywordPlanForecastPeriod`.
-pub mod keyword_plan_forecast_period {
-    /// Required. The date used for forecasting the Plan.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Interval {
-        /// A future date range relative to the current date used for forecasting.
-        #[prost(
-            enumeration = "super::super::enums::keyword_plan_forecast_interval_enum::KeywordPlanForecastInterval",
-            tag = "1"
-        )]
-        DateInterval(i32),
-        /// The custom date range used for forecasting. It cannot be greater than
-        /// a year.
-        /// The start and end dates must be in the future. Otherwise, an error will
-        /// be returned when the forecasting action is performed.
-        /// The start and end dates are inclusive.
-        #[prost(message, tag = "2")]
-        DateRange(super::super::common::DateRange),
-    }
-}
 /// A Keyword Planner ad group.
 /// Max number of keyword plan ad groups per plan: 200.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -8424,6 +8332,98 @@ pub struct KeywordPlanAdGroup {
     /// If not set, will inherit from parent campaign.
     #[prost(int64, optional, tag = "9")]
     pub cpc_bid_micros: ::core::option::Option<i64>,
+}
+/// A Keyword Plan ad group keyword.
+/// Max number of keyword plan keywords per plan: 10000.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct KeywordPlanAdGroupKeyword {
+    /// Immutable. The resource name of the Keyword Plan ad group keyword.
+    /// KeywordPlanAdGroupKeyword resource names have the form:
+    ///
+    /// `customers/{customer_id}/keywordPlanAdGroupKeywords/{kp_ad_group_keyword_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// The Keyword Plan ad group to which this keyword belongs.
+    #[prost(string, optional, tag = "8")]
+    pub keyword_plan_ad_group: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The ID of the Keyword Plan keyword.
+    #[prost(int64, optional, tag = "9")]
+    pub id: ::core::option::Option<i64>,
+    /// The keyword text.
+    #[prost(string, optional, tag = "10")]
+    pub text: ::core::option::Option<::prost::alloc::string::String>,
+    /// The keyword match type.
+    #[prost(
+        enumeration = "super::enums::keyword_match_type_enum::KeywordMatchType",
+        tag = "5"
+    )]
+    pub match_type: i32,
+    /// A keyword level max cpc bid in micros (for example, $1 = 1mm). The currency
+    /// is the same as the account currency code. This will override any CPC bid
+    /// set at the keyword plan ad group level. Not applicable for negative
+    /// keywords. (negative = true) This field is Optional.
+    #[prost(int64, optional, tag = "11")]
+    pub cpc_bid_micros: ::core::option::Option<i64>,
+    /// Immutable. If true, the keyword is negative.
+    #[prost(bool, optional, tag = "12")]
+    pub negative: ::core::option::Option<bool>,
+}
+/// A Keyword Plan campaign.
+/// Max number of keyword plan campaigns per plan allowed: 1.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct KeywordPlanCampaign {
+    /// Immutable. The resource name of the Keyword Plan campaign.
+    /// KeywordPlanCampaign resource names have the form:
+    ///
+    /// `customers/{customer_id}/keywordPlanCampaigns/{kp_campaign_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// The keyword plan this campaign belongs to.
+    #[prost(string, optional, tag = "9")]
+    pub keyword_plan: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The ID of the Keyword Plan campaign.
+    #[prost(int64, optional, tag = "10")]
+    pub id: ::core::option::Option<i64>,
+    /// The name of the Keyword Plan campaign.
+    ///
+    /// This field is required and should not be empty when creating Keyword Plan
+    /// campaigns.
+    #[prost(string, optional, tag = "11")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// The languages targeted for the Keyword Plan campaign.
+    /// Max allowed: 1.
+    #[prost(string, repeated, tag = "12")]
+    pub language_constants: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Targeting network.
+    ///
+    /// This field is required and should not be empty when creating Keyword Plan
+    /// campaigns.
+    #[prost(
+        enumeration = "super::enums::keyword_plan_network_enum::KeywordPlanNetwork",
+        tag = "6"
+    )]
+    pub keyword_plan_network: i32,
+    /// A default max cpc bid in micros, and in the account currency, for all ad
+    /// groups under the campaign.
+    ///
+    /// This field is required and should not be empty when creating Keyword Plan
+    /// campaigns.
+    #[prost(int64, optional, tag = "13")]
+    pub cpc_bid_micros: ::core::option::Option<i64>,
+    /// The geo targets.
+    /// Max number allowed: 20.
+    #[prost(message, repeated, tag = "8")]
+    pub geo_targets: ::prost::alloc::vec::Vec<KeywordPlanGeoTarget>,
+}
+/// A geo target.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct KeywordPlanGeoTarget {
+    /// Required. The resource name of the geo target.
+    #[prost(string, optional, tag = "2")]
+    pub geo_target_constant: ::core::option::Option<::prost::alloc::string::String>,
 }
 /// A Keyword Plan Campaign keyword.
 /// Only negative keywords are supported for Campaign Keyword.
@@ -8679,6 +8679,118 @@ pub struct ManagedPlacementView {
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
 }
+/// A media file.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MediaFile {
+    /// Immutable. The resource name of the media file.
+    /// Media file resource names have the form:
+    ///
+    /// `customers/{customer_id}/mediaFiles/{media_file_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The ID of the media file.
+    #[prost(int64, optional, tag = "12")]
+    pub id: ::core::option::Option<i64>,
+    /// Immutable. Type of the media file.
+    #[prost(enumeration = "super::enums::media_type_enum::MediaType", tag = "5")]
+    pub r#type: i32,
+    /// Output only. The mime type of the media file.
+    #[prost(enumeration = "super::enums::mime_type_enum::MimeType", tag = "6")]
+    pub mime_type: i32,
+    /// Immutable. The URL of where the original media file was downloaded from (or
+    /// a file name). Only used for media of type AUDIO and IMAGE.
+    #[prost(string, optional, tag = "13")]
+    pub source_url: ::core::option::Option<::prost::alloc::string::String>,
+    /// Immutable. The name of the media file. The name can be used by clients to
+    /// help identify previously uploaded media.
+    #[prost(string, optional, tag = "14")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The size of the media file in bytes.
+    #[prost(int64, optional, tag = "15")]
+    pub file_size: ::core::option::Option<i64>,
+    /// The specific type of the media file.
+    #[prost(oneof = "media_file::Mediatype", tags = "3, 4, 10, 11")]
+    pub mediatype: ::core::option::Option<media_file::Mediatype>,
+}
+/// Nested message and enum types in `MediaFile`.
+pub mod media_file {
+    /// The specific type of the media file.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Mediatype {
+        /// Immutable. Encapsulates an Image.
+        #[prost(message, tag = "3")]
+        Image(super::MediaImage),
+        /// Immutable. A ZIP archive media the content of which contains HTML5
+        /// assets.
+        #[prost(message, tag = "4")]
+        MediaBundle(super::MediaBundle),
+        /// Output only. Encapsulates an Audio.
+        #[prost(message, tag = "10")]
+        Audio(super::MediaAudio),
+        /// Immutable. Encapsulates a Video.
+        #[prost(message, tag = "11")]
+        Video(super::MediaVideo),
+    }
+}
+/// Encapsulates an Image.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MediaImage {
+    /// Immutable. Raw image data.
+    #[prost(bytes = "bytes", optional, tag = "4")]
+    pub data: ::core::option::Option<::prost::bytes::Bytes>,
+    /// Output only. The url to the full size version of the image.
+    #[prost(string, optional, tag = "2")]
+    pub full_size_image_url: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The url to the preview size version of the image.
+    #[prost(string, optional, tag = "3")]
+    pub preview_size_image_url: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Represents a ZIP archive media the content of which contains HTML5 assets.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MediaBundle {
+    /// Immutable. Raw zipped data.
+    #[prost(bytes = "bytes", optional, tag = "3")]
+    pub data: ::core::option::Option<::prost::bytes::Bytes>,
+    /// Output only. The url to access the uploaded zipped data.
+    /// For example, <https://tpc.googlesyndication.com/simgad/123>
+    /// This field is read-only.
+    #[prost(string, optional, tag = "2")]
+    pub url: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Encapsulates an Audio.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MediaAudio {
+    /// Output only. The duration of the Audio in milliseconds.
+    #[prost(int64, optional, tag = "2")]
+    pub ad_duration_millis: ::core::option::Option<i64>,
+}
+/// Encapsulates a Video.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MediaVideo {
+    /// Output only. The duration of the Video in milliseconds.
+    #[prost(int64, optional, tag = "5")]
+    pub ad_duration_millis: ::core::option::Option<i64>,
+    /// Immutable. The YouTube video ID (as seen in YouTube URLs). Adding prefix
+    /// "<https://www.youtube.com/watch?v="> to this ID will get the YouTube
+    /// streaming URL for this video.
+    #[prost(string, optional, tag = "6")]
+    pub youtube_video_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The Advertising Digital Identification code for this video, as
+    /// defined by the American Association of Advertising Agencies, used mainly
+    /// for television commercials.
+    #[prost(string, optional, tag = "7")]
+    pub advertising_id_code: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The Industry Standard Commercial Identifier code for this
+    /// video, used mainly for television commercials.
+    #[prost(string, optional, tag = "8")]
+    pub isci_code: ::core::option::Option<::prost::alloc::string::String>,
+}
 /// A mobile application category constant.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -8724,80 +8836,6 @@ pub struct MobileDeviceConstant {
         tag = "6"
     )]
     pub r#type: i32,
-}
-/// A job containing offline user data of store visitors, or user list members
-/// that will be processed asynchronously. The uploaded data isn't readable and
-/// the processing results of the job can only be read using
-/// GoogleAdsService.Search/SearchStream.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OfflineUserDataJob {
-    /// Immutable. The resource name of the offline user data job.
-    /// Offline user data job resource names have the form:
-    ///
-    /// `customers/{customer_id}/offlineUserDataJobs/{offline_user_data_job_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. ID of this offline user data job.
-    #[prost(int64, optional, tag = "9")]
-    pub id: ::core::option::Option<i64>,
-    /// Immutable. User specified job ID.
-    #[prost(int64, optional, tag = "10")]
-    pub external_id: ::core::option::Option<i64>,
-    /// Immutable. Type of the job.
-    #[prost(
-        enumeration = "super::enums::offline_user_data_job_type_enum::OfflineUserDataJobType",
-        tag = "4"
-    )]
-    pub r#type: i32,
-    /// Output only. Status of the job.
-    #[prost(
-        enumeration = "super::enums::offline_user_data_job_status_enum::OfflineUserDataJobStatus",
-        tag = "5"
-    )]
-    pub status: i32,
-    /// Output only. Reason for the processing failure, if status is FAILED.
-    #[prost(
-        enumeration = "super::enums::offline_user_data_job_failure_reason_enum::OfflineUserDataJobFailureReason",
-        tag = "6"
-    )]
-    pub failure_reason: i32,
-    /// Output only. Metadata of offline user data job depicting match rate range.
-    #[prost(message, optional, tag = "11")]
-    pub operation_metadata: ::core::option::Option<OfflineUserDataJobMetadata>,
-    /// Metadata of the job.
-    #[prost(oneof = "offline_user_data_job::Metadata", tags = "7, 8")]
-    pub metadata: ::core::option::Option<offline_user_data_job::Metadata>,
-}
-/// Nested message and enum types in `OfflineUserDataJob`.
-pub mod offline_user_data_job {
-    /// Metadata of the job.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Metadata {
-        /// Immutable. Metadata for data updates to a CRM-based user list.
-        #[prost(message, tag = "7")]
-        CustomerMatchUserListMetadata(
-            super::super::common::CustomerMatchUserListMetadata,
-        ),
-        /// Immutable. Metadata for store sales data update.
-        #[prost(message, tag = "8")]
-        StoreSalesMetadata(super::super::common::StoreSalesMetadata),
-    }
-}
-/// Metadata of offline user data job.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OfflineUserDataJobMetadata {
-    /// Output only. Match rate of the Customer Match user list upload. Describes
-    /// the estimated match rate when the status of the job is "RUNNING" and final
-    /// match rate when the final match rate is available after the status of the
-    /// job is "SUCCESS/FAILED".
-    #[prost(
-        enumeration = "super::enums::offline_user_data_job_match_rate_range_enum::OfflineUserDataJobMatchRateRange",
-        tag = "1"
-    )]
-    pub match_rate_range: i32,
 }
 /// A mobile operating system version or a range of versions, depending on
 /// `operator_type`. List of available mobile platforms at
@@ -9818,6 +9856,93 @@ pub struct SmartCampaignSearchTermView {
     #[prost(string, tag = "3")]
     pub campaign: ::prost::alloc::string::String,
 }
+/// Settings for configuring Smart campaigns.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SmartCampaignSetting {
+    /// Immutable. The resource name of the Smart campaign setting.
+    /// Smart campaign setting resource names have the form:
+    ///
+    /// `customers/{customer_id}/smartCampaignSettings/{campaign_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The campaign to which these settings apply.
+    #[prost(string, tag = "2")]
+    pub campaign: ::prost::alloc::string::String,
+    /// Phone number and country code.
+    #[prost(message, optional, tag = "3")]
+    pub phone_number: ::core::option::Option<smart_campaign_setting::PhoneNumber>,
+    /// The language code to advertise in from the set of
+    /// [supported language codes]
+    /// (<https://developers.google.com/google-ads/api/reference/data/codes-formats#languages>).
+    #[prost(string, tag = "7")]
+    pub advertising_language_code: ::prost::alloc::string::String,
+    /// The landing page of this campaign.
+    #[prost(oneof = "smart_campaign_setting::LandingPage", tags = "8, 9")]
+    pub landing_page: ::core::option::Option<smart_campaign_setting::LandingPage>,
+    /// The business setting of this campaign.
+    #[prost(oneof = "smart_campaign_setting::BusinessSetting", tags = "5, 10")]
+    pub business_setting: ::core::option::Option<
+        smart_campaign_setting::BusinessSetting,
+    >,
+}
+/// Nested message and enum types in `SmartCampaignSetting`.
+pub mod smart_campaign_setting {
+    /// Phone number and country code in smart campaign settings.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PhoneNumber {
+        /// Phone number of the smart campaign.
+        #[prost(string, optional, tag = "1")]
+        pub phone_number: ::core::option::Option<::prost::alloc::string::String>,
+        /// Upper-case, two-letter country code as defined by ISO-3166.
+        #[prost(string, optional, tag = "2")]
+        pub country_code: ::core::option::Option<::prost::alloc::string::String>,
+    }
+    /// Settings for configuring a business profile optimized for ads as this
+    /// campaign's landing page.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AdOptimizedBusinessProfileSetting {
+        /// Enabling a lead form on your business profile enables prospective
+        /// customers to contact your business by filling out a simple form,
+        /// and you'll receive their information through email.
+        #[prost(bool, optional, tag = "1")]
+        pub include_lead_form: ::core::option::Option<bool>,
+    }
+    /// The landing page of this campaign.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum LandingPage {
+        /// The user-provided landing page URL for this Campaign.
+        #[prost(string, tag = "8")]
+        FinalUrl(::prost::alloc::string::String),
+        /// Settings for configuring a business profile optimized for ads as this
+        /// campaign's landing page.  This campaign must be linked to a business
+        /// profile to use this option.  For more information on this feature,
+        /// consult <https://support.google.com/google-ads/answer/9827068.>
+        #[prost(message, tag = "9")]
+        AdOptimizedBusinessProfileSetting(AdOptimizedBusinessProfileSetting),
+    }
+    /// The business setting of this campaign.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum BusinessSetting {
+        /// The name of the business.
+        #[prost(string, tag = "5")]
+        BusinessName(::prost::alloc::string::String),
+        /// The resource name of a Business Profile location.
+        /// Business Profile location resource names can be fetched through the
+        /// Business Profile API and adhere to the following format:
+        /// `locations/{locationId}`.
+        ///
+        /// See the [Business Profile API]
+        /// (<https://developers.google.com/my-business/reference/businessinformation/rest/v1/accounts.locations>)
+        /// for additional details.
+        #[prost(string, tag = "10")]
+        BusinessProfileLocation(::prost::alloc::string::String),
+    }
+}
 /// A data sharing connection, allowing the import of third party app analytics
 /// into a Google Ads Customer.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -10140,343 +10265,146 @@ pub struct WebpageView {
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
 }
-/// A payments account, which can be used to set up billing for an Ads customer.
+/// A CustomerSkAdNetworkConversionValueSchema.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PaymentsAccount {
-    /// Output only. The resource name of the payments account.
-    /// PaymentsAccount resource names have the form:
-    ///
-    /// `customers/{customer_id}/paymentsAccounts/{payments_account_id}`
+pub struct CustomerSkAdNetworkConversionValueSchema {
+    /// Output only. The resource name of the schema.
+    /// CustomerSkAdNetworkConversionValueSchema resource names have the form:
+    /// customers/{customer_id}/customerSkAdNetworkConversionValueSchemas/{account_link_id}
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Output only. A 16 digit ID used to identify a payments account.
-    #[prost(string, optional, tag = "8")]
-    pub payments_account_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The name of the payments account.
-    #[prost(string, optional, tag = "9")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The currency code of the payments account.
-    /// A subset of the currency codes derived from the ISO 4217 standard is
-    /// supported.
-    #[prost(string, optional, tag = "10")]
-    pub currency_code: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. A 12 digit ID used to identify the payments profile associated
-    /// with the payments account.
-    #[prost(string, optional, tag = "11")]
-    pub payments_profile_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. A secondary payments profile ID present in uncommon
-    /// situations, for example, when a sequential liability agreement has been
-    /// arranged.
-    #[prost(string, optional, tag = "12")]
-    pub secondary_payments_profile_id: ::core::option::Option<
-        ::prost::alloc::string::String,
+    /// Output only. The schema for the specified resource.
+    #[prost(message, optional, tag = "2")]
+    pub schema: ::core::option::Option<
+        customer_sk_ad_network_conversion_value_schema::SkAdNetworkConversionValueSchema,
     >,
-    /// Output only. Paying manager of this payment account.
-    #[prost(string, optional, tag = "13")]
-    pub paying_manager_customer: ::core::option::Option<::prost::alloc::string::String>,
 }
-/// An invoice. All invoice information is snapshotted to match the PDF invoice.
-/// For invoices older than the launch of InvoiceService, the snapshotted
-/// information may not match the PDF invoice.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Invoice {
-    /// Output only. The resource name of the invoice. Multiple customers can share
-    /// a given invoice, so multiple resource names may point to the same invoice.
-    /// Invoice resource names have the form:
-    ///
-    /// `customers/{customer_id}/invoices/{invoice_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the invoice. It appears on the invoice PDF as
-    /// "Invoice number".
-    #[prost(string, optional, tag = "25")]
-    pub id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The type of invoice.
-    #[prost(enumeration = "super::enums::invoice_type_enum::InvoiceType", tag = "3")]
-    pub r#type: i32,
-    /// Output only. The resource name of this invoice's billing setup.
-    ///
-    /// `customers/{customer_id}/billingSetups/{billing_setup_id}`
-    #[prost(string, optional, tag = "26")]
-    pub billing_setup: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. A 16 digit ID used to identify the payments account associated
-    /// with the billing setup, for example, "1234-5678-9012-3456". It appears on
-    /// the invoice PDF as "Billing Account Number".
-    #[prost(string, optional, tag = "27")]
-    pub payments_account_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. A 12 digit ID used to identify the payments profile associated
-    /// with the billing setup, for example, "1234-5678-9012". It appears on the
-    /// invoice PDF as "Billing ID".
-    #[prost(string, optional, tag = "28")]
-    pub payments_profile_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The issue date in yyyy-mm-dd format. It appears on the invoice
-    /// PDF as either "Issue date" or "Invoice date".
-    #[prost(string, optional, tag = "29")]
-    pub issue_date: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The due date in yyyy-mm-dd format.
-    #[prost(string, optional, tag = "30")]
-    pub due_date: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The service period date range of this invoice. The end date is
-    /// inclusive.
-    #[prost(message, optional, tag = "9")]
-    pub service_date_range: ::core::option::Option<super::common::DateRange>,
-    /// Output only. The currency code. All costs are returned in this currency. A
-    /// subset of the currency codes derived from the ISO 4217 standard is
-    /// supported.
-    #[prost(string, optional, tag = "31")]
-    pub currency_code: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The pretax subtotal amount of invoice level adjustments, in
-    /// micros.
-    #[prost(int64, tag = "19")]
-    pub adjustments_subtotal_amount_micros: i64,
-    /// Output only. The sum of taxes on the invoice level adjustments, in micros.
-    #[prost(int64, tag = "20")]
-    pub adjustments_tax_amount_micros: i64,
-    /// Output only. The total amount of invoice level adjustments, in micros.
-    #[prost(int64, tag = "21")]
-    pub adjustments_total_amount_micros: i64,
-    /// Output only. The pretax subtotal amount of invoice level regulatory costs,
-    /// in micros.
-    #[prost(int64, tag = "22")]
-    pub regulatory_costs_subtotal_amount_micros: i64,
-    /// Output only. The sum of taxes on the invoice level regulatory costs, in
-    /// micros.
-    #[prost(int64, tag = "23")]
-    pub regulatory_costs_tax_amount_micros: i64,
-    /// Output only. The total amount of invoice level regulatory costs, in micros.
-    #[prost(int64, tag = "24")]
-    pub regulatory_costs_total_amount_micros: i64,
-    /// Output only. The pretax subtotal amount, in micros. This equals the
-    /// sum of the AccountBudgetSummary subtotal amounts,
-    /// Invoice.adjustments_subtotal_amount_micros, and
-    /// Invoice.regulatory_costs_subtotal_amount_micros.
-    /// Starting with v6, the Invoice.regulatory_costs_subtotal_amount_micros is no
-    /// longer included.
-    #[prost(int64, optional, tag = "33")]
-    pub subtotal_amount_micros: ::core::option::Option<i64>,
-    /// Output only. The sum of all taxes on the invoice, in micros. This equals
-    /// the sum of the AccountBudgetSummary tax amounts, plus taxes not associated
-    /// with a specific account budget.
-    #[prost(int64, optional, tag = "34")]
-    pub tax_amount_micros: ::core::option::Option<i64>,
-    /// Output only. The total amount, in micros. This equals the sum of
-    /// Invoice.subtotal_amount_micros and Invoice.tax_amount_micros.
-    /// Starting with v6, Invoice.regulatory_costs_subtotal_amount_micros is
-    /// also added as it is no longer already included in
-    /// Invoice.tax_amount_micros.
-    #[prost(int64, optional, tag = "35")]
-    pub total_amount_micros: ::core::option::Option<i64>,
-    /// Output only. The resource name of the original invoice corrected, wrote
-    /// off, or canceled by this invoice, if applicable. If `corrected_invoice` is
-    /// set, `replaced_invoices` will not be set. Invoice resource names have the
-    /// form:
-    ///
-    /// `customers/{customer_id}/invoices/{invoice_id}`
-    #[prost(string, optional, tag = "36")]
-    pub corrected_invoice: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The resource name of the original invoice(s) being rebilled or
-    /// replaced by this invoice, if applicable. There might be multiple replaced
-    /// invoices due to invoice consolidation. The replaced invoices may not belong
-    /// to the same payments account. If `replaced_invoices` is set,
-    /// `corrected_invoice` will not be set. Invoice resource names have the form:
-    ///
-    /// `customers/{customer_id}/invoices/{invoice_id}`
-    #[prost(string, repeated, tag = "37")]
-    pub replaced_invoices: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. The URL to a PDF copy of the invoice. Users need to pass in
-    /// their OAuth token to request the PDF with this URL.
-    #[prost(string, optional, tag = "38")]
-    pub pdf_url: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The list of summarized account budget information associated
-    /// with this invoice.
-    #[prost(message, repeated, tag = "18")]
-    pub account_budget_summaries: ::prost::alloc::vec::Vec<
-        invoice::AccountBudgetSummary,
-    >,
-    /// Output only. The list of summarized account information associated with
-    /// this invoice.
-    #[prost(message, repeated, tag = "39")]
-    pub account_summaries: ::prost::alloc::vec::Vec<invoice::AccountSummary>,
-}
-/// Nested message and enum types in `Invoice`.
-pub mod invoice {
-    /// Represents a summarized view at account level.
-    /// AccountSummary fields are accessible only to customers on the allow-list.
+/// Nested message and enum types in `CustomerSkAdNetworkConversionValueSchema`.
+pub mod customer_sk_ad_network_conversion_value_schema {
+    /// The CustomerLink specific SkAdNetworkConversionValueSchema.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct AccountSummary {
-        /// Output only. The account associated with the account summary.
-        #[prost(string, optional, tag = "1")]
-        pub customer: ::core::option::Option<::prost::alloc::string::String>,
-        /// Output only. Pretax billing correction subtotal amount, in micros.
-        #[prost(int64, optional, tag = "2")]
-        pub billing_correction_subtotal_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Tax on billing correction, in micros.
-        #[prost(int64, optional, tag = "3")]
-        pub billing_correction_tax_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Total billing correction amount, in micros.
-        #[prost(int64, optional, tag = "4")]
-        pub billing_correction_total_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Pretax coupon adjustment subtotal amount, in micros.
-        #[prost(int64, optional, tag = "5")]
-        pub coupon_adjustment_subtotal_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Tax on coupon adjustment, in micros.
-        #[prost(int64, optional, tag = "6")]
-        pub coupon_adjustment_tax_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Total coupon adjustment amount, in micros.
-        #[prost(int64, optional, tag = "7")]
-        pub coupon_adjustment_total_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Pretax excess credit adjustment subtotal amount, in micros.
-        #[prost(int64, optional, tag = "8")]
-        pub excess_credit_adjustment_subtotal_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Tax on excess credit adjustment, in micros.
-        #[prost(int64, optional, tag = "9")]
-        pub excess_credit_adjustment_tax_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Total excess credit adjustment amount, in micros.
-        #[prost(int64, optional, tag = "10")]
-        pub excess_credit_adjustment_total_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Pretax regulatory costs subtotal amount, in micros.
-        #[prost(int64, optional, tag = "11")]
-        pub regulatory_costs_subtotal_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Tax on regulatory costs, in micros.
-        #[prost(int64, optional, tag = "12")]
-        pub regulatory_costs_tax_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Total regulatory costs amount, in micros.
-        #[prost(int64, optional, tag = "13")]
-        pub regulatory_costs_total_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Total pretax subtotal amount attributable to the account
-        /// during the service period, in micros.
-        #[prost(int64, optional, tag = "14")]
-        pub subtotal_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Total tax amount attributable to the account during the
-        /// service period, in micros.
-        #[prost(int64, optional, tag = "15")]
-        pub tax_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Total amount attributable to the account during the service
-        /// period, in micros. This equals the sum of the subtotal_amount_micros and
-        /// tax_amount_micros.
-        #[prost(int64, optional, tag = "16")]
-        pub total_amount_micros: ::core::option::Option<i64>,
+    pub struct SkAdNetworkConversionValueSchema {
+        /// Required. Output only. Apple App Store app ID.
+        #[prost(string, tag = "1")]
+        pub app_id: ::prost::alloc::string::String,
+        /// Output only. A time window (measured in hours) post install after which
+        /// the App Attribution Partner or advertiser stops calling
+        /// updateConversionValue
+        /// (<https://developer.apple.com/documentation/storekit/skadnetwork/3566697-updateconversionvalue>).
+        #[prost(int32, tag = "2")]
+        pub measurement_window_hours: i32,
+        /// Output only. Fine grained conversion value mappings.
+        #[prost(message, repeated, tag = "3")]
+        pub fine_grained_conversion_value_mappings: ::prost::alloc::vec::Vec<
+            sk_ad_network_conversion_value_schema::FineGrainedConversionValueMappings,
+        >,
     }
-    /// Represents a summarized account budget billable cost.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct AccountBudgetSummary {
-        /// Output only. The resource name of the customer associated with this
-        /// account budget. This contains the customer ID, which appears on the
-        /// invoice PDF as "Account ID". Customer resource names have the form:
-        ///
-        /// `customers/{customer_id}`
-        #[prost(string, optional, tag = "10")]
-        pub customer: ::core::option::Option<::prost::alloc::string::String>,
-        /// Output only. The descriptive name of the account budget's customer. It
-        /// appears on the invoice PDF as "Account".
-        #[prost(string, optional, tag = "11")]
-        pub customer_descriptive_name: ::core::option::Option<
-            ::prost::alloc::string::String,
-        >,
-        /// Output only. The resource name of the account budget associated with this
-        /// summarized billable cost. AccountBudget resource names have the form:
-        ///
-        /// `customers/{customer_id}/accountBudgets/{account_budget_id}`
-        #[prost(string, optional, tag = "12")]
-        pub account_budget: ::core::option::Option<::prost::alloc::string::String>,
-        /// Output only. The name of the account budget. It appears on the invoice
-        /// PDF as "Account budget".
-        #[prost(string, optional, tag = "13")]
-        pub account_budget_name: ::core::option::Option<::prost::alloc::string::String>,
-        /// Output only. The purchase order number of the account budget. It appears
-        /// on the invoice PDF as "Purchase order".
-        #[prost(string, optional, tag = "14")]
-        pub purchase_order_number: ::core::option::Option<
-            ::prost::alloc::string::String,
-        >,
-        /// Output only. The pretax subtotal amount attributable to this budget
-        /// during the service period, in micros.
-        #[prost(int64, optional, tag = "15")]
-        pub subtotal_amount_micros: ::core::option::Option<i64>,
-        /// Output only. The tax amount attributable to this budget during the
-        /// service period, in micros.
-        #[prost(int64, optional, tag = "16")]
-        pub tax_amount_micros: ::core::option::Option<i64>,
-        /// Output only. The total amount attributable to this budget during the
-        /// service period, in micros. This equals the sum of the account budget
-        /// subtotal amount and the account budget tax amount.
-        #[prost(int64, optional, tag = "17")]
-        pub total_amount_micros: ::core::option::Option<i64>,
-        /// Output only. The billable activity date range of the account budget,
-        /// within the service date range of this invoice. The end date is inclusive.
-        /// This can be different from the account budget's start and end time.
-        #[prost(message, optional, tag = "9")]
-        pub billable_activity_date_range: ::core::option::Option<
-            super::super::common::DateRange,
-        >,
-        /// Output only. Accessible only to customers on the allow-list.
-        /// The pretax served amount attributable to this budget during the service
-        /// period, in micros. This is only useful to reconcile invoice and delivery
-        /// data.
-        #[prost(int64, optional, tag = "18")]
-        pub served_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Accessible only to customers on the allow-list.
-        /// The pretax billed amount attributable to this budget during the
-        /// service period, in micros. This does not account for any adjustments.
-        #[prost(int64, optional, tag = "19")]
-        pub billed_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Accessible only to customers on the allow-list.
-        /// The pretax overdelivery amount attributable to this budget during the
-        /// service period, in micros (negative value).
-        #[prost(int64, optional, tag = "20")]
-        pub overdelivery_amount_micros: ::core::option::Option<i64>,
-        /// Output only. Accessible only to customers on the allow-list.
-        /// The pretax invalid activity amount attributable to this budget in
-        /// previous months, in micros (negative value).
-        #[prost(int64, optional, tag = "21")]
-        pub invalid_activity_amount_micros: ::core::option::Option<i64>,
-        /// Output only. The list of summarized invalid activity credits with
-        /// original linkages.
-        #[prost(message, repeated, tag = "22")]
-        pub invalid_activity_summaries: ::prost::alloc::vec::Vec<InvalidActivitySummary>,
-    }
-    /// Details about the invalid activity for the invoice that contain
-    /// additional details about invoice against which corrections are made.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct InvalidActivitySummary {
-        /// Output only. Original month of service related to this invalid activity
-        /// credit.
-        #[prost(
-            enumeration = "super::super::enums::month_of_year_enum::MonthOfYear",
-            optional,
-            tag = "1"
-        )]
-        pub original_month_of_service: ::core::option::Option<i32>,
-        /// Output only. Original year of service related to this invalid activity
-        /// credit.
-        #[prost(string, optional, tag = "2")]
-        pub original_year_of_service: ::core::option::Option<
-            ::prost::alloc::string::String,
-        >,
-        /// Output only. Original invoice number related to this invalid activity
-        /// credit.
-        #[prost(string, optional, tag = "3")]
-        pub original_invoice_id: ::core::option::Option<::prost::alloc::string::String>,
-        /// Output only. Original account budget name related to this invalid
-        /// activity credit.
-        #[prost(string, optional, tag = "4")]
-        pub original_account_budget_name: ::core::option::Option<
-            ::prost::alloc::string::String,
-        >,
-        /// Output only. Original purchase order number related to this invalid
-        /// activity credit.
-        #[prost(string, optional, tag = "5")]
-        pub original_purchase_order_number: ::core::option::Option<
-            ::prost::alloc::string::String,
-        >,
-        /// Output only. Invalid activity amount in micros.
-        #[prost(int64, optional, tag = "6")]
-        pub amount_micros: ::core::option::Option<i64>,
+    /// Nested message and enum types in `SkAdNetworkConversionValueSchema`.
+    pub mod sk_ad_network_conversion_value_schema {
+        /// Mappings for fine grained conversion value.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct FineGrainedConversionValueMappings {
+            /// Output only. Fine grained conversion value. Valid values are in the
+            /// inclusive range \[0,63\].
+            #[prost(int32, tag = "1")]
+            pub fine_grained_conversion_value: i32,
+            /// Output only. Conversion events the fine grained conversion value maps
+            /// to.
+            #[prost(message, optional, tag = "2")]
+            pub conversion_value_mapping: ::core::option::Option<ConversionValueMapping>,
+        }
+        /// Represent mapping from one conversion value to one or more conversion
+        /// events.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct ConversionValueMapping {
+            /// Output only. The minimum of the time range in which a user was last
+            /// active during the measurement window.
+            #[prost(int64, tag = "1")]
+            pub min_time_post_install_hours: i64,
+            /// Output only. The maximum of the time range in which a user was last
+            /// active during the measurement window.
+            #[prost(int64, tag = "2")]
+            pub max_time_post_install_hours: i64,
+            /// Output only. The conversion value may be mapped to multiple events with
+            /// various attributes.
+            #[prost(message, repeated, tag = "3")]
+            pub mapped_events: ::prost::alloc::vec::Vec<Event>,
+        }
+        /// Defines a Google conversion event that the conversion value is mapped to.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct Event {
+            /// Output only. Google event name represented by this conversion value.
+            #[prost(string, tag = "1")]
+            pub mapped_event_name: ::prost::alloc::string::String,
+            /// Output only. The reported currency for the event_revenue. ISO 4217
+            /// three-letter currency code, for example, "USD"
+            #[prost(string, tag = "2")]
+            pub currency_code: ::prost::alloc::string::String,
+            /// Either a range or specific value for event revenue.
+            #[prost(oneof = "event::RevenueRate", tags = "3, 4")]
+            pub revenue_rate: ::core::option::Option<event::RevenueRate>,
+            /// Either a range or specific value for event counter.
+            #[prost(oneof = "event::EventRate", tags = "5, 6")]
+            pub event_rate: ::core::option::Option<event::EventRate>,
+        }
+        /// Nested message and enum types in `Event`.
+        pub mod event {
+            /// Defines a range for revenue values.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct RevenueRange {
+                /// Output only. For revenue ranges, the minimum value in `currency_code`
+                /// for which this conversion value would be updated. A value of 0 will
+                /// be treated as unset.
+                #[prost(double, tag = "3")]
+                pub min_event_revenue: f64,
+                /// Output only. For revenue ranges, the maximum value in `currency_code`
+                /// for which this conversion value would be updated. A value of 0 will
+                /// be treated as unset.
+                #[prost(double, tag = "4")]
+                pub max_event_revenue: f64,
+            }
+            /// Defines a range for event counter values.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct EventOccurrenceRange {
+                /// Output only. For event counter ranges, the minimum of the defined
+                /// range. A value of 0 will be treated as unset.
+                #[prost(int64, tag = "1")]
+                pub min_event_count: i64,
+                /// Output only. For event counter ranges, the maximum of the defined
+                /// range. A value of 0 will be treated as unset.
+                #[prost(int64, tag = "2")]
+                pub max_event_count: i64,
+            }
+            /// Either a range or specific value for event revenue.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            pub enum RevenueRate {
+                /// Output only. The event revenue range.
+                #[prost(message, tag = "3")]
+                EventRevenueRange(RevenueRange),
+                /// Output only. The specific event revenue value.
+                #[prost(double, tag = "4")]
+                EventRevenueValue(f64),
+            }
+            /// Either a range or specific value for event counter.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            pub enum EventRate {
+                /// Output only. The event counter range.
+                #[prost(message, tag = "5")]
+                EventOccurrenceRange(EventOccurrenceRange),
+                /// Output only. For specific event counter values.
+                #[prost(int64, tag = "6")]
+                EventCounter(i64),
+            }
+        }
     }
 }
 /// A data sharing connection, proposed or in use,
@@ -10506,4 +10434,76 @@ pub struct MerchantCenterLink {
         tag = "5"
     )]
     pub status: i32,
+}
+/// A field or resource (artifact) used by GoogleAdsService.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GoogleAdsField {
+    /// Output only. The resource name of the artifact.
+    /// Artifact resource names have the form:
+    ///
+    /// `googleAdsFields/{name}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The name of the artifact.
+    #[prost(string, optional, tag = "21")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The category of the artifact.
+    #[prost(
+        enumeration = "super::enums::google_ads_field_category_enum::GoogleAdsFieldCategory",
+        tag = "3"
+    )]
+    pub category: i32,
+    /// Output only. Whether the artifact can be used in a SELECT clause in search
+    /// queries.
+    #[prost(bool, optional, tag = "22")]
+    pub selectable: ::core::option::Option<bool>,
+    /// Output only. Whether the artifact can be used in a WHERE clause in search
+    /// queries.
+    #[prost(bool, optional, tag = "23")]
+    pub filterable: ::core::option::Option<bool>,
+    /// Output only. Whether the artifact can be used in a ORDER BY clause in
+    /// search queries.
+    #[prost(bool, optional, tag = "24")]
+    pub sortable: ::core::option::Option<bool>,
+    /// Output only. The names of all resources, segments, and metrics that are
+    /// selectable with the described artifact.
+    #[prost(string, repeated, tag = "25")]
+    pub selectable_with: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. The names of all resources that are selectable with the
+    /// described artifact. Fields from these resources do not segment metrics when
+    /// included in search queries.
+    ///
+    /// This field is only set for artifacts whose category is RESOURCE.
+    #[prost(string, repeated, tag = "26")]
+    pub attribute_resources: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. This field lists the names of all metrics that are selectable
+    /// with the described artifact when it is used in the FROM clause. It is only
+    /// set for artifacts whose category is RESOURCE.
+    #[prost(string, repeated, tag = "27")]
+    pub metrics: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. This field lists the names of all artifacts, whether a segment
+    /// or another resource, that segment metrics when included in search queries
+    /// and when the described artifact is used in the FROM clause. It is only set
+    /// for artifacts whose category is RESOURCE.
+    #[prost(string, repeated, tag = "28")]
+    pub segments: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. Values the artifact can assume if it is a field of type ENUM.
+    ///
+    /// This field is only set for artifacts of category SEGMENT or ATTRIBUTE.
+    #[prost(string, repeated, tag = "29")]
+    pub enum_values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. This field determines the operators that can be used with the
+    /// artifact in WHERE clauses.
+    #[prost(
+        enumeration = "super::enums::google_ads_field_data_type_enum::GoogleAdsFieldDataType",
+        tag = "12"
+    )]
+    pub data_type: i32,
+    /// Output only. The URL of proto describing the artifact's data type.
+    #[prost(string, optional, tag = "30")]
+    pub type_url: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Whether the field artifact is repeated.
+    #[prost(bool, optional, tag = "31")]
+    pub is_repeated: ::core::option::Option<bool>,
 }

@@ -1,71 +1,3 @@
-/// Timestamps about this resource according to a particular system.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SystemTimestamps {
-    /// The creation time of the resource within the given system.
-    #[prost(message, optional, tag = "1")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The last-modified time of the resource within the given system.
-    #[prost(message, optional, tag = "2")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The expiration time of the resource within the given system.
-    /// Currently only apllicable to BigQuery resources.
-    #[prost(message, optional, tag = "3")]
-    pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Describes a Cloud Storage fileset entry.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GcsFilesetSpec {
-    /// Required. Patterns to identify a set of files in Google Cloud Storage.
-    /// See [Cloud Storage
-    /// documentation](<https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames>)
-    /// for more information. Note that bucket wildcards are currently not
-    /// supported.
-    ///
-    /// Examples of valid file_patterns:
-    ///
-    ///   * `gs://bucket_name/dir/*`: matches all files within `bucket_name/dir`
-    ///                               directory.
-    ///   * `gs://bucket_name/dir/**`: matches all files in `bucket_name/dir`
-    ///                                spanning all subdirectories.
-    ///   * `gs://bucket_name/file*`: matches files prefixed by `file` in
-    ///                               `bucket_name`
-    ///   * `gs://bucket_name/??.txt`: matches files with two characters followed by
-    ///                                `.txt` in `bucket_name`
-    ///   * `gs://bucket_name/\[aeiou\].txt`: matches files that contain a single
-    ///                                     vowel character followed by `.txt` in
-    ///                                     `bucket_name`
-    ///   * `gs://bucket_name/\[a-m\].txt`: matches files that contain `a`, `b`, ...
-    ///                                   or `m` followed by `.txt` in `bucket_name`
-    ///   * `gs://bucket_name/a/*/b`: matches all files in `bucket_name` that match
-    ///                               `a/*/b` pattern, such as `a/c/b`, `a/d/b`
-    ///   * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
-    ///
-    /// You can combine wildcards to provide more powerful matches, for example:
-    ///
-    ///   * `gs://bucket_name/\[a-m\]??.j*g`
-    #[prost(string, repeated, tag = "1")]
-    pub file_patterns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. Sample files contained in this fileset, not all files
-    /// contained in this fileset are represented here.
-    #[prost(message, repeated, tag = "2")]
-    pub sample_gcs_file_specs: ::prost::alloc::vec::Vec<GcsFileSpec>,
-}
-/// Specifications of a single file in Cloud Storage.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GcsFileSpec {
-    /// Required. The full file path. Example: `gs://bucket_name/a/b.txt`.
-    #[prost(string, tag = "1")]
-    pub file_path: ::prost::alloc::string::String,
-    /// Output only. Timestamps about the Cloud Storage file.
-    #[prost(message, optional, tag = "2")]
-    pub gcs_timestamps: ::core::option::Option<SystemTimestamps>,
-    /// Output only. The size of the file, in bytes.
-    #[prost(int64, tag = "4")]
-    pub size_bytes: i64,
-}
 /// This enum describes all the possible systems that Data Catalog integrates
 /// with.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
@@ -133,6 +65,21 @@ impl ManagingSystem {
             _ => None,
         }
     }
+}
+/// Timestamps about this resource according to a particular system.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SystemTimestamps {
+    /// The creation time of the resource within the given system.
+    #[prost(message, optional, tag = "1")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The last-modified time of the resource within the given system.
+    #[prost(message, optional, tag = "2")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The expiration time of the resource within the given system.
+    /// Currently only apllicable to BigQuery resources.
+    #[prost(message, optional, tag = "3")]
+    pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
 }
 /// A taxonomy is a collection of policy tags that classify data along a common
 /// axis. For instance a data *sensitivity* taxonomy could contain policy tags
@@ -893,6 +840,59 @@ pub mod policy_tag_manager_client {
             self.inner.unary(req, path, codec).await
         }
     }
+}
+/// Describes a Cloud Storage fileset entry.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcsFilesetSpec {
+    /// Required. Patterns to identify a set of files in Google Cloud Storage.
+    /// See [Cloud Storage
+    /// documentation](<https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames>)
+    /// for more information. Note that bucket wildcards are currently not
+    /// supported.
+    ///
+    /// Examples of valid file_patterns:
+    ///
+    ///   * `gs://bucket_name/dir/*`: matches all files within `bucket_name/dir`
+    ///                               directory.
+    ///   * `gs://bucket_name/dir/**`: matches all files in `bucket_name/dir`
+    ///                                spanning all subdirectories.
+    ///   * `gs://bucket_name/file*`: matches files prefixed by `file` in
+    ///                               `bucket_name`
+    ///   * `gs://bucket_name/??.txt`: matches files with two characters followed by
+    ///                                `.txt` in `bucket_name`
+    ///   * `gs://bucket_name/\[aeiou\].txt`: matches files that contain a single
+    ///                                     vowel character followed by `.txt` in
+    ///                                     `bucket_name`
+    ///   * `gs://bucket_name/\[a-m\].txt`: matches files that contain `a`, `b`, ...
+    ///                                   or `m` followed by `.txt` in `bucket_name`
+    ///   * `gs://bucket_name/a/*/b`: matches all files in `bucket_name` that match
+    ///                               `a/*/b` pattern, such as `a/c/b`, `a/d/b`
+    ///   * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
+    ///
+    /// You can combine wildcards to provide more powerful matches, for example:
+    ///
+    ///   * `gs://bucket_name/\[a-m\]??.j*g`
+    #[prost(string, repeated, tag = "1")]
+    pub file_patterns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. Sample files contained in this fileset, not all files
+    /// contained in this fileset are represented here.
+    #[prost(message, repeated, tag = "2")]
+    pub sample_gcs_file_specs: ::prost::alloc::vec::Vec<GcsFileSpec>,
+}
+/// Specifications of a single file in Cloud Storage.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcsFileSpec {
+    /// Required. The full file path. Example: `gs://bucket_name/a/b.txt`.
+    #[prost(string, tag = "1")]
+    pub file_path: ::prost::alloc::string::String,
+    /// Output only. Timestamps about the Cloud Storage file.
+    #[prost(message, optional, tag = "2")]
+    pub gcs_timestamps: ::core::option::Option<SystemTimestamps>,
+    /// Output only. The size of the file, in bytes.
+    #[prost(int64, tag = "4")]
+    pub size_bytes: i64,
 }
 /// Represents a schema (e.g. BigQuery, GoogleSQL, Avro schema).
 #[allow(clippy::derive_partial_eq_without_eq)]
