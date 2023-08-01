@@ -3573,61 +3573,6 @@
         }
     }
 }
-<span class="doccomment">/// Response message for querying Drive activity.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>QueryDriveActivityResponse {
-    <span class="doccomment">/// List of activity requested.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>activities: ::prost::alloc::vec::Vec&lt;DriveActivity&gt;,
-    <span class="doccomment">/// Token to retrieve the next page of results, or
-    /// empty if there are no more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A single Drive activity comprising one or more Actions by one or more
-/// Actors on one or more Targets. Some Action groupings occur spontaneously,
-/// such as moving an item into a shared folder triggering a permission change.
-/// Other groupings of related Actions, such as multiple Actors editing one item
-/// or moving multiple files into a new folder, are controlled by the selection
-/// of a ConsolidationStrategy in the QueryDriveActivityRequest.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DriveActivity {
-    <span class="doccomment">/// Key information about the primary action for this activity. This is either
-    /// representative, or the most important, of all actions in the activity,
-    /// according to the ConsolidationStrategy in the request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>primary_action_detail: ::core::option::Option&lt;ActionDetail&gt;,
-    <span class="doccomment">/// All actor(s) responsible for the activity.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>actors: ::prost::alloc::vec::Vec&lt;Actor&gt;,
-    <span class="doccomment">/// Details on all actions in this activity.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>actions: ::prost::alloc::vec::Vec&lt;Action&gt;,
-    <span class="doccomment">/// All Google Drive objects this activity is about (e.g. file, folder, drive).
-    /// This represents the state of the target immediately after the actions
-    /// occurred.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>targets: ::prost::alloc::vec::Vec&lt;Target&gt;,
-    <span class="doccomment">/// The period of time when this activity occurred.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;drive_activity::Time&quot;</span>, tags = <span class="string">&quot;6, 7&quot;</span>)]
-    </span><span class="kw">pub </span>time: ::core::option::Option&lt;drive_activity::Time&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `DriveActivity`.
-</span><span class="kw">pub mod </span>drive_activity {
-    <span class="doccomment">/// The period of time when this activity occurred.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Time {
-        <span class="doccomment">/// The activity occurred at this specific time.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
-        </span>Timestamp(::prost_types::Timestamp),
-        <span class="doccomment">/// The activity occurred over this time range.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
-        </span>TimeRange(<span class="kw">super</span>::TimeRange),
-    }
-}
 <span class="doccomment">/// The request message for querying Drive activity.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3730,6 +3675,61 @@
         <span class="doccomment">/// The individual activities are consolidated using the legacy strategy.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
         </span>Legacy(Legacy),
+    }
+}
+<span class="doccomment">/// Response message for querying Drive activity.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>QueryDriveActivityResponse {
+    <span class="doccomment">/// List of activity requested.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>activities: ::prost::alloc::vec::Vec&lt;DriveActivity&gt;,
+    <span class="doccomment">/// Token to retrieve the next page of results, or
+    /// empty if there are no more results in the list.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A single Drive activity comprising one or more Actions by one or more
+/// Actors on one or more Targets. Some Action groupings occur spontaneously,
+/// such as moving an item into a shared folder triggering a permission change.
+/// Other groupings of related Actions, such as multiple Actors editing one item
+/// or moving multiple files into a new folder, are controlled by the selection
+/// of a ConsolidationStrategy in the QueryDriveActivityRequest.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DriveActivity {
+    <span class="doccomment">/// Key information about the primary action for this activity. This is either
+    /// representative, or the most important, of all actions in the activity,
+    /// according to the ConsolidationStrategy in the request.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>primary_action_detail: ::core::option::Option&lt;ActionDetail&gt;,
+    <span class="doccomment">/// All actor(s) responsible for the activity.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>actors: ::prost::alloc::vec::Vec&lt;Actor&gt;,
+    <span class="doccomment">/// Details on all actions in this activity.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>actions: ::prost::alloc::vec::Vec&lt;Action&gt;,
+    <span class="doccomment">/// All Google Drive objects this activity is about (e.g. file, folder, drive).
+    /// This represents the state of the target immediately after the actions
+    /// occurred.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>targets: ::prost::alloc::vec::Vec&lt;Target&gt;,
+    <span class="doccomment">/// The period of time when this activity occurred.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;drive_activity::Time&quot;</span>, tags = <span class="string">&quot;6, 7&quot;</span>)]
+    </span><span class="kw">pub </span>time: ::core::option::Option&lt;drive_activity::Time&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `DriveActivity`.
+</span><span class="kw">pub mod </span>drive_activity {
+    <span class="doccomment">/// The period of time when this activity occurred.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Time {
+        <span class="doccomment">/// The activity occurred at this specific time.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span>Timestamp(::prost_types::Timestamp),
+        <span class="doccomment">/// The activity occurred over this time range.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span>TimeRange(<span class="kw">super</span>::TimeRange),
     }
 }
 <span class="doccomment">/// Generated client implementations.

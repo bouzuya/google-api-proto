@@ -1897,6 +1897,65 @@
 <a href="#1897" id="1897">1897</a>
 <a href="#1898" id="1898">1898</a>
 <a href="#1899" id="1899">1899</a>
+<a href="#1900" id="1900">1900</a>
+<a href="#1901" id="1901">1901</a>
+<a href="#1902" id="1902">1902</a>
+<a href="#1903" id="1903">1903</a>
+<a href="#1904" id="1904">1904</a>
+<a href="#1905" id="1905">1905</a>
+<a href="#1906" id="1906">1906</a>
+<a href="#1907" id="1907">1907</a>
+<a href="#1908" id="1908">1908</a>
+<a href="#1909" id="1909">1909</a>
+<a href="#1910" id="1910">1910</a>
+<a href="#1911" id="1911">1911</a>
+<a href="#1912" id="1912">1912</a>
+<a href="#1913" id="1913">1913</a>
+<a href="#1914" id="1914">1914</a>
+<a href="#1915" id="1915">1915</a>
+<a href="#1916" id="1916">1916</a>
+<a href="#1917" id="1917">1917</a>
+<a href="#1918" id="1918">1918</a>
+<a href="#1919" id="1919">1919</a>
+<a href="#1920" id="1920">1920</a>
+<a href="#1921" id="1921">1921</a>
+<a href="#1922" id="1922">1922</a>
+<a href="#1923" id="1923">1923</a>
+<a href="#1924" id="1924">1924</a>
+<a href="#1925" id="1925">1925</a>
+<a href="#1926" id="1926">1926</a>
+<a href="#1927" id="1927">1927</a>
+<a href="#1928" id="1928">1928</a>
+<a href="#1929" id="1929">1929</a>
+<a href="#1930" id="1930">1930</a>
+<a href="#1931" id="1931">1931</a>
+<a href="#1932" id="1932">1932</a>
+<a href="#1933" id="1933">1933</a>
+<a href="#1934" id="1934">1934</a>
+<a href="#1935" id="1935">1935</a>
+<a href="#1936" id="1936">1936</a>
+<a href="#1937" id="1937">1937</a>
+<a href="#1938" id="1938">1938</a>
+<a href="#1939" id="1939">1939</a>
+<a href="#1940" id="1940">1940</a>
+<a href="#1941" id="1941">1941</a>
+<a href="#1942" id="1942">1942</a>
+<a href="#1943" id="1943">1943</a>
+<a href="#1944" id="1944">1944</a>
+<a href="#1945" id="1945">1945</a>
+<a href="#1946" id="1946">1946</a>
+<a href="#1947" id="1947">1947</a>
+<a href="#1948" id="1948">1948</a>
+<a href="#1949" id="1949">1949</a>
+<a href="#1950" id="1950">1950</a>
+<a href="#1951" id="1951">1951</a>
+<a href="#1952" id="1952">1952</a>
+<a href="#1953" id="1953">1953</a>
+<a href="#1954" id="1954">1954</a>
+<a href="#1955" id="1955">1955</a>
+<a href="#1956" id="1956">1956</a>
+<a href="#1957" id="1957">1957</a>
+<a href="#1958" id="1958">1958</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A partition ID identifies a grouping of entities. The grouping is always
 /// by project and namespace, however the namespace ID may be empty.
 ///
@@ -2319,7 +2378,7 @@
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
         </span><span class="kw">pub </span>alias: ::prost::alloc::string::String,
         <span class="doccomment">/// The type of aggregation to perform, required.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;aggregation::Operator&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">&quot;aggregation::Operator&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
         </span><span class="kw">pub </span>operator: ::core::option::Option&lt;aggregation::Operator&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `Aggregation`.
@@ -2354,6 +2413,52 @@
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>up_to: ::core::option::Option&lt;i64&gt;,
         }
+        <span class="doccomment">/// Sum of the values of the requested property.
+        ///
+        /// * Only numeric values will be aggregated. All non-numeric values
+        /// including `NULL` are skipped.
+        ///
+        /// * If the aggregated values contain `NaN`, returns `NaN`. Infinity math
+        /// follows IEEE-754 standards.
+        ///
+        /// * If the aggregated value set is empty, returns 0.
+        ///
+        /// * Returns a 64-bit integer if all aggregated numbers are integers and the
+        /// sum result does not overflow. Otherwise, the result is returned as a
+        /// double. Note that even if all the aggregated values are integers, the
+        /// result is returned as a double if it cannot fit within a 64-bit signed
+        /// integer. When this occurs, the returned value will lose precision.
+        ///
+        /// * When underflow occurs, floating-point aggregation is non-deterministic.
+        /// This means that running the same query repeatedly without any changes to
+        /// the underlying values could produce slightly different results each
+        /// time. In those cases, values should be stored as integers over
+        /// floating-point numbers.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>Sum {
+            <span class="doccomment">/// The property to aggregate on.
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="kw">pub </span>property: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::PropertyReference&gt;,
+        }
+        <span class="doccomment">/// Average of the values of the requested property.
+        ///
+        /// * Only numeric values will be aggregated. All non-numeric values
+        /// including `NULL` are skipped.
+        ///
+        /// * If the aggregated values contain `NaN`, returns `NaN`. Infinity math
+        /// follows IEEE-754 standards.
+        ///
+        /// * If the aggregated value set is empty, returns `NULL`.
+        ///
+        /// * Always returns the result as a double.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>Avg {
+            <span class="doccomment">/// The property to aggregate on.
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="kw">pub </span>property: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::PropertyReference&gt;,
+        }
         <span class="doccomment">/// The type of aggregation to perform, required.
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Oneof)]
@@ -2361,6 +2466,12 @@
             <span class="doccomment">/// Count aggregator.
             </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
             </span>Count(Count),
+            <span class="doccomment">/// Sum aggregator.
+            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            </span>Sum(Sum),
+            <span class="doccomment">/// Average aggregator.
+            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+            </span>Avg(Avg),
         }
     }
     <span class="doccomment">/// The base query to aggregate over.
@@ -2599,8 +2710,9 @@
         ///
         /// Requires:
         ///
-        /// * That `value` is a non-empty `ArrayValue` with at most 10 values.
-        /// * No other `IN` or `NOT_IN` is in the same query.
+        /// * That `value` is a non-empty `ArrayValue`, subject to disjunction
+        ///    limits.
+        /// * No `NOT_IN` is in the same query.
         </span>In = <span class="number">6</span>,
         <span class="doccomment">/// The given `property` is not equal to the given `value`.
         ///
@@ -2614,14 +2726,14 @@
         /// Requires:
         ///
         /// * That `value` is an entity key.
-        /// * No other `HAS_ANCESTOR` is in the same query.
+        /// * All evaluated disjunctions must have the same `HAS_ANCESTOR` filter.
         </span>HasAncestor = <span class="number">11</span>,
         <span class="doccomment">/// The value of the `property` is not in the given array.
         ///
         /// Requires:
         ///
         /// * That `value` is a non-empty `ArrayValue` with at most 10 values.
-        /// * No other `IN`, `NOT_IN`, `NOT_EQUAL` is in the same query.
+        /// * No other `OR`, `IN`, `NOT_IN`, `NOT_EQUAL` is in the same query.
         /// * That `field` comes first in the `order_by`.
         </span>NotIn = <span class="number">13</span>,
     }
@@ -3447,9 +3559,12 @@
         /// \[RunQueryResponse.transaction][google.datastore.v1.RunQueryResponse.transaction\].
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
         </span>NewTransaction(<span class="kw">super</span>::TransactionOptions),
-        <span class="doccomment">/// Reads entities as they were at the given time. This may not be older
-        /// than 270 seconds.  This value is only supported for Cloud Firestore in
-        /// Datastore mode.
+        <span class="doccomment">/// Reads entities as they were at the given time. This value is only
+        /// supported for Cloud Firestore in Datastore mode.
+        ///
+        /// This must be a microsecond precision timestamp within the past one hour,
+        /// or if Point-in-Time Recovery is enabled, can additionally be a whole
+        /// minute timestamp within the past 7 days.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
         </span>ReadTime(::prost_types::Timestamp),
     }
@@ -3484,7 +3599,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ReadOnly {
         <span class="doccomment">/// Reads entities at the given time.
-        /// This may not be older than 60 seconds.
+        ///
+        /// This must be a microsecond precision timestamp within the past one hour,
+        /// or if Point-in-Time Recovery is enabled, can additionally be a whole
+        /// minute timestamp within the past 7 days.
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     }

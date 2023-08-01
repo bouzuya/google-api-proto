@@ -3812,6 +3812,57 @@
         Value,
     &gt;,
 }
+<span class="doccomment">/// A sequence of bits, encoded in a byte array.
+///
+/// Each byte in the `bitmap` byte array stores 8 bits of the sequence. The only
+/// exception is the last byte, which may store 8 _or fewer_ bits. The `padding`
+/// defines the number of bits of the last byte to be ignored as &quot;padding&quot;. The
+/// values of these &quot;padding&quot; bits are unspecified and must be ignored.
+///
+/// To retrieve the first bit, bit 0, calculate: `(bitmap\[0\] &amp; 0x01) != 0`.
+/// To retrieve the second bit, bit 1, calculate: `(bitmap\[0\] &amp; 0x02) != 0`.
+/// To retrieve the third bit, bit 2, calculate: `(bitmap\[0\] &amp; 0x04) != 0`.
+/// To retrieve the fourth bit, bit 3, calculate: `(bitmap\[0\] &amp; 0x08) != 0`.
+/// To retrieve bit n, calculate: `(bitmap[n / 8] &amp; (0x01 &lt;&lt; (n % 8))) != 0`.
+///
+/// The &quot;size&quot; of a `BitSequence` (the number of bits it contains) is calculated
+/// by this formula: `(bitmap.length * 8) - padding`.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BitSequence {
+    <span class="doccomment">/// The bytes that encode the bit sequence.
+    /// May have a length of zero.
+    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>bitmap: ::prost::bytes::Bytes,
+    <span class="doccomment">/// The number of bits of the last byte in `bitmap` to ignore as &quot;padding&quot;.
+    /// If the length of `bitmap` is zero, then this value must be `0`.
+    /// Otherwise, this value must be between 0 and 7, inclusive.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>padding: i32,
+}
+<span class="doccomment">/// A bloom filter (&lt;https://en.wikipedia.org/wiki/Bloom_filter&gt;).
+///
+/// The bloom filter hashes the entries with MD5 and treats the resulting 128-bit
+/// hash as 2 distinct 64-bit hash values, interpreted as unsigned integers
+/// using 2&#39;s complement encoding.
+///
+/// These two hash values, named `h1` and `h2`, are then used to compute the
+/// `hash_count` hash values using the formula, starting at `i=0`:
+///
+///      h(i) = h1 + (i * h2)
+///
+/// These resulting values are then taken modulo the number of bits in the bloom
+/// filter to get the bits of the bloom filter to test for the given entry.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BloomFilter {
+    <span class="doccomment">/// The bloom filter data.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>bits: ::core::option::Option&lt;BitSequence&gt;,
+    <span class="doccomment">/// The number of hashes used by the algorithm.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>hash_count: i32,
+}
 <span class="doccomment">/// A set of field paths on a document.
 /// Used to restrict a get or update operation on a document to a subset of its
 /// fields.
@@ -3908,57 +3959,6 @@
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
         </span>ReadWrite(ReadWrite),
     }
-}
-<span class="doccomment">/// A sequence of bits, encoded in a byte array.
-///
-/// Each byte in the `bitmap` byte array stores 8 bits of the sequence. The only
-/// exception is the last byte, which may store 8 _or fewer_ bits. The `padding`
-/// defines the number of bits of the last byte to be ignored as &quot;padding&quot;. The
-/// values of these &quot;padding&quot; bits are unspecified and must be ignored.
-///
-/// To retrieve the first bit, bit 0, calculate: `(bitmap\[0\] &amp; 0x01) != 0`.
-/// To retrieve the second bit, bit 1, calculate: `(bitmap\[0\] &amp; 0x02) != 0`.
-/// To retrieve the third bit, bit 2, calculate: `(bitmap\[0\] &amp; 0x04) != 0`.
-/// To retrieve the fourth bit, bit 3, calculate: `(bitmap\[0\] &amp; 0x08) != 0`.
-/// To retrieve bit n, calculate: `(bitmap[n / 8] &amp; (0x01 &lt;&lt; (n % 8))) != 0`.
-///
-/// The &quot;size&quot; of a `BitSequence` (the number of bits it contains) is calculated
-/// by this formula: `(bitmap.length * 8) - padding`.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BitSequence {
-    <span class="doccomment">/// The bytes that encode the bit sequence.
-    /// May have a length of zero.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>bitmap: ::prost::bytes::Bytes,
-    <span class="doccomment">/// The number of bits of the last byte in `bitmap` to ignore as &quot;padding&quot;.
-    /// If the length of `bitmap` is zero, then this value must be `0`.
-    /// Otherwise, this value must be between 0 and 7, inclusive.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>padding: i32,
-}
-<span class="doccomment">/// A bloom filter (&lt;https://en.wikipedia.org/wiki/Bloom_filter&gt;).
-///
-/// The bloom filter hashes the entries with MD5 and treats the resulting 128-bit
-/// hash as 2 distinct 64-bit hash values, interpreted as unsigned integers
-/// using 2&#39;s complement encoding.
-///
-/// These two hash values, named `h1` and `h2`, are then used to compute the
-/// `hash_count` hash values using the formula, starting at `i=0`:
-///
-///      h(i) = h1 + (i * h2)
-///
-/// These resulting values are then taken modulo the number of bits in the bloom
-/// filter to get the bits of the bloom filter to test for the given entry.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BloomFilter {
-    <span class="doccomment">/// The bloom filter data.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>bits: ::core::option::Option&lt;BitSequence&gt;,
-    <span class="doccomment">/// The number of hashes used by the algorithm.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>hash_count: i32,
 }
 <span class="doccomment">/// A write on a document.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
