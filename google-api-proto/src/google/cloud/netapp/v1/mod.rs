@@ -1,3 +1,275 @@
+/// The service levels - Storage Pool, Volumes
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum ServiceLevel {
+    Unspecified = 0,
+    Premium = 1,
+    Extreme = 2,
+    /// Standard (Software offering)
+    Standard = 3,
+}
+impl ServiceLevel {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            ServiceLevel::Unspecified => "SERVICE_LEVEL_UNSPECIFIED",
+            ServiceLevel::Premium => "PREMIUM",
+            ServiceLevel::Extreme => "EXTREME",
+            ServiceLevel::Standard => "STANDARD",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "SERVICE_LEVEL_UNSPECIFIED" => Some(Self::Unspecified),
+            "PREMIUM" => Some(Self::Premium),
+            "EXTREME" => Some(Self::Extreme),
+            "STANDARD" => Some(Self::Standard),
+            _ => None,
+        }
+    }
+}
+/// Defined the current volume encryption key source.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum EncryptionType {
+    /// The source of encryption key is not specified.
+    Unspecified = 0,
+    /// Google managed encryption key.
+    ServiceManaged = 1,
+    /// Customer managed encryption key, which is stored in KMS.
+    CloudKms = 2,
+}
+impl EncryptionType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            EncryptionType::Unspecified => "ENCRYPTION_TYPE_UNSPECIFIED",
+            EncryptionType::ServiceManaged => "SERVICE_MANAGED",
+            EncryptionType::CloudKms => "CLOUD_KMS",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "ENCRYPTION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "SERVICE_MANAGED" => Some(Self::ServiceManaged),
+            "CLOUD_KMS" => Some(Self::CloudKms),
+            _ => None,
+        }
+    }
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetStoragePoolRequest {
+    /// Required. Name of the storage pool
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListStoragePoolsRequest {
+    /// Required. Parent value
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The maximum number of items to return.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// The next_page_token value to use if there are additional
+    /// results to retrieve for this list request.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Sort results. Supported values are "name", "name desc" or "" (unsorted).
+    #[prost(string, tag = "4")]
+    pub order_by: ::prost::alloc::string::String,
+    /// List filter.
+    #[prost(string, tag = "5")]
+    pub filter: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListStoragePoolsResponse {
+    /// The list of StoragePools
+    #[prost(message, repeated, tag = "1")]
+    pub storage_pools: ::prost::alloc::vec::Vec<StoragePool>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateStoragePoolRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Id of the requesting storage pool
+    /// If auto-generating Id server-side, remove this field and
+    /// id from the method_signature of Create RPC
+    #[prost(string, tag = "2")]
+    pub storage_pool_id: ::prost::alloc::string::String,
+    /// Required. The required parameters to create a new storage pool.
+    #[prost(message, optional, tag = "3")]
+    pub storage_pool: ::core::option::Option<StoragePool>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateStoragePoolRequest {
+    /// Required. Field mask is used to specify the fields to be overwritten in the
+    /// StoragePool resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The pool being updated
+    #[prost(message, optional, tag = "2")]
+    pub storage_pool: ::core::option::Option<StoragePool>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteStoragePoolRequest {
+    /// Required. Name of the storage pool
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// StoragePool is a container for volumes with a service level and capacity.
+/// Volumes can be created in a pool of sufficient available capacity.
+/// StoragePool capacity is what you are billed for.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StoragePool {
+    /// Output only. Name of the storage pool
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Service level of the storage pool
+    #[prost(enumeration = "ServiceLevel", tag = "2")]
+    pub service_level: i32,
+    /// Required. Capacity in GIB of the pool
+    #[prost(int64, tag = "3")]
+    pub capacity_gib: i64,
+    /// Output only. Allocated size of all volumes in GIB in the storage pool
+    #[prost(int64, tag = "4")]
+    pub volume_capacity_gib: i64,
+    /// Output only. Volume count of the storage pool
+    #[prost(int32, tag = "5")]
+    pub volume_count: i32,
+    /// Output only. State of the storage pool
+    #[prost(enumeration = "storage_pool::State", tag = "6")]
+    pub state: i32,
+    /// Output only. State details of the storage pool
+    #[prost(string, tag = "7")]
+    pub state_details: ::prost::alloc::string::String,
+    /// Output only. Create time of the storage pool
+    #[prost(message, optional, tag = "8")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Description of the storage pool
+    #[prost(string, tag = "9")]
+    pub description: ::prost::alloc::string::String,
+    /// Labels as key value pairs
+    #[prost(btree_map = "string, string", tag = "10")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Required. VPC Network name.
+    /// Format: projects/{project}/global/networks/{network}
+    #[prost(string, tag = "11")]
+    pub network: ::prost::alloc::string::String,
+    /// Specifies the Active Directory to be used for creating a SMB volume.
+    #[prost(string, tag = "12")]
+    pub active_directory: ::prost::alloc::string::String,
+    /// Specifies the KMS config to be used for volume encryption.
+    #[prost(string, tag = "13")]
+    pub kms_config: ::prost::alloc::string::String,
+    /// Flag indicating if the pool is NFS LDAP enabled or not.
+    #[prost(bool, tag = "14")]
+    pub ldap_enabled: bool,
+    /// Name of the Private Service Access allocated range. If
+    /// not provided, any available range will be chosen.
+    #[prost(string, tag = "15")]
+    pub psa_range: ::prost::alloc::string::String,
+    /// Output only. Specifies the current pool encryption key source.
+    #[prost(enumeration = "EncryptionType", tag = "16")]
+    pub encryption_type: i32,
+    /// Optional. Allows SO pool to access AD or DNS server from other regions.
+    #[prost(bool, optional, tag = "17")]
+    pub global_access_allowed: ::core::option::Option<bool>,
+}
+/// Nested message and enum types in `StoragePool`.
+pub mod storage_pool {
+    /// The Storage Pool States
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified Storage Pool State
+        Unspecified = 0,
+        /// Storage Pool State is Ready
+        Ready = 1,
+        /// Storage Pool State is Creating
+        Creating = 2,
+        /// Storage Pool State is Deleting
+        Deleting = 3,
+        /// Storage Pool State is Updating
+        Updating = 4,
+        /// Storage Pool State is Restoring
+        Restoring = 5,
+        /// Storage Pool State is Disabled
+        Disabled = 6,
+        /// Storage Pool State is Error
+        Error = 7,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Ready => "READY",
+                State::Creating => "CREATING",
+                State::Deleting => "DELETING",
+                State::Updating => "UPDATING",
+                State::Restoring => "RESTORING",
+                State::Disabled => "DISABLED",
+                State::Error => "ERROR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "READY" => Some(Self::Ready),
+                "CREATING" => Some(Self::Creating),
+                "DELETING" => Some(Self::Deleting),
+                "UPDATING" => Some(Self::Updating),
+                "RESTORING" => Some(Self::Restoring),
+                "DISABLED" => Some(Self::Disabled),
+                "ERROR" => Some(Self::Error),
+                _ => None,
+            }
+        }
+    }
+}
 /// ListActiveDirectoriesRequest for requesting multiple active directories.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -216,697 +488,6 @@ pub mod active_directory {
                 "ERROR" => Some(Self::Error),
                 _ => None,
             }
-        }
-    }
-}
-/// The service levels - Storage Pool, Volumes
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum ServiceLevel {
-    Unspecified = 0,
-    Premium = 1,
-    Extreme = 2,
-    /// Standard (Software offering)
-    Standard = 3,
-}
-impl ServiceLevel {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            ServiceLevel::Unspecified => "SERVICE_LEVEL_UNSPECIFIED",
-            ServiceLevel::Premium => "PREMIUM",
-            ServiceLevel::Extreme => "EXTREME",
-            ServiceLevel::Standard => "STANDARD",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "SERVICE_LEVEL_UNSPECIFIED" => Some(Self::Unspecified),
-            "PREMIUM" => Some(Self::Premium),
-            "EXTREME" => Some(Self::Extreme),
-            "STANDARD" => Some(Self::Standard),
-            _ => None,
-        }
-    }
-}
-/// Defined the current volume encryption key source.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum EncryptionType {
-    /// The source of encryption key is not specified.
-    Unspecified = 0,
-    /// Google managed encryption key.
-    ServiceManaged = 1,
-    /// Customer managed encryption key, which is stored in KMS.
-    CloudKms = 2,
-}
-impl EncryptionType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            EncryptionType::Unspecified => "ENCRYPTION_TYPE_UNSPECIFIED",
-            EncryptionType::ServiceManaged => "SERVICE_MANAGED",
-            EncryptionType::CloudKms => "CLOUD_KMS",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "ENCRYPTION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "SERVICE_MANAGED" => Some(Self::ServiceManaged),
-            "CLOUD_KMS" => Some(Self::CloudKms),
-            _ => None,
-        }
-    }
-}
-/// Message for requesting list of Volumes
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListVolumesRequest {
-    /// Required. Parent value for ListVolumesRequest
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Requested page size. Server may return fewer items than requested.
-    /// If unspecified, the server will pick an appropriate default.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Filtering results
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Hint for how to order the results
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// Message for response to listing Volumes
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListVolumesResponse {
-    /// The list of Volume
-    #[prost(message, repeated, tag = "1")]
-    pub volumes: ::prost::alloc::vec::Vec<Volume>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Message for getting a Volume
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetVolumeRequest {
-    /// Required. Name of the volume
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Message for creating a Volume
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateVolumeRequest {
-    /// Required. Value for parent.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Id of the requesting volume
-    /// If auto-generating Id server-side, remove this field and
-    /// Id from the method_signature of Create RPC
-    #[prost(string, tag = "2")]
-    pub volume_id: ::prost::alloc::string::String,
-    /// Required. The volume being created.
-    #[prost(message, optional, tag = "3")]
-    pub volume: ::core::option::Option<Volume>,
-}
-/// Message for updating a Volume
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateVolumeRequest {
-    /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// Volume resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The volume being updated
-    #[prost(message, optional, tag = "2")]
-    pub volume: ::core::option::Option<Volume>,
-}
-/// Message for deleting a Volume
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteVolumeRequest {
-    /// Required. Name of the volume
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// If this field is set as true, CCFE will not block the volume resource
-    /// deletion even if it has any snapshots resource. (Otherwise, the request
-    /// will only work if the volume has no snapshots.)
-    #[prost(bool, tag = "2")]
-    pub force: bool,
-}
-/// RevertVolumeRequest reverts the given volume to the specified snapshot.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RevertVolumeRequest {
-    /// Required. The resource name of the volume, in the format of
-    /// projects/{project_id}/locations/{location}/volumes/{volume_id}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The snapshot resource ID, in the format 'my-snapshot', where the
-    /// specified ID is the {snapshot_id} of the fully qualified name like
-    /// projects/{project_id}/locations/{location_id}/volumes/{volume_id}/snapshots/{snapshot_id}
-    #[prost(string, tag = "2")]
-    pub snapshot_id: ::prost::alloc::string::String,
-}
-/// Volume provides a filesystem that you can mount.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Volume {
-    /// Output only. Name of the volume
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. State of the volume
-    #[prost(enumeration = "volume::State", tag = "2")]
-    pub state: i32,
-    /// Output only. State details of the volume
-    #[prost(string, tag = "3")]
-    pub state_details: ::prost::alloc::string::String,
-    /// Output only. Create time of the volume
-    #[prost(message, optional, tag = "4")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Required. Share name of the volume
-    #[prost(string, tag = "5")]
-    pub share_name: ::prost::alloc::string::String,
-    /// Output only. Name of the Private Service Access allocated range. This is
-    /// optional. If not provided, any available range will be chosen.
-    #[prost(string, tag = "6")]
-    pub psa_range: ::prost::alloc::string::String,
-    /// Required. StoragePool name of the volume
-    #[prost(string, tag = "7")]
-    pub storage_pool: ::prost::alloc::string::String,
-    /// Output only. VPC Network name.
-    /// Format: projects/{project}/global/networks/{network}
-    #[prost(string, tag = "8")]
-    pub network: ::prost::alloc::string::String,
-    /// Output only. Service level of the volume
-    #[prost(enumeration = "ServiceLevel", tag = "9")]
-    pub service_level: i32,
-    /// Required. Capacity in GIB of the volume
-    #[prost(int64, tag = "10")]
-    pub capacity_gib: i64,
-    /// Optional. Export policy of the volume
-    #[prost(message, optional, tag = "11")]
-    pub export_policy: ::core::option::Option<ExportPolicy>,
-    /// Required. Protocols required for the volume
-    #[prost(enumeration = "Protocols", repeated, packed = "false", tag = "12")]
-    pub protocols: ::prost::alloc::vec::Vec<i32>,
-    /// Optional. SMB share settings for the volume.
-    #[prost(enumeration = "SmbSettings", repeated, packed = "false", tag = "13")]
-    pub smb_settings: ::prost::alloc::vec::Vec<i32>,
-    /// Output only. Mount options of this volume
-    #[prost(message, repeated, tag = "14")]
-    pub mount_options: ::prost::alloc::vec::Vec<MountOption>,
-    /// Optional. Default unix style permission (e.g. 777) the mount point will be
-    /// created with. Applicable for NFS protocol types only.
-    #[prost(string, tag = "15")]
-    pub unix_permissions: ::prost::alloc::string::String,
-    /// Optional. Labels as key value pairs
-    #[prost(btree_map = "string, string", tag = "16")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Optional. Description of the volume
-    #[prost(string, tag = "17")]
-    pub description: ::prost::alloc::string::String,
-    /// Optional. SnapshotPolicy for a volume.
-    #[prost(message, optional, tag = "18")]
-    pub snapshot_policy: ::core::option::Option<SnapshotPolicy>,
-    /// Optional. Snap_reserve specifies percentage of volume storage reserved for
-    /// snapshot storage. Default is 0 percent.
-    #[prost(double, tag = "19")]
-    pub snap_reserve: f64,
-    /// Optional. Snapshot_directory if enabled (true) the volume will contain a
-    /// read-only .snapshot directory which provides access to each of the volume's
-    /// snapshots.
-    #[prost(bool, tag = "20")]
-    pub snapshot_directory: bool,
-    /// Output only. Used capacity in GIB of the volume. This is computed
-    /// periodically and it does not represent the realtime usage.
-    #[prost(int64, tag = "21")]
-    pub used_gib: i64,
-    /// Optional. Security Style of the Volume
-    #[prost(enumeration = "SecurityStyle", tag = "22")]
-    pub security_style: i32,
-    /// Optional. Flag indicating if the volume is a kerberos volume or not, export
-    /// policy rules control kerberos security modes (krb5, krb5i, krb5p).
-    #[prost(bool, tag = "23")]
-    pub kerberos_enabled: bool,
-    /// Output only. Flag indicating if the volume is NFS LDAP enabled or not.
-    #[prost(bool, tag = "24")]
-    pub ldap_enabled: bool,
-    /// Output only. Specifies the ActiveDirectory name of a SMB volume.
-    #[prost(string, tag = "25")]
-    pub active_directory: ::prost::alloc::string::String,
-    /// Optional. Specifies the source of the volume to be created from.
-    #[prost(message, optional, tag = "26")]
-    pub restore_parameters: ::core::option::Option<RestoreParameters>,
-    /// Output only. Specifies the KMS config to be used for volume encryption.
-    #[prost(string, tag = "27")]
-    pub kms_config: ::prost::alloc::string::String,
-    /// Output only. Specified the current volume encryption key source.
-    #[prost(enumeration = "EncryptionType", tag = "28")]
-    pub encryption_type: i32,
-    /// Output only. Indicates whether the volume is part of a replication
-    /// relationship.
-    #[prost(bool, tag = "29")]
-    pub has_replication: bool,
-}
-/// Nested message and enum types in `Volume`.
-pub mod volume {
-    /// The volume states
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified Volume State
-        Unspecified = 0,
-        /// Volume State is Ready
-        Ready = 1,
-        /// Volume State is Creating
-        Creating = 2,
-        /// Volume State is Deleting
-        Deleting = 3,
-        /// Volume State is Updating
-        Updating = 4,
-        /// Volume State is Restoring
-        Restoring = 5,
-        /// Volume State is Disabled
-        Disabled = 6,
-        /// Volume State is Error
-        Error = 7,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Ready => "READY",
-                State::Creating => "CREATING",
-                State::Deleting => "DELETING",
-                State::Updating => "UPDATING",
-                State::Restoring => "RESTORING",
-                State::Disabled => "DISABLED",
-                State::Error => "ERROR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "READY" => Some(Self::Ready),
-                "CREATING" => Some(Self::Creating),
-                "DELETING" => Some(Self::Deleting),
-                "UPDATING" => Some(Self::Updating),
-                "RESTORING" => Some(Self::Restoring),
-                "DISABLED" => Some(Self::Disabled),
-                "ERROR" => Some(Self::Error),
-                _ => None,
-            }
-        }
-    }
-}
-/// Defines the export policy for the volume.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExportPolicy {
-    /// Required. List of export policy rules
-    #[prost(message, repeated, tag = "1")]
-    pub rules: ::prost::alloc::vec::Vec<SimpleExportPolicyRule>,
-}
-/// An export policy rule describing various export options.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SimpleExportPolicyRule {
-    /// Comma separated list of allowed clients IP addresses
-    #[prost(string, optional, tag = "1")]
-    pub allowed_clients: ::core::option::Option<::prost::alloc::string::String>,
-    /// Whether Unix root access will be granted.
-    #[prost(string, optional, tag = "2")]
-    pub has_root_access: ::core::option::Option<::prost::alloc::string::String>,
-    /// Access type (ReadWrite, ReadOnly, None)
-    #[prost(enumeration = "AccessType", optional, tag = "3")]
-    pub access_type: ::core::option::Option<i32>,
-    /// NFS V3 protocol.
-    #[prost(bool, optional, tag = "4")]
-    pub nfsv3: ::core::option::Option<bool>,
-    /// NFS V4 protocol.
-    #[prost(bool, optional, tag = "5")]
-    pub nfsv4: ::core::option::Option<bool>,
-    /// If enabled (true) the rule defines a read only access for clients matching
-    /// the 'allowedClients' specification. It enables nfs clients to mount using
-    /// 'authentication' kerberos security mode.
-    #[prost(bool, optional, tag = "6")]
-    pub kerberos_5_read_only: ::core::option::Option<bool>,
-    /// If enabled (true) the rule defines read and write access for clients
-    /// matching the 'allowedClients' specification. It enables nfs clients to
-    /// mount using 'authentication' kerberos security mode. The
-    /// 'kerberos5ReadOnly' value be ignored if this is enabled.
-    #[prost(bool, optional, tag = "7")]
-    pub kerberos_5_read_write: ::core::option::Option<bool>,
-    /// If enabled (true) the rule defines a read only access for clients matching
-    /// the 'allowedClients' specification. It enables nfs clients to mount using
-    /// 'integrity' kerberos security mode.
-    #[prost(bool, optional, tag = "8")]
-    pub kerberos_5i_read_only: ::core::option::Option<bool>,
-    /// If enabled (true) the rule defines read and write access for clients
-    /// matching the 'allowedClients' specification. It enables nfs clients to
-    /// mount using 'integrity' kerberos security mode. The 'kerberos5iReadOnly'
-    /// value be ignored if this is enabled.
-    #[prost(bool, optional, tag = "9")]
-    pub kerberos_5i_read_write: ::core::option::Option<bool>,
-    /// If enabled (true) the rule defines a read only access for clients matching
-    /// the 'allowedClients' specification. It enables nfs clients to mount using
-    /// 'privacy' kerberos security mode.
-    #[prost(bool, optional, tag = "10")]
-    pub kerberos_5p_read_only: ::core::option::Option<bool>,
-    /// If enabled (true) the rule defines read and write access for clients
-    /// matching the 'allowedClients' specification. It enables nfs clients to
-    /// mount using 'privacy' kerberos security mode. The 'kerberos5pReadOnly'
-    /// value be ignored if this is enabled.
-    #[prost(bool, optional, tag = "11")]
-    pub kerberos_5p_read_write: ::core::option::Option<bool>,
-}
-/// Snapshot Policy for a volume.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SnapshotPolicy {
-    /// If enabled, make snapshots automatically according to the schedules.
-    /// Default is false.
-    #[prost(bool, optional, tag = "1")]
-    pub enabled: ::core::option::Option<bool>,
-    /// Hourly schedule policy.
-    #[prost(message, optional, tag = "2")]
-    pub hourly_schedule: ::core::option::Option<HourlySchedule>,
-    /// Daily schedule policy.
-    #[prost(message, optional, tag = "3")]
-    pub daily_schedule: ::core::option::Option<DailySchedule>,
-    /// Weekly schedule policy.
-    #[prost(message, optional, tag = "4")]
-    pub weekly_schedule: ::core::option::Option<WeeklySchedule>,
-    /// Monthly schedule policy.
-    #[prost(message, optional, tag = "5")]
-    pub monthly_schedule: ::core::option::Option<MonthlySchedule>,
-}
-/// Make a snapshot every hour e.g. at 04:00, 05:00, 06:00.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct HourlySchedule {
-    /// The maximum number of Snapshots to keep for the hourly schedule
-    #[prost(double, optional, tag = "1")]
-    pub snapshots_to_keep: ::core::option::Option<f64>,
-    /// Set the minute of the hour to start the snapshot (0-59), defaults to the
-    /// top of the hour (0).
-    #[prost(double, optional, tag = "2")]
-    pub minute: ::core::option::Option<f64>,
-}
-/// Make a snapshot every day e.g. at 04:00, 05:20, 23:50
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DailySchedule {
-    /// The maximum number of Snapshots to keep for the hourly schedule
-    #[prost(double, optional, tag = "1")]
-    pub snapshots_to_keep: ::core::option::Option<f64>,
-    /// Set the minute of the hour to start the snapshot (0-59), defaults to the
-    /// top of the hour (0).
-    #[prost(double, optional, tag = "2")]
-    pub minute: ::core::option::Option<f64>,
-    /// Set the hour to start the snapshot (0-23), defaults to midnight (0).
-    #[prost(double, optional, tag = "3")]
-    pub hour: ::core::option::Option<f64>,
-}
-/// Make a snapshot every week e.g. at Monday 04:00, Wednesday 05:20, Sunday
-/// 23:50
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WeeklySchedule {
-    /// The maximum number of Snapshots to keep for the hourly schedule
-    #[prost(double, optional, tag = "1")]
-    pub snapshots_to_keep: ::core::option::Option<f64>,
-    /// Set the minute of the hour to start the snapshot (0-59), defaults to the
-    /// top of the hour (0).
-    #[prost(double, optional, tag = "2")]
-    pub minute: ::core::option::Option<f64>,
-    /// Set the hour to start the snapshot (0-23), defaults to midnight (0).
-    #[prost(double, optional, tag = "3")]
-    pub hour: ::core::option::Option<f64>,
-    /// Set the day or days of the week to make a snapshot. Accepts a comma
-    /// separated days of the week. Defaults to 'Sunday'.
-    #[prost(string, optional, tag = "4")]
-    pub day: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// Make a snapshot once a month e.g. at 2nd 04:00, 7th 05:20, 24th 23:50
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MonthlySchedule {
-    /// The maximum number of Snapshots to keep for the hourly schedule
-    #[prost(double, optional, tag = "1")]
-    pub snapshots_to_keep: ::core::option::Option<f64>,
-    /// Set the minute of the hour to start the snapshot (0-59), defaults to the
-    /// top of the hour (0).
-    #[prost(double, optional, tag = "2")]
-    pub minute: ::core::option::Option<f64>,
-    /// Set the hour to start the snapshot (0-23), defaults to midnight (0).
-    #[prost(double, optional, tag = "3")]
-    pub hour: ::core::option::Option<f64>,
-    /// Set the day or days of the month to make a snapshot (1-31). Accepts a
-    /// comma separated number of days. Defaults to '1'.
-    #[prost(string, optional, tag = "4")]
-    pub days_of_month: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// View only mount options for a volume.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MountOption {
-    /// Export string
-    #[prost(string, tag = "1")]
-    pub export: ::prost::alloc::string::String,
-    /// Full export string
-    #[prost(string, tag = "2")]
-    pub export_full: ::prost::alloc::string::String,
-    /// Protocol to mount with.
-    #[prost(enumeration = "Protocols", tag = "3")]
-    pub protocol: i32,
-    /// Instructions for mounting
-    #[prost(string, tag = "4")]
-    pub instructions: ::prost::alloc::string::String,
-}
-/// The RestoreParameters if volume is created from a snapshot or backup.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RestoreParameters {
-    /// The source that the volume is created from.
-    #[prost(oneof = "restore_parameters::Source", tags = "1")]
-    pub source: ::core::option::Option<restore_parameters::Source>,
-}
-/// Nested message and enum types in `RestoreParameters`.
-pub mod restore_parameters {
-    /// The source that the volume is created from.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Source {
-        /// Full name of the snapshot resource.
-        /// Format:
-        /// projects/{project}/locations/{location}/volumes/{volume}/snapshots/{snapshot}
-        #[prost(string, tag = "1")]
-        SourceSnapshot(::prost::alloc::string::String),
-    }
-}
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum Protocols {
-    /// Unspecified protocol
-    Unspecified = 0,
-    /// NFS V3 protocol
-    Nfsv3 = 1,
-    /// NFS V4 protocol
-    Nfsv4 = 2,
-    /// SMB protocol
-    Smb = 3,
-}
-impl Protocols {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            Protocols::Unspecified => "PROTOCOLS_UNSPECIFIED",
-            Protocols::Nfsv3 => "NFSV3",
-            Protocols::Nfsv4 => "NFSV4",
-            Protocols::Smb => "SMB",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "PROTOCOLS_UNSPECIFIED" => Some(Self::Unspecified),
-            "NFSV3" => Some(Self::Nfsv3),
-            "NFSV4" => Some(Self::Nfsv4),
-            "SMB" => Some(Self::Smb),
-            _ => None,
-        }
-    }
-}
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum AccessType {
-    /// Unspecified Access Type
-    Unspecified = 0,
-    /// Read Only
-    ReadOnly = 1,
-    /// Read Write
-    ReadWrite = 2,
-    /// None
-    ReadNone = 3,
-}
-impl AccessType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            AccessType::Unspecified => "ACCESS_TYPE_UNSPECIFIED",
-            AccessType::ReadOnly => "READ_ONLY",
-            AccessType::ReadWrite => "READ_WRITE",
-            AccessType::ReadNone => "READ_NONE",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "ACCESS_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "READ_ONLY" => Some(Self::ReadOnly),
-            "READ_WRITE" => Some(Self::ReadWrite),
-            "READ_NONE" => Some(Self::ReadNone),
-            _ => None,
-        }
-    }
-}
-/// SMBSettings
-/// Modifies the behaviour of a SMB volume.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum SmbSettings {
-    /// Unspecified default option
-    Unspecified = 0,
-    /// SMB setting encrypt data
-    EncryptData = 1,
-    /// SMB setting browsable
-    Browsable = 2,
-    /// SMB setting notify change
-    ChangeNotify = 3,
-    /// SMB setting not to notify change
-    NonBrowsable = 4,
-    /// SMB setting oplocks
-    Oplocks = 5,
-    /// SMB setting to show snapshots
-    ShowSnapshot = 6,
-    /// SMB setting to show previous versions
-    ShowPreviousVersions = 7,
-    /// SMB setting to access volume based on enumerartion
-    AccessBasedEnumeration = 8,
-    /// Continuously available enumeration
-    ContinuouslyAvailable = 9,
-}
-impl SmbSettings {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            SmbSettings::Unspecified => "SMB_SETTINGS_UNSPECIFIED",
-            SmbSettings::EncryptData => "ENCRYPT_DATA",
-            SmbSettings::Browsable => "BROWSABLE",
-            SmbSettings::ChangeNotify => "CHANGE_NOTIFY",
-            SmbSettings::NonBrowsable => "NON_BROWSABLE",
-            SmbSettings::Oplocks => "OPLOCKS",
-            SmbSettings::ShowSnapshot => "SHOW_SNAPSHOT",
-            SmbSettings::ShowPreviousVersions => "SHOW_PREVIOUS_VERSIONS",
-            SmbSettings::AccessBasedEnumeration => "ACCESS_BASED_ENUMERATION",
-            SmbSettings::ContinuouslyAvailable => "CONTINUOUSLY_AVAILABLE",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "SMB_SETTINGS_UNSPECIFIED" => Some(Self::Unspecified),
-            "ENCRYPT_DATA" => Some(Self::EncryptData),
-            "BROWSABLE" => Some(Self::Browsable),
-            "CHANGE_NOTIFY" => Some(Self::ChangeNotify),
-            "NON_BROWSABLE" => Some(Self::NonBrowsable),
-            "OPLOCKS" => Some(Self::Oplocks),
-            "SHOW_SNAPSHOT" => Some(Self::ShowSnapshot),
-            "SHOW_PREVIOUS_VERSIONS" => Some(Self::ShowPreviousVersions),
-            "ACCESS_BASED_ENUMERATION" => Some(Self::AccessBasedEnumeration),
-            "CONTINUOUSLY_AVAILABLE" => Some(Self::ContinuouslyAvailable),
-            _ => None,
-        }
-    }
-}
-/// The security style of the volume, can be either UNIX or NTFS.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum SecurityStyle {
-    /// SecurityStyle is unspecified
-    Unspecified = 0,
-    /// SecurityStyle uses NTFS
-    Ntfs = 1,
-    /// SecurityStyle uses NTFS
-    Unix = 2,
-}
-impl SecurityStyle {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            SecurityStyle::Unspecified => "SECURITY_STYLE_UNSPECIFIED",
-            SecurityStyle::Ntfs => "NTFS",
-            SecurityStyle::Unix => "UNIX",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "SECURITY_STYLE_UNSPECIFIED" => Some(Self::Unspecified),
-            "NTFS" => Some(Self::Ntfs),
-            "UNIX" => Some(Self::Unix),
-            _ => None,
         }
     }
 }
@@ -1759,39 +1340,34 @@ pub mod snapshot {
         }
     }
 }
+/// Message for requesting list of Volumes
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetStoragePoolRequest {
-    /// Required. Name of the storage pool
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListStoragePoolsRequest {
-    /// Required. Parent value
+pub struct ListVolumesRequest {
+    /// Required. Parent value for ListVolumesRequest
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// The maximum number of items to return.
+    /// Requested page size. Server may return fewer items than requested.
+    /// If unspecified, the server will pick an appropriate default.
     #[prost(int32, tag = "2")]
     pub page_size: i32,
-    /// The next_page_token value to use if there are additional
-    /// results to retrieve for this list request.
+    /// A token identifying a page of results the server should return.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
-    /// Sort results. Supported values are "name", "name desc" or "" (unsorted).
+    /// Filtering results
     #[prost(string, tag = "4")]
-    pub order_by: ::prost::alloc::string::String,
-    /// List filter.
-    #[prost(string, tag = "5")]
     pub filter: ::prost::alloc::string::String,
+    /// Hint for how to order the results
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
 }
+/// Message for response to listing Volumes
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListStoragePoolsResponse {
-    /// The list of StoragePools
+pub struct ListVolumesResponse {
+    /// The list of Volume
     #[prost(message, repeated, tag = "1")]
-    pub storage_pools: ::prost::alloc::vec::Vec<StoragePool>,
+    pub volumes: ::prost::alloc::vec::Vec<Volume>,
     /// A token identifying a page of results the server should return.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
@@ -1799,108 +1375,179 @@ pub struct ListStoragePoolsResponse {
     #[prost(string, repeated, tag = "3")]
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
+/// Message for getting a Volume
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateStoragePoolRequest {
+pub struct GetVolumeRequest {
+    /// Required. Name of the volume
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Message for creating a Volume
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateVolumeRequest {
     /// Required. Value for parent.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Required. Id of the requesting storage pool
+    /// Required. Id of the requesting volume
     /// If auto-generating Id server-side, remove this field and
-    /// id from the method_signature of Create RPC
+    /// Id from the method_signature of Create RPC
     #[prost(string, tag = "2")]
-    pub storage_pool_id: ::prost::alloc::string::String,
-    /// Required. The required parameters to create a new storage pool.
+    pub volume_id: ::prost::alloc::string::String,
+    /// Required. The volume being created.
     #[prost(message, optional, tag = "3")]
-    pub storage_pool: ::core::option::Option<StoragePool>,
+    pub volume: ::core::option::Option<Volume>,
 }
+/// Message for updating a Volume
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateStoragePoolRequest {
+pub struct UpdateVolumeRequest {
     /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// StoragePool resource by the update.
+    /// Volume resource by the update.
     /// The fields specified in the update_mask are relative to the resource, not
     /// the full request. A field will be overwritten if it is in the mask. If the
     /// user does not provide a mask then all fields will be overwritten.
     #[prost(message, optional, tag = "1")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The pool being updated
+    /// Required. The volume being updated
     #[prost(message, optional, tag = "2")]
-    pub storage_pool: ::core::option::Option<StoragePool>,
+    pub volume: ::core::option::Option<Volume>,
 }
+/// Message for deleting a Volume
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteStoragePoolRequest {
-    /// Required. Name of the storage pool
+pub struct DeleteVolumeRequest {
+    /// Required. Name of the volume
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
+    /// If this field is set as true, CCFE will not block the volume resource
+    /// deletion even if it has any snapshots resource. (Otherwise, the request
+    /// will only work if the volume has no snapshots.)
+    #[prost(bool, tag = "2")]
+    pub force: bool,
 }
-/// StoragePool is a container for volumes with a service level and capacity.
-/// Volumes can be created in a pool of sufficient available capacity.
-/// StoragePool capacity is what you are billed for.
+/// RevertVolumeRequest reverts the given volume to the specified snapshot.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StoragePool {
-    /// Output only. Name of the storage pool
+pub struct RevertVolumeRequest {
+    /// Required. The resource name of the volume, in the format of
+    /// projects/{project_id}/locations/{location}/volumes/{volume_id}.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Required. Service level of the storage pool
-    #[prost(enumeration = "ServiceLevel", tag = "2")]
-    pub service_level: i32,
-    /// Required. Capacity in GIB of the pool
-    #[prost(int64, tag = "3")]
-    pub capacity_gib: i64,
-    /// Output only. Allocated size of all volumes in GIB in the storage pool
-    #[prost(int64, tag = "4")]
-    pub volume_capacity_gib: i64,
-    /// Output only. Volume count of the storage pool
-    #[prost(int32, tag = "5")]
-    pub volume_count: i32,
-    /// Output only. State of the storage pool
-    #[prost(enumeration = "storage_pool::State", tag = "6")]
+    /// Required. The snapshot resource ID, in the format 'my-snapshot', where the
+    /// specified ID is the {snapshot_id} of the fully qualified name like
+    /// projects/{project_id}/locations/{location_id}/volumes/{volume_id}/snapshots/{snapshot_id}
+    #[prost(string, tag = "2")]
+    pub snapshot_id: ::prost::alloc::string::String,
+}
+/// Volume provides a filesystem that you can mount.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Volume {
+    /// Output only. Name of the volume
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. State of the volume
+    #[prost(enumeration = "volume::State", tag = "2")]
     pub state: i32,
-    /// Output only. State details of the storage pool
-    #[prost(string, tag = "7")]
+    /// Output only. State details of the volume
+    #[prost(string, tag = "3")]
     pub state_details: ::prost::alloc::string::String,
-    /// Output only. Create time of the storage pool
-    #[prost(message, optional, tag = "8")]
+    /// Output only. Create time of the volume
+    #[prost(message, optional, tag = "4")]
     pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Description of the storage pool
-    #[prost(string, tag = "9")]
-    pub description: ::prost::alloc::string::String,
-    /// Labels as key value pairs
-    #[prost(btree_map = "string, string", tag = "10")]
+    /// Required. Share name of the volume
+    #[prost(string, tag = "5")]
+    pub share_name: ::prost::alloc::string::String,
+    /// Output only. Name of the Private Service Access allocated range. This is
+    /// optional. If not provided, any available range will be chosen.
+    #[prost(string, tag = "6")]
+    pub psa_range: ::prost::alloc::string::String,
+    /// Required. StoragePool name of the volume
+    #[prost(string, tag = "7")]
+    pub storage_pool: ::prost::alloc::string::String,
+    /// Output only. VPC Network name.
+    /// Format: projects/{project}/global/networks/{network}
+    #[prost(string, tag = "8")]
+    pub network: ::prost::alloc::string::String,
+    /// Output only. Service level of the volume
+    #[prost(enumeration = "ServiceLevel", tag = "9")]
+    pub service_level: i32,
+    /// Required. Capacity in GIB of the volume
+    #[prost(int64, tag = "10")]
+    pub capacity_gib: i64,
+    /// Optional. Export policy of the volume
+    #[prost(message, optional, tag = "11")]
+    pub export_policy: ::core::option::Option<ExportPolicy>,
+    /// Required. Protocols required for the volume
+    #[prost(enumeration = "Protocols", repeated, packed = "false", tag = "12")]
+    pub protocols: ::prost::alloc::vec::Vec<i32>,
+    /// Optional. SMB share settings for the volume.
+    #[prost(enumeration = "SmbSettings", repeated, packed = "false", tag = "13")]
+    pub smb_settings: ::prost::alloc::vec::Vec<i32>,
+    /// Output only. Mount options of this volume
+    #[prost(message, repeated, tag = "14")]
+    pub mount_options: ::prost::alloc::vec::Vec<MountOption>,
+    /// Optional. Default unix style permission (e.g. 777) the mount point will be
+    /// created with. Applicable for NFS protocol types only.
+    #[prost(string, tag = "15")]
+    pub unix_permissions: ::prost::alloc::string::String,
+    /// Optional. Labels as key value pairs
+    #[prost(btree_map = "string, string", tag = "16")]
     pub labels: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
-    /// Required. VPC Network name.
-    /// Format: projects/{project}/global/networks/{network}
-    #[prost(string, tag = "11")]
-    pub network: ::prost::alloc::string::String,
-    /// Specifies the Active Directory to be used for creating a SMB volume.
-    #[prost(string, tag = "12")]
-    pub active_directory: ::prost::alloc::string::String,
-    /// Specifies the KMS config to be used for volume encryption.
-    #[prost(string, tag = "13")]
-    pub kms_config: ::prost::alloc::string::String,
-    /// Flag indicating if the pool is NFS LDAP enabled or not.
-    #[prost(bool, tag = "14")]
+    /// Optional. Description of the volume
+    #[prost(string, tag = "17")]
+    pub description: ::prost::alloc::string::String,
+    /// Optional. SnapshotPolicy for a volume.
+    #[prost(message, optional, tag = "18")]
+    pub snapshot_policy: ::core::option::Option<SnapshotPolicy>,
+    /// Optional. Snap_reserve specifies percentage of volume storage reserved for
+    /// snapshot storage. Default is 0 percent.
+    #[prost(double, tag = "19")]
+    pub snap_reserve: f64,
+    /// Optional. Snapshot_directory if enabled (true) the volume will contain a
+    /// read-only .snapshot directory which provides access to each of the volume's
+    /// snapshots.
+    #[prost(bool, tag = "20")]
+    pub snapshot_directory: bool,
+    /// Output only. Used capacity in GIB of the volume. This is computed
+    /// periodically and it does not represent the realtime usage.
+    #[prost(int64, tag = "21")]
+    pub used_gib: i64,
+    /// Optional. Security Style of the Volume
+    #[prost(enumeration = "SecurityStyle", tag = "22")]
+    pub security_style: i32,
+    /// Optional. Flag indicating if the volume is a kerberos volume or not, export
+    /// policy rules control kerberos security modes (krb5, krb5i, krb5p).
+    #[prost(bool, tag = "23")]
+    pub kerberos_enabled: bool,
+    /// Output only. Flag indicating if the volume is NFS LDAP enabled or not.
+    #[prost(bool, tag = "24")]
     pub ldap_enabled: bool,
-    /// Name of the Private Service Access allocated range. If
-    /// not provided, any available range will be chosen.
-    #[prost(string, tag = "15")]
-    pub psa_range: ::prost::alloc::string::String,
-    /// Output only. Specifies the current pool encryption key source.
-    #[prost(enumeration = "EncryptionType", tag = "16")]
+    /// Output only. Specifies the ActiveDirectory name of a SMB volume.
+    #[prost(string, tag = "25")]
+    pub active_directory: ::prost::alloc::string::String,
+    /// Optional. Specifies the source of the volume to be created from.
+    #[prost(message, optional, tag = "26")]
+    pub restore_parameters: ::core::option::Option<RestoreParameters>,
+    /// Output only. Specifies the KMS config to be used for volume encryption.
+    #[prost(string, tag = "27")]
+    pub kms_config: ::prost::alloc::string::String,
+    /// Output only. Specified the current volume encryption key source.
+    #[prost(enumeration = "EncryptionType", tag = "28")]
     pub encryption_type: i32,
-    /// Optional. Allows SO pool to access AD or DNS server from other regions.
-    #[prost(bool, optional, tag = "17")]
-    pub global_access_allowed: ::core::option::Option<bool>,
+    /// Output only. Indicates whether the volume is part of a replication
+    /// relationship.
+    #[prost(bool, tag = "29")]
+    pub has_replication: bool,
 }
-/// Nested message and enum types in `StoragePool`.
-pub mod storage_pool {
-    /// The Storage Pool States
+/// Nested message and enum types in `Volume`.
+pub mod volume {
+    /// The volume states
     #[derive(
         Clone,
         Copy,
@@ -1914,21 +1561,21 @@ pub mod storage_pool {
     )]
     #[repr(i32)]
     pub enum State {
-        /// Unspecified Storage Pool State
+        /// Unspecified Volume State
         Unspecified = 0,
-        /// Storage Pool State is Ready
+        /// Volume State is Ready
         Ready = 1,
-        /// Storage Pool State is Creating
+        /// Volume State is Creating
         Creating = 2,
-        /// Storage Pool State is Deleting
+        /// Volume State is Deleting
         Deleting = 3,
-        /// Storage Pool State is Updating
+        /// Volume State is Updating
         Updating = 4,
-        /// Storage Pool State is Restoring
+        /// Volume State is Restoring
         Restoring = 5,
-        /// Storage Pool State is Disabled
+        /// Volume State is Disabled
         Disabled = 6,
-        /// Storage Pool State is Error
+        /// Volume State is Error
         Error = 7,
     }
     impl State {
@@ -1961,6 +1608,359 @@ pub mod storage_pool {
                 "ERROR" => Some(Self::Error),
                 _ => None,
             }
+        }
+    }
+}
+/// Defines the export policy for the volume.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExportPolicy {
+    /// Required. List of export policy rules
+    #[prost(message, repeated, tag = "1")]
+    pub rules: ::prost::alloc::vec::Vec<SimpleExportPolicyRule>,
+}
+/// An export policy rule describing various export options.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SimpleExportPolicyRule {
+    /// Comma separated list of allowed clients IP addresses
+    #[prost(string, optional, tag = "1")]
+    pub allowed_clients: ::core::option::Option<::prost::alloc::string::String>,
+    /// Whether Unix root access will be granted.
+    #[prost(string, optional, tag = "2")]
+    pub has_root_access: ::core::option::Option<::prost::alloc::string::String>,
+    /// Access type (ReadWrite, ReadOnly, None)
+    #[prost(enumeration = "AccessType", optional, tag = "3")]
+    pub access_type: ::core::option::Option<i32>,
+    /// NFS V3 protocol.
+    #[prost(bool, optional, tag = "4")]
+    pub nfsv3: ::core::option::Option<bool>,
+    /// NFS V4 protocol.
+    #[prost(bool, optional, tag = "5")]
+    pub nfsv4: ::core::option::Option<bool>,
+    /// If enabled (true) the rule defines a read only access for clients matching
+    /// the 'allowedClients' specification. It enables nfs clients to mount using
+    /// 'authentication' kerberos security mode.
+    #[prost(bool, optional, tag = "6")]
+    pub kerberos_5_read_only: ::core::option::Option<bool>,
+    /// If enabled (true) the rule defines read and write access for clients
+    /// matching the 'allowedClients' specification. It enables nfs clients to
+    /// mount using 'authentication' kerberos security mode. The
+    /// 'kerberos5ReadOnly' value be ignored if this is enabled.
+    #[prost(bool, optional, tag = "7")]
+    pub kerberos_5_read_write: ::core::option::Option<bool>,
+    /// If enabled (true) the rule defines a read only access for clients matching
+    /// the 'allowedClients' specification. It enables nfs clients to mount using
+    /// 'integrity' kerberos security mode.
+    #[prost(bool, optional, tag = "8")]
+    pub kerberos_5i_read_only: ::core::option::Option<bool>,
+    /// If enabled (true) the rule defines read and write access for clients
+    /// matching the 'allowedClients' specification. It enables nfs clients to
+    /// mount using 'integrity' kerberos security mode. The 'kerberos5iReadOnly'
+    /// value be ignored if this is enabled.
+    #[prost(bool, optional, tag = "9")]
+    pub kerberos_5i_read_write: ::core::option::Option<bool>,
+    /// If enabled (true) the rule defines a read only access for clients matching
+    /// the 'allowedClients' specification. It enables nfs clients to mount using
+    /// 'privacy' kerberos security mode.
+    #[prost(bool, optional, tag = "10")]
+    pub kerberos_5p_read_only: ::core::option::Option<bool>,
+    /// If enabled (true) the rule defines read and write access for clients
+    /// matching the 'allowedClients' specification. It enables nfs clients to
+    /// mount using 'privacy' kerberos security mode. The 'kerberos5pReadOnly'
+    /// value be ignored if this is enabled.
+    #[prost(bool, optional, tag = "11")]
+    pub kerberos_5p_read_write: ::core::option::Option<bool>,
+}
+/// Snapshot Policy for a volume.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SnapshotPolicy {
+    /// If enabled, make snapshots automatically according to the schedules.
+    /// Default is false.
+    #[prost(bool, optional, tag = "1")]
+    pub enabled: ::core::option::Option<bool>,
+    /// Hourly schedule policy.
+    #[prost(message, optional, tag = "2")]
+    pub hourly_schedule: ::core::option::Option<HourlySchedule>,
+    /// Daily schedule policy.
+    #[prost(message, optional, tag = "3")]
+    pub daily_schedule: ::core::option::Option<DailySchedule>,
+    /// Weekly schedule policy.
+    #[prost(message, optional, tag = "4")]
+    pub weekly_schedule: ::core::option::Option<WeeklySchedule>,
+    /// Monthly schedule policy.
+    #[prost(message, optional, tag = "5")]
+    pub monthly_schedule: ::core::option::Option<MonthlySchedule>,
+}
+/// Make a snapshot every hour e.g. at 04:00, 05:00, 06:00.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct HourlySchedule {
+    /// The maximum number of Snapshots to keep for the hourly schedule
+    #[prost(double, optional, tag = "1")]
+    pub snapshots_to_keep: ::core::option::Option<f64>,
+    /// Set the minute of the hour to start the snapshot (0-59), defaults to the
+    /// top of the hour (0).
+    #[prost(double, optional, tag = "2")]
+    pub minute: ::core::option::Option<f64>,
+}
+/// Make a snapshot every day e.g. at 04:00, 05:20, 23:50
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DailySchedule {
+    /// The maximum number of Snapshots to keep for the hourly schedule
+    #[prost(double, optional, tag = "1")]
+    pub snapshots_to_keep: ::core::option::Option<f64>,
+    /// Set the minute of the hour to start the snapshot (0-59), defaults to the
+    /// top of the hour (0).
+    #[prost(double, optional, tag = "2")]
+    pub minute: ::core::option::Option<f64>,
+    /// Set the hour to start the snapshot (0-23), defaults to midnight (0).
+    #[prost(double, optional, tag = "3")]
+    pub hour: ::core::option::Option<f64>,
+}
+/// Make a snapshot every week e.g. at Monday 04:00, Wednesday 05:20, Sunday
+/// 23:50
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WeeklySchedule {
+    /// The maximum number of Snapshots to keep for the hourly schedule
+    #[prost(double, optional, tag = "1")]
+    pub snapshots_to_keep: ::core::option::Option<f64>,
+    /// Set the minute of the hour to start the snapshot (0-59), defaults to the
+    /// top of the hour (0).
+    #[prost(double, optional, tag = "2")]
+    pub minute: ::core::option::Option<f64>,
+    /// Set the hour to start the snapshot (0-23), defaults to midnight (0).
+    #[prost(double, optional, tag = "3")]
+    pub hour: ::core::option::Option<f64>,
+    /// Set the day or days of the week to make a snapshot. Accepts a comma
+    /// separated days of the week. Defaults to 'Sunday'.
+    #[prost(string, optional, tag = "4")]
+    pub day: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Make a snapshot once a month e.g. at 2nd 04:00, 7th 05:20, 24th 23:50
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MonthlySchedule {
+    /// The maximum number of Snapshots to keep for the hourly schedule
+    #[prost(double, optional, tag = "1")]
+    pub snapshots_to_keep: ::core::option::Option<f64>,
+    /// Set the minute of the hour to start the snapshot (0-59), defaults to the
+    /// top of the hour (0).
+    #[prost(double, optional, tag = "2")]
+    pub minute: ::core::option::Option<f64>,
+    /// Set the hour to start the snapshot (0-23), defaults to midnight (0).
+    #[prost(double, optional, tag = "3")]
+    pub hour: ::core::option::Option<f64>,
+    /// Set the day or days of the month to make a snapshot (1-31). Accepts a
+    /// comma separated number of days. Defaults to '1'.
+    #[prost(string, optional, tag = "4")]
+    pub days_of_month: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// View only mount options for a volume.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MountOption {
+    /// Export string
+    #[prost(string, tag = "1")]
+    pub export: ::prost::alloc::string::String,
+    /// Full export string
+    #[prost(string, tag = "2")]
+    pub export_full: ::prost::alloc::string::String,
+    /// Protocol to mount with.
+    #[prost(enumeration = "Protocols", tag = "3")]
+    pub protocol: i32,
+    /// Instructions for mounting
+    #[prost(string, tag = "4")]
+    pub instructions: ::prost::alloc::string::String,
+}
+/// The RestoreParameters if volume is created from a snapshot or backup.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RestoreParameters {
+    /// The source that the volume is created from.
+    #[prost(oneof = "restore_parameters::Source", tags = "1")]
+    pub source: ::core::option::Option<restore_parameters::Source>,
+}
+/// Nested message and enum types in `RestoreParameters`.
+pub mod restore_parameters {
+    /// The source that the volume is created from.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Source {
+        /// Full name of the snapshot resource.
+        /// Format:
+        /// projects/{project}/locations/{location}/volumes/{volume}/snapshots/{snapshot}
+        #[prost(string, tag = "1")]
+        SourceSnapshot(::prost::alloc::string::String),
+    }
+}
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum Protocols {
+    /// Unspecified protocol
+    Unspecified = 0,
+    /// NFS V3 protocol
+    Nfsv3 = 1,
+    /// NFS V4 protocol
+    Nfsv4 = 2,
+    /// SMB protocol
+    Smb = 3,
+}
+impl Protocols {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            Protocols::Unspecified => "PROTOCOLS_UNSPECIFIED",
+            Protocols::Nfsv3 => "NFSV3",
+            Protocols::Nfsv4 => "NFSV4",
+            Protocols::Smb => "SMB",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "PROTOCOLS_UNSPECIFIED" => Some(Self::Unspecified),
+            "NFSV3" => Some(Self::Nfsv3),
+            "NFSV4" => Some(Self::Nfsv4),
+            "SMB" => Some(Self::Smb),
+            _ => None,
+        }
+    }
+}
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum AccessType {
+    /// Unspecified Access Type
+    Unspecified = 0,
+    /// Read Only
+    ReadOnly = 1,
+    /// Read Write
+    ReadWrite = 2,
+    /// None
+    ReadNone = 3,
+}
+impl AccessType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            AccessType::Unspecified => "ACCESS_TYPE_UNSPECIFIED",
+            AccessType::ReadOnly => "READ_ONLY",
+            AccessType::ReadWrite => "READ_WRITE",
+            AccessType::ReadNone => "READ_NONE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "ACCESS_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "READ_ONLY" => Some(Self::ReadOnly),
+            "READ_WRITE" => Some(Self::ReadWrite),
+            "READ_NONE" => Some(Self::ReadNone),
+            _ => None,
+        }
+    }
+}
+/// SMBSettings
+/// Modifies the behaviour of a SMB volume.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum SmbSettings {
+    /// Unspecified default option
+    Unspecified = 0,
+    /// SMB setting encrypt data
+    EncryptData = 1,
+    /// SMB setting browsable
+    Browsable = 2,
+    /// SMB setting notify change
+    ChangeNotify = 3,
+    /// SMB setting not to notify change
+    NonBrowsable = 4,
+    /// SMB setting oplocks
+    Oplocks = 5,
+    /// SMB setting to show snapshots
+    ShowSnapshot = 6,
+    /// SMB setting to show previous versions
+    ShowPreviousVersions = 7,
+    /// SMB setting to access volume based on enumerartion
+    AccessBasedEnumeration = 8,
+    /// Continuously available enumeration
+    ContinuouslyAvailable = 9,
+}
+impl SmbSettings {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            SmbSettings::Unspecified => "SMB_SETTINGS_UNSPECIFIED",
+            SmbSettings::EncryptData => "ENCRYPT_DATA",
+            SmbSettings::Browsable => "BROWSABLE",
+            SmbSettings::ChangeNotify => "CHANGE_NOTIFY",
+            SmbSettings::NonBrowsable => "NON_BROWSABLE",
+            SmbSettings::Oplocks => "OPLOCKS",
+            SmbSettings::ShowSnapshot => "SHOW_SNAPSHOT",
+            SmbSettings::ShowPreviousVersions => "SHOW_PREVIOUS_VERSIONS",
+            SmbSettings::AccessBasedEnumeration => "ACCESS_BASED_ENUMERATION",
+            SmbSettings::ContinuouslyAvailable => "CONTINUOUSLY_AVAILABLE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "SMB_SETTINGS_UNSPECIFIED" => Some(Self::Unspecified),
+            "ENCRYPT_DATA" => Some(Self::EncryptData),
+            "BROWSABLE" => Some(Self::Browsable),
+            "CHANGE_NOTIFY" => Some(Self::ChangeNotify),
+            "NON_BROWSABLE" => Some(Self::NonBrowsable),
+            "OPLOCKS" => Some(Self::Oplocks),
+            "SHOW_SNAPSHOT" => Some(Self::ShowSnapshot),
+            "SHOW_PREVIOUS_VERSIONS" => Some(Self::ShowPreviousVersions),
+            "ACCESS_BASED_ENUMERATION" => Some(Self::AccessBasedEnumeration),
+            "CONTINUOUSLY_AVAILABLE" => Some(Self::ContinuouslyAvailable),
+            _ => None,
+        }
+    }
+}
+/// The security style of the volume, can be either UNIX or NTFS.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum SecurityStyle {
+    /// SecurityStyle is unspecified
+    Unspecified = 0,
+    /// SecurityStyle uses NTFS
+    Ntfs = 1,
+    /// SecurityStyle uses NTFS
+    Unix = 2,
+}
+impl SecurityStyle {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            SecurityStyle::Unspecified => "SECURITY_STYLE_UNSPECIFIED",
+            SecurityStyle::Ntfs => "NTFS",
+            SecurityStyle::Unix => "UNIX",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "SECURITY_STYLE_UNSPECIFIED" => Some(Self::Unspecified),
+            "NTFS" => Some(Self::Ntfs),
+            "UNIX" => Some(Self::Unix),
+            _ => None,
         }
     }
 }

@@ -1017,122 +1017,6 @@ impl ConnectorVersionView {
         }
     }
 }
-/// Request message for Connectors.GetRuntimeConfig.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetRuntimeConfigRequest {
-    /// Required. Resource name of the form:
-    /// `projects/*/locations/*/runtimeConfig`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// RuntimeConfig is the singleton resource of each location.
-/// It includes generic resource configs consumed by control plane and runtime
-/// plane like: pub/sub topic/subscription resource name, Cloud Storage location
-/// storing schema etc.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RuntimeConfig {
-    /// Output only. location_id of the runtime location. E.g. "us-west1".
-    #[prost(string, tag = "1")]
-    pub location_id: ::prost::alloc::string::String,
-    /// Output only. Pub/Sub topic for connd to send message.
-    /// E.g. projects/{project-id}/topics/{topic-id}
-    #[prost(string, tag = "2")]
-    pub connd_topic: ::prost::alloc::string::String,
-    /// Output only. Pub/Sub subscription for connd to receive message.
-    /// E.g. projects/{project-id}/subscriptions/{topic-id}
-    #[prost(string, tag = "3")]
-    pub connd_subscription: ::prost::alloc::string::String,
-    /// Output only. Pub/Sub topic for control plne to send message.
-    /// communication.
-    /// E.g. projects/{project-id}/topics/{topic-id}
-    #[prost(string, tag = "4")]
-    pub control_plane_topic: ::prost::alloc::string::String,
-    /// Output only. Pub/Sub subscription for control plane to receive message.
-    /// E.g. projects/{project-id}/subscriptions/{topic-id}
-    #[prost(string, tag = "5")]
-    pub control_plane_subscription: ::prost::alloc::string::String,
-    /// Output only. The endpoint of the connectors runtime ingress.
-    #[prost(string, tag = "6")]
-    pub runtime_endpoint: ::prost::alloc::string::String,
-    /// Output only. The state of the location.
-    #[prost(enumeration = "runtime_config::State", tag = "7")]
-    pub state: i32,
-    /// Output only. The Cloud Storage bucket that stores connector's schema
-    /// reports.
-    #[prost(string, tag = "8")]
-    pub schema_gcs_bucket: ::prost::alloc::string::String,
-    /// Output only. The name of the Service Directory service name.
-    #[prost(string, tag = "9")]
-    pub service_directory: ::prost::alloc::string::String,
-    /// Output only. Name of the runtimeConfig resource.
-    /// Format: projects/{project}/locations/{location}/runtimeConfig
-    #[prost(string, tag = "11")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `RuntimeConfig`.
-pub mod runtime_config {
-    /// State of the location.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// STATE_UNSPECIFIED.
-        Unspecified = 0,
-        /// INACTIVE.
-        Inactive = 1,
-        /// ACTIVATING.
-        Activating = 2,
-        /// ACTIVE.
-        Active = 3,
-        /// CREATING.
-        Creating = 4,
-        /// DELETING.
-        Deleting = 5,
-        /// UPDATING.
-        Updating = 6,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Inactive => "INACTIVE",
-                State::Activating => "ACTIVATING",
-                State::Active => "ACTIVE",
-                State::Creating => "CREATING",
-                State::Deleting => "DELETING",
-                State::Updating => "UPDATING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "INACTIVE" => Some(Self::Inactive),
-                "ACTIVATING" => Some(Self::Activating),
-                "ACTIVE" => Some(Self::Active),
-                "CREATING" => Some(Self::Creating),
-                "DELETING" => Some(Self::Deleting),
-                "UPDATING" => Some(Self::Updating),
-                _ => None,
-            }
-        }
-    }
-}
 /// Define the Connectors target endpoint.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2120,6 +2004,122 @@ pub struct ListProvidersResponse {
     /// Locations that could not be reached.
     #[prost(string, repeated, tag = "3")]
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Request message for Connectors.GetRuntimeConfig.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetRuntimeConfigRequest {
+    /// Required. Resource name of the form:
+    /// `projects/*/locations/*/runtimeConfig`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// RuntimeConfig is the singleton resource of each location.
+/// It includes generic resource configs consumed by control plane and runtime
+/// plane like: pub/sub topic/subscription resource name, Cloud Storage location
+/// storing schema etc.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RuntimeConfig {
+    /// Output only. location_id of the runtime location. E.g. "us-west1".
+    #[prost(string, tag = "1")]
+    pub location_id: ::prost::alloc::string::String,
+    /// Output only. Pub/Sub topic for connd to send message.
+    /// E.g. projects/{project-id}/topics/{topic-id}
+    #[prost(string, tag = "2")]
+    pub connd_topic: ::prost::alloc::string::String,
+    /// Output only. Pub/Sub subscription for connd to receive message.
+    /// E.g. projects/{project-id}/subscriptions/{topic-id}
+    #[prost(string, tag = "3")]
+    pub connd_subscription: ::prost::alloc::string::String,
+    /// Output only. Pub/Sub topic for control plne to send message.
+    /// communication.
+    /// E.g. projects/{project-id}/topics/{topic-id}
+    #[prost(string, tag = "4")]
+    pub control_plane_topic: ::prost::alloc::string::String,
+    /// Output only. Pub/Sub subscription for control plane to receive message.
+    /// E.g. projects/{project-id}/subscriptions/{topic-id}
+    #[prost(string, tag = "5")]
+    pub control_plane_subscription: ::prost::alloc::string::String,
+    /// Output only. The endpoint of the connectors runtime ingress.
+    #[prost(string, tag = "6")]
+    pub runtime_endpoint: ::prost::alloc::string::String,
+    /// Output only. The state of the location.
+    #[prost(enumeration = "runtime_config::State", tag = "7")]
+    pub state: i32,
+    /// Output only. The Cloud Storage bucket that stores connector's schema
+    /// reports.
+    #[prost(string, tag = "8")]
+    pub schema_gcs_bucket: ::prost::alloc::string::String,
+    /// Output only. The name of the Service Directory service name.
+    #[prost(string, tag = "9")]
+    pub service_directory: ::prost::alloc::string::String,
+    /// Output only. Name of the runtimeConfig resource.
+    /// Format: projects/{project}/locations/{location}/runtimeConfig
+    #[prost(string, tag = "11")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `RuntimeConfig`.
+pub mod runtime_config {
+    /// State of the location.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// STATE_UNSPECIFIED.
+        Unspecified = 0,
+        /// INACTIVE.
+        Inactive = 1,
+        /// ACTIVATING.
+        Activating = 2,
+        /// ACTIVE.
+        Active = 3,
+        /// CREATING.
+        Creating = 4,
+        /// DELETING.
+        Deleting = 5,
+        /// UPDATING.
+        Updating = 6,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Inactive => "INACTIVE",
+                State::Activating => "ACTIVATING",
+                State::Active => "ACTIVE",
+                State::Creating => "CREATING",
+                State::Deleting => "DELETING",
+                State::Updating => "UPDATING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "INACTIVE" => Some(Self::Inactive),
+                "ACTIVATING" => Some(Self::Activating),
+                "ACTIVE" => Some(Self::Active),
+                "CREATING" => Some(Self::Creating),
+                "DELETING" => Some(Self::Deleting),
+                "UPDATING" => Some(Self::Updating),
+                _ => None,
+            }
+        }
+    }
 }
 /// Request for \[GetGlobalSettingsRequest\].
 #[allow(clippy::derive_partial_eq_without_eq)]
