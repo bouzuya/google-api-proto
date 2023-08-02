@@ -767,6 +767,10 @@
 <a href="#767" id="767">767</a>
 <a href="#768" id="768">768</a>
 <a href="#769" id="769">769</a>
+<a href="#770" id="770">770</a>
+<a href="#771" id="771">771</a>
+<a href="#772" id="772">772</a>
+<a href="#773" id="773">773</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-iam-v1-logging&quot;</span>))]
 </span><span class="kw">pub mod </span>logging;
 <span class="doccomment">/// Encapsulates settings provided to GetIamPolicy.
@@ -814,6 +818,7 @@
 ///
 /// **JSON example:**
 ///
+/// ```
 ///      {
 ///        &quot;bindings&quot;: [
 ///          {
@@ -841,9 +846,11 @@
 ///        &quot;etag&quot;: &quot;BwWWja0YfJA=&quot;,
 ///        &quot;version&quot;: 3
 ///      }
+/// ```
 ///
 /// **YAML example:**
 ///
+/// ```
 ///      bindings:
 ///      - members:
 ///        - user:mike@example.com
@@ -860,6 +867,7 @@
 ///          expression: request.time &lt; timestamp(&#39;2020-10-01T00:00:00.000Z&#39;)
 ///      etag: BwWWja0YfJA=
 ///      version: 3
+/// ```
 ///
 /// For a description of IAM and its features, see the
 /// [IAM documentation](&lt;https://cloud.google.com/iam/docs/&gt;).
@@ -931,7 +939,7 @@
     /// For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>role: ::prost::alloc::string::String,
-    <span class="doccomment">/// Specifies the principals requesting access for a Cloud Platform resource.
+    <span class="doccomment">/// Specifies the principals requesting access for a Google Cloud resource.
     /// `members` can have the following values:
     ///
     /// * `allUsers`: A special identifier that represents anyone who is
@@ -1041,8 +1049,8 @@
 ///      }
 ///
 /// For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
-/// logging. It also exempts jose@example.com from DATA_READ logging, and
-/// aliya@example.com from DATA_WRITE logging.
+/// logging. It also exempts `jose@example.com` from DATA_READ logging, and
+/// `aliya@example.com` from DATA_WRITE logging.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AuditConfig {
@@ -1163,7 +1171,7 @@
     /// Required
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>role: ::prost::alloc::string::String,
-    <span class="doccomment">/// A single identity requesting access for a Cloud Platform resource.
+    <span class="doccomment">/// A single identity requesting access for a Google Cloud resource.
     /// Follows the same format of Binding.members.
     /// Required
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
