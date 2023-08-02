@@ -2711,6 +2711,597 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>item_attributes: ::core::option::Option&lt;FeatureMap&gt;,
 }
+<span class="doccomment">/// Google Cloud Storage location for input content.
+/// format.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GcsSource {
+    <span class="doccomment">/// Required. Google Cloud Storage URIs to input files. URI can be up to
+    /// 2000 characters long. URIs can match the full object path (for example,
+    /// `gs://bucket/directory/object.json`) or a pattern matching one or more
+    /// files, such as `gs://bucket/directory/*.json`. A request can
+    /// contain at most 100 files, and each file can be up to 2 GB. See
+    /// [Importing catalog information](/recommendations-ai/docs/upload-catalog)
+    /// for the expected file format and setup instructions.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>input_uris: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// The inline source for the input config for ImportCatalogItems method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CatalogInlineSource {
+    <span class="doccomment">/// Optional. A list of catalog items to update/create. Recommended max of 10k
+    /// items.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>catalog_items: ::prost::alloc::vec::Vec&lt;CatalogItem&gt;,
+}
+<span class="doccomment">/// The inline source for the input config for ImportUserEvents method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UserEventInlineSource {
+    <span class="doccomment">/// Optional. A list of user events to import. Recommended max of 10k items.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>user_events: ::prost::alloc::vec::Vec&lt;UserEvent&gt;,
+}
+<span class="doccomment">/// Configuration of destination for Import related errors.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImportErrorsConfig {
+    <span class="doccomment">/// Required. Errors destination.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_errors_config::Destination&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>destination: ::core::option::Option&lt;import_errors_config::Destination&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ImportErrorsConfig`.
+</span><span class="kw">pub mod </span>import_errors_config {
+    <span class="doccomment">/// Required. Errors destination.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Destination {
+        <span class="doccomment">/// Google Cloud Storage path for import errors. This must be an empty,
+        /// existing Cloud Storage bucket. Import errors will be written to a file in
+        /// this bucket, one per line, as a JSON-encoded
+        /// `google.rpc.Status` message.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>GcsPrefix(::prost::alloc::string::String),
+    }
+}
+<span class="doccomment">/// Request message for Import methods.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImportCatalogItemsRequest {
+    <span class="doccomment">/// Required. `projects/1234/locations/global/catalogs/default_catalog`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Unique identifier provided by client, within the ancestor
+    /// dataset scope. Ensures idempotency and used for request deduplication.
+    /// Server-generated if unspecified. Up to 128 characters long. This is
+    /// returned as google.longrunning.Operation.name in the response.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The desired input location of the data.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>input_config: ::core::option::Option&lt;InputConfig&gt;,
+    <span class="doccomment">/// Optional. The desired location of errors incurred during the Import.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>errors_config: ::core::option::Option&lt;ImportErrorsConfig&gt;,
+}
+<span class="doccomment">/// Request message for the ImportUserEvents request.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImportUserEventsRequest {
+    <span class="doccomment">/// Required.
+    /// `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Unique identifier provided by client, within the ancestor
+    /// dataset scope. Ensures idempotency for expensive long running operations.
+    /// Server-generated if unspecified. Up to 128 characters long. This is
+    /// returned as google.longrunning.Operation.name in the response. Note that
+    /// this field must not be set if the desired input config is
+    /// catalog_inline_source.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The desired input location of the data.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>input_config: ::core::option::Option&lt;InputConfig&gt;,
+    <span class="doccomment">/// Optional. The desired location of errors incurred during the Import.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>errors_config: ::core::option::Option&lt;ImportErrorsConfig&gt;,
+}
+<span class="doccomment">/// The input config source.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>InputConfig {
+    <span class="doccomment">/// Required. The source of the input.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;input_config::Source&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+    </span><span class="kw">pub </span>source: ::core::option::Option&lt;input_config::Source&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `InputConfig`.
+</span><span class="kw">pub mod </span>input_config {
+    <span class="doccomment">/// Required. The source of the input.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Source {
+        <span class="doccomment">/// The Inline source for the input content for Catalog items.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>CatalogInlineSource(<span class="kw">super</span>::CatalogInlineSource),
+        <span class="doccomment">/// Google Cloud Storage location for the input content.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>GcsSource(<span class="kw">super</span>::GcsSource),
+        <span class="doccomment">/// The Inline source for the input content for UserEvents.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>UserEventInlineSource(<span class="kw">super</span>::UserEventInlineSource),
+    }
+}
+<span class="doccomment">/// Metadata related to the progress of the Import operation. This will be
+/// returned by the google.longrunning.Operation.metadata field.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImportMetadata {
+    <span class="doccomment">/// Name of the operation.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>operation_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Id of the request / operation. This is parroting back the requestId that
+    /// was passed in the request.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Operation create time.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Count of entries that were processed successfully.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>success_count: i64,
+    <span class="doccomment">/// Count of entries that encountered errors while processing.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>failure_count: i64,
+    <span class="doccomment">/// Operation last update time. If the operation is done, this is also the
+    /// finish time.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Response of the ImportCatalogItemsRequest. If the long running
+/// operation is done, then this message is returned by the
+/// google.longrunning.Operations.response field if the operation was successful.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImportCatalogItemsResponse {
+    <span class="doccomment">/// A sample of errors encountered while processing the request.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>error_samples: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
+    <span class="doccomment">/// Echoes the destination for the complete errors in the request if set.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>errors_config: ::core::option::Option&lt;ImportErrorsConfig&gt;,
+}
+<span class="doccomment">/// Response of the ImportUserEventsRequest. If the long running
+/// operation was successful, then this message is returned by the
+/// google.longrunning.Operations.response field if the operation was successful.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImportUserEventsResponse {
+    <span class="doccomment">/// A sample of errors encountered while processing the request.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>error_samples: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
+    <span class="doccomment">/// Echoes the destination for the complete errors if this field was set in
+    /// the request.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>errors_config: ::core::option::Option&lt;ImportErrorsConfig&gt;,
+    <span class="doccomment">/// Aggregated statistics of user event import status.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>import_summary: ::core::option::Option&lt;UserEventImportSummary&gt;,
+}
+<span class="doccomment">/// A summary of import result. The UserEventImportSummary summarizes
+/// the import status for user events.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UserEventImportSummary {
+    <span class="doccomment">/// Count of user events imported with complete existing catalog information.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>joined_events_count: i64,
+    <span class="doccomment">/// Count of user events imported, but with catalog information not found
+    /// in the imported catalog.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>unjoined_events_count: i64,
+}
+<span class="doccomment">/// Request message for PurgeUserEvents method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PurgeUserEventsRequest {
+    <span class="doccomment">/// Required. The resource name of the event_store under which the events are
+    /// created. The format is
+    /// `projects/${projectId}/locations/global/catalogs/${catalogId}/eventStores/${eventStoreId}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The filter string to specify the events to be deleted. Empty
+    /// string filter is not allowed. This filter can also be used with
+    /// ListUserEvents API to list events that will be deleted. The eligible fields
+    /// for filtering are:
+    /// * eventType - UserEvent.eventType field of type string.
+    /// * eventTime - in ISO 8601 &quot;zulu&quot; format.
+    /// * visitorId - field of type string. Specifying this will delete all events
+    /// associated with a visitor.
+    /// * userId - field of type string. Specifying this will delete all events
+    /// associated with a user.
+    /// Example 1: Deleting all events in a time range.
+    /// `eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot; eventTime &lt;
+    /// &quot;2012-04-23T18:30:43.511Z&quot;`
+    /// Example 2: Deleting specific eventType in time range.
+    /// `eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot; eventType = &quot;detail-page-view&quot;`
+    /// Example 3: Deleting all events for a specific visitor
+    /// `visitorId = visitor1024`
+    /// The filtering fields are assumed to have an implicit AND.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The default value is false. Override this flag to true to
+    /// actually perform the purge. If the field is not set to true, a sampling of
+    /// events to be deleted will be returned.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>force: bool,
+}
+<span class="doccomment">/// Metadata related to the progress of the PurgeUserEvents operation.
+/// This will be returned by the google.longrunning.Operation.metadata field.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PurgeUserEventsMetadata {
+    <span class="doccomment">/// The ID of the request / operation.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>operation_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Operation create time.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Response of the PurgeUserEventsRequest. If the long running operation is
+/// successfully done, then this message is returned by the
+/// google.longrunning.Operations.response field.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PurgeUserEventsResponse {
+    <span class="doccomment">/// The total count of events purged as a result of the operation.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>purged_events_count: i64,
+    <span class="doccomment">/// A sampling of events deleted (or will be deleted) depending on the `force`
+    /// property in the request. Max of 500 items will be returned.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>user_events_sample: ::prost::alloc::vec::Vec&lt;UserEvent&gt;,
+}
+<span class="doccomment">/// Request message for WriteUserEvent method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>WriteUserEventRequest {
+    <span class="doccomment">/// Required. The parent eventStore resource name, such as
+    /// `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. User event to write.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>user_event: ::core::option::Option&lt;UserEvent&gt;,
+}
+<span class="doccomment">/// Request message for CollectUserEvent method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CollectUserEventRequest {
+    <span class="doccomment">/// Required. The parent eventStore name, such as
+    /// `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. URL encoded UserEvent proto.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>user_event: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The url including cgi-parameters but excluding the hash fragment.
+    /// The URL must be truncated to 1.5K bytes to conservatively be under the 2K
+    /// bytes. This is often more useful than the referer url, because many
+    /// browsers only send the domain for 3rd party requests.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The event timestamp in milliseconds. This prevents browser
+    /// caching of otherwise identical get requests. The name is abbreviated to
+    /// reduce the payload bytes.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>ets: i64,
+}
+<span class="doccomment">/// Request message for ListUserEvents method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListUserEventsRequest {
+    <span class="doccomment">/// Required. The parent eventStore resource name, such as
+    /// `projects/*/locations/*/catalogs/default_catalog/eventStores/default_event_store`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Maximum number of results to return per page. If zero, the
+    /// service will choose a reasonable default.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// Optional. The previous ListUserEventsResponse.next_page_token.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Filtering expression to specify restrictions over
+    /// returned events. This is a sequence of terms, where each term applies some
+    /// kind of a restriction to the returned user events. Use this expression to
+    /// restrict results to a specific time range, or filter events by eventType.
+    ///     eg: eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot; eventsMissingCatalogItems
+    ///     eventTime&lt;&quot;2012-04-23T18:25:43.511Z&quot; eventType=search
+    ///
+    ///    We expect only 3 types of fields:
+    ///
+    ///     * eventTime: this can be specified a maximum of 2 times, once with a
+    ///       less than operator and once with a greater than operator. The
+    ///       eventTime restrict should result in one contiguous valid eventTime
+    ///       range.
+    ///
+    ///     * eventType: only 1 eventType restriction can be specified.
+    ///
+    ///     * eventsMissingCatalogItems: specififying this will restrict results
+    ///       to events for which catalog items were not found in the catalog. The
+    ///       default behavior is to return only those events for which catalog
+    ///       items were found.
+    ///
+    ///    Some examples of valid filters expressions:
+    ///
+    ///    * Example 1: eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot;
+    ///              eventTime &lt; &quot;2012-04-23T18:30:43.511Z&quot;
+    ///    * Example 2: eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot;
+    ///              eventType = detail-page-view
+    ///    * Example 3: eventsMissingCatalogItems
+    ///              eventType = search eventTime &lt; &quot;2018-04-23T18:30:43.511Z&quot;
+    ///    * Example 4: eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot;
+    ///    * Example 5: eventType = search
+    ///    * Example 6: eventsMissingCatalogItems
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Response message for ListUserEvents method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListUserEventsResponse {
+    <span class="doccomment">/// The user events.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>user_events: ::prost::alloc::vec::Vec&lt;UserEvent&gt;,
+    <span class="doccomment">/// If empty, the list is complete. If nonempty, the token to pass to the next
+    /// request&#39;s ListUserEvents.page_token.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>user_event_service_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// Service for ingesting end user actions on the customer website.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>UserEventServiceClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; UserEventServiceClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; UserEventServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            UserEventServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Writes a single user event.
+        </span><span class="kw">pub async fn </span>write_user_event(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::WriteUserEventRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::UserEvent&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.UserEventService/WriteUserEvent&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.UserEventService&quot;</span>,
+                        <span class="string">&quot;WriteUserEvent&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Writes a single user event from the browser. This uses a GET request to
+        /// due to browser restriction of POST-ing to a 3rd party domain.
+        ///
+        /// This method is used only by the Recommendations AI JavaScript pixel.
+        /// Users should not call this method directly.
+        </span><span class="kw">pub async fn </span>collect_user_event(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CollectUserEventRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::api::HttpBody&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.UserEventService/CollectUserEvent&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.UserEventService&quot;</span>,
+                        <span class="string">&quot;CollectUserEvent&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Gets a list of user events within a time range, with potential filtering.
+        </span><span class="kw">pub async fn </span>list_user_events(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListUserEventsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListUserEventsResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.UserEventService/ListUserEvents&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.UserEventService&quot;</span>,
+                        <span class="string">&quot;ListUserEvents&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Deletes permanently all user events specified by the filter provided.
+        /// Depending on the number of events specified by the filter, this operation
+        /// could take hours or days to complete. To test a filter, use the list
+        /// command first.
+        </span><span class="kw">pub async fn </span>purge_user_events(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::PurgeUserEventsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.UserEventService/PurgeUserEvents&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.UserEventService&quot;</span>,
+                        <span class="string">&quot;PurgeUserEvents&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Bulk import of User events. Request processing might be
+        /// synchronous. Events that already exist are skipped.
+        /// Use this method for backfilling historical user events.
+        ///
+        /// Operation.response is of type ImportResponse. Note that it is
+        /// possible for a subset of the items to be successfully inserted.
+        /// Operation.metadata is of type ImportMetadata.
+        </span><span class="kw">pub async fn </span>import_user_events(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ImportUserEventsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.UserEventService/ImportUserEvents&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.UserEventService&quot;</span>,
+                        <span class="string">&quot;ImportUserEvents&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
+}
 <span class="doccomment">/// Request message for Predict method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2985,197 +3576,6 @@
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
     }
-}
-<span class="doccomment">/// Google Cloud Storage location for input content.
-/// format.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GcsSource {
-    <span class="doccomment">/// Required. Google Cloud Storage URIs to input files. URI can be up to
-    /// 2000 characters long. URIs can match the full object path (for example,
-    /// `gs://bucket/directory/object.json`) or a pattern matching one or more
-    /// files, such as `gs://bucket/directory/*.json`. A request can
-    /// contain at most 100 files, and each file can be up to 2 GB. See
-    /// [Importing catalog information](/recommendations-ai/docs/upload-catalog)
-    /// for the expected file format and setup instructions.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>input_uris: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// The inline source for the input config for ImportCatalogItems method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CatalogInlineSource {
-    <span class="doccomment">/// Optional. A list of catalog items to update/create. Recommended max of 10k
-    /// items.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>catalog_items: ::prost::alloc::vec::Vec&lt;CatalogItem&gt;,
-}
-<span class="doccomment">/// The inline source for the input config for ImportUserEvents method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UserEventInlineSource {
-    <span class="doccomment">/// Optional. A list of user events to import. Recommended max of 10k items.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>user_events: ::prost::alloc::vec::Vec&lt;UserEvent&gt;,
-}
-<span class="doccomment">/// Configuration of destination for Import related errors.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportErrorsConfig {
-    <span class="doccomment">/// Required. Errors destination.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_errors_config::Destination&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>destination: ::core::option::Option&lt;import_errors_config::Destination&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ImportErrorsConfig`.
-</span><span class="kw">pub mod </span>import_errors_config {
-    <span class="doccomment">/// Required. Errors destination.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Destination {
-        <span class="doccomment">/// Google Cloud Storage path for import errors. This must be an empty,
-        /// existing Cloud Storage bucket. Import errors will be written to a file in
-        /// this bucket, one per line, as a JSON-encoded
-        /// `google.rpc.Status` message.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>GcsPrefix(::prost::alloc::string::String),
-    }
-}
-<span class="doccomment">/// Request message for Import methods.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportCatalogItemsRequest {
-    <span class="doccomment">/// Required. `projects/1234/locations/global/catalogs/default_catalog`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Unique identifier provided by client, within the ancestor
-    /// dataset scope. Ensures idempotency and used for request deduplication.
-    /// Server-generated if unspecified. Up to 128 characters long. This is
-    /// returned as google.longrunning.Operation.name in the response.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The desired input location of the data.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>input_config: ::core::option::Option&lt;InputConfig&gt;,
-    <span class="doccomment">/// Optional. The desired location of errors incurred during the Import.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>errors_config: ::core::option::Option&lt;ImportErrorsConfig&gt;,
-}
-<span class="doccomment">/// Request message for the ImportUserEvents request.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportUserEventsRequest {
-    <span class="doccomment">/// Required.
-    /// `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Unique identifier provided by client, within the ancestor
-    /// dataset scope. Ensures idempotency for expensive long running operations.
-    /// Server-generated if unspecified. Up to 128 characters long. This is
-    /// returned as google.longrunning.Operation.name in the response. Note that
-    /// this field must not be set if the desired input config is
-    /// catalog_inline_source.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The desired input location of the data.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>input_config: ::core::option::Option&lt;InputConfig&gt;,
-    <span class="doccomment">/// Optional. The desired location of errors incurred during the Import.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>errors_config: ::core::option::Option&lt;ImportErrorsConfig&gt;,
-}
-<span class="doccomment">/// The input config source.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>InputConfig {
-    <span class="doccomment">/// Required. The source of the input.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;input_config::Source&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
-    </span><span class="kw">pub </span>source: ::core::option::Option&lt;input_config::Source&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `InputConfig`.
-</span><span class="kw">pub mod </span>input_config {
-    <span class="doccomment">/// Required. The source of the input.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Source {
-        <span class="doccomment">/// The Inline source for the input content for Catalog items.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>CatalogInlineSource(<span class="kw">super</span>::CatalogInlineSource),
-        <span class="doccomment">/// Google Cloud Storage location for the input content.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>GcsSource(<span class="kw">super</span>::GcsSource),
-        <span class="doccomment">/// The Inline source for the input content for UserEvents.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>UserEventInlineSource(<span class="kw">super</span>::UserEventInlineSource),
-    }
-}
-<span class="doccomment">/// Metadata related to the progress of the Import operation. This will be
-/// returned by the google.longrunning.Operation.metadata field.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportMetadata {
-    <span class="doccomment">/// Name of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>operation_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Id of the request / operation. This is parroting back the requestId that
-    /// was passed in the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Operation create time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Count of entries that were processed successfully.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>success_count: i64,
-    <span class="doccomment">/// Count of entries that encountered errors while processing.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>failure_count: i64,
-    <span class="doccomment">/// Operation last update time. If the operation is done, this is also the
-    /// finish time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Response of the ImportCatalogItemsRequest. If the long running
-/// operation is done, then this message is returned by the
-/// google.longrunning.Operations.response field if the operation was successful.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportCatalogItemsResponse {
-    <span class="doccomment">/// A sample of errors encountered while processing the request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>error_samples: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
-    <span class="doccomment">/// Echoes the destination for the complete errors in the request if set.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>errors_config: ::core::option::Option&lt;ImportErrorsConfig&gt;,
-}
-<span class="doccomment">/// Response of the ImportUserEventsRequest. If the long running
-/// operation was successful, then this message is returned by the
-/// google.longrunning.Operations.response field if the operation was successful.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportUserEventsResponse {
-    <span class="doccomment">/// A sample of errors encountered while processing the request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>error_samples: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
-    <span class="doccomment">/// Echoes the destination for the complete errors if this field was set in
-    /// the request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>errors_config: ::core::option::Option&lt;ImportErrorsConfig&gt;,
-    <span class="doccomment">/// Aggregated statistics of user event import status.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>import_summary: ::core::option::Option&lt;UserEventImportSummary&gt;,
-}
-<span class="doccomment">/// A summary of import result. The UserEventImportSummary summarizes
-/// the import status for user events.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UserEventImportSummary {
-    <span class="doccomment">/// Count of user events imported with complete existing catalog information.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>joined_events_count: i64,
-    <span class="doccomment">/// Count of user events imported, but with catalog information not found
-    /// in the imported catalog.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>unjoined_events_count: i64,
 }
 <span class="doccomment">/// Request message for CreateCatalogItem method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -3746,406 +4146,6 @@
                     GrpcMethod::new(
                         <span class="string">&quot;google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry&quot;</span>,
                         <span class="string">&quot;DeletePredictionApiKeyRegistration&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-    }
-}
-<span class="doccomment">/// Request message for PurgeUserEvents method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PurgeUserEventsRequest {
-    <span class="doccomment">/// Required. The resource name of the event_store under which the events are
-    /// created. The format is
-    /// `projects/${projectId}/locations/global/catalogs/${catalogId}/eventStores/${eventStoreId}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The filter string to specify the events to be deleted. Empty
-    /// string filter is not allowed. This filter can also be used with
-    /// ListUserEvents API to list events that will be deleted. The eligible fields
-    /// for filtering are:
-    /// * eventType - UserEvent.eventType field of type string.
-    /// * eventTime - in ISO 8601 &quot;zulu&quot; format.
-    /// * visitorId - field of type string. Specifying this will delete all events
-    /// associated with a visitor.
-    /// * userId - field of type string. Specifying this will delete all events
-    /// associated with a user.
-    /// Example 1: Deleting all events in a time range.
-    /// `eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot; eventTime &lt;
-    /// &quot;2012-04-23T18:30:43.511Z&quot;`
-    /// Example 2: Deleting specific eventType in time range.
-    /// `eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot; eventType = &quot;detail-page-view&quot;`
-    /// Example 3: Deleting all events for a specific visitor
-    /// `visitorId = visitor1024`
-    /// The filtering fields are assumed to have an implicit AND.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The default value is false. Override this flag to true to
-    /// actually perform the purge. If the field is not set to true, a sampling of
-    /// events to be deleted will be returned.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>force: bool,
-}
-<span class="doccomment">/// Metadata related to the progress of the PurgeUserEvents operation.
-/// This will be returned by the google.longrunning.Operation.metadata field.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PurgeUserEventsMetadata {
-    <span class="doccomment">/// The ID of the request / operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>operation_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Operation create time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Response of the PurgeUserEventsRequest. If the long running operation is
-/// successfully done, then this message is returned by the
-/// google.longrunning.Operations.response field.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PurgeUserEventsResponse {
-    <span class="doccomment">/// The total count of events purged as a result of the operation.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>purged_events_count: i64,
-    <span class="doccomment">/// A sampling of events deleted (or will be deleted) depending on the `force`
-    /// property in the request. Max of 500 items will be returned.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>user_events_sample: ::prost::alloc::vec::Vec&lt;UserEvent&gt;,
-}
-<span class="doccomment">/// Request message for WriteUserEvent method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>WriteUserEventRequest {
-    <span class="doccomment">/// Required. The parent eventStore resource name, such as
-    /// `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. User event to write.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>user_event: ::core::option::Option&lt;UserEvent&gt;,
-}
-<span class="doccomment">/// Request message for CollectUserEvent method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CollectUserEventRequest {
-    <span class="doccomment">/// Required. The parent eventStore name, such as
-    /// `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. URL encoded UserEvent proto.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>user_event: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The url including cgi-parameters but excluding the hash fragment.
-    /// The URL must be truncated to 1.5K bytes to conservatively be under the 2K
-    /// bytes. This is often more useful than the referer url, because many
-    /// browsers only send the domain for 3rd party requests.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The event timestamp in milliseconds. This prevents browser
-    /// caching of otherwise identical get requests. The name is abbreviated to
-    /// reduce the payload bytes.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>ets: i64,
-}
-<span class="doccomment">/// Request message for ListUserEvents method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListUserEventsRequest {
-    <span class="doccomment">/// Required. The parent eventStore resource name, such as
-    /// `projects/*/locations/*/catalogs/default_catalog/eventStores/default_event_store`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Maximum number of results to return per page. If zero, the
-    /// service will choose a reasonable default.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// Optional. The previous ListUserEventsResponse.next_page_token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Filtering expression to specify restrictions over
-    /// returned events. This is a sequence of terms, where each term applies some
-    /// kind of a restriction to the returned user events. Use this expression to
-    /// restrict results to a specific time range, or filter events by eventType.
-    ///     eg: eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot; eventsMissingCatalogItems
-    ///     eventTime&lt;&quot;2012-04-23T18:25:43.511Z&quot; eventType=search
-    ///
-    ///    We expect only 3 types of fields:
-    ///
-    ///     * eventTime: this can be specified a maximum of 2 times, once with a
-    ///       less than operator and once with a greater than operator. The
-    ///       eventTime restrict should result in one contiguous valid eventTime
-    ///       range.
-    ///
-    ///     * eventType: only 1 eventType restriction can be specified.
-    ///
-    ///     * eventsMissingCatalogItems: specififying this will restrict results
-    ///       to events for which catalog items were not found in the catalog. The
-    ///       default behavior is to return only those events for which catalog
-    ///       items were found.
-    ///
-    ///    Some examples of valid filters expressions:
-    ///
-    ///    * Example 1: eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot;
-    ///              eventTime &lt; &quot;2012-04-23T18:30:43.511Z&quot;
-    ///    * Example 2: eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot;
-    ///              eventType = detail-page-view
-    ///    * Example 3: eventsMissingCatalogItems
-    ///              eventType = search eventTime &lt; &quot;2018-04-23T18:30:43.511Z&quot;
-    ///    * Example 4: eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot;
-    ///    * Example 5: eventType = search
-    ///    * Example 6: eventsMissingCatalogItems
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Response message for ListUserEvents method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListUserEventsResponse {
-    <span class="doccomment">/// The user events.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>user_events: ::prost::alloc::vec::Vec&lt;UserEvent&gt;,
-    <span class="doccomment">/// If empty, the list is complete. If nonempty, the token to pass to the next
-    /// request&#39;s ListUserEvents.page_token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>user_event_service_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// Service for ingesting end user actions on the customer website.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>UserEventServiceClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; UserEventServiceClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; UserEventServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            UserEventServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Writes a single user event.
-        </span><span class="kw">pub async fn </span>write_user_event(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::WriteUserEventRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::UserEvent&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.UserEventService/WriteUserEvent&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.UserEventService&quot;</span>,
-                        <span class="string">&quot;WriteUserEvent&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Writes a single user event from the browser. This uses a GET request to
-        /// due to browser restriction of POST-ing to a 3rd party domain.
-        ///
-        /// This method is used only by the Recommendations AI JavaScript pixel.
-        /// Users should not call this method directly.
-        </span><span class="kw">pub async fn </span>collect_user_event(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CollectUserEventRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::api::HttpBody&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.UserEventService/CollectUserEvent&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.UserEventService&quot;</span>,
-                        <span class="string">&quot;CollectUserEvent&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Gets a list of user events within a time range, with potential filtering.
-        </span><span class="kw">pub async fn </span>list_user_events(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListUserEventsRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListUserEventsResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.UserEventService/ListUserEvents&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.UserEventService&quot;</span>,
-                        <span class="string">&quot;ListUserEvents&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Deletes permanently all user events specified by the filter provided.
-        /// Depending on the number of events specified by the filter, this operation
-        /// could take hours or days to complete. To test a filter, use the list
-        /// command first.
-        </span><span class="kw">pub async fn </span>purge_user_events(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::PurgeUserEventsRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.UserEventService/PurgeUserEvents&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.UserEventService&quot;</span>,
-                        <span class="string">&quot;PurgeUserEvents&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Bulk import of User events. Request processing might be
-        /// synchronous. Events that already exist are skipped.
-        /// Use this method for backfilling historical user events.
-        ///
-        /// Operation.response is of type ImportResponse. Note that it is
-        /// possible for a subset of the items to be successfully inserted.
-        /// Operation.metadata is of type ImportMetadata.
-        </span><span class="kw">pub async fn </span>import_user_events(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ImportUserEventsRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.UserEventService/ImportUserEvents&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.UserEventService&quot;</span>,
-                        <span class="string">&quot;ImportUserEvents&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -919,51 +919,7 @@
 <a href="#919" id="919">919</a>
 <a href="#920" id="920">920</a>
 <a href="#921" id="921">921</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Options for how to validate json schemas.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>JsonValidationOption {
-    <span class="doccomment">/// As per the default behavior, no validation will be run. Will not override
-    /// any option set in a Task.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Do not run any validation against JSON schemas.
-    </span>Skip = <span class="number">1</span>,
-    <span class="doccomment">/// Validate all potential input JSON parameters against schemas specified in
-    /// IntegrationParameter.
-    </span>PreExecution = <span class="number">2</span>,
-    <span class="doccomment">/// Validate all potential output JSON parameters against schemas specified in
-    /// IntegrationParameter.
-    </span>PostExecution = <span class="number">3</span>,
-    <span class="doccomment">/// Perform both PRE_EXECUTION and POST_EXECUTION validations.
-    </span>PrePostExecution = <span class="number">4</span>,
-}
-<span class="kw">impl </span>JsonValidationOption {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            JsonValidationOption::Unspecified =&gt; <span class="string">&quot;JSON_VALIDATION_OPTION_UNSPECIFIED&quot;</span>,
-            JsonValidationOption::Skip =&gt; <span class="string">&quot;SKIP&quot;</span>,
-            JsonValidationOption::PreExecution =&gt; <span class="string">&quot;PRE_EXECUTION&quot;</span>,
-            JsonValidationOption::PostExecution =&gt; <span class="string">&quot;POST_EXECUTION&quot;</span>,
-            JsonValidationOption::PrePostExecution =&gt; <span class="string">&quot;PRE_POST_EXECUTION&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;JSON_VALIDATION_OPTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;SKIP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
-            <span class="string">&quot;PRE_EXECUTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PreExecution),
-            <span class="string">&quot;POST_EXECUTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PostExecution),
-            <span class="string">&quot;PRE_POST_EXECUTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PrePostExecution),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// The type of the parameter.
+</pre></div><pre class="rust"><code><span class="doccomment">/// The type of the parameter.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ValueType {
@@ -1050,6 +1006,50 @@
     /// or any proto message.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>value: ::core::option::Option&lt;ValueType&gt;,
+}
+<span class="doccomment">/// Options for how to validate json schemas.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>JsonValidationOption {
+    <span class="doccomment">/// As per the default behavior, no validation will be run. Will not override
+    /// any option set in a Task.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Do not run any validation against JSON schemas.
+    </span>Skip = <span class="number">1</span>,
+    <span class="doccomment">/// Validate all potential input JSON parameters against schemas specified in
+    /// IntegrationParameter.
+    </span>PreExecution = <span class="number">2</span>,
+    <span class="doccomment">/// Validate all potential output JSON parameters against schemas specified in
+    /// IntegrationParameter.
+    </span>PostExecution = <span class="number">3</span>,
+    <span class="doccomment">/// Perform both PRE_EXECUTION and POST_EXECUTION validations.
+    </span>PrePostExecution = <span class="number">4</span>,
+}
+<span class="kw">impl </span>JsonValidationOption {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            JsonValidationOption::Unspecified =&gt; <span class="string">&quot;JSON_VALIDATION_OPTION_UNSPECIFIED&quot;</span>,
+            JsonValidationOption::Skip =&gt; <span class="string">&quot;SKIP&quot;</span>,
+            JsonValidationOption::PreExecution =&gt; <span class="string">&quot;PRE_EXECUTION&quot;</span>,
+            JsonValidationOption::PostExecution =&gt; <span class="string">&quot;POST_EXECUTION&quot;</span>,
+            JsonValidationOption::PrePostExecution =&gt; <span class="string">&quot;PRE_POST_EXECUTION&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;JSON_VALIDATION_OPTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;SKIP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
+            <span class="string">&quot;PRE_EXECUTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PreExecution),
+            <span class="string">&quot;POST_EXECUTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PostExecution),
+            <span class="string">&quot;PRE_POST_EXECUTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PrePostExecution),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
 }
 <span class="doccomment">/// The task configuration details. This is not the implementation of Task.
 /// There might be multiple TaskConfigs for the same Task.
