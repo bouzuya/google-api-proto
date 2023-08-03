@@ -1,3 +1,87 @@
+/// Definition of a software environment that is used to start a notebook
+/// instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Environment {
+    /// Output only. Name of this environment.
+    /// Format:
+    /// `projects/{project_id}/locations/{location}/environments/{environment_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Display name of this environment for the UI.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// A brief description of this environment.
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+    /// Path to a Bash script that automatically runs after a notebook instance
+    /// fully boots up. The path must be a URL or
+    /// Cloud Storage path. Example: `"gs://path-to-file/file-name"`
+    #[prost(string, tag = "8")]
+    pub post_startup_script: ::prost::alloc::string::String,
+    /// Output only. The time at which this environment was created.
+    #[prost(message, optional, tag = "9")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Type of the environment; can be one of VM image, or container image.
+    #[prost(oneof = "environment::ImageType", tags = "6, 7")]
+    pub image_type: ::core::option::Option<environment::ImageType>,
+}
+/// Nested message and enum types in `Environment`.
+pub mod environment {
+    /// Type of the environment; can be one of VM image, or container image.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum ImageType {
+        /// Use a Compute Engine VM image to start the notebook instance.
+        #[prost(message, tag = "6")]
+        VmImage(super::VmImage),
+        /// Use a container image to start the notebook instance.
+        #[prost(message, tag = "7")]
+        ContainerImage(super::ContainerImage),
+    }
+}
+/// Definition of a custom Compute Engine virtual machine image for starting a
+/// notebook instance with the environment installed directly on the VM.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VmImage {
+    /// Required. The name of the Google Cloud project that this VM image belongs to.
+    /// Format: `{project_id}`
+    #[prost(string, tag = "1")]
+    pub project: ::prost::alloc::string::String,
+    /// The reference to an external Compute Engine VM image.
+    #[prost(oneof = "vm_image::Image", tags = "2, 3")]
+    pub image: ::core::option::Option<vm_image::Image>,
+}
+/// Nested message and enum types in `VmImage`.
+pub mod vm_image {
+    /// The reference to an external Compute Engine VM image.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Image {
+        /// Use VM image name to find the image.
+        #[prost(string, tag = "2")]
+        ImageName(::prost::alloc::string::String),
+        /// Use this VM image family to find the image; the newest image in this
+        /// family will be used.
+        #[prost(string, tag = "3")]
+        ImageFamily(::prost::alloc::string::String),
+    }
+}
+/// Definition of a container image for starting a notebook instance with the
+/// environment installed in a container.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ContainerImage {
+    /// Required. The path to the container image repository. For example:
+    /// `gcr.io/{project_id}/{image_name}`
+    #[prost(string, tag = "1")]
+    pub repository: ::prost::alloc::string::String,
+    /// The tag of the container image. If not specified, this defaults
+    /// to the latest tag.
+    #[prost(string, tag = "2")]
+    pub tag: ::prost::alloc::string::String,
+}
 /// The description a notebook execution workload.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -710,90 +794,6 @@ pub mod event {
             }
         }
     }
-}
-/// Definition of a software environment that is used to start a notebook
-/// instance.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Environment {
-    /// Output only. Name of this environment.
-    /// Format:
-    /// `projects/{project_id}/locations/{location}/environments/{environment_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Display name of this environment for the UI.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// A brief description of this environment.
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-    /// Path to a Bash script that automatically runs after a notebook instance
-    /// fully boots up. The path must be a URL or
-    /// Cloud Storage path. Example: `"gs://path-to-file/file-name"`
-    #[prost(string, tag = "8")]
-    pub post_startup_script: ::prost::alloc::string::String,
-    /// Output only. The time at which this environment was created.
-    #[prost(message, optional, tag = "9")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Type of the environment; can be one of VM image, or container image.
-    #[prost(oneof = "environment::ImageType", tags = "6, 7")]
-    pub image_type: ::core::option::Option<environment::ImageType>,
-}
-/// Nested message and enum types in `Environment`.
-pub mod environment {
-    /// Type of the environment; can be one of VM image, or container image.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum ImageType {
-        /// Use a Compute Engine VM image to start the notebook instance.
-        #[prost(message, tag = "6")]
-        VmImage(super::VmImage),
-        /// Use a container image to start the notebook instance.
-        #[prost(message, tag = "7")]
-        ContainerImage(super::ContainerImage),
-    }
-}
-/// Definition of a custom Compute Engine virtual machine image for starting a
-/// notebook instance with the environment installed directly on the VM.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VmImage {
-    /// Required. The name of the Google Cloud project that this VM image belongs to.
-    /// Format: `{project_id}`
-    #[prost(string, tag = "1")]
-    pub project: ::prost::alloc::string::String,
-    /// The reference to an external Compute Engine VM image.
-    #[prost(oneof = "vm_image::Image", tags = "2, 3")]
-    pub image: ::core::option::Option<vm_image::Image>,
-}
-/// Nested message and enum types in `VmImage`.
-pub mod vm_image {
-    /// The reference to an external Compute Engine VM image.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Image {
-        /// Use VM image name to find the image.
-        #[prost(string, tag = "2")]
-        ImageName(::prost::alloc::string::String),
-        /// Use this VM image family to find the image; the newest image in this
-        /// family will be used.
-        #[prost(string, tag = "3")]
-        ImageFamily(::prost::alloc::string::String),
-    }
-}
-/// Definition of a container image for starting a notebook instance with the
-/// environment installed in a container.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ContainerImage {
-    /// Required. The path to the container image repository. For example:
-    /// `gcr.io/{project_id}/{image_name}`
-    #[prost(string, tag = "1")]
-    pub repository: ::prost::alloc::string::String,
-    /// The tag of the container image. If not specified, this defaults
-    /// to the latest tag.
-    #[prost(string, tag = "2")]
-    pub tag: ::prost::alloc::string::String,
 }
 /// The definition of a Runtime for a managed notebook instance.
 #[allow(clippy::derive_partial_eq_without_eq)]
