@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/vision/v1p4beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.0 (8ede3aae2 2023-07-12)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/vision/v1p4beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.1 (eb26296b5 2023-08-03)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -3407,100 +3407,7 @@
 <a href="#3407" id="3407">3407</a>
 <a href="#3408" id="3408">3408</a>
 <a href="#3409" id="3409">3409</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Relevant information for the image from the Internet.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>WebDetection {
-    <span class="doccomment">/// Deduced entities from similar images on the Internet.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>web_entities: ::prost::alloc::vec::Vec&lt;web_detection::WebEntity&gt;,
-    <span class="doccomment">/// Fully matching images from the Internet.
-    /// Can include resized copies of the query image.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>full_matching_images: ::prost::alloc::vec::Vec&lt;web_detection::WebImage&gt;,
-    <span class="doccomment">/// Partial matching images from the Internet.
-    /// Those images are similar enough to share some key-point features. For
-    /// example an original image will likely have partial matching for its crops.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>partial_matching_images: ::prost::alloc::vec::Vec&lt;web_detection::WebImage&gt;,
-    <span class="doccomment">/// Web pages containing the matching images from the Internet.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>pages_with_matching_images: ::prost::alloc::vec::Vec&lt;web_detection::WebPage&gt;,
-    <span class="doccomment">/// The visually similar image results.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>visually_similar_images: ::prost::alloc::vec::Vec&lt;web_detection::WebImage&gt;,
-    <span class="doccomment">/// The service&#39;s best guess as to the topic of the request image.
-    /// Inferred from similar images on the open web.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>best_guess_labels: ::prost::alloc::vec::Vec&lt;web_detection::WebLabel&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `WebDetection`.
-</span><span class="kw">pub mod </span>web_detection {
-    <span class="doccomment">/// Entity deduced from similar images on the Internet.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>WebEntity {
-        <span class="doccomment">/// Opaque entity ID.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>entity_id: ::prost::alloc::string::String,
-        <span class="doccomment">/// Overall relevancy score for the entity.
-        /// Not normalized and not comparable across different image queries.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>score: f32,
-        <span class="doccomment">/// Canonical description of the entity, in English.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Metadata for online images.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>WebImage {
-        <span class="doccomment">/// The result image URL.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
-        <span class="doccomment">/// (Deprecated) Overall relevancy score for the image.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>score: f32,
-    }
-    <span class="doccomment">/// Metadata for web pages.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>WebPage {
-        <span class="doccomment">/// The result web page URL.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
-        <span class="doccomment">/// (Deprecated) Overall relevancy score for the web page.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>score: f32,
-        <span class="doccomment">/// Title for the web page, may contain HTML markups.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>page_title: ::prost::alloc::string::String,
-        <span class="doccomment">/// Fully matching images on the page.
-        /// Can include resized copies of the query image.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>full_matching_images: ::prost::alloc::vec::Vec&lt;WebImage&gt;,
-        <span class="doccomment">/// Partial matching images on the page.
-        /// Those images are similar enough to share some key-point features. For
-        /// example an original image will likely have partial matching for its
-        /// crops.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
-        </span><span class="kw">pub </span>partial_matching_images: ::prost::alloc::vec::Vec&lt;WebImage&gt;,
-    }
-    <span class="doccomment">/// Label to provide extra metadata for the web detection.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>WebLabel {
-        <span class="doccomment">/// Label for extra metadata.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
-        <span class="doccomment">/// The BCP-47 language code for `label`, such as &quot;en-US&quot; or &quot;sr-Latn&quot;.
-        /// For more information, see
-        /// &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-    }
-}
-<span class="doccomment">/// A vertex represents a 2D point in the image.
+</pre></div><pre class="rust"><code><span class="doccomment">/// A vertex represents a 2D point in the image.
 /// NOTE: the vertex coordinates are in the same scale as the original image.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3551,6 +3458,45 @@
     <span class="doccomment">/// Z coordinate (or depth).
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>z: f32,
+}
+<span class="doccomment">/// Parameters for a celebrity recognition request.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FaceRecognitionParams {
+    <span class="doccomment">/// The resource names for one or more
+    /// \[CelebritySet][google.cloud.vision.v1p4beta1.CelebritySet\]s. A celebrity
+    /// set is preloaded and can be specified as &quot;builtin/default&quot;. If this is
+    /// specified, the algorithm will try to match the faces detected in the input
+    /// image to the Celebrities in the CelebritySets.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>celebrity_set: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// A Celebrity is a group of Faces with an identity.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Celebrity {
+    <span class="doccomment">/// The resource name of the preloaded Celebrity. Has the format
+    /// `builtin/{mid}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The Celebrity&#39;s display name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The Celebrity&#39;s description.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Information about a face&#39;s identity.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FaceRecognitionResult {
+    <span class="doccomment">/// The \[Celebrity][google.cloud.vision.v1p4beta1.Celebrity\] that this face was
+    /// matched to.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>celebrity: ::core::option::Option&lt;Celebrity&gt;,
+    <span class="doccomment">/// Recognition confidence. Range [0, 1].
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>confidence: f32,
 }
 <span class="doccomment">/// A Product contains ReferenceImages.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5012,45 +4958,6 @@
         </span>}
     }
 }
-<span class="doccomment">/// Parameters for a celebrity recognition request.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FaceRecognitionParams {
-    <span class="doccomment">/// The resource names for one or more
-    /// \[CelebritySet][google.cloud.vision.v1p4beta1.CelebritySet\]s. A celebrity
-    /// set is preloaded and can be specified as &quot;builtin/default&quot;. If this is
-    /// specified, the algorithm will try to match the faces detected in the input
-    /// image to the Celebrities in the CelebritySets.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>celebrity_set: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// A Celebrity is a group of Faces with an identity.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Celebrity {
-    <span class="doccomment">/// The resource name of the preloaded Celebrity. Has the format
-    /// `builtin/{mid}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The Celebrity&#39;s display name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The Celebrity&#39;s description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Information about a face&#39;s identity.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FaceRecognitionResult {
-    <span class="doccomment">/// The \[Celebrity][google.cloud.vision.v1p4beta1.Celebrity\] that this face was
-    /// matched to.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>celebrity: ::core::option::Option&lt;Celebrity&gt;,
-    <span class="doccomment">/// Recognition confidence. Range [0, 1].
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>confidence: f32,
-}
 <span class="doccomment">/// Parameters for a product search request.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -5488,6 +5395,99 @@
     <span class="doccomment">/// Confidence of the OCR results for the symbol. Range [0, 1].
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>confidence: f32,
+}
+<span class="doccomment">/// Relevant information for the image from the Internet.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>WebDetection {
+    <span class="doccomment">/// Deduced entities from similar images on the Internet.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>web_entities: ::prost::alloc::vec::Vec&lt;web_detection::WebEntity&gt;,
+    <span class="doccomment">/// Fully matching images from the Internet.
+    /// Can include resized copies of the query image.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>full_matching_images: ::prost::alloc::vec::Vec&lt;web_detection::WebImage&gt;,
+    <span class="doccomment">/// Partial matching images from the Internet.
+    /// Those images are similar enough to share some key-point features. For
+    /// example an original image will likely have partial matching for its crops.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>partial_matching_images: ::prost::alloc::vec::Vec&lt;web_detection::WebImage&gt;,
+    <span class="doccomment">/// Web pages containing the matching images from the Internet.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>pages_with_matching_images: ::prost::alloc::vec::Vec&lt;web_detection::WebPage&gt;,
+    <span class="doccomment">/// The visually similar image results.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>visually_similar_images: ::prost::alloc::vec::Vec&lt;web_detection::WebImage&gt;,
+    <span class="doccomment">/// The service&#39;s best guess as to the topic of the request image.
+    /// Inferred from similar images on the open web.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>best_guess_labels: ::prost::alloc::vec::Vec&lt;web_detection::WebLabel&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `WebDetection`.
+</span><span class="kw">pub mod </span>web_detection {
+    <span class="doccomment">/// Entity deduced from similar images on the Internet.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>WebEntity {
+        <span class="doccomment">/// Opaque entity ID.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>entity_id: ::prost::alloc::string::String,
+        <span class="doccomment">/// Overall relevancy score for the entity.
+        /// Not normalized and not comparable across different image queries.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>score: f32,
+        <span class="doccomment">/// Canonical description of the entity, in English.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// Metadata for online images.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>WebImage {
+        <span class="doccomment">/// The result image URL.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
+        <span class="doccomment">/// (Deprecated) Overall relevancy score for the image.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>score: f32,
+    }
+    <span class="doccomment">/// Metadata for web pages.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>WebPage {
+        <span class="doccomment">/// The result web page URL.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
+        <span class="doccomment">/// (Deprecated) Overall relevancy score for the web page.
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>score: f32,
+        <span class="doccomment">/// Title for the web page, may contain HTML markups.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>page_title: ::prost::alloc::string::String,
+        <span class="doccomment">/// Fully matching images on the page.
+        /// Can include resized copies of the query image.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>full_matching_images: ::prost::alloc::vec::Vec&lt;WebImage&gt;,
+        <span class="doccomment">/// Partial matching images on the page.
+        /// Those images are similar enough to share some key-point features. For
+        /// example an original image will likely have partial matching for its
+        /// crops.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>partial_matching_images: ::prost::alloc::vec::Vec&lt;WebImage&gt;,
+    }
+    <span class="doccomment">/// Label to provide extra metadata for the web detection.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>WebLabel {
+        <span class="doccomment">/// Label for extra metadata.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
+        <span class="doccomment">/// The BCP-47 language code for `label`, such as &quot;en-US&quot; or &quot;sr-Latn&quot;.
+        /// For more information, see
+        /// &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt;
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    }
 }
 <span class="doccomment">/// The type of Google Cloud Vision API detection to perform, and the maximum
 /// number of results to return for that type. Multiple `Feature` objects can

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/apps/drive/labels/v2beta/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.0 (8ede3aae2 2023-07-12)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../../../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../../../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../../../../../source-files.js"></script><script defer src="../../../../../../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/apps/drive/labels/v2beta/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.1 (eb26296b5 2023-08-03)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../../../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../../../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../../../../../source-files.js"></script><script defer src="../../../../../../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -4016,169 +4016,6 @@
         }
     }
 }
-<span class="doccomment">/// Label constraints governing the structure of a Label; such as, the maximum
-/// number of Fields allowed and maximum length of the label title.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LabelLimits {
-    <span class="doccomment">/// Resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of characters allowed for the title.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>max_title_length: i32,
-    <span class="doccomment">/// The maximum number of characters allowed for the description.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>max_description_length: i32,
-    <span class="doccomment">/// The maximum number of Fields allowed within the label.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>max_fields: i32,
-    <span class="doccomment">/// The maximum number of published Fields that can be deleted.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>max_deleted_fields: i32,
-    <span class="doccomment">/// The maximum number of draft revisions that will be kept before deleting
-    /// old drafts.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>max_draft_revisions: i32,
-    <span class="doccomment">/// The limits for Fields.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>field_limits: ::core::option::Option&lt;FieldLimits&gt;,
-}
-<span class="doccomment">/// Field constants governing the structure of a Field; such as, the maximum
-/// title length, minimum and maximum field values or length, etc.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FieldLimits {
-    <span class="doccomment">/// Max length for the id.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>max_id_length: i32,
-    <span class="doccomment">/// Limits for Field title.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>max_display_name_length: i32,
-    <span class="doccomment">/// Limits for Field description, also called help text.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>max_description_length: i32,
-    <span class="doccomment">/// The relevant limits for the specified Field.Type.
-    /// Text Field limits.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>text_limits: ::core::option::Option&lt;TextLimits&gt;,
-    <span class="doccomment">/// Long text Field limits.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>long_text_limits: ::core::option::Option&lt;LongTextLimits&gt;,
-    <span class="doccomment">/// Integer Field limits.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>integer_limits: ::core::option::Option&lt;IntegerLimits&gt;,
-    <span class="doccomment">/// Date Field limits.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>date_limits: ::core::option::Option&lt;DateLimits&gt;,
-    <span class="doccomment">/// User Field limits.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>user_limits: ::core::option::Option&lt;UserLimits&gt;,
-    <span class="doccomment">/// Selection Field limits.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>selection_limits: ::core::option::Option&lt;SelectionLimits&gt;,
-}
-<span class="doccomment">/// Limits for list-variant of a Field type.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListLimits {
-    <span class="doccomment">/// Maximum number of values allowed for the Field type.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>max_entries: i32,
-}
-<span class="doccomment">/// Limits for text Field type.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextLimits {
-    <span class="doccomment">/// Minimum length allowed for a text Field type.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>min_length: i32,
-    <span class="doccomment">/// Maximum length allowed for a text Field type.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>max_length: i32,
-}
-<span class="doccomment">/// Limits for long text Field type.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LongTextLimits {
-    <span class="doccomment">/// Minimum length allowed for a long text Field type.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>min_length: i32,
-    <span class="doccomment">/// Maximum length allowed for a long text Field type.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>max_length: i32,
-}
-<span class="doccomment">/// Limits for integer Field type.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>IntegerLimits {
-    <span class="doccomment">/// Minimum value for an integer Field type.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>min_value: i64,
-    <span class="doccomment">/// Maximum value for an integer Field type.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>max_value: i64,
-}
-<span class="doccomment">/// Limits for date Field type.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DateLimits {
-    <span class="doccomment">/// Minimum value for the date Field type.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>min_value: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
-    <span class="doccomment">/// Maximum value for the date Field type.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>max_value: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
-}
-<span class="doccomment">/// Limits for selection Field type.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SelectionLimits {
-    <span class="doccomment">/// Limits for list-variant of a Field type.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>list_limits: ::core::option::Option&lt;ListLimits&gt;,
-    <span class="doccomment">/// Maximum ID length for a selection options.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>max_id_length: i32,
-    <span class="doccomment">/// Maximum length for display name.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>max_display_name_length: i32,
-    <span class="doccomment">/// The max number of choices.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>max_choices: i32,
-    <span class="doccomment">/// Maximum number of deleted choices.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>max_deleted_choices: i32,
-}
-<span class="doccomment">/// Limits for Field.Type.USER.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UserLimits {
-    <span class="doccomment">/// Limits for list-variant of a Field type.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>list_limits: ::core::option::Option&lt;ListLimits&gt;,
-}
-<span class="doccomment">/// The capabilities of a user.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UserCapabilities {
-    <span class="doccomment">/// Output only. Resource name for the user capabilities.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Whether the user is allowed access to the label manager.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>can_access_label_manager: bool,
-    <span class="doccomment">/// Output only. Whether the user is an administrator for the shared labels
-    /// feature.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>can_administrate_labels: bool,
-    <span class="doccomment">/// Output only. Whether the user is allowed to create new shared labels.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>can_create_shared_labels: bool,
-    <span class="doccomment">/// Output only. Whether the user is allowed to create new admin labels.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>can_create_admin_labels: bool,
-}
 <span class="doccomment">/// A Lock that can be applied to a Label, Field, or Choice.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -5233,6 +5070,344 @@
         }
     }
 }
+<span class="doccomment">/// Label constraints governing the structure of a Label; such as, the maximum
+/// number of Fields allowed and maximum length of the label title.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>LabelLimits {
+    <span class="doccomment">/// Resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of characters allowed for the title.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>max_title_length: i32,
+    <span class="doccomment">/// The maximum number of characters allowed for the description.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>max_description_length: i32,
+    <span class="doccomment">/// The maximum number of Fields allowed within the label.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>max_fields: i32,
+    <span class="doccomment">/// The maximum number of published Fields that can be deleted.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>max_deleted_fields: i32,
+    <span class="doccomment">/// The maximum number of draft revisions that will be kept before deleting
+    /// old drafts.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>max_draft_revisions: i32,
+    <span class="doccomment">/// The limits for Fields.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>field_limits: ::core::option::Option&lt;FieldLimits&gt;,
+}
+<span class="doccomment">/// Field constants governing the structure of a Field; such as, the maximum
+/// title length, minimum and maximum field values or length, etc.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FieldLimits {
+    <span class="doccomment">/// Max length for the id.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>max_id_length: i32,
+    <span class="doccomment">/// Limits for Field title.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>max_display_name_length: i32,
+    <span class="doccomment">/// Limits for Field description, also called help text.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>max_description_length: i32,
+    <span class="doccomment">/// The relevant limits for the specified Field.Type.
+    /// Text Field limits.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>text_limits: ::core::option::Option&lt;TextLimits&gt;,
+    <span class="doccomment">/// Long text Field limits.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>long_text_limits: ::core::option::Option&lt;LongTextLimits&gt;,
+    <span class="doccomment">/// Integer Field limits.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>integer_limits: ::core::option::Option&lt;IntegerLimits&gt;,
+    <span class="doccomment">/// Date Field limits.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>date_limits: ::core::option::Option&lt;DateLimits&gt;,
+    <span class="doccomment">/// User Field limits.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>user_limits: ::core::option::Option&lt;UserLimits&gt;,
+    <span class="doccomment">/// Selection Field limits.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>selection_limits: ::core::option::Option&lt;SelectionLimits&gt;,
+}
+<span class="doccomment">/// Limits for list-variant of a Field type.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListLimits {
+    <span class="doccomment">/// Maximum number of values allowed for the Field type.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>max_entries: i32,
+}
+<span class="doccomment">/// Limits for text Field type.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextLimits {
+    <span class="doccomment">/// Minimum length allowed for a text Field type.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>min_length: i32,
+    <span class="doccomment">/// Maximum length allowed for a text Field type.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>max_length: i32,
+}
+<span class="doccomment">/// Limits for long text Field type.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>LongTextLimits {
+    <span class="doccomment">/// Minimum length allowed for a long text Field type.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>min_length: i32,
+    <span class="doccomment">/// Maximum length allowed for a long text Field type.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>max_length: i32,
+}
+<span class="doccomment">/// Limits for integer Field type.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>IntegerLimits {
+    <span class="doccomment">/// Minimum value for an integer Field type.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>min_value: i64,
+    <span class="doccomment">/// Maximum value for an integer Field type.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>max_value: i64,
+}
+<span class="doccomment">/// Limits for date Field type.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DateLimits {
+    <span class="doccomment">/// Minimum value for the date Field type.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>min_value: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
+    <span class="doccomment">/// Maximum value for the date Field type.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>max_value: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
+}
+<span class="doccomment">/// Limits for selection Field type.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SelectionLimits {
+    <span class="doccomment">/// Limits for list-variant of a Field type.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>list_limits: ::core::option::Option&lt;ListLimits&gt;,
+    <span class="doccomment">/// Maximum ID length for a selection options.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>max_id_length: i32,
+    <span class="doccomment">/// Maximum length for display name.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>max_display_name_length: i32,
+    <span class="doccomment">/// The max number of choices.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>max_choices: i32,
+    <span class="doccomment">/// Maximum number of deleted choices.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>max_deleted_choices: i32,
+}
+<span class="doccomment">/// Limits for Field.Type.USER.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UserLimits {
+    <span class="doccomment">/// Limits for list-variant of a Field type.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>list_limits: ::core::option::Option&lt;ListLimits&gt;,
+}
+<span class="doccomment">/// Normalized internal-only message that identifies the exact exception that
+/// caused the error on the server.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExceptionDetail {
+    <span class="doccomment">/// The type of exception that occurred.
+    /// required
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ExceptionType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>error_type: i32,
+}
+<span class="doccomment">/// Every ExceptionType maps to one and only one Exception class. This allows
+/// internal clients to identify the exact server exception that caused the
+/// error for debugging and logging purposes.
+/// Add new ExceptionTypes to EXCEPTION_TYPE_TO_ERROR_CODE_MAP in
+/// j/c/g/apps/boq/metadata/model/service/exceptions/CategoryExceptionHelper
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>ExceptionType {
+    <span class="doccomment">/// Unknown ExceptionType.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// The required field is missing.
+    </span>FieldRequired = <span class="number">1</span>,
+    <span class="doccomment">/// Unable to create a metamodel with the given ID because it already exists.
+    </span>MetamodelAlreadyExists = <span class="number">2</span>,
+    <span class="doccomment">/// Metamodel was not found
+    </span>MetamodelNotFound = <span class="number">3</span>,
+    <span class="doccomment">/// Metamodel state transition isn&#39;t allowed.
+    </span>IllegalMetamodelStateTransition = <span class="number">4</span>,
+    <span class="doccomment">/// Metamodel deprecation policy is invalid.
+    </span>InvalidMetamodelDeprecationPolicy = <span class="number">5</span>,
+    <span class="doccomment">/// Cannot delete a metamodel due to the pending deprecation policy.
+    </span>MetamodelDeletionDeniedUntil = <span class="number">6</span>,
+    <span class="doccomment">/// A Field value is invalid.
+    </span>InvalidField = <span class="number">7</span>,
+    <span class="doccomment">/// Precondition failed when updating a metamodel
+    </span>MetamodelPreconditionFailed = <span class="number">8</span>,
+    <span class="doccomment">/// Multiple fields had the same key.
+    </span>DuplicateFieldKey = <span class="number">9</span>,
+    <span class="doccomment">/// Removing a field from a Metamodel (e.g. a published Metamodel) is not
+    /// permitted.
+    </span>IllegalFieldRemoval = <span class="number">10</span>,
+    <span class="doccomment">/// Cannot specify field options for a different field type.
+    </span>IllegalFieldOptionsForField = <span class="number">11</span>,
+    <span class="doccomment">/// Some changes are not supported
+    </span>UnsupportedChangeToPublishedMetamodel = <span class="number">12</span>,
+    <span class="doccomment">/// Cannot change the metamodel state in an update
+    </span>IllegalMetamodelStateTransitionInUpdate = <span class="number">13</span>,
+    <span class="doccomment">/// The page token is expired
+    </span>PageTokenExpired = <span class="number">14</span>,
+    <span class="doccomment">/// The user is not authorized to make the request.
+    </span>NotAuthorized = <span class="number">15</span>,
+    <span class="doccomment">/// Illegal field state transition
+    </span>IllegalFieldStateTransition = <span class="number">16</span>,
+    <span class="doccomment">/// Illegal choice set option state transition
+    </span>IllegalChoiceSetOptionStateTransition = <span class="number">17</span>,
+    <span class="doccomment">/// Invalid choice set options
+    </span>InvalidChoiceSetOptions = <span class="number">18</span>,
+    <span class="doccomment">/// Invalid field key
+    </span>InvalidFieldKey = <span class="number">19</span>,
+    <span class="doccomment">/// A specified property on a field is outside the allowed range.
+    </span>InvalidFieldPropertyRange = <span class="number">20</span>,
+    <span class="doccomment">/// A localized string wasn&#39;t valid. This may be because the locale is invalid,
+    /// its missing a default value, or the translation is empty for a set locale.
+    </span>InvalidLocalizedString = <span class="number">21</span>,
+    <span class="doccomment">/// cannot change a property on a published field
+    </span>IllegalChangeToPublishedField = <span class="number">22</span>,
+    <span class="doccomment">/// A field update is not inclusive of the previous value
+    </span>InvalidFieldUpdateNotInclusive = <span class="number">23</span>,
+    <span class="doccomment">/// A field update is not inclusive of the previous value
+    </span>InvalidChoiceSetState = <span class="number">24</span>,
+    <span class="doccomment">/// An unknown error occurred
+    </span>InternalServerError = <span class="number">500</span>,
+}
+<span class="kw">impl </span>ExceptionType {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            ExceptionType::Unspecified =&gt; <span class="string">&quot;EXCEPTION_TYPE_UNSPECIFIED&quot;</span>,
+            ExceptionType::FieldRequired =&gt; <span class="string">&quot;FIELD_REQUIRED&quot;</span>,
+            ExceptionType::MetamodelAlreadyExists =&gt; <span class="string">&quot;METAMODEL_ALREADY_EXISTS&quot;</span>,
+            ExceptionType::MetamodelNotFound =&gt; <span class="string">&quot;METAMODEL_NOT_FOUND&quot;</span>,
+            ExceptionType::IllegalMetamodelStateTransition =&gt; {
+                <span class="string">&quot;ILLEGAL_METAMODEL_STATE_TRANSITION&quot;
+            </span>}
+            ExceptionType::InvalidMetamodelDeprecationPolicy =&gt; {
+                <span class="string">&quot;INVALID_METAMODEL_DEPRECATION_POLICY&quot;
+            </span>}
+            ExceptionType::MetamodelDeletionDeniedUntil =&gt; {
+                <span class="string">&quot;METAMODEL_DELETION_DENIED_UNTIL&quot;
+            </span>}
+            ExceptionType::InvalidField =&gt; <span class="string">&quot;INVALID_FIELD&quot;</span>,
+            ExceptionType::MetamodelPreconditionFailed =&gt; <span class="string">&quot;METAMODEL_PRECONDITION_FAILED&quot;</span>,
+            ExceptionType::DuplicateFieldKey =&gt; <span class="string">&quot;DUPLICATE_FIELD_KEY&quot;</span>,
+            ExceptionType::IllegalFieldRemoval =&gt; <span class="string">&quot;ILLEGAL_FIELD_REMOVAL&quot;</span>,
+            ExceptionType::IllegalFieldOptionsForField =&gt; {
+                <span class="string">&quot;ILLEGAL_FIELD_OPTIONS_FOR_FIELD&quot;
+            </span>}
+            ExceptionType::UnsupportedChangeToPublishedMetamodel =&gt; {
+                <span class="string">&quot;UNSUPPORTED_CHANGE_TO_PUBLISHED_METAMODEL&quot;
+            </span>}
+            ExceptionType::IllegalMetamodelStateTransitionInUpdate =&gt; {
+                <span class="string">&quot;ILLEGAL_METAMODEL_STATE_TRANSITION_IN_UPDATE&quot;
+            </span>}
+            ExceptionType::PageTokenExpired =&gt; <span class="string">&quot;PAGE_TOKEN_EXPIRED&quot;</span>,
+            ExceptionType::NotAuthorized =&gt; <span class="string">&quot;NOT_AUTHORIZED&quot;</span>,
+            ExceptionType::IllegalFieldStateTransition =&gt; {
+                <span class="string">&quot;ILLEGAL_FIELD_STATE_TRANSITION&quot;
+            </span>}
+            ExceptionType::IllegalChoiceSetOptionStateTransition =&gt; {
+                <span class="string">&quot;ILLEGAL_CHOICE_SET_OPTION_STATE_TRANSITION&quot;
+            </span>}
+            ExceptionType::InvalidChoiceSetOptions =&gt; <span class="string">&quot;INVALID_CHOICE_SET_OPTIONS&quot;</span>,
+            ExceptionType::InvalidFieldKey =&gt; <span class="string">&quot;INVALID_FIELD_KEY&quot;</span>,
+            ExceptionType::InvalidFieldPropertyRange =&gt; <span class="string">&quot;INVALID_FIELD_PROPERTY_RANGE&quot;</span>,
+            ExceptionType::InvalidLocalizedString =&gt; <span class="string">&quot;INVALID_LOCALIZED_STRING&quot;</span>,
+            ExceptionType::IllegalChangeToPublishedField =&gt; {
+                <span class="string">&quot;ILLEGAL_CHANGE_TO_PUBLISHED_FIELD&quot;
+            </span>}
+            ExceptionType::InvalidFieldUpdateNotInclusive =&gt; {
+                <span class="string">&quot;INVALID_FIELD_UPDATE_NOT_INCLUSIVE&quot;
+            </span>}
+            ExceptionType::InvalidChoiceSetState =&gt; <span class="string">&quot;INVALID_CHOICE_SET_STATE&quot;</span>,
+            ExceptionType::InternalServerError =&gt; <span class="string">&quot;INTERNAL_SERVER_ERROR&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;EXCEPTION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;FIELD_REQUIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FieldRequired),
+            <span class="string">&quot;METAMODEL_ALREADY_EXISTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MetamodelAlreadyExists),
+            <span class="string">&quot;METAMODEL_NOT_FOUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MetamodelNotFound),
+            <span class="string">&quot;ILLEGAL_METAMODEL_STATE_TRANSITION&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::IllegalMetamodelStateTransition)
+            }
+            <span class="string">&quot;INVALID_METAMODEL_DEPRECATION_POLICY&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidMetamodelDeprecationPolicy)
+            }
+            <span class="string">&quot;METAMODEL_DELETION_DENIED_UNTIL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MetamodelDeletionDeniedUntil),
+            <span class="string">&quot;INVALID_FIELD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidField),
+            <span class="string">&quot;METAMODEL_PRECONDITION_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MetamodelPreconditionFailed),
+            <span class="string">&quot;DUPLICATE_FIELD_KEY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DuplicateFieldKey),
+            <span class="string">&quot;ILLEGAL_FIELD_REMOVAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IllegalFieldRemoval),
+            <span class="string">&quot;ILLEGAL_FIELD_OPTIONS_FOR_FIELD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IllegalFieldOptionsForField),
+            <span class="string">&quot;UNSUPPORTED_CHANGE_TO_PUBLISHED_METAMODEL&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedChangeToPublishedMetamodel)
+            }
+            <span class="string">&quot;ILLEGAL_METAMODEL_STATE_TRANSITION_IN_UPDATE&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::IllegalMetamodelStateTransitionInUpdate)
+            }
+            <span class="string">&quot;PAGE_TOKEN_EXPIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PageTokenExpired),
+            <span class="string">&quot;NOT_AUTHORIZED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotAuthorized),
+            <span class="string">&quot;ILLEGAL_FIELD_STATE_TRANSITION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IllegalFieldStateTransition),
+            <span class="string">&quot;ILLEGAL_CHOICE_SET_OPTION_STATE_TRANSITION&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::IllegalChoiceSetOptionStateTransition)
+            }
+            <span class="string">&quot;INVALID_CHOICE_SET_OPTIONS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidChoiceSetOptions),
+            <span class="string">&quot;INVALID_FIELD_KEY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidFieldKey),
+            <span class="string">&quot;INVALID_FIELD_PROPERTY_RANGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidFieldPropertyRange),
+            <span class="string">&quot;INVALID_LOCALIZED_STRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidLocalizedString),
+            <span class="string">&quot;ILLEGAL_CHANGE_TO_PUBLISHED_FIELD&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::IllegalChangeToPublishedField)
+            }
+            <span class="string">&quot;INVALID_FIELD_UPDATE_NOT_INCLUSIVE&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidFieldUpdateNotInclusive)
+            }
+            <span class="string">&quot;INVALID_CHOICE_SET_STATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidChoiceSetState),
+            <span class="string">&quot;INTERNAL_SERVER_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalServerError),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// The capabilities of a user.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UserCapabilities {
+    <span class="doccomment">/// Output only. Resource name for the user capabilities.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Whether the user is allowed access to the label manager.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>can_access_label_manager: bool,
+    <span class="doccomment">/// Output only. Whether the user is an administrator for the shared labels
+    /// feature.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>can_administrate_labels: bool,
+    <span class="doccomment">/// Output only. Whether the user is allowed to create new shared labels.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>can_create_shared_labels: bool,
+    <span class="doccomment">/// Output only. Whether the user is allowed to create new admin labels.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>can_create_admin_labels: bool,
+}
 <span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>label_service_client {
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
@@ -5890,181 +6065,6 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-    }
-}
-<span class="doccomment">/// Normalized internal-only message that identifies the exact exception that
-/// caused the error on the server.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExceptionDetail {
-    <span class="doccomment">/// The type of exception that occurred.
-    /// required
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ExceptionType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>error_type: i32,
-}
-<span class="doccomment">/// Every ExceptionType maps to one and only one Exception class. This allows
-/// internal clients to identify the exact server exception that caused the
-/// error for debugging and logging purposes.
-/// Add new ExceptionTypes to EXCEPTION_TYPE_TO_ERROR_CODE_MAP in
-/// j/c/g/apps/boq/metadata/model/service/exceptions/CategoryExceptionHelper
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>ExceptionType {
-    <span class="doccomment">/// Unknown ExceptionType.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// The required field is missing.
-    </span>FieldRequired = <span class="number">1</span>,
-    <span class="doccomment">/// Unable to create a metamodel with the given ID because it already exists.
-    </span>MetamodelAlreadyExists = <span class="number">2</span>,
-    <span class="doccomment">/// Metamodel was not found
-    </span>MetamodelNotFound = <span class="number">3</span>,
-    <span class="doccomment">/// Metamodel state transition isn&#39;t allowed.
-    </span>IllegalMetamodelStateTransition = <span class="number">4</span>,
-    <span class="doccomment">/// Metamodel deprecation policy is invalid.
-    </span>InvalidMetamodelDeprecationPolicy = <span class="number">5</span>,
-    <span class="doccomment">/// Cannot delete a metamodel due to the pending deprecation policy.
-    </span>MetamodelDeletionDeniedUntil = <span class="number">6</span>,
-    <span class="doccomment">/// A Field value is invalid.
-    </span>InvalidField = <span class="number">7</span>,
-    <span class="doccomment">/// Precondition failed when updating a metamodel
-    </span>MetamodelPreconditionFailed = <span class="number">8</span>,
-    <span class="doccomment">/// Multiple fields had the same key.
-    </span>DuplicateFieldKey = <span class="number">9</span>,
-    <span class="doccomment">/// Removing a field from a Metamodel (e.g. a published Metamodel) is not
-    /// permitted.
-    </span>IllegalFieldRemoval = <span class="number">10</span>,
-    <span class="doccomment">/// Cannot specify field options for a different field type.
-    </span>IllegalFieldOptionsForField = <span class="number">11</span>,
-    <span class="doccomment">/// Some changes are not supported
-    </span>UnsupportedChangeToPublishedMetamodel = <span class="number">12</span>,
-    <span class="doccomment">/// Cannot change the metamodel state in an update
-    </span>IllegalMetamodelStateTransitionInUpdate = <span class="number">13</span>,
-    <span class="doccomment">/// The page token is expired
-    </span>PageTokenExpired = <span class="number">14</span>,
-    <span class="doccomment">/// The user is not authorized to make the request.
-    </span>NotAuthorized = <span class="number">15</span>,
-    <span class="doccomment">/// Illegal field state transition
-    </span>IllegalFieldStateTransition = <span class="number">16</span>,
-    <span class="doccomment">/// Illegal choice set option state transition
-    </span>IllegalChoiceSetOptionStateTransition = <span class="number">17</span>,
-    <span class="doccomment">/// Invalid choice set options
-    </span>InvalidChoiceSetOptions = <span class="number">18</span>,
-    <span class="doccomment">/// Invalid field key
-    </span>InvalidFieldKey = <span class="number">19</span>,
-    <span class="doccomment">/// A specified property on a field is outside the allowed range.
-    </span>InvalidFieldPropertyRange = <span class="number">20</span>,
-    <span class="doccomment">/// A localized string wasn&#39;t valid. This may be because the locale is invalid,
-    /// its missing a default value, or the translation is empty for a set locale.
-    </span>InvalidLocalizedString = <span class="number">21</span>,
-    <span class="doccomment">/// cannot change a property on a published field
-    </span>IllegalChangeToPublishedField = <span class="number">22</span>,
-    <span class="doccomment">/// A field update is not inclusive of the previous value
-    </span>InvalidFieldUpdateNotInclusive = <span class="number">23</span>,
-    <span class="doccomment">/// A field update is not inclusive of the previous value
-    </span>InvalidChoiceSetState = <span class="number">24</span>,
-    <span class="doccomment">/// An unknown error occurred
-    </span>InternalServerError = <span class="number">500</span>,
-}
-<span class="kw">impl </span>ExceptionType {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            ExceptionType::Unspecified =&gt; <span class="string">&quot;EXCEPTION_TYPE_UNSPECIFIED&quot;</span>,
-            ExceptionType::FieldRequired =&gt; <span class="string">&quot;FIELD_REQUIRED&quot;</span>,
-            ExceptionType::MetamodelAlreadyExists =&gt; <span class="string">&quot;METAMODEL_ALREADY_EXISTS&quot;</span>,
-            ExceptionType::MetamodelNotFound =&gt; <span class="string">&quot;METAMODEL_NOT_FOUND&quot;</span>,
-            ExceptionType::IllegalMetamodelStateTransition =&gt; {
-                <span class="string">&quot;ILLEGAL_METAMODEL_STATE_TRANSITION&quot;
-            </span>}
-            ExceptionType::InvalidMetamodelDeprecationPolicy =&gt; {
-                <span class="string">&quot;INVALID_METAMODEL_DEPRECATION_POLICY&quot;
-            </span>}
-            ExceptionType::MetamodelDeletionDeniedUntil =&gt; {
-                <span class="string">&quot;METAMODEL_DELETION_DENIED_UNTIL&quot;
-            </span>}
-            ExceptionType::InvalidField =&gt; <span class="string">&quot;INVALID_FIELD&quot;</span>,
-            ExceptionType::MetamodelPreconditionFailed =&gt; <span class="string">&quot;METAMODEL_PRECONDITION_FAILED&quot;</span>,
-            ExceptionType::DuplicateFieldKey =&gt; <span class="string">&quot;DUPLICATE_FIELD_KEY&quot;</span>,
-            ExceptionType::IllegalFieldRemoval =&gt; <span class="string">&quot;ILLEGAL_FIELD_REMOVAL&quot;</span>,
-            ExceptionType::IllegalFieldOptionsForField =&gt; {
-                <span class="string">&quot;ILLEGAL_FIELD_OPTIONS_FOR_FIELD&quot;
-            </span>}
-            ExceptionType::UnsupportedChangeToPublishedMetamodel =&gt; {
-                <span class="string">&quot;UNSUPPORTED_CHANGE_TO_PUBLISHED_METAMODEL&quot;
-            </span>}
-            ExceptionType::IllegalMetamodelStateTransitionInUpdate =&gt; {
-                <span class="string">&quot;ILLEGAL_METAMODEL_STATE_TRANSITION_IN_UPDATE&quot;
-            </span>}
-            ExceptionType::PageTokenExpired =&gt; <span class="string">&quot;PAGE_TOKEN_EXPIRED&quot;</span>,
-            ExceptionType::NotAuthorized =&gt; <span class="string">&quot;NOT_AUTHORIZED&quot;</span>,
-            ExceptionType::IllegalFieldStateTransition =&gt; {
-                <span class="string">&quot;ILLEGAL_FIELD_STATE_TRANSITION&quot;
-            </span>}
-            ExceptionType::IllegalChoiceSetOptionStateTransition =&gt; {
-                <span class="string">&quot;ILLEGAL_CHOICE_SET_OPTION_STATE_TRANSITION&quot;
-            </span>}
-            ExceptionType::InvalidChoiceSetOptions =&gt; <span class="string">&quot;INVALID_CHOICE_SET_OPTIONS&quot;</span>,
-            ExceptionType::InvalidFieldKey =&gt; <span class="string">&quot;INVALID_FIELD_KEY&quot;</span>,
-            ExceptionType::InvalidFieldPropertyRange =&gt; <span class="string">&quot;INVALID_FIELD_PROPERTY_RANGE&quot;</span>,
-            ExceptionType::InvalidLocalizedString =&gt; <span class="string">&quot;INVALID_LOCALIZED_STRING&quot;</span>,
-            ExceptionType::IllegalChangeToPublishedField =&gt; {
-                <span class="string">&quot;ILLEGAL_CHANGE_TO_PUBLISHED_FIELD&quot;
-            </span>}
-            ExceptionType::InvalidFieldUpdateNotInclusive =&gt; {
-                <span class="string">&quot;INVALID_FIELD_UPDATE_NOT_INCLUSIVE&quot;
-            </span>}
-            ExceptionType::InvalidChoiceSetState =&gt; <span class="string">&quot;INVALID_CHOICE_SET_STATE&quot;</span>,
-            ExceptionType::InternalServerError =&gt; <span class="string">&quot;INTERNAL_SERVER_ERROR&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;EXCEPTION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;FIELD_REQUIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FieldRequired),
-            <span class="string">&quot;METAMODEL_ALREADY_EXISTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MetamodelAlreadyExists),
-            <span class="string">&quot;METAMODEL_NOT_FOUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MetamodelNotFound),
-            <span class="string">&quot;ILLEGAL_METAMODEL_STATE_TRANSITION&quot; </span>=&gt; {
-                <span class="prelude-val">Some</span>(<span class="self">Self</span>::IllegalMetamodelStateTransition)
-            }
-            <span class="string">&quot;INVALID_METAMODEL_DEPRECATION_POLICY&quot; </span>=&gt; {
-                <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidMetamodelDeprecationPolicy)
-            }
-            <span class="string">&quot;METAMODEL_DELETION_DENIED_UNTIL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MetamodelDeletionDeniedUntil),
-            <span class="string">&quot;INVALID_FIELD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidField),
-            <span class="string">&quot;METAMODEL_PRECONDITION_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MetamodelPreconditionFailed),
-            <span class="string">&quot;DUPLICATE_FIELD_KEY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DuplicateFieldKey),
-            <span class="string">&quot;ILLEGAL_FIELD_REMOVAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IllegalFieldRemoval),
-            <span class="string">&quot;ILLEGAL_FIELD_OPTIONS_FOR_FIELD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IllegalFieldOptionsForField),
-            <span class="string">&quot;UNSUPPORTED_CHANGE_TO_PUBLISHED_METAMODEL&quot; </span>=&gt; {
-                <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedChangeToPublishedMetamodel)
-            }
-            <span class="string">&quot;ILLEGAL_METAMODEL_STATE_TRANSITION_IN_UPDATE&quot; </span>=&gt; {
-                <span class="prelude-val">Some</span>(<span class="self">Self</span>::IllegalMetamodelStateTransitionInUpdate)
-            }
-            <span class="string">&quot;PAGE_TOKEN_EXPIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PageTokenExpired),
-            <span class="string">&quot;NOT_AUTHORIZED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotAuthorized),
-            <span class="string">&quot;ILLEGAL_FIELD_STATE_TRANSITION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IllegalFieldStateTransition),
-            <span class="string">&quot;ILLEGAL_CHOICE_SET_OPTION_STATE_TRANSITION&quot; </span>=&gt; {
-                <span class="prelude-val">Some</span>(<span class="self">Self</span>::IllegalChoiceSetOptionStateTransition)
-            }
-            <span class="string">&quot;INVALID_CHOICE_SET_OPTIONS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidChoiceSetOptions),
-            <span class="string">&quot;INVALID_FIELD_KEY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidFieldKey),
-            <span class="string">&quot;INVALID_FIELD_PROPERTY_RANGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidFieldPropertyRange),
-            <span class="string">&quot;INVALID_LOCALIZED_STRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidLocalizedString),
-            <span class="string">&quot;ILLEGAL_CHANGE_TO_PUBLISHED_FIELD&quot; </span>=&gt; {
-                <span class="prelude-val">Some</span>(<span class="self">Self</span>::IllegalChangeToPublishedField)
-            }
-            <span class="string">&quot;INVALID_FIELD_UPDATE_NOT_INCLUSIVE&quot; </span>=&gt; {
-                <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidFieldUpdateNotInclusive)
-            }
-            <span class="string">&quot;INVALID_CHOICE_SET_STATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidChoiceSetState),
-            <span class="string">&quot;INTERNAL_SERVER_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalServerError),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
     }
 }
 <span class="doccomment">/// Describes violations in a request to create or update a Label or its

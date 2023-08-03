@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/firestore/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.0 (8ede3aae2 2023-07-12)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../../../source-files.js"></script><script defer src="../../../../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/firestore/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.1 (eb26296b5 2023-08-03)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../../../source-files.js"></script><script defer src="../../../../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -3812,57 +3812,6 @@
         Value,
     &gt;,
 }
-<span class="doccomment">/// A sequence of bits, encoded in a byte array.
-///
-/// Each byte in the `bitmap` byte array stores 8 bits of the sequence. The only
-/// exception is the last byte, which may store 8 _or fewer_ bits. The `padding`
-/// defines the number of bits of the last byte to be ignored as &quot;padding&quot;. The
-/// values of these &quot;padding&quot; bits are unspecified and must be ignored.
-///
-/// To retrieve the first bit, bit 0, calculate: `(bitmap\[0\] &amp; 0x01) != 0`.
-/// To retrieve the second bit, bit 1, calculate: `(bitmap\[0\] &amp; 0x02) != 0`.
-/// To retrieve the third bit, bit 2, calculate: `(bitmap\[0\] &amp; 0x04) != 0`.
-/// To retrieve the fourth bit, bit 3, calculate: `(bitmap\[0\] &amp; 0x08) != 0`.
-/// To retrieve bit n, calculate: `(bitmap[n / 8] &amp; (0x01 &lt;&lt; (n % 8))) != 0`.
-///
-/// The &quot;size&quot; of a `BitSequence` (the number of bits it contains) is calculated
-/// by this formula: `(bitmap.length * 8) - padding`.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BitSequence {
-    <span class="doccomment">/// The bytes that encode the bit sequence.
-    /// May have a length of zero.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>bitmap: ::prost::bytes::Bytes,
-    <span class="doccomment">/// The number of bits of the last byte in `bitmap` to ignore as &quot;padding&quot;.
-    /// If the length of `bitmap` is zero, then this value must be `0`.
-    /// Otherwise, this value must be between 0 and 7, inclusive.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>padding: i32,
-}
-<span class="doccomment">/// A bloom filter (&lt;https://en.wikipedia.org/wiki/Bloom_filter&gt;).
-///
-/// The bloom filter hashes the entries with MD5 and treats the resulting 128-bit
-/// hash as 2 distinct 64-bit hash values, interpreted as unsigned integers
-/// using 2&#39;s complement encoding.
-///
-/// These two hash values, named `h1` and `h2`, are then used to compute the
-/// `hash_count` hash values using the formula, starting at `i=0`:
-///
-///      h(i) = h1 + (i * h2)
-///
-/// These resulting values are then taken modulo the number of bits in the bloom
-/// filter to get the bits of the bloom filter to test for the given entry.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BloomFilter {
-    <span class="doccomment">/// The bloom filter data.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>bits: ::core::option::Option&lt;BitSequence&gt;,
-    <span class="doccomment">/// The number of hashes used by the algorithm.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>hash_count: i32,
-}
 <span class="doccomment">/// A set of field paths on a document.
 /// Used to restrict a get or update operation on a document to a subset of its
 /// fields.
@@ -3959,6 +3908,57 @@
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
         </span>ReadWrite(ReadWrite),
     }
+}
+<span class="doccomment">/// A sequence of bits, encoded in a byte array.
+///
+/// Each byte in the `bitmap` byte array stores 8 bits of the sequence. The only
+/// exception is the last byte, which may store 8 _or fewer_ bits. The `padding`
+/// defines the number of bits of the last byte to be ignored as &quot;padding&quot;. The
+/// values of these &quot;padding&quot; bits are unspecified and must be ignored.
+///
+/// To retrieve the first bit, bit 0, calculate: `(bitmap\[0\] &amp; 0x01) != 0`.
+/// To retrieve the second bit, bit 1, calculate: `(bitmap\[0\] &amp; 0x02) != 0`.
+/// To retrieve the third bit, bit 2, calculate: `(bitmap\[0\] &amp; 0x04) != 0`.
+/// To retrieve the fourth bit, bit 3, calculate: `(bitmap\[0\] &amp; 0x08) != 0`.
+/// To retrieve bit n, calculate: `(bitmap[n / 8] &amp; (0x01 &lt;&lt; (n % 8))) != 0`.
+///
+/// The &quot;size&quot; of a `BitSequence` (the number of bits it contains) is calculated
+/// by this formula: `(bitmap.length * 8) - padding`.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BitSequence {
+    <span class="doccomment">/// The bytes that encode the bit sequence.
+    /// May have a length of zero.
+    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>bitmap: ::prost::bytes::Bytes,
+    <span class="doccomment">/// The number of bits of the last byte in `bitmap` to ignore as &quot;padding&quot;.
+    /// If the length of `bitmap` is zero, then this value must be `0`.
+    /// Otherwise, this value must be between 0 and 7, inclusive.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>padding: i32,
+}
+<span class="doccomment">/// A bloom filter (&lt;https://en.wikipedia.org/wiki/Bloom_filter&gt;).
+///
+/// The bloom filter hashes the entries with MD5 and treats the resulting 128-bit
+/// hash as 2 distinct 64-bit hash values, interpreted as unsigned integers
+/// using 2&#39;s complement encoding.
+///
+/// These two hash values, named `h1` and `h2`, are then used to compute the
+/// `hash_count` hash values using the formula, starting at `i=0`:
+///
+///      h(i) = h1 + (i * h2)
+///
+/// These resulting values are then taken modulo the number of bits in the bloom
+/// filter to get the bits of the bloom filter to test for the given entry.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BloomFilter {
+    <span class="doccomment">/// The bloom filter data.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>bits: ::core::option::Option&lt;BitSequence&gt;,
+    <span class="doccomment">/// The number of hashes used by the algorithm.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>hash_count: i32,
 }
 <span class="doccomment">/// A write on a document.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

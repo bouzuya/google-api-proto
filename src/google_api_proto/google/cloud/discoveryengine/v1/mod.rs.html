@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/discoveryengine/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.0 (8ede3aae2 2023-07-12)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/discoveryengine/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.1 (eb26296b5 2023-08-03)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2738,186 +2738,39 @@
 <a href="#2738" id="2738">2738</a>
 <a href="#2739" id="2739">2739</a>
 <a href="#2740" id="2740">2740</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Request message for
-/// \[CompletionService.CompleteQuery][google.cloud.discoveryengine.v1.CompletionService.CompleteQuery\]
-/// method.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Defines the structure and layout of a type of document data.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CompleteQueryRequest {
-    <span class="doccomment">/// Required. The parent data store resource name for which the completion is
-    /// performed, such as
-    /// `projects/*/locations/global/collections/default_collection/dataStores/default_data_store`.
+</span><span class="kw">pub struct </span>Schema {
+    <span class="doccomment">/// Immutable. The full resource name of the schema, in the format of
+    /// `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/schemas/{schema}`.
+    ///
+    /// This field must be a UTF-8 encoded string with a length limit of 1024
+    /// characters.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>data_store: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The typeahead input used to fetch suggestions. Maximum length is
-    /// 128 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
-    <span class="doccomment">/// Selects data model of query suggestions for serving. Currently supported
-    /// values:
-    ///
-    /// * `document` - Using suggestions generated from user-imported documents.
-    /// * `search-history` - Using suggestions generated from the past history of
-    /// \[SearchService.Search][google.cloud.discoveryengine.v1.SearchService.Search\]
-    /// API calls. Do not use it when there is no traffic for Search API.
-    /// * `user-event` - Using suggestions generated from user-imported search
-    /// events.
-    ///
-    /// Default values:
-    ///
-    /// * `document` is the default model for regular dataStores.
-    /// * `search-history` is the default model for
-    /// \[IndustryVertical.SITE_SEARCH][google.cloud.discoveryengine.v1.IndustryVertical.SITE_SEARCH\]
-    /// dataStores.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>query_model: ::prost::alloc::string::String,
-    <span class="doccomment">/// A unique identifier for tracking visitors. For example, this could be
-    /// implemented with an HTTP cookie, which should be able to uniquely identify
-    /// a visitor on a single device. This unique identifier should not change if
-    /// the visitor logs in or out of the website.
-    ///
-    /// This field should NOT have a fixed value such as `unknown_visitor`.
-    ///
-    /// This should be the same identifier as
-    /// \[UserEvent.user_pseudo_id][google.cloud.discoveryengine.v1.UserEvent.user_pseudo_id\]
-    /// and
-    /// \[SearchRequest.user_pseudo_id][google.cloud.discoveryengine.v1.SearchRequest.user_pseudo_id\].
-    ///
-    /// The field must be a UTF-8 encoded string with a length limit of 128
-    /// characters. Otherwise, an `INVALID_ARGUMENT` error is returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>user_pseudo_id: ::prost::alloc::string::String,
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Schema representation. One of
+    /// \[struct_schema][google.cloud.discoveryengine.v1.Schema.struct_schema\] or
+    /// \[json_schema][google.cloud.discoveryengine.v1.Schema.json_schema\] should be
+    /// provided otherwise an INVALID_ARGUMENT error is thrown.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;schema::Schema&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="kw">pub </span>schema: ::core::option::Option&lt;schema::Schema&gt;,
 }
-<span class="doccomment">/// Response message for
-/// \[CompletionService.CompleteQuery][google.cloud.discoveryengine.v1.CompletionService.CompleteQuery\]
-/// method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CompleteQueryResponse {
-    <span class="doccomment">/// Results of the matched query suggestions. The result list is ordered and
-    /// the first result is a top suggestion.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>query_suggestions: ::prost::alloc::vec::Vec&lt;
-        complete_query_response::QuerySuggestion,
-    &gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `CompleteQueryResponse`.
-</span><span class="kw">pub mod </span>complete_query_response {
-    <span class="doccomment">/// Suggestions as search queries.
+<span class="doccomment">/// Nested message and enum types in `Schema`.
+</span><span class="kw">pub mod </span>schema {
+    <span class="doccomment">/// Schema representation. One of
+    /// \[struct_schema][google.cloud.discoveryengine.v1.Schema.struct_schema\] or
+    /// \[json_schema][google.cloud.discoveryengine.v1.Schema.json_schema\] should be
+    /// provided otherwise an INVALID_ARGUMENT error is thrown.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>QuerySuggestion {
-        <span class="doccomment">/// The suggestion for the query.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>suggestion: ::prost::alloc::string::String,
-    }
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>completion_service_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// Service for Auto-Completion.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>CompletionServiceClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; CompletionServiceClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; CompletionServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            CompletionServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Completes the specified user input with keyword suggestions.
-        </span><span class="kw">pub async fn </span>complete_query(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CompleteQueryRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::CompleteQueryResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.discoveryengine.v1.CompletionService/CompleteQuery&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.discoveryengine.v1.CompletionService&quot;</span>,
-                        <span class="string">&quot;CompleteQuery&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Schema {
+        <span class="doccomment">/// The structured representation of the schema.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>StructSchema(::prost_types::Struct),
+        <span class="doccomment">/// The JSON representation of the schema.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>JsonSchema(::prost::alloc::string::String),
     }
 }
 <span class="doccomment">/// Request message for
@@ -3974,412 +3827,6 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>error_config: ::core::option::Option&lt;ImportErrorConfig&gt;,
 }
-<span class="doccomment">/// Defines the structure and layout of a type of document data.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Schema {
-    <span class="doccomment">/// Immutable. The full resource name of the schema, in the format of
-    /// `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/schemas/{schema}`.
-    ///
-    /// This field must be a UTF-8 encoded string with a length limit of 1024
-    /// characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Schema representation. One of
-    /// \[struct_schema][google.cloud.discoveryengine.v1.Schema.struct_schema\] or
-    /// \[json_schema][google.cloud.discoveryengine.v1.Schema.json_schema\] should be
-    /// provided otherwise an INVALID_ARGUMENT error is thrown.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;schema::Schema&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
-    </span><span class="kw">pub </span>schema: ::core::option::Option&lt;schema::Schema&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Schema`.
-</span><span class="kw">pub mod </span>schema {
-    <span class="doccomment">/// Schema representation. One of
-    /// \[struct_schema][google.cloud.discoveryengine.v1.Schema.struct_schema\] or
-    /// \[json_schema][google.cloud.discoveryengine.v1.Schema.json_schema\] should be
-    /// provided otherwise an INVALID_ARGUMENT error is thrown.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Schema {
-        <span class="doccomment">/// The structured representation of the schema.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>StructSchema(::prost_types::Struct),
-        <span class="doccomment">/// The JSON representation of the schema.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>JsonSchema(::prost::alloc::string::String),
-    }
-}
-<span class="doccomment">/// Request message for
-/// \[SchemaService.GetSchema][google.cloud.discoveryengine.v1.SchemaService.GetSchema\]
-/// method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetSchemaRequest {
-    <span class="doccomment">/// Required. The full resource name of the schema, in the format of
-    /// `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/schemas/{schema}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Request message for
-/// \[SchemaService.ListSchemas][google.cloud.discoveryengine.v1.SchemaService.ListSchemas\]
-/// method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListSchemasRequest {
-    <span class="doccomment">/// Required. The parent data store resource name, in the format of
-    /// `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of \[Schema][google.cloud.discoveryengine.v1.Schema\]s to
-    /// return. The service may return fewer than this value.
-    ///
-    /// If unspecified, at most 100
-    /// \[Schema][google.cloud.discoveryengine.v1.Schema\]s will be returned.
-    ///
-    /// The maximum value is 1000; values above 1000 will be coerced to 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// A page token, received from a previous
-    /// \[SchemaService.ListSchemas][google.cloud.discoveryengine.v1.SchemaService.ListSchemas\]
-    /// call. Provide this to retrieve the subsequent page.
-    ///
-    /// When paginating, all other parameters provided to
-    /// \[SchemaService.ListSchemas][google.cloud.discoveryengine.v1.SchemaService.ListSchemas\]
-    /// must match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Response message for
-/// \[SchemaService.ListSchemas][google.cloud.discoveryengine.v1.SchemaService.ListSchemas\]
-/// method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListSchemasResponse {
-    <span class="doccomment">/// The \[Schema][google.cloud.discoveryengine.v1.Schema\]s.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>schemas: ::prost::alloc::vec::Vec&lt;Schema&gt;,
-    <span class="doccomment">/// A token that can be sent as
-    /// \[ListSchemasRequest.page_token][google.cloud.discoveryengine.v1.ListSchemasRequest.page_token\]
-    /// to retrieve the next page. If this field is omitted, there are no
-    /// subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Request message for
-/// \[SchemaService.CreateSchema][google.cloud.discoveryengine.v1.SchemaService.CreateSchema\]
-/// method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateSchemaRequest {
-    <span class="doccomment">/// Required. The parent data store resource name, in the format of
-    /// `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The \[Schema][google.cloud.discoveryengine.v1.Schema\] to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>schema: ::core::option::Option&lt;Schema&gt;,
-    <span class="doccomment">/// Required. The ID to use for the
-    /// \[Schema][google.cloud.discoveryengine.v1.Schema\], which will become the
-    /// final component of the
-    /// \[Schema.name][google.cloud.discoveryengine.v1.Schema.name\].
-    ///
-    /// This field should conform to
-    /// \[RFC-1034\](&lt;https://tools.ietf.org/html/rfc1034&gt;) standard with a length
-    /// limit of 63 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>schema_id: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Request message for
-/// \[SchemaService.UpdateSchema][google.cloud.discoveryengine.v1.SchemaService.UpdateSchema\]
-/// method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpdateSchemaRequest {
-    <span class="doccomment">/// Required. The \[Schema][google.cloud.discoveryengine.v1.Schema\] to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>schema: ::core::option::Option&lt;Schema&gt;,
-    <span class="doccomment">/// If set to true, and the \[Schema][google.cloud.discoveryengine.v1.Schema\] is
-    /// not found, a new \[Schema][google.cloud.discoveryengine.v1.Schema\] will be
-    /// created. In this situation, `update_mask` is ignored.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>allow_missing: bool,
-}
-<span class="doccomment">/// Request message for
-/// \[SchemaService.DeleteSchema][google.cloud.discoveryengine.v1.SchemaService.DeleteSchema\]
-/// method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteSchemaRequest {
-    <span class="doccomment">/// Required. The full resource name of the schema, in the format of
-    /// `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/schemas/{schema}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Metadata for Create Schema LRO.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateSchemaMetadata {
-    <span class="doccomment">/// Operation create time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Operation last update time. If the operation is done, this is also the
-    /// finish time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Metadata for UpdateSchema LRO.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpdateSchemaMetadata {
-    <span class="doccomment">/// Operation create time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Operation last update time. If the operation is done, this is also the
-    /// finish time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Metadata for DeleteSchema LRO.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteSchemaMetadata {
-    <span class="doccomment">/// Operation create time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Operation last update time. If the operation is done, this is also the
-    /// finish time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>schema_service_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// Service for managing [Schema][google.cloud.discoveryengine.v1.Schema]s.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>SchemaServiceClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; SchemaServiceClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; SchemaServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            SchemaServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Gets a [Schema][google.cloud.discoveryengine.v1.Schema].
-        </span><span class="kw">pub async fn </span>get_schema(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetSchemaRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Schema&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.discoveryengine.v1.SchemaService/GetSchema&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.discoveryengine.v1.SchemaService&quot;</span>,
-                        <span class="string">&quot;GetSchema&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Gets a list of [Schema][google.cloud.discoveryengine.v1.Schema]s.
-        </span><span class="kw">pub async fn </span>list_schemas(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListSchemasRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListSchemasResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.discoveryengine.v1.SchemaService/ListSchemas&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.discoveryengine.v1.SchemaService&quot;</span>,
-                        <span class="string">&quot;ListSchemas&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Creates a [Schema][google.cloud.discoveryengine.v1.Schema].
-        </span><span class="kw">pub async fn </span>create_schema(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateSchemaRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.discoveryengine.v1.SchemaService/CreateSchema&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.discoveryengine.v1.SchemaService&quot;</span>,
-                        <span class="string">&quot;CreateSchema&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Updates a [Schema][google.cloud.discoveryengine.v1.Schema].
-        </span><span class="kw">pub async fn </span>update_schema(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdateSchemaRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.discoveryengine.v1.SchemaService/UpdateSchema&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.discoveryengine.v1.SchemaService&quot;</span>,
-                        <span class="string">&quot;UpdateSchema&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Deletes a [Schema][google.cloud.discoveryengine.v1.Schema].
-        </span><span class="kw">pub async fn </span>delete_schema(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteSchemaRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.discoveryengine.v1.SchemaService/DeleteSchema&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.discoveryengine.v1.SchemaService&quot;</span>,
-                        <span class="string">&quot;DeleteSchema&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-    }
-}
 <span class="doccomment">/// Request message for WriteUserEvent method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4594,83 +4041,38 @@
     }
 }
 <span class="doccomment">/// Request message for
-/// \[SearchService.Search][google.cloud.discoveryengine.v1.SearchService.Search\]
+/// \[CompletionService.CompleteQuery][google.cloud.discoveryengine.v1.CompletionService.CompleteQuery\]
 /// method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SearchRequest {
-    <span class="doccomment">/// Required. The resource name of the Search serving config, such as
-    /// `projects/*/locations/global/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_config`.
-    /// This field is used to identify the serving configuration name, set
-    /// of models used to make the search.
+</span><span class="kw">pub struct </span>CompleteQueryRequest {
+    <span class="doccomment">/// Required. The parent data store resource name for which the completion is
+    /// performed, such as
+    /// `projects/*/locations/global/collections/default_collection/dataStores/default_data_store`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>serving_config: ::prost::alloc::string::String,
-    <span class="doccomment">/// The branch resource name, such as
-    /// `projects/*/locations/global/collections/default_collection/dataStores/default_data_store/branches/0`.
-    ///
-    /// Use `default_branch` as the branch ID or leave this field empty, to search
-    /// documents under the default branch.
+    </span><span class="kw">pub </span>data_store: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The typeahead input used to fetch suggestions. Maximum length is
+    /// 128 characters.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>branch: ::prost::alloc::string::String,
-    <span class="doccomment">/// Raw search query.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
-    <span class="doccomment">/// Maximum number of \[Document][google.cloud.discoveryengine.v1.Document\]s to
-    /// return. If unspecified, defaults to a reasonable value. The maximum allowed
-    /// value is 100. Values above 100 will be coerced to 100.
+    <span class="doccomment">/// Selects data model of query suggestions for serving. Currently supported
+    /// values:
     ///
-    /// If this field is negative, an  `INVALID_ARGUMENT`  is returned.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// A page token received from a previous
+    /// * `document` - Using suggestions generated from user-imported documents.
+    /// * `search-history` - Using suggestions generated from the past history of
     /// \[SearchService.Search][google.cloud.discoveryengine.v1.SearchService.Search\]
-    /// call. Provide this to retrieve the subsequent page.
+    /// API calls. Do not use it when there is no traffic for Search API.
+    /// * `user-event` - Using suggestions generated from user-imported search
+    /// events.
     ///
-    /// When paginating, all other parameters provided to
-    /// \[SearchService.Search][google.cloud.discoveryengine.v1.SearchService.Search\]
-    /// must match the call that provided the page token. Otherwise, an
-    ///   `INVALID_ARGUMENT`  error is returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// A 0-indexed integer that specifies the current offset (that is, starting
-    /// result location, amongst the
-    /// \[Document][google.cloud.discoveryengine.v1.Document\]s deemed by the API as
-    /// relevant) in search results. This field is only considered if
-    /// \[page_token][google.cloud.discoveryengine.v1.SearchRequest.page_token\] is
-    /// unset.
+    /// Default values:
     ///
-    /// If this field is negative, an  `INVALID_ARGUMENT`  is returned.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>offset: i32,
-    <span class="doccomment">/// Information about the end user.
-    /// Highly recommended for analytics. The user_agent string in UserInfo will
-    /// be used to deduce device_type for analytics.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;21&quot;</span>)]
-    </span><span class="kw">pub </span>user_info: ::core::option::Option&lt;UserInfo&gt;,
-    <span class="doccomment">/// Additional search parameters.
-    ///
-    /// For public website search only, supported values are:
-    ///
-    /// * `user_country_code`: string. Default empty. If set to non-empty, results
-    ///     are restricted or boosted based on the location provided.
-    /// * `search_type`: double. Default empty. Enables non-webpage searching
-    ///    depending on the value. The only valid non-default value is 1,
-    ///    which enables image searching.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>params: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost_types::Value,
-    &gt;,
-    <span class="doccomment">/// The query expansion specification that specifies the conditions under which
-    /// query expansion will occur.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>query_expansion_spec: ::core::option::Option&lt;search_request::QueryExpansionSpec&gt;,
-    <span class="doccomment">/// The spell correction specification that specifies the mode under
-    /// which spell correction will take effect.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>spell_correction_spec: ::core::option::Option&lt;
-        search_request::SpellCorrectionSpec,
-    &gt;,
+    /// * `document` is the default model for regular dataStores.
+    /// * `search-history` is the default model for
+    /// \[IndustryVertical.SITE_SEARCH][google.cloud.discoveryengine.v1.IndustryVertical.SITE_SEARCH\]
+    /// dataStores.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>query_model: ::prost::alloc::string::String,
     <span class="doccomment">/// A unique identifier for tracking visitors. For example, this could be
     /// implemented with an HTTP cookie, which should be able to uniquely identify
     /// a visitor on a single device. This unique identifier should not change if
@@ -4681,257 +4083,48 @@
     /// This should be the same identifier as
     /// \[UserEvent.user_pseudo_id][google.cloud.discoveryengine.v1.UserEvent.user_pseudo_id\]
     /// and
-    /// \[CompleteQueryRequest.user_pseudo_id][google.cloud.discoveryengine.v1.CompleteQueryRequest.user_pseudo_id\]
+    /// \[SearchRequest.user_pseudo_id][google.cloud.discoveryengine.v1.SearchRequest.user_pseudo_id\].
     ///
     /// The field must be a UTF-8 encoded string with a length limit of 128
-    /// characters. Otherwise, an  `INVALID_ARGUMENT`  error is returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    /// characters. Otherwise, an `INVALID_ARGUMENT` error is returned.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>user_pseudo_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The content search spec that configs the desired behavior of content
-    /// search.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;24&quot;</span>)]
-    </span><span class="kw">pub </span>content_search_spec: ::core::option::Option&lt;search_request::ContentSearchSpec&gt;,
-    <span class="doccomment">/// Whether to turn on safe search. This is only supported for
-    /// \[ContentConfig.PUBLIC_WEBSITE][\].
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;20&quot;</span>)]
-    </span><span class="kw">pub </span>safe_search: bool,
-    <span class="doccomment">/// The user labels applied to a resource must meet the following requirements:
-    ///
-    /// * Each resource can have multiple labels, up to a maximum of 64.
-    /// * Each label must be a key-value pair.
-    /// * Keys have a minimum length of 1 character and a maximum length of 63
-    ///    characters and cannot be empty. Values can be empty and have a maximum
-    ///    length of 63 characters.
-    /// * Keys and values can contain only lowercase letters, numeric characters,
-    ///    underscores, and dashes. All characters must use UTF-8 encoding, and
-    ///    international characters are allowed.
-    /// * The key portion of a label must be unique. However, you can use the same
-    ///    key with multiple resources.
-    /// * Keys must start with a lowercase letter or international character.
-    ///
-    /// See [Google Cloud
-    /// Document](&lt;https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements&gt;)
-    /// for more details.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;22&quot;</span>)]
-    </span><span class="kw">pub </span>user_labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `SearchRequest`.
-</span><span class="kw">pub mod </span>search_request {
-    <span class="doccomment">/// Specification to determine under which conditions query expansion should
-    /// occur.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>QueryExpansionSpec {
-        <span class="doccomment">/// The condition under which query expansion should occur. Default to
-        /// \[Condition.DISABLED][google.cloud.discoveryengine.v1.SearchRequest.QueryExpansionSpec.Condition.DISABLED\].
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;query_expansion_spec::Condition&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>condition: i32,
-    }
-    <span class="doccomment">/// Nested message and enum types in `QueryExpansionSpec`.
-    </span><span class="kw">pub mod </span>query_expansion_spec {
-        <span class="doccomment">/// Enum describing under which condition query expansion should occur.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>Condition {
-            <span class="doccomment">/// Unspecified query expansion condition. In this case, server behavior
-            /// defaults to
-            /// \[Condition.DISABLED][google.cloud.discoveryengine.v1.SearchRequest.QueryExpansionSpec.Condition.DISABLED\].
-            </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// Disabled query expansion. Only the exact search query is used, even if
-            /// \[SearchResponse.total_size][google.cloud.discoveryengine.v1.SearchResponse.total_size\]
-            /// is zero.
-            </span>Disabled = <span class="number">1</span>,
-            <span class="doccomment">/// Automatic query expansion built by the Search API.
-            </span>Auto = <span class="number">2</span>,
-        }
-        <span class="kw">impl </span>Condition {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    Condition::Unspecified =&gt; <span class="string">&quot;CONDITION_UNSPECIFIED&quot;</span>,
-                    Condition::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
-                    Condition::Auto =&gt; <span class="string">&quot;AUTO&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;CONDITION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
-                    <span class="string">&quot;AUTO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Auto),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
-    <span class="doccomment">/// The specification for query spell correction.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>SpellCorrectionSpec {
-        <span class="doccomment">/// The mode under which spell correction should take effect to
-        /// replace the original search query. Default to
-        /// \[Mode.AUTO][google.cloud.discoveryengine.v1.SearchRequest.SpellCorrectionSpec.Mode.AUTO\].
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;spell_correction_spec::Mode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>mode: i32,
-    }
-    <span class="doccomment">/// Nested message and enum types in `SpellCorrectionSpec`.
-    </span><span class="kw">pub mod </span>spell_correction_spec {
-        <span class="doccomment">/// Enum describing under which mode spell correction should occur.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>Mode {
-            <span class="doccomment">/// Unspecified spell correction mode. In this case, server behavior
-            /// defaults to
-            /// \[Mode.AUTO][google.cloud.discoveryengine.v1.SearchRequest.SpellCorrectionSpec.Mode.AUTO\].
-            </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// Search API will try to find a spell suggestion if there
-            /// is any and put in the
-            /// \[SearchResponse.corrected_query][google.cloud.discoveryengine.v1.SearchResponse.corrected_query\].
-            /// The spell suggestion will not be used as the search query.
-            </span>SuggestionOnly = <span class="number">1</span>,
-            <span class="doccomment">/// Automatic spell correction built by the Search API. Search will
-            /// be based on the corrected query if found.
-            </span>Auto = <span class="number">2</span>,
-        }
-        <span class="kw">impl </span>Mode {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    Mode::Unspecified =&gt; <span class="string">&quot;MODE_UNSPECIFIED&quot;</span>,
-                    Mode::SuggestionOnly =&gt; <span class="string">&quot;SUGGESTION_ONLY&quot;</span>,
-                    Mode::Auto =&gt; <span class="string">&quot;AUTO&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;SUGGESTION_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SuggestionOnly),
-                    <span class="string">&quot;AUTO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Auto),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
-    <span class="doccomment">/// The specification that configs the desired behavior of the UCS content
-    /// search.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>ContentSearchSpec {
-        <span class="doccomment">/// If there is no snippet spec provided, there will be no snippet in the
-        /// search result.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>snippet_spec: ::core::option::Option&lt;content_search_spec::SnippetSpec&gt;,
-    }
-    <span class="doccomment">/// Nested message and enum types in `ContentSearchSpec`.
-    </span><span class="kw">pub mod </span>content_search_spec {
-        <span class="doccomment">/// The specification that configs the snippet in the search results.
-        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        </span><span class="kw">pub struct </span>SnippetSpec {
-            <span class="doccomment">/// Max number of snippets returned in each search result.
-            /// If the matching snippets is less than the max_snippet_count, return all
-            /// of the snippets; otherwise, return the max_snippet_count.
-            ///
-            /// At most 5 snippets will be returned for each SearchResult.
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-            </span><span class="kw">pub </span>max_snippet_count: i32,
-            <span class="doccomment">/// if true, only snippet reference is returned.
-            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-            </span><span class="kw">pub </span>reference_only: bool,
-        }
-    }
 }
 <span class="doccomment">/// Response message for
-/// \[SearchService.Search][google.cloud.discoveryengine.v1.SearchService.Search\]
+/// \[CompletionService.CompleteQuery][google.cloud.discoveryengine.v1.CompletionService.CompleteQuery\]
 /// method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SearchResponse {
-    <span class="doccomment">/// A list of matched documents. The order represents the ranking.
+</span><span class="kw">pub struct </span>CompleteQueryResponse {
+    <span class="doccomment">/// Results of the matched query suggestions. The result list is ordered and
+    /// the first result is a top suggestion.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>results: ::prost::alloc::vec::Vec&lt;search_response::SearchResult&gt;,
-    <span class="doccomment">/// The estimated total count of matched items irrespective of pagination. The
-    /// count of \[results][google.cloud.discoveryengine.v1.SearchResponse.results\]
-    /// returned by pagination may be less than the
-    /// \[total_size][google.cloud.discoveryengine.v1.SearchResponse.total_size\]
-    /// that matches.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>total_size: i32,
-    <span class="doccomment">/// A unique search token. This should be included in the
-    /// \[UserEvent][google.cloud.discoveryengine.v1.UserEvent\] logs resulting from
-    /// this search, which enables accurate attribution of search model
-    /// performance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>attribution_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// A token that can be sent as
-    /// \[SearchRequest.page_token][google.cloud.discoveryengine.v1.SearchRequest.page_token\]
-    /// to retrieve the next page. If this field is omitted, there are no
-    /// subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Contains the spell corrected query, if found. If the spell correction type
-    /// is AUTOMATIC, then the search results are based on corrected_query.
-    /// Otherwise the original query is used for search.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>corrected_query: ::prost::alloc::string::String,
+    </span><span class="kw">pub </span>query_suggestions: ::prost::alloc::vec::Vec&lt;
+        complete_query_response::QuerySuggestion,
+    &gt;,
 }
-<span class="doccomment">/// Nested message and enum types in `SearchResponse`.
-</span><span class="kw">pub mod </span>search_response {
-    <span class="doccomment">/// Represents the search results.
+<span class="doccomment">/// Nested message and enum types in `CompleteQueryResponse`.
+</span><span class="kw">pub mod </span>complete_query_response {
+    <span class="doccomment">/// Suggestions as search queries.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>SearchResult {
-        <span class="doccomment">/// \[Document.id][google.cloud.discoveryengine.v1.Document.id\] of the
-        /// searched \[Document][google.cloud.discoveryengine.v1.Document\].
+    </span><span class="kw">pub struct </span>QuerySuggestion {
+        <span class="doccomment">/// The suggestion for the query.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-        <span class="doccomment">/// The document data snippet in the search response. Only fields that are
-        /// marked as retrievable are populated.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>document: ::core::option::Option&lt;<span class="kw">super</span>::Document&gt;,
+        </span><span class="kw">pub </span>suggestion: ::prost::alloc::string::String,
     }
 }
 <span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>search_service_client {
+</span><span class="kw">pub mod </span>completion_service_client {
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
     <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// Service for search.
+    <span class="doccomment">/// Service for Auto-Completion.
     </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>SearchServiceClient&lt;T&gt; {
+    </span><span class="kw">pub struct </span>CompletionServiceClient&lt;T&gt; {
         inner: tonic::client::Grpc&lt;T&gt;,
     }
-    <span class="kw">impl</span>&lt;T&gt; SearchServiceClient&lt;T&gt;
+    <span class="kw">impl</span>&lt;T&gt; CompletionServiceClient&lt;T&gt;
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
@@ -4949,7 +4142,7 @@
         <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
             inner: T,
             interceptor: F,
-        ) -&gt; SearchServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        ) -&gt; CompletionServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
         <span class="kw">where
             </span>F: tonic::service::Interceptor,
             T::ResponseBody: Default,
@@ -4963,7 +4156,7 @@
                 http::Request&lt;tonic::body::BoxBody&gt;,
             &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
         {
-            SearchServiceClient::new(InterceptedService::new(inner, interceptor))
+            CompletionServiceClient::new(InterceptedService::new(inner, interceptor))
         }
         <span class="doccomment">/// Compress requests with the given encoding.
         ///
@@ -4996,11 +4189,14 @@
             <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
             <span class="self">self
         </span>}
-        <span class="doccomment">/// Performs a search.
-        </span><span class="kw">pub async fn </span>search(
+        <span class="doccomment">/// Completes the specified user input with keyword suggestions.
+        </span><span class="kw">pub async fn </span>complete_query(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::SearchRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::SearchResponse&gt;, tonic::Status&gt; {
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CompleteQueryRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::CompleteQueryResponse&gt;,
+            tonic::Status,
+        &gt; {
             <span class="self">self</span>.inner
                 .ready()
                 .<span class="kw">await
@@ -5012,14 +4208,14 @@
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.discoveryengine.v1.SearchService/Search&quot;</span>,
+                <span class="string">&quot;/google.cloud.discoveryengine.v1.CompletionService/CompleteQuery&quot;</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.discoveryengine.v1.SearchService&quot;</span>,
-                        <span class="string">&quot;Search&quot;</span>,
+                        <span class="string">&quot;google.cloud.discoveryengine.v1.CompletionService&quot;</span>,
+                        <span class="string">&quot;CompleteQuery&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5472,6 +4668,810 @@
                     GrpcMethod::new(
                         <span class="string">&quot;google.cloud.discoveryengine.v1.DocumentService&quot;</span>,
                         <span class="string">&quot;PurgeDocuments&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
+}
+<span class="doccomment">/// Request message for
+/// \[SearchService.Search][google.cloud.discoveryengine.v1.SearchService.Search\]
+/// method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SearchRequest {
+    <span class="doccomment">/// Required. The resource name of the Search serving config, such as
+    /// `projects/*/locations/global/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_config`.
+    /// This field is used to identify the serving configuration name, set
+    /// of models used to make the search.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>serving_config: ::prost::alloc::string::String,
+    <span class="doccomment">/// The branch resource name, such as
+    /// `projects/*/locations/global/collections/default_collection/dataStores/default_data_store/branches/0`.
+    ///
+    /// Use `default_branch` as the branch ID or leave this field empty, to search
+    /// documents under the default branch.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>branch: ::prost::alloc::string::String,
+    <span class="doccomment">/// Raw search query.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
+    <span class="doccomment">/// Maximum number of \[Document][google.cloud.discoveryengine.v1.Document\]s to
+    /// return. If unspecified, defaults to a reasonable value. The maximum allowed
+    /// value is 100. Values above 100 will be coerced to 100.
+    ///
+    /// If this field is negative, an  `INVALID_ARGUMENT`  is returned.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// A page token received from a previous
+    /// \[SearchService.Search][google.cloud.discoveryengine.v1.SearchService.Search\]
+    /// call. Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to
+    /// \[SearchService.Search][google.cloud.discoveryengine.v1.SearchService.Search\]
+    /// must match the call that provided the page token. Otherwise, an
+    ///   `INVALID_ARGUMENT`  error is returned.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// A 0-indexed integer that specifies the current offset (that is, starting
+    /// result location, amongst the
+    /// \[Document][google.cloud.discoveryengine.v1.Document\]s deemed by the API as
+    /// relevant) in search results. This field is only considered if
+    /// \[page_token][google.cloud.discoveryengine.v1.SearchRequest.page_token\] is
+    /// unset.
+    ///
+    /// If this field is negative, an  `INVALID_ARGUMENT`  is returned.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>offset: i32,
+    <span class="doccomment">/// Information about the end user.
+    /// Highly recommended for analytics. The user_agent string in UserInfo will
+    /// be used to deduce device_type for analytics.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="kw">pub </span>user_info: ::core::option::Option&lt;UserInfo&gt;,
+    <span class="doccomment">/// Additional search parameters.
+    ///
+    /// For public website search only, supported values are:
+    ///
+    /// * `user_country_code`: string. Default empty. If set to non-empty, results
+    ///     are restricted or boosted based on the location provided.
+    /// * `search_type`: double. Default empty. Enables non-webpage searching
+    ///    depending on the value. The only valid non-default value is 1,
+    ///    which enables image searching.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>params: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost_types::Value,
+    &gt;,
+    <span class="doccomment">/// The query expansion specification that specifies the conditions under which
+    /// query expansion will occur.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>query_expansion_spec: ::core::option::Option&lt;search_request::QueryExpansionSpec&gt;,
+    <span class="doccomment">/// The spell correction specification that specifies the mode under
+    /// which spell correction will take effect.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>spell_correction_spec: ::core::option::Option&lt;
+        search_request::SpellCorrectionSpec,
+    &gt;,
+    <span class="doccomment">/// A unique identifier for tracking visitors. For example, this could be
+    /// implemented with an HTTP cookie, which should be able to uniquely identify
+    /// a visitor on a single device. This unique identifier should not change if
+    /// the visitor logs in or out of the website.
+    ///
+    /// This field should NOT have a fixed value such as `unknown_visitor`.
+    ///
+    /// This should be the same identifier as
+    /// \[UserEvent.user_pseudo_id][google.cloud.discoveryengine.v1.UserEvent.user_pseudo_id\]
+    /// and
+    /// \[CompleteQueryRequest.user_pseudo_id][google.cloud.discoveryengine.v1.CompleteQueryRequest.user_pseudo_id\]
+    ///
+    /// The field must be a UTF-8 encoded string with a length limit of 128
+    /// characters. Otherwise, an  `INVALID_ARGUMENT`  error is returned.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>user_pseudo_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The content search spec that configs the desired behavior of content
+    /// search.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="kw">pub </span>content_search_spec: ::core::option::Option&lt;search_request::ContentSearchSpec&gt;,
+    <span class="doccomment">/// Whether to turn on safe search. This is only supported for
+    /// \[ContentConfig.PUBLIC_WEBSITE][\].
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="kw">pub </span>safe_search: bool,
+    <span class="doccomment">/// The user labels applied to a resource must meet the following requirements:
+    ///
+    /// * Each resource can have multiple labels, up to a maximum of 64.
+    /// * Each label must be a key-value pair.
+    /// * Keys have a minimum length of 1 character and a maximum length of 63
+    ///    characters and cannot be empty. Values can be empty and have a maximum
+    ///    length of 63 characters.
+    /// * Keys and values can contain only lowercase letters, numeric characters,
+    ///    underscores, and dashes. All characters must use UTF-8 encoding, and
+    ///    international characters are allowed.
+    /// * The key portion of a label must be unique. However, you can use the same
+    ///    key with multiple resources.
+    /// * Keys must start with a lowercase letter or international character.
+    ///
+    /// See [Google Cloud
+    /// Document](&lt;https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements&gt;)
+    /// for more details.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="kw">pub </span>user_labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `SearchRequest`.
+</span><span class="kw">pub mod </span>search_request {
+    <span class="doccomment">/// Specification to determine under which conditions query expansion should
+    /// occur.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>QueryExpansionSpec {
+        <span class="doccomment">/// The condition under which query expansion should occur. Default to
+        /// \[Condition.DISABLED][google.cloud.discoveryengine.v1.SearchRequest.QueryExpansionSpec.Condition.DISABLED\].
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;query_expansion_spec::Condition&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>condition: i32,
+    }
+    <span class="doccomment">/// Nested message and enum types in `QueryExpansionSpec`.
+    </span><span class="kw">pub mod </span>query_expansion_spec {
+        <span class="doccomment">/// Enum describing under which condition query expansion should occur.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>Condition {
+            <span class="doccomment">/// Unspecified query expansion condition. In this case, server behavior
+            /// defaults to
+            /// \[Condition.DISABLED][google.cloud.discoveryengine.v1.SearchRequest.QueryExpansionSpec.Condition.DISABLED\].
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// Disabled query expansion. Only the exact search query is used, even if
+            /// \[SearchResponse.total_size][google.cloud.discoveryengine.v1.SearchResponse.total_size\]
+            /// is zero.
+            </span>Disabled = <span class="number">1</span>,
+            <span class="doccomment">/// Automatic query expansion built by the Search API.
+            </span>Auto = <span class="number">2</span>,
+        }
+        <span class="kw">impl </span>Condition {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    Condition::Unspecified =&gt; <span class="string">&quot;CONDITION_UNSPECIFIED&quot;</span>,
+                    Condition::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
+                    Condition::Auto =&gt; <span class="string">&quot;AUTO&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;CONDITION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                    <span class="string">&quot;AUTO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Auto),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
+    <span class="doccomment">/// The specification for query spell correction.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SpellCorrectionSpec {
+        <span class="doccomment">/// The mode under which spell correction should take effect to
+        /// replace the original search query. Default to
+        /// \[Mode.AUTO][google.cloud.discoveryengine.v1.SearchRequest.SpellCorrectionSpec.Mode.AUTO\].
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;spell_correction_spec::Mode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>mode: i32,
+    }
+    <span class="doccomment">/// Nested message and enum types in `SpellCorrectionSpec`.
+    </span><span class="kw">pub mod </span>spell_correction_spec {
+        <span class="doccomment">/// Enum describing under which mode spell correction should occur.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>Mode {
+            <span class="doccomment">/// Unspecified spell correction mode. In this case, server behavior
+            /// defaults to
+            /// \[Mode.AUTO][google.cloud.discoveryengine.v1.SearchRequest.SpellCorrectionSpec.Mode.AUTO\].
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// Search API will try to find a spell suggestion if there
+            /// is any and put in the
+            /// \[SearchResponse.corrected_query][google.cloud.discoveryengine.v1.SearchResponse.corrected_query\].
+            /// The spell suggestion will not be used as the search query.
+            </span>SuggestionOnly = <span class="number">1</span>,
+            <span class="doccomment">/// Automatic spell correction built by the Search API. Search will
+            /// be based on the corrected query if found.
+            </span>Auto = <span class="number">2</span>,
+        }
+        <span class="kw">impl </span>Mode {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    Mode::Unspecified =&gt; <span class="string">&quot;MODE_UNSPECIFIED&quot;</span>,
+                    Mode::SuggestionOnly =&gt; <span class="string">&quot;SUGGESTION_ONLY&quot;</span>,
+                    Mode::Auto =&gt; <span class="string">&quot;AUTO&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;SUGGESTION_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SuggestionOnly),
+                    <span class="string">&quot;AUTO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Auto),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
+    <span class="doccomment">/// The specification that configs the desired behavior of the UCS content
+    /// search.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ContentSearchSpec {
+        <span class="doccomment">/// If there is no snippet spec provided, there will be no snippet in the
+        /// search result.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>snippet_spec: ::core::option::Option&lt;content_search_spec::SnippetSpec&gt;,
+    }
+    <span class="doccomment">/// Nested message and enum types in `ContentSearchSpec`.
+    </span><span class="kw">pub mod </span>content_search_spec {
+        <span class="doccomment">/// The specification that configs the snippet in the search results.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>SnippetSpec {
+            <span class="doccomment">/// Max number of snippets returned in each search result.
+            /// If the matching snippets is less than the max_snippet_count, return all
+            /// of the snippets; otherwise, return the max_snippet_count.
+            ///
+            /// At most 5 snippets will be returned for each SearchResult.
+            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="kw">pub </span>max_snippet_count: i32,
+            <span class="doccomment">/// if true, only snippet reference is returned.
+            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="kw">pub </span>reference_only: bool,
+        }
+    }
+}
+<span class="doccomment">/// Response message for
+/// \[SearchService.Search][google.cloud.discoveryengine.v1.SearchService.Search\]
+/// method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SearchResponse {
+    <span class="doccomment">/// A list of matched documents. The order represents the ranking.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>results: ::prost::alloc::vec::Vec&lt;search_response::SearchResult&gt;,
+    <span class="doccomment">/// The estimated total count of matched items irrespective of pagination. The
+    /// count of \[results][google.cloud.discoveryengine.v1.SearchResponse.results\]
+    /// returned by pagination may be less than the
+    /// \[total_size][google.cloud.discoveryengine.v1.SearchResponse.total_size\]
+    /// that matches.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>total_size: i32,
+    <span class="doccomment">/// A unique search token. This should be included in the
+    /// \[UserEvent][google.cloud.discoveryengine.v1.UserEvent\] logs resulting from
+    /// this search, which enables accurate attribution of search model
+    /// performance.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>attribution_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// A token that can be sent as
+    /// \[SearchRequest.page_token][google.cloud.discoveryengine.v1.SearchRequest.page_token\]
+    /// to retrieve the next page. If this field is omitted, there are no
+    /// subsequent pages.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Contains the spell corrected query, if found. If the spell correction type
+    /// is AUTOMATIC, then the search results are based on corrected_query.
+    /// Otherwise the original query is used for search.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>corrected_query: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `SearchResponse`.
+</span><span class="kw">pub mod </span>search_response {
+    <span class="doccomment">/// Represents the search results.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SearchResult {
+        <span class="doccomment">/// \[Document.id][google.cloud.discoveryengine.v1.Document.id\] of the
+        /// searched \[Document][google.cloud.discoveryengine.v1.Document\].
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+        <span class="doccomment">/// The document data snippet in the search response. Only fields that are
+        /// marked as retrievable are populated.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>document: ::core::option::Option&lt;<span class="kw">super</span>::Document&gt;,
+    }
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>search_service_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// Service for search.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>SearchServiceClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; SearchServiceClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; SearchServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            SearchServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Performs a search.
+        </span><span class="kw">pub async fn </span>search(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::SearchRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::SearchResponse&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.discoveryengine.v1.SearchService/Search&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.discoveryengine.v1.SearchService&quot;</span>,
+                        <span class="string">&quot;Search&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
+}
+<span class="doccomment">/// Request message for
+/// \[SchemaService.GetSchema][google.cloud.discoveryengine.v1.SchemaService.GetSchema\]
+/// method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetSchemaRequest {
+    <span class="doccomment">/// Required. The full resource name of the schema, in the format of
+    /// `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/schemas/{schema}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Request message for
+/// \[SchemaService.ListSchemas][google.cloud.discoveryengine.v1.SchemaService.ListSchemas\]
+/// method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListSchemasRequest {
+    <span class="doccomment">/// Required. The parent data store resource name, in the format of
+    /// `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of \[Schema][google.cloud.discoveryengine.v1.Schema\]s to
+    /// return. The service may return fewer than this value.
+    ///
+    /// If unspecified, at most 100
+    /// \[Schema][google.cloud.discoveryengine.v1.Schema\]s will be returned.
+    ///
+    /// The maximum value is 1000; values above 1000 will be coerced to 1000.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// A page token, received from a previous
+    /// \[SchemaService.ListSchemas][google.cloud.discoveryengine.v1.SchemaService.ListSchemas\]
+    /// call. Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to
+    /// \[SchemaService.ListSchemas][google.cloud.discoveryengine.v1.SchemaService.ListSchemas\]
+    /// must match the call that provided the page token.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Response message for
+/// \[SchemaService.ListSchemas][google.cloud.discoveryengine.v1.SchemaService.ListSchemas\]
+/// method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListSchemasResponse {
+    <span class="doccomment">/// The \[Schema][google.cloud.discoveryengine.v1.Schema\]s.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>schemas: ::prost::alloc::vec::Vec&lt;Schema&gt;,
+    <span class="doccomment">/// A token that can be sent as
+    /// \[ListSchemasRequest.page_token][google.cloud.discoveryengine.v1.ListSchemasRequest.page_token\]
+    /// to retrieve the next page. If this field is omitted, there are no
+    /// subsequent pages.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Request message for
+/// \[SchemaService.CreateSchema][google.cloud.discoveryengine.v1.SchemaService.CreateSchema\]
+/// method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateSchemaRequest {
+    <span class="doccomment">/// Required. The parent data store resource name, in the format of
+    /// `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The \[Schema][google.cloud.discoveryengine.v1.Schema\] to create.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>schema: ::core::option::Option&lt;Schema&gt;,
+    <span class="doccomment">/// Required. The ID to use for the
+    /// \[Schema][google.cloud.discoveryengine.v1.Schema\], which will become the
+    /// final component of the
+    /// \[Schema.name][google.cloud.discoveryengine.v1.Schema.name\].
+    ///
+    /// This field should conform to
+    /// \[RFC-1034\](&lt;https://tools.ietf.org/html/rfc1034&gt;) standard with a length
+    /// limit of 63 characters.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>schema_id: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Request message for
+/// \[SchemaService.UpdateSchema][google.cloud.discoveryengine.v1.SchemaService.UpdateSchema\]
+/// method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdateSchemaRequest {
+    <span class="doccomment">/// Required. The \[Schema][google.cloud.discoveryengine.v1.Schema\] to update.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>schema: ::core::option::Option&lt;Schema&gt;,
+    <span class="doccomment">/// If set to true, and the \[Schema][google.cloud.discoveryengine.v1.Schema\] is
+    /// not found, a new \[Schema][google.cloud.discoveryengine.v1.Schema\] will be
+    /// created. In this situation, `update_mask` is ignored.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>allow_missing: bool,
+}
+<span class="doccomment">/// Request message for
+/// \[SchemaService.DeleteSchema][google.cloud.discoveryengine.v1.SchemaService.DeleteSchema\]
+/// method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteSchemaRequest {
+    <span class="doccomment">/// Required. The full resource name of the schema, in the format of
+    /// `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/schemas/{schema}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Metadata for Create Schema LRO.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateSchemaMetadata {
+    <span class="doccomment">/// Operation create time.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Operation last update time. If the operation is done, this is also the
+    /// finish time.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Metadata for UpdateSchema LRO.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdateSchemaMetadata {
+    <span class="doccomment">/// Operation create time.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Operation last update time. If the operation is done, this is also the
+    /// finish time.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Metadata for DeleteSchema LRO.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteSchemaMetadata {
+    <span class="doccomment">/// Operation create time.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Operation last update time. If the operation is done, this is also the
+    /// finish time.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>schema_service_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// Service for managing [Schema][google.cloud.discoveryengine.v1.Schema]s.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>SchemaServiceClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; SchemaServiceClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; SchemaServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            SchemaServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Gets a [Schema][google.cloud.discoveryengine.v1.Schema].
+        </span><span class="kw">pub async fn </span>get_schema(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetSchemaRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Schema&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.discoveryengine.v1.SchemaService/GetSchema&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.discoveryengine.v1.SchemaService&quot;</span>,
+                        <span class="string">&quot;GetSchema&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Gets a list of [Schema][google.cloud.discoveryengine.v1.Schema]s.
+        </span><span class="kw">pub async fn </span>list_schemas(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListSchemasRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListSchemasResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.discoveryengine.v1.SchemaService/ListSchemas&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.discoveryengine.v1.SchemaService&quot;</span>,
+                        <span class="string">&quot;ListSchemas&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Creates a [Schema][google.cloud.discoveryengine.v1.Schema].
+        </span><span class="kw">pub async fn </span>create_schema(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateSchemaRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.discoveryengine.v1.SchemaService/CreateSchema&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.discoveryengine.v1.SchemaService&quot;</span>,
+                        <span class="string">&quot;CreateSchema&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Updates a [Schema][google.cloud.discoveryengine.v1.Schema].
+        </span><span class="kw">pub async fn </span>update_schema(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdateSchemaRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.discoveryengine.v1.SchemaService/UpdateSchema&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.discoveryengine.v1.SchemaService&quot;</span>,
+                        <span class="string">&quot;UpdateSchema&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Deletes a [Schema][google.cloud.discoveryengine.v1.Schema].
+        </span><span class="kw">pub async fn </span>delete_schema(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::DeleteSchemaRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.discoveryengine.v1.SchemaService/DeleteSchema&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.discoveryengine.v1.SchemaService&quot;</span>,
+                        <span class="string">&quot;DeleteSchema&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

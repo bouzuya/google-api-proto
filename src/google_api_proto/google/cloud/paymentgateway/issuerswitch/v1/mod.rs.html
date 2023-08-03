@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/paymentgateway/issuerswitch/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.0 (8ede3aae2 2023-07-12)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../../../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../../../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../../../../../source-files.js"></script><script defer src="../../../../../../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/paymentgateway/issuerswitch/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.1 (eb26296b5 2023-08-03)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../../../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../../../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../../../../../source-files.js"></script><script defer src="../../../../../../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -10485,6 +10485,595 @@
         </span>}
     }
 }
+<span class="doccomment">/// Request for the
+/// \[FetchParticipant][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.FetchParticipant\]
+/// method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FetchParticipantRequest {
+    <span class="doccomment">/// Required. The parent resource for the participants. The format is
+    /// `projects/{project}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The account details of the issuer participant.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>account_reference: ::core::option::Option&lt;AccountReference&gt;,
+}
+<span class="doccomment">/// A customer of the bank who participates in transactions processed by the
+/// issuer switch.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>IssuerParticipant {
+    <span class="doccomment">/// Required. The account details of the issuer participant. Only the
+    /// account_number and ifsc fields will be used.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>account_reference: ::core::option::Option&lt;AccountReference&gt;,
+    <span class="doccomment">/// Output only. The mobile number of the participant.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>mobile_number: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The current state of the participant.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;issuer_participant::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Optional. Additional metadata about the participant.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;issuer_participant::Metadata&gt;,
+    <span class="doccomment">/// Output only. The current count of consecutive incorrect MPIN attempts.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>mpin_failure_count: i32,
+    <span class="doccomment">/// Output only. The time when participant&#39;s MPIN got locked due to too many
+    /// incorrect attempts.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>mpin_locked_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The time when the participant&#39;s account was onboarded to PGIS.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The time when the participant was last updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `IssuerParticipant`.
+</span><span class="kw">pub mod </span>issuer_participant {
+    <span class="doccomment">/// The metadata of the participant.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Metadata {
+        <span class="doccomment">/// Optional. Additional metadata about a particular participant as key-value
+        /// pairs. These values are returned by the bank adapter/card adapter in
+        /// response to the SearchAccounts/InitiateRegistration APIs.
+        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>values: ::prost::alloc::collections::BTreeMap&lt;
+            ::prost::alloc::string::String,
+            ::prost::alloc::string::String,
+        &gt;,
+    }
+    <span class="doccomment">/// The state of the participant.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Unspecified state.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The participant is inactive for all UPI transactions. The issuer switch
+        /// will return the `AM` error to the UPI payments orchestrator for any
+        /// operation involving MPIN verification for the participant. They need to
+        /// register with UPI again and provide a new MPIN.
+        </span>Inactive = <span class="number">1</span>,
+        <span class="doccomment">/// The participant is active for all UPI transactions.
+        </span>Active = <span class="number">2</span>,
+        <span class="doccomment">/// The participants MPIN has been locked because they have exceeded the
+        /// threshold for maximum number of incorrect MPIN verification attempts. No
+        /// UPI transactions will be permitted until the participant&#39;s MPIN has been
+        /// reset.
+        </span>MpinLocked = <span class="number">3</span>,
+        <span class="doccomment">/// The participants mobile number has been changed in the issuer bank. Any
+        /// transaction involving MPIN verification of the participant will return a
+        /// `B1` error to the UPI payments orchestrator. The user will be forced to
+        /// re-register with their changed mobile number.
+        </span>MobileNumberChanged = <span class="number">4</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Inactive =&gt; <span class="string">&quot;INACTIVE&quot;</span>,
+                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
+                State::MpinLocked =&gt; <span class="string">&quot;MPIN_LOCKED&quot;</span>,
+                State::MobileNumberChanged =&gt; <span class="string">&quot;MOBILE_NUMBER_CHANGED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;INACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inactive),
+                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">&quot;MPIN_LOCKED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MpinLocked),
+                <span class="string">&quot;MOBILE_NUMBER_CHANGED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MobileNumberChanged),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Request for the
+/// \[UpdateIssuerParticipant][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.UpdateIssuerParticipant\]
+/// method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdateIssuerParticipantRequest {
+    <span class="doccomment">/// Required. The parent resource for the participants. The format is
+    /// `projects/{project}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The participant to update.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>issuer_participant: ::core::option::Option&lt;IssuerParticipant&gt;,
+    <span class="doccomment">/// Required. The list of fields to update.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
+}
+<span class="doccomment">/// Request for the
+/// \[ActivateParticipant][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.ActivateParticipant\],
+/// \[DeactivateParticipant][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.DeactivateParticipant\]
+/// and
+/// \[MobileNumberUpdated][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.MobileNumberChanged\]
+/// methods.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ParticipantStateChangeRequest {
+    <span class="doccomment">/// Required. The parent resource for the participant. The format is
+    /// `projects/{project}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// The identifier for the issuer participant. One of the two values must be
+    /// specified.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;participant_state_change_request::Id&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::core::option::Option&lt;participant_state_change_request::Id&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ParticipantStateChangeRequest`.
+</span><span class="kw">pub mod </span>participant_state_change_request {
+    <span class="doccomment">/// The identifier for the issuer participant. One of the two values must be
+    /// specified.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Id {
+        <span class="doccomment">/// Optional. The account details of the issuer participant.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>AccountReference(<span class="kw">super</span>::AccountReference),
+        <span class="doccomment">/// Optional. The mobile number of the issuer participant.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>MobileNumber(::prost::alloc::string::String),
+    }
+}
+<span class="doccomment">/// Response for the
+/// \[ActivateParticipant][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.ActivateParticipant\],
+/// \[DeactivateParticipant][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.DeactivateParticipant\]
+/// and
+/// \[MobileNumberChanged][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.MobileNumberChanged\]
+/// methods.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>IssuerParticipants {
+    <span class="doccomment">/// Output only. The list of updated participants.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>participants: ::prost::alloc::vec::Vec&lt;IssuerParticipant&gt;,
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>issuer_switch_participants_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// A service that allows for the management of participants in the issuer
+    /// switch.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>IssuerSwitchParticipantsClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; IssuerSwitchParticipantsClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; IssuerSwitchParticipantsClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            IssuerSwitchParticipantsClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Fetch the issuer switch participant. This method can be used to retrieve
+        /// all details of a participant in the issuer switch.
+        ///
+        /// In UPI, the participant is identified by their account&#39;s IFSC and their
+        /// account number.
+        </span><span class="kw">pub async fn </span>fetch_participant(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::FetchParticipantRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::IssuerParticipant&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants/FetchParticipant&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants&quot;</span>,
+                        <span class="string">&quot;FetchParticipant&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Update the issuer switch participant. Currently, this API only allows for
+        /// the
+        /// [metadata][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.metadata]
+        /// field to be updated.
+        ///
+        /// The `number` of key-value pairs in the `metadata` field, the length of each
+        /// `key` and the length of each `value` should be within the thresholds
+        /// defined for them in the issuer switch configuration. Any violation of these
+        /// thresholds will cause this API to return an error. The default values for
+        /// these thresholds are:
+        ///
+        /// * `Maximum number` of key-value pairs - `5`
+        /// * `Maximum length` of a key - `100`
+        /// * `Maximum length` of a value - `500`
+        ///
+        /// **Note** that this method replaces any existing `metadata` field value in
+        /// the participant with the new value. Specifically, it does not do a merge.
+        /// If key-value pairs are to be added/removed from the metadata, then
+        /// callers must follow the following steps:
+        ///
+        /// 1. Invoke the
+        ///   [FetchParticipant][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.FetchParticipant]
+        ///    API to get the current value of the `metadata` field.
+        /// 1. Update the `metadata` map to add/remove key-value pairs from it.
+        /// 1. Update the `metadata` in the issuer switch using this method.
+        </span><span class="kw">pub async fn </span>update_issuer_participant(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdateIssuerParticipantRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::IssuerParticipant&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants/UpdateIssuerParticipant&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants&quot;</span>,
+                        <span class="string">&quot;UpdateIssuerParticipant&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Activate the issuer switch participant for UPI transactions. This API
+        /// sets the state of the participant to
+        /// [ACTIVE][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.ACTIVE].
+        /// A participant in the `ACTIVE` state can perform all UPI operations
+        /// normally.
+        ///
+        /// The behavior of this API varies based on the current state of the
+        /// participant.
+        ///
+        /// *   Current state is
+        ///     [ACTIVE][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.ACTIVE]
+        ///     : This API will make no change to the participant&#39;s state and returns a
+        ///     successful response.
+        /// *    Current state is
+        ///     [INACTIVE][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.INACTIVE]
+        ///     : If an _MPIN_ has already been provisioned for the participant, then
+        ///     this API will change the state of the participant to `ACTIVE`. Else,
+        ///     this API will return an error.
+        /// *   Current state is
+        ///     [MOBILE_NUMBER_CHANGED][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.MOBILE_NUMBER_CHANGED]
+        ///     : The state cannot be changed to `ACTIVE`. This API will return an
+        ///     error.
+        </span><span class="kw">pub async fn </span>activate_participant(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ParticipantStateChangeRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::IssuerParticipants&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants/ActivateParticipant&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants&quot;</span>,
+                        <span class="string">&quot;ActivateParticipant&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Deactivate the issuer switch participant for UPI transactions. This API
+        /// sets the state of the participant to
+        /// [INACTIVE][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.INACTIVE].
+        /// An `INACTIVE` participant cannot perform any UPI operation which involves
+        /// MPIN verification.
+        ///
+        /// The behavior of this API varies based on the current state of the
+        /// participant.
+        ///
+        /// *   Current state is
+        ///     [ACTIVE][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.ACTIVE]
+        ///     : The state will change to `INACTIVE`. The user will be forced to
+        ///     re-register with UPI and reset their MPIN  to perform any UPI
+        ///     operations.
+        /// *   Current state is
+        ///     [INACTIVE][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.INACTIVE]
+        ///     : This API will make no change to the participant&#39;s state and returns a
+        ///     successful response.
+        /// *   Current state is
+        ///     [MOBILE_NUMBER_CHANGED][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.MOBILE_NUMBER_CHANGED]
+        ///     : The state cannot be changed to `INACTIVE`. This API will return an
+        ///     error.
+        </span><span class="kw">pub async fn </span>deactivate_participant(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ParticipantStateChangeRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::IssuerParticipants&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants/DeactivateParticipant&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants&quot;</span>,
+                        <span class="string">&quot;DeactivateParticipant&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Mark the state of the issuer switch participant as _mobile number changed_
+        /// to prevent UPI transactions by the user. This API sets the state of the
+        /// participant to
+        /// [MOBILE_NUMBER_CHANGED][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.MOBILE_NUMBER_CHANGED].
+        ///
+        /// Any UPI operation for a participant in the `MOBILE_NUMBER_CHANGED` state
+        /// will cause the issuer switch to return a `B1` error to the UPI payments
+        /// orchestrator which would force the user to re-register with UPI.
+        ///
+        /// The behavior of this API varies based on the current state of the
+        /// participant.
+        ///
+        /// *   Current state is
+        ///     [ACTIVE][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.ACTIVE]
+        ///     : The state will change to `MOBILE_NUMBER_CHANGED`. Any operation
+        ///     involving MPIN verification of the participant will return a `B1` error
+        ///     to the UPI payments orchestrator. The user will be forced to
+        ///     re-register with their changed mobile number.
+        /// *   Current state is
+        ///     [INACTIVE][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.INACTIVE]
+        ///     : The state will change to `MOBILE_NUMBER_CHANGED`. Any operation
+        ///     involving MPIN verification of the participant will return a `B1` error
+        ///     to the UPI payments orchestrator. The user will be forced to
+        ///     re-register with their changed mobile number.
+        /// *   Current state is
+        ///     [MOBILE_NUMBER_CHANGED][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.MOBILE_NUMBER_CHANGED]
+        ///     : This API will make no change to the participant&#39;s state and returns a
+        ///     successful response.
+        </span><span class="kw">pub async fn </span>mobile_number_changed(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ParticipantStateChangeRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::IssuerParticipants&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants/MobileNumberChanged&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants&quot;</span>,
+                        <span class="string">&quot;MobileNumberChanged&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
+}
+<span class="doccomment">/// The payload for the log entry.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpiTransaction {
+    <span class="doccomment">/// A human readable message about the log entry.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
+    <span class="doccomment">/// The severity of the log entry.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::super::super::super::logging::r#type::LogSeverity&quot;</span>,
+        tag = <span class="string">&quot;2&quot;
+    </span>)]
+    </span><span class="kw">pub </span>severity: i32,
+    <span class="doccomment">/// The API type of the transaction.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ApiType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>api_type: i32,
+    <span class="doccomment">/// The XML API type of the transaction.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;XmlApiType&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>xml_api_type: i32,
+    <span class="doccomment">/// The type of the transaction.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TransactionType&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>transaction_type: i32,
+    <span class="doccomment">/// UPI&#39;s transaction ID.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>transaction_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// UPI&#39;s message ID.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>message_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The payment&#39;s RRN. This will be present only for payment related
+    /// transactions.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>rrn: ::prost::alloc::string::String,
+    <span class="doccomment">/// The timestamp at which the payload was received by the issuer switch.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>payload_receipt_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The timestamp at which the payload was sent by the issuer switch.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>payload_sent_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Status of the transaction which could be SUCCESS or FAILURE. This will be
+    /// populated only after transaction is complete.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;transaction_info::State&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>status: i32,
+    <span class="doccomment">/// Issuer switch error code. This will be present only for failed
+    /// transactions.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>error_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// UPI error code that was sent back to NPCI. This will be present only for
+    /// failed transactions.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>upi_error_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Issuer switch error message. This will be present only for failed
+    /// transactions.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
+    <span class="doccomment">/// The ack, request or response payload.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;upi_transaction::Payload&quot;</span>, tags = <span class="string">&quot;15, 16&quot;</span>)]
+    </span><span class="kw">pub </span>payload: ::core::option::Option&lt;upi_transaction::Payload&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `UpiTransaction`.
+</span><span class="kw">pub mod </span>upi_transaction {
+    <span class="doccomment">/// The ack, request or response payload.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Payload {
+        <span class="doccomment">/// The payload in XML format sent to the issuer switch.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+        </span>Sent(::prost::alloc::string::String),
+        <span class="doccomment">/// The payload in XML format received by the issuer switch.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;16&quot;</span>)]
+        </span>Received(::prost::alloc::string::String),
+    }
+}
 <span class="doccomment">/// A rule that is executed by the issuer switch while processing an
 /// API transaction.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -11009,595 +11598,6 @@
                     GrpcMethod::new(
                         <span class="string">&quot;google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchRules&quot;</span>,
                         <span class="string">&quot;BatchDeleteRuleMetadataValues&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-    }
-}
-<span class="doccomment">/// The payload for the log entry.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpiTransaction {
-    <span class="doccomment">/// A human readable message about the log entry.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
-    <span class="doccomment">/// The severity of the log entry.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::super::super::super::logging::r#type::LogSeverity&quot;</span>,
-        tag = <span class="string">&quot;2&quot;
-    </span>)]
-    </span><span class="kw">pub </span>severity: i32,
-    <span class="doccomment">/// The API type of the transaction.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ApiType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>api_type: i32,
-    <span class="doccomment">/// The XML API type of the transaction.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;XmlApiType&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>xml_api_type: i32,
-    <span class="doccomment">/// The type of the transaction.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TransactionType&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>transaction_type: i32,
-    <span class="doccomment">/// UPI&#39;s transaction ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>transaction_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// UPI&#39;s message ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>message_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The payment&#39;s RRN. This will be present only for payment related
-    /// transactions.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>rrn: ::prost::alloc::string::String,
-    <span class="doccomment">/// The timestamp at which the payload was received by the issuer switch.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>payload_receipt_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The timestamp at which the payload was sent by the issuer switch.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>payload_sent_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Status of the transaction which could be SUCCESS or FAILURE. This will be
-    /// populated only after transaction is complete.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;transaction_info::State&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>status: i32,
-    <span class="doccomment">/// Issuer switch error code. This will be present only for failed
-    /// transactions.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>error_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// UPI error code that was sent back to NPCI. This will be present only for
-    /// failed transactions.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>upi_error_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Issuer switch error message. This will be present only for failed
-    /// transactions.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
-    <span class="doccomment">/// The ack, request or response payload.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;upi_transaction::Payload&quot;</span>, tags = <span class="string">&quot;15, 16&quot;</span>)]
-    </span><span class="kw">pub </span>payload: ::core::option::Option&lt;upi_transaction::Payload&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `UpiTransaction`.
-</span><span class="kw">pub mod </span>upi_transaction {
-    <span class="doccomment">/// The ack, request or response payload.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Payload {
-        <span class="doccomment">/// The payload in XML format sent to the issuer switch.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
-        </span>Sent(::prost::alloc::string::String),
-        <span class="doccomment">/// The payload in XML format received by the issuer switch.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;16&quot;</span>)]
-        </span>Received(::prost::alloc::string::String),
-    }
-}
-<span class="doccomment">/// Request for the
-/// \[FetchParticipant][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.FetchParticipant\]
-/// method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FetchParticipantRequest {
-    <span class="doccomment">/// Required. The parent resource for the participants. The format is
-    /// `projects/{project}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The account details of the issuer participant.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>account_reference: ::core::option::Option&lt;AccountReference&gt;,
-}
-<span class="doccomment">/// A customer of the bank who participates in transactions processed by the
-/// issuer switch.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>IssuerParticipant {
-    <span class="doccomment">/// Required. The account details of the issuer participant. Only the
-    /// account_number and ifsc fields will be used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>account_reference: ::core::option::Option&lt;AccountReference&gt;,
-    <span class="doccomment">/// Output only. The mobile number of the participant.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>mobile_number: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The current state of the participant.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;issuer_participant::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Optional. Additional metadata about the participant.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;issuer_participant::Metadata&gt;,
-    <span class="doccomment">/// Output only. The current count of consecutive incorrect MPIN attempts.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>mpin_failure_count: i32,
-    <span class="doccomment">/// Output only. The time when participant&#39;s MPIN got locked due to too many
-    /// incorrect attempts.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>mpin_locked_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The time when the participant&#39;s account was onboarded to PGIS.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The time when the participant was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `IssuerParticipant`.
-</span><span class="kw">pub mod </span>issuer_participant {
-    <span class="doccomment">/// The metadata of the participant.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Metadata {
-        <span class="doccomment">/// Optional. Additional metadata about a particular participant as key-value
-        /// pairs. These values are returned by the bank adapter/card adapter in
-        /// response to the SearchAccounts/InitiateRegistration APIs.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>values: ::prost::alloc::collections::BTreeMap&lt;
-            ::prost::alloc::string::String,
-            ::prost::alloc::string::String,
-        &gt;,
-    }
-    <span class="doccomment">/// The state of the participant.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unspecified state.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The participant is inactive for all UPI transactions. The issuer switch
-        /// will return the `AM` error to the UPI payments orchestrator for any
-        /// operation involving MPIN verification for the participant. They need to
-        /// register with UPI again and provide a new MPIN.
-        </span>Inactive = <span class="number">1</span>,
-        <span class="doccomment">/// The participant is active for all UPI transactions.
-        </span>Active = <span class="number">2</span>,
-        <span class="doccomment">/// The participants MPIN has been locked because they have exceeded the
-        /// threshold for maximum number of incorrect MPIN verification attempts. No
-        /// UPI transactions will be permitted until the participant&#39;s MPIN has been
-        /// reset.
-        </span>MpinLocked = <span class="number">3</span>,
-        <span class="doccomment">/// The participants mobile number has been changed in the issuer bank. Any
-        /// transaction involving MPIN verification of the participant will return a
-        /// `B1` error to the UPI payments orchestrator. The user will be forced to
-        /// re-register with their changed mobile number.
-        </span>MobileNumberChanged = <span class="number">4</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Inactive =&gt; <span class="string">&quot;INACTIVE&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::MpinLocked =&gt; <span class="string">&quot;MPIN_LOCKED&quot;</span>,
-                State::MobileNumberChanged =&gt; <span class="string">&quot;MOBILE_NUMBER_CHANGED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;INACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inactive),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;MPIN_LOCKED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MpinLocked),
-                <span class="string">&quot;MOBILE_NUMBER_CHANGED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MobileNumberChanged),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Request for the
-/// \[UpdateIssuerParticipant][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.UpdateIssuerParticipant\]
-/// method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpdateIssuerParticipantRequest {
-    <span class="doccomment">/// Required. The parent resource for the participants. The format is
-    /// `projects/{project}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The participant to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>issuer_participant: ::core::option::Option&lt;IssuerParticipant&gt;,
-    <span class="doccomment">/// Required. The list of fields to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
-}
-<span class="doccomment">/// Request for the
-/// \[ActivateParticipant][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.ActivateParticipant\],
-/// \[DeactivateParticipant][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.DeactivateParticipant\]
-/// and
-/// \[MobileNumberUpdated][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.MobileNumberChanged\]
-/// methods.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ParticipantStateChangeRequest {
-    <span class="doccomment">/// Required. The parent resource for the participant. The format is
-    /// `projects/{project}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The identifier for the issuer participant. One of the two values must be
-    /// specified.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;participant_state_change_request::Id&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::core::option::Option&lt;participant_state_change_request::Id&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ParticipantStateChangeRequest`.
-</span><span class="kw">pub mod </span>participant_state_change_request {
-    <span class="doccomment">/// The identifier for the issuer participant. One of the two values must be
-    /// specified.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Id {
-        <span class="doccomment">/// Optional. The account details of the issuer participant.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>AccountReference(<span class="kw">super</span>::AccountReference),
-        <span class="doccomment">/// Optional. The mobile number of the issuer participant.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>MobileNumber(::prost::alloc::string::String),
-    }
-}
-<span class="doccomment">/// Response for the
-/// \[ActivateParticipant][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.ActivateParticipant\],
-/// \[DeactivateParticipant][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.DeactivateParticipant\]
-/// and
-/// \[MobileNumberChanged][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.MobileNumberChanged\]
-/// methods.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>IssuerParticipants {
-    <span class="doccomment">/// Output only. The list of updated participants.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>participants: ::prost::alloc::vec::Vec&lt;IssuerParticipant&gt;,
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>issuer_switch_participants_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// A service that allows for the management of participants in the issuer
-    /// switch.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>IssuerSwitchParticipantsClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; IssuerSwitchParticipantsClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; IssuerSwitchParticipantsClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            IssuerSwitchParticipantsClient::new(
-                InterceptedService::new(inner, interceptor),
-            )
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Fetch the issuer switch participant. This method can be used to retrieve
-        /// all details of a participant in the issuer switch.
-        ///
-        /// In UPI, the participant is identified by their account&#39;s IFSC and their
-        /// account number.
-        </span><span class="kw">pub async fn </span>fetch_participant(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::FetchParticipantRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::IssuerParticipant&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants/FetchParticipant&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants&quot;</span>,
-                        <span class="string">&quot;FetchParticipant&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Update the issuer switch participant. Currently, this API only allows for
-        /// the
-        /// [metadata][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.metadata]
-        /// field to be updated.
-        ///
-        /// The `number` of key-value pairs in the `metadata` field, the length of each
-        /// `key` and the length of each `value` should be within the thresholds
-        /// defined for them in the issuer switch configuration. Any violation of these
-        /// thresholds will cause this API to return an error. The default values for
-        /// these thresholds are:
-        ///
-        /// * `Maximum number` of key-value pairs - `5`
-        /// * `Maximum length` of a key - `100`
-        /// * `Maximum length` of a value - `500`
-        ///
-        /// **Note** that this method replaces any existing `metadata` field value in
-        /// the participant with the new value. Specifically, it does not do a merge.
-        /// If key-value pairs are to be added/removed from the metadata, then
-        /// callers must follow the following steps:
-        ///
-        /// 1. Invoke the
-        ///   [FetchParticipant][google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants.FetchParticipant]
-        ///    API to get the current value of the `metadata` field.
-        /// 1. Update the `metadata` map to add/remove key-value pairs from it.
-        /// 1. Update the `metadata` in the issuer switch using this method.
-        </span><span class="kw">pub async fn </span>update_issuer_participant(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdateIssuerParticipantRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::IssuerParticipant&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants/UpdateIssuerParticipant&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants&quot;</span>,
-                        <span class="string">&quot;UpdateIssuerParticipant&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Activate the issuer switch participant for UPI transactions. This API
-        /// sets the state of the participant to
-        /// [ACTIVE][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.ACTIVE].
-        /// A participant in the `ACTIVE` state can perform all UPI operations
-        /// normally.
-        ///
-        /// The behavior of this API varies based on the current state of the
-        /// participant.
-        ///
-        /// *   Current state is
-        ///     [ACTIVE][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.ACTIVE]
-        ///     : This API will make no change to the participant&#39;s state and returns a
-        ///     successful response.
-        /// *    Current state is
-        ///     [INACTIVE][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.INACTIVE]
-        ///     : If an _MPIN_ has already been provisioned for the participant, then
-        ///     this API will change the state of the participant to `ACTIVE`. Else,
-        ///     this API will return an error.
-        /// *   Current state is
-        ///     [MOBILE_NUMBER_CHANGED][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.MOBILE_NUMBER_CHANGED]
-        ///     : The state cannot be changed to `ACTIVE`. This API will return an
-        ///     error.
-        </span><span class="kw">pub async fn </span>activate_participant(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ParticipantStateChangeRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::IssuerParticipants&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants/ActivateParticipant&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants&quot;</span>,
-                        <span class="string">&quot;ActivateParticipant&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Deactivate the issuer switch participant for UPI transactions. This API
-        /// sets the state of the participant to
-        /// [INACTIVE][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.INACTIVE].
-        /// An `INACTIVE` participant cannot perform any UPI operation which involves
-        /// MPIN verification.
-        ///
-        /// The behavior of this API varies based on the current state of the
-        /// participant.
-        ///
-        /// *   Current state is
-        ///     [ACTIVE][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.ACTIVE]
-        ///     : The state will change to `INACTIVE`. The user will be forced to
-        ///     re-register with UPI and reset their MPIN  to perform any UPI
-        ///     operations.
-        /// *   Current state is
-        ///     [INACTIVE][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.INACTIVE]
-        ///     : This API will make no change to the participant&#39;s state and returns a
-        ///     successful response.
-        /// *   Current state is
-        ///     [MOBILE_NUMBER_CHANGED][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.MOBILE_NUMBER_CHANGED]
-        ///     : The state cannot be changed to `INACTIVE`. This API will return an
-        ///     error.
-        </span><span class="kw">pub async fn </span>deactivate_participant(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ParticipantStateChangeRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::IssuerParticipants&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants/DeactivateParticipant&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants&quot;</span>,
-                        <span class="string">&quot;DeactivateParticipant&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Mark the state of the issuer switch participant as _mobile number changed_
-        /// to prevent UPI transactions by the user. This API sets the state of the
-        /// participant to
-        /// [MOBILE_NUMBER_CHANGED][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.MOBILE_NUMBER_CHANGED].
-        ///
-        /// Any UPI operation for a participant in the `MOBILE_NUMBER_CHANGED` state
-        /// will cause the issuer switch to return a `B1` error to the UPI payments
-        /// orchestrator which would force the user to re-register with UPI.
-        ///
-        /// The behavior of this API varies based on the current state of the
-        /// participant.
-        ///
-        /// *   Current state is
-        ///     [ACTIVE][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.ACTIVE]
-        ///     : The state will change to `MOBILE_NUMBER_CHANGED`. Any operation
-        ///     involving MPIN verification of the participant will return a `B1` error
-        ///     to the UPI payments orchestrator. The user will be forced to
-        ///     re-register with their changed mobile number.
-        /// *   Current state is
-        ///     [INACTIVE][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.INACTIVE]
-        ///     : The state will change to `MOBILE_NUMBER_CHANGED`. Any operation
-        ///     involving MPIN verification of the participant will return a `B1` error
-        ///     to the UPI payments orchestrator. The user will be forced to
-        ///     re-register with their changed mobile number.
-        /// *   Current state is
-        ///     [MOBILE_NUMBER_CHANGED][google.cloud.paymentgateway.issuerswitch.v1.IssuerParticipant.State.MOBILE_NUMBER_CHANGED]
-        ///     : This API will make no change to the participant&#39;s state and returns a
-        ///     successful response.
-        </span><span class="kw">pub async fn </span>mobile_number_changed(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ParticipantStateChangeRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::IssuerParticipants&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants/MobileNumberChanged&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants&quot;</span>,
-                        <span class="string">&quot;MobileNumberChanged&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
