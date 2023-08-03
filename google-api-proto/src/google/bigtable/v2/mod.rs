@@ -1,42 +1,3 @@
-/// Response metadata proto
-/// This is an experimental feature that will be used to get zone_id and
-/// cluster_id from response trailers to tag the metrics. This should not be
-/// used by customers directly
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ResponseParams {
-    /// The cloud bigtable zone associated with the cluster.
-    #[prost(string, optional, tag = "1")]
-    pub zone_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Identifier for a cluster that represents set of
-    /// bigtable resources.
-    #[prost(string, optional, tag = "2")]
-    pub cluster_id: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// Feature flags supported by a client.
-/// This is intended to be sent as part of request metadata to assure the server
-/// that certain behaviors are safe to enable. This proto is meant to be
-/// serialized and websafe-base64 encoded under the `bigtable-features` metadata
-/// key. The value will remain constant for the lifetime of a client and due to
-/// HTTP2's HPACK compression, the request overhead will be tiny.
-/// This is an internal implementation detail and should not be used by endusers
-/// directly.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FeatureFlags {
-    /// Notify the server that the client supports reverse scans. The server will
-    /// reject ReadRowsRequests with the reverse bit set when this is absent.
-    #[prost(bool, tag = "1")]
-    pub reverse_scans: bool,
-    /// Notify the server that the client enables batch write flow control by
-    /// requesting RateLimitInfo from MutateRowsResponse.
-    #[prost(bool, tag = "3")]
-    pub mutate_rows_rate_limit: bool,
-    /// Notify the server that the client supports the last_scanned_row field
-    /// in ReadRowsResponse for long-running sparse scans.
-    #[prost(bool, tag = "4")]
-    pub last_scanned_row_responses: bool,
-}
 /// Specifies the complete (requested) contents of a single row of a table.
 /// Rows which exceed 256MiB in size cannot be read in full.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1896,4 +1857,43 @@ pub mod bigtable_client {
             self.inner.server_streaming(req, path, codec).await
         }
     }
+}
+/// Response metadata proto
+/// This is an experimental feature that will be used to get zone_id and
+/// cluster_id from response trailers to tag the metrics. This should not be
+/// used by customers directly
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResponseParams {
+    /// The cloud bigtable zone associated with the cluster.
+    #[prost(string, optional, tag = "1")]
+    pub zone_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Identifier for a cluster that represents set of
+    /// bigtable resources.
+    #[prost(string, optional, tag = "2")]
+    pub cluster_id: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Feature flags supported by a client.
+/// This is intended to be sent as part of request metadata to assure the server
+/// that certain behaviors are safe to enable. This proto is meant to be
+/// serialized and websafe-base64 encoded under the `bigtable-features` metadata
+/// key. The value will remain constant for the lifetime of a client and due to
+/// HTTP2's HPACK compression, the request overhead will be tiny.
+/// This is an internal implementation detail and should not be used by endusers
+/// directly.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeatureFlags {
+    /// Notify the server that the client supports reverse scans. The server will
+    /// reject ReadRowsRequests with the reverse bit set when this is absent.
+    #[prost(bool, tag = "1")]
+    pub reverse_scans: bool,
+    /// Notify the server that the client enables batch write flow control by
+    /// requesting RateLimitInfo from MutateRowsResponse.
+    #[prost(bool, tag = "3")]
+    pub mutate_rows_rate_limit: bool,
+    /// Notify the server that the client supports the last_scanned_row field
+    /// in ReadRowsResponse for long-running sparse scans.
+    #[prost(bool, tag = "4")]
+    pub last_scanned_row_responses: bool,
 }

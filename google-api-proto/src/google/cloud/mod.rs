@@ -453,7 +453,12 @@ pub mod paymentgateway;
 pub mod phishingprotection;
 #[cfg(any(feature = "google-cloud-policysimulator-v1"))]
 pub mod policysimulator;
-#[cfg(any(feature = "google-cloud-policytroubleshooter-v1"))]
+#[cfg(
+    any(
+        feature = "google-cloud-policytroubleshooter-iam-v3beta",
+        feature = "google-cloud-policytroubleshooter-v1",
+    )
+)]
 pub mod policytroubleshooter;
 #[cfg(any(feature = "google-cloud-privatecatalog-v1beta1"))]
 pub mod privatecatalog;
@@ -547,6 +552,8 @@ pub mod sensitiveaction;
     )
 )]
 pub mod servicedirectory;
+#[cfg(any(feature = "google-cloud-servicehealth-logging-v1"))]
+pub mod servicehealth;
 #[cfg(any(feature = "google-cloud-shell-v1"))]
 pub mod shell;
 #[cfg(

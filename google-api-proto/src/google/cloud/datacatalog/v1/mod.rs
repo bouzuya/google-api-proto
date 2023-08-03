@@ -1,80 +1,3 @@
-/// Timestamps associated with this resource in a particular system.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SystemTimestamps {
-    /// Creation timestamp of the resource within the given system.
-    #[prost(message, optional, tag = "1")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Timestamp of the last modification of the resource or its metadata within
-    /// a given system.
-    ///
-    /// Note: Depending on the source system, not every modification updates this
-    /// timestamp.
-    /// For example, BigQuery timestamps every metadata modification but not data
-    /// or permission changes.
-    #[prost(message, optional, tag = "2")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Expiration timestamp of the resource within the given system.
-    ///
-    /// Currently only applicable to BigQuery resources.
-    #[prost(message, optional, tag = "3")]
-    pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Describes a Cloud Storage fileset entry.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GcsFilesetSpec {
-    /// Required. Patterns to identify a set of files in Google Cloud Storage.
-    ///
-    /// For more information, see [Wildcard Names]
-    /// (<https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames>).
-    ///
-    /// Note: Currently, bucket wildcards are not supported.
-    ///
-    /// Examples of valid `file_patterns`:
-    ///
-    ///   * `gs://bucket_name/dir/*`: matches all files in `bucket_name/dir`
-    ///                               directory
-    ///   * `gs://bucket_name/dir/**`: matches all files in `bucket_name/dir`
-    ///                                and all subdirectories
-    ///   * `gs://bucket_name/file*`: matches files prefixed by `file` in
-    ///                               `bucket_name`
-    ///   * `gs://bucket_name/??.txt`: matches files with two characters followed by
-    ///                                `.txt` in `bucket_name`
-    ///   * `gs://bucket_name/\[aeiou\].txt`: matches files that contain a single
-    ///                                     vowel character followed by `.txt` in
-    ///                                     `bucket_name`
-    ///   * `gs://bucket_name/\[a-m\].txt`: matches files that contain `a`, `b`, ...
-    ///                                   or `m` followed by `.txt` in `bucket_name`
-    ///   * `gs://bucket_name/a/*/b`: matches all files in `bucket_name` that match
-    ///                               the `a/*/b` pattern, such as `a/c/b`, `a/d/b`
-    ///   * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
-    ///
-    /// You can combine wildcards to match complex sets of files, for example:
-    ///
-    /// `gs://bucket_name/\[a-m\]??.j*g`
-    #[prost(string, repeated, tag = "1")]
-    pub file_patterns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. Sample files contained in this fileset, not all files
-    /// contained in this fileset are represented here.
-    #[prost(message, repeated, tag = "2")]
-    pub sample_gcs_file_specs: ::prost::alloc::vec::Vec<GcsFileSpec>,
-}
-/// Specification of a single file in Cloud Storage.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GcsFileSpec {
-    /// Required. Full file path. Example: `gs://bucket_name/a/b.txt`.
-    #[prost(string, tag = "1")]
-    pub file_path: ::prost::alloc::string::String,
-    /// Output only. Creation, modification, and expiration timestamps of a Cloud
-    /// Storage file.
-    #[prost(message, optional, tag = "2")]
-    pub gcs_timestamps: ::core::option::Option<SystemTimestamps>,
-    /// Output only. File size in bytes.
-    #[prost(int64, tag = "4")]
-    pub size_bytes: i64,
-}
 /// Entry metadata relevant only to the user and private to them.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -176,6 +99,28 @@ impl ManagingSystem {
             _ => None,
         }
     }
+}
+/// Timestamps associated with this resource in a particular system.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SystemTimestamps {
+    /// Creation timestamp of the resource within the given system.
+    #[prost(message, optional, tag = "1")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Timestamp of the last modification of the resource or its metadata within
+    /// a given system.
+    ///
+    /// Note: Depending on the source system, not every modification updates this
+    /// timestamp.
+    /// For example, BigQuery timestamps every metadata modification but not data
+    /// or permission changes.
+    #[prost(message, optional, tag = "2")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Expiration timestamp of the resource within the given system.
+    ///
+    /// Currently only applicable to BigQuery resources.
+    #[prost(message, optional, tag = "3")]
+    pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
 }
 /// A taxonomy is a collection of hierarchical policy tags that classify data
 /// along a common axis.
@@ -991,6 +936,436 @@ pub mod policy_tag_manager_client {
         }
     }
 }
+/// Specification for the BigQuery connection.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BigQueryConnectionSpec {
+    /// The type of the BigQuery connection.
+    #[prost(enumeration = "big_query_connection_spec::ConnectionType", tag = "1")]
+    pub connection_type: i32,
+    /// True if there are credentials attached to the BigQuery connection; false
+    /// otherwise.
+    #[prost(bool, tag = "3")]
+    pub has_credential: bool,
+    #[prost(oneof = "big_query_connection_spec::ConnectionSpec", tags = "2")]
+    pub connection_spec: ::core::option::Option<
+        big_query_connection_spec::ConnectionSpec,
+    >,
+}
+/// Nested message and enum types in `BigQueryConnectionSpec`.
+pub mod big_query_connection_spec {
+    /// The type of the BigQuery connection.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ConnectionType {
+        /// Unspecified type.
+        Unspecified = 0,
+        /// Cloud SQL connection.
+        CloudSql = 1,
+    }
+    impl ConnectionType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ConnectionType::Unspecified => "CONNECTION_TYPE_UNSPECIFIED",
+                ConnectionType::CloudSql => "CLOUD_SQL",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "CONNECTION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CLOUD_SQL" => Some(Self::CloudSql),
+                _ => None,
+            }
+        }
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum ConnectionSpec {
+        /// Specification for the BigQuery connection to a Cloud SQL instance.
+        #[prost(message, tag = "2")]
+        CloudSql(super::CloudSqlBigQueryConnectionSpec),
+    }
+}
+/// Specification for the BigQuery connection to a Cloud SQL instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CloudSqlBigQueryConnectionSpec {
+    /// Cloud SQL instance ID in the format of `project:location:instance`.
+    #[prost(string, tag = "1")]
+    pub instance_id: ::prost::alloc::string::String,
+    /// Database name.
+    #[prost(string, tag = "2")]
+    pub database: ::prost::alloc::string::String,
+    /// Type of the Cloud SQL database.
+    #[prost(
+        enumeration = "cloud_sql_big_query_connection_spec::DatabaseType",
+        tag = "3"
+    )]
+    pub r#type: i32,
+}
+/// Nested message and enum types in `CloudSqlBigQueryConnectionSpec`.
+pub mod cloud_sql_big_query_connection_spec {
+    /// Supported Cloud SQL database types.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum DatabaseType {
+        /// Unspecified database type.
+        Unspecified = 0,
+        /// Cloud SQL for PostgreSQL.
+        Postgres = 1,
+        /// Cloud SQL for MySQL.
+        Mysql = 2,
+    }
+    impl DatabaseType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                DatabaseType::Unspecified => "DATABASE_TYPE_UNSPECIFIED",
+                DatabaseType::Postgres => "POSTGRES",
+                DatabaseType::Mysql => "MYSQL",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "DATABASE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "POSTGRES" => Some(Self::Postgres),
+                "MYSQL" => Some(Self::Mysql),
+                _ => None,
+            }
+        }
+    }
+}
+/// Fields specific for BigQuery routines.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BigQueryRoutineSpec {
+    /// Paths of the imported libraries.
+    #[prost(string, repeated, tag = "1")]
+    pub imported_libraries: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Physical location of an entry.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DataSource {
+    /// Service that physically stores the data.
+    #[prost(enumeration = "data_source::Service", tag = "1")]
+    pub service: i32,
+    /// Full name of a resource as defined by the service. For example:
+    ///
+    /// `//bigquery.googleapis.com/projects/{PROJECT_ID}/locations/{LOCATION}/datasets/{DATASET_ID}/tables/{TABLE_ID}`
+    #[prost(string, tag = "2")]
+    pub resource: ::prost::alloc::string::String,
+    /// Output only. Data Catalog entry name, if applicable.
+    #[prost(string, tag = "3")]
+    pub source_entry: ::prost::alloc::string::String,
+    #[prost(oneof = "data_source::Properties", tags = "4")]
+    pub properties: ::core::option::Option<data_source::Properties>,
+}
+/// Nested message and enum types in `DataSource`.
+pub mod data_source {
+    /// Name of a service that stores the data.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Service {
+        /// Default unknown service.
+        Unspecified = 0,
+        /// Google Cloud Storage service.
+        CloudStorage = 1,
+        /// BigQuery service.
+        Bigquery = 2,
+    }
+    impl Service {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Service::Unspecified => "SERVICE_UNSPECIFIED",
+                Service::CloudStorage => "CLOUD_STORAGE",
+                Service::Bigquery => "BIGQUERY",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "SERVICE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CLOUD_STORAGE" => Some(Self::CloudStorage),
+                "BIGQUERY" => Some(Self::Bigquery),
+                _ => None,
+            }
+        }
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Properties {
+        /// Detailed properties of the underlying storage.
+        #[prost(message, tag = "4")]
+        StorageProperties(super::StorageProperties),
+    }
+}
+/// Details the properties of the underlying storage.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StorageProperties {
+    /// Patterns to identify a set of files for this fileset.
+    ///
+    /// Examples of a valid `file_pattern`:
+    ///
+    ///   * `gs://bucket_name/dir/*`: matches all files in the `bucket_name/dir`
+    ///                               directory
+    ///   * `gs://bucket_name/dir/**`: matches all files in the `bucket_name/dir`
+    ///                                and all subdirectories recursively
+    ///   * `gs://bucket_name/file*`: matches files prefixed by `file` in
+    ///                               `bucket_name`
+    ///   * `gs://bucket_name/??.txt`: matches files with two characters followed by
+    ///                                `.txt` in `bucket_name`
+    ///   * `gs://bucket_name/\[aeiou\].txt`: matches files that contain a single
+    ///                                     vowel character followed by `.txt` in
+    ///                                     `bucket_name`
+    ///   * `gs://bucket_name/\[a-m\].txt`: matches files that contain `a`, `b`, ...
+    ///                                   or `m` followed by `.txt` in `bucket_name`
+    ///   * `gs://bucket_name/a/*/b`: matches all files in `bucket_name` that match
+    ///                               the `a/*/b` pattern, such as `a/c/b`, `a/d/b`
+    ///   * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
+    #[prost(string, repeated, tag = "1")]
+    pub file_pattern: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// File type in MIME format, for example, `text/plain`.
+    #[prost(string, tag = "2")]
+    pub file_type: ::prost::alloc::string::String,
+}
+/// Native schema used by a resource represented as an entry. Used by query
+/// engines for deserializing and parsing source data.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PhysicalSchema {
+    #[prost(oneof = "physical_schema::Schema", tags = "1, 2, 3, 4, 5, 6")]
+    pub schema: ::core::option::Option<physical_schema::Schema>,
+}
+/// Nested message and enum types in `PhysicalSchema`.
+pub mod physical_schema {
+    /// Schema in Avro JSON format.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AvroSchema {
+        /// JSON source of the Avro schema.
+        #[prost(string, tag = "1")]
+        pub text: ::prost::alloc::string::String,
+    }
+    /// Schema in Thrift format.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ThriftSchema {
+        /// Thrift IDL source of the schema.
+        #[prost(string, tag = "1")]
+        pub text: ::prost::alloc::string::String,
+    }
+    /// Schema in protocol buffer format.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ProtobufSchema {
+        /// Protocol buffer source of the schema.
+        #[prost(string, tag = "1")]
+        pub text: ::prost::alloc::string::String,
+    }
+    /// Marks a Parquet-encoded data source.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ParquetSchema {}
+    /// Marks an ORC-encoded data source.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct OrcSchema {}
+    /// Marks a CSV-encoded data source.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct CsvSchema {}
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Schema {
+        /// Schema in Avro JSON format.
+        #[prost(message, tag = "1")]
+        Avro(AvroSchema),
+        /// Schema in Thrift format.
+        #[prost(message, tag = "2")]
+        Thrift(ThriftSchema),
+        /// Schema in protocol buffer format.
+        #[prost(message, tag = "3")]
+        Protobuf(ProtobufSchema),
+        /// Marks a Parquet-encoded data source.
+        #[prost(message, tag = "4")]
+        Parquet(ParquetSchema),
+        /// Marks an ORC-encoded data source.
+        #[prost(message, tag = "5")]
+        Orc(OrcSchema),
+        /// Marks a CSV-encoded data source.
+        #[prost(message, tag = "6")]
+        Csv(CsvSchema),
+    }
+}
+/// Common Dataplex fields.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DataplexSpec {
+    /// Fully qualified resource name of an asset in Dataplex, to which the
+    /// underlying data source (Cloud Storage bucket or BigQuery dataset) of the
+    /// entity is attached.
+    #[prost(string, tag = "1")]
+    pub asset: ::prost::alloc::string::String,
+    /// Format of the data.
+    #[prost(message, optional, tag = "2")]
+    pub data_format: ::core::option::Option<PhysicalSchema>,
+    /// Compression format of the data, e.g., zip, gzip etc.
+    #[prost(string, tag = "3")]
+    pub compression_format: ::prost::alloc::string::String,
+    /// Project ID of the underlying Cloud Storage or BigQuery data. Note that
+    /// this may not be the same project as the correspondingly Dataplex lake /
+    /// zone / asset.
+    #[prost(string, tag = "4")]
+    pub project_id: ::prost::alloc::string::String,
+}
+/// Entry specyfication for a Dataplex fileset.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DataplexFilesetSpec {
+    /// Common Dataplex fields.
+    #[prost(message, optional, tag = "1")]
+    pub dataplex_spec: ::core::option::Option<DataplexSpec>,
+}
+/// Entry specification for a Dataplex table.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DataplexTableSpec {
+    /// List of external tables registered by Dataplex in other systems based on
+    /// the same underlying data.
+    ///
+    /// External tables allow to query this data in those systems.
+    #[prost(message, repeated, tag = "1")]
+    pub external_tables: ::prost::alloc::vec::Vec<DataplexExternalTable>,
+    /// Common Dataplex fields.
+    #[prost(message, optional, tag = "2")]
+    pub dataplex_spec: ::core::option::Option<DataplexSpec>,
+    /// Indicates if the table schema is managed by the user or not.
+    #[prost(bool, tag = "3")]
+    pub user_managed: bool,
+}
+/// External table registered by Dataplex.
+/// Dataplex publishes data discovered from an asset into multiple other systems
+/// (BigQuery, DPMS) in form of tables. We call them "external tables". External
+/// tables are also synced into the Data Catalog.
+/// This message contains pointers to
+/// those external tables (fully qualified name, resource name et cetera) within
+/// the Data Catalog.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DataplexExternalTable {
+    /// Service in which the external table is registered.
+    #[prost(enumeration = "IntegratedSystem", tag = "1")]
+    pub system: i32,
+    /// Fully qualified name (FQN) of the external table.
+    #[prost(string, tag = "28")]
+    pub fully_qualified_name: ::prost::alloc::string::String,
+    /// Google Cloud resource name of the external table.
+    #[prost(string, tag = "3")]
+    pub google_cloud_resource: ::prost::alloc::string::String,
+    /// Name of the Data Catalog entry representing the external table.
+    #[prost(string, tag = "4")]
+    pub data_catalog_entry: ::prost::alloc::string::String,
+}
+/// Describes a Cloud Storage fileset entry.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcsFilesetSpec {
+    /// Required. Patterns to identify a set of files in Google Cloud Storage.
+    ///
+    /// For more information, see [Wildcard Names]
+    /// (<https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames>).
+    ///
+    /// Note: Currently, bucket wildcards are not supported.
+    ///
+    /// Examples of valid `file_patterns`:
+    ///
+    ///   * `gs://bucket_name/dir/*`: matches all files in `bucket_name/dir`
+    ///                               directory
+    ///   * `gs://bucket_name/dir/**`: matches all files in `bucket_name/dir`
+    ///                                and all subdirectories
+    ///   * `gs://bucket_name/file*`: matches files prefixed by `file` in
+    ///                               `bucket_name`
+    ///   * `gs://bucket_name/??.txt`: matches files with two characters followed by
+    ///                                `.txt` in `bucket_name`
+    ///   * `gs://bucket_name/\[aeiou\].txt`: matches files that contain a single
+    ///                                     vowel character followed by `.txt` in
+    ///                                     `bucket_name`
+    ///   * `gs://bucket_name/\[a-m\].txt`: matches files that contain `a`, `b`, ...
+    ///                                   or `m` followed by `.txt` in `bucket_name`
+    ///   * `gs://bucket_name/a/*/b`: matches all files in `bucket_name` that match
+    ///                               the `a/*/b` pattern, such as `a/c/b`, `a/d/b`
+    ///   * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
+    ///
+    /// You can combine wildcards to match complex sets of files, for example:
+    ///
+    /// `gs://bucket_name/\[a-m\]??.j*g`
+    #[prost(string, repeated, tag = "1")]
+    pub file_patterns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. Sample files contained in this fileset, not all files
+    /// contained in this fileset are represented here.
+    #[prost(message, repeated, tag = "2")]
+    pub sample_gcs_file_specs: ::prost::alloc::vec::Vec<GcsFileSpec>,
+}
+/// Specification of a single file in Cloud Storage.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcsFileSpec {
+    /// Required. Full file path. Example: `gs://bucket_name/a/b.txt`.
+    #[prost(string, tag = "1")]
+    pub file_path: ::prost::alloc::string::String,
+    /// Output only. Creation, modification, and expiration timestamps of a Cloud
+    /// Storage file.
+    #[prost(message, optional, tag = "2")]
+    pub gcs_timestamps: ::core::option::Option<SystemTimestamps>,
+    /// Output only. File size in bytes.
+    #[prost(int64, tag = "4")]
+    pub size_bytes: i64,
+}
 /// Represents a schema, for example, a BigQuery, GoogleSQL, or Avro schema.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1178,176 +1553,6 @@ pub mod column_schema {
         /// Looker specific column info of this column.
         #[prost(message, tag = "18")]
         LookerColumnSpec(LookerColumnSpec),
-    }
-}
-/// Physical location of an entry.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DataSource {
-    /// Service that physically stores the data.
-    #[prost(enumeration = "data_source::Service", tag = "1")]
-    pub service: i32,
-    /// Full name of a resource as defined by the service. For example:
-    ///
-    /// `//bigquery.googleapis.com/projects/{PROJECT_ID}/locations/{LOCATION}/datasets/{DATASET_ID}/tables/{TABLE_ID}`
-    #[prost(string, tag = "2")]
-    pub resource: ::prost::alloc::string::String,
-    /// Output only. Data Catalog entry name, if applicable.
-    #[prost(string, tag = "3")]
-    pub source_entry: ::prost::alloc::string::String,
-    #[prost(oneof = "data_source::Properties", tags = "4")]
-    pub properties: ::core::option::Option<data_source::Properties>,
-}
-/// Nested message and enum types in `DataSource`.
-pub mod data_source {
-    /// Name of a service that stores the data.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Service {
-        /// Default unknown service.
-        Unspecified = 0,
-        /// Google Cloud Storage service.
-        CloudStorage = 1,
-        /// BigQuery service.
-        Bigquery = 2,
-    }
-    impl Service {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Service::Unspecified => "SERVICE_UNSPECIFIED",
-                Service::CloudStorage => "CLOUD_STORAGE",
-                Service::Bigquery => "BIGQUERY",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "SERVICE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CLOUD_STORAGE" => Some(Self::CloudStorage),
-                "BIGQUERY" => Some(Self::Bigquery),
-                _ => None,
-            }
-        }
-    }
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Properties {
-        /// Detailed properties of the underlying storage.
-        #[prost(message, tag = "4")]
-        StorageProperties(super::StorageProperties),
-    }
-}
-/// Details the properties of the underlying storage.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StorageProperties {
-    /// Patterns to identify a set of files for this fileset.
-    ///
-    /// Examples of a valid `file_pattern`:
-    ///
-    ///   * `gs://bucket_name/dir/*`: matches all files in the `bucket_name/dir`
-    ///                               directory
-    ///   * `gs://bucket_name/dir/**`: matches all files in the `bucket_name/dir`
-    ///                                and all subdirectories recursively
-    ///   * `gs://bucket_name/file*`: matches files prefixed by `file` in
-    ///                               `bucket_name`
-    ///   * `gs://bucket_name/??.txt`: matches files with two characters followed by
-    ///                                `.txt` in `bucket_name`
-    ///   * `gs://bucket_name/\[aeiou\].txt`: matches files that contain a single
-    ///                                     vowel character followed by `.txt` in
-    ///                                     `bucket_name`
-    ///   * `gs://bucket_name/\[a-m\].txt`: matches files that contain `a`, `b`, ...
-    ///                                   or `m` followed by `.txt` in `bucket_name`
-    ///   * `gs://bucket_name/a/*/b`: matches all files in `bucket_name` that match
-    ///                               the `a/*/b` pattern, such as `a/c/b`, `a/d/b`
-    ///   * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
-    #[prost(string, repeated, tag = "1")]
-    pub file_pattern: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// File type in MIME format, for example, `text/plain`.
-    #[prost(string, tag = "2")]
-    pub file_type: ::prost::alloc::string::String,
-}
-/// Native schema used by a resource represented as an entry. Used by query
-/// engines for deserializing and parsing source data.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PhysicalSchema {
-    #[prost(oneof = "physical_schema::Schema", tags = "1, 2, 3, 4, 5, 6")]
-    pub schema: ::core::option::Option<physical_schema::Schema>,
-}
-/// Nested message and enum types in `PhysicalSchema`.
-pub mod physical_schema {
-    /// Schema in Avro JSON format.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct AvroSchema {
-        /// JSON source of the Avro schema.
-        #[prost(string, tag = "1")]
-        pub text: ::prost::alloc::string::String,
-    }
-    /// Schema in Thrift format.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ThriftSchema {
-        /// Thrift IDL source of the schema.
-        #[prost(string, tag = "1")]
-        pub text: ::prost::alloc::string::String,
-    }
-    /// Schema in protocol buffer format.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ProtobufSchema {
-        /// Protocol buffer source of the schema.
-        #[prost(string, tag = "1")]
-        pub text: ::prost::alloc::string::String,
-    }
-    /// Marks a Parquet-encoded data source.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ParquetSchema {}
-    /// Marks an ORC-encoded data source.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct OrcSchema {}
-    /// Marks a CSV-encoded data source.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct CsvSchema {}
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Schema {
-        /// Schema in Avro JSON format.
-        #[prost(message, tag = "1")]
-        Avro(AvroSchema),
-        /// Schema in Thrift format.
-        #[prost(message, tag = "2")]
-        Thrift(ThriftSchema),
-        /// Schema in protocol buffer format.
-        #[prost(message, tag = "3")]
-        Protobuf(ProtobufSchema),
-        /// Marks a Parquet-encoded data source.
-        #[prost(message, tag = "4")]
-        Parquet(ParquetSchema),
-        /// Marks an ORC-encoded data source.
-        #[prost(message, tag = "5")]
-        Orc(OrcSchema),
-        /// Marks a CSV-encoded data source.
-        #[prost(message, tag = "6")]
-        Csv(CsvSchema),
     }
 }
 /// Result in the response to a search request.
@@ -1913,211 +2118,6 @@ pub mod field_type {
         #[prost(message, tag = "2")]
         EnumType(EnumType),
     }
-}
-/// Specification for the BigQuery connection.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BigQueryConnectionSpec {
-    /// The type of the BigQuery connection.
-    #[prost(enumeration = "big_query_connection_spec::ConnectionType", tag = "1")]
-    pub connection_type: i32,
-    /// True if there are credentials attached to the BigQuery connection; false
-    /// otherwise.
-    #[prost(bool, tag = "3")]
-    pub has_credential: bool,
-    #[prost(oneof = "big_query_connection_spec::ConnectionSpec", tags = "2")]
-    pub connection_spec: ::core::option::Option<
-        big_query_connection_spec::ConnectionSpec,
-    >,
-}
-/// Nested message and enum types in `BigQueryConnectionSpec`.
-pub mod big_query_connection_spec {
-    /// The type of the BigQuery connection.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ConnectionType {
-        /// Unspecified type.
-        Unspecified = 0,
-        /// Cloud SQL connection.
-        CloudSql = 1,
-    }
-    impl ConnectionType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ConnectionType::Unspecified => "CONNECTION_TYPE_UNSPECIFIED",
-                ConnectionType::CloudSql => "CLOUD_SQL",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "CONNECTION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CLOUD_SQL" => Some(Self::CloudSql),
-                _ => None,
-            }
-        }
-    }
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum ConnectionSpec {
-        /// Specification for the BigQuery connection to a Cloud SQL instance.
-        #[prost(message, tag = "2")]
-        CloudSql(super::CloudSqlBigQueryConnectionSpec),
-    }
-}
-/// Specification for the BigQuery connection to a Cloud SQL instance.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CloudSqlBigQueryConnectionSpec {
-    /// Cloud SQL instance ID in the format of `project:location:instance`.
-    #[prost(string, tag = "1")]
-    pub instance_id: ::prost::alloc::string::String,
-    /// Database name.
-    #[prost(string, tag = "2")]
-    pub database: ::prost::alloc::string::String,
-    /// Type of the Cloud SQL database.
-    #[prost(
-        enumeration = "cloud_sql_big_query_connection_spec::DatabaseType",
-        tag = "3"
-    )]
-    pub r#type: i32,
-}
-/// Nested message and enum types in `CloudSqlBigQueryConnectionSpec`.
-pub mod cloud_sql_big_query_connection_spec {
-    /// Supported Cloud SQL database types.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum DatabaseType {
-        /// Unspecified database type.
-        Unspecified = 0,
-        /// Cloud SQL for PostgreSQL.
-        Postgres = 1,
-        /// Cloud SQL for MySQL.
-        Mysql = 2,
-    }
-    impl DatabaseType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                DatabaseType::Unspecified => "DATABASE_TYPE_UNSPECIFIED",
-                DatabaseType::Postgres => "POSTGRES",
-                DatabaseType::Mysql => "MYSQL",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "DATABASE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "POSTGRES" => Some(Self::Postgres),
-                "MYSQL" => Some(Self::Mysql),
-                _ => None,
-            }
-        }
-    }
-}
-/// Fields specific for BigQuery routines.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BigQueryRoutineSpec {
-    /// Paths of the imported libraries.
-    #[prost(string, repeated, tag = "1")]
-    pub imported_libraries: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Common Dataplex fields.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DataplexSpec {
-    /// Fully qualified resource name of an asset in Dataplex, to which the
-    /// underlying data source (Cloud Storage bucket or BigQuery dataset) of the
-    /// entity is attached.
-    #[prost(string, tag = "1")]
-    pub asset: ::prost::alloc::string::String,
-    /// Format of the data.
-    #[prost(message, optional, tag = "2")]
-    pub data_format: ::core::option::Option<PhysicalSchema>,
-    /// Compression format of the data, e.g., zip, gzip etc.
-    #[prost(string, tag = "3")]
-    pub compression_format: ::prost::alloc::string::String,
-    /// Project ID of the underlying Cloud Storage or BigQuery data. Note that
-    /// this may not be the same project as the correspondingly Dataplex lake /
-    /// zone / asset.
-    #[prost(string, tag = "4")]
-    pub project_id: ::prost::alloc::string::String,
-}
-/// Entry specyfication for a Dataplex fileset.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DataplexFilesetSpec {
-    /// Common Dataplex fields.
-    #[prost(message, optional, tag = "1")]
-    pub dataplex_spec: ::core::option::Option<DataplexSpec>,
-}
-/// Entry specification for a Dataplex table.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DataplexTableSpec {
-    /// List of external tables registered by Dataplex in other systems based on
-    /// the same underlying data.
-    ///
-    /// External tables allow to query this data in those systems.
-    #[prost(message, repeated, tag = "1")]
-    pub external_tables: ::prost::alloc::vec::Vec<DataplexExternalTable>,
-    /// Common Dataplex fields.
-    #[prost(message, optional, tag = "2")]
-    pub dataplex_spec: ::core::option::Option<DataplexSpec>,
-    /// Indicates if the table schema is managed by the user or not.
-    #[prost(bool, tag = "3")]
-    pub user_managed: bool,
-}
-/// External table registered by Dataplex.
-/// Dataplex publishes data discovered from an asset into multiple other systems
-/// (BigQuery, DPMS) in form of tables. We call them "external tables". External
-/// tables are also synced into the Data Catalog.
-/// This message contains pointers to
-/// those external tables (fully qualified name, resource name et cetera) within
-/// the Data Catalog.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DataplexExternalTable {
-    /// Service in which the external table is registered.
-    #[prost(enumeration = "IntegratedSystem", tag = "1")]
-    pub system: i32,
-    /// Fully qualified name (FQN) of the external table.
-    #[prost(string, tag = "28")]
-    pub fully_qualified_name: ::prost::alloc::string::String,
-    /// Google Cloud resource name of the external table.
-    #[prost(string, tag = "3")]
-    pub google_cloud_resource: ::prost::alloc::string::String,
-    /// Name of the Data Catalog entry representing the external table.
-    #[prost(string, tag = "4")]
-    pub data_catalog_entry: ::prost::alloc::string::String,
 }
 /// Detailed statistics on the entry's usage.
 ///
@@ -5271,51 +5271,6 @@ pub mod data_catalog_client {
         }
     }
 }
-/// Wrapper containing Entry and information about Tags
-/// that should and should not be attached to it.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TaggedEntry {
-    /// Optional. Tags that should be ingested into the Data Catalog.
-    /// Caller should populate template name, column and fields.
-    #[prost(message, repeated, tag = "2")]
-    pub present_tags: ::prost::alloc::vec::Vec<Tag>,
-    /// Optional. Tags that should be deleted from the Data Catalog.
-    /// Caller should populate template name and column only.
-    #[prost(message, repeated, tag = "3")]
-    pub absent_tags: ::prost::alloc::vec::Vec<Tag>,
-    /// Required. Entry to be ingested.
-    #[prost(oneof = "tagged_entry::Entry", tags = "1")]
-    pub entry: ::core::option::Option<tagged_entry::Entry>,
-}
-/// Nested message and enum types in `TaggedEntry`.
-pub mod tagged_entry {
-    /// Required. Entry to be ingested.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Entry {
-        /// Non-encrypted Data Catalog v1 Entry.
-        #[prost(message, tag = "1")]
-        V1Entry(super::Entry),
-    }
-}
-/// Wrapper for any item that can be contained in the dump.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DumpItem {
-    #[prost(oneof = "dump_item::Item", tags = "1")]
-    pub item: ::core::option::Option<dump_item::Item>,
-}
-/// Nested message and enum types in `DumpItem`.
-pub mod dump_item {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Item {
-        /// Entry and its tags.
-        #[prost(message, tag = "1")]
-        TaggedEntry(super::TaggedEntry),
-    }
-}
 /// A nested protocol buffer that represents a taxonomy and the hierarchy of its
 /// policy tags. Used for taxonomy replacement, import, and
 /// export.
@@ -5656,5 +5611,50 @@ pub mod policy_tag_manager_serialization_client {
                 );
             self.inner.unary(req, path, codec).await
         }
+    }
+}
+/// Wrapper containing Entry and information about Tags
+/// that should and should not be attached to it.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TaggedEntry {
+    /// Optional. Tags that should be ingested into the Data Catalog.
+    /// Caller should populate template name, column and fields.
+    #[prost(message, repeated, tag = "2")]
+    pub present_tags: ::prost::alloc::vec::Vec<Tag>,
+    /// Optional. Tags that should be deleted from the Data Catalog.
+    /// Caller should populate template name and column only.
+    #[prost(message, repeated, tag = "3")]
+    pub absent_tags: ::prost::alloc::vec::Vec<Tag>,
+    /// Required. Entry to be ingested.
+    #[prost(oneof = "tagged_entry::Entry", tags = "1")]
+    pub entry: ::core::option::Option<tagged_entry::Entry>,
+}
+/// Nested message and enum types in `TaggedEntry`.
+pub mod tagged_entry {
+    /// Required. Entry to be ingested.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Entry {
+        /// Non-encrypted Data Catalog v1 Entry.
+        #[prost(message, tag = "1")]
+        V1Entry(super::Entry),
+    }
+}
+/// Wrapper for any item that can be contained in the dump.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DumpItem {
+    #[prost(oneof = "dump_item::Item", tags = "1")]
+    pub item: ::core::option::Option<dump_item::Item>,
+}
+/// Nested message and enum types in `DumpItem`.
+pub mod dump_item {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Item {
+        /// Entry and its tags.
+        #[prost(message, tag = "1")]
+        TaggedEntry(super::TaggedEntry),
     }
 }

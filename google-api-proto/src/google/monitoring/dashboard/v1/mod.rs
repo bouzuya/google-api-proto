@@ -1,12 +1,3 @@
-/// A widget that groups the other widgets. All widgets that are within
-/// the area spanned by the grouping widget are considered member widgets.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CollapsibleGroup {
-    /// The collapsed state of the widget on first page load.
-    #[prost(bool, tag = "1")]
-    pub collapsed: bool,
-}
 /// A filter to reduce the amount of data charted in relevant widgets.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -101,6 +92,15 @@ pub struct AlertChart {
     ///      projects/\[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID\]
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
+}
+/// A widget that groups the other widgets. All widgets that are within
+/// the area spanned by the grouping widget are considered member widgets.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CollapsibleGroup {
+    /// The collapsed state of the widget on first page load.
+    #[prost(bool, tag = "1")]
+    pub collapsed: bool,
 }
 /// A widget that displays a stream of log.
 #[allow(clippy::derive_partial_eq_without_eq)]

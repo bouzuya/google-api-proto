@@ -315,6 +315,7 @@ pub mod chromeos;
         feature = "google-cloud-paymentgateway-issuerswitch-v1",
         feature = "google-cloud-phishingprotection-v1beta1",
         feature = "google-cloud-policysimulator-v1",
+        feature = "google-cloud-policytroubleshooter-iam-v3beta",
         feature = "google-cloud-policytroubleshooter-v1",
         feature = "google-cloud-privatecatalog-v1beta1",
         feature = "google-cloud-pubsublite-v1",
@@ -353,6 +354,7 @@ pub mod chromeos;
         feature = "google-cloud-sensitiveaction-logging-v1",
         feature = "google-cloud-servicedirectory-v1",
         feature = "google-cloud-servicedirectory-v1beta1",
+        feature = "google-cloud-servicehealth-logging-v1",
         feature = "google-cloud-shell-v1",
         feature = "google-cloud-speech-v1",
         feature = "google-cloud-speech-v1p1beta1",
@@ -507,6 +509,7 @@ pub mod longrunning;
 #[cfg(
     any(
         feature = "google-maps-addressvalidation-v1",
+        feature = "google-maps-aerialview-v1",
         feature = "google-maps-mapsplatformdatasets-v1",
         feature = "google-maps-mapsplatformdatasets-v1alpha",
         feature = "google-maps-places-v1",

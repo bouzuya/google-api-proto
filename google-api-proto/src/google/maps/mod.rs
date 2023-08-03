@@ -1,5 +1,7 @@
 #[cfg(any(feature = "google-maps-addressvalidation-v1"))]
 pub mod addressvalidation;
+#[cfg(any(feature = "google-maps-aerialview-v1"))]
+pub mod aerialview;
 #[cfg(
     any(
         feature = "google-maps-mapsplatformdatasets-v1",
