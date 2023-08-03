@@ -4947,6 +4947,68 @@
         }
     }
 }
+<span class="doccomment">/// The value type of custom columns.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CustomColumnValueTypeEnum {}
+<span class="doccomment">/// Nested message and enum types in `CustomColumnValueTypeEnum`.
+</span><span class="kw">pub mod </span>custom_column_value_type_enum {
+    <span class="doccomment">/// Enum containing possible custom column value types.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>CustomColumnValueType {
+        <span class="doccomment">/// Not specified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Unknown.
+        </span>Unknown = <span class="number">1</span>,
+        <span class="doccomment">/// The custom column value is a string.
+        </span>String = <span class="number">2</span>,
+        <span class="doccomment">/// The custom column value is an int64 number.
+        </span>Int64 = <span class="number">3</span>,
+        <span class="doccomment">/// The custom column value is a double number.
+        </span>Double = <span class="number">4</span>,
+        <span class="doccomment">/// The custom column value is a boolean.
+        </span>Boolean = <span class="number">5</span>,
+    }
+    <span class="kw">impl </span>CustomColumnValueType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                CustomColumnValueType::Unspecified =&gt; <span class="string">&quot;UNSPECIFIED&quot;</span>,
+                CustomColumnValueType::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
+                CustomColumnValueType::String =&gt; <span class="string">&quot;STRING&quot;</span>,
+                CustomColumnValueType::Int64 =&gt; <span class="string">&quot;INT64&quot;</span>,
+                CustomColumnValueType::Double =&gt; <span class="string">&quot;DOUBLE&quot;</span>,
+                CustomColumnValueType::Boolean =&gt; <span class="string">&quot;BOOLEAN&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">&quot;STRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::String),
+                <span class="string">&quot;INT64&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Int64),
+                <span class="string">&quot;DOUBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Double),
+                <span class="string">&quot;BOOLEAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Boolean),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
 <span class="doccomment">/// Container for enum describing types of payable and free interactions.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -9465,68 +9527,6 @@
                 <span class="string">&quot;RULE_BASED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RuleBased),
                 <span class="string">&quot;SIMILAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Similar),
                 <span class="string">&quot;CRM_BASED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CrmBased),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// The value type of custom columns.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CustomColumnValueTypeEnum {}
-<span class="doccomment">/// Nested message and enum types in `CustomColumnValueTypeEnum`.
-</span><span class="kw">pub mod </span>custom_column_value_type_enum {
-    <span class="doccomment">/// Enum containing possible custom column value types.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>CustomColumnValueType {
-        <span class="doccomment">/// Not specified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Unknown.
-        </span>Unknown = <span class="number">1</span>,
-        <span class="doccomment">/// The custom column value is a string.
-        </span>String = <span class="number">2</span>,
-        <span class="doccomment">/// The custom column value is an int64 number.
-        </span>Int64 = <span class="number">3</span>,
-        <span class="doccomment">/// The custom column value is a double number.
-        </span>Double = <span class="number">4</span>,
-        <span class="doccomment">/// The custom column value is a boolean.
-        </span>Boolean = <span class="number">5</span>,
-    }
-    <span class="kw">impl </span>CustomColumnValueType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                CustomColumnValueType::Unspecified =&gt; <span class="string">&quot;UNSPECIFIED&quot;</span>,
-                CustomColumnValueType::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
-                CustomColumnValueType::String =&gt; <span class="string">&quot;STRING&quot;</span>,
-                CustomColumnValueType::Int64 =&gt; <span class="string">&quot;INT64&quot;</span>,
-                CustomColumnValueType::Double =&gt; <span class="string">&quot;DOUBLE&quot;</span>,
-                CustomColumnValueType::Boolean =&gt; <span class="string">&quot;BOOLEAN&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;STRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::String),
-                <span class="string">&quot;INT64&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Int64),
-                <span class="string">&quot;DOUBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Double),
-                <span class="string">&quot;BOOLEAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Boolean),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }

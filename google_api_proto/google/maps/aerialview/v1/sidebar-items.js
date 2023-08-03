@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["aerial_view_client","lookup_video_request","video"],"struct":["LookupVideoRequest","RenderVideoRequest","RenderVideoResponse","Uris","Video","VideoMetadata"]};

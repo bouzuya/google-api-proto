@@ -2572,6 +2572,267 @@
     )
 )]
 </span><span class="kw">pub mod </span>interactionmodel;
+<span class="doccomment">/// Contains information about execution event which happened during processing
+/// Actions Builder conversation request. For an overview of the stages involved
+/// in a conversation request, see
+/// &lt;https://developers.google.com/assistant/conversational/actions.&gt;
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExecutionEvent {
+    <span class="doccomment">/// Timestamp when the event happened.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>event_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// State of the execution during this event.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>execution_state: ::core::option::Option&lt;ExecutionState&gt;,
+    <span class="doccomment">/// Resulting status of particular execution step.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
+    <span class="doccomment">/// List of warnings generated during execution of this Event. Warnings are
+    /// tips for the developer discovered during the conversation request. These
+    /// are usually non-critical and do not halt the execution of the request. For
+    /// example, a warnings might be generated when webhook tries to override a
+    /// custom Type which does not exist. Errors are reported as a failed status
+    /// code, but warnings can be present even when the status is OK.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="kw">pub </span>warning_messages: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Detailed information specific to different of events that may be involved
+    /// in processing a conversation round. The field set here defines the type of
+    /// this event.
+    </span><span class="attr">#[prost(
+        oneof = <span class="string">&quot;execution_event::EventData&quot;</span>,
+        tags = <span class="string">&quot;4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16&quot;
+    </span>)]
+    </span><span class="kw">pub </span>event_data: ::core::option::Option&lt;execution_event::EventData&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ExecutionEvent`.
+</span><span class="kw">pub mod </span>execution_event {
+    <span class="doccomment">/// Detailed information specific to different of events that may be involved
+    /// in processing a conversation round. The field set here defines the type of
+    /// this event.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>EventData {
+        <span class="doccomment">/// User input handling event.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span>UserInput(<span class="kw">super</span>::UserConversationInput),
+        <span class="doccomment">/// Intent matching event.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span>IntentMatch(<span class="kw">super</span>::IntentMatch),
+        <span class="doccomment">/// Condition evaluation event.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span>ConditionsEvaluated(<span class="kw">super</span>::ConditionsEvaluated),
+        <span class="doccomment">/// OnSceneEnter execution event.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span>OnSceneEnter(<span class="kw">super</span>::OnSceneEnter),
+        <span class="doccomment">/// Webhook request dispatch event.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span>WebhookRequest(<span class="kw">super</span>::WebhookRequest),
+        <span class="doccomment">/// Webhook response receipt event.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span>WebhookResponse(<span class="kw">super</span>::WebhookResponse),
+        <span class="doccomment">/// Webhook-initiated transition event.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        </span>WebhookInitiatedTransition(<span class="kw">super</span>::WebhookInitiatedTransition),
+        <span class="doccomment">/// Slot matching event.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
+        </span>SlotMatch(<span class="kw">super</span>::SlotMatch),
+        <span class="doccomment">/// Slot requesting event.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;12&quot;</span>)]
+        </span>SlotRequested(<span class="kw">super</span>::SlotRequested),
+        <span class="doccomment">/// Slot validation event.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
+        </span>SlotValidated(<span class="kw">super</span>::SlotValidated),
+        <span class="doccomment">/// Form filling event.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;14&quot;</span>)]
+        </span>FormFilled(<span class="kw">super</span>::FormFilled),
+        <span class="doccomment">/// Waiting-for-user-input event.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;15&quot;</span>)]
+        </span>WaitingUserInput(<span class="kw">super</span>::WaitingForUserInput),
+        <span class="doccomment">/// End-of-conversation event.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;16&quot;</span>)]
+        </span>EndConversation(<span class="kw">super</span>::EndConversation),
+    }
+}
+<span class="doccomment">/// Current state of the execution.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExecutionState {
+    <span class="doccomment">/// ID of the scene which is currently  active.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>current_scene_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// State of the session storage:
+    /// &lt;https://developers.google.com/assistant/conversational/storage-session&gt;
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>session_storage: ::core::option::Option&lt;::prost_types::Struct&gt;,
+    <span class="doccomment">/// State of the slots filling, if applicable:
+    /// &lt;https://developers.google.com/assistant/conversational/scenes#slot_filling&gt;
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>slots: ::core::option::Option&lt;Slots&gt;,
+    <span class="doccomment">/// Prompt queue:
+    /// &lt;https://developers.google.com/assistant/conversational/prompts&gt;
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>prompt_queue: ::prost::alloc::vec::Vec&lt;conversation::Prompt&gt;,
+    <span class="doccomment">/// State of the user storage:
+    /// &lt;https://developers.google.com/assistant/conversational/storage-user&gt;
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>user_storage: ::core::option::Option&lt;::prost_types::Struct&gt;,
+    <span class="doccomment">/// State of the home storage:
+    /// &lt;https://developers.google.com/assistant/conversational/storage-home&gt;
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>household_storage: ::core::option::Option&lt;::prost_types::Struct&gt;,
+}
+<span class="doccomment">/// Represents the current state of a the scene&#39;s slots.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Slots {
+    <span class="doccomment">/// The current status of slot filling.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;conversation::SlotFillingStatus&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>status: i32,
+    <span class="doccomment">/// The slots associated with the current scene.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>slots: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        conversation::Slot,
+    &gt;,
+}
+<span class="doccomment">/// Information related to user input.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UserConversationInput {
+    <span class="doccomment">/// Type of user input. E.g. keyboard, voice, touch, etc.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Original text input from the user.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>original_query: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Information about triggered intent match (global or within a scene):
+/// &lt;https://developers.google.com/assistant/conversational/intents&gt;
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>IntentMatch {
+    <span class="doccomment">/// Intent id which triggered this interaction.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>intent_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Parameters of intent which triggered this interaction.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>intent_parameters: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        conversation::IntentParameterValue,
+    &gt;,
+    <span class="doccomment">/// Name of the handler attached to this interaction.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>handler: ::prost::alloc::string::String,
+    <span class="doccomment">/// Scene to which this interaction leads to.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>next_scene_id: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Results of conditions evaluation:
+/// &lt;https://developers.google.com/assistant/conversational/scenes#conditions&gt;
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ConditionsEvaluated {
+    <span class="doccomment">/// List of conditions which were evaluated to &#39;false&#39;.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>failed_conditions: ::prost::alloc::vec::Vec&lt;Condition&gt;,
+    <span class="doccomment">/// The first condition which was evaluated to &#39;true&#39;, if any.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>success_condition: ::core::option::Option&lt;Condition&gt;,
+}
+<span class="doccomment">/// Evaluated condition.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Condition {
+    <span class="doccomment">/// Expression specified in this condition.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>expression: ::prost::alloc::string::String,
+    <span class="doccomment">/// Handler name specified in evaluated condition.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>handler: ::prost::alloc::string::String,
+    <span class="doccomment">/// Destination scene specified in evaluated condition.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>next_scene_id: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Information about execution of onSceneEnter stage:
+/// &lt;https://developers.google.com/assistant/conversational/scenes#on_enter&gt;
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>OnSceneEnter {
+    <span class="doccomment">/// Handler name specified in onSceneEnter event.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>handler: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Event triggered by destination scene returned from webhook:
+/// &lt;https://developers.google.com/assistant/conversational/webhooks#transition_scenes&gt;
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>WebhookInitiatedTransition {
+    <span class="doccomment">/// ID of the scene the transition is leading to.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>next_scene_id: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Information about a request dispatched to the Action webhook:
+/// &lt;https://developers.google.com/assistant/conversational/webhooks#payloads&gt;
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>WebhookRequest {
+    <span class="doccomment">/// Payload of the webhook request.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>request_json: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Information about a response received from the Action webhook:
+/// &lt;https://developers.google.com/assistant/conversational/webhooks#payloads&gt;
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>WebhookResponse {
+    <span class="doccomment">/// Payload of the webhook response.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>response_json: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Information about matched slot(s):
+/// &lt;https://developers.google.com/assistant/conversational/scenes#slot_filling&gt;
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SlotMatch {
+    <span class="doccomment">/// Parameters extracted by NLU from user input.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>nlu_parameters: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        conversation::IntentParameterValue,
+    &gt;,
+}
+<span class="doccomment">/// Information about currently requested slot:
+/// &lt;https://developers.google.com/assistant/conversational/scenes#slot_filling&gt;
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SlotRequested {
+    <span class="doccomment">/// Name of the requested slot.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>slot: ::prost::alloc::string::String,
+    <span class="doccomment">/// Slot prompt.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>prompt: ::core::option::Option&lt;conversation::Prompt&gt;,
+}
+<span class="doccomment">/// Event which happens after webhook validation was finished for slot(s):
+/// &lt;https://developers.google.com/assistant/conversational/scenes#slot_filling&gt;
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SlotValidated {}
+<span class="doccomment">/// Event which happens when form is fully filled:
+/// &lt;https://developers.google.com/assistant/conversational/scenes#slot_filling&gt;
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FormFilled {}
+<span class="doccomment">/// Event which happens when system needs user input:
+/// &lt;https://developers.google.com/assistant/conversational/scenes#input&gt;
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>WaitingForUserInput {}
+<span class="doccomment">/// Event which informs that conversation with agent was ended.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EndConversation {}
 <span class="doccomment">/// Information about the encrypted OAuth client secret used in account linking
 /// flows (for AUTH_CODE grant type).
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2687,186 +2948,6 @@
         /// end users to subscribe to these updates.
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>engagement: ::core::option::Option&lt;Engagement&gt;,
-    }
-}
-<span class="doccomment">/// Contains information that&#39;s &quot;transportable&quot; i.e. not specific to any given
-/// project and can be moved between projects.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Manifest {
-    <span class="doccomment">/// Version of the file format. The current file format version is 1.0
-    /// Example: &quot;1.0&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// AccountLinking allows Google to guide the user to sign-in to the App&#39;s web
-/// services.
-///
-/// For Google Sign In and OAuth + Google Sign In linking types, Google generates
-/// a client ID identifying your App to Google (&quot;Client ID issued by Google to
-/// your Actions&quot; on Console UI). This field is read-only and can be checked by
-/// navigating to the Console UI&#39;s Account Linking page.
-/// See: &lt;https://developers.google.com/assistant/identity/google-sign-in&gt;
-///
-/// Note: For all account linking setting types (except for Google Sign In), you
-/// must provide a username and password for a test account in
-/// Settings.testing_instructions for the review team to review the app (they
-/// will not be visible to users).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AccountLinking {
-    <span class="doccomment">/// Required. If `true`, users are allowed to sign up for new accounts via voice.
-    /// If `false`, account creation is only allowed on your website. Select this
-    /// option if you want to display your terms of service or obtain user consents
-    /// during sign-up.
-    /// linking_type cannot be GOOGLE_SIGN_IN when this is `false`.
-    /// linking_type cannot be OAUTH when this is `true`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>enable_account_creation: bool,
-    <span class="doccomment">/// Required. The linking type to use.
-    /// See &lt;https://developers.google.com/assistant/identity&gt; for further details on
-    /// the linking types.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;account_linking::LinkingType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>linking_type: i32,
-    <span class="doccomment">/// Optional. Indicates the type of authentication for OAUTH linking_type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;account_linking::AuthGrantType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>auth_grant_type: i32,
-    <span class="doccomment">/// Optional. Client ID issued by your App to Google.
-    /// This is the OAuth2 Client ID identifying Google to your service.
-    /// Only set when using OAuth.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>app_client_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Endpoint for your sign-in web page that supports OAuth2 code or
-    /// implicit flows.
-    /// URL must use HTTPS.
-    /// Only set when using OAuth.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>authorization_url: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. OAuth2 endpoint for token exchange.
-    /// URL must use HTTPS.
-    /// This is not set when only using OAuth with IMPLICIT grant as the
-    /// linking type.
-    /// Only set when using OAuth.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>token_url: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. List of permissions the user must consent to in order to use
-    /// your service.
-    /// Only set when using OAuth.
-    /// Make sure to provide a Terms of Service in the directory information in
-    /// LocalizedSettings.terms_of_service_url section if specifying this field.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>scopes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Optional. This is the web page on your service which describes the
-    /// permissions the user is granting to Google.
-    /// Only set if using OAuth and Google Sign In.
-    /// Make sure to provide a Terms of Service in the directory information in
-    /// LocalizedSettings.terms_of_service_url section if specifying this field.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>learn_more_url: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. If true, allow Google to transmit client ID and secret via HTTP
-    /// basic auth header. Otherwise, Google uses the client ID and secret inside
-    /// the post body.
-    /// Only set when using OAuth.
-    /// Make sure to provide a Terms of Service in the directory information in
-    /// LocalizedSettings.terms_of_service_url section if specifying this field.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>use_basic_auth_header: bool,
-}
-<span class="doccomment">/// Nested message and enum types in `AccountLinking`.
-</span><span class="kw">pub mod </span>account_linking {
-    <span class="doccomment">/// The type of Account Linking to perform.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>LinkingType {
-        <span class="doccomment">/// Unspecified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Google Sign In linking type.
-        /// If using this linking type, no OAuth-related fields need to be set below.
-        </span>GoogleSignIn = <span class="number">1</span>,
-        <span class="doccomment">/// OAuth and Google Sign In linking type.
-        </span>OauthAndGoogleSignIn = <span class="number">2</span>,
-        <span class="doccomment">/// OAuth linking type.
-        </span>Oauth = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>LinkingType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                LinkingType::Unspecified =&gt; <span class="string">&quot;LINKING_TYPE_UNSPECIFIED&quot;</span>,
-                LinkingType::GoogleSignIn =&gt; <span class="string">&quot;GOOGLE_SIGN_IN&quot;</span>,
-                LinkingType::OauthAndGoogleSignIn =&gt; <span class="string">&quot;OAUTH_AND_GOOGLE_SIGN_IN&quot;</span>,
-                LinkingType::Oauth =&gt; <span class="string">&quot;OAUTH&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;LINKING_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;GOOGLE_SIGN_IN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GoogleSignIn),
-                <span class="string">&quot;OAUTH_AND_GOOGLE_SIGN_IN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OauthAndGoogleSignIn),
-                <span class="string">&quot;OAUTH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Oauth),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// The OAuth2 grant type Google uses to guide the user to sign in to your
-    /// App&#39;s web service.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>AuthGrantType {
-        <span class="doccomment">/// Unspecified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Authorization code grant. Requires you to provide both
-        /// authentication URL and access token URL.
-        </span>AuthCode = <span class="number">1</span>,
-        <span class="doccomment">/// Implicit code grant. Only requires you to provide authentication
-        /// URL.
-        </span>Implicit = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>AuthGrantType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                AuthGrantType::Unspecified =&gt; <span class="string">&quot;AUTH_GRANT_TYPE_UNSPECIFIED&quot;</span>,
-                AuthGrantType::AuthCode =&gt; <span class="string">&quot;AUTH_CODE&quot;</span>,
-                AuthGrantType::Implicit =&gt; <span class="string">&quot;IMPLICIT&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;AUTH_GRANT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AUTH_CODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AuthCode),
-                <span class="string">&quot;IMPLICIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Implicit),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
     }
 }
 <span class="doccomment">/// Styles applied to cards that are presented to users
@@ -3119,6 +3200,186 @@
             }
         }
     }
+}
+<span class="doccomment">/// AccountLinking allows Google to guide the user to sign-in to the App&#39;s web
+/// services.
+///
+/// For Google Sign In and OAuth + Google Sign In linking types, Google generates
+/// a client ID identifying your App to Google (&quot;Client ID issued by Google to
+/// your Actions&quot; on Console UI). This field is read-only and can be checked by
+/// navigating to the Console UI&#39;s Account Linking page.
+/// See: &lt;https://developers.google.com/assistant/identity/google-sign-in&gt;
+///
+/// Note: For all account linking setting types (except for Google Sign In), you
+/// must provide a username and password for a test account in
+/// Settings.testing_instructions for the review team to review the app (they
+/// will not be visible to users).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AccountLinking {
+    <span class="doccomment">/// Required. If `true`, users are allowed to sign up for new accounts via voice.
+    /// If `false`, account creation is only allowed on your website. Select this
+    /// option if you want to display your terms of service or obtain user consents
+    /// during sign-up.
+    /// linking_type cannot be GOOGLE_SIGN_IN when this is `false`.
+    /// linking_type cannot be OAUTH when this is `true`.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>enable_account_creation: bool,
+    <span class="doccomment">/// Required. The linking type to use.
+    /// See &lt;https://developers.google.com/assistant/identity&gt; for further details on
+    /// the linking types.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;account_linking::LinkingType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>linking_type: i32,
+    <span class="doccomment">/// Optional. Indicates the type of authentication for OAUTH linking_type.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;account_linking::AuthGrantType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>auth_grant_type: i32,
+    <span class="doccomment">/// Optional. Client ID issued by your App to Google.
+    /// This is the OAuth2 Client ID identifying Google to your service.
+    /// Only set when using OAuth.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>app_client_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Endpoint for your sign-in web page that supports OAuth2 code or
+    /// implicit flows.
+    /// URL must use HTTPS.
+    /// Only set when using OAuth.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>authorization_url: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. OAuth2 endpoint for token exchange.
+    /// URL must use HTTPS.
+    /// This is not set when only using OAuth with IMPLICIT grant as the
+    /// linking type.
+    /// Only set when using OAuth.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>token_url: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. List of permissions the user must consent to in order to use
+    /// your service.
+    /// Only set when using OAuth.
+    /// Make sure to provide a Terms of Service in the directory information in
+    /// LocalizedSettings.terms_of_service_url section if specifying this field.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>scopes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Optional. This is the web page on your service which describes the
+    /// permissions the user is granting to Google.
+    /// Only set if using OAuth and Google Sign In.
+    /// Make sure to provide a Terms of Service in the directory information in
+    /// LocalizedSettings.terms_of_service_url section if specifying this field.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>learn_more_url: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. If true, allow Google to transmit client ID and secret via HTTP
+    /// basic auth header. Otherwise, Google uses the client ID and secret inside
+    /// the post body.
+    /// Only set when using OAuth.
+    /// Make sure to provide a Terms of Service in the directory information in
+    /// LocalizedSettings.terms_of_service_url section if specifying this field.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>use_basic_auth_header: bool,
+}
+<span class="doccomment">/// Nested message and enum types in `AccountLinking`.
+</span><span class="kw">pub mod </span>account_linking {
+    <span class="doccomment">/// The type of Account Linking to perform.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>LinkingType {
+        <span class="doccomment">/// Unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Google Sign In linking type.
+        /// If using this linking type, no OAuth-related fields need to be set below.
+        </span>GoogleSignIn = <span class="number">1</span>,
+        <span class="doccomment">/// OAuth and Google Sign In linking type.
+        </span>OauthAndGoogleSignIn = <span class="number">2</span>,
+        <span class="doccomment">/// OAuth linking type.
+        </span>Oauth = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>LinkingType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                LinkingType::Unspecified =&gt; <span class="string">&quot;LINKING_TYPE_UNSPECIFIED&quot;</span>,
+                LinkingType::GoogleSignIn =&gt; <span class="string">&quot;GOOGLE_SIGN_IN&quot;</span>,
+                LinkingType::OauthAndGoogleSignIn =&gt; <span class="string">&quot;OAUTH_AND_GOOGLE_SIGN_IN&quot;</span>,
+                LinkingType::Oauth =&gt; <span class="string">&quot;OAUTH&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;LINKING_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;GOOGLE_SIGN_IN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GoogleSignIn),
+                <span class="string">&quot;OAUTH_AND_GOOGLE_SIGN_IN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OauthAndGoogleSignIn),
+                <span class="string">&quot;OAUTH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Oauth),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// The OAuth2 grant type Google uses to guide the user to sign in to your
+    /// App&#39;s web service.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>AuthGrantType {
+        <span class="doccomment">/// Unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Authorization code grant. Requires you to provide both
+        /// authentication URL and access token URL.
+        </span>AuthCode = <span class="number">1</span>,
+        <span class="doccomment">/// Implicit code grant. Only requires you to provide authentication
+        /// URL.
+        </span>Implicit = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>AuthGrantType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                AuthGrantType::Unspecified =&gt; <span class="string">&quot;AUTH_GRANT_TYPE_UNSPECIFIED&quot;</span>,
+                AuthGrantType::AuthCode =&gt; <span class="string">&quot;AUTH_CODE&quot;</span>,
+                AuthGrantType::Implicit =&gt; <span class="string">&quot;IMPLICIT&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;AUTH_GRANT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;AUTH_CODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AuthCode),
+                <span class="string">&quot;IMPLICIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Implicit),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Contains information that&#39;s &quot;transportable&quot; i.e. not specific to any given
+/// project and can be moved between projects.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Manifest {
+    <span class="doccomment">/// Version of the file format. The current file format version is 1.0
+    /// Example: &quot;1.0&quot;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents settings of an Actions project that are not locale specific.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -3503,115 +3764,6 @@
         </span>ResourceBundle(::prost_types::Struct),
     }
 }
-<span class="doccomment">/// Definition of version resource.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Version {
-    <span class="doccomment">/// The unique identifier of the version in the following format.
-    /// `projects/{project}/versions/{version}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The current state of the version.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>version_state: ::core::option::Option&lt;version::VersionState&gt;,
-    <span class="doccomment">/// Email of the user who created this version.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>creator: ::prost::alloc::string::String,
-    <span class="doccomment">/// Timestamp of the last change to this version.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Version`.
-</span><span class="kw">pub mod </span>version {
-    <span class="doccomment">/// Represents the current state of the version.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>VersionState {
-        <span class="doccomment">/// The current state of the version.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;version_state::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>state: i32,
-        <span class="doccomment">/// User-friendly message for the current state of the version.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Nested message and enum types in `VersionState`.
-    </span><span class="kw">pub mod </span>version_state {
-        <span class="doccomment">/// Enum indicating the states that a Version can take. This enum is not yet
-        /// frozen and values maybe added later.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>State {
-            <span class="doccomment">/// Default value of State.
-            </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// The version creation is in progress.
-            </span>CreationInProgress = <span class="number">1</span>,
-            <span class="doccomment">/// The version creation failed.
-            </span>CreationFailed = <span class="number">2</span>,
-            <span class="doccomment">/// The version has been successfully created.
-            </span>Created = <span class="number">3</span>,
-            <span class="doccomment">/// The version is under policy review (aka Approval).
-            </span>ReviewInProgress = <span class="number">4</span>,
-            <span class="doccomment">/// The version has been approved for policy review and can be deployed.
-            </span>Approved = <span class="number">5</span>,
-            <span class="doccomment">/// The version has been conditionally approved but is pending final
-            /// review. It may be rolled back if final review is denied.
-            </span>ConditionallyApproved = <span class="number">6</span>,
-            <span class="doccomment">/// The version has been denied for policy review.
-            </span>Denied = <span class="number">7</span>,
-            <span class="doccomment">/// The version is taken down as entire agent and all versions are taken
-            /// down.
-            </span>UnderTakedown = <span class="number">8</span>,
-            <span class="doccomment">/// The version has been deleted.
-            </span>Deleted = <span class="number">9</span>,
-        }
-        <span class="kw">impl </span>State {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                    State::CreationInProgress =&gt; <span class="string">&quot;CREATION_IN_PROGRESS&quot;</span>,
-                    State::CreationFailed =&gt; <span class="string">&quot;CREATION_FAILED&quot;</span>,
-                    State::Created =&gt; <span class="string">&quot;CREATED&quot;</span>,
-                    State::ReviewInProgress =&gt; <span class="string">&quot;REVIEW_IN_PROGRESS&quot;</span>,
-                    State::Approved =&gt; <span class="string">&quot;APPROVED&quot;</span>,
-                    State::ConditionallyApproved =&gt; <span class="string">&quot;CONDITIONALLY_APPROVED&quot;</span>,
-                    State::Denied =&gt; <span class="string">&quot;DENIED&quot;</span>,
-                    State::UnderTakedown =&gt; <span class="string">&quot;UNDER_TAKEDOWN&quot;</span>,
-                    State::Deleted =&gt; <span class="string">&quot;DELETED&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;CREATION_IN_PROGRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CreationInProgress),
-                    <span class="string">&quot;CREATION_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CreationFailed),
-                    <span class="string">&quot;CREATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Created),
-                    <span class="string">&quot;REVIEW_IN_PROGRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReviewInProgress),
-                    <span class="string">&quot;APPROVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Approved),
-                    <span class="string">&quot;CONDITIONALLY_APPROVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConditionallyApproved),
-                    <span class="string">&quot;DENIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Denied),
-                    <span class="string">&quot;UNDER_TAKEDOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnderTakedown),
-                    <span class="string">&quot;DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
-}
 <span class="doccomment">/// Wrapper for repeated data file. Repeated fields cannot exist in a oneof.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3727,6 +3879,115 @@
         /// &lt;https://developers.google.com/assistant/console/languages-locales&gt;
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    }
+}
+<span class="doccomment">/// Definition of version resource.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Version {
+    <span class="doccomment">/// The unique identifier of the version in the following format.
+    /// `projects/{project}/versions/{version}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The current state of the version.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>version_state: ::core::option::Option&lt;version::VersionState&gt;,
+    <span class="doccomment">/// Email of the user who created this version.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>creator: ::prost::alloc::string::String,
+    <span class="doccomment">/// Timestamp of the last change to this version.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Version`.
+</span><span class="kw">pub mod </span>version {
+    <span class="doccomment">/// Represents the current state of the version.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>VersionState {
+        <span class="doccomment">/// The current state of the version.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;version_state::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>state: i32,
+        <span class="doccomment">/// User-friendly message for the current state of the version.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// Nested message and enum types in `VersionState`.
+    </span><span class="kw">pub mod </span>version_state {
+        <span class="doccomment">/// Enum indicating the states that a Version can take. This enum is not yet
+        /// frozen and values maybe added later.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>State {
+            <span class="doccomment">/// Default value of State.
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// The version creation is in progress.
+            </span>CreationInProgress = <span class="number">1</span>,
+            <span class="doccomment">/// The version creation failed.
+            </span>CreationFailed = <span class="number">2</span>,
+            <span class="doccomment">/// The version has been successfully created.
+            </span>Created = <span class="number">3</span>,
+            <span class="doccomment">/// The version is under policy review (aka Approval).
+            </span>ReviewInProgress = <span class="number">4</span>,
+            <span class="doccomment">/// The version has been approved for policy review and can be deployed.
+            </span>Approved = <span class="number">5</span>,
+            <span class="doccomment">/// The version has been conditionally approved but is pending final
+            /// review. It may be rolled back if final review is denied.
+            </span>ConditionallyApproved = <span class="number">6</span>,
+            <span class="doccomment">/// The version has been denied for policy review.
+            </span>Denied = <span class="number">7</span>,
+            <span class="doccomment">/// The version is taken down as entire agent and all versions are taken
+            /// down.
+            </span>UnderTakedown = <span class="number">8</span>,
+            <span class="doccomment">/// The version has been deleted.
+            </span>Deleted = <span class="number">9</span>,
+        }
+        <span class="kw">impl </span>State {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                    State::CreationInProgress =&gt; <span class="string">&quot;CREATION_IN_PROGRESS&quot;</span>,
+                    State::CreationFailed =&gt; <span class="string">&quot;CREATION_FAILED&quot;</span>,
+                    State::Created =&gt; <span class="string">&quot;CREATED&quot;</span>,
+                    State::ReviewInProgress =&gt; <span class="string">&quot;REVIEW_IN_PROGRESS&quot;</span>,
+                    State::Approved =&gt; <span class="string">&quot;APPROVED&quot;</span>,
+                    State::ConditionallyApproved =&gt; <span class="string">&quot;CONDITIONALLY_APPROVED&quot;</span>,
+                    State::Denied =&gt; <span class="string">&quot;DENIED&quot;</span>,
+                    State::UnderTakedown =&gt; <span class="string">&quot;UNDER_TAKEDOWN&quot;</span>,
+                    State::Deleted =&gt; <span class="string">&quot;DELETED&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;CREATION_IN_PROGRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CreationInProgress),
+                    <span class="string">&quot;CREATION_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CreationFailed),
+                    <span class="string">&quot;CREATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Created),
+                    <span class="string">&quot;REVIEW_IN_PROGRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReviewInProgress),
+                    <span class="string">&quot;APPROVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Approved),
+                    <span class="string">&quot;CONDITIONALLY_APPROVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConditionallyApproved),
+                    <span class="string">&quot;DENIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Denied),
+                    <span class="string">&quot;UNDER_TAKEDOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnderTakedown),
+                    <span class="string">&quot;DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
     }
 }
 <span class="doccomment">/// Streaming RPC request for WriteDraft.
@@ -4412,267 +4673,6 @@
         </span>}
     }
 }
-<span class="doccomment">/// Contains information about execution event which happened during processing
-/// Actions Builder conversation request. For an overview of the stages involved
-/// in a conversation request, see
-/// &lt;https://developers.google.com/assistant/conversational/actions.&gt;
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExecutionEvent {
-    <span class="doccomment">/// Timestamp when the event happened.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>event_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// State of the execution during this event.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>execution_state: ::core::option::Option&lt;ExecutionState&gt;,
-    <span class="doccomment">/// Resulting status of particular execution step.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
-    <span class="doccomment">/// List of warnings generated during execution of this Event. Warnings are
-    /// tips for the developer discovered during the conversation request. These
-    /// are usually non-critical and do not halt the execution of the request. For
-    /// example, a warnings might be generated when webhook tries to override a
-    /// custom Type which does not exist. Errors are reported as a failed status
-    /// code, but warnings can be present even when the status is OK.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;17&quot;</span>)]
-    </span><span class="kw">pub </span>warning_messages: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Detailed information specific to different of events that may be involved
-    /// in processing a conversation round. The field set here defines the type of
-    /// this event.
-    </span><span class="attr">#[prost(
-        oneof = <span class="string">&quot;execution_event::EventData&quot;</span>,
-        tags = <span class="string">&quot;4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16&quot;
-    </span>)]
-    </span><span class="kw">pub </span>event_data: ::core::option::Option&lt;execution_event::EventData&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ExecutionEvent`.
-</span><span class="kw">pub mod </span>execution_event {
-    <span class="doccomment">/// Detailed information specific to different of events that may be involved
-    /// in processing a conversation round. The field set here defines the type of
-    /// this event.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>EventData {
-        <span class="doccomment">/// User input handling event.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
-        </span>UserInput(<span class="kw">super</span>::UserConversationInput),
-        <span class="doccomment">/// Intent matching event.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
-        </span>IntentMatch(<span class="kw">super</span>::IntentMatch),
-        <span class="doccomment">/// Condition evaluation event.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
-        </span>ConditionsEvaluated(<span class="kw">super</span>::ConditionsEvaluated),
-        <span class="doccomment">/// OnSceneEnter execution event.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
-        </span>OnSceneEnter(<span class="kw">super</span>::OnSceneEnter),
-        <span class="doccomment">/// Webhook request dispatch event.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
-        </span>WebhookRequest(<span class="kw">super</span>::WebhookRequest),
-        <span class="doccomment">/// Webhook response receipt event.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
-        </span>WebhookResponse(<span class="kw">super</span>::WebhookResponse),
-        <span class="doccomment">/// Webhook-initiated transition event.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
-        </span>WebhookInitiatedTransition(<span class="kw">super</span>::WebhookInitiatedTransition),
-        <span class="doccomment">/// Slot matching event.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
-        </span>SlotMatch(<span class="kw">super</span>::SlotMatch),
-        <span class="doccomment">/// Slot requesting event.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;12&quot;</span>)]
-        </span>SlotRequested(<span class="kw">super</span>::SlotRequested),
-        <span class="doccomment">/// Slot validation event.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
-        </span>SlotValidated(<span class="kw">super</span>::SlotValidated),
-        <span class="doccomment">/// Form filling event.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;14&quot;</span>)]
-        </span>FormFilled(<span class="kw">super</span>::FormFilled),
-        <span class="doccomment">/// Waiting-for-user-input event.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;15&quot;</span>)]
-        </span>WaitingUserInput(<span class="kw">super</span>::WaitingForUserInput),
-        <span class="doccomment">/// End-of-conversation event.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;16&quot;</span>)]
-        </span>EndConversation(<span class="kw">super</span>::EndConversation),
-    }
-}
-<span class="doccomment">/// Current state of the execution.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExecutionState {
-    <span class="doccomment">/// ID of the scene which is currently  active.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>current_scene_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// State of the session storage:
-    /// &lt;https://developers.google.com/assistant/conversational/storage-session&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>session_storage: ::core::option::Option&lt;::prost_types::Struct&gt;,
-    <span class="doccomment">/// State of the slots filling, if applicable:
-    /// &lt;https://developers.google.com/assistant/conversational/scenes#slot_filling&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>slots: ::core::option::Option&lt;Slots&gt;,
-    <span class="doccomment">/// Prompt queue:
-    /// &lt;https://developers.google.com/assistant/conversational/prompts&gt;
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>prompt_queue: ::prost::alloc::vec::Vec&lt;conversation::Prompt&gt;,
-    <span class="doccomment">/// State of the user storage:
-    /// &lt;https://developers.google.com/assistant/conversational/storage-user&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>user_storage: ::core::option::Option&lt;::prost_types::Struct&gt;,
-    <span class="doccomment">/// State of the home storage:
-    /// &lt;https://developers.google.com/assistant/conversational/storage-home&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>household_storage: ::core::option::Option&lt;::prost_types::Struct&gt;,
-}
-<span class="doccomment">/// Represents the current state of a the scene&#39;s slots.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Slots {
-    <span class="doccomment">/// The current status of slot filling.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;conversation::SlotFillingStatus&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>status: i32,
-    <span class="doccomment">/// The slots associated with the current scene.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>slots: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        conversation::Slot,
-    &gt;,
-}
-<span class="doccomment">/// Information related to user input.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UserConversationInput {
-    <span class="doccomment">/// Type of user input. E.g. keyboard, voice, touch, etc.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
-    <span class="doccomment">/// Original text input from the user.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>original_query: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Information about triggered intent match (global or within a scene):
-/// &lt;https://developers.google.com/assistant/conversational/intents&gt;
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>IntentMatch {
-    <span class="doccomment">/// Intent id which triggered this interaction.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>intent_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Parameters of intent which triggered this interaction.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>intent_parameters: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        conversation::IntentParameterValue,
-    &gt;,
-    <span class="doccomment">/// Name of the handler attached to this interaction.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>handler: ::prost::alloc::string::String,
-    <span class="doccomment">/// Scene to which this interaction leads to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>next_scene_id: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Results of conditions evaluation:
-/// &lt;https://developers.google.com/assistant/conversational/scenes#conditions&gt;
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ConditionsEvaluated {
-    <span class="doccomment">/// List of conditions which were evaluated to &#39;false&#39;.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>failed_conditions: ::prost::alloc::vec::Vec&lt;Condition&gt;,
-    <span class="doccomment">/// The first condition which was evaluated to &#39;true&#39;, if any.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>success_condition: ::core::option::Option&lt;Condition&gt;,
-}
-<span class="doccomment">/// Evaluated condition.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Condition {
-    <span class="doccomment">/// Expression specified in this condition.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>expression: ::prost::alloc::string::String,
-    <span class="doccomment">/// Handler name specified in evaluated condition.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>handler: ::prost::alloc::string::String,
-    <span class="doccomment">/// Destination scene specified in evaluated condition.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>next_scene_id: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Information about execution of onSceneEnter stage:
-/// &lt;https://developers.google.com/assistant/conversational/scenes#on_enter&gt;
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>OnSceneEnter {
-    <span class="doccomment">/// Handler name specified in onSceneEnter event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>handler: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Event triggered by destination scene returned from webhook:
-/// &lt;https://developers.google.com/assistant/conversational/webhooks#transition_scenes&gt;
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>WebhookInitiatedTransition {
-    <span class="doccomment">/// ID of the scene the transition is leading to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>next_scene_id: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Information about a request dispatched to the Action webhook:
-/// &lt;https://developers.google.com/assistant/conversational/webhooks#payloads&gt;
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>WebhookRequest {
-    <span class="doccomment">/// Payload of the webhook request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>request_json: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Information about a response received from the Action webhook:
-/// &lt;https://developers.google.com/assistant/conversational/webhooks#payloads&gt;
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>WebhookResponse {
-    <span class="doccomment">/// Payload of the webhook response.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>response_json: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Information about matched slot(s):
-/// &lt;https://developers.google.com/assistant/conversational/scenes#slot_filling&gt;
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SlotMatch {
-    <span class="doccomment">/// Parameters extracted by NLU from user input.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>nlu_parameters: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        conversation::IntentParameterValue,
-    &gt;,
-}
-<span class="doccomment">/// Information about currently requested slot:
-/// &lt;https://developers.google.com/assistant/conversational/scenes#slot_filling&gt;
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SlotRequested {
-    <span class="doccomment">/// Name of the requested slot.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>slot: ::prost::alloc::string::String,
-    <span class="doccomment">/// Slot prompt.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>prompt: ::core::option::Option&lt;conversation::Prompt&gt;,
-}
-<span class="doccomment">/// Event which happens after webhook validation was finished for slot(s):
-/// &lt;https://developers.google.com/assistant/conversational/scenes#slot_filling&gt;
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SlotValidated {}
-<span class="doccomment">/// Event which happens when form is fully filled:
-/// &lt;https://developers.google.com/assistant/conversational/scenes#slot_filling&gt;
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FormFilled {}
-<span class="doccomment">/// Event which happens when system needs user input:
-/// &lt;https://developers.google.com/assistant/conversational/scenes#input&gt;
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>WaitingForUserInput {}
-<span class="doccomment">/// Event which informs that conversation with agent was ended.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>EndConversation {}
 <span class="doccomment">/// Request for playing a round of the conversation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]

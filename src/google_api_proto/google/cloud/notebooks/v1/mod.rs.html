@@ -5052,91 +5052,7 @@
 <a href="#5052" id="5052">5052</a>
 <a href="#5053" id="5053">5053</a>
 <a href="#5054" id="5054">5054</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Definition of a software environment that is used to start a notebook
-/// instance.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Environment {
-    <span class="doccomment">/// Output only. Name of this environment.
-    /// Format:
-    /// `projects/{project_id}/locations/{location}/environments/{environment_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Display name of this environment for the UI.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// A brief description of this environment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Path to a Bash script that automatically runs after a notebook instance
-    /// fully boots up. The path must be a URL or
-    /// Cloud Storage path. Example: `&quot;gs://path-to-file/file-name&quot;`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>post_startup_script: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The time at which this environment was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Type of the environment; can be one of VM image, or container image.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;environment::ImageType&quot;</span>, tags = <span class="string">&quot;6, 7&quot;</span>)]
-    </span><span class="kw">pub </span>image_type: ::core::option::Option&lt;environment::ImageType&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Environment`.
-</span><span class="kw">pub mod </span>environment {
-    <span class="doccomment">/// Type of the environment; can be one of VM image, or container image.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>ImageType {
-        <span class="doccomment">/// Use a Compute Engine VM image to start the notebook instance.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
-        </span>VmImage(<span class="kw">super</span>::VmImage),
-        <span class="doccomment">/// Use a container image to start the notebook instance.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
-        </span>ContainerImage(<span class="kw">super</span>::ContainerImage),
-    }
-}
-<span class="doccomment">/// Definition of a custom Compute Engine virtual machine image for starting a
-/// notebook instance with the environment installed directly on the VM.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VmImage {
-    <span class="doccomment">/// Required. The name of the Google Cloud project that this VM image belongs to.
-    /// Format: `{project_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
-    <span class="doccomment">/// The reference to an external Compute Engine VM image.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;vm_image::Image&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
-    </span><span class="kw">pub </span>image: ::core::option::Option&lt;vm_image::Image&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `VmImage`.
-</span><span class="kw">pub mod </span>vm_image {
-    <span class="doccomment">/// The reference to an external Compute Engine VM image.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Image {
-        <span class="doccomment">/// Use VM image name to find the image.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>ImageName(::prost::alloc::string::String),
-        <span class="doccomment">/// Use this VM image family to find the image; the newest image in this
-        /// family will be used.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>ImageFamily(::prost::alloc::string::String),
-    }
-}
-<span class="doccomment">/// Definition of a container image for starting a notebook instance with the
-/// environment installed in a container.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ContainerImage {
-    <span class="doccomment">/// Required. The path to the container image repository. For example:
-    /// `gcr.io/{project_id}/{image_name}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>repository: ::prost::alloc::string::String,
-    <span class="doccomment">/// The tag of the container image. If not specified, this defaults
-    /// to the latest tag.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>tag: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// The description a notebook execution workload.
+</pre></div><pre class="rust"><code><span class="doccomment">/// The description a notebook execution workload.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExecutionTemplate {
@@ -5848,6 +5764,90 @@
             }
         }
     }
+}
+<span class="doccomment">/// Definition of a software environment that is used to start a notebook
+/// instance.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Environment {
+    <span class="doccomment">/// Output only. Name of this environment.
+    /// Format:
+    /// `projects/{project_id}/locations/{location}/environments/{environment_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Display name of this environment for the UI.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// A brief description of this environment.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Path to a Bash script that automatically runs after a notebook instance
+    /// fully boots up. The path must be a URL or
+    /// Cloud Storage path. Example: `&quot;gs://path-to-file/file-name&quot;`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>post_startup_script: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The time at which this environment was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Type of the environment; can be one of VM image, or container image.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;environment::ImageType&quot;</span>, tags = <span class="string">&quot;6, 7&quot;</span>)]
+    </span><span class="kw">pub </span>image_type: ::core::option::Option&lt;environment::ImageType&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Environment`.
+</span><span class="kw">pub mod </span>environment {
+    <span class="doccomment">/// Type of the environment; can be one of VM image, or container image.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>ImageType {
+        <span class="doccomment">/// Use a Compute Engine VM image to start the notebook instance.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span>VmImage(<span class="kw">super</span>::VmImage),
+        <span class="doccomment">/// Use a container image to start the notebook instance.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span>ContainerImage(<span class="kw">super</span>::ContainerImage),
+    }
+}
+<span class="doccomment">/// Definition of a custom Compute Engine virtual machine image for starting a
+/// notebook instance with the environment installed directly on the VM.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VmImage {
+    <span class="doccomment">/// Required. The name of the Google Cloud project that this VM image belongs to.
+    /// Format: `{project_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
+    <span class="doccomment">/// The reference to an external Compute Engine VM image.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;vm_image::Image&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="kw">pub </span>image: ::core::option::Option&lt;vm_image::Image&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `VmImage`.
+</span><span class="kw">pub mod </span>vm_image {
+    <span class="doccomment">/// The reference to an external Compute Engine VM image.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Image {
+        <span class="doccomment">/// Use VM image name to find the image.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>ImageName(::prost::alloc::string::String),
+        <span class="doccomment">/// Use this VM image family to find the image; the newest image in this
+        /// family will be used.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>ImageFamily(::prost::alloc::string::String),
+    }
+}
+<span class="doccomment">/// Definition of a container image for starting a notebook instance with the
+/// environment installed in a container.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ContainerImage {
+    <span class="doccomment">/// Required. The path to the container image repository. For example:
+    /// `gcr.io/{project_id}/{image_name}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>repository: ::prost::alloc::string::String,
+    <span class="doccomment">/// The tag of the container image. If not specified, this defaults
+    /// to the latest tag.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>tag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The definition of a Runtime for a managed notebook instance.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

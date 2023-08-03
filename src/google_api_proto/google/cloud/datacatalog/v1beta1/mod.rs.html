@@ -3558,75 +3558,7 @@
 <a href="#3558" id="3558">3558</a>
 <a href="#3559" id="3559">3559</a>
 <a href="#3560" id="3560">3560</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Timestamps about this resource according to a particular system.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SystemTimestamps {
-    <span class="doccomment">/// The creation time of the resource within the given system.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The last-modified time of the resource within the given system.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The expiration time of the resource within the given system.
-    /// Currently only apllicable to BigQuery resources.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Describes a Cloud Storage fileset entry.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GcsFilesetSpec {
-    <span class="doccomment">/// Required. Patterns to identify a set of files in Google Cloud Storage.
-    /// See [Cloud Storage
-    /// documentation](&lt;https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames&gt;)
-    /// for more information. Note that bucket wildcards are currently not
-    /// supported.
-    ///
-    /// Examples of valid file_patterns:
-    ///
-    ///   * `gs://bucket_name/dir/*`: matches all files within `bucket_name/dir`
-    ///                               directory.
-    ///   * `gs://bucket_name/dir/**`: matches all files in `bucket_name/dir`
-    ///                                spanning all subdirectories.
-    ///   * `gs://bucket_name/file*`: matches files prefixed by `file` in
-    ///                               `bucket_name`
-    ///   * `gs://bucket_name/??.txt`: matches files with two characters followed by
-    ///                                `.txt` in `bucket_name`
-    ///   * `gs://bucket_name/\[aeiou\].txt`: matches files that contain a single
-    ///                                     vowel character followed by `.txt` in
-    ///                                     `bucket_name`
-    ///   * `gs://bucket_name/\[a-m\].txt`: matches files that contain `a`, `b`, ...
-    ///                                   or `m` followed by `.txt` in `bucket_name`
-    ///   * `gs://bucket_name/a/*/b`: matches all files in `bucket_name` that match
-    ///                               `a/*/b` pattern, such as `a/c/b`, `a/d/b`
-    ///   * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
-    ///
-    /// You can combine wildcards to provide more powerful matches, for example:
-    ///
-    ///   * `gs://bucket_name/\[a-m\]??.j*g`
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>file_patterns: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. Sample files contained in this fileset, not all files
-    /// contained in this fileset are represented here.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>sample_gcs_file_specs: ::prost::alloc::vec::Vec&lt;GcsFileSpec&gt;,
-}
-<span class="doccomment">/// Specifications of a single file in Cloud Storage.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GcsFileSpec {
-    <span class="doccomment">/// Required. The full file path. Example: `gs://bucket_name/a/b.txt`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>file_path: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Timestamps about the Cloud Storage file.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>gcs_timestamps: ::core::option::Option&lt;SystemTimestamps&gt;,
-    <span class="doccomment">/// Output only. The size of the file, in bytes.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>size_bytes: i64,
-}
-<span class="doccomment">/// This enum describes all the possible systems that Data Catalog integrates
+</pre></div><pre class="rust"><code><span class="doccomment">/// This enum describes all the possible systems that Data Catalog integrates
 /// with.
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -3693,6 +3625,21 @@
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
+}
+<span class="doccomment">/// Timestamps about this resource according to a particular system.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SystemTimestamps {
+    <span class="doccomment">/// The creation time of the resource within the given system.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The last-modified time of the resource within the given system.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The expiration time of the resource within the given system.
+    /// Currently only apllicable to BigQuery resources.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// A taxonomy is a collection of policy tags that classify data along a common
 /// axis. For instance a data *sensitivity* taxonomy could contain policy tags
@@ -4453,6 +4400,59 @@
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
     }
+}
+<span class="doccomment">/// Describes a Cloud Storage fileset entry.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GcsFilesetSpec {
+    <span class="doccomment">/// Required. Patterns to identify a set of files in Google Cloud Storage.
+    /// See [Cloud Storage
+    /// documentation](&lt;https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames&gt;)
+    /// for more information. Note that bucket wildcards are currently not
+    /// supported.
+    ///
+    /// Examples of valid file_patterns:
+    ///
+    ///   * `gs://bucket_name/dir/*`: matches all files within `bucket_name/dir`
+    ///                               directory.
+    ///   * `gs://bucket_name/dir/**`: matches all files in `bucket_name/dir`
+    ///                                spanning all subdirectories.
+    ///   * `gs://bucket_name/file*`: matches files prefixed by `file` in
+    ///                               `bucket_name`
+    ///   * `gs://bucket_name/??.txt`: matches files with two characters followed by
+    ///                                `.txt` in `bucket_name`
+    ///   * `gs://bucket_name/\[aeiou\].txt`: matches files that contain a single
+    ///                                     vowel character followed by `.txt` in
+    ///                                     `bucket_name`
+    ///   * `gs://bucket_name/\[a-m\].txt`: matches files that contain `a`, `b`, ...
+    ///                                   or `m` followed by `.txt` in `bucket_name`
+    ///   * `gs://bucket_name/a/*/b`: matches all files in `bucket_name` that match
+    ///                               `a/*/b` pattern, such as `a/c/b`, `a/d/b`
+    ///   * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
+    ///
+    /// You can combine wildcards to provide more powerful matches, for example:
+    ///
+    ///   * `gs://bucket_name/\[a-m\]??.j*g`
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>file_patterns: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. Sample files contained in this fileset, not all files
+    /// contained in this fileset are represented here.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>sample_gcs_file_specs: ::prost::alloc::vec::Vec&lt;GcsFileSpec&gt;,
+}
+<span class="doccomment">/// Specifications of a single file in Cloud Storage.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GcsFileSpec {
+    <span class="doccomment">/// Required. The full file path. Example: `gs://bucket_name/a/b.txt`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>file_path: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Timestamps about the Cloud Storage file.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>gcs_timestamps: ::core::option::Option&lt;SystemTimestamps&gt;,
+    <span class="doccomment">/// Output only. The size of the file, in bytes.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>size_bytes: i64,
 }
 <span class="doccomment">/// Represents a schema (e.g. BigQuery, GoogleSQL, Avro schema).
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
