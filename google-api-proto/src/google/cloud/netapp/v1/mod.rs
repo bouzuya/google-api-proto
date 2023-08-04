@@ -65,6 +65,7 @@ impl EncryptionType {
         }
     }
 }
+/// GetStoragePoolRequest gets a Storage Pool.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetStoragePoolRequest {
@@ -72,6 +73,7 @@ pub struct GetStoragePoolRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
+/// ListStoragePoolsRequest lists Storage Pools.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListStoragePoolsRequest {
@@ -92,6 +94,7 @@ pub struct ListStoragePoolsRequest {
     #[prost(string, tag = "5")]
     pub filter: ::prost::alloc::string::String,
 }
+/// ListStoragePoolsResponse is the response to a ListStoragePoolsRequest.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListStoragePoolsResponse {
@@ -105,6 +108,7 @@ pub struct ListStoragePoolsResponse {
     #[prost(string, repeated, tag = "3")]
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
+/// CreateStoragePoolRequest creates a Storage Pool.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateStoragePoolRequest {
@@ -120,6 +124,7 @@ pub struct CreateStoragePoolRequest {
     #[prost(message, optional, tag = "3")]
     pub storage_pool: ::core::option::Option<StoragePool>,
 }
+/// UpdateStoragePoolRequest updates a Storage Pool.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateStoragePoolRequest {
@@ -134,6 +139,7 @@ pub struct UpdateStoragePoolRequest {
     #[prost(message, optional, tag = "2")]
     pub storage_pool: ::core::option::Option<StoragePool>,
 }
+/// DeleteStoragePoolRequest deletes a Storage Pool.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteStoragePoolRequest {
@@ -491,6 +497,7 @@ pub mod active_directory {
         }
     }
 }
+/// GetKmsConfigRequest gets a KMS Config.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetKmsConfigRequest {
@@ -498,6 +505,7 @@ pub struct GetKmsConfigRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
+/// ListKmsConfigsRequest lists KMS Configs.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListKmsConfigsRequest {
@@ -518,6 +526,7 @@ pub struct ListKmsConfigsRequest {
     #[prost(string, tag = "5")]
     pub filter: ::prost::alloc::string::String,
 }
+/// ListKmsConfigsResponse is the response to a ListKmsConfigsRequest.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListKmsConfigsResponse {
@@ -531,6 +540,7 @@ pub struct ListKmsConfigsResponse {
     #[prost(string, repeated, tag = "3")]
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
+/// CreateKmsConfigRequest creates a KMS Config.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateKmsConfigRequest {
@@ -546,6 +556,7 @@ pub struct CreateKmsConfigRequest {
     #[prost(message, optional, tag = "3")]
     pub kms_config: ::core::option::Option<KmsConfig>,
 }
+/// UpdateKmsConfigRequest updates a KMS Config.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateKmsConfigRequest {
@@ -560,6 +571,7 @@ pub struct UpdateKmsConfigRequest {
     #[prost(message, optional, tag = "2")]
     pub kms_config: ::core::option::Option<KmsConfig>,
 }
+/// DeleteKmsConfigRequest deletes a KMS Config.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteKmsConfigRequest {
@@ -1247,6 +1259,7 @@ pub struct UpdateSnapshotRequest {
     #[prost(message, optional, tag = "2")]
     pub snapshot: ::core::option::Option<Snapshot>,
 }
+/// Snapshot is a point-in-time version of a Volume's content.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Snapshot {
@@ -1544,6 +1557,9 @@ pub struct Volume {
     /// relationship.
     #[prost(bool, tag = "29")]
     pub has_replication: bool,
+    /// Optional. List of actions that are restricted on this volume.
+    #[prost(enumeration = "RestrictedAction", repeated, packed = "false", tag = "31")]
+    pub restricted_actions: ::prost::alloc::vec::Vec<i32>,
 }
 /// Nested message and enum types in `Volume`.
 pub mod volume {
@@ -1960,6 +1976,35 @@ impl SecurityStyle {
             "SECURITY_STYLE_UNSPECIFIED" => Some(Self::Unspecified),
             "NTFS" => Some(Self::Ntfs),
             "UNIX" => Some(Self::Unix),
+            _ => None,
+        }
+    }
+}
+/// Actions to be restricted for a volume.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum RestrictedAction {
+    /// Unspecified restricted action
+    Unspecified = 0,
+    /// Prevent volume from being deleted when mounted.
+    Delete = 1,
+}
+impl RestrictedAction {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            RestrictedAction::Unspecified => "RESTRICTED_ACTION_UNSPECIFIED",
+            RestrictedAction::Delete => "DELETE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "RESTRICTED_ACTION_UNSPECIFIED" => Some(Self::Unspecified),
+            "DELETE" => Some(Self::Delete),
             _ => None,
         }
     }
