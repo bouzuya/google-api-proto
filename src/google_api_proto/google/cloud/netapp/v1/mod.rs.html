@@ -3081,6 +3081,51 @@
 <a href="#3081" id="3081">3081</a>
 <a href="#3082" id="3082">3082</a>
 <a href="#3083" id="3083">3083</a>
+<a href="#3084" id="3084">3084</a>
+<a href="#3085" id="3085">3085</a>
+<a href="#3086" id="3086">3086</a>
+<a href="#3087" id="3087">3087</a>
+<a href="#3088" id="3088">3088</a>
+<a href="#3089" id="3089">3089</a>
+<a href="#3090" id="3090">3090</a>
+<a href="#3091" id="3091">3091</a>
+<a href="#3092" id="3092">3092</a>
+<a href="#3093" id="3093">3093</a>
+<a href="#3094" id="3094">3094</a>
+<a href="#3095" id="3095">3095</a>
+<a href="#3096" id="3096">3096</a>
+<a href="#3097" id="3097">3097</a>
+<a href="#3098" id="3098">3098</a>
+<a href="#3099" id="3099">3099</a>
+<a href="#3100" id="3100">3100</a>
+<a href="#3101" id="3101">3101</a>
+<a href="#3102" id="3102">3102</a>
+<a href="#3103" id="3103">3103</a>
+<a href="#3104" id="3104">3104</a>
+<a href="#3105" id="3105">3105</a>
+<a href="#3106" id="3106">3106</a>
+<a href="#3107" id="3107">3107</a>
+<a href="#3108" id="3108">3108</a>
+<a href="#3109" id="3109">3109</a>
+<a href="#3110" id="3110">3110</a>
+<a href="#3111" id="3111">3111</a>
+<a href="#3112" id="3112">3112</a>
+<a href="#3113" id="3113">3113</a>
+<a href="#3114" id="3114">3114</a>
+<a href="#3115" id="3115">3115</a>
+<a href="#3116" id="3116">3116</a>
+<a href="#3117" id="3117">3117</a>
+<a href="#3118" id="3118">3118</a>
+<a href="#3119" id="3119">3119</a>
+<a href="#3120" id="3120">3120</a>
+<a href="#3121" id="3121">3121</a>
+<a href="#3122" id="3122">3122</a>
+<a href="#3123" id="3123">3123</a>
+<a href="#3124" id="3124">3124</a>
+<a href="#3125" id="3125">3125</a>
+<a href="#3126" id="3126">3126</a>
+<a href="#3127" id="3127">3127</a>
+<a href="#3128" id="3128">3128</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// The service levels - Storage Pool, Volumes
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -3148,14 +3193,16 @@
         }
     }
 }
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+<span class="doccomment">/// GetStoragePoolRequest gets a Storage Pool.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetStoragePoolRequest {
     <span class="doccomment">/// Required. Name of the storage pool
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+<span class="doccomment">/// ListStoragePoolsRequest lists Storage Pools.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListStoragePoolsRequest {
     <span class="doccomment">/// Required. Parent value
@@ -3175,7 +3222,8 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+<span class="doccomment">/// ListStoragePoolsResponse is the response to a ListStoragePoolsRequest.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListStoragePoolsResponse {
     <span class="doccomment">/// The list of StoragePools
@@ -3188,7 +3236,8 @@
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+<span class="doccomment">/// CreateStoragePoolRequest creates a Storage Pool.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateStoragePoolRequest {
     <span class="doccomment">/// Required. Value for parent.
@@ -3203,7 +3252,8 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>storage_pool: ::core::option::Option&lt;StoragePool&gt;,
 }
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+<span class="doccomment">/// UpdateStoragePoolRequest updates a Storage Pool.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateStoragePoolRequest {
     <span class="doccomment">/// Required. Field mask is used to specify the fields to be overwritten in the
@@ -3217,7 +3267,8 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>storage_pool: ::core::option::Option&lt;StoragePool&gt;,
 }
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+<span class="doccomment">/// DeleteStoragePoolRequest deletes a Storage Pool.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteStoragePoolRequest {
     <span class="doccomment">/// Required. Name of the storage pool
@@ -3574,14 +3625,16 @@
         }
     }
 }
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+<span class="doccomment">/// GetKmsConfigRequest gets a KMS Config.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetKmsConfigRequest {
     <span class="doccomment">/// Required. Name of the KmsConfig
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+<span class="doccomment">/// ListKmsConfigsRequest lists KMS Configs.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListKmsConfigsRequest {
     <span class="doccomment">/// Required. Parent value
@@ -3601,7 +3654,8 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+<span class="doccomment">/// ListKmsConfigsResponse is the response to a ListKmsConfigsRequest.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListKmsConfigsResponse {
     <span class="doccomment">/// The list of KmsConfigs
@@ -3614,7 +3668,8 @@
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+<span class="doccomment">/// CreateKmsConfigRequest creates a KMS Config.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateKmsConfigRequest {
     <span class="doccomment">/// Required. Value for parent.
@@ -3629,7 +3684,8 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>kms_config: ::core::option::Option&lt;KmsConfig&gt;,
 }
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+<span class="doccomment">/// UpdateKmsConfigRequest updates a KMS Config.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateKmsConfigRequest {
     <span class="doccomment">/// Required. Field mask is used to specify the fields to be overwritten in the
@@ -3643,7 +3699,8 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>kms_config: ::core::option::Option&lt;KmsConfig&gt;,
 }
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+<span class="doccomment">/// DeleteKmsConfigRequest deletes a KMS Config.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteKmsConfigRequest {
     <span class="doccomment">/// Required. Name of the KmsConfig.
@@ -4330,7 +4387,8 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>snapshot: ::core::option::Option&lt;Snapshot&gt;,
 }
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+<span class="doccomment">/// Snapshot is a point-in-time version of a Volume&#39;s content.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Snapshot {
     <span class="doccomment">/// Output only. The resource name of the snapshot.
@@ -4627,6 +4685,9 @@
     /// relationship.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;29&quot;</span>)]
     </span><span class="kw">pub </span>has_replication: bool,
+    <span class="doccomment">/// Optional. List of actions that are restricted on this volume.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;RestrictedAction&quot;</span>, repeated, packed = <span class="string">&quot;false&quot;</span>, tag = <span class="string">&quot;31&quot;</span>)]
+    </span><span class="kw">pub </span>restricted_actions: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Volume`.
 </span><span class="kw">pub mod </span>volume {
@@ -5043,6 +5104,35 @@
             <span class="string">&quot;SECURITY_STYLE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
             <span class="string">&quot;NTFS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ntfs),
             <span class="string">&quot;UNIX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unix),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// Actions to be restricted for a volume.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>RestrictedAction {
+    <span class="doccomment">/// Unspecified restricted action
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Prevent volume from being deleted when mounted.
+    </span>Delete = <span class="number">1</span>,
+}
+<span class="kw">impl </span>RestrictedAction {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            RestrictedAction::Unspecified =&gt; <span class="string">&quot;RESTRICTED_ACTION_UNSPECIFIED&quot;</span>,
+            RestrictedAction::Delete =&gt; <span class="string">&quot;DELETE&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;RESTRICTED_ACTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
