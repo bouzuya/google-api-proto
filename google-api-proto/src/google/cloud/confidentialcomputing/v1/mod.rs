@@ -169,12 +169,12 @@ pub struct SignedEntity {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ContainerImageSignature {
-    /// Required. The binary signature payload following the SimpleSigning format
+    /// Optional. The binary signature payload following the SimpleSigning format
     /// <https://github.com/sigstore/cosign/blob/main/specs/SIGNATURE_SPEC.md#simple-signing.>
     /// This payload includes the container image digest.
     #[prost(bytes = "bytes", tag = "1")]
     pub payload: ::prost::bytes::Bytes,
-    /// Required. A signature over the payload.
+    /// Optional. A signature over the payload.
     /// The container image digest is incorporated into the signature as follows:
     /// 1. Generate a SimpleSigning format payload that includes the container
     /// image digest.
@@ -183,10 +183,10 @@ pub struct ContainerImageSignature {
     /// `Sign(sha256(SimpleSigningPayload(sha256(Image Manifest))))`
     #[prost(bytes = "bytes", tag = "2")]
     pub signature: ::prost::bytes::Bytes,
-    /// Required. An associated public key used to verify the signature.
+    /// Optional. Reserved for future use.
     #[prost(bytes = "bytes", tag = "3")]
     pub public_key: ::prost::bytes::Bytes,
-    /// Required. The algorithm used to produce the container image signature.
+    /// Optional. Reserved for future use.
     #[prost(enumeration = "SigningAlgorithm", tag = "4")]
     pub sig_alg: i32,
 }

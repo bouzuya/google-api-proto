@@ -1389,7 +1389,7 @@ pub mod data_profile_spec {
         pub struct BigQueryExport {
             /// Optional. The BigQuery table to export DataProfileScan results to.
             /// Format:
-            /// projects/{project}/datasets/{dataset}/tables/{table}
+            /// //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
             #[prost(string, tag = "1")]
             pub results_table: ::prost::alloc::string::String,
         }
@@ -1732,7 +1732,7 @@ pub mod data_quality_spec {
         pub struct BigQueryExport {
             /// Optional. The BigQuery table to export DataQualityScan results to.
             /// Format:
-            /// projects/{project}/datasets/{dataset}/tables/{table}
+            /// //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
             #[prost(string, tag = "1")]
             pub results_table: ::prost::alloc::string::String,
         }
