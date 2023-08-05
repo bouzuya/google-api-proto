@@ -2236,8 +2236,30 @@
 <a href="#2236" id="2236">2236</a>
 <a href="#2237" id="2237">2237</a>
 <a href="#2238" id="2238">2238</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// A contiguous set of days: startDate, startDate + 1, ..., endDate. Requests
-/// are allowed up to 4 date ranges.
+<a href="#2239" id="2239">2239</a>
+<a href="#2240" id="2240">2240</a>
+<a href="#2241" id="2241">2241</a>
+<a href="#2242" id="2242">2242</a>
+<a href="#2243" id="2243">2243</a>
+<a href="#2244" id="2244">2244</a>
+<a href="#2245" id="2245">2245</a>
+<a href="#2246" id="2246">2246</a>
+<a href="#2247" id="2247">2247</a>
+<a href="#2248" id="2248">2248</a>
+<a href="#2249" id="2249">2249</a>
+<a href="#2250" id="2250">2250</a>
+<a href="#2251" id="2251">2251</a>
+<a href="#2252" id="2252">2252</a>
+<a href="#2253" id="2253">2253</a>
+<a href="#2254" id="2254">2254</a>
+<a href="#2255" id="2255">2255</a>
+<a href="#2256" id="2256">2256</a>
+<a href="#2257" id="2257">2257</a>
+<a href="#2258" id="2258">2258</a>
+<a href="#2259" id="2259">2259</a>
+<a href="#2260" id="2260">2260</a>
+</pre></div><pre class="rust"><code><span class="doccomment">/// A contiguous set of days: `startDate`, `startDate + 1`, ..., `endDate`.
+/// Requests are allowed up to 4 date ranges.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DateRange {
@@ -2260,8 +2282,8 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// A contiguous set of minutes: startMinutesAgo, startMinutesAgo + 1, ...,
-/// endMinutesAgo. Requests are allowed up to 2 minute ranges.
+<span class="doccomment">/// A contiguous set of minutes: `startMinutesAgo`, `startMinutesAgo + 1`, ...,
+/// `endMinutesAgo`. Requests are allowed up to 2 minute ranges.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MinuteRange {
@@ -2824,7 +2846,7 @@
     /// single pivot requests.
     ///
     /// The product of the `limit` for each `pivot` in a `RunPivotReportRequest`
-    /// must not exceed 100,000. For example, a two pivot request with `limit:
+    /// must not exceed 250,000. For example, a two pivot request with `limit:
     /// 1000` in each pivot will fail because the product is `1,000,000`.
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>limit: i64,
@@ -3010,6 +3032,18 @@
 </span><span class="kw">pub struct </span>ResponseMetaData {
     <span class="doccomment">/// If true, indicates some buckets of dimension combinations are rolled into
     /// &quot;(other)&quot; row. This can happen for high cardinality reports.
+    ///
+    /// The metadata parameter dataLossFromOtherRow is populated based on the
+    /// aggregated data table used in the report. The parameter will be accurately
+    /// populated regardless of the filters and limits in the report.
+    ///
+    /// For example, the (other) row could be dropped from the report because the
+    /// request contains a filter on sessionSource = google. This parameter will
+    /// still be populated if data loss from other row was present in the input
+    /// aggregate data used to generate this report.
+    ///
+    /// To learn more, see [About the (other) row and data
+    /// sampling](&lt;https://support.google.com/analytics/answer/13208658#reports&gt;).
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>data_loss_from_other_row: bool,
     <span class="doccomment">/// Describes the schema restrictions actively enforced in creating this
@@ -3248,13 +3282,13 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PropertyQuota {
-    <span class="doccomment">/// Standard Analytics Properties can use up to 25,000 tokens per day;
-    /// Analytics 360 Properties can use 250,000 tokens per day. Most requests
+    <span class="doccomment">/// Standard Analytics Properties can use up to 200,000 tokens per day;
+    /// Analytics 360 Properties can use 2,000,000 tokens per day. Most requests
     /// consume fewer than 10 tokens.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>tokens_per_day: ::core::option::Option&lt;QuotaStatus&gt;,
-    <span class="doccomment">/// Standard Analytics Properties can use up to 5,000 tokens per hour;
-    /// Analytics 360 Properties can use 50,000 tokens per hour. An API request
+    <span class="doccomment">/// Standard Analytics Properties can use up to 40,000 tokens per hour;
+    /// Analytics 360 Properties can use 400,000 tokens per hour. An API request
     /// consumes a single number of tokens, and that number is deducted from all of
     /// the hourly, daily, and per project hourly quotas.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
@@ -3274,9 +3308,9 @@
     /// thresholded dimensions.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>potentially_thresholded_requests_per_hour: ::core::option::Option&lt;QuotaStatus&gt;,
-    <span class="doccomment">/// Analytics Properties can use up to 25% of their tokens per project per
-    /// hour. This amounts to standard Analytics Properties can use up to 1,250
-    /// tokens per project per hour, and Analytics 360 Properties can use 12,500
+    <span class="doccomment">/// Analytics Properties can use up to 35% of their tokens per project per
+    /// hour. This amounts to standard Analytics Properties can use up to 14,000
+    /// tokens per project per hour, and Analytics 360 Properties can use 140,000
     /// tokens per project per hour. An API request consumes a single number of
     /// tokens, and that number is deducted from all of the hourly, daily, and per
     /// project hourly quotas.
@@ -3642,10 +3676,6 @@
     /// `property` should be the same value as in your `runReport` request.
     ///
     /// Example: properties/1234
-    ///
-    /// Set the Property ID to 0 for compatibility checking on dimensions and
-    /// metrics common to all properties. In this special mode, this method will
-    /// not return custom dimensions and metrics.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>property: ::prost::alloc::string::String,
     <span class="doccomment">/// The dimensions in this report. `dimensions` should be the same value as in
@@ -3722,7 +3752,7 @@
     /// must be unspecified.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>date_ranges: ::prost::alloc::vec::Vec&lt;DateRange&gt;,
-    <span class="doccomment">/// Dimension filters allow you to ask for only specific dimension values in
+    <span class="doccomment">/// Dimension filters let you ask for only specific dimension values in
     /// the report. To learn more, see [Fundamentals of Dimension
     /// Filters](&lt;https://developers.google.com/analytics/devguides/reporting/data/v1/basics#dimension_filters&gt;)
     /// for examples. Metrics cannot be used in this filter.
@@ -3744,7 +3774,7 @@
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>offset: i64,
     <span class="doccomment">/// The number of rows to return. If unspecified, 10,000 rows are returned. The
-    /// API returns a maximum of 100,000 rows per request, no matter how many you
+    /// API returns a maximum of 250,000 rows per request, no matter how many you
     /// ask for. `limit` must be positive.
     ///
     /// The API can also return fewer rows than the requested `limit`, if there
@@ -3775,6 +3805,13 @@
     <span class="doccomment">/// If false or unspecified, each row with all metrics equal to 0 will not be
     /// returned. If true, these rows will be returned if they are not separately
     /// removed by a filter.
+    ///
+    /// Regardless of this `keep_empty_rows` setting, only data recorded by the
+    /// Google Analytics (GA4) property can be displayed in a report.
+    ///
+    /// For example if a property never logs a `purchase` event, then a query for
+    /// the `eventName` dimension and  `eventCount` metric will not have a row
+    /// eventName: &quot;purchase&quot; and eventCount: 0.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>keep_empty_rows: bool,
     <span class="doccomment">/// Toggles whether to return the current state of this Analytics Property&#39;s
@@ -3884,6 +3921,13 @@
     <span class="doccomment">/// If false or unspecified, each row with all metrics equal to 0 will not be
     /// returned. If true, these rows will be returned if they are not separately
     /// removed by a filter.
+    ///
+    /// Regardless of this `keep_empty_rows` setting, only data recorded by the
+    /// Google Analytics (GA4) property can be displayed in a report.
+    ///
+    /// For example if a property never logs a `purchase` event, then a query for
+    /// the `eventName` dimension and  `eventCount` metric will not have a row
+    /// eventName: &quot;purchase&quot; and eventCount: 0.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>keep_empty_rows: bool,
     <span class="doccomment">/// Toggles whether to return the current state of this Analytics Property&#39;s
@@ -4072,7 +4116,7 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>metric_filter: ::core::option::Option&lt;FilterExpression&gt;,
     <span class="doccomment">/// The number of rows to return. If unspecified, 10,000 rows are returned. The
-    /// API returns a maximum of 100,000 rows per request, no matter how many you
+    /// API returns a maximum of 250,000 rows per request, no matter how many you
     /// ask for. `limit` must be positive.
     ///
     /// The API can also return fewer rows than the requested `limit`, if there

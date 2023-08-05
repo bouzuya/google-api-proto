@@ -534,12 +534,12 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ContainerImageSignature {
-    <span class="doccomment">/// Required. The binary signature payload following the SimpleSigning format
+    <span class="doccomment">/// Optional. The binary signature payload following the SimpleSigning format
     /// &lt;https://github.com/sigstore/cosign/blob/main/specs/SIGNATURE_SPEC.md#simple-signing.&gt;
     /// This payload includes the container image digest.
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>payload: ::prost::bytes::Bytes,
-    <span class="doccomment">/// Required. A signature over the payload.
+    <span class="doccomment">/// Optional. A signature over the payload.
     /// The container image digest is incorporated into the signature as follows:
     /// 1. Generate a SimpleSigning format payload that includes the container
     /// image digest.
@@ -548,10 +548,10 @@
     /// `Sign(sha256(SimpleSigningPayload(sha256(Image Manifest))))`
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>signature: ::prost::bytes::Bytes,
-    <span class="doccomment">/// Required. An associated public key used to verify the signature.
+    <span class="doccomment">/// Optional. Reserved for future use.
     </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>public_key: ::prost::bytes::Bytes,
-    <span class="doccomment">/// Required. The algorithm used to produce the container image signature.
+    <span class="doccomment">/// Optional. Reserved for future use.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SigningAlgorithm&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>sig_alg: i32,
 }

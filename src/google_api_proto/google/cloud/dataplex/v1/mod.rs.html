@@ -11284,7 +11284,7 @@
         </span><span class="kw">pub struct </span>BigQueryExport {
             <span class="doccomment">/// Optional. The BigQuery table to export DataProfileScan results to.
             /// Format:
-            /// projects/{project}/datasets/{dataset}/tables/{table}
+            /// //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
             </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>results_table: ::prost::alloc::string::String,
         }
@@ -11627,7 +11627,7 @@
         </span><span class="kw">pub struct </span>BigQueryExport {
             <span class="doccomment">/// Optional. The BigQuery table to export DataQualityScan results to.
             /// Format:
-            /// projects/{project}/datasets/{dataset}/tables/{table}
+            /// //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
             </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>results_table: ::prost::alloc::string::String,
         }
