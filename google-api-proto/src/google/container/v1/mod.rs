@@ -6484,6 +6484,18 @@ pub mod monitoring_component_config {
         Scheduler = 4,
         /// kube-controller-manager
         ControllerManager = 5,
+        /// Storage
+        Storage = 7,
+        /// Horizontal Pod Autoscaling
+        Hpa = 8,
+        /// Pod
+        Pod = 9,
+        /// DaemonSet
+        Daemonset = 10,
+        /// Deployment
+        Deployment = 11,
+        /// Statefulset
+        Statefulset = 12,
     }
     impl Component {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -6497,6 +6509,12 @@ pub mod monitoring_component_config {
                 Component::Apiserver => "APISERVER",
                 Component::Scheduler => "SCHEDULER",
                 Component::ControllerManager => "CONTROLLER_MANAGER",
+                Component::Storage => "STORAGE",
+                Component::Hpa => "HPA",
+                Component::Pod => "POD",
+                Component::Daemonset => "DAEMONSET",
+                Component::Deployment => "DEPLOYMENT",
+                Component::Statefulset => "STATEFULSET",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -6507,6 +6525,12 @@ pub mod monitoring_component_config {
                 "APISERVER" => Some(Self::Apiserver),
                 "SCHEDULER" => Some(Self::Scheduler),
                 "CONTROLLER_MANAGER" => Some(Self::ControllerManager),
+                "STORAGE" => Some(Self::Storage),
+                "HPA" => Some(Self::Hpa),
+                "POD" => Some(Self::Pod),
+                "DAEMONSET" => Some(Self::Daemonset),
+                "DEPLOYMENT" => Some(Self::Deployment),
+                "STATEFULSET" => Some(Self::Statefulset),
                 _ => None,
             }
         }
