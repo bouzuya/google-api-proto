@@ -45,7 +45,7 @@ location-id), otherwise an INVALID_ARGUMENT (400) error is returned.</p>
 <p>For global (non-regionalized) requests, use <code>location-id</code> <code>global</code>.
 For example,
 <code>projects/{project-number-or-id}/locations/global/models/general/nmt</code>.</p>
-<p>If not provided, the default Google model (NMT) will be used.</p>
+<p>If not provided, the default Google model (NMT) will be used</p>
 </div><span id="structfield.glossary_config" class="structfield small-section-header"><a href="#structfield.glossary_config" class="anchor field">§</a><code>glossary_config: <a class="enum" href="https://doc.rust-lang.org/1.71.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="struct.TranslateTextGlossaryConfig.html" title="struct google_api_proto::google::cloud::translation::v3::TranslateTextGlossaryConfig">TranslateTextGlossaryConfig</a>&gt;</code></span><div class="docblock"><p>Optional. Glossary to be applied. The glossary must be
 within the same region (have the same location-id) as the model, otherwise
 an INVALID_ARGUMENT (400) error is returned.</p>
