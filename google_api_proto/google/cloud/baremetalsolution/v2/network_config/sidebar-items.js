@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Bandwidth","ServiceCidr","Type"],"struct":["IntakeVlanAttachment"]};

@@ -7859,6 +7859,30 @@
 <a href="#7859" id="7859">7859</a>
 <a href="#7860" id="7860">7860</a>
 <a href="#7861" id="7861">7861</a>
+<a href="#7862" id="7862">7862</a>
+<a href="#7863" id="7863">7863</a>
+<a href="#7864" id="7864">7864</a>
+<a href="#7865" id="7865">7865</a>
+<a href="#7866" id="7866">7866</a>
+<a href="#7867" id="7867">7867</a>
+<a href="#7868" id="7868">7868</a>
+<a href="#7869" id="7869">7869</a>
+<a href="#7870" id="7870">7870</a>
+<a href="#7871" id="7871">7871</a>
+<a href="#7872" id="7872">7872</a>
+<a href="#7873" id="7873">7873</a>
+<a href="#7874" id="7874">7874</a>
+<a href="#7875" id="7875">7875</a>
+<a href="#7876" id="7876">7876</a>
+<a href="#7877" id="7877">7877</a>
+<a href="#7878" id="7878">7878</a>
+<a href="#7879" id="7879">7879</a>
+<a href="#7880" id="7880">7880</a>
+<a href="#7881" id="7881">7881</a>
+<a href="#7882" id="7882">7882</a>
+<a href="#7883" id="7883">7883</a>
+<a href="#7884" id="7884">7884</a>
+<a href="#7885" id="7885">7885</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Parameters that can be configured on Linux nodes.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -14345,6 +14369,18 @@
         </span>Scheduler = <span class="number">4</span>,
         <span class="doccomment">/// kube-controller-manager
         </span>ControllerManager = <span class="number">5</span>,
+        <span class="doccomment">/// Storage
+        </span>Storage = <span class="number">7</span>,
+        <span class="doccomment">/// Horizontal Pod Autoscaling
+        </span>Hpa = <span class="number">8</span>,
+        <span class="doccomment">/// Pod
+        </span>Pod = <span class="number">9</span>,
+        <span class="doccomment">/// DaemonSet
+        </span>Daemonset = <span class="number">10</span>,
+        <span class="doccomment">/// Deployment
+        </span>Deployment = <span class="number">11</span>,
+        <span class="doccomment">/// Statefulset
+        </span>Statefulset = <span class="number">12</span>,
     }
     <span class="kw">impl </span>Component {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -14358,6 +14394,12 @@
                 Component::Apiserver =&gt; <span class="string">&quot;APISERVER&quot;</span>,
                 Component::Scheduler =&gt; <span class="string">&quot;SCHEDULER&quot;</span>,
                 Component::ControllerManager =&gt; <span class="string">&quot;CONTROLLER_MANAGER&quot;</span>,
+                Component::Storage =&gt; <span class="string">&quot;STORAGE&quot;</span>,
+                Component::Hpa =&gt; <span class="string">&quot;HPA&quot;</span>,
+                Component::Pod =&gt; <span class="string">&quot;POD&quot;</span>,
+                Component::Daemonset =&gt; <span class="string">&quot;DAEMONSET&quot;</span>,
+                Component::Deployment =&gt; <span class="string">&quot;DEPLOYMENT&quot;</span>,
+                Component::Statefulset =&gt; <span class="string">&quot;STATEFULSET&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -14368,6 +14410,12 @@
                 <span class="string">&quot;APISERVER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Apiserver),
                 <span class="string">&quot;SCHEDULER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scheduler),
                 <span class="string">&quot;CONTROLLER_MANAGER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ControllerManager),
+                <span class="string">&quot;STORAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Storage),
+                <span class="string">&quot;HPA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hpa),
+                <span class="string">&quot;POD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pod),
+                <span class="string">&quot;DAEMONSET&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Daemonset),
+                <span class="string">&quot;DEPLOYMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deployment),
+                <span class="string">&quot;STATEFULSET&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Statefulset),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }

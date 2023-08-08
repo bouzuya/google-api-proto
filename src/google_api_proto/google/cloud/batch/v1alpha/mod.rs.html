@@ -1943,6 +1943,17 @@
 <a href="#1943" id="1943">1943</a>
 <a href="#1944" id="1944">1944</a>
 <a href="#1945" id="1945">1945</a>
+<a href="#1946" id="1946">1946</a>
+<a href="#1947" id="1947">1947</a>
+<a href="#1948" id="1948">1948</a>
+<a href="#1949" id="1949">1949</a>
+<a href="#1950" id="1950">1950</a>
+<a href="#1951" id="1951">1951</a>
+<a href="#1952" id="1952">1952</a>
+<a href="#1953" id="1953">1953</a>
+<a href="#1954" id="1954">1954</a>
+<a href="#1955" id="1955">1955</a>
+<a href="#1956" id="1956">1956</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Volume describes a volume and parameters for it to be mounted to a VM.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2245,6 +2256,13 @@
         /// password from the Secret Manager;
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
         </span><span class="kw">pub </span>password: ::prost::alloc::string::String,
+        <span class="doccomment">/// Optional. Not yet implemented.
+        /// If set to true, container will run with Image streaming.
+        /// The container runtime will be changed to containerd
+        /// instead of docker. Currently, only imageUri, commands, entrypoint
+        /// and volumes are supported and any other fields will be ignored.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;12&quot;</span>)]
+        </span><span class="kw">pub </span>enable_image_streaming: bool,
     }
     <span class="doccomment">/// Script runnable.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2853,8 +2871,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>JobNotification {
     <span class="doccomment">/// The Pub/Sub topic where notifications like the job state changes
-    /// will be published. This topic exist in the same project as the job
-    /// and billings will be charged to this project.
+    /// will be published. The topic must exist in the same project as
+    /// the job and billings will be charged to this project.
     /// If not specified, no Pub/Sub messages will be sent.
     /// Topic format: `projects/{project}/topics/{topic}`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
@@ -2867,8 +2885,12 @@
 <span class="doccomment">/// Nested message and enum types in `JobNotification`.
 </span><span class="kw">pub mod </span>job_notification {
     <span class="doccomment">/// Message details.
-    /// Describe the attribute that a message should have.
-    /// Without specified message attributes, no message will be sent by default.
+    /// Describe the conditions under which messages will be sent.
+    /// If no attribute is defined, no message will be sent by default.
+    /// One message should specify either the job or the task level attributes,
+    /// but not both. For example,
+    /// job level: JOB_STATE_CHANGED and/or a specified new_job_state;
+    /// task level: TASK_STATE_CHANGED and/or a specified new_task_state.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Message {

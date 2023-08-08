@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["MountPermissions","State"],"struct":["AllowedClient"]};
+window.SIDEBAR_ITEMS = {"enum":["MountPermissions","State","StorageType"],"struct":["AllowedClient"]};

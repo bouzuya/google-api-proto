@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["SnapshotAutoDeleteBehavior","State","StorageType"],"struct":["SnapshotReservationDetail"]};
+window.SIDEBAR_ITEMS = {"enum":["Protocol","SnapshotAutoDeleteBehavior","State","StorageType","WorkloadProfile"],"struct":["SnapshotReservationDetail"]};
