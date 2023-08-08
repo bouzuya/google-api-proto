@@ -735,8 +735,8 @@ pub mod job_status {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct JobNotification {
     /// The Pub/Sub topic where notifications like the job state changes
-    /// will be published. This topic exist in the same project as the job
-    /// and billings will be charged to this project.
+    /// will be published. The topic must exist in the same project as
+    /// the job and billings will be charged to this project.
     /// If not specified, no Pub/Sub messages will be sent.
     /// Topic format: `projects/{project}/topics/{topic}`.
     #[prost(string, tag = "1")]
@@ -749,8 +749,12 @@ pub struct JobNotification {
 /// Nested message and enum types in `JobNotification`.
 pub mod job_notification {
     /// Message details.
-    /// Describe the attribute that a message should have.
-    /// Without specified message attributes, no message will be sent by default.
+    /// Describe the conditions under which messages will be sent.
+    /// If no attribute is defined, no message will be sent by default.
+    /// One message should specify either the job or the task level attributes,
+    /// but not both. For example,
+    /// job level: JOB_STATE_CHANGED and/or a specified new_job_state;
+    /// task level: TASK_STATE_CHANGED and/or a specified new_task_state.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct Message {
