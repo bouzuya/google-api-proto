@@ -1548,7 +1548,7 @@ pub struct Vehicle {
     /// attributes, and each attribute must have a unique key.
     #[prost(message, repeated, tag = "8")]
     pub attributes: ::prost::alloc::vec::Vec<VehicleAttribute>,
-    /// The type of this vehicle.  Can be used to filter vehicles in
+    /// Required. The type of this vehicle.  Can be used to filter vehicles in
     /// `SearchVehicles` results.  Also influences ETA and route calculations.
     #[prost(message, optional, tag = "9")]
     pub vehicle_type: ::core::option::Option<vehicle::VehicleType>,

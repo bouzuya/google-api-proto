@@ -51,7 +51,7 @@ pub struct Step {
     /// final state the configuration is cleared.
     #[prost(
         oneof = "step::StepInfo",
-        tags = "5, 6, 7, 8, 9, 10, 11, 21, 12, 13, 14, 15, 16, 17, 18, 19, 20"
+        tags = "5, 6, 7, 8, 9, 10, 11, 21, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 23"
     )]
     pub step_info: ::core::option::Option<step::StepInfo>,
 }
@@ -91,9 +91,15 @@ pub mod step {
         /// Initial state: packet originating from a Cloud SQL instance.
         /// A CloudSQLInstanceInfo is populated with starting instance information.
         StartFromCloudSqlInstance = 22,
-        /// Initial state: packet originating from a Cloud function.
+        /// Initial state: packet originating from a Cloud Function.
         /// A CloudFunctionInfo is populated with starting function information.
         StartFromCloudFunction = 23,
+        /// Initial state: packet originating from an App Engine service version.
+        /// An AppEngineVersionInfo is populated with starting version information.
+        StartFromAppEngineVersion = 25,
+        /// Initial state: packet originating from a Cloud Run revision.
+        /// A CloudRunRevisionInfo is populated with starting revision information.
+        StartFromCloudRunRevision = 26,
         /// Config checking state: verify ingress firewall rule.
         ApplyIngressFirewallRule = 4,
         /// Config checking state: verify egress firewall rule.
@@ -149,6 +155,8 @@ pub mod step {
                 State::StartFromGkeMaster => "START_FROM_GKE_MASTER",
                 State::StartFromCloudSqlInstance => "START_FROM_CLOUD_SQL_INSTANCE",
                 State::StartFromCloudFunction => "START_FROM_CLOUD_FUNCTION",
+                State::StartFromAppEngineVersion => "START_FROM_APP_ENGINE_VERSION",
+                State::StartFromCloudRunRevision => "START_FROM_CLOUD_RUN_REVISION",
                 State::ApplyIngressFirewallRule => "APPLY_INGRESS_FIREWALL_RULE",
                 State::ApplyEgressFirewallRule => "APPLY_EGRESS_FIREWALL_RULE",
                 State::ApplyRoute => "APPLY_ROUTE",
@@ -179,6 +187,8 @@ pub mod step {
                 "START_FROM_GKE_MASTER" => Some(Self::StartFromGkeMaster),
                 "START_FROM_CLOUD_SQL_INSTANCE" => Some(Self::StartFromCloudSqlInstance),
                 "START_FROM_CLOUD_FUNCTION" => Some(Self::StartFromCloudFunction),
+                "START_FROM_APP_ENGINE_VERSION" => Some(Self::StartFromAppEngineVersion),
+                "START_FROM_CLOUD_RUN_REVISION" => Some(Self::StartFromCloudRunRevision),
                 "APPLY_INGRESS_FIREWALL_RULE" => Some(Self::ApplyIngressFirewallRule),
                 "APPLY_EGRESS_FIREWALL_RULE" => Some(Self::ApplyEgressFirewallRule),
                 "APPLY_ROUTE" => Some(Self::ApplyRoute),
@@ -264,9 +274,15 @@ pub mod step {
         /// Display information of a Cloud SQL instance.
         #[prost(message, tag = "19")]
         CloudSqlInstance(super::CloudSqlInstanceInfo),
-        /// Display information of a Cloud function.
+        /// Display information of a Cloud Function.
         #[prost(message, tag = "20")]
         CloudFunction(super::CloudFunctionInfo),
+        /// Display information of an App Engine service version.
+        #[prost(message, tag = "22")]
+        AppEngineVersion(super::AppEngineVersionInfo),
+        /// Display information of a Cloud Run revision.
+        #[prost(message, tag = "23")]
+        CloudRunRevision(super::CloudRunRevisionInfo),
     }
 }
 /// For display only. Metadata associated with a Compute Engine instance.
@@ -1516,22 +1532,56 @@ pub struct CloudSqlInstanceInfo {
     #[prost(string, tag = "7")]
     pub region: ::prost::alloc::string::String,
 }
-/// For display only. Metadata associated with a Cloud function.
+/// For display only. Metadata associated with a Cloud Function.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CloudFunctionInfo {
-    /// Name of a Cloud function.
+    /// Name of a Cloud Function.
     #[prost(string, tag = "1")]
     pub display_name: ::prost::alloc::string::String,
-    /// URI of a Cloud function.
+    /// URI of a Cloud Function.
     #[prost(string, tag = "2")]
     pub uri: ::prost::alloc::string::String,
-    /// Location in which the Cloud function is deployed.
+    /// Location in which the Cloud Function is deployed.
     #[prost(string, tag = "3")]
     pub location: ::prost::alloc::string::String,
-    /// Latest successfully deployed version id of the Cloud function.
+    /// Latest successfully deployed version id of the Cloud Function.
     #[prost(int64, tag = "4")]
     pub version_id: i64,
+}
+/// For display only. Metadata associated with a Cloud Run revision.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CloudRunRevisionInfo {
+    /// Name of a Cloud Run revision.
+    #[prost(string, tag = "1")]
+    pub display_name: ::prost::alloc::string::String,
+    /// URI of a Cloud Run revision.
+    #[prost(string, tag = "2")]
+    pub uri: ::prost::alloc::string::String,
+    /// Location in which this revision is deployed.
+    #[prost(string, tag = "4")]
+    pub location: ::prost::alloc::string::String,
+    /// URI of Cloud Run service this revision belongs to.
+    #[prost(string, tag = "5")]
+    pub service_uri: ::prost::alloc::string::String,
+}
+/// For display only. Metadata associated with an App Engine version.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AppEngineVersionInfo {
+    /// Name of an App Engine version.
+    #[prost(string, tag = "1")]
+    pub display_name: ::prost::alloc::string::String,
+    /// URI of an App Engine version.
+    #[prost(string, tag = "2")]
+    pub uri: ::prost::alloc::string::String,
+    /// Runtime of the App Engine version.
+    #[prost(string, tag = "3")]
+    pub runtime: ::prost::alloc::string::String,
+    /// App Engine execution environment for a version.
+    #[prost(string, tag = "4")]
+    pub environment: ::prost::alloc::string::String,
 }
 /// For display only. Metadata associated with a VPC connector.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1669,9 +1719,17 @@ pub struct Endpoint {
     /// A [Cloud SQL](<https://cloud.google.com/sql>) instance URI.
     #[prost(string, tag = "8")]
     pub cloud_sql_instance: ::prost::alloc::string::String,
-    /// A [Cloud function](<https://cloud.google.com/functions>).
+    /// A [Cloud Function](<https://cloud.google.com/functions>).
     #[prost(message, optional, tag = "10")]
     pub cloud_function: ::core::option::Option<endpoint::CloudFunctionEndpoint>,
+    /// An [App Engine](<https://cloud.google.com/appengine>) [service
+    /// version](<https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions>).
+    #[prost(message, optional, tag = "11")]
+    pub app_engine_version: ::core::option::Option<endpoint::AppEngineVersionEndpoint>,
+    /// A [Cloud Run](<https://cloud.google.com/run>)
+    /// \[revision\](<https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions/get>)
+    #[prost(message, optional, tag = "12")]
+    pub cloud_run_revision: ::core::option::Option<endpoint::CloudRunRevisionEndpoint>,
     /// A Compute Engine network URI.
     #[prost(string, tag = "4")]
     pub network: ::prost::alloc::string::String,
@@ -1694,11 +1752,32 @@ pub struct Endpoint {
 }
 /// Nested message and enum types in `Endpoint`.
 pub mod endpoint {
-    /// Wrapper for cloud function attributes.
+    /// Wrapper for Cloud Function attributes.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct CloudFunctionEndpoint {
-        /// A [Cloud function](<https://cloud.google.com/functions>) name.
+        /// A [Cloud Function](<https://cloud.google.com/functions>) name.
+        #[prost(string, tag = "1")]
+        pub uri: ::prost::alloc::string::String,
+    }
+    /// Wrapper for the App Engine service version attributes.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AppEngineVersionEndpoint {
+        /// An [App Engine](<https://cloud.google.com/appengine>) [service
+        /// version](<https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions>)
+        /// name.
+        #[prost(string, tag = "1")]
+        pub uri: ::prost::alloc::string::String,
+    }
+    /// Wrapper for Cloud Run revision attributes.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct CloudRunRevisionEndpoint {
+        /// A [Cloud Run](<https://cloud.google.com/run>)
+        /// \[revision\](<https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions/get>)
+        /// URI. The format is:
+        /// projects/{project}/locations/{location}/revisions/{revision}
         #[prost(string, tag = "1")]
         pub uri: ::prost::alloc::string::String,
     }

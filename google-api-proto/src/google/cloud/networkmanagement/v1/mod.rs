@@ -51,7 +51,7 @@ pub struct Step {
     /// final state the configuration is cleared.
     #[prost(
         oneof = "step::StepInfo",
-        tags = "5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19"
+        tags = "5, 6, 7, 8, 9, 10, 11, 21, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 23"
     )]
     pub step_info: ::core::option::Option<step::StepInfo>,
 }
@@ -91,6 +91,15 @@ pub mod step {
         /// Initial state: packet originating from a Cloud SQL instance.
         /// A CloudSQLInstanceInfo is populated with starting instance information.
         StartFromCloudSqlInstance = 22,
+        /// Initial state: packet originating from a Cloud Function.
+        /// A CloudFunctionInfo is populated with starting function information.
+        StartFromCloudFunction = 23,
+        /// Initial state: packet originating from an App Engine service version.
+        /// An AppEngineVersionInfo is populated with starting version information.
+        StartFromAppEngineVersion = 25,
+        /// Initial state: packet originating from a Cloud Run revision.
+        /// A CloudRunRevisionInfo is populated with starting revision information.
+        StartFromCloudRunRevision = 26,
         /// Config checking state: verify ingress firewall rule.
         ApplyIngressFirewallRule = 4,
         /// Config checking state: verify egress firewall rule.
@@ -112,6 +121,8 @@ pub mod step {
         ArriveAtVpnGateway = 12,
         /// Forwarding state: arriving at a Cloud VPN tunnel.
         ArriveAtVpnTunnel = 13,
+        /// Forwarding state: arriving at a VPC connector.
+        ArriveAtVpcConnector = 24,
         /// Transition state: packet header translated.
         Nat = 14,
         /// Transition state: original connection is terminated and a new proxied
@@ -143,6 +154,9 @@ pub mod step {
                 State::StartFromPrivateNetwork => "START_FROM_PRIVATE_NETWORK",
                 State::StartFromGkeMaster => "START_FROM_GKE_MASTER",
                 State::StartFromCloudSqlInstance => "START_FROM_CLOUD_SQL_INSTANCE",
+                State::StartFromCloudFunction => "START_FROM_CLOUD_FUNCTION",
+                State::StartFromAppEngineVersion => "START_FROM_APP_ENGINE_VERSION",
+                State::StartFromCloudRunRevision => "START_FROM_CLOUD_RUN_REVISION",
                 State::ApplyIngressFirewallRule => "APPLY_INGRESS_FIREWALL_RULE",
                 State::ApplyEgressFirewallRule => "APPLY_EGRESS_FIREWALL_RULE",
                 State::ApplyRoute => "APPLY_ROUTE",
@@ -153,6 +167,7 @@ pub mod step {
                 State::ArriveAtExternalLoadBalancer => "ARRIVE_AT_EXTERNAL_LOAD_BALANCER",
                 State::ArriveAtVpnGateway => "ARRIVE_AT_VPN_GATEWAY",
                 State::ArriveAtVpnTunnel => "ARRIVE_AT_VPN_TUNNEL",
+                State::ArriveAtVpcConnector => "ARRIVE_AT_VPC_CONNECTOR",
                 State::Nat => "NAT",
                 State::ProxyConnection => "PROXY_CONNECTION",
                 State::Deliver => "DELIVER",
@@ -171,6 +186,9 @@ pub mod step {
                 "START_FROM_PRIVATE_NETWORK" => Some(Self::StartFromPrivateNetwork),
                 "START_FROM_GKE_MASTER" => Some(Self::StartFromGkeMaster),
                 "START_FROM_CLOUD_SQL_INSTANCE" => Some(Self::StartFromCloudSqlInstance),
+                "START_FROM_CLOUD_FUNCTION" => Some(Self::StartFromCloudFunction),
+                "START_FROM_APP_ENGINE_VERSION" => Some(Self::StartFromAppEngineVersion),
+                "START_FROM_CLOUD_RUN_REVISION" => Some(Self::StartFromCloudRunRevision),
                 "APPLY_INGRESS_FIREWALL_RULE" => Some(Self::ApplyIngressFirewallRule),
                 "APPLY_EGRESS_FIREWALL_RULE" => Some(Self::ApplyEgressFirewallRule),
                 "APPLY_ROUTE" => Some(Self::ApplyRoute),
@@ -185,6 +203,7 @@ pub mod step {
                 }
                 "ARRIVE_AT_VPN_GATEWAY" => Some(Self::ArriveAtVpnGateway),
                 "ARRIVE_AT_VPN_TUNNEL" => Some(Self::ArriveAtVpnTunnel),
+                "ARRIVE_AT_VPC_CONNECTOR" => Some(Self::ArriveAtVpcConnector),
                 "NAT" => Some(Self::Nat),
                 "PROXY_CONNECTION" => Some(Self::ProxyConnection),
                 "DELIVER" => Some(Self::Deliver),
@@ -228,6 +247,9 @@ pub mod step {
         /// Display information of a Compute Engine VPN tunnel.
         #[prost(message, tag = "11")]
         VpnTunnel(super::VpnTunnelInfo),
+        /// Display information of a VPC connector.
+        #[prost(message, tag = "21")]
+        VpcConnector(super::VpcConnectorInfo),
         /// Display information of the final state "deliver" and reason.
         #[prost(message, tag = "12")]
         Deliver(super::DeliverInfo),
@@ -252,6 +274,15 @@ pub mod step {
         /// Display information of a Cloud SQL instance.
         #[prost(message, tag = "19")]
         CloudSqlInstance(super::CloudSqlInstanceInfo),
+        /// Display information of a Cloud Function.
+        #[prost(message, tag = "20")]
+        CloudFunction(super::CloudFunctionInfo),
+        /// Display information of an App Engine service version.
+        #[prost(message, tag = "22")]
+        AppEngineVersion(super::AppEngineVersionInfo),
+        /// Display information of a Cloud Run revision.
+        #[prost(message, tag = "23")]
+        CloudRunRevision(super::CloudRunRevisionInfo),
     }
 }
 /// For display only. Metadata associated with a Compute Engine instance.
@@ -371,6 +402,11 @@ pub mod firewall_info {
         /// [Implied
         /// rules](<https://cloud.google.com/vpc/docs/firewalls#default_firewall_rules>).
         ImpliedVpcFirewallRule = 3,
+        /// Implicit firewall rules that are managed by serverless VPC access to
+        /// allow ingress access. They are not visible in the Google Cloud console.
+        /// For details, see [VPC connector's implicit
+        /// rules](<https://cloud.google.com/functions/docs/networking/connecting-vpc#restrict-access>).
+        ServerlessVpcAccessManagedFirewallRule = 4,
     }
     impl FirewallRuleType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -385,6 +421,9 @@ pub mod firewall_info {
                 }
                 FirewallRuleType::VpcFirewallRule => "VPC_FIREWALL_RULE",
                 FirewallRuleType::ImpliedVpcFirewallRule => "IMPLIED_VPC_FIREWALL_RULE",
+                FirewallRuleType::ServerlessVpcAccessManagedFirewallRule => {
+                    "SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE"
+                }
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -396,6 +435,9 @@ pub mod firewall_info {
                 }
                 "VPC_FIREWALL_RULE" => Some(Self::VpcFirewallRule),
                 "IMPLIED_VPC_FIREWALL_RULE" => Some(Self::ImpliedVpcFirewallRule),
+                "SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE" => {
+                    Some(Self::ServerlessVpcAccessManagedFirewallRule)
+                }
                 _ => None,
             }
         }
@@ -1321,6 +1363,14 @@ pub mod drop_info {
         /// Packet was dropped because the Cloud SQL instance has neither a private
         /// nor a public IP address.
         CloudSqlInstanceNoIpAddress = 21,
+        /// Packet could be dropped because the Cloud function is not in an active
+        /// status.
+        CloudFunctionNotActive = 22,
+        /// Packet could be dropped because no VPC connector is set.
+        VpcConnectorNotSet = 23,
+        /// Packet could be dropped because the VPC connector is not in a running
+        /// state.
+        VpcConnectorNotRunning = 24,
     }
     impl Cause {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -1359,6 +1409,9 @@ pub mod drop_info {
                     "GOOGLE_MANAGED_SERVICE_NO_PEERING"
                 }
                 Cause::CloudSqlInstanceNoIpAddress => "CLOUD_SQL_INSTANCE_NO_IP_ADDRESS",
+                Cause::CloudFunctionNotActive => "CLOUD_FUNCTION_NOT_ACTIVE",
+                Cause::VpcConnectorNotSet => "VPC_CONNECTOR_NOT_SET",
+                Cause::VpcConnectorNotRunning => "VPC_CONNECTOR_NOT_RUNNING",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1400,6 +1453,9 @@ pub mod drop_info {
                 "CLOUD_SQL_INSTANCE_NO_IP_ADDRESS" => {
                     Some(Self::CloudSqlInstanceNoIpAddress)
                 }
+                "CLOUD_FUNCTION_NOT_ACTIVE" => Some(Self::CloudFunctionNotActive),
+                "VPC_CONNECTOR_NOT_SET" => Some(Self::VpcConnectorNotSet),
+                "VPC_CONNECTOR_NOT_RUNNING" => Some(Self::VpcConnectorNotRunning),
                 _ => None,
             }
         }
@@ -1447,12 +1503,77 @@ pub struct CloudSqlInstanceInfo {
     #[prost(string, tag = "7")]
     pub region: ::prost::alloc::string::String,
 }
+/// For display only. Metadata associated with a Cloud Function.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CloudFunctionInfo {
+    /// Name of a Cloud Function.
+    #[prost(string, tag = "1")]
+    pub display_name: ::prost::alloc::string::String,
+    /// URI of a Cloud Function.
+    #[prost(string, tag = "2")]
+    pub uri: ::prost::alloc::string::String,
+    /// Location in which the Cloud Function is deployed.
+    #[prost(string, tag = "3")]
+    pub location: ::prost::alloc::string::String,
+    /// Latest successfully deployed version id of the Cloud Function.
+    #[prost(int64, tag = "4")]
+    pub version_id: i64,
+}
+/// For display only. Metadata associated with a Cloud Run revision.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CloudRunRevisionInfo {
+    /// Name of a Cloud Run revision.
+    #[prost(string, tag = "1")]
+    pub display_name: ::prost::alloc::string::String,
+    /// URI of a Cloud Run revision.
+    #[prost(string, tag = "2")]
+    pub uri: ::prost::alloc::string::String,
+    /// Location in which this revision is deployed.
+    #[prost(string, tag = "4")]
+    pub location: ::prost::alloc::string::String,
+    /// URI of Cloud Run service this revision belongs to.
+    #[prost(string, tag = "5")]
+    pub service_uri: ::prost::alloc::string::String,
+}
+/// For display only. Metadata associated with an App Engine version.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AppEngineVersionInfo {
+    /// Name of an App Engine version.
+    #[prost(string, tag = "1")]
+    pub display_name: ::prost::alloc::string::String,
+    /// URI of an App Engine version.
+    #[prost(string, tag = "2")]
+    pub uri: ::prost::alloc::string::String,
+    /// Runtime of the App Engine version.
+    #[prost(string, tag = "3")]
+    pub runtime: ::prost::alloc::string::String,
+    /// App Engine execution environment for a version.
+    #[prost(string, tag = "4")]
+    pub environment: ::prost::alloc::string::String,
+}
+/// For display only. Metadata associated with a VPC connector.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VpcConnectorInfo {
+    /// Name of a VPC connector.
+    #[prost(string, tag = "1")]
+    pub display_name: ::prost::alloc::string::String,
+    /// URI of a VPC connector.
+    #[prost(string, tag = "2")]
+    pub uri: ::prost::alloc::string::String,
+    /// Location in which the VPC connector is deployed.
+    #[prost(string, tag = "3")]
+    pub location: ::prost::alloc::string::String,
+}
 /// A Connectivity Test for a network reachability analysis.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ConnectivityTest {
     /// Required. Unique name of the resource using the form:
-    ///      `projects/{project_id}/locations/global/connectivityTests/{test_id}`
+    ///      `projects/{project_id}/locations/global/connectivityTests/{test}`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// The user-supplied description of the Connectivity Test.
@@ -1562,6 +1683,17 @@ pub struct Endpoint {
     /// A [Cloud SQL](<https://cloud.google.com/sql>) instance URI.
     #[prost(string, tag = "8")]
     pub cloud_sql_instance: ::prost::alloc::string::String,
+    /// A [Cloud Function](<https://cloud.google.com/functions>).
+    #[prost(message, optional, tag = "10")]
+    pub cloud_function: ::core::option::Option<endpoint::CloudFunctionEndpoint>,
+    /// An [App Engine](<https://cloud.google.com/appengine>) [service
+    /// version](<https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions>).
+    #[prost(message, optional, tag = "11")]
+    pub app_engine_version: ::core::option::Option<endpoint::AppEngineVersionEndpoint>,
+    /// A [Cloud Run](<https://cloud.google.com/run>)
+    /// \[revision\](<https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions/get>)
+    #[prost(message, optional, tag = "12")]
+    pub cloud_run_revision: ::core::option::Option<endpoint::CloudRunRevisionEndpoint>,
     /// A Compute Engine network URI.
     #[prost(string, tag = "4")]
     pub network: ::prost::alloc::string::String,
@@ -1584,6 +1716,35 @@ pub struct Endpoint {
 }
 /// Nested message and enum types in `Endpoint`.
 pub mod endpoint {
+    /// Wrapper for Cloud Function attributes.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct CloudFunctionEndpoint {
+        /// A [Cloud Function](<https://cloud.google.com/functions>) name.
+        #[prost(string, tag = "1")]
+        pub uri: ::prost::alloc::string::String,
+    }
+    /// Wrapper for the App Engine service version attributes.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AppEngineVersionEndpoint {
+        /// An [App Engine](<https://cloud.google.com/appengine>) [service
+        /// version](<https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions>)
+        /// name.
+        #[prost(string, tag = "1")]
+        pub uri: ::prost::alloc::string::String,
+    }
+    /// Wrapper for Cloud Run revision attributes.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct CloudRunRevisionEndpoint {
+        /// A [Cloud Run](<https://cloud.google.com/run>)
+        /// \[revision\](<https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions/get>)
+        /// URI. The format is:
+        /// projects/{project}/locations/{location}/revisions/{revision}
+        #[prost(string, tag = "1")]
+        pub uri: ::prost::alloc::string::String,
+    }
     /// The type definition of an endpoint's network. Use one of the
     /// following choices:
     #[derive(
