@@ -1872,6 +1872,52 @@
 <a href="#1872" id="1872">1872</a>
 <a href="#1873" id="1873">1873</a>
 <a href="#1874" id="1874">1874</a>
+<a href="#1875" id="1875">1875</a>
+<a href="#1876" id="1876">1876</a>
+<a href="#1877" id="1877">1877</a>
+<a href="#1878" id="1878">1878</a>
+<a href="#1879" id="1879">1879</a>
+<a href="#1880" id="1880">1880</a>
+<a href="#1881" id="1881">1881</a>
+<a href="#1882" id="1882">1882</a>
+<a href="#1883" id="1883">1883</a>
+<a href="#1884" id="1884">1884</a>
+<a href="#1885" id="1885">1885</a>
+<a href="#1886" id="1886">1886</a>
+<a href="#1887" id="1887">1887</a>
+<a href="#1888" id="1888">1888</a>
+<a href="#1889" id="1889">1889</a>
+<a href="#1890" id="1890">1890</a>
+<a href="#1891" id="1891">1891</a>
+<a href="#1892" id="1892">1892</a>
+<a href="#1893" id="1893">1893</a>
+<a href="#1894" id="1894">1894</a>
+<a href="#1895" id="1895">1895</a>
+<a href="#1896" id="1896">1896</a>
+<a href="#1897" id="1897">1897</a>
+<a href="#1898" id="1898">1898</a>
+<a href="#1899" id="1899">1899</a>
+<a href="#1900" id="1900">1900</a>
+<a href="#1901" id="1901">1901</a>
+<a href="#1902" id="1902">1902</a>
+<a href="#1903" id="1903">1903</a>
+<a href="#1904" id="1904">1904</a>
+<a href="#1905" id="1905">1905</a>
+<a href="#1906" id="1906">1906</a>
+<a href="#1907" id="1907">1907</a>
+<a href="#1908" id="1908">1908</a>
+<a href="#1909" id="1909">1909</a>
+<a href="#1910" id="1910">1910</a>
+<a href="#1911" id="1911">1911</a>
+<a href="#1912" id="1912">1912</a>
+<a href="#1913" id="1913">1913</a>
+<a href="#1914" id="1914">1914</a>
+<a href="#1915" id="1915">1915</a>
+<a href="#1916" id="1916">1916</a>
+<a href="#1917" id="1917">1917</a>
+<a href="#1918" id="1918">1918</a>
+<a href="#1919" id="1919">1919</a>
+<a href="#1920" id="1920">1920</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A guest attributes.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2481,6 +2527,9 @@
     <span class="doccomment">/// State of the QueuedResource request.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;queued_resource_state::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Output only. The initiator of the QueuedResources&#39;s current state.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;queued_resource_state::StateInitiator&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>state_initiator: i32,
     <span class="doccomment">/// Further data for the state.
     </span><span class="attr">#[prost(oneof = <span class="string">&quot;queued_resource_state::StateData&quot;</span>, tags = <span class="string">&quot;2, 3, 4, 5, 6, 7, 8, 9&quot;</span>)]
     </span><span class="kw">pub </span>state_data: ::core::option::Option&lt;queued_resource_state::StateData&gt;,
@@ -2597,6 +2646,49 @@
                 <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
                 <span class="string">&quot;SUSPENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspending),
                 <span class="string">&quot;SUSPENDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspended),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// The initiator of the QueuedResource&#39;s SUSPENDING/SUSPENDED state.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>StateInitiator {
+        <span class="doccomment">/// The state initiator is unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The current QueuedResource state was initiated by the user.
+        </span>User = <span class="number">1</span>,
+        <span class="doccomment">/// The current QueuedResource state was initiated by the service.
+        </span>Service = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>StateInitiator {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                StateInitiator::Unspecified =&gt; <span class="string">&quot;STATE_INITIATOR_UNSPECIFIED&quot;</span>,
+                StateInitiator::User =&gt; <span class="string">&quot;USER&quot;</span>,
+                StateInitiator::Service =&gt; <span class="string">&quot;SERVICE&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_INITIATOR_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;USER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::User),
+                <span class="string">&quot;SERVICE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Service),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
