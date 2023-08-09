@@ -607,6 +607,9 @@ pub struct QueuedResourceState {
     /// State of the QueuedResource request.
     #[prost(enumeration = "queued_resource_state::State", tag = "1")]
     pub state: i32,
+    /// Output only. The initiator of the QueuedResources's current state.
+    #[prost(enumeration = "queued_resource_state::StateInitiator", tag = "10")]
+    pub state_initiator: i32,
     /// Further data for the state.
     #[prost(oneof = "queued_resource_state::StateData", tags = "2, 3, 4, 5, 6, 7, 8, 9")]
     pub state_data: ::core::option::Option<queued_resource_state::StateData>,
@@ -723,6 +726,49 @@ pub mod queued_resource_state {
                 "ACTIVE" => Some(Self::Active),
                 "SUSPENDING" => Some(Self::Suspending),
                 "SUSPENDED" => Some(Self::Suspended),
+                _ => None,
+            }
+        }
+    }
+    /// The initiator of the QueuedResource's SUSPENDING/SUSPENDED state.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum StateInitiator {
+        /// The state initiator is unspecified.
+        Unspecified = 0,
+        /// The current QueuedResource state was initiated by the user.
+        User = 1,
+        /// The current QueuedResource state was initiated by the service.
+        Service = 2,
+    }
+    impl StateInitiator {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                StateInitiator::Unspecified => "STATE_INITIATOR_UNSPECIFIED",
+                StateInitiator::User => "USER",
+                StateInitiator::Service => "SERVICE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_INITIATOR_UNSPECIFIED" => Some(Self::Unspecified),
+                "USER" => Some(Self::User),
+                "SERVICE" => Some(Self::Service),
                 _ => None,
             }
         }
