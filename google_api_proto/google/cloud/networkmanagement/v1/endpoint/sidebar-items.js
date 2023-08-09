@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["NetworkType"]};
+window.SIDEBAR_ITEMS = {"enum":["NetworkType"],"struct":["AppEngineVersionEndpoint","CloudFunctionEndpoint","CloudRunRevisionEndpoint"]};
