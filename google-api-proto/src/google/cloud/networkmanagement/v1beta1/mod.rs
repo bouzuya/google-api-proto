@@ -453,13 +453,16 @@ pub struct RouteInfo {
     /// Type of next hop.
     #[prost(enumeration = "route_info::NextHopType", tag = "9")]
     pub next_hop_type: i32,
-    /// Name of a Compute Engine route.
+    /// Indicates where route is applicable.
+    #[prost(enumeration = "route_info::RouteScope", tag = "14")]
+    pub route_scope: i32,
+    /// Name of a route.
     #[prost(string, tag = "1")]
     pub display_name: ::prost::alloc::string::String,
-    /// URI of a Compute Engine route.
-    /// Dynamic route from cloud router does not have a URI.
+    /// URI of a route.
+    /// Dynamic, peering static and peering dynamic routes do not have an URI.
     /// Advertised route from Google Cloud VPC to on-premises network also does
-    /// not have a URI.
+    /// not have an URI.
     #[prost(string, tag = "2")]
     pub uri: ::prost::alloc::string::String,
     /// Destination IP range of the route.
@@ -468,7 +471,7 @@ pub struct RouteInfo {
     /// Next hop of the route.
     #[prost(string, tag = "4")]
     pub next_hop: ::prost::alloc::string::String,
-    /// URI of a Compute Engine network.
+    /// URI of a Compute Engine network. NETWORK routes only.
     #[prost(string, tag = "5")]
     pub network_uri: ::prost::alloc::string::String,
     /// Priority of the route.
@@ -477,6 +480,24 @@ pub struct RouteInfo {
     /// Instance tags of the route.
     #[prost(string, repeated, tag = "7")]
     pub instance_tags: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Source IP address range of the route. Policy based routes only.
+    #[prost(string, tag = "10")]
+    pub src_ip_range: ::prost::alloc::string::String,
+    /// Destination port ranges of the route. Policy based routes only.
+    #[prost(string, repeated, tag = "11")]
+    pub dest_port_ranges: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Source port ranges of the route. Policy based routes only.
+    #[prost(string, repeated, tag = "12")]
+    pub src_port_ranges: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Protocols of the route. Policy based routes only.
+    #[prost(string, repeated, tag = "13")]
+    pub protocols: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// URI of a NCC Hub. NCC_HUB routes only.
+    #[prost(string, optional, tag = "15")]
+    pub ncc_hub_uri: ::core::option::Option<::prost::alloc::string::String>,
+    /// URI of a NCC Spoke. NCC_HUB routes only.
+    #[prost(string, optional, tag = "16")]
+    pub ncc_spoke_uri: ::core::option::Option<::prost::alloc::string::String>,
 }
 /// Nested message and enum types in `RouteInfo`.
 pub mod route_info {
@@ -509,6 +530,8 @@ pub mod route_info {
         PeeringStatic = 5,
         /// A dynamic route received from peering network.
         PeeringDynamic = 6,
+        /// Policy based route.
+        PolicyBased = 7,
     }
     impl RouteType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -524,6 +547,7 @@ pub mod route_info {
                 RouteType::PeeringSubnet => "PEERING_SUBNET",
                 RouteType::PeeringStatic => "PEERING_STATIC",
                 RouteType::PeeringDynamic => "PEERING_DYNAMIC",
+                RouteType::PolicyBased => "POLICY_BASED",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -536,6 +560,7 @@ pub mod route_info {
                 "PEERING_SUBNET" => Some(Self::PeeringSubnet),
                 "PEERING_STATIC" => Some(Self::PeeringStatic),
                 "PEERING_DYNAMIC" => Some(Self::PeeringDynamic),
+                "POLICY_BASED" => Some(Self::PolicyBased),
                 _ => None,
             }
         }
@@ -584,6 +609,8 @@ pub mod route_info {
         /// [router appliance
         /// instance](<https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/ra-overview>).
         NextHopRouterAppliance = 11,
+        /// Next hop is an NCC hub.
+        NextHopNccHub = 12,
     }
     impl NextHopType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -604,6 +631,7 @@ pub mod route_info {
                 NextHopType::NextHopBlackhole => "NEXT_HOP_BLACKHOLE",
                 NextHopType::NextHopIlb => "NEXT_HOP_ILB",
                 NextHopType::NextHopRouterAppliance => "NEXT_HOP_ROUTER_APPLIANCE",
+                NextHopType::NextHopNccHub => "NEXT_HOP_NCC_HUB",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -621,6 +649,50 @@ pub mod route_info {
                 "NEXT_HOP_BLACKHOLE" => Some(Self::NextHopBlackhole),
                 "NEXT_HOP_ILB" => Some(Self::NextHopIlb),
                 "NEXT_HOP_ROUTER_APPLIANCE" => Some(Self::NextHopRouterAppliance),
+                "NEXT_HOP_NCC_HUB" => Some(Self::NextHopNccHub),
+                _ => None,
+            }
+        }
+    }
+    /// Indicates where routes are applicable.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum RouteScope {
+        /// Unspecified scope. Default value.
+        Unspecified = 0,
+        /// Route is applicable to packets in Network.
+        Network = 1,
+        /// Route is applicable to packets using NCC Hub's routing table.
+        NccHub = 2,
+    }
+    impl RouteScope {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                RouteScope::Unspecified => "ROUTE_SCOPE_UNSPECIFIED",
+                RouteScope::Network => "NETWORK",
+                RouteScope::NccHub => "NCC_HUB",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ROUTE_SCOPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "NETWORK" => Some(Self::Network),
+                "NCC_HUB" => Some(Self::NccHub),
                 _ => None,
             }
         }
@@ -749,6 +821,8 @@ pub mod load_balancer_info {
         BackendService = 1,
         /// Target Pool as the load balancer's backend.
         TargetPool = 2,
+        /// Target Instance as the load balancer's backend.
+        TargetInstance = 3,
     }
     impl BackendType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -760,6 +834,7 @@ pub mod load_balancer_info {
                 BackendType::Unspecified => "BACKEND_TYPE_UNSPECIFIED",
                 BackendType::BackendService => "BACKEND_SERVICE",
                 BackendType::TargetPool => "TARGET_POOL",
+                BackendType::TargetInstance => "TARGET_INSTANCE",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -768,6 +843,7 @@ pub mod load_balancer_info {
                 "BACKEND_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
                 "BACKEND_SERVICE" => Some(Self::BackendService),
                 "TARGET_POOL" => Some(Self::TargetPool),
+                "TARGET_INSTANCE" => Some(Self::TargetInstance),
                 _ => None,
             }
         }
@@ -1028,15 +1104,17 @@ pub mod deliver_info {
         GkeMaster = 4,
         /// Target is a Cloud SQL instance.
         CloudSqlInstance = 5,
-        /// Target is a published service using [Private Service
+        /// Target is a published service that uses [Private Service
         /// Connect](<https://cloud.google.com/vpc/docs/configure-private-service-connect-services>).
         PscPublishedService = 6,
-        /// Target is all Google APIs using [Private Service
+        /// Target is all Google APIs that use [Private Service
         /// Connect](<https://cloud.google.com/vpc/docs/configure-private-service-connect-apis>).
         PscGoogleApi = 7,
-        /// Target is VPC-SC using [Private Service
+        /// Target is a VPC-SC that uses [Private Service
         /// Connect](<https://cloud.google.com/vpc/docs/configure-private-service-connect-apis>).
         PscVpcSc = 8,
+        /// Target is a serverless network endpoint group.
+        ServerlessNeg = 9,
     }
     impl Target {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -1054,6 +1132,7 @@ pub mod deliver_info {
                 Target::PscPublishedService => "PSC_PUBLISHED_SERVICE",
                 Target::PscGoogleApi => "PSC_GOOGLE_API",
                 Target::PscVpcSc => "PSC_VPC_SC",
+                Target::ServerlessNeg => "SERVERLESS_NEG",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1068,6 +1147,7 @@ pub mod deliver_info {
                 "PSC_PUBLISHED_SERVICE" => Some(Self::PscPublishedService),
                 "PSC_GOOGLE_API" => Some(Self::PscGoogleApi),
                 "PSC_VPC_SC" => Some(Self::PscVpcSc),
+                "SERVERLESS_NEG" => Some(Self::ServerlessNeg),
                 _ => None,
             }
         }
@@ -1114,6 +1194,10 @@ pub mod forward_info {
         ImportedCustomRouteNextHop = 5,
         /// Forwarded to a Cloud SQL instance.
         CloudSqlInstance = 6,
+        /// Forwarded to a VPC network in another project.
+        AnotherProject = 7,
+        /// Forwarded to an NCC Hub.
+        NccHub = 8,
     }
     impl Target {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -1129,6 +1213,8 @@ pub mod forward_info {
                 Target::GkeMaster => "GKE_MASTER",
                 Target::ImportedCustomRouteNextHop => "IMPORTED_CUSTOM_ROUTE_NEXT_HOP",
                 Target::CloudSqlInstance => "CLOUD_SQL_INSTANCE",
+                Target::AnotherProject => "ANOTHER_PROJECT",
+                Target::NccHub => "NCC_HUB",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1143,6 +1229,8 @@ pub mod forward_info {
                     Some(Self::ImportedCustomRouteNextHop)
                 }
                 "CLOUD_SQL_INSTANCE" => Some(Self::CloudSqlInstance),
+                "ANOTHER_PROJECT" => Some(Self::AnotherProject),
+                "NCC_HUB" => Some(Self::NccHub),
                 _ => None,
             }
         }
@@ -1229,6 +1317,24 @@ pub mod abort_info {
         MismatchedDestinationNetwork = 14,
         /// Aborted because the test scenario is not supported.
         Unsupported = 15,
+        /// Aborted because the source and destination resources have no common IP
+        /// version.
+        MismatchedIpVersion = 16,
+        /// Aborted because the connection between the control plane and the node of
+        /// the source cluster is initiated by the node and managed by the
+        /// Konnectivity proxy.
+        GkeKonnectivityProxyUnsupported = 17,
+        /// Aborted because expected resource configuration was missing.
+        ResourceConfigNotFound = 18,
+        /// Aborted because a PSC endpoint selection for the Google-managed service
+        /// is ambiguous (several PSC endpoints satisfy test input).
+        GoogleManagedServiceAmbiguousPscEndpoint = 19,
+        /// Aborted because tests with a PSC-based Cloud SQL instance as a source are
+        /// not supported.
+        SourcePscCloudSqlUnsupported = 20,
+        /// Aborted because tests with a forwarding rule as a source are not
+        /// supported.
+        SourceForwardingRuleUnsupported = 21,
     }
     impl Cause {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -1253,6 +1359,18 @@ pub mod abort_info {
                 Cause::DestinationEndpointNotFound => "DESTINATION_ENDPOINT_NOT_FOUND",
                 Cause::MismatchedDestinationNetwork => "MISMATCHED_DESTINATION_NETWORK",
                 Cause::Unsupported => "UNSUPPORTED",
+                Cause::MismatchedIpVersion => "MISMATCHED_IP_VERSION",
+                Cause::GkeKonnectivityProxyUnsupported => {
+                    "GKE_KONNECTIVITY_PROXY_UNSUPPORTED"
+                }
+                Cause::ResourceConfigNotFound => "RESOURCE_CONFIG_NOT_FOUND",
+                Cause::GoogleManagedServiceAmbiguousPscEndpoint => {
+                    "GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT"
+                }
+                Cause::SourcePscCloudSqlUnsupported => "SOURCE_PSC_CLOUD_SQL_UNSUPPORTED",
+                Cause::SourceForwardingRuleUnsupported => {
+                    "SOURCE_FORWARDING_RULE_UNSUPPORTED"
+                }
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1278,6 +1396,20 @@ pub mod abort_info {
                     Some(Self::MismatchedDestinationNetwork)
                 }
                 "UNSUPPORTED" => Some(Self::Unsupported),
+                "MISMATCHED_IP_VERSION" => Some(Self::MismatchedIpVersion),
+                "GKE_KONNECTIVITY_PROXY_UNSUPPORTED" => {
+                    Some(Self::GkeKonnectivityProxyUnsupported)
+                }
+                "RESOURCE_CONFIG_NOT_FOUND" => Some(Self::ResourceConfigNotFound),
+                "GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT" => {
+                    Some(Self::GoogleManagedServiceAmbiguousPscEndpoint)
+                }
+                "SOURCE_PSC_CLOUD_SQL_UNSUPPORTED" => {
+                    Some(Self::SourcePscCloudSqlUnsupported)
+                }
+                "SOURCE_FORWARDING_RULE_UNSUPPORTED" => {
+                    Some(Self::SourceForwardingRuleUnsupported)
+                }
                 _ => None,
             }
         }
@@ -1346,6 +1478,9 @@ pub mod drop_info {
         UnknownInternalAddress = 10,
         /// Forwarding rule's protocol and ports do not match the packet header.
         ForwardingRuleMismatch = 11,
+        /// Packet could be dropped because it was sent from a different region
+        /// to a regional forwarding without global access.
+        ForwardingRuleRegionMismatch = 25,
         /// Forwarding rule does not have backends configured.
         ForwardingRuleNoInstances = 12,
         /// Firewalls block the health check probes to the backends and cause
@@ -1356,6 +1491,10 @@ pub mod drop_info {
         /// Packet is sent from or to a Compute Engine instance that is not in a
         /// running state.
         InstanceNotRunning = 14,
+        /// Packet sent from or to a GKE cluster that is not in running state.
+        GkeClusterNotRunning = 27,
+        /// Packet sent from or to a Cloud SQL instance that is not in running state.
+        CloudSqlInstanceNotRunning = 28,
         /// The type of traffic is blocked and the user cannot configure a firewall
         /// rule to enable it. See [Always blocked
         /// traffic](<https://cloud.google.com/vpc/docs/firewalls#blockedtraffic>) for
@@ -1378,10 +1517,35 @@ pub mod drop_info {
         /// Packet was dropped because there is no peering between the originating
         /// network and the Google Managed Services Network.
         GoogleManagedServiceNoPeering = 20,
+        /// Packet was dropped because the Google-managed service uses Private
+        /// Service Connect (PSC), but the PSC endpoint is not found in the project.
+        GoogleManagedServiceNoPscEndpoint = 38,
+        /// Packet was dropped because the GKE cluster uses Private Service Connect
+        /// (PSC), but the PSC endpoint is not found in the project.
+        GkePscEndpointMissing = 36,
         /// Packet was dropped because the Cloud SQL instance has neither a private
         /// nor a public IP address.
         CloudSqlInstanceNoIpAddress = 21,
-        /// Packet could be dropped because the Cloud function is not in an active
+        /// Packet was dropped because a GKE cluster private endpoint is
+        /// unreachable from a region different from the cluster's region.
+        GkeControlPlaneRegionMismatch = 30,
+        /// Packet sent from a public GKE cluster control plane to a private
+        /// IP address.
+        PublicGkeControlPlaneToPrivateDestination = 31,
+        /// Packet was dropped because there is no route from a GKE cluster
+        /// control plane to a destination network.
+        GkeControlPlaneNoRoute = 32,
+        /// Packet sent from a Cloud SQL instance to an external IP address is not
+        /// allowed. The Cloud SQL instance is not configured to send packets to
+        /// external IP addresses.
+        CloudSqlInstanceNotConfiguredForExternalTraffic = 33,
+        /// Packet sent from a Cloud SQL instance with only a public IP address to a
+        /// private IP address.
+        PublicCloudSqlInstanceToPrivateDestination = 34,
+        /// Packet was dropped because there is no route from a Cloud SQL
+        /// instance to a destination network.
+        CloudSqlInstanceNoRoute = 35,
+        /// Packet could be dropped because the Cloud Function is not in an active
         /// status.
         CloudFunctionNotActive = 22,
         /// Packet could be dropped because no VPC connector is set.
@@ -1389,11 +1553,16 @@ pub mod drop_info {
         /// Packet could be dropped because the VPC connector is not in a running
         /// state.
         VpcConnectorNotRunning = 24,
-        /// Packet could be dropped because it was sent from a different region
-        /// to a regional forwarding without global access.
-        ForwardingRuleRegionMismatch = 25,
-        /// Privte Service Connect (PSC) connection is not in accepted state.
+        /// The Private Service Connect endpoint is in a project that is not approved
+        /// to connect to the service.
         PscConnectionNotAccepted = 26,
+        /// Packet sent from a Cloud Run revision that is not ready.
+        CloudRunRevisionNotReady = 29,
+        /// Packet was dropped inside Private Service Connect service producer.
+        DroppedInsidePscServiceProducer = 37,
+        /// Packet sent to a load balancer, which requires a proxy-only subnet and
+        /// the subnet is not found.
+        LoadBalancerHasNoProxySubnet = 39,
     }
     impl Cause {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -1416,11 +1585,14 @@ pub mod drop_info {
                 Cause::NoExternalAddress => "NO_EXTERNAL_ADDRESS",
                 Cause::UnknownInternalAddress => "UNKNOWN_INTERNAL_ADDRESS",
                 Cause::ForwardingRuleMismatch => "FORWARDING_RULE_MISMATCH",
+                Cause::ForwardingRuleRegionMismatch => "FORWARDING_RULE_REGION_MISMATCH",
                 Cause::ForwardingRuleNoInstances => "FORWARDING_RULE_NO_INSTANCES",
                 Cause::FirewallBlockingLoadBalancerBackendHealthCheck => {
                     "FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK"
                 }
                 Cause::InstanceNotRunning => "INSTANCE_NOT_RUNNING",
+                Cause::GkeClusterNotRunning => "GKE_CLUSTER_NOT_RUNNING",
+                Cause::CloudSqlInstanceNotRunning => "CLOUD_SQL_INSTANCE_NOT_RUNNING",
                 Cause::TrafficTypeBlocked => "TRAFFIC_TYPE_BLOCKED",
                 Cause::GkeMasterUnauthorizedAccess => "GKE_MASTER_UNAUTHORIZED_ACCESS",
                 Cause::CloudSqlInstanceUnauthorizedAccess => {
@@ -1431,12 +1603,36 @@ pub mod drop_info {
                 Cause::GoogleManagedServiceNoPeering => {
                     "GOOGLE_MANAGED_SERVICE_NO_PEERING"
                 }
+                Cause::GoogleManagedServiceNoPscEndpoint => {
+                    "GOOGLE_MANAGED_SERVICE_NO_PSC_ENDPOINT"
+                }
+                Cause::GkePscEndpointMissing => "GKE_PSC_ENDPOINT_MISSING",
                 Cause::CloudSqlInstanceNoIpAddress => "CLOUD_SQL_INSTANCE_NO_IP_ADDRESS",
+                Cause::GkeControlPlaneRegionMismatch => {
+                    "GKE_CONTROL_PLANE_REGION_MISMATCH"
+                }
+                Cause::PublicGkeControlPlaneToPrivateDestination => {
+                    "PUBLIC_GKE_CONTROL_PLANE_TO_PRIVATE_DESTINATION"
+                }
+                Cause::GkeControlPlaneNoRoute => "GKE_CONTROL_PLANE_NO_ROUTE",
+                Cause::CloudSqlInstanceNotConfiguredForExternalTraffic => {
+                    "CLOUD_SQL_INSTANCE_NOT_CONFIGURED_FOR_EXTERNAL_TRAFFIC"
+                }
+                Cause::PublicCloudSqlInstanceToPrivateDestination => {
+                    "PUBLIC_CLOUD_SQL_INSTANCE_TO_PRIVATE_DESTINATION"
+                }
+                Cause::CloudSqlInstanceNoRoute => "CLOUD_SQL_INSTANCE_NO_ROUTE",
                 Cause::CloudFunctionNotActive => "CLOUD_FUNCTION_NOT_ACTIVE",
                 Cause::VpcConnectorNotSet => "VPC_CONNECTOR_NOT_SET",
                 Cause::VpcConnectorNotRunning => "VPC_CONNECTOR_NOT_RUNNING",
-                Cause::ForwardingRuleRegionMismatch => "FORWARDING_RULE_REGION_MISMATCH",
                 Cause::PscConnectionNotAccepted => "PSC_CONNECTION_NOT_ACCEPTED",
+                Cause::CloudRunRevisionNotReady => "CLOUD_RUN_REVISION_NOT_READY",
+                Cause::DroppedInsidePscServiceProducer => {
+                    "DROPPED_INSIDE_PSC_SERVICE_PRODUCER"
+                }
+                Cause::LoadBalancerHasNoProxySubnet => {
+                    "LOAD_BALANCER_HAS_NO_PROXY_SUBNET"
+                }
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1456,11 +1652,18 @@ pub mod drop_info {
                 "NO_EXTERNAL_ADDRESS" => Some(Self::NoExternalAddress),
                 "UNKNOWN_INTERNAL_ADDRESS" => Some(Self::UnknownInternalAddress),
                 "FORWARDING_RULE_MISMATCH" => Some(Self::ForwardingRuleMismatch),
+                "FORWARDING_RULE_REGION_MISMATCH" => {
+                    Some(Self::ForwardingRuleRegionMismatch)
+                }
                 "FORWARDING_RULE_NO_INSTANCES" => Some(Self::ForwardingRuleNoInstances),
                 "FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK" => {
                     Some(Self::FirewallBlockingLoadBalancerBackendHealthCheck)
                 }
                 "INSTANCE_NOT_RUNNING" => Some(Self::InstanceNotRunning),
+                "GKE_CLUSTER_NOT_RUNNING" => Some(Self::GkeClusterNotRunning),
+                "CLOUD_SQL_INSTANCE_NOT_RUNNING" => {
+                    Some(Self::CloudSqlInstanceNotRunning)
+                }
                 "TRAFFIC_TYPE_BLOCKED" => Some(Self::TrafficTypeBlocked),
                 "GKE_MASTER_UNAUTHORIZED_ACCESS" => {
                     Some(Self::GkeMasterUnauthorizedAccess)
@@ -1475,16 +1678,38 @@ pub mod drop_info {
                 "GOOGLE_MANAGED_SERVICE_NO_PEERING" => {
                     Some(Self::GoogleManagedServiceNoPeering)
                 }
+                "GOOGLE_MANAGED_SERVICE_NO_PSC_ENDPOINT" => {
+                    Some(Self::GoogleManagedServiceNoPscEndpoint)
+                }
+                "GKE_PSC_ENDPOINT_MISSING" => Some(Self::GkePscEndpointMissing),
                 "CLOUD_SQL_INSTANCE_NO_IP_ADDRESS" => {
                     Some(Self::CloudSqlInstanceNoIpAddress)
                 }
+                "GKE_CONTROL_PLANE_REGION_MISMATCH" => {
+                    Some(Self::GkeControlPlaneRegionMismatch)
+                }
+                "PUBLIC_GKE_CONTROL_PLANE_TO_PRIVATE_DESTINATION" => {
+                    Some(Self::PublicGkeControlPlaneToPrivateDestination)
+                }
+                "GKE_CONTROL_PLANE_NO_ROUTE" => Some(Self::GkeControlPlaneNoRoute),
+                "CLOUD_SQL_INSTANCE_NOT_CONFIGURED_FOR_EXTERNAL_TRAFFIC" => {
+                    Some(Self::CloudSqlInstanceNotConfiguredForExternalTraffic)
+                }
+                "PUBLIC_CLOUD_SQL_INSTANCE_TO_PRIVATE_DESTINATION" => {
+                    Some(Self::PublicCloudSqlInstanceToPrivateDestination)
+                }
+                "CLOUD_SQL_INSTANCE_NO_ROUTE" => Some(Self::CloudSqlInstanceNoRoute),
                 "CLOUD_FUNCTION_NOT_ACTIVE" => Some(Self::CloudFunctionNotActive),
                 "VPC_CONNECTOR_NOT_SET" => Some(Self::VpcConnectorNotSet),
                 "VPC_CONNECTOR_NOT_RUNNING" => Some(Self::VpcConnectorNotRunning),
-                "FORWARDING_RULE_REGION_MISMATCH" => {
-                    Some(Self::ForwardingRuleRegionMismatch)
-                }
                 "PSC_CONNECTION_NOT_ACCEPTED" => Some(Self::PscConnectionNotAccepted),
+                "CLOUD_RUN_REVISION_NOT_READY" => Some(Self::CloudRunRevisionNotReady),
+                "DROPPED_INSIDE_PSC_SERVICE_PRODUCER" => {
+                    Some(Self::DroppedInsidePscServiceProducer)
+                }
+                "LOAD_BALANCER_HAS_NO_PROXY_SUBNET" => {
+                    Some(Self::LoadBalancerHasNoProxySubnet)
+                }
                 _ => None,
             }
         }
@@ -1596,6 +1821,80 @@ pub struct VpcConnectorInfo {
     /// Location in which the VPC connector is deployed.
     #[prost(string, tag = "3")]
     pub location: ::prost::alloc::string::String,
+}
+/// Type of a load balancer. For more information, see [Summary of Google Cloud
+/// load
+/// balancers](<https://cloud.google.com/load-balancing/docs/load-balancing-overview#summary-of-google-cloud-load-balancers>).
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum LoadBalancerType {
+    /// Forwarding rule points to a different target than a load balancer or a
+    /// load balancer type is unknown.
+    Unspecified = 0,
+    /// Global external HTTP(S) load balancer.
+    HttpsAdvancedLoadBalancer = 1,
+    /// Global external HTTP(S) load balancer (classic)
+    HttpsLoadBalancer = 2,
+    /// Regional external HTTP(S) load balancer.
+    RegionalHttpsLoadBalancer = 3,
+    /// Internal HTTP(S) load balancer.
+    InternalHttpsLoadBalancer = 4,
+    /// External SSL proxy load balancer.
+    SslProxyLoadBalancer = 5,
+    /// External TCP proxy load balancer.
+    TcpProxyLoadBalancer = 6,
+    /// Internal regional TCP proxy load balancer.
+    InternalTcpProxyLoadBalancer = 7,
+    /// External TCP/UDP Network load balancer.
+    NetworkLoadBalancer = 8,
+    /// Target-pool based external TCP/UDP Network load balancer.
+    LegacyNetworkLoadBalancer = 9,
+    /// Internal TCP/UDP load balancer.
+    TcpUdpInternalLoadBalancer = 10,
+}
+impl LoadBalancerType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            LoadBalancerType::Unspecified => "LOAD_BALANCER_TYPE_UNSPECIFIED",
+            LoadBalancerType::HttpsAdvancedLoadBalancer => "HTTPS_ADVANCED_LOAD_BALANCER",
+            LoadBalancerType::HttpsLoadBalancer => "HTTPS_LOAD_BALANCER",
+            LoadBalancerType::RegionalHttpsLoadBalancer => "REGIONAL_HTTPS_LOAD_BALANCER",
+            LoadBalancerType::InternalHttpsLoadBalancer => "INTERNAL_HTTPS_LOAD_BALANCER",
+            LoadBalancerType::SslProxyLoadBalancer => "SSL_PROXY_LOAD_BALANCER",
+            LoadBalancerType::TcpProxyLoadBalancer => "TCP_PROXY_LOAD_BALANCER",
+            LoadBalancerType::InternalTcpProxyLoadBalancer => {
+                "INTERNAL_TCP_PROXY_LOAD_BALANCER"
+            }
+            LoadBalancerType::NetworkLoadBalancer => "NETWORK_LOAD_BALANCER",
+            LoadBalancerType::LegacyNetworkLoadBalancer => "LEGACY_NETWORK_LOAD_BALANCER",
+            LoadBalancerType::TcpUdpInternalLoadBalancer => {
+                "TCP_UDP_INTERNAL_LOAD_BALANCER"
+            }
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "LOAD_BALANCER_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "HTTPS_ADVANCED_LOAD_BALANCER" => Some(Self::HttpsAdvancedLoadBalancer),
+            "HTTPS_LOAD_BALANCER" => Some(Self::HttpsLoadBalancer),
+            "REGIONAL_HTTPS_LOAD_BALANCER" => Some(Self::RegionalHttpsLoadBalancer),
+            "INTERNAL_HTTPS_LOAD_BALANCER" => Some(Self::InternalHttpsLoadBalancer),
+            "SSL_PROXY_LOAD_BALANCER" => Some(Self::SslProxyLoadBalancer),
+            "TCP_PROXY_LOAD_BALANCER" => Some(Self::TcpProxyLoadBalancer),
+            "INTERNAL_TCP_PROXY_LOAD_BALANCER" => {
+                Some(Self::InternalTcpProxyLoadBalancer)
+            }
+            "NETWORK_LOAD_BALANCER" => Some(Self::NetworkLoadBalancer),
+            "LEGACY_NETWORK_LOAD_BALANCER" => Some(Self::LegacyNetworkLoadBalancer),
+            "TCP_UDP_INTERNAL_LOAD_BALANCER" => Some(Self::TcpUdpInternalLoadBalancer),
+            _ => None,
+        }
+    }
 }
 /// A Connectivity Test for a network reachability analysis.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1712,6 +2011,16 @@ pub struct Endpoint {
     ///   projects/{project}/regions/{region}/forwardingRules/{id}
     #[prost(string, tag = "13")]
     pub forwarding_rule: ::prost::alloc::string::String,
+    /// Output only. Specifies the type of the target of the forwarding rule.
+    #[prost(enumeration = "endpoint::ForwardingRuleTarget", optional, tag = "14")]
+    pub forwarding_rule_target: ::core::option::Option<i32>,
+    /// Output only. ID of the load balancer the forwarding rule points to. Empty
+    /// for forwarding rules not related to load balancers.
+    #[prost(string, optional, tag = "15")]
+    pub load_balancer_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Type of the load balancer the forwarding rule points to.
+    #[prost(enumeration = "LoadBalancerType", optional, tag = "16")]
+    pub load_balancer_type: ::core::option::Option<i32>,
     /// A cluster URI for [Google Kubernetes Engine
     /// master](<https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture>).
     #[prost(string, tag = "7")]
@@ -1825,6 +2134,58 @@ pub mod endpoint {
                 "NETWORK_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
                 "GCP_NETWORK" => Some(Self::GcpNetwork),
                 "NON_GCP_NETWORK" => Some(Self::NonGcpNetwork),
+                _ => None,
+            }
+        }
+    }
+    /// Type of the target of a forwarding rule.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ForwardingRuleTarget {
+        /// Forwarding rule target is unknown.
+        Unspecified = 0,
+        /// Compute Engine instance for protocol forwarding.
+        Instance = 1,
+        /// Load Balancer. The specific type can be found from \[load_balancer_type\]
+        /// \[google.cloud.networkmanagement.v1beta1.Endpoint.load_balancer_type\].
+        LoadBalancer = 2,
+        /// Classic Cloud VPN Gateway.
+        VpnGateway = 3,
+        /// Forwarding Rule is a Private Service Connect endpoint.
+        Psc = 4,
+    }
+    impl ForwardingRuleTarget {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ForwardingRuleTarget::Unspecified => "FORWARDING_RULE_TARGET_UNSPECIFIED",
+                ForwardingRuleTarget::Instance => "INSTANCE",
+                ForwardingRuleTarget::LoadBalancer => "LOAD_BALANCER",
+                ForwardingRuleTarget::VpnGateway => "VPN_GATEWAY",
+                ForwardingRuleTarget::Psc => "PSC",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "FORWARDING_RULE_TARGET_UNSPECIFIED" => Some(Self::Unspecified),
+                "INSTANCE" => Some(Self::Instance),
+                "LOAD_BALANCER" => Some(Self::LoadBalancer),
+                "VPN_GATEWAY" => Some(Self::VpnGateway),
+                "PSC" => Some(Self::Psc),
                 _ => None,
             }
         }
