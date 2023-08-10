@@ -363,6 +363,10 @@
 <a href="#363" id="363">363</a>
 <a href="#364" id="364">364</a>
 <a href="#365" id="365">365</a>
+<a href="#366" id="366">366</a>
+<a href="#367" id="367">367</a>
+<a href="#368" id="368">368</a>
+<a href="#369" id="369">369</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A Challenge from the server used to guarantee freshness of attestations
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -432,6 +436,10 @@
     <span class="doccomment">/// Output only. Same as claims_token, but as a string.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>oidc_claims_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. A list of messages that carry the partial error details
+    /// related to VerifyAttestation.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>partial_errors: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
 }
 <span class="doccomment">/// Credentials issued by GCP which are linked to the platform attestation. These
 /// will be verified server-side as part of attestaion verification.

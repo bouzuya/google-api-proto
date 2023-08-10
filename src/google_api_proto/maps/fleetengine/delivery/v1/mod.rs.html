@@ -1947,6 +1947,8 @@
 <a href="#1947" id="1947">1947</a>
 <a href="#1948" id="1948">1948</a>
 <a href="#1949" id="1949">1949</a>
+<a href="#1950" id="1950">1950</a>
+<a href="#1951" id="1951">1951</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A RequestHeader contains fields common to all Delivery RPC requests.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3011,14 +3013,16 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>VisibilityOption {
-        <span class="attr">#[prost(oneof = <span class="string">&quot;visibility_option::VisibilityOption&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4, 5&quot;</span>)]
+        <span class="doccomment">/// The specific visibility option chosen.
+        </span><span class="attr">#[prost(oneof = <span class="string">&quot;visibility_option::VisibilityOption&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4, 5&quot;</span>)]
         </span><span class="kw">pub </span>visibility_option: ::core::option::Option&lt;
             visibility_option::VisibilityOption,
         &gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `VisibilityOption`.
     </span><span class="kw">pub mod </span>visibility_option {
-        <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        <span class="doccomment">/// The specific visibility option chosen.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>VisibilityOption {
             <span class="doccomment">/// This data element is visible to the end users if the remaining stop

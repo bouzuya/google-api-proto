@@ -27241,8 +27241,19 @@
 <a href="#27241" id="27241">27241</a>
 <a href="#27242" id="27242">27242</a>
 <a href="#27243" id="27243">27243</a>
+<a href="#27244" id="27244">27244</a>
+<a href="#27245" id="27245">27245</a>
+<a href="#27246" id="27246">27246</a>
+<a href="#27247" id="27247">27247</a>
+<a href="#27248" id="27248">27248</a>
+<a href="#27249" id="27249">27249</a>
+<a href="#27250" id="27250">27250</a>
+<a href="#27251" id="27251">27251</a>
+<a href="#27252" id="27252">27252</a>
+<a href="#27253" id="27253">27253</a>
+<a href="#27254" id="27254">27254</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Request message for
-/// \[TravelSuggestAssetsService.SuggestTravelAssets][\].
+/// \[TravelAssetSuggestionService.SuggestTravelAssets][google.ads.googleads.v14.services.TravelAssetSuggestionService.SuggestTravelAssets\].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SuggestTravelAssetsRequest {
@@ -27261,7 +27272,7 @@
     </span><span class="kw">pub </span>place_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Response message for
-/// \[TravelSuggestAssetsService.SuggestTravelAssets][\].
+/// \[TravelAssetSuggestionService.SuggestTravelAssets][google.ads.googleads.v14.services.TravelAssetSuggestionService.SuggestTravelAssets\].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SuggestTravelAssetsResponse {
@@ -32216,7 +32227,7 @@
     }
 }
 <span class="doccomment">/// Request message for
-/// \[SmartCampaignSettingService.MutateSmartCampaignSetting][\].
+/// \[SmartCampaignSettingService.MutateSmartCampaignSettings][google.ads.googleads.v14.services.SmartCampaignSettingService.MutateSmartCampaignSettings\].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MutateSmartCampaignSettingsRequest {
@@ -40034,7 +40045,7 @@
     }
 }
 <span class="doccomment">/// Request message for
-/// \[ConversionGoalCampaignConfigService.MutateConversionGoalCampaignConfig][\].
+/// \[ConversionGoalCampaignConfigService.MutateConversionGoalCampaignConfigs][google.ads.googleads.v14.services.ConversionGoalCampaignConfigService.MutateConversionGoalCampaignConfigs\].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MutateConversionGoalCampaignConfigsRequest {
@@ -45584,6 +45595,11 @@
     <span class="doccomment">/// The campaign label referenced in the query.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;108&quot;</span>)]
     </span><span class="kw">pub </span>campaign_label: ::core::option::Option&lt;<span class="kw">super</span>::resources::CampaignLabel&gt;,
+    <span class="doccomment">/// The campaign search term insight referenced in the query.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;204&quot;</span>)]
+    </span><span class="kw">pub </span>campaign_search_term_insight: ::core::option::Option&lt;
+        <span class="kw">super</span>::resources::CampaignSearchTermInsight,
+    &gt;,
     <span class="doccomment">/// Campaign Shared Set referenced in AWQL query.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;30&quot;</span>)]
     </span><span class="kw">pub </span>campaign_shared_set: ::core::option::Option&lt;<span class="kw">super</span>::resources::CampaignSharedSet&gt;,
@@ -45699,6 +45715,11 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;88&quot;</span>)]
     </span><span class="kw">pub </span>customer_negative_criterion: ::core::option::Option&lt;
         <span class="kw">super</span>::resources::CustomerNegativeCriterion,
+    &gt;,
+    <span class="doccomment">/// The customer search term insight referenced in the query.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;205&quot;</span>)]
+    </span><span class="kw">pub </span>customer_search_term_insight: ::core::option::Option&lt;
+        <span class="kw">super</span>::resources::CustomerSearchTermInsight,
     &gt;,
     <span class="doccomment">/// The CustomerUserAccess referenced in the query.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;146&quot;</span>)]
@@ -47335,14 +47356,14 @@
     /// If present, will always be a GeoTargetConstant ID. Additional information
     /// such as country name is provided by
     /// \[ReachPlanService.ListPlannableLocations][google.ads.googleads.v14.services.ReachPlanService.ListPlannableLocations\]
-    /// or \[GoogleAdsService.Search/SearchStream][\].
+    /// or GoogleAdsService.Search/SearchStream.
     </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>parent_country_id: ::core::option::Option&lt;i64&gt;,
     <span class="doccomment">/// The ISO-3166-1 alpha-2 country code that is associated with the location.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>country_code: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The location&#39;s type. Location types correspond to target_type returned by
-    /// searching location type in \[GoogleAdsService.Search/SearchStream][\].
+    /// searching location type in GoogleAdsService.Search/SearchStream.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>location_type: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
@@ -49487,7 +49508,7 @@
     }
 }
 <span class="doccomment">/// Request message for
-/// \[CustomerUserAccessInvitation.MutateCustomerUserAccessInvitation][\]
+/// \[CustomerUserAccessInvitationService.MutateCustomerUserAccessInvitation][google.ads.googleads.v14.services.CustomerUserAccessInvitationService.MutateCustomerUserAccessInvitation\]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MutateCustomerUserAccessInvitationRequest {
@@ -51099,7 +51120,7 @@
     }
 }
 <span class="doccomment">/// Request message for
-/// \[SmartCampaignSuggestService.SuggestSmartCampaignBudgets][\].
+/// \[SmartCampaignSuggestService.SuggestSmartCampaignBudgetOptions][google.ads.googleads.v14.services.SmartCampaignSuggestService.SuggestSmartCampaignBudgetOptions\].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SuggestSmartCampaignBudgetOptionsRequest {
@@ -51216,9 +51237,9 @@
     }
 }
 <span class="doccomment">/// Response message for
-/// \[SmartCampaignSuggestService.SuggestSmartCampaignBudgets][\]. Depending on
-/// whether the system could suggest the options, either all of the options or
-/// none of them might be returned.
+/// \[SmartCampaignSuggestService.SuggestSmartCampaignBudgetOptions][google.ads.googleads.v14.services.SmartCampaignSuggestService.SuggestSmartCampaignBudgetOptions\].
+/// Depending on whether the system could suggest the options, either all of the
+/// options or none of them might be returned.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SuggestSmartCampaignBudgetOptionsResponse {
@@ -52052,7 +52073,6 @@
     <span class="doccomment">/// Nested message and enum types in `AdAssetApplyParameters`.
     </span><span class="kw">pub mod </span>ad_asset_apply_parameters {
         <span class="doccomment">/// Scope to apply the assets to.
-        /// Next ID: 4
         </span><span class="attr">#[derive(
             Clone,
             Copy,
@@ -52803,11 +52823,13 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>attributes: ::prost::alloc::vec::Vec&lt;AudienceInsightsAttributeMetadata&gt;,
 }
-<span class="doccomment">/// Request message for \[AudienceInsightsService.ListAudienceInsightsDates][\].
+<span class="doccomment">/// Request message for
+/// \[AudienceInsightsService.ListInsightsEligibleDates][google.ads.googleads.v14.services.AudienceInsightsService.ListInsightsEligibleDates\].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListInsightsEligibleDatesRequest {}
-<span class="doccomment">/// Response message for \[AudienceInsightsService.ListAudienceInsightsDates][\].
+<span class="doccomment">/// Response message for
+/// \[AudienceInsightsService.ListInsightsEligibleDates][google.ads.googleads.v14.services.AudienceInsightsService.ListInsightsEligibleDates\].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListInsightsEligibleDatesResponse {
