@@ -67,6 +67,10 @@ pub struct VerifyAttestationResponse {
     /// Output only. Same as claims_token, but as a string.
     #[prost(string, tag = "2")]
     pub oidc_claims_token: ::prost::alloc::string::String,
+    /// Output only. A list of messages that carry the partial error details
+    /// related to VerifyAttestation.
+    #[prost(message, repeated, tag = "3")]
+    pub partial_errors: ::prost::alloc::vec::Vec<super::super::super::rpc::Status>,
 }
 /// Credentials issued by GCP which are linked to the platform attestation. These
 /// will be verified server-side as part of attestaion verification.

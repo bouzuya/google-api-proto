@@ -1062,6 +1062,7 @@ pub mod task_tracking_view_config {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct VisibilityOption {
+        /// The specific visibility option chosen.
         #[prost(oneof = "visibility_option::VisibilityOption", tags = "1, 2, 3, 4, 5")]
         pub visibility_option: ::core::option::Option<
             visibility_option::VisibilityOption,
@@ -1069,6 +1070,7 @@ pub mod task_tracking_view_config {
     }
     /// Nested message and enum types in `VisibilityOption`.
     pub mod visibility_option {
+        /// The specific visibility option chosen.
         #[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         pub enum VisibilityOption {

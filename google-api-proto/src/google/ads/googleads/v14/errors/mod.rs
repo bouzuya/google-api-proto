@@ -136,6 +136,10 @@ pub mod asset_link_error_enum {
         /// Lead Form asset with Location answer type can't be linked to the
         /// Customer/Campaign because there are no Location assets.
         CannotLinkLocationLeadFormWithoutLocationAsset = 22,
+        /// Customer is not verified.
+        CustomerNotVerified = 23,
+        /// Call to action value is not supported.
+        UnsupportedCallToAction = 24,
     }
     impl AssetLinkError {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -193,6 +197,8 @@ pub mod asset_link_error_enum {
                 AssetLinkError::CannotLinkLocationLeadFormWithoutLocationAsset => {
                     "CANNOT_LINK_LOCATION_LEAD_FORM_WITHOUT_LOCATION_ASSET"
                 }
+                AssetLinkError::CustomerNotVerified => "CUSTOMER_NOT_VERIFIED",
+                AssetLinkError::UnsupportedCallToAction => "UNSUPPORTED_CALL_TO_ACTION",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -249,6 +255,8 @@ pub mod asset_link_error_enum {
                 "CANNOT_LINK_LOCATION_LEAD_FORM_WITHOUT_LOCATION_ASSET" => {
                     Some(Self::CannotLinkLocationLeadFormWithoutLocationAsset)
                 }
+                "CUSTOMER_NOT_VERIFIED" => Some(Self::CustomerNotVerified),
+                "UNSUPPORTED_CALL_TO_ACTION" => Some(Self::UnsupportedCallToAction),
                 _ => None,
             }
         }
@@ -391,6 +399,8 @@ pub mod request_error_enum {
         RpcDeadlineTooShort = 33,
         /// This API version has been sunset and is no longer supported.
         UnsupportedVersion = 38,
+        /// The Google Cloud project in the request was not found.
+        CloudProjectNotFound = 39,
     }
     impl RequestError {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -441,6 +451,7 @@ pub mod request_error_enum {
                 }
                 RequestError::RpcDeadlineTooShort => "RPC_DEADLINE_TOO_SHORT",
                 RequestError::UnsupportedVersion => "UNSUPPORTED_VERSION",
+                RequestError::CloudProjectNotFound => "CLOUD_PROJECT_NOT_FOUND",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -488,6 +499,7 @@ pub mod request_error_enum {
                 }
                 "RPC_DEADLINE_TOO_SHORT" => Some(Self::RpcDeadlineTooShort),
                 "UNSUPPORTED_VERSION" => Some(Self::UnsupportedVersion),
+                "CLOUD_PROJECT_NOT_FOUND" => Some(Self::CloudProjectNotFound),
                 _ => None,
             }
         }
@@ -2170,6 +2182,13 @@ pub mod criterion_error_enum {
         /// been deprecated. See
         /// <https://support.google.com/google-ads/answer/12463119> to learn more.
         CannotTargetSimilarUserList = 151,
+        /// Audience segment criteria cannot be added when use_audience_grouped bit
+        /// is set.
+        CannotAddAudienceSegmentCriterionWhenAudienceGroupedIsSet = 152,
+        /// Only one audience is allowed in an ad group.
+        OneAudienceAllowedPerAdGroup = 153,
+        /// Invalid detailed demographics criterion.
+        InvalidDetailedDemographic = 154,
     }
     impl CriterionError {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -2503,6 +2522,15 @@ pub mod criterion_error_enum {
                 CriterionError::CannotTargetSimilarUserList => {
                     "CANNOT_TARGET_SIMILAR_USER_LIST"
                 }
+                CriterionError::CannotAddAudienceSegmentCriterionWhenAudienceGroupedIsSet => {
+                    "CANNOT_ADD_AUDIENCE_SEGMENT_CRITERION_WHEN_AUDIENCE_GROUPED_IS_SET"
+                }
+                CriterionError::OneAudienceAllowedPerAdGroup => {
+                    "ONE_AUDIENCE_ALLOWED_PER_AD_GROUP"
+                }
+                CriterionError::InvalidDetailedDemographic => {
+                    "INVALID_DETAILED_DEMOGRAPHIC"
+                }
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -2817,6 +2845,13 @@ pub mod criterion_error_enum {
                 "CANNOT_TARGET_SIMILAR_USER_LIST" => {
                     Some(Self::CannotTargetSimilarUserList)
                 }
+                "CANNOT_ADD_AUDIENCE_SEGMENT_CRITERION_WHEN_AUDIENCE_GROUPED_IS_SET" => {
+                    Some(Self::CannotAddAudienceSegmentCriterionWhenAudienceGroupedIsSet)
+                }
+                "ONE_AUDIENCE_ALLOWED_PER_AD_GROUP" => {
+                    Some(Self::OneAudienceAllowedPerAdGroup)
+                }
+                "INVALID_DETAILED_DEMOGRAPHIC" => Some(Self::InvalidDetailedDemographic),
                 _ => None,
             }
         }
@@ -4946,6 +4981,11 @@ pub mod campaign_error_enum {
         NotCompatibleWithGoogleAttributionConversions = 81,
         /// Customer level conversion lag is too high.
         ConversionLagTooHigh = 82,
+        /// The advertiser set as an advertising partner is not an actively linked
+        /// advertiser to this customer.
+        NotLinkedAdvertisingPartner = 83,
+        /// Invalid number of advertising partner IDs.
+        InvalidNumberOfAdvertisingPartnerIds = 84,
     }
     impl CampaignError {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -5122,6 +5162,12 @@ pub mod campaign_error_enum {
                     "NOT_COMPATIBLE_WITH_GOOGLE_ATTRIBUTION_CONVERSIONS"
                 }
                 CampaignError::ConversionLagTooHigh => "CONVERSION_LAG_TOO_HIGH",
+                CampaignError::NotLinkedAdvertisingPartner => {
+                    "NOT_LINKED_ADVERTISING_PARTNER"
+                }
+                CampaignError::InvalidNumberOfAdvertisingPartnerIds => {
+                    "INVALID_NUMBER_OF_ADVERTISING_PARTNER_IDS"
+                }
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -5285,6 +5331,12 @@ pub mod campaign_error_enum {
                     Some(Self::NotCompatibleWithGoogleAttributionConversions)
                 }
                 "CONVERSION_LAG_TOO_HIGH" => Some(Self::ConversionLagTooHigh),
+                "NOT_LINKED_ADVERTISING_PARTNER" => {
+                    Some(Self::NotLinkedAdvertisingPartner)
+                }
+                "INVALID_NUMBER_OF_ADVERTISING_PARTNER_IDS" => {
+                    Some(Self::InvalidNumberOfAdvertisingPartnerIds)
+                }
                 _ => None,
             }
         }
@@ -5781,6 +5833,100 @@ pub mod partial_failure_error_enum {
                 "UNSPECIFIED" => Some(Self::Unspecified),
                 "UNKNOWN" => Some(Self::Unknown),
                 "PARTIAL_FAILURE_MODE_REQUIRED" => Some(Self::PartialFailureModeRequired),
+                _ => None,
+            }
+        }
+    }
+}
+/// Container for enum describing possible search term insight errors.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchTermInsightErrorEnum {}
+/// Nested message and enum types in `SearchTermInsightErrorEnum`.
+pub mod search_term_insight_error_enum {
+    /// Enum describing possible search term insight errors.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum SearchTermInsightError {
+        /// Name unspecified.
+        Unspecified = 0,
+        /// The received error code is not known in this version.
+        Unknown = 1,
+        /// Search term insights cannot be filtered by metrics when segmenting.
+        FilteringNotAllowedWithSegments = 2,
+        /// Search term insights cannot have a LIMIT when segmenting.
+        LimitNotAllowedWithSegments = 3,
+        /// A selected field requires another field to be selected with it.
+        MissingFieldInSelectClause = 4,
+        /// A selected field/resource requires filtering by a single resource.
+        RequiresFilterBySingleResource = 5,
+        /// Search term insights cannot be sorted when segmenting.
+        SortingNotAllowedWithSegments = 6,
+        /// Search term insights cannot have a summary row when segmenting.
+        SummaryRowNotAllowedWithSegments = 7,
+    }
+    impl SearchTermInsightError {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                SearchTermInsightError::Unspecified => "UNSPECIFIED",
+                SearchTermInsightError::Unknown => "UNKNOWN",
+                SearchTermInsightError::FilteringNotAllowedWithSegments => {
+                    "FILTERING_NOT_ALLOWED_WITH_SEGMENTS"
+                }
+                SearchTermInsightError::LimitNotAllowedWithSegments => {
+                    "LIMIT_NOT_ALLOWED_WITH_SEGMENTS"
+                }
+                SearchTermInsightError::MissingFieldInSelectClause => {
+                    "MISSING_FIELD_IN_SELECT_CLAUSE"
+                }
+                SearchTermInsightError::RequiresFilterBySingleResource => {
+                    "REQUIRES_FILTER_BY_SINGLE_RESOURCE"
+                }
+                SearchTermInsightError::SortingNotAllowedWithSegments => {
+                    "SORTING_NOT_ALLOWED_WITH_SEGMENTS"
+                }
+                SearchTermInsightError::SummaryRowNotAllowedWithSegments => {
+                    "SUMMARY_ROW_NOT_ALLOWED_WITH_SEGMENTS"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNSPECIFIED" => Some(Self::Unspecified),
+                "UNKNOWN" => Some(Self::Unknown),
+                "FILTERING_NOT_ALLOWED_WITH_SEGMENTS" => {
+                    Some(Self::FilteringNotAllowedWithSegments)
+                }
+                "LIMIT_NOT_ALLOWED_WITH_SEGMENTS" => {
+                    Some(Self::LimitNotAllowedWithSegments)
+                }
+                "MISSING_FIELD_IN_SELECT_CLAUSE" => {
+                    Some(Self::MissingFieldInSelectClause)
+                }
+                "REQUIRES_FILTER_BY_SINGLE_RESOURCE" => {
+                    Some(Self::RequiresFilterBySingleResource)
+                }
+                "SORTING_NOT_ALLOWED_WITH_SEGMENTS" => {
+                    Some(Self::SortingNotAllowedWithSegments)
+                }
+                "SUMMARY_ROW_NOT_ALLOWED_WITH_SEGMENTS" => {
+                    Some(Self::SummaryRowNotAllowedWithSegments)
+                }
                 _ => None,
             }
         }
@@ -8230,6 +8376,8 @@ pub mod asset_error_enum {
         CannotModifyAutomaticallyCreatedAsset = 36,
         /// Lead Form is disallowed to use "LOCATION" answer type.
         LeadFormLocationAnswerTypeDisallowed = 37,
+        /// Page Feed label text contains invalid characters.
+        PageFeedInvalidLabelText = 38,
     }
     impl AssetError {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -8315,6 +8463,7 @@ pub mod asset_error_enum {
                 AssetError::LeadFormLocationAnswerTypeDisallowed => {
                     "LEAD_FORM_LOCATION_ANSWER_TYPE_DISALLOWED"
                 }
+                AssetError::PageFeedInvalidLabelText => "PAGE_FEED_INVALID_LABEL_TEXT",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -8397,6 +8546,7 @@ pub mod asset_error_enum {
                 "LEAD_FORM_LOCATION_ANSWER_TYPE_DISALLOWED" => {
                     Some(Self::LeadFormLocationAnswerTypeDisallowed)
                 }
+                "PAGE_FEED_INVALID_LABEL_TEXT" => Some(Self::PageFeedInvalidLabelText),
                 _ => None,
             }
         }
@@ -9103,6 +9253,14 @@ pub mod authentication_error_enum {
         /// To access this Google Ads account, enable Advanced Protection in your
         /// Google account at <https://landing.google.com/advancedprotection.>
         AdvancedProtectionNotEnrolled = 24,
+        /// The Cloud organization associated with the project is not recognized.
+        OrganizationNotRecognized = 26,
+        /// The Cloud organization associated with the project is not approved for
+        /// prod access.
+        OrganizationNotApproved = 27,
+        /// The Cloud organization associated with the project is not associated with
+        /// the developer token.
+        OrganizationNotAssociatedWithDeveloperToken = 28,
     }
     impl AuthenticationError {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -9145,6 +9303,15 @@ pub mod authentication_error_enum {
                 AuthenticationError::AdvancedProtectionNotEnrolled => {
                     "ADVANCED_PROTECTION_NOT_ENROLLED"
                 }
+                AuthenticationError::OrganizationNotRecognized => {
+                    "ORGANIZATION_NOT_RECOGNIZED"
+                }
+                AuthenticationError::OrganizationNotApproved => {
+                    "ORGANIZATION_NOT_APPROVED"
+                }
+                AuthenticationError::OrganizationNotAssociatedWithDeveloperToken => {
+                    "ORGANIZATION_NOT_ASSOCIATED_WITH_DEVELOPER_TOKEN"
+                }
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -9177,6 +9344,11 @@ pub mod authentication_error_enum {
                 }
                 "ADVANCED_PROTECTION_NOT_ENROLLED" => {
                     Some(Self::AdvancedProtectionNotEnrolled)
+                }
+                "ORGANIZATION_NOT_RECOGNIZED" => Some(Self::OrganizationNotRecognized),
+                "ORGANIZATION_NOT_APPROVED" => Some(Self::OrganizationNotApproved),
+                "ORGANIZATION_NOT_ASSOCIATED_WITH_DEVELOPER_TOKEN" => {
+                    Some(Self::OrganizationNotAssociatedWithDeveloperToken)
                 }
                 _ => None,
             }
@@ -9245,6 +9417,8 @@ pub mod authorization_error_enum {
         AccessDeniedForAccountType = 25,
         /// The developer does not have access to the metrics queried.
         MetricAccessDenied = 26,
+        /// The Google Cloud project is not under the required organization.
+        CloudProjectNotUnderOrganization = 27,
     }
     impl AuthorizationError {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -9279,6 +9453,9 @@ pub mod authorization_error_enum {
                     "ACCESS_DENIED_FOR_ACCOUNT_TYPE"
                 }
                 AuthorizationError::MetricAccessDenied => "METRIC_ACCESS_DENIED",
+                AuthorizationError::CloudProjectNotUnderOrganization => {
+                    "CLOUD_PROJECT_NOT_UNDER_ORGANIZATION"
+                }
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -9306,6 +9483,9 @@ pub mod authorization_error_enum {
                     Some(Self::AccessDeniedForAccountType)
                 }
                 "METRIC_ACCESS_DENIED" => Some(Self::MetricAccessDenied),
+                "CLOUD_PROJECT_NOT_UNDER_ORGANIZATION" => {
+                    Some(Self::CloudProjectNotUnderOrganization)
+                }
                 _ => None,
             }
         }
@@ -12936,6 +13116,13 @@ pub mod experiment_error_enum {
         CannotCreateExperimentCampaignWithCustomBudget = 24,
         /// Invalid status transition.
         StatusTransitionInvalid = 25,
+        /// The experiment campaign name conflicts with a pre-existing campaign.
+        DuplicateExperimentCampaignName = 26,
+        /// Cannot remove in creation experiments.
+        CannotRemoveInCreationExperiment = 27,
+        /// Cannot add campaign with deprecated ad types. Deprecated ad types:
+        /// ENHANCED_DISPLAY, GALLERY, GMAIL, KEYWORDLESS, TEXT.
+        CannotAddCampaignWithDeprecatedAdTypes = 28,
     }
     impl ExperimentError {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -12996,6 +13183,15 @@ pub mod experiment_error_enum {
                     "CANNOT_CREATE_EXPERIMENT_CAMPAIGN_WITH_CUSTOM_BUDGET"
                 }
                 ExperimentError::StatusTransitionInvalid => "STATUS_TRANSITION_INVALID",
+                ExperimentError::DuplicateExperimentCampaignName => {
+                    "DUPLICATE_EXPERIMENT_CAMPAIGN_NAME"
+                }
+                ExperimentError::CannotRemoveInCreationExperiment => {
+                    "CANNOT_REMOVE_IN_CREATION_EXPERIMENT"
+                }
+                ExperimentError::CannotAddCampaignWithDeprecatedAdTypes => {
+                    "CANNOT_ADD_CAMPAIGN_WITH_DEPRECATED_AD_TYPES"
+                }
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -13045,6 +13241,15 @@ pub mod experiment_error_enum {
                     Some(Self::CannotCreateExperimentCampaignWithCustomBudget)
                 }
                 "STATUS_TRANSITION_INVALID" => Some(Self::StatusTransitionInvalid),
+                "DUPLICATE_EXPERIMENT_CAMPAIGN_NAME" => {
+                    Some(Self::DuplicateExperimentCampaignName)
+                }
+                "CANNOT_REMOVE_IN_CREATION_EXPERIMENT" => {
+                    Some(Self::CannotRemoveInCreationExperiment)
+                }
+                "CANNOT_ADD_CAMPAIGN_WITH_DEPRECATED_AD_TYPES" => {
+                    Some(Self::CannotAddCampaignWithDeprecatedAdTypes)
+                }
                 _ => None,
             }
         }
@@ -18300,7 +18505,7 @@ pub struct ErrorCode {
     /// The list of error enums
     #[prost(
         oneof = "error_code::ErrorCode",
-        tags = "1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 161, 18, 159, 19, 21, 24, 25, 107, 149, 155, 148, 153, 154, 152, 26, 29, 166, 160, 31, 165, 109, 32, 150, 158, 90, 151, 33, 34, 35, 36, 37, 38, 39, 40, 110, 42, 116, 86, 162, 44, 45, 46, 47, 48, 49, 58, 51, 52, 53, 54, 55, 56, 57, 117, 59, 60, 61, 62, 63, 64, 65, 115, 143, 111, 145, 146, 66, 67, 68, 70, 71, 72, 132, 74, 133, 76, 77, 78, 136, 79, 80, 81, 82, 83, 84, 87, 88, 91, 92, 93, 94, 96, 97, 98, 100, 101, 102, 103, 140, 141, 104, 105, 112, 114, 118, 119, 137, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 134, 135, 138, 139, 164, 147, 156, 167, 170, 171"
+        tags = "1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 161, 18, 159, 19, 21, 24, 25, 107, 149, 155, 148, 153, 154, 152, 26, 29, 166, 160, 31, 165, 109, 32, 150, 158, 90, 151, 33, 34, 35, 36, 37, 38, 39, 40, 110, 42, 116, 86, 162, 44, 45, 46, 47, 48, 49, 58, 51, 52, 53, 54, 55, 56, 57, 117, 59, 60, 61, 62, 63, 64, 65, 115, 143, 111, 145, 146, 66, 67, 68, 70, 71, 72, 132, 74, 133, 76, 77, 78, 136, 79, 80, 81, 82, 83, 84, 87, 88, 91, 92, 93, 94, 96, 97, 98, 100, 101, 102, 103, 140, 141, 104, 105, 112, 114, 118, 119, 137, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 134, 135, 138, 139, 164, 174, 147, 156, 167, 170, 171"
     )]
     pub error_code: ::core::option::Option<error_code::ErrorCode>,
 }
@@ -19018,6 +19223,12 @@ pub mod error_code {
         /// The reasons for the audience error
         #[prost(enumeration = "super::audience_error_enum::AudienceError", tag = "164")]
         AudienceError(i32),
+        /// The reasons for the Search term insight error
+        #[prost(
+            enumeration = "super::search_term_insight_error_enum::SearchTermInsightError",
+            tag = "174"
+        )]
+        SearchTermInsightError(i32),
         /// The reasons for the Smart campaign error
         #[prost(
             enumeration = "super::smart_campaign_error_enum::SmartCampaignError",

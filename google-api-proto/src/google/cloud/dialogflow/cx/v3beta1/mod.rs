@@ -228,6 +228,56 @@ pub mod changelogs_client {
         }
     }
 }
+/// Import strategies for the conflict resolution of resources (i.e. intents,
+/// entities, and webhooks) with identical display names during import
+/// operations.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum ImportStrategy {
+    /// Unspecified. Treated as 'CREATE_NEW'.
+    Unspecified = 0,
+    /// Create a new resource with a numeric suffix appended to the end of the
+    /// existing display name.
+    CreateNew = 1,
+    /// Replace existing resource with incoming resource in the content to be
+    /// imported.
+    Replace = 2,
+    /// Keep existing resource and discard incoming resource in the content to be
+    /// imported.
+    Keep = 3,
+    /// Combine existing and incoming resources when a conflict is encountered.
+    Merge = 4,
+    /// Throw error if a conflict is encountered.
+    ThrowError = 5,
+}
+impl ImportStrategy {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            ImportStrategy::Unspecified => "IMPORT_STRATEGY_UNSPECIFIED",
+            ImportStrategy::CreateNew => "IMPORT_STRATEGY_CREATE_NEW",
+            ImportStrategy::Replace => "IMPORT_STRATEGY_REPLACE",
+            ImportStrategy::Keep => "IMPORT_STRATEGY_KEEP",
+            ImportStrategy::Merge => "IMPORT_STRATEGY_MERGE",
+            ImportStrategy::ThrowError => "IMPORT_STRATEGY_THROW_ERROR",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "IMPORT_STRATEGY_UNSPECIFIED" => Some(Self::Unspecified),
+            "IMPORT_STRATEGY_CREATE_NEW" => Some(Self::CreateNew),
+            "IMPORT_STRATEGY_REPLACE" => Some(Self::Replace),
+            "IMPORT_STRATEGY_KEEP" => Some(Self::Keep),
+            "IMPORT_STRATEGY_MERGE" => Some(Self::Merge),
+            "IMPORT_STRATEGY_THROW_ERROR" => Some(Self::ThrowError),
+            _ => None,
+        }
+    }
+}
 /// Information for a word recognized by the speech recognizer.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1633,7 +1683,10 @@ pub struct Page {
     ///      intent, then the first group in the ordered list takes precedence.
     ///
     /// Format:`projects/<Project ID>/locations/<Location ID>/agents/<Agent
-    /// ID>/flows/<Flow ID>/transitionRouteGroups/<TransitionRouteGroup ID>`.
+    /// ID>/flows/<Flow ID>/transitionRouteGroups/<TransitionRouteGroup ID>`
+    /// or `projects/<Project ID>/locations/<Location ID>/agents/<Agent
+    /// ID>/transitionRouteGroups/<TransitionRouteGroup ID>` for agent-level
+    /// groups.
     #[prost(string, repeated, tag = "11")]
     pub transition_route_groups: ::prost::alloc::vec::Vec<
         ::prost::alloc::string::String,
@@ -3891,15 +3944,15 @@ pub struct QueryParameters {
 }
 /// Represents the query input. It can contain one of:
 ///
-/// 1.  A conversational query in the form of text.
+/// 1. A conversational query in the form of text.
 ///
-/// 2.  An intent query that specifies which intent to trigger.
+/// 2. An intent query that specifies which intent to trigger.
 ///
-/// 3.  Natural language speech audio to be processed.
+/// 3. Natural language speech audio to be processed.
 ///
-/// 4.  An event to be triggered.
+/// 4. An event to be triggered.
 ///
-/// 5.  DTMF digits to invoke an intent and fill in parameter value.
+/// 5. DTMF digits to invoke an intent and fill in parameter value.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct QueryInput {
@@ -4948,7 +5001,10 @@ pub struct Flow {
     /// defined in the page have higher priority than those defined in the flow.
     ///
     /// Format:`projects/<Project ID>/locations/<Location ID>/agents/<Agent
-    /// ID>/flows/<Flow ID>/transitionRouteGroups/<TransitionRouteGroup ID>`.
+    /// ID>/flows/<Flow ID>/transitionRouteGroups/<TransitionRouteGroup ID>`
+    /// or `projects/<Project ID>/locations/<Location ID>/agents/<Agent
+    /// ID>/transitionRouteGroups/<TransitionRouteGroup ID>` for agent-level
+    /// groups.
     #[prost(string, repeated, tag = "15")]
     pub transition_route_groups: ::prost::alloc::vec::Vec<
         ::prost::alloc::string::String,
@@ -5174,6 +5230,10 @@ pub struct ImportFlowRequest {
     /// Flow import mode. If not specified, `KEEP` is assumed.
     #[prost(enumeration = "import_flow_request::ImportOption", tag = "4")]
     pub import_option: i32,
+    /// Optional. Specifies the import strategy used when resolving resource
+    /// conflicts.
+    #[prost(message, optional, tag = "5")]
+    pub flow_import_strategy: ::core::option::Option<FlowImportStrategy>,
     /// Required. The flow to import.
     #[prost(oneof = "import_flow_request::Flow", tags = "2, 3")]
     pub flow: ::core::option::Option<import_flow_request::Flow>,
@@ -5246,6 +5306,20 @@ pub mod import_flow_request {
         #[prost(bytes, tag = "3")]
         FlowContent(::prost::bytes::Bytes),
     }
+}
+/// The flow import strategy used for resource conflict resolution associated
+/// with an
+/// \[ImportFlowRequest][google.cloud.dialogflow.cx.v3beta1.ImportFlowRequest\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FlowImportStrategy {
+    /// Optional. Global flow import strategy for resource conflict resolution. The
+    /// import Import strategy for resource conflict resolution, applied globally
+    /// throughout the flow. It will be applied for all
+    /// display name conflicts in the imported content. If not specified,
+    /// 'CREATE_NEW' is assumed.
+    #[prost(enumeration = "ImportStrategy", tag = "1")]
+    pub global_import_strategy: i32,
 }
 /// The response message for
 /// \[Flows.ImportFlow][google.cloud.dialogflow.cx.v3beta1.Flows.ImportFlow\].
@@ -6557,7 +6631,7 @@ pub mod deployments_client {
         }
     }
 }
-/// An TransitionRouteGroup represents a group of
+/// A TransitionRouteGroup represents a group of
 /// \[`TransitionRoutes`][google.cloud.dialogflow.cx.v3beta1.TransitionRoute\] to
 /// be used by a \[Page][google.cloud.dialogflow.cx.v3beta1.Page\].
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -6567,7 +6641,10 @@ pub struct TransitionRouteGroup {
     /// \[TransitionRouteGroups.CreateTransitionRouteGroup][google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroups.CreateTransitionRouteGroup\]
     /// populates the name automatically. Format: `projects/<Project
     /// ID>/locations/<Location ID>/agents/<Agent ID>/flows/<Flow
-    /// ID>/transitionRouteGroups/<Transition Route Group ID>`.
+    /// ID>/transitionRouteGroups/<Transition Route Group ID>` or
+    /// `projects/<Project ID>/locations/<Location ID>/agents/<Agent
+    /// ID>/transitionRouteGroups/<TransitionRouteGroup ID>` for agent-level
+    /// groups.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Required. The human-readable name of the transition route group, unique
@@ -6586,7 +6663,8 @@ pub struct TransitionRouteGroup {
 pub struct ListTransitionRouteGroupsRequest {
     /// Required. The flow to list all transition route groups for.
     /// Format: `projects/<Project ID>/locations/<Location ID>/agents/<Agent
-    /// ID>/flows/<Flow ID>`.
+    /// ID>/flows/<Flow ID>`
+    /// or `projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// The maximum number of items to return in a single page. By default 100 and
@@ -6635,7 +6713,9 @@ pub struct GetTransitionRouteGroupRequest {
     /// Required. The name of the
     /// \[TransitionRouteGroup][google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroup\].
     /// Format: `projects/<Project ID>/locations/<Location ID>/agents/<Agent
-    /// ID>/flows/<Flow ID>/transitionRouteGroups/<Transition Route Group ID>`.
+    /// ID>/flows/<Flow ID>/transitionRouteGroups/<Transition Route Group ID>`
+    /// or `projects/<Project ID>/locations/<Location ID>/agents/<Agent
+    /// ID>/transitionRouteGroups/<Transition Route Group ID>`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// The language to retrieve the transition route group for. The following
@@ -6661,7 +6741,9 @@ pub struct CreateTransitionRouteGroupRequest {
     /// Required. The flow to create an
     /// \[TransitionRouteGroup][google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroup\]
     /// for. Format: `projects/<Project ID>/locations/<Location ID>/agents/<Agent
-    /// ID>/flows/<Flow ID>`.
+    /// ID>/flows/<Flow ID>`
+    /// or `projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>`
+    /// for agent-level groups.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// Required. The transition route group to create.
@@ -6715,7 +6797,8 @@ pub struct DeleteTransitionRouteGroupRequest {
     /// \[TransitionRouteGroup][google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroup\]
     /// to delete. Format: `projects/<Project ID>/locations/<Location
     /// ID>/agents/<Agent ID>/flows/<Flow ID>/transitionRouteGroups/<Transition
-    /// Route Group ID>`.
+    /// Route Group ID>` or `projects/<Project ID>/locations/<Location
+    /// ID>/agents/<Agent ID>/transitionRouteGroups/<Transition Route Group ID>`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// This field has no effect for transition route group that no page is using.
@@ -8529,8 +8612,8 @@ pub mod webhook {
         pub request_body: ::prost::alloc::string::String,
         /// Optional. Maps the values extracted from specific fields of the flexible
         /// webhook response into session parameters.
-        ///   - Key: session parameter name
-        ///   - Value: field path in the webhook response
+        /// - Key: session parameter name
+        /// - Value: field path in the webhook response
         #[prost(btree_map = "string, string", tag = "9")]
         pub parameter_mapping: ::prost::alloc::collections::BTreeMap<
             ::prost::alloc::string::String,
@@ -10893,8 +10976,9 @@ pub struct SpeechToTextSettings {
 /// Types]\[google.cloud.dialogflow.cx.v3beta1.EntityType\],
 /// \[Flows][google.cloud.dialogflow.cx.v3beta1.Flow\],
 /// \[Fulfillments][google.cloud.dialogflow.cx.v3beta1.Fulfillment\],
-/// \[Webhooks][google.cloud.dialogflow.cx.v3beta1.Webhook\], and so on to manage
-/// the conversation flows..
+/// \[Webhooks][google.cloud.dialogflow.cx.v3beta1.Webhook\],
+/// \[TransitionRouteGroups][google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroup\]
+/// and so on to manage the conversation flows.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Agent {

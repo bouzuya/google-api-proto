@@ -1,5 +1,5 @@
 /// Request message for
-/// \[TravelSuggestAssetsService.SuggestTravelAssets][\].
+/// \[TravelAssetSuggestionService.SuggestTravelAssets][google.ads.googleads.v14.services.TravelAssetSuggestionService.SuggestTravelAssets\].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SuggestTravelAssetsRequest {
@@ -18,7 +18,7 @@ pub struct SuggestTravelAssetsRequest {
     pub place_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// Response message for
-/// \[TravelSuggestAssetsService.SuggestTravelAssets][\].
+/// \[TravelAssetSuggestionService.SuggestTravelAssets][google.ads.googleads.v14.services.TravelAssetSuggestionService.SuggestTravelAssets\].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SuggestTravelAssetsResponse {
@@ -4973,7 +4973,7 @@ pub mod get_smart_campaign_status_response {
     }
 }
 /// Request message for
-/// \[SmartCampaignSettingService.MutateSmartCampaignSetting][\].
+/// \[SmartCampaignSettingService.MutateSmartCampaignSettings][google.ads.googleads.v14.services.SmartCampaignSettingService.MutateSmartCampaignSettings\].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MutateSmartCampaignSettingsRequest {
@@ -12791,7 +12791,7 @@ pub mod campaign_shared_set_service_client {
     }
 }
 /// Request message for
-/// \[ConversionGoalCampaignConfigService.MutateConversionGoalCampaignConfig][\].
+/// \[ConversionGoalCampaignConfigService.MutateConversionGoalCampaignConfigs][google.ads.googleads.v14.services.ConversionGoalCampaignConfigService.MutateConversionGoalCampaignConfigs\].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MutateConversionGoalCampaignConfigsRequest {
@@ -18341,6 +18341,11 @@ pub struct GoogleAdsRow {
     /// The campaign label referenced in the query.
     #[prost(message, optional, tag = "108")]
     pub campaign_label: ::core::option::Option<super::resources::CampaignLabel>,
+    /// The campaign search term insight referenced in the query.
+    #[prost(message, optional, tag = "204")]
+    pub campaign_search_term_insight: ::core::option::Option<
+        super::resources::CampaignSearchTermInsight,
+    >,
     /// Campaign Shared Set referenced in AWQL query.
     #[prost(message, optional, tag = "30")]
     pub campaign_shared_set: ::core::option::Option<super::resources::CampaignSharedSet>,
@@ -18456,6 +18461,11 @@ pub struct GoogleAdsRow {
     #[prost(message, optional, tag = "88")]
     pub customer_negative_criterion: ::core::option::Option<
         super::resources::CustomerNegativeCriterion,
+    >,
+    /// The customer search term insight referenced in the query.
+    #[prost(message, optional, tag = "205")]
+    pub customer_search_term_insight: ::core::option::Option<
+        super::resources::CustomerSearchTermInsight,
     >,
     /// The CustomerUserAccess referenced in the query.
     #[prost(message, optional, tag = "146")]
@@ -20092,14 +20102,14 @@ pub struct PlannableLocation {
     /// If present, will always be a GeoTargetConstant ID. Additional information
     /// such as country name is provided by
     /// \[ReachPlanService.ListPlannableLocations][google.ads.googleads.v14.services.ReachPlanService.ListPlannableLocations\]
-    /// or \[GoogleAdsService.Search/SearchStream][\].
+    /// or GoogleAdsService.Search/SearchStream.
     #[prost(int64, optional, tag = "6")]
     pub parent_country_id: ::core::option::Option<i64>,
     /// The ISO-3166-1 alpha-2 country code that is associated with the location.
     #[prost(string, optional, tag = "7")]
     pub country_code: ::core::option::Option<::prost::alloc::string::String>,
     /// The location's type. Location types correspond to target_type returned by
-    /// searching location type in \[GoogleAdsService.Search/SearchStream][\].
+    /// searching location type in GoogleAdsService.Search/SearchStream.
     #[prost(string, optional, tag = "8")]
     pub location_type: ::core::option::Option<::prost::alloc::string::String>,
 }
@@ -22244,7 +22254,7 @@ pub mod customer_asset_set_service_client {
     }
 }
 /// Request message for
-/// \[CustomerUserAccessInvitation.MutateCustomerUserAccessInvitation][\]
+/// \[CustomerUserAccessInvitationService.MutateCustomerUserAccessInvitation][google.ads.googleads.v14.services.CustomerUserAccessInvitationService.MutateCustomerUserAccessInvitation\]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MutateCustomerUserAccessInvitationRequest {
@@ -23856,7 +23866,7 @@ pub mod custom_interest_service_client {
     }
 }
 /// Request message for
-/// \[SmartCampaignSuggestService.SuggestSmartCampaignBudgets][\].
+/// \[SmartCampaignSuggestService.SuggestSmartCampaignBudgetOptions][google.ads.googleads.v14.services.SmartCampaignSuggestService.SuggestSmartCampaignBudgetOptions\].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SuggestSmartCampaignBudgetOptionsRequest {
@@ -23973,9 +23983,9 @@ pub mod smart_campaign_suggestion_info {
     }
 }
 /// Response message for
-/// \[SmartCampaignSuggestService.SuggestSmartCampaignBudgets][\]. Depending on
-/// whether the system could suggest the options, either all of the options or
-/// none of them might be returned.
+/// \[SmartCampaignSuggestService.SuggestSmartCampaignBudgetOptions][google.ads.googleads.v14.services.SmartCampaignSuggestService.SuggestSmartCampaignBudgetOptions\].
+/// Depending on whether the system could suggest the options, either all of the
+/// options or none of them might be returned.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SuggestSmartCampaignBudgetOptionsResponse {
@@ -24809,7 +24819,6 @@ pub mod apply_recommendation_operation {
     /// Nested message and enum types in `AdAssetApplyParameters`.
     pub mod ad_asset_apply_parameters {
         /// Scope to apply the assets to.
-        /// Next ID: 4
         #[derive(
             Clone,
             Copy,
@@ -25560,11 +25569,13 @@ pub struct ListAudienceInsightsAttributesResponse {
     #[prost(message, repeated, tag = "1")]
     pub attributes: ::prost::alloc::vec::Vec<AudienceInsightsAttributeMetadata>,
 }
-/// Request message for \[AudienceInsightsService.ListAudienceInsightsDates][\].
+/// Request message for
+/// \[AudienceInsightsService.ListInsightsEligibleDates][google.ads.googleads.v14.services.AudienceInsightsService.ListInsightsEligibleDates\].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListInsightsEligibleDatesRequest {}
-/// Response message for \[AudienceInsightsService.ListAudienceInsightsDates][\].
+/// Response message for
+/// \[AudienceInsightsService.ListInsightsEligibleDates][google.ads.googleads.v14.services.AudienceInsightsService.ListInsightsEligibleDates\].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListInsightsEligibleDatesResponse {
