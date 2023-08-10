@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["NextHopType","RouteType"]};
+window.SIDEBAR_ITEMS = {"enum":["NextHopType","RouteScope","RouteType"]};

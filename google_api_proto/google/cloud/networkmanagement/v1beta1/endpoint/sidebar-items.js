@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["NetworkType"],"struct":["AppEngineVersionEndpoint","CloudFunctionEndpoint","CloudRunRevisionEndpoint"]};
+window.SIDEBAR_ITEMS = {"enum":["ForwardingRuleTarget","NetworkType"],"struct":["AppEngineVersionEndpoint","CloudFunctionEndpoint","CloudRunRevisionEndpoint"]};
