@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["EvaluationMode"]};
+window.SIDEBAR_ITEMS = {"enum":["EvaluationMode"],"struct":["PolicyBinding"]};

@@ -13925,6 +13925,21 @@
 <a href="#13925" id="13925">13925</a>
 <a href="#13926" id="13926">13926</a>
 <a href="#13927" id="13927">13927</a>
+<a href="#13928" id="13928">13928</a>
+<a href="#13929" id="13929">13929</a>
+<a href="#13930" id="13930">13930</a>
+<a href="#13931" id="13931">13931</a>
+<a href="#13932" id="13932">13932</a>
+<a href="#13933" id="13933">13933</a>
+<a href="#13934" id="13934">13934</a>
+<a href="#13935" id="13935">13935</a>
+<a href="#13936" id="13936">13936</a>
+<a href="#13937" id="13937">13937</a>
+<a href="#13938" id="13938">13938</a>
+<a href="#13939" id="13939">13939</a>
+<a href="#13940" id="13940">13940</a>
+<a href="#13941" id="13941">13941</a>
+<a href="#13942" id="13942">13942</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Hints for the speech recognizer to help with recognition in a specific
 /// conversation state.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -17998,6 +18013,13 @@
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
+    <span class="doccomment">/// The platform of the virtual agent response messages.
+    ///
+    /// If not empty, only emits messages from this platform in the response.
+    /// Valid values are the enum names of
+    /// \[platform][google.cloud.dialogflow.v2.Intent.Message.platform\].
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="kw">pub </span>platform: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents the query input. It can contain either:
 ///
@@ -26974,6 +26996,10 @@
         /// &quot;projects/&lt;Project ID&gt;/answerRecords/&lt;Answer Record ID&gt;&quot;
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>answer_record: ::prost::alloc::string::String,
+        <span class="doccomment">/// The baseline model version used to generate this summary. It is empty if
+        /// a baseline model was not used to generate this summary.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>baseline_model_version: ::prost::alloc::string::String,
     }
 }
 <span class="doccomment">/// The request message for
@@ -27061,6 +27087,10 @@
             ::prost::alloc::string::String,
             ::prost::alloc::string::String,
         &gt;,
+        <span class="doccomment">/// The baseline model version used to generate this summary. It is empty if
+        /// a baseline model was not used to generate this summary.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>baseline_model_version: ::prost::alloc::string::String,
     }
 }
 <span class="doccomment">/// Generated client implementations.
