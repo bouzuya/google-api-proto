@@ -4071,6 +4071,13 @@ pub struct QueryParameters {
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
+    /// The platform of the virtual agent response messages.
+    ///
+    /// If not empty, only emits messages from this platform in the response.
+    /// Valid values are the enum names of
+    /// \[platform][google.cloud.dialogflow.v2.Intent.Message.platform\].
+    #[prost(string, tag = "18")]
+    pub platform: ::prost::alloc::string::String,
 }
 /// Represents the query input. It can contain either:
 ///
@@ -13047,6 +13054,10 @@ pub mod suggest_conversation_summary_response {
         /// "projects/<Project ID>/answerRecords/<Answer Record ID>"
         #[prost(string, tag = "3")]
         pub answer_record: ::prost::alloc::string::String,
+        /// The baseline model version used to generate this summary. It is empty if
+        /// a baseline model was not used to generate this summary.
+        #[prost(string, tag = "5")]
+        pub baseline_model_version: ::prost::alloc::string::String,
     }
 }
 /// The request message for
@@ -13134,6 +13145,10 @@ pub mod generate_stateless_summary_response {
             ::prost::alloc::string::String,
             ::prost::alloc::string::String,
         >,
+        /// The baseline model version used to generate this summary. It is empty if
+        /// a baseline model was not used to generate this summary.
+        #[prost(string, tag = "4")]
+        pub baseline_model_version: ::prost::alloc::string::String,
     }
 }
 /// Generated client implementations.

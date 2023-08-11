@@ -1814,9 +1814,22 @@ pub struct BinaryAuthorization {
     /// to DISABLED.
     #[prost(enumeration = "binary_authorization::EvaluationMode", tag = "2")]
     pub evaluation_mode: i32,
+    /// Optional. Binauthz policies that apply to this cluster.
+    #[prost(message, repeated, tag = "5")]
+    pub policy_bindings: ::prost::alloc::vec::Vec<binary_authorization::PolicyBinding>,
 }
 /// Nested message and enum types in `BinaryAuthorization`.
 pub mod binary_authorization {
+    /// Binauthz policy that applies to this cluster.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PolicyBinding {
+        /// The relative resource name of the binauthz platform policy to audit. GKE
+        /// platform policies have the following format:
+        /// `projects/{project_number}/platforms/gke/policies/{policy_id}`.
+        #[prost(string, optional, tag = "1")]
+        pub name: ::core::option::Option<::prost::alloc::string::String>,
+    }
     /// Binary Authorization mode of operation.
     #[derive(
         Clone,
@@ -1839,6 +1852,11 @@ pub mod binary_authorization {
         /// project's singleton policy. This is equivalent to setting the
         /// enabled boolean to true.
         ProjectSingletonPolicyEnforce = 2,
+        /// Use Binary Authorization with the policies specified in policy_bindings.
+        PolicyBindings = 5,
+        /// Use Binary Authorization with the policies specified in policy_bindings,
+        /// and also with the project's singleton policy in enforcement mode.
+        PolicyBindingsAndProjectSingletonPolicyEnforce = 6,
     }
     impl EvaluationMode {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -1852,6 +1870,10 @@ pub mod binary_authorization {
                 EvaluationMode::ProjectSingletonPolicyEnforce => {
                     "PROJECT_SINGLETON_POLICY_ENFORCE"
                 }
+                EvaluationMode::PolicyBindings => "POLICY_BINDINGS",
+                EvaluationMode::PolicyBindingsAndProjectSingletonPolicyEnforce => {
+                    "POLICY_BINDINGS_AND_PROJECT_SINGLETON_POLICY_ENFORCE"
+                }
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1861,6 +1883,10 @@ pub mod binary_authorization {
                 "DISABLED" => Some(Self::Disabled),
                 "PROJECT_SINGLETON_POLICY_ENFORCE" => {
                     Some(Self::ProjectSingletonPolicyEnforce)
+                }
+                "POLICY_BINDINGS" => Some(Self::PolicyBindings),
+                "POLICY_BINDINGS_AND_PROJECT_SINGLETON_POLICY_ENFORCE" => {
+                    Some(Self::PolicyBindingsAndProjectSingletonPolicyEnforce)
                 }
                 _ => None,
             }
