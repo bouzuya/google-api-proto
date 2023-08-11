@@ -51,7 +51,7 @@ pub struct Step {
     /// final state the configuration is cleared.
     #[prost(
         oneof = "step::StepInfo",
-        tags = "5, 6, 7, 8, 9, 10, 11, 21, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 23"
+        tags = "5, 6, 7, 8, 24, 9, 10, 11, 21, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 23"
     )]
     pub step_info: ::core::option::Option<step::StepInfo>,
 }
@@ -80,6 +80,11 @@ pub mod step {
         /// Initial state: packet originating from the internet.
         /// The endpoint information is populated.
         StartFromInternet = 2,
+        /// Initial state: packet originating from a Google service. Some Google
+        /// services, such as health check probers or Identity Aware Proxy use
+        /// special routes, outside VPC routing configuration to reach Compute Engine
+        /// Instances.
+        StartFromGoogleService = 27,
         /// Initial state: packet originating from a VPC or on-premises network
         /// with internal source IP.
         /// If the source is a VPC network visible to the user, a NetworkInfo
@@ -151,6 +156,7 @@ pub mod step {
                 State::Unspecified => "STATE_UNSPECIFIED",
                 State::StartFromInstance => "START_FROM_INSTANCE",
                 State::StartFromInternet => "START_FROM_INTERNET",
+                State::StartFromGoogleService => "START_FROM_GOOGLE_SERVICE",
                 State::StartFromPrivateNetwork => "START_FROM_PRIVATE_NETWORK",
                 State::StartFromGkeMaster => "START_FROM_GKE_MASTER",
                 State::StartFromCloudSqlInstance => "START_FROM_CLOUD_SQL_INSTANCE",
@@ -183,6 +189,7 @@ pub mod step {
                 "STATE_UNSPECIFIED" => Some(Self::Unspecified),
                 "START_FROM_INSTANCE" => Some(Self::StartFromInstance),
                 "START_FROM_INTERNET" => Some(Self::StartFromInternet),
+                "START_FROM_GOOGLE_SERVICE" => Some(Self::StartFromGoogleService),
                 "START_FROM_PRIVATE_NETWORK" => Some(Self::StartFromPrivateNetwork),
                 "START_FROM_GKE_MASTER" => Some(Self::StartFromGkeMaster),
                 "START_FROM_CLOUD_SQL_INSTANCE" => Some(Self::StartFromCloudSqlInstance),
@@ -238,6 +245,9 @@ pub mod step {
         /// or Connection Proxy.
         #[prost(message, tag = "8")]
         Endpoint(super::EndpointInfo),
+        /// Display information of a Google service
+        #[prost(message, tag = "24")]
+        GoogleService(super::GoogleServiceInfo),
         /// Display information of a Compute Engine forwarding rule.
         #[prost(message, tag = "9")]
         ForwardingRule(super::ForwardingRuleInfo),
@@ -407,6 +417,14 @@ pub mod firewall_info {
         /// For details, see [VPC connector's implicit
         /// rules](<https://cloud.google.com/functions/docs/networking/connecting-vpc#restrict-access>).
         ServerlessVpcAccessManagedFirewallRule = 4,
+        /// Global network firewall policy rule.
+        /// For details, see [Network firewall
+        /// policies](<https://cloud.google.com/vpc/docs/network-firewall-policies>).
+        NetworkFirewallPolicyRule = 5,
+        /// Regional network firewall policy rule.
+        /// For details, see [Regional network firewall
+        /// policies](<https://cloud.google.com/firewall/docs/regional-firewall-policies>).
+        NetworkRegionalFirewallPolicyRule = 6,
     }
     impl FirewallRuleType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -424,6 +442,12 @@ pub mod firewall_info {
                 FirewallRuleType::ServerlessVpcAccessManagedFirewallRule => {
                     "SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE"
                 }
+                FirewallRuleType::NetworkFirewallPolicyRule => {
+                    "NETWORK_FIREWALL_POLICY_RULE"
+                }
+                FirewallRuleType::NetworkRegionalFirewallPolicyRule => {
+                    "NETWORK_REGIONAL_FIREWALL_POLICY_RULE"
+                }
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -437,6 +461,10 @@ pub mod firewall_info {
                 "IMPLIED_VPC_FIREWALL_RULE" => Some(Self::ImpliedVpcFirewallRule),
                 "SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE" => {
                     Some(Self::ServerlessVpcAccessManagedFirewallRule)
+                }
+                "NETWORK_FIREWALL_POLICY_RULE" => Some(Self::NetworkFirewallPolicyRule),
+                "NETWORK_REGIONAL_FIREWALL_POLICY_RULE" => {
+                    Some(Self::NetworkRegionalFirewallPolicyRule)
                 }
                 _ => None,
             }
@@ -693,6 +721,82 @@ pub mod route_info {
                 "ROUTE_SCOPE_UNSPECIFIED" => Some(Self::Unspecified),
                 "NETWORK" => Some(Self::Network),
                 "NCC_HUB" => Some(Self::NccHub),
+                _ => None,
+            }
+        }
+    }
+}
+/// For display only. Details of a Google Service sending packets to a
+/// VPC network. Although the source IP might be a publicly routable address,
+/// some Google Services use special routes within Google production
+/// infrastructure to reach Compute Engine Instances.
+/// <https://cloud.google.com/vpc/docs/routes#special_return_paths>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GoogleServiceInfo {
+    /// Source IP address.
+    #[prost(string, tag = "1")]
+    pub source_ip: ::prost::alloc::string::String,
+    /// Recognized type of a Google Service.
+    #[prost(enumeration = "google_service_info::GoogleServiceType", tag = "2")]
+    pub google_service_type: i32,
+}
+/// Nested message and enum types in `GoogleServiceInfo`.
+pub mod google_service_info {
+    /// Recognized type of a Google Service.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum GoogleServiceType {
+        /// Unspecified Google Service. Includes most of Google APIs and services.
+        Unspecified = 0,
+        /// Identity aware proxy.
+        /// <https://cloud.google.com/iap/docs/using-tcp-forwarding>
+        Iap = 1,
+        /// One of two services sharing IP ranges:
+        /// * Load Balancer proxy
+        /// * Centralized Health Check prober
+        /// <https://cloud.google.com/load-balancing/docs/firewall-rules>
+        GfeProxyOrHealthCheckProber = 2,
+        /// Connectivity from Cloud DNS to forwarding targets or alternate name
+        /// servers that use private routing.
+        /// <https://cloud.google.com/dns/docs/zones/forwarding-zones#firewall-rules>
+        /// <https://cloud.google.com/dns/docs/policies#firewall-rules>
+        CloudDns = 3,
+    }
+    impl GoogleServiceType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                GoogleServiceType::Unspecified => "GOOGLE_SERVICE_TYPE_UNSPECIFIED",
+                GoogleServiceType::Iap => "IAP",
+                GoogleServiceType::GfeProxyOrHealthCheckProber => {
+                    "GFE_PROXY_OR_HEALTH_CHECK_PROBER"
+                }
+                GoogleServiceType::CloudDns => "CLOUD_DNS",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "GOOGLE_SERVICE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "IAP" => Some(Self::Iap),
+                "GFE_PROXY_OR_HEALTH_CHECK_PROBER" => {
+                    Some(Self::GfeProxyOrHealthCheckProber)
+                }
+                "CLOUD_DNS" => Some(Self::CloudDns),
                 _ => None,
             }
         }

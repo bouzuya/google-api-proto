@@ -4,3 +4,5 @@ pub mod v1;
 pub mod v1beta1;
 #[cfg(any(feature = "google-cloud-language-v1beta2"))]
 pub mod v1beta2;
+#[cfg(any(feature = "google-cloud-language-v2"))]
+pub mod v2;

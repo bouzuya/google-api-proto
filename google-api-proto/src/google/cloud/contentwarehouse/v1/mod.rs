@@ -328,6 +328,13 @@ pub struct Document {
     /// The user who lastly updates the document.
     #[prost(string, tag = "14")]
     pub updater: ::prost::alloc::string::String,
+    /// Output only. If linked to a Collection with RetentionPolicy, the date when
+    /// the document becomes mutable.
+    #[prost(message, optional, tag = "22")]
+    pub disposition_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Indicates if the document has a legal hold on it.
+    #[prost(bool, tag = "23")]
+    pub legal_hold: bool,
     #[prost(oneof = "document::StructuredContent", tags = "15, 4")]
     pub structured_content: ::core::option::Option<document::StructuredContent>,
     /// Raw document file.
@@ -387,6 +394,12 @@ pub struct DocumentReference {
     /// Output only. The time when the document is deleted.
     #[prost(message, optional, tag = "7")]
     pub delete_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Document is a folder with retention policy.
+    #[prost(bool, tag = "8")]
+    pub document_is_retention_folder: bool,
+    /// Document is a folder with legal hold.
+    #[prost(bool, tag = "9")]
+    pub document_is_legal_hold_folder: bool,
 }
 /// Property of a document.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -784,6 +797,11 @@ pub struct DocumentQuery {
     /// projects/{project_number}/locations/{location}/documents/{document_id}.
     #[prost(string, tag = "9")]
     pub folder_name_filter: ::prost::alloc::string::String,
+    /// Search the documents in the list.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{document_id}.
+    #[prost(string, repeated, tag = "14")]
+    pub document_name_filter: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     /// For custom synonyms.
     /// Customers provide the synonyms based on context. One customer can provide
     /// multiple set of synonyms based on different context. The search query will
@@ -845,6 +863,8 @@ pub mod time_filter {
         CreateTime = 1,
         /// Latest document update time.
         UpdateTime = 2,
+        /// Time when document becomes mutable again.
+        DispositionTime = 3,
     }
     impl TimeField {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -856,6 +876,7 @@ pub mod time_filter {
                 TimeField::Unspecified => "TIME_FIELD_UNSPECIFIED",
                 TimeField::CreateTime => "CREATE_TIME",
                 TimeField::UpdateTime => "UPDATE_TIME",
+                TimeField::DispositionTime => "DISPOSITION_TIME",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -864,6 +885,7 @@ pub mod time_filter {
                 "TIME_FIELD_UNSPECIFIED" => Some(Self::Unspecified),
                 "CREATE_TIME" => Some(Self::CreateTime),
                 "UPDATE_TIME" => Some(Self::UpdateTime),
+                "DISPOSITION_TIME" => Some(Self::DispositionTime),
                 _ => None,
             }
         }
@@ -1537,6 +1559,10 @@ pub mod rule {
         OnCreate = 1,
         /// Trigger for update document action.
         OnUpdate = 4,
+        /// Trigger for create link action.
+        OnCreateLink = 7,
+        /// Trigger for delete link action.
+        OnDeleteLink = 8,
     }
     impl TriggerType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -1548,6 +1574,8 @@ pub mod rule {
                 TriggerType::Unknown => "UNKNOWN",
                 TriggerType::OnCreate => "ON_CREATE",
                 TriggerType::OnUpdate => "ON_UPDATE",
+                TriggerType::OnCreateLink => "ON_CREATE_LINK",
+                TriggerType::OnDeleteLink => "ON_DELETE_LINK",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1556,6 +1584,8 @@ pub mod rule {
                 "UNKNOWN" => Some(Self::Unknown),
                 "ON_CREATE" => Some(Self::OnCreate),
                 "ON_UPDATE" => Some(Self::OnUpdate),
+                "ON_CREATE_LINK" => Some(Self::OnCreateLink),
+                "ON_DELETE_LINK" => Some(Self::OnDeleteLink),
                 _ => None,
             }
         }
@@ -3207,6 +3237,10 @@ pub struct SearchDocumentsResponse {
     /// \[SearchDocumentsRequest.histogram_queries][google.cloud.contentwarehouse.v1.SearchDocumentsRequest.histogram_queries\].
     #[prost(message, repeated, tag = "6")]
     pub histogram_query_results: ::prost::alloc::vec::Vec<HistogramQueryResult>,
+    /// Experimental.
+    /// Question answer from the query against the document.
+    #[prost(string, tag = "7")]
+    pub question_answer: ::prost::alloc::string::String,
 }
 /// Nested message and enum types in `SearchDocumentsResponse`.
 pub mod search_documents_response {

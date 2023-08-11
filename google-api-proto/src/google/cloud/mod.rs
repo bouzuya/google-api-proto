@@ -335,6 +335,7 @@ pub mod kms;
         feature = "google-cloud-language-v1",
         feature = "google-cloud-language-v1beta1",
         feature = "google-cloud-language-v1beta2",
+        feature = "google-cloud-language-v2",
     )
 )]
 pub mod language;

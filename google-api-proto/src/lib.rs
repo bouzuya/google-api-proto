@@ -230,6 +230,7 @@ pub mod cloud;
         feature = "google-cloud-language-v1",
         feature = "google-cloud-language-v1beta1",
         feature = "google-cloud-language-v1beta2",
+        feature = "google-cloud-language-v2",
         feature = "google-cloud-lifesciences-v2beta",
         feature = "google-cloud-location",
         feature = "google-cloud-managedidentities-v1",
