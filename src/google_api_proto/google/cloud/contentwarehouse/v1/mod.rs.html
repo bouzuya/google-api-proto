@@ -3900,6 +3900,40 @@
 <a href="#3900" id="3900">3900</a>
 <a href="#3901" id="3901">3901</a>
 <a href="#3902" id="3902">3902</a>
+<a href="#3903" id="3903">3903</a>
+<a href="#3904" id="3904">3904</a>
+<a href="#3905" id="3905">3905</a>
+<a href="#3906" id="3906">3906</a>
+<a href="#3907" id="3907">3907</a>
+<a href="#3908" id="3908">3908</a>
+<a href="#3909" id="3909">3909</a>
+<a href="#3910" id="3910">3910</a>
+<a href="#3911" id="3911">3911</a>
+<a href="#3912" id="3912">3912</a>
+<a href="#3913" id="3913">3913</a>
+<a href="#3914" id="3914">3914</a>
+<a href="#3915" id="3915">3915</a>
+<a href="#3916" id="3916">3916</a>
+<a href="#3917" id="3917">3917</a>
+<a href="#3918" id="3918">3918</a>
+<a href="#3919" id="3919">3919</a>
+<a href="#3920" id="3920">3920</a>
+<a href="#3921" id="3921">3921</a>
+<a href="#3922" id="3922">3922</a>
+<a href="#3923" id="3923">3923</a>
+<a href="#3924" id="3924">3924</a>
+<a href="#3925" id="3925">3925</a>
+<a href="#3926" id="3926">3926</a>
+<a href="#3927" id="3927">3927</a>
+<a href="#3928" id="3928">3928</a>
+<a href="#3929" id="3929">3929</a>
+<a href="#3930" id="3930">3930</a>
+<a href="#3931" id="3931">3931</a>
+<a href="#3932" id="3932">3932</a>
+<a href="#3933" id="3933">3933</a>
+<a href="#3934" id="3934">3934</a>
+<a href="#3935" id="3935">3935</a>
+<a href="#3936" id="3936">3936</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Meta information is used to improve the performance of the service.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4230,6 +4264,13 @@
     <span class="doccomment">/// The user who lastly updates the document.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
     </span><span class="kw">pub </span>updater: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. If linked to a Collection with RetentionPolicy, the date when
+    /// the document becomes mutable.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="kw">pub </span>disposition_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Indicates if the document has a legal hold on it.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="kw">pub </span>legal_hold: bool,
     <span class="attr">#[prost(oneof = <span class="string">&quot;document::StructuredContent&quot;</span>, tags = <span class="string">&quot;15, 4&quot;</span>)]
     </span><span class="kw">pub </span>structured_content: ::core::option::Option&lt;document::StructuredContent&gt;,
     <span class="doccomment">/// Raw document file.
@@ -4289,6 +4330,12 @@
     <span class="doccomment">/// Output only. The time when the document is deleted.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Document is a folder with retention policy.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>document_is_retention_folder: bool,
+    <span class="doccomment">/// Document is a folder with legal hold.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>document_is_legal_hold_folder: bool,
 }
 <span class="doccomment">/// Property of a document.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -4686,6 +4733,11 @@
     /// projects/{project_number}/locations/{location}/documents/{document_id}.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>folder_name_filter: ::prost::alloc::string::String,
+    <span class="doccomment">/// Search the documents in the list.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{document_id}.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>document_name_filter: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// For custom synonyms.
     /// Customers provide the synonyms based on context. One customer can provide
     /// multiple set of synonyms based on different context. The search query will
@@ -4747,6 +4799,8 @@
         </span>CreateTime = <span class="number">1</span>,
         <span class="doccomment">/// Latest document update time.
         </span>UpdateTime = <span class="number">2</span>,
+        <span class="doccomment">/// Time when document becomes mutable again.
+        </span>DispositionTime = <span class="number">3</span>,
     }
     <span class="kw">impl </span>TimeField {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -4758,6 +4812,7 @@
                 TimeField::Unspecified =&gt; <span class="string">&quot;TIME_FIELD_UNSPECIFIED&quot;</span>,
                 TimeField::CreateTime =&gt; <span class="string">&quot;CREATE_TIME&quot;</span>,
                 TimeField::UpdateTime =&gt; <span class="string">&quot;UPDATE_TIME&quot;</span>,
+                TimeField::DispositionTime =&gt; <span class="string">&quot;DISPOSITION_TIME&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -4766,6 +4821,7 @@
                 <span class="string">&quot;TIME_FIELD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
                 <span class="string">&quot;CREATE_TIME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CreateTime),
                 <span class="string">&quot;UPDATE_TIME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UpdateTime),
+                <span class="string">&quot;DISPOSITION_TIME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DispositionTime),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -5439,6 +5495,10 @@
         </span>OnCreate = <span class="number">1</span>,
         <span class="doccomment">/// Trigger for update document action.
         </span>OnUpdate = <span class="number">4</span>,
+        <span class="doccomment">/// Trigger for create link action.
+        </span>OnCreateLink = <span class="number">7</span>,
+        <span class="doccomment">/// Trigger for delete link action.
+        </span>OnDeleteLink = <span class="number">8</span>,
     }
     <span class="kw">impl </span>TriggerType {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -5450,6 +5510,8 @@
                 TriggerType::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
                 TriggerType::OnCreate =&gt; <span class="string">&quot;ON_CREATE&quot;</span>,
                 TriggerType::OnUpdate =&gt; <span class="string">&quot;ON_UPDATE&quot;</span>,
+                TriggerType::OnCreateLink =&gt; <span class="string">&quot;ON_CREATE_LINK&quot;</span>,
+                TriggerType::OnDeleteLink =&gt; <span class="string">&quot;ON_DELETE_LINK&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -5458,6 +5520,8 @@
                 <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
                 <span class="string">&quot;ON_CREATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OnCreate),
                 <span class="string">&quot;ON_UPDATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OnUpdate),
+                <span class="string">&quot;ON_CREATE_LINK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OnCreateLink),
+                <span class="string">&quot;ON_DELETE_LINK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OnDeleteLink),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -7109,6 +7173,10 @@
     /// \[SearchDocumentsRequest.histogram_queries][google.cloud.contentwarehouse.v1.SearchDocumentsRequest.histogram_queries\].
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>histogram_query_results: ::prost::alloc::vec::Vec&lt;HistogramQueryResult&gt;,
+    <span class="doccomment">/// Experimental.
+    /// Question answer from the query against the document.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>question_answer: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `SearchDocumentsResponse`.
 </span><span class="kw">pub mod </span>search_documents_response {
