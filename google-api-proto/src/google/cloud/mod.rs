@@ -409,6 +409,7 @@ pub mod networkservices;
         feature = "google-cloud-notebooks-logging-v1",
         feature = "google-cloud-notebooks-v1",
         feature = "google-cloud-notebooks-v1beta1",
+        feature = "google-cloud-notebooks-v2",
     )
 )]
 pub mod notebooks;
