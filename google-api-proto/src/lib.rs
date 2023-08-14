@@ -277,6 +277,7 @@ pub mod cloud;
         feature = "google-cloud-paymentgateway-issuerswitch-v1",
         feature = "google-cloud-phishingprotection-v1beta1",
         feature = "google-cloud-policysimulator-v1",
+        feature = "google-cloud-policytroubleshooter-iam-v3",
         feature = "google-cloud-policytroubleshooter-iam-v3beta",
         feature = "google-cloud-policytroubleshooter-v1",
         feature = "google-cloud-privatecatalog-v1beta1",

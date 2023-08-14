@@ -457,6 +457,7 @@ pub mod phishingprotection;
 pub mod policysimulator;
 #[cfg(
     any(
+        feature = "google-cloud-policytroubleshooter-iam-v3",
         feature = "google-cloud-policytroubleshooter-iam-v3beta",
         feature = "google-cloud-policytroubleshooter-v1",
     )
