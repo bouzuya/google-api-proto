@@ -549,6 +549,8 @@ pub mod r#type;
 pub mod rpc;
 #[cfg(any(feature = "google-search-partnerdataingestion-logging-v1"))]
 pub mod search;
+#[cfg(any(feature = "google-shopping-type"))]
+pub mod shopping;
 #[cfg(
     any(
         feature = "google-spanner-admin-database-v1",
