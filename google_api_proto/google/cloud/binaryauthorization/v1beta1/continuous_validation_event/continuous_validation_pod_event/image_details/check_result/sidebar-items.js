@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["CheckVerdict"],"mod":["check_set_scope"],"struct":["CheckSetScope"]};

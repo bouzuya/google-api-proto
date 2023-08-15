@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["EventType"],"mod":["continuous_validation_pod_event"],"struct":["ContinuousValidationPodEvent","UnsupportedPolicyEvent"]};
+window.SIDEBAR_ITEMS = {"enum":["EventType"],"mod":["continuous_validation_pod_event"],"struct":["ConfigErrorEvent","ContinuousValidationPodEvent"]};
