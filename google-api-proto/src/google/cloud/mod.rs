@@ -146,6 +146,8 @@ pub mod compute;
     )
 )]
 pub mod confidentialcomputing;
+#[cfg(any(feature = "google-cloud-config-v1"))]
+pub mod config;
 #[cfg(any(feature = "google-cloud-connectors-v1"))]
 pub mod connectors;
 #[cfg(any(feature = "google-cloud-contactcenterinsights-v1"))]

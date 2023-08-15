@@ -145,6 +145,7 @@ pub mod cloud;
         feature = "google-cloud-compute-v1small",
         feature = "google-cloud-confidentialcomputing-v1",
         feature = "google-cloud-confidentialcomputing-v1alpha1",
+        feature = "google-cloud-config-v1",
         feature = "google-cloud-connectors-v1",
         feature = "google-cloud-contactcenterinsights-v1",
         feature = "google-cloud-contentwarehouse-v1",
