@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["SourceCode","State"]};
+window.SIDEBAR_ITEMS = {"enum":["CallLogLevel","SourceCode","State"],"mod":["state_error"],"struct":["StateError"]};
