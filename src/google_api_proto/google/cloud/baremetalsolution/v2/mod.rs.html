@@ -4661,36 +4661,6 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Represents the metadata from a long-running operation.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>OperationMetadata {
-    <span class="doccomment">/// Output only. The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The time the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Server-defined resource path for the target of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Name of the action executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Human-readable status of the operation, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Identifies whether the user requested the cancellation
-    /// of the operation. Operations that have been successfully cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
-    /// `Code.CANCELLED`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>requested_cancellation: bool,
-    <span class="doccomment">/// Output only. API version used with the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
-}
 <span class="doccomment">/// Performance tier of the Volume.
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -6105,10 +6075,6 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Response message from resetting a server.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ResetInstanceResponse {}
 <span class="doccomment">/// Message requesting to start a server.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -6170,6 +6136,95 @@
     <span class="doccomment">/// If true, performs lun unmapping without instance reboot.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>skip_reboot: bool,
+}
+<span class="doccomment">/// Network template.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ServerNetworkTemplate {
+    <span class="doccomment">/// Output only. Template&#39;s unique name. The full resource name follows the
+    /// pattern:
+    /// `projects/{project}/locations/{location}/serverNetworkTemplate/{server_network_template}`
+    /// Generally, the {server_network_template} follows the syntax of
+    /// &quot;bond&lt;interface_type_index&gt;&lt;bond_mode&gt;&quot; or &quot;nic&lt;interface_type_index&gt;&quot;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Instance types this template is applicable to.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>applicable_instance_types: ::prost::alloc::vec::Vec&lt;
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Logical interfaces.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>logical_interfaces: ::prost::alloc::vec::Vec&lt;
+        server_network_template::LogicalInterface,
+    &gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ServerNetworkTemplate`.
+</span><span class="kw">pub mod </span>server_network_template {
+    <span class="doccomment">/// Logical interface.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>LogicalInterface {
+        <span class="doccomment">/// Interface name.
+        /// This is not a globally unique identifier.
+        /// Name is unique only inside the ServerNetworkTemplate. This is of syntax
+        /// &lt;bond&gt;&lt;interface_type_index&gt;&lt;bond_mode&gt; or &lt;nic&gt;&lt;interface_type_index&gt;
+        /// and forms part of the network template name.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+        <span class="doccomment">/// Interface type.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;logical_interface::InterfaceType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>r#type: i32,
+        <span class="doccomment">/// If true, interface must have network connected.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>required: bool,
+    }
+    <span class="doccomment">/// Nested message and enum types in `LogicalInterface`.
+    </span><span class="kw">pub mod </span>logical_interface {
+        <span class="doccomment">/// Interface type.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>InterfaceType {
+            <span class="doccomment">/// Unspecified value.
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// Bond interface type.
+            </span>Bond = <span class="number">1</span>,
+            <span class="doccomment">/// NIC interface type.
+            </span>Nic = <span class="number">2</span>,
+        }
+        <span class="kw">impl </span>InterfaceType {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    InterfaceType::Unspecified =&gt; <span class="string">&quot;INTERFACE_TYPE_UNSPECIFIED&quot;</span>,
+                    InterfaceType::Bond =&gt; <span class="string">&quot;BOND&quot;</span>,
+                    InterfaceType::Nic =&gt; <span class="string">&quot;NIC&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;INTERFACE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;BOND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bond),
+                    <span class="string">&quot;NIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nic),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
 }
 <span class="doccomment">/// Operation System image.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -7407,95 +7462,40 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>email: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Network template.
+<span class="doccomment">/// Represents the metadata from a long-running operation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ServerNetworkTemplate {
-    <span class="doccomment">/// Output only. Template&#39;s unique name. The full resource name follows the
-    /// pattern:
-    /// `projects/{project}/locations/{location}/serverNetworkTemplate/{server_network_template}`
-    /// Generally, the {server_network_template} follows the syntax of
-    /// &quot;bond&lt;interface_type_index&gt;&lt;bond_mode&gt;&quot; or &quot;nic&lt;interface_type_index&gt;&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Instance types this template is applicable to.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>applicable_instance_types: ::prost::alloc::vec::Vec&lt;
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Logical interfaces.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>logical_interfaces: ::prost::alloc::vec::Vec&lt;
-        server_network_template::LogicalInterface,
-    &gt;,
+</span><span class="kw">pub struct </span>OperationMetadata {
+    <span class="doccomment">/// Output only. The time the operation was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The time the operation finished running.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Server-defined resource path for the target of the operation.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Name of the action executed by the operation.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Human-readable status of the operation, if any.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Identifies whether the user requested the cancellation
+    /// of the operation. Operations that have been successfully cancelled
+    /// have \[Operation.error][\] value with a
+    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// `Code.CANCELLED`.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>requested_cancellation: bool,
+    <span class="doccomment">/// Output only. API version used with the operation.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Nested message and enum types in `ServerNetworkTemplate`.
-</span><span class="kw">pub mod </span>server_network_template {
-    <span class="doccomment">/// Logical interface.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>LogicalInterface {
-        <span class="doccomment">/// Interface name.
-        /// This is not a globally unique identifier.
-        /// Name is unique only inside the ServerNetworkTemplate. This is of syntax
-        /// &lt;bond&gt;&lt;interface_type_index&gt;&lt;bond_mode&gt; or &lt;nic&gt;&lt;interface_type_index&gt;
-        /// and forms part of the network template name.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-        <span class="doccomment">/// Interface type.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;logical_interface::InterfaceType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>r#type: i32,
-        <span class="doccomment">/// If true, interface must have network connected.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>required: bool,
-    }
-    <span class="doccomment">/// Nested message and enum types in `LogicalInterface`.
-    </span><span class="kw">pub mod </span>logical_interface {
-        <span class="doccomment">/// Interface type.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>InterfaceType {
-            <span class="doccomment">/// Unspecified value.
-            </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// Bond interface type.
-            </span>Bond = <span class="number">1</span>,
-            <span class="doccomment">/// NIC interface type.
-            </span>Nic = <span class="number">2</span>,
-        }
-        <span class="kw">impl </span>InterfaceType {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    InterfaceType::Unspecified =&gt; <span class="string">&quot;INTERFACE_TYPE_UNSPECIFIED&quot;</span>,
-                    InterfaceType::Bond =&gt; <span class="string">&quot;BOND&quot;</span>,
-                    InterfaceType::Nic =&gt; <span class="string">&quot;NIC&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;INTERFACE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;BOND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bond),
-                    <span class="string">&quot;NIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nic),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
-}
+<span class="doccomment">/// Response message from resetting a server.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ResetInstanceResponse {}
 <span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>bare_metal_solution_client {
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]

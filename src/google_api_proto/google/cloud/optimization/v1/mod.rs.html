@@ -3515,6 +3515,8 @@
 <a href="#3515" id="3515">3515</a>
 <a href="#3516" id="3516">3516</a>
 <a href="#3517" id="3517">3517</a>
+<a href="#3518" id="3518">3518</a>
+<a href="#3519" id="3519">3519</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// The desired input location information.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -6324,10 +6326,12 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>visit_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The total duration should be equal to the sum of all durations above.
-    /// For routes, it also corresponds to
+    /// For routes, it also corresponds to:
+    /// ```
     /// \[ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time\]
     /// -
-    /// \[ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time\].
+    /// \[ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time\]
+    /// ```
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>total_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Total travel distance for a route or a solution.
