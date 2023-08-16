@@ -257,6 +257,418 @@ impl DocumentCreatorDefaultRole {
         }
     }
 }
+/// Response message of RunPipeline method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RunPipelineResponse {}
+/// Metadata message of RunPipeline method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RunPipelineMetadata {
+    /// Number of files that were processed by the pipeline.
+    #[prost(int32, tag = "1")]
+    pub total_file_count: i32,
+    /// Number of files that have failed at some point in the pipeline.
+    #[prost(int32, tag = "2")]
+    pub failed_file_count: i32,
+    /// User unique identification and groups information.
+    #[prost(message, optional, tag = "3")]
+    pub user_info: ::core::option::Option<UserInfo>,
+    /// The list of response details of each document.
+    #[prost(message, repeated, tag = "5")]
+    pub individual_document_statuses: ::prost::alloc::vec::Vec<
+        run_pipeline_metadata::IndividualDocumentStatus,
+    >,
+    /// The pipeline metadata.
+    #[prost(oneof = "run_pipeline_metadata::PipelineMetadata", tags = "4, 6, 7")]
+    pub pipeline_metadata: ::core::option::Option<
+        run_pipeline_metadata::PipelineMetadata,
+    >,
+}
+/// Nested message and enum types in `RunPipelineMetadata`.
+pub mod run_pipeline_metadata {
+    /// The metadata message for GcsIngest pipeline.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct GcsIngestPipelineMetadata {
+        /// The input Cloud Storage folder in this pipeline.
+        /// Format: `gs://<bucket-name>/<folder-name>`.
+        #[prost(string, tag = "1")]
+        pub input_path: ::prost::alloc::string::String,
+    }
+    /// The metadata message for Export-to-CDW pipeline.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ExportToCdwPipelineMetadata {
+        /// The input list of all the resource names of the documents to be exported.
+        #[prost(string, repeated, tag = "1")]
+        pub documents: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// The output CDW dataset resource name.
+        #[prost(string, tag = "2")]
+        pub doc_ai_dataset: ::prost::alloc::string::String,
+        /// The output Cloud Storage folder in this pipeline.
+        #[prost(string, tag = "3")]
+        pub output_path: ::prost::alloc::string::String,
+    }
+    /// The metadata message for Process-with-DocAi pipeline.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ProcessWithDocAiPipelineMetadata {
+        /// The input list of all the resource names of the documents to be
+        /// processed.
+        #[prost(string, repeated, tag = "1")]
+        pub documents: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// The DocAI processor to process the documents with.
+        #[prost(message, optional, tag = "2")]
+        pub processor_info: ::core::option::Option<super::ProcessorInfo>,
+    }
+    /// The status of processing a document.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct IndividualDocumentStatus {
+        /// Document identifier of an existing document.
+        #[prost(string, tag = "1")]
+        pub document_id: ::prost::alloc::string::String,
+        /// The status processing the document.
+        #[prost(message, optional, tag = "2")]
+        pub status: ::core::option::Option<super::super::super::super::rpc::Status>,
+    }
+    /// The pipeline metadata.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum PipelineMetadata {
+        /// The pipeline metadata for GcsIngest pipeline.
+        #[prost(message, tag = "4")]
+        GcsIngestPipelineMetadata(GcsIngestPipelineMetadata),
+        /// The pipeline metadata for Export-to-CDW pipeline.
+        #[prost(message, tag = "6")]
+        ExportToCdwPipelineMetadata(ExportToCdwPipelineMetadata),
+        /// The pipeline metadata for Process-with-DocAi pipeline.
+        #[prost(message, tag = "7")]
+        ProcessWithDocAiPipelineMetadata(ProcessWithDocAiPipelineMetadata),
+    }
+}
+/// The DocAI processor information.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProcessorInfo {
+    /// The processor resource name.
+    /// Format is `projects/{project}/locations/{location}/processors/{processor}`,
+    /// or
+    /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
+    #[prost(string, tag = "1")]
+    pub processor_name: ::prost::alloc::string::String,
+    /// The processor will process the documents with this document type.
+    #[prost(string, tag = "2")]
+    pub document_type: ::prost::alloc::string::String,
+    /// The Document schema resource name. All documents processed by this
+    /// processor will use this schema.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documentSchemas/{document_schema_id}.
+    #[prost(string, tag = "3")]
+    pub schema_name: ::prost::alloc::string::String,
+}
+/// The ingestion pipeline config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct IngestPipelineConfig {
+    /// The document level acl policy config.
+    /// This refers to an Identity and Access (IAM) policy, which specifies access
+    /// controls for all documents ingested by the pipeline. The
+    /// \[role][google.iam.v1.Binding.role\] and
+    /// \[members][google.iam.v1.Binding.role\] under the policy needs to be
+    /// specified.
+    ///
+    /// The following roles are supported for document level acl control:
+    /// * roles/contentwarehouse.documentAdmin
+    /// * roles/contentwarehouse.documentEditor
+    /// * roles/contentwarehouse.documentViewer
+    ///
+    /// The following members are supported for document level acl control:
+    /// * user:user-email@example.com
+    /// * group:group-email@example.com
+    /// Note that for documents searched with LLM, only single level user or group
+    /// acl check is supported.
+    #[prost(message, optional, tag = "1")]
+    pub document_acl_policy: ::core::option::Option<
+        super::super::super::iam::v1::Policy,
+    >,
+    /// The document text extraction enabled flag.
+    /// If the flag is set to true, DWH will perform text extraction on the raw
+    /// document.
+    #[prost(bool, tag = "2")]
+    pub enable_document_text_extraction: bool,
+    /// Optional. The name of the folder to which all ingested documents will be
+    /// linked during ingestion process. Format is
+    /// `projects/{project}/locations/{location}/documents/{folder_id}`
+    #[prost(string, tag = "3")]
+    pub folder: ::prost::alloc::string::String,
+}
+/// The configuration of the Cloud Storage Ingestion pipeline.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcsIngestPipeline {
+    /// The input Cloud Storage folder. All files under this folder will be
+    /// imported to Document Warehouse.
+    /// Format: `gs://<bucket-name>/<folder-name>`.
+    #[prost(string, tag = "1")]
+    pub input_path: ::prost::alloc::string::String,
+    /// The Document Warehouse schema resource name. All documents processed by
+    /// this pipeline will use this schema.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documentSchemas/{document_schema_id}.
+    #[prost(string, tag = "2")]
+    pub schema_name: ::prost::alloc::string::String,
+    /// The Doc AI processor type name. Only used when the format of ingested
+    /// files is Doc AI Document proto format.
+    #[prost(string, tag = "3")]
+    pub processor_type: ::prost::alloc::string::String,
+    /// The flag whether to skip ingested documents.
+    /// If it is set to true, documents in Cloud Storage contains key "status" with
+    /// value "status=ingested" in custom metadata will be skipped to ingest.
+    #[prost(bool, tag = "4")]
+    pub skip_ingested_documents: bool,
+    /// Optional. The config for the Cloud Storage Ingestion pipeline.
+    /// It provides additional customization options to run the pipeline and can be
+    /// skipped if it is not applicable.
+    #[prost(message, optional, tag = "5")]
+    pub pipeline_config: ::core::option::Option<IngestPipelineConfig>,
+}
+/// The configuration of the Cloud Storage Ingestion with DocAI Processors
+/// pipeline.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcsIngestWithDocAiProcessorsPipeline {
+    /// The input Cloud Storage folder. All files under this folder will be
+    /// imported to Document Warehouse.
+    /// Format: `gs://<bucket-name>/<folder-name>`.
+    #[prost(string, tag = "1")]
+    pub input_path: ::prost::alloc::string::String,
+    /// The split and classify processor information.
+    /// The split and classify result will be used to find a matched extract
+    /// processor.
+    #[prost(message, optional, tag = "2")]
+    pub split_classify_processor_info: ::core::option::Option<ProcessorInfo>,
+    /// The extract processors information.
+    /// One matched extract processor will be used to process documents based on
+    /// the classify processor result. If no classify processor is specified, the
+    /// first extract processor will be used.
+    #[prost(message, repeated, tag = "3")]
+    pub extract_processor_infos: ::prost::alloc::vec::Vec<ProcessorInfo>,
+    /// The Cloud Storage folder path used to store the raw results from
+    /// processors.
+    /// Format: `gs://<bucket-name>/<folder-name>`.
+    #[prost(string, tag = "4")]
+    pub processor_results_folder_path: ::prost::alloc::string::String,
+    /// The flag whether to skip ingested documents.
+    /// If it is set to true, documents in Cloud Storage contains key "status" with
+    /// value "status=ingested" in custom metadata will be skipped to ingest.
+    #[prost(bool, tag = "5")]
+    pub skip_ingested_documents: bool,
+    /// Optional. The config for the Cloud Storage Ingestion with DocAI Processors
+    /// pipeline. It provides additional customization options to run the pipeline
+    /// and can be skipped if it is not applicable.
+    #[prost(message, optional, tag = "6")]
+    pub pipeline_config: ::core::option::Option<IngestPipelineConfig>,
+}
+/// The configuration of exporting documents from the Document Warehouse to CDW
+/// pipeline.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExportToCdwPipeline {
+    /// The list of all the resource names of the documents to be processed.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{document_id}.
+    #[prost(string, repeated, tag = "1")]
+    pub documents: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The Cloud Storage folder path used to store the exported documents before
+    /// being sent to CDW.
+    /// Format: `gs://<bucket-name>/<folder-name>`.
+    #[prost(string, tag = "2")]
+    pub export_folder_path: ::prost::alloc::string::String,
+    /// Optional. The CDW dataset resource name. This field is optional. If not
+    /// set, the documents will be exported to Cloud Storage only. Format:
+    /// projects/{project}/locations/{location}/processors/{processor}/dataset
+    #[prost(string, tag = "3")]
+    pub doc_ai_dataset: ::prost::alloc::string::String,
+    /// Ratio of training dataset split. When importing into Document AI Workbench,
+    /// documents will be automatically split into training and test split category
+    /// with the specified ratio. This field is required if doc_ai_dataset is set.
+    #[prost(float, tag = "4")]
+    pub training_split_ratio: f32,
+}
+/// The configuration of processing documents in Document Warehouse with DocAi
+/// processors pipeline.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProcessWithDocAiPipeline {
+    /// The list of all the resource names of the documents to be processed.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{document_id}.
+    #[prost(string, repeated, tag = "1")]
+    pub documents: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The Cloud Storage folder path used to store the exported documents before
+    /// being sent to CDW.
+    /// Format: `gs://<bucket-name>/<folder-name>`.
+    #[prost(string, tag = "2")]
+    pub export_folder_path: ::prost::alloc::string::String,
+    /// The CDW processor information.
+    #[prost(message, optional, tag = "3")]
+    pub processor_info: ::core::option::Option<ProcessorInfo>,
+    /// The Cloud Storage folder path used to store the raw results from
+    /// processors.
+    /// Format: `gs://<bucket-name>/<folder-name>`.
+    #[prost(string, tag = "4")]
+    pub processor_results_folder_path: ::prost::alloc::string::String,
+}
+/// Request message for DocumentService.RunPipeline.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RunPipelineRequest {
+    /// Required. The resource name which owns the resources of the pipeline.
+    /// Format: projects/{project_number}/locations/{location}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The meta information collected about the end user, used to enforce access
+    /// control for the service.
+    #[prost(message, optional, tag = "6")]
+    pub request_metadata: ::core::option::Option<RequestMetadata>,
+    /// The predefined pipelines.
+    #[prost(oneof = "run_pipeline_request::Pipeline", tags = "2, 3, 4, 5")]
+    pub pipeline: ::core::option::Option<run_pipeline_request::Pipeline>,
+}
+/// Nested message and enum types in `RunPipelineRequest`.
+pub mod run_pipeline_request {
+    /// The predefined pipelines.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Pipeline {
+        /// Cloud Storage ingestion pipeline.
+        #[prost(message, tag = "2")]
+        GcsIngestPipeline(super::GcsIngestPipeline),
+        /// Use DocAI processors to process documents in Cloud Storage and ingest
+        /// them to Document Warehouse.
+        #[prost(message, tag = "3")]
+        GcsIngestWithDocAiProcessorsPipeline(
+            super::GcsIngestWithDocAiProcessorsPipeline,
+        ),
+        /// Export docuemnts from Document Warehouse to CDW for training purpose.
+        #[prost(message, tag = "4")]
+        ExportCdwPipeline(super::ExportToCdwPipeline),
+        /// Use a DocAI processor to process documents in Document Warehouse, and
+        /// re-ingest the updated results into Document Warehouse.
+        #[prost(message, tag = "5")]
+        ProcessWithDocAiPipeline(super::ProcessWithDocAiPipeline),
+    }
+}
+/// Generated client implementations.
+pub mod pipeline_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// This service lets you manage pipelines.
+    #[derive(Debug, Clone)]
+    pub struct PipelineServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> PipelineServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> PipelineServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            PipelineServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Run a predefined pipeline.
+        pub async fn run_pipeline(
+            &mut self,
+            request: impl tonic::IntoRequest<super::RunPipelineRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.contentwarehouse.v1.PipelineService/RunPipeline",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.contentwarehouse.v1.PipelineService",
+                        "RunPipeline",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
 /// Defines the structure for content warehouse document proto.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
