@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["PipelineMetadata"],"struct":["ExportToCdwPipelineMetadata","GcsIngestPipelineMetadata","IndividualDocumentStatus","ProcessWithDocAiPipelineMetadata"]};
