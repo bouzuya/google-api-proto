@@ -199,36 +199,6 @@ pub struct DeleteSshKeyRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Represents the metadata from a long-running operation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OperationMetadata {
-    /// Output only. The time the operation was created.
-    #[prost(message, optional, tag = "1")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The time the operation finished running.
-    #[prost(message, optional, tag = "2")]
-    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Server-defined resource path for the target of the operation.
-    #[prost(string, tag = "3")]
-    pub target: ::prost::alloc::string::String,
-    /// Output only. Name of the action executed by the operation.
-    #[prost(string, tag = "4")]
-    pub verb: ::prost::alloc::string::String,
-    /// Output only. Human-readable status of the operation, if any.
-    #[prost(string, tag = "5")]
-    pub status_message: ::prost::alloc::string::String,
-    /// Output only. Identifies whether the user requested the cancellation
-    /// of the operation. Operations that have been successfully cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
-    /// `Code.CANCELLED`.
-    #[prost(bool, tag = "6")]
-    pub requested_cancellation: bool,
-    /// Output only. API version used with the operation.
-    #[prost(string, tag = "7")]
-    pub api_version: ::prost::alloc::string::String,
-}
 /// Performance tier of the Volume.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -1643,10 +1613,6 @@ pub struct ResetInstanceRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Response message from resetting a server.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ResetInstanceResponse {}
 /// Message requesting to start a server.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1708,6 +1674,95 @@ pub struct DetachLunRequest {
     /// If true, performs lun unmapping without instance reboot.
     #[prost(bool, tag = "3")]
     pub skip_reboot: bool,
+}
+/// Network template.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ServerNetworkTemplate {
+    /// Output only. Template's unique name. The full resource name follows the
+    /// pattern:
+    /// `projects/{project}/locations/{location}/serverNetworkTemplate/{server_network_template}`
+    /// Generally, the {server_network_template} follows the syntax of
+    /// "bond<interface_type_index><bond_mode>" or "nic<interface_type_index>".
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Instance types this template is applicable to.
+    #[prost(string, repeated, tag = "2")]
+    pub applicable_instance_types: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
+    /// Logical interfaces.
+    #[prost(message, repeated, tag = "3")]
+    pub logical_interfaces: ::prost::alloc::vec::Vec<
+        server_network_template::LogicalInterface,
+    >,
+}
+/// Nested message and enum types in `ServerNetworkTemplate`.
+pub mod server_network_template {
+    /// Logical interface.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct LogicalInterface {
+        /// Interface name.
+        /// This is not a globally unique identifier.
+        /// Name is unique only inside the ServerNetworkTemplate. This is of syntax
+        /// <bond><interface_type_index><bond_mode> or <nic><interface_type_index>
+        /// and forms part of the network template name.
+        #[prost(string, tag = "1")]
+        pub name: ::prost::alloc::string::String,
+        /// Interface type.
+        #[prost(enumeration = "logical_interface::InterfaceType", tag = "2")]
+        pub r#type: i32,
+        /// If true, interface must have network connected.
+        #[prost(bool, tag = "3")]
+        pub required: bool,
+    }
+    /// Nested message and enum types in `LogicalInterface`.
+    pub mod logical_interface {
+        /// Interface type.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum InterfaceType {
+            /// Unspecified value.
+            Unspecified = 0,
+            /// Bond interface type.
+            Bond = 1,
+            /// NIC interface type.
+            Nic = 2,
+        }
+        impl InterfaceType {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    InterfaceType::Unspecified => "INTERFACE_TYPE_UNSPECIFIED",
+                    InterfaceType::Bond => "BOND",
+                    InterfaceType::Nic => "NIC",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "INTERFACE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "BOND" => Some(Self::Bond),
+                    "NIC" => Some(Self::Nic),
+                    _ => None,
+                }
+            }
+        }
+    }
 }
 /// Operation System image.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2945,95 +3000,40 @@ pub struct UpdateProvisioningConfigRequest {
     #[prost(string, tag = "3")]
     pub email: ::prost::alloc::string::String,
 }
-/// Network template.
+/// Represents the metadata from a long-running operation.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ServerNetworkTemplate {
-    /// Output only. Template's unique name. The full resource name follows the
-    /// pattern:
-    /// `projects/{project}/locations/{location}/serverNetworkTemplate/{server_network_template}`
-    /// Generally, the {server_network_template} follows the syntax of
-    /// "bond<interface_type_index><bond_mode>" or "nic<interface_type_index>".
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Instance types this template is applicable to.
-    #[prost(string, repeated, tag = "2")]
-    pub applicable_instance_types: ::prost::alloc::vec::Vec<
-        ::prost::alloc::string::String,
-    >,
-    /// Logical interfaces.
-    #[prost(message, repeated, tag = "3")]
-    pub logical_interfaces: ::prost::alloc::vec::Vec<
-        server_network_template::LogicalInterface,
-    >,
+pub struct OperationMetadata {
+    /// Output only. The time the operation was created.
+    #[prost(message, optional, tag = "1")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The time the operation finished running.
+    #[prost(message, optional, tag = "2")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Server-defined resource path for the target of the operation.
+    #[prost(string, tag = "3")]
+    pub target: ::prost::alloc::string::String,
+    /// Output only. Name of the action executed by the operation.
+    #[prost(string, tag = "4")]
+    pub verb: ::prost::alloc::string::String,
+    /// Output only. Human-readable status of the operation, if any.
+    #[prost(string, tag = "5")]
+    pub status_message: ::prost::alloc::string::String,
+    /// Output only. Identifies whether the user requested the cancellation
+    /// of the operation. Operations that have been successfully cancelled
+    /// have \[Operation.error][\] value with a
+    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// `Code.CANCELLED`.
+    #[prost(bool, tag = "6")]
+    pub requested_cancellation: bool,
+    /// Output only. API version used with the operation.
+    #[prost(string, tag = "7")]
+    pub api_version: ::prost::alloc::string::String,
 }
-/// Nested message and enum types in `ServerNetworkTemplate`.
-pub mod server_network_template {
-    /// Logical interface.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct LogicalInterface {
-        /// Interface name.
-        /// This is not a globally unique identifier.
-        /// Name is unique only inside the ServerNetworkTemplate. This is of syntax
-        /// <bond><interface_type_index><bond_mode> or <nic><interface_type_index>
-        /// and forms part of the network template name.
-        #[prost(string, tag = "1")]
-        pub name: ::prost::alloc::string::String,
-        /// Interface type.
-        #[prost(enumeration = "logical_interface::InterfaceType", tag = "2")]
-        pub r#type: i32,
-        /// If true, interface must have network connected.
-        #[prost(bool, tag = "3")]
-        pub required: bool,
-    }
-    /// Nested message and enum types in `LogicalInterface`.
-    pub mod logical_interface {
-        /// Interface type.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum InterfaceType {
-            /// Unspecified value.
-            Unspecified = 0,
-            /// Bond interface type.
-            Bond = 1,
-            /// NIC interface type.
-            Nic = 2,
-        }
-        impl InterfaceType {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    InterfaceType::Unspecified => "INTERFACE_TYPE_UNSPECIFIED",
-                    InterfaceType::Bond => "BOND",
-                    InterfaceType::Nic => "NIC",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "INTERFACE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                    "BOND" => Some(Self::Bond),
-                    "NIC" => Some(Self::Nic),
-                    _ => None,
-                }
-            }
-        }
-    }
-}
+/// Response message from resetting a server.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResetInstanceResponse {}
 /// Generated client implementations.
 pub mod bare_metal_solution_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
