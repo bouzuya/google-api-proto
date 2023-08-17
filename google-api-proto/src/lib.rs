@@ -450,6 +450,7 @@ pub mod cloud;
         feature = "google-rpc",
         feature = "google-rpc-context",
         feature = "google-search-partnerdataingestion-logging-v1",
+        feature = "google-shopping-merchant-inventories-v1beta",
         feature = "google-shopping-type",
         feature = "google-spanner-admin-database-v1",
         feature = "google-spanner-admin-instance-v1",

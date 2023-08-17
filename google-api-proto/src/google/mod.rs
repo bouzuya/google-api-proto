@@ -550,7 +550,12 @@ pub mod r#type;
 pub mod rpc;
 #[cfg(any(feature = "google-search-partnerdataingestion-logging-v1"))]
 pub mod search;
-#[cfg(any(feature = "google-shopping-type"))]
+#[cfg(
+    any(
+        feature = "google-shopping-merchant-inventories-v1beta",
+        feature = "google-shopping-type",
+    )
+)]
 pub mod shopping;
 #[cfg(
     any(
