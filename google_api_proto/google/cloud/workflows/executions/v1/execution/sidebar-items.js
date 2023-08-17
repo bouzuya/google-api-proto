@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["CallLogLevel","State"],"mod":["stack_trace_element"],"struct":["Error","StackTrace","StackTraceElement"]};
+window.SIDEBAR_ITEMS = {"enum":["CallLogLevel","State"],"mod":["stack_trace_element","state_error","status"],"struct":["Error","StackTrace","StackTraceElement","StateError","Status"]};
