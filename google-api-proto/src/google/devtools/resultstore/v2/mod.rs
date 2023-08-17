@@ -384,6 +384,318 @@ pub struct ConfigurationAttributes {
     #[prost(string, tag = "1")]
     pub cpu: ::prost::alloc::string::String,
 }
+/// Request object for GetFile
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetFileRequest {
+    /// This corresponds to the uri field in the File message: for an obfuscated
+    /// File.uri like
+    /// CglidWlsZC5sb2cSJDI3YmI5ZWQxLTVjYzEtNGFlNi1iMWRkLTVlODY0YWEzYmE2ZQ, the
+    /// value here should be
+    /// files/CglidWlsZC5sb2cSJDI3YmI5ZWQxLTVjYzEtNGFlNi1iMWRkLTVlODY0YWEzYmE2ZQ
+    #[prost(string, tag = "1")]
+    pub uri: ::prost::alloc::string::String,
+    /// The offset for the first byte to return in the read, relative to the start
+    /// of the resource.
+    ///
+    /// A `read_offset` that is negative or greater than the size of the resource
+    /// will cause an `OUT_OF_RANGE` error.
+    #[prost(int64, tag = "2")]
+    pub read_offset: i64,
+    /// The maximum number of `data` bytes the server is allowed to return in the
+    /// sum of all `ReadResponse` messages. A `read_limit` of zero indicates that
+    /// there is no limit, and a negative `read_limit` will cause an error.
+    ///
+    /// If the stream returns fewer bytes than allowed by the `read_limit` and no
+    /// error occurred, the stream includes all data from the `read_offset` to the
+    /// end of the resource.
+    #[prost(int64, tag = "3")]
+    pub read_limit: i64,
+    /// Only applies if the referenced file is a known archive type (ar, jar, zip)
+    /// The above read_offset and read_limit fields are applied to this entry.
+    /// If this file is not an archive, INVALID_ARGUMENT is thrown.
+    #[prost(string, tag = "4")]
+    pub archive_entry: ::prost::alloc::string::String,
+}
+/// Response object for GetFile
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetFileResponse {
+    /// The file data.
+    #[prost(bytes = "bytes", tag = "1")]
+    pub data: ::prost::bytes::Bytes,
+}
+/// Request object for GetFileTail
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetFileTailRequest {
+    /// This corresponds to the uri field in the File message: for an obfuscated
+    /// File.uri like
+    /// CglidWlsZC5sb2cSJDI3YmI5ZWQxLTVjYzEtNGFlNi1iMWRkLTVlODY0YWEzYmE2ZQ, the
+    /// value here should be
+    /// files/CglidWlsZC5sb2cSJDI3YmI5ZWQxLTVjYzEtNGFlNi1iMWRkLTVlODY0YWEzYmE2ZQ
+    #[prost(string, tag = "1")]
+    pub uri: ::prost::alloc::string::String,
+    /// The offset for the first byte to return in the read, relative to the end
+    /// of the resource.
+    ///
+    /// A `read_offset` that is negative or greater than the size of the resource
+    /// will cause an `OUT_OF_RANGE` error.
+    #[prost(int64, tag = "2")]
+    pub read_offset: i64,
+    /// The maximum number of `data` bytes the server is allowed to return. The
+    /// server will return bytes starting from the tail of the file.
+    ///
+    /// A `read_limit` of zero indicates that there is no limit, and a negative
+    /// `read_limit` will cause an error.
+    #[prost(int64, tag = "3")]
+    pub read_limit: i64,
+    /// Only applies if the referenced file is a known archive type (ar, jar, zip)
+    /// The above read_offset and read_limit fields are applied to this entry.
+    /// If this file is not an archive, INVALID_ARGUMENT is thrown.
+    #[prost(string, tag = "4")]
+    pub archive_entry: ::prost::alloc::string::String,
+}
+/// Response object for GetFileTail
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetFileTailResponse {
+    /// The file data, encoded with UTF-8.
+    #[prost(bytes = "bytes", tag = "1")]
+    pub data: ::prost::bytes::Bytes,
+}
+/// Generated client implementations.
+pub mod result_store_file_download_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// This API allows download of File messages referenced in
+    /// ResultStore resources.
+    #[derive(Debug, Clone)]
+    pub struct ResultStoreFileDownloadClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> ResultStoreFileDownloadClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> ResultStoreFileDownloadClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            ResultStoreFileDownloadClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Retrieves the File with the given uri.
+        /// returns a stream of bytes to be stitched together in order.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the File is not found.
+        /// - If the given File uri is badly formatted.
+        pub async fn get_file(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetFileRequest>,
+        ) -> std::result::Result<
+            tonic::Response<tonic::codec::Streaming<super::GetFileResponse>>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreFileDownload/GetFile",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreFileDownload",
+                        "GetFile",
+                    ),
+                );
+            self.inner.server_streaming(req, path, codec).await
+        }
+        /// Retrieves the tail of a File with the given uri.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the File is not found.
+        /// - If the given File uri is badly formatted.
+        pub async fn get_file_tail(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetFileTailRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::GetFileTailResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreFileDownload/GetFileTail",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreFileDownload",
+                        "GetFileTail",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Stores errors reading or parsing a file during post-processing.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FileProcessingErrors {
+    /// The uid of the File being read or parsed.
+    #[prost(string, tag = "1")]
+    pub file_uid: ::prost::alloc::string::String,
+    /// What went wrong.
+    #[prost(message, repeated, tag = "3")]
+    pub file_processing_errors: ::prost::alloc::vec::Vec<FileProcessingError>,
+}
+/// Stores an error reading or parsing a file during post-processing.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FileProcessingError {
+    /// The type of error that occurred.
+    #[prost(enumeration = "FileProcessingErrorType", tag = "1")]
+    pub r#type: i32,
+    /// Error message describing the problem.
+    #[prost(string, tag = "2")]
+    pub message: ::prost::alloc::string::String,
+}
+/// Errors in file post-processing are categorized using this enum.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum FileProcessingErrorType {
+    /// Type unspecified or not listed here.
+    Unspecified = 0,
+    /// A read error occurred trying to read the file.
+    GenericReadError = 1,
+    /// There was an error trying to parse the file.
+    GenericParseError = 2,
+    /// File is exceeds size limit.
+    FileTooLarge = 3,
+    /// The result of parsing the file exceeded size limit.
+    OutputTooLarge = 4,
+    /// Read access to the file was denied by file system.
+    AccessDenied = 5,
+    /// Deadline exceeded trying to read the file.
+    DeadlineExceeded = 6,
+    /// File not found.
+    NotFound = 7,
+    /// File is empty but was expected to have content.
+    FileEmpty = 8,
+}
+impl FileProcessingErrorType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            FileProcessingErrorType::Unspecified => {
+                "FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED"
+            }
+            FileProcessingErrorType::GenericReadError => "GENERIC_READ_ERROR",
+            FileProcessingErrorType::GenericParseError => "GENERIC_PARSE_ERROR",
+            FileProcessingErrorType::FileTooLarge => "FILE_TOO_LARGE",
+            FileProcessingErrorType::OutputTooLarge => "OUTPUT_TOO_LARGE",
+            FileProcessingErrorType::AccessDenied => "ACCESS_DENIED",
+            FileProcessingErrorType::DeadlineExceeded => "DEADLINE_EXCEEDED",
+            FileProcessingErrorType::NotFound => "NOT_FOUND",
+            FileProcessingErrorType::FileEmpty => "FILE_EMPTY",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "GENERIC_READ_ERROR" => Some(Self::GenericReadError),
+            "GENERIC_PARSE_ERROR" => Some(Self::GenericParseError),
+            "FILE_TOO_LARGE" => Some(Self::FileTooLarge),
+            "OUTPUT_TOO_LARGE" => Some(Self::OutputTooLarge),
+            "ACCESS_DENIED" => Some(Self::AccessDenied),
+            "DEADLINE_EXCEEDED" => Some(Self::DeadlineExceeded),
+            "NOT_FOUND" => Some(Self::NotFound),
+            "FILE_EMPTY" => Some(Self::FileEmpty),
+            _ => None,
+        }
+    }
+}
 /// Describes line coverage for a file
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -600,87 +912,6 @@ pub struct ArchiveEntry {
     /// how to handle the entry.
     #[prost(string, tag = "3")]
     pub content_type: ::prost::alloc::string::String,
-}
-/// Stores errors reading or parsing a file during post-processing.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FileProcessingErrors {
-    /// The uid of the File being read or parsed.
-    #[prost(string, tag = "1")]
-    pub file_uid: ::prost::alloc::string::String,
-    /// What went wrong.
-    #[prost(message, repeated, tag = "3")]
-    pub file_processing_errors: ::prost::alloc::vec::Vec<FileProcessingError>,
-}
-/// Stores an error reading or parsing a file during post-processing.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FileProcessingError {
-    /// The type of error that occurred.
-    #[prost(enumeration = "FileProcessingErrorType", tag = "1")]
-    pub r#type: i32,
-    /// Error message describing the problem.
-    #[prost(string, tag = "2")]
-    pub message: ::prost::alloc::string::String,
-}
-/// Errors in file post-processing are categorized using this enum.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum FileProcessingErrorType {
-    /// Type unspecified or not listed here.
-    Unspecified = 0,
-    /// A read error occurred trying to read the file.
-    GenericReadError = 1,
-    /// There was an error trying to parse the file.
-    GenericParseError = 2,
-    /// File is exceeds size limit.
-    FileTooLarge = 3,
-    /// The result of parsing the file exceeded size limit.
-    OutputTooLarge = 4,
-    /// Read access to the file was denied by file system.
-    AccessDenied = 5,
-    /// Deadline exceeded trying to read the file.
-    DeadlineExceeded = 6,
-    /// File not found.
-    NotFound = 7,
-    /// File is empty but was expected to have content.
-    FileEmpty = 8,
-}
-impl FileProcessingErrorType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            FileProcessingErrorType::Unspecified => {
-                "FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED"
-            }
-            FileProcessingErrorType::GenericReadError => "GENERIC_READ_ERROR",
-            FileProcessingErrorType::GenericParseError => "GENERIC_PARSE_ERROR",
-            FileProcessingErrorType::FileTooLarge => "FILE_TOO_LARGE",
-            FileProcessingErrorType::OutputTooLarge => "OUTPUT_TOO_LARGE",
-            FileProcessingErrorType::AccessDenied => "ACCESS_DENIED",
-            FileProcessingErrorType::DeadlineExceeded => "DEADLINE_EXCEEDED",
-            FileProcessingErrorType::NotFound => "NOT_FOUND",
-            FileProcessingErrorType::FileEmpty => "FILE_EMPTY",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "GENERIC_READ_ERROR" => Some(Self::GenericReadError),
-            "GENERIC_PARSE_ERROR" => Some(Self::GenericParseError),
-            "FILE_TOO_LARGE" => Some(Self::FileTooLarge),
-            "OUTPUT_TOO_LARGE" => Some(Self::OutputTooLarge),
-            "ACCESS_DENIED" => Some(Self::AccessDenied),
-            "DEADLINE_EXCEEDED" => Some(Self::DeadlineExceeded),
-            "NOT_FOUND" => Some(Self::NotFound),
-            "FILE_EMPTY" => Some(Self::FileEmpty),
-            _ => None,
-        }
-    }
 }
 /// The result of running a test suite, as reported in a <testsuite> element of
 /// an XML log.
@@ -3309,237 +3540,6 @@ pub struct UploadMetadata {
     /// retry action is needed.
     #[prost(bytes = "bytes", tag = "3")]
     pub uploader_state: ::prost::bytes::Bytes,
-}
-/// Request object for GetFile
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetFileRequest {
-    /// This corresponds to the uri field in the File message: for an obfuscated
-    /// File.uri like
-    /// CglidWlsZC5sb2cSJDI3YmI5ZWQxLTVjYzEtNGFlNi1iMWRkLTVlODY0YWEzYmE2ZQ, the
-    /// value here should be
-    /// files/CglidWlsZC5sb2cSJDI3YmI5ZWQxLTVjYzEtNGFlNi1iMWRkLTVlODY0YWEzYmE2ZQ
-    #[prost(string, tag = "1")]
-    pub uri: ::prost::alloc::string::String,
-    /// The offset for the first byte to return in the read, relative to the start
-    /// of the resource.
-    ///
-    /// A `read_offset` that is negative or greater than the size of the resource
-    /// will cause an `OUT_OF_RANGE` error.
-    #[prost(int64, tag = "2")]
-    pub read_offset: i64,
-    /// The maximum number of `data` bytes the server is allowed to return in the
-    /// sum of all `ReadResponse` messages. A `read_limit` of zero indicates that
-    /// there is no limit, and a negative `read_limit` will cause an error.
-    ///
-    /// If the stream returns fewer bytes than allowed by the `read_limit` and no
-    /// error occurred, the stream includes all data from the `read_offset` to the
-    /// end of the resource.
-    #[prost(int64, tag = "3")]
-    pub read_limit: i64,
-    /// Only applies if the referenced file is a known archive type (ar, jar, zip)
-    /// The above read_offset and read_limit fields are applied to this entry.
-    /// If this file is not an archive, INVALID_ARGUMENT is thrown.
-    #[prost(string, tag = "4")]
-    pub archive_entry: ::prost::alloc::string::String,
-}
-/// Response object for GetFile
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetFileResponse {
-    /// The file data.
-    #[prost(bytes = "bytes", tag = "1")]
-    pub data: ::prost::bytes::Bytes,
-}
-/// Request object for GetFileTail
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetFileTailRequest {
-    /// This corresponds to the uri field in the File message: for an obfuscated
-    /// File.uri like
-    /// CglidWlsZC5sb2cSJDI3YmI5ZWQxLTVjYzEtNGFlNi1iMWRkLTVlODY0YWEzYmE2ZQ, the
-    /// value here should be
-    /// files/CglidWlsZC5sb2cSJDI3YmI5ZWQxLTVjYzEtNGFlNi1iMWRkLTVlODY0YWEzYmE2ZQ
-    #[prost(string, tag = "1")]
-    pub uri: ::prost::alloc::string::String,
-    /// The offset for the first byte to return in the read, relative to the end
-    /// of the resource.
-    ///
-    /// A `read_offset` that is negative or greater than the size of the resource
-    /// will cause an `OUT_OF_RANGE` error.
-    #[prost(int64, tag = "2")]
-    pub read_offset: i64,
-    /// The maximum number of `data` bytes the server is allowed to return. The
-    /// server will return bytes starting from the tail of the file.
-    ///
-    /// A `read_limit` of zero indicates that there is no limit, and a negative
-    /// `read_limit` will cause an error.
-    #[prost(int64, tag = "3")]
-    pub read_limit: i64,
-    /// Only applies if the referenced file is a known archive type (ar, jar, zip)
-    /// The above read_offset and read_limit fields are applied to this entry.
-    /// If this file is not an archive, INVALID_ARGUMENT is thrown.
-    #[prost(string, tag = "4")]
-    pub archive_entry: ::prost::alloc::string::String,
-}
-/// Response object for GetFileTail
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetFileTailResponse {
-    /// The file data, encoded with UTF-8.
-    #[prost(bytes = "bytes", tag = "1")]
-    pub data: ::prost::bytes::Bytes,
-}
-/// Generated client implementations.
-pub mod result_store_file_download_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// This API allows download of File messages referenced in
-    /// ResultStore resources.
-    #[derive(Debug, Clone)]
-    pub struct ResultStoreFileDownloadClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> ResultStoreFileDownloadClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> ResultStoreFileDownloadClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            ResultStoreFileDownloadClient::new(
-                InterceptedService::new(inner, interceptor),
-            )
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Retrieves the File with the given uri.
-        /// returns a stream of bytes to be stitched together in order.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the File is not found.
-        /// - If the given File uri is badly formatted.
-        pub async fn get_file(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetFileRequest>,
-        ) -> std::result::Result<
-            tonic::Response<tonic::codec::Streaming<super::GetFileResponse>>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreFileDownload/GetFile",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreFileDownload",
-                        "GetFile",
-                    ),
-                );
-            self.inner.server_streaming(req, path, codec).await
-        }
-        /// Retrieves the tail of a File with the given uri.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the File is not found.
-        /// - If the given File uri is badly formatted.
-        pub async fn get_file_tail(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetFileTailRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::GetFileTailResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreFileDownload/GetFileTail",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreFileDownload",
-                        "GetFileTail",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
 }
 /// Request passed into CreateInvocation
 #[allow(clippy::derive_partial_eq_without_eq)]

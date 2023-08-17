@@ -1,185 +1,3 @@
-/// Container for enum that determines if the described artifact is a resource
-/// or a field, and if it is a field, when it segments search queries.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchAds360FieldCategoryEnum {}
-/// Nested message and enum types in `SearchAds360FieldCategoryEnum`.
-pub mod search_ads360_field_category_enum {
-    /// The category of the artifact.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum SearchAds360FieldCategory {
-        /// Unspecified
-        Unspecified = 0,
-        /// Unknown
-        Unknown = 1,
-        /// The described artifact is a resource.
-        Resource = 2,
-        /// The described artifact is a field and is an attribute of a resource.
-        /// Including a resource attribute field in a query may segment the query if
-        /// the resource to which it is attributed segments the resource found in
-        /// the FROM clause.
-        Attribute = 3,
-        /// The described artifact is a field and always segments search queries.
-        Segment = 5,
-        /// The described artifact is a field and is a metric. It never segments
-        /// search queries.
-        Metric = 6,
-    }
-    impl SearchAds360FieldCategory {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                SearchAds360FieldCategory::Unspecified => "UNSPECIFIED",
-                SearchAds360FieldCategory::Unknown => "UNKNOWN",
-                SearchAds360FieldCategory::Resource => "RESOURCE",
-                SearchAds360FieldCategory::Attribute => "ATTRIBUTE",
-                SearchAds360FieldCategory::Segment => "SEGMENT",
-                SearchAds360FieldCategory::Metric => "METRIC",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UNSPECIFIED" => Some(Self::Unspecified),
-                "UNKNOWN" => Some(Self::Unknown),
-                "RESOURCE" => Some(Self::Resource),
-                "ATTRIBUTE" => Some(Self::Attribute),
-                "SEGMENT" => Some(Self::Segment),
-                "METRIC" => Some(Self::Metric),
-                _ => None,
-            }
-        }
-    }
-}
-/// Container holding the various data types.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchAds360FieldDataTypeEnum {}
-/// Nested message and enum types in `SearchAds360FieldDataTypeEnum`.
-pub mod search_ads360_field_data_type_enum {
-    /// These are the various types a SearchAds360Service artifact may take on.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum SearchAds360FieldDataType {
-        /// Unspecified
-        Unspecified = 0,
-        /// Unknown
-        Unknown = 1,
-        /// Maps to google.protobuf.BoolValue
-        ///
-        /// Applicable operators:  =, !=
-        Boolean = 2,
-        /// Maps to google.protobuf.StringValue. It can be compared using the set of
-        /// operators specific to dates however.
-        ///
-        /// Applicable operators:  =, <, >, <=, >=, BETWEEN, DURING, and IN
-        Date = 3,
-        /// Maps to google.protobuf.DoubleValue
-        ///
-        /// Applicable operators:  =, !=, <, >, IN, NOT IN
-        Double = 4,
-        /// Maps to an enum. It's specific definition can be found at type_url.
-        ///
-        /// Applicable operators:  =, !=, IN, NOT IN
-        Enum = 5,
-        /// Maps to google.protobuf.FloatValue
-        ///
-        /// Applicable operators:  =, !=, <, >, IN, NOT IN
-        Float = 6,
-        /// Maps to google.protobuf.Int32Value
-        ///
-        /// Applicable operators:  =, !=, <, >, <=, >=, BETWEEN, IN, NOT IN
-        Int32 = 7,
-        /// Maps to google.protobuf.Int64Value
-        ///
-        /// Applicable operators:  =, !=, <, >, <=, >=, BETWEEN, IN, NOT IN
-        Int64 = 8,
-        /// Maps to a protocol buffer message type. The data type's details can be
-        /// found in type_url.
-        ///
-        /// No operators work with MESSAGE fields.
-        Message = 9,
-        /// Maps to google.protobuf.StringValue. Represents the resource name
-        /// (unique id) of a resource or one of its foreign keys.
-        ///
-        /// No operators work with RESOURCE_NAME fields.
-        ResourceName = 10,
-        /// Maps to google.protobuf.StringValue.
-        ///
-        /// Applicable operators:  =, !=, LIKE, NOT LIKE, IN, NOT IN
-        String = 11,
-        /// Maps to google.protobuf.UInt64Value
-        ///
-        /// Applicable operators:  =, !=, <, >, <=, >=, BETWEEN, IN, NOT IN
-        Uint64 = 12,
-    }
-    impl SearchAds360FieldDataType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                SearchAds360FieldDataType::Unspecified => "UNSPECIFIED",
-                SearchAds360FieldDataType::Unknown => "UNKNOWN",
-                SearchAds360FieldDataType::Boolean => "BOOLEAN",
-                SearchAds360FieldDataType::Date => "DATE",
-                SearchAds360FieldDataType::Double => "DOUBLE",
-                SearchAds360FieldDataType::Enum => "ENUM",
-                SearchAds360FieldDataType::Float => "FLOAT",
-                SearchAds360FieldDataType::Int32 => "INT32",
-                SearchAds360FieldDataType::Int64 => "INT64",
-                SearchAds360FieldDataType::Message => "MESSAGE",
-                SearchAds360FieldDataType::ResourceName => "RESOURCE_NAME",
-                SearchAds360FieldDataType::String => "STRING",
-                SearchAds360FieldDataType::Uint64 => "UINT64",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UNSPECIFIED" => Some(Self::Unspecified),
-                "UNKNOWN" => Some(Self::Unknown),
-                "BOOLEAN" => Some(Self::Boolean),
-                "DATE" => Some(Self::Date),
-                "DOUBLE" => Some(Self::Double),
-                "ENUM" => Some(Self::Enum),
-                "FLOAT" => Some(Self::Float),
-                "INT32" => Some(Self::Int32),
-                "INT64" => Some(Self::Int64),
-                "MESSAGE" => Some(Self::Message),
-                "RESOURCE_NAME" => Some(Self::ResourceName),
-                "STRING" => Some(Self::String),
-                "UINT64" => Some(Self::Uint64),
-                _ => None,
-            }
-        }
-    }
-}
 /// Container for enum describing types of payable and free interactions.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4698,6 +4516,188 @@ pub mod user_list_type_enum {
                 "RULE_BASED" => Some(Self::RuleBased),
                 "SIMILAR" => Some(Self::Similar),
                 "CRM_BASED" => Some(Self::CrmBased),
+                _ => None,
+            }
+        }
+    }
+}
+/// Container for enum that determines if the described artifact is a resource
+/// or a field, and if it is a field, when it segments search queries.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchAds360FieldCategoryEnum {}
+/// Nested message and enum types in `SearchAds360FieldCategoryEnum`.
+pub mod search_ads360_field_category_enum {
+    /// The category of the artifact.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum SearchAds360FieldCategory {
+        /// Unspecified
+        Unspecified = 0,
+        /// Unknown
+        Unknown = 1,
+        /// The described artifact is a resource.
+        Resource = 2,
+        /// The described artifact is a field and is an attribute of a resource.
+        /// Including a resource attribute field in a query may segment the query if
+        /// the resource to which it is attributed segments the resource found in
+        /// the FROM clause.
+        Attribute = 3,
+        /// The described artifact is a field and always segments search queries.
+        Segment = 5,
+        /// The described artifact is a field and is a metric. It never segments
+        /// search queries.
+        Metric = 6,
+    }
+    impl SearchAds360FieldCategory {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                SearchAds360FieldCategory::Unspecified => "UNSPECIFIED",
+                SearchAds360FieldCategory::Unknown => "UNKNOWN",
+                SearchAds360FieldCategory::Resource => "RESOURCE",
+                SearchAds360FieldCategory::Attribute => "ATTRIBUTE",
+                SearchAds360FieldCategory::Segment => "SEGMENT",
+                SearchAds360FieldCategory::Metric => "METRIC",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNSPECIFIED" => Some(Self::Unspecified),
+                "UNKNOWN" => Some(Self::Unknown),
+                "RESOURCE" => Some(Self::Resource),
+                "ATTRIBUTE" => Some(Self::Attribute),
+                "SEGMENT" => Some(Self::Segment),
+                "METRIC" => Some(Self::Metric),
+                _ => None,
+            }
+        }
+    }
+}
+/// Container holding the various data types.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchAds360FieldDataTypeEnum {}
+/// Nested message and enum types in `SearchAds360FieldDataTypeEnum`.
+pub mod search_ads360_field_data_type_enum {
+    /// These are the various types a SearchAds360Service artifact may take on.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum SearchAds360FieldDataType {
+        /// Unspecified
+        Unspecified = 0,
+        /// Unknown
+        Unknown = 1,
+        /// Maps to google.protobuf.BoolValue
+        ///
+        /// Applicable operators:  =, !=
+        Boolean = 2,
+        /// Maps to google.protobuf.StringValue. It can be compared using the set of
+        /// operators specific to dates however.
+        ///
+        /// Applicable operators:  =, <, >, <=, >=, BETWEEN, DURING, and IN
+        Date = 3,
+        /// Maps to google.protobuf.DoubleValue
+        ///
+        /// Applicable operators:  =, !=, <, >, IN, NOT IN
+        Double = 4,
+        /// Maps to an enum. It's specific definition can be found at type_url.
+        ///
+        /// Applicable operators:  =, !=, IN, NOT IN
+        Enum = 5,
+        /// Maps to google.protobuf.FloatValue
+        ///
+        /// Applicable operators:  =, !=, <, >, IN, NOT IN
+        Float = 6,
+        /// Maps to google.protobuf.Int32Value
+        ///
+        /// Applicable operators:  =, !=, <, >, <=, >=, BETWEEN, IN, NOT IN
+        Int32 = 7,
+        /// Maps to google.protobuf.Int64Value
+        ///
+        /// Applicable operators:  =, !=, <, >, <=, >=, BETWEEN, IN, NOT IN
+        Int64 = 8,
+        /// Maps to a protocol buffer message type. The data type's details can be
+        /// found in type_url.
+        ///
+        /// No operators work with MESSAGE fields.
+        Message = 9,
+        /// Maps to google.protobuf.StringValue. Represents the resource name
+        /// (unique id) of a resource or one of its foreign keys.
+        ///
+        /// No operators work with RESOURCE_NAME fields.
+        ResourceName = 10,
+        /// Maps to google.protobuf.StringValue.
+        ///
+        /// Applicable operators:  =, !=, LIKE, NOT LIKE, IN, NOT IN
+        String = 11,
+        /// Maps to google.protobuf.UInt64Value
+        ///
+        /// Applicable operators:  =, !=, <, >, <=, >=, BETWEEN, IN, NOT IN
+        Uint64 = 12,
+    }
+    impl SearchAds360FieldDataType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                SearchAds360FieldDataType::Unspecified => "UNSPECIFIED",
+                SearchAds360FieldDataType::Unknown => "UNKNOWN",
+                SearchAds360FieldDataType::Boolean => "BOOLEAN",
+                SearchAds360FieldDataType::Date => "DATE",
+                SearchAds360FieldDataType::Double => "DOUBLE",
+                SearchAds360FieldDataType::Enum => "ENUM",
+                SearchAds360FieldDataType::Float => "FLOAT",
+                SearchAds360FieldDataType::Int32 => "INT32",
+                SearchAds360FieldDataType::Int64 => "INT64",
+                SearchAds360FieldDataType::Message => "MESSAGE",
+                SearchAds360FieldDataType::ResourceName => "RESOURCE_NAME",
+                SearchAds360FieldDataType::String => "STRING",
+                SearchAds360FieldDataType::Uint64 => "UINT64",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNSPECIFIED" => Some(Self::Unspecified),
+                "UNKNOWN" => Some(Self::Unknown),
+                "BOOLEAN" => Some(Self::Boolean),
+                "DATE" => Some(Self::Date),
+                "DOUBLE" => Some(Self::Double),
+                "ENUM" => Some(Self::Enum),
+                "FLOAT" => Some(Self::Float),
+                "INT32" => Some(Self::Int32),
+                "INT64" => Some(Self::Int64),
+                "MESSAGE" => Some(Self::Message),
+                "RESOURCE_NAME" => Some(Self::ResourceName),
+                "STRING" => Some(Self::String),
+                "UINT64" => Some(Self::Uint64),
                 _ => None,
             }
         }
