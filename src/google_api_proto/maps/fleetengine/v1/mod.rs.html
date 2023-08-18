@@ -3155,6 +3155,15 @@
 <a href="#3155" id="3155">3155</a>
 <a href="#3156" id="3156">3156</a>
 <a href="#3157" id="3157">3157</a>
+<a href="#3158" id="3158">3158</a>
+<a href="#3159" id="3159">3159</a>
+<a href="#3160" id="3160">3160</a>
+<a href="#3161" id="3161">3161</a>
+<a href="#3162" id="3162">3162</a>
+<a href="#3163" id="3163">3163</a>
+<a href="#3164" id="3164">3164</a>
+<a href="#3165" id="3165">3165</a>
+<a href="#3166" id="3166">3166</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Traffic density indicator on a contiguous segment of a path. Given a path
 /// with points P_0, P_1, ... , P_N (zero-based index), the SpeedReadingInterval
 /// defines an interval and describes its traffic using the following categories.
@@ -4822,6 +4831,11 @@
             </span>Truck = <span class="number">3</span>,
             <span class="doccomment">/// A motorcycle, moped, or other two-wheeled vehicle
             </span>TwoWheeler = <span class="number">4</span>,
+            <span class="doccomment">/// Human-powered transport.
+            </span>Bicycle = <span class="number">5</span>,
+            <span class="doccomment">/// A human transporter, typically walking or running, traveling along
+            /// pedestrian pathways.
+            </span>Pedestrian = <span class="number">6</span>,
         }
         <span class="kw">impl </span>Category {
             <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -4835,6 +4849,8 @@
                     Category::Taxi =&gt; <span class="string">&quot;TAXI&quot;</span>,
                     Category::Truck =&gt; <span class="string">&quot;TRUCK&quot;</span>,
                     Category::TwoWheeler =&gt; <span class="string">&quot;TWO_WHEELER&quot;</span>,
+                    Category::Bicycle =&gt; <span class="string">&quot;BICYCLE&quot;</span>,
+                    Category::Pedestrian =&gt; <span class="string">&quot;PEDESTRIAN&quot;</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -4845,6 +4861,8 @@
                     <span class="string">&quot;TAXI&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Taxi),
                     <span class="string">&quot;TRUCK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Truck),
                     <span class="string">&quot;TWO_WHEELER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TwoWheeler),
+                    <span class="string">&quot;BICYCLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bicycle),
+                    <span class="string">&quot;PEDESTRIAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pedestrian),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
