@@ -531,6 +531,64 @@ pub struct DeliveryVehicle {
     /// at most 50 attributes, and each attribute must have a unique key.
     #[prost(message, repeated, tag = "9")]
     pub attributes: ::prost::alloc::vec::Vec<DeliveryVehicleAttribute>,
+    /// The type of this delivery vehicle. If unset, this will default to `AUTO`.
+    #[prost(enumeration = "delivery_vehicle::DeliveryVehicleType", tag = "10")]
+    pub r#type: i32,
+}
+/// Nested message and enum types in `DeliveryVehicle`.
+pub mod delivery_vehicle {
+    /// The type of delivery vehicle.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum DeliveryVehicleType {
+        /// The value is unused.
+        Unspecified = 0,
+        /// An automobile.
+        Auto = 1,
+        /// A motorcycle, moped, or other two-wheeled vehicle
+        TwoWheeler = 2,
+        /// Human-powered transport.
+        Bicycle = 3,
+        /// A human transporter, typically walking or running, traveling along
+        /// pedestrian pathways.
+        Pedestrian = 4,
+    }
+    impl DeliveryVehicleType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                DeliveryVehicleType::Unspecified => "DELIVERY_VEHICLE_TYPE_UNSPECIFIED",
+                DeliveryVehicleType::Auto => "AUTO",
+                DeliveryVehicleType::TwoWheeler => "TWO_WHEELER",
+                DeliveryVehicleType::Bicycle => "BICYCLE",
+                DeliveryVehicleType::Pedestrian => "PEDESTRIAN",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "DELIVERY_VEHICLE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "AUTO" => Some(Self::Auto),
+                "TWO_WHEELER" => Some(Self::TwoWheeler),
+                "BICYCLE" => Some(Self::Bicycle),
+                "PEDESTRIAN" => Some(Self::Pedestrian),
+                _ => None,
+            }
+        }
+    }
 }
 /// A location with any additional identifiers.
 #[allow(clippy::derive_partial_eq_without_eq)]

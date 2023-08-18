@@ -1665,6 +1665,11 @@ pub mod vehicle {
             Truck = 3,
             /// A motorcycle, moped, or other two-wheeled vehicle
             TwoWheeler = 4,
+            /// Human-powered transport.
+            Bicycle = 5,
+            /// A human transporter, typically walking or running, traveling along
+            /// pedestrian pathways.
+            Pedestrian = 6,
         }
         impl Category {
             /// String value of the enum field names used in the ProtoBuf definition.
@@ -1678,6 +1683,8 @@ pub mod vehicle {
                     Category::Taxi => "TAXI",
                     Category::Truck => "TRUCK",
                     Category::TwoWheeler => "TWO_WHEELER",
+                    Category::Bicycle => "BICYCLE",
+                    Category::Pedestrian => "PEDESTRIAN",
                 }
             }
             /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1688,6 +1695,8 @@ pub mod vehicle {
                     "TAXI" => Some(Self::Taxi),
                     "TRUCK" => Some(Self::Truck),
                     "TWO_WHEELER" => Some(Self::TwoWheeler),
+                    "BICYCLE" => Some(Self::Bicycle),
+                    "PEDESTRIAN" => Some(Self::Pedestrian),
                     _ => None,
                 }
             }

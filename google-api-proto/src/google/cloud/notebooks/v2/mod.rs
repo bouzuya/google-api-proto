@@ -856,6 +856,13 @@ pub struct ListInstancesRequest {
     /// listing from the last result.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
+    /// Optional. Sort results. Supported values are "name", "name desc" or ""
+    /// (unsorted).
+    #[prost(string, tag = "4")]
+    pub order_by: ::prost::alloc::string::String,
+    /// Optional. List filter.
+    #[prost(string, tag = "5")]
+    pub filter: ::prost::alloc::string::String,
 }
 /// Response for listing notebook instances.
 #[allow(clippy::derive_partial_eq_without_eq)]
