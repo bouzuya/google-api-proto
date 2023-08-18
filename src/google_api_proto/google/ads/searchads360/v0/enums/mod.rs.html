@@ -4765,189 +4765,7 @@
 <a href="#4765" id="4765">4765</a>
 <a href="#4766" id="4766">4766</a>
 <a href="#4767" id="4767">4767</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Container for enum that determines if the described artifact is a resource
-/// or a field, and if it is a field, when it segments search queries.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SearchAds360FieldCategoryEnum {}
-<span class="doccomment">/// Nested message and enum types in `SearchAds360FieldCategoryEnum`.
-</span><span class="kw">pub mod </span>search_ads360_field_category_enum {
-    <span class="doccomment">/// The category of the artifact.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>SearchAds360FieldCategory {
-        <span class="doccomment">/// Unspecified
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Unknown
-        </span>Unknown = <span class="number">1</span>,
-        <span class="doccomment">/// The described artifact is a resource.
-        </span>Resource = <span class="number">2</span>,
-        <span class="doccomment">/// The described artifact is a field and is an attribute of a resource.
-        /// Including a resource attribute field in a query may segment the query if
-        /// the resource to which it is attributed segments the resource found in
-        /// the FROM clause.
-        </span>Attribute = <span class="number">3</span>,
-        <span class="doccomment">/// The described artifact is a field and always segments search queries.
-        </span>Segment = <span class="number">5</span>,
-        <span class="doccomment">/// The described artifact is a field and is a metric. It never segments
-        /// search queries.
-        </span>Metric = <span class="number">6</span>,
-    }
-    <span class="kw">impl </span>SearchAds360FieldCategory {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                SearchAds360FieldCategory::Unspecified =&gt; <span class="string">&quot;UNSPECIFIED&quot;</span>,
-                SearchAds360FieldCategory::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
-                SearchAds360FieldCategory::Resource =&gt; <span class="string">&quot;RESOURCE&quot;</span>,
-                SearchAds360FieldCategory::Attribute =&gt; <span class="string">&quot;ATTRIBUTE&quot;</span>,
-                SearchAds360FieldCategory::Segment =&gt; <span class="string">&quot;SEGMENT&quot;</span>,
-                SearchAds360FieldCategory::Metric =&gt; <span class="string">&quot;METRIC&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;RESOURCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Resource),
-                <span class="string">&quot;ATTRIBUTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Attribute),
-                <span class="string">&quot;SEGMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Segment),
-                <span class="string">&quot;METRIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Metric),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Container holding the various data types.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SearchAds360FieldDataTypeEnum {}
-<span class="doccomment">/// Nested message and enum types in `SearchAds360FieldDataTypeEnum`.
-</span><span class="kw">pub mod </span>search_ads360_field_data_type_enum {
-    <span class="doccomment">/// These are the various types a SearchAds360Service artifact may take on.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>SearchAds360FieldDataType {
-        <span class="doccomment">/// Unspecified
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Unknown
-        </span>Unknown = <span class="number">1</span>,
-        <span class="doccomment">/// Maps to google.protobuf.BoolValue
-        ///
-        /// Applicable operators:  =, !=
-        </span>Boolean = <span class="number">2</span>,
-        <span class="doccomment">/// Maps to google.protobuf.StringValue. It can be compared using the set of
-        /// operators specific to dates however.
-        ///
-        /// Applicable operators:  =, &lt;, &gt;, &lt;=, &gt;=, BETWEEN, DURING, and IN
-        </span>Date = <span class="number">3</span>,
-        <span class="doccomment">/// Maps to google.protobuf.DoubleValue
-        ///
-        /// Applicable operators:  =, !=, &lt;, &gt;, IN, NOT IN
-        </span>Double = <span class="number">4</span>,
-        <span class="doccomment">/// Maps to an enum. It&#39;s specific definition can be found at type_url.
-        ///
-        /// Applicable operators:  =, !=, IN, NOT IN
-        </span>Enum = <span class="number">5</span>,
-        <span class="doccomment">/// Maps to google.protobuf.FloatValue
-        ///
-        /// Applicable operators:  =, !=, &lt;, &gt;, IN, NOT IN
-        </span>Float = <span class="number">6</span>,
-        <span class="doccomment">/// Maps to google.protobuf.Int32Value
-        ///
-        /// Applicable operators:  =, !=, &lt;, &gt;, &lt;=, &gt;=, BETWEEN, IN, NOT IN
-        </span>Int32 = <span class="number">7</span>,
-        <span class="doccomment">/// Maps to google.protobuf.Int64Value
-        ///
-        /// Applicable operators:  =, !=, &lt;, &gt;, &lt;=, &gt;=, BETWEEN, IN, NOT IN
-        </span>Int64 = <span class="number">8</span>,
-        <span class="doccomment">/// Maps to a protocol buffer message type. The data type&#39;s details can be
-        /// found in type_url.
-        ///
-        /// No operators work with MESSAGE fields.
-        </span>Message = <span class="number">9</span>,
-        <span class="doccomment">/// Maps to google.protobuf.StringValue. Represents the resource name
-        /// (unique id) of a resource or one of its foreign keys.
-        ///
-        /// No operators work with RESOURCE_NAME fields.
-        </span>ResourceName = <span class="number">10</span>,
-        <span class="doccomment">/// Maps to google.protobuf.StringValue.
-        ///
-        /// Applicable operators:  =, !=, LIKE, NOT LIKE, IN, NOT IN
-        </span>String = <span class="number">11</span>,
-        <span class="doccomment">/// Maps to google.protobuf.UInt64Value
-        ///
-        /// Applicable operators:  =, !=, &lt;, &gt;, &lt;=, &gt;=, BETWEEN, IN, NOT IN
-        </span>Uint64 = <span class="number">12</span>,
-    }
-    <span class="kw">impl </span>SearchAds360FieldDataType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                SearchAds360FieldDataType::Unspecified =&gt; <span class="string">&quot;UNSPECIFIED&quot;</span>,
-                SearchAds360FieldDataType::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
-                SearchAds360FieldDataType::Boolean =&gt; <span class="string">&quot;BOOLEAN&quot;</span>,
-                SearchAds360FieldDataType::Date =&gt; <span class="string">&quot;DATE&quot;</span>,
-                SearchAds360FieldDataType::Double =&gt; <span class="string">&quot;DOUBLE&quot;</span>,
-                SearchAds360FieldDataType::Enum =&gt; <span class="string">&quot;ENUM&quot;</span>,
-                SearchAds360FieldDataType::Float =&gt; <span class="string">&quot;FLOAT&quot;</span>,
-                SearchAds360FieldDataType::Int32 =&gt; <span class="string">&quot;INT32&quot;</span>,
-                SearchAds360FieldDataType::Int64 =&gt; <span class="string">&quot;INT64&quot;</span>,
-                SearchAds360FieldDataType::Message =&gt; <span class="string">&quot;MESSAGE&quot;</span>,
-                SearchAds360FieldDataType::ResourceName =&gt; <span class="string">&quot;RESOURCE_NAME&quot;</span>,
-                SearchAds360FieldDataType::String =&gt; <span class="string">&quot;STRING&quot;</span>,
-                SearchAds360FieldDataType::Uint64 =&gt; <span class="string">&quot;UINT64&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;BOOLEAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Boolean),
-                <span class="string">&quot;DATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Date),
-                <span class="string">&quot;DOUBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Double),
-                <span class="string">&quot;ENUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enum),
-                <span class="string">&quot;FLOAT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Float),
-                <span class="string">&quot;INT32&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Int32),
-                <span class="string">&quot;INT64&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Int64),
-                <span class="string">&quot;MESSAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Message),
-                <span class="string">&quot;RESOURCE_NAME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceName),
-                <span class="string">&quot;STRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::String),
-                <span class="string">&quot;UINT64&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Uint64),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Container for enum describing types of payable and free interactions.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Container for enum describing types of payable and free interactions.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>InteractionEventTypeEnum {}
@@ -9465,6 +9283,188 @@
                 <span class="string">&quot;RULE_BASED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RuleBased),
                 <span class="string">&quot;SIMILAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Similar),
                 <span class="string">&quot;CRM_BASED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CrmBased),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Container for enum that determines if the described artifact is a resource
+/// or a field, and if it is a field, when it segments search queries.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SearchAds360FieldCategoryEnum {}
+<span class="doccomment">/// Nested message and enum types in `SearchAds360FieldCategoryEnum`.
+</span><span class="kw">pub mod </span>search_ads360_field_category_enum {
+    <span class="doccomment">/// The category of the artifact.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>SearchAds360FieldCategory {
+        <span class="doccomment">/// Unspecified
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Unknown
+        </span>Unknown = <span class="number">1</span>,
+        <span class="doccomment">/// The described artifact is a resource.
+        </span>Resource = <span class="number">2</span>,
+        <span class="doccomment">/// The described artifact is a field and is an attribute of a resource.
+        /// Including a resource attribute field in a query may segment the query if
+        /// the resource to which it is attributed segments the resource found in
+        /// the FROM clause.
+        </span>Attribute = <span class="number">3</span>,
+        <span class="doccomment">/// The described artifact is a field and always segments search queries.
+        </span>Segment = <span class="number">5</span>,
+        <span class="doccomment">/// The described artifact is a field and is a metric. It never segments
+        /// search queries.
+        </span>Metric = <span class="number">6</span>,
+    }
+    <span class="kw">impl </span>SearchAds360FieldCategory {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                SearchAds360FieldCategory::Unspecified =&gt; <span class="string">&quot;UNSPECIFIED&quot;</span>,
+                SearchAds360FieldCategory::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
+                SearchAds360FieldCategory::Resource =&gt; <span class="string">&quot;RESOURCE&quot;</span>,
+                SearchAds360FieldCategory::Attribute =&gt; <span class="string">&quot;ATTRIBUTE&quot;</span>,
+                SearchAds360FieldCategory::Segment =&gt; <span class="string">&quot;SEGMENT&quot;</span>,
+                SearchAds360FieldCategory::Metric =&gt; <span class="string">&quot;METRIC&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">&quot;RESOURCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Resource),
+                <span class="string">&quot;ATTRIBUTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Attribute),
+                <span class="string">&quot;SEGMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Segment),
+                <span class="string">&quot;METRIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Metric),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Container holding the various data types.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SearchAds360FieldDataTypeEnum {}
+<span class="doccomment">/// Nested message and enum types in `SearchAds360FieldDataTypeEnum`.
+</span><span class="kw">pub mod </span>search_ads360_field_data_type_enum {
+    <span class="doccomment">/// These are the various types a SearchAds360Service artifact may take on.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>SearchAds360FieldDataType {
+        <span class="doccomment">/// Unspecified
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Unknown
+        </span>Unknown = <span class="number">1</span>,
+        <span class="doccomment">/// Maps to google.protobuf.BoolValue
+        ///
+        /// Applicable operators:  =, !=
+        </span>Boolean = <span class="number">2</span>,
+        <span class="doccomment">/// Maps to google.protobuf.StringValue. It can be compared using the set of
+        /// operators specific to dates however.
+        ///
+        /// Applicable operators:  =, &lt;, &gt;, &lt;=, &gt;=, BETWEEN, DURING, and IN
+        </span>Date = <span class="number">3</span>,
+        <span class="doccomment">/// Maps to google.protobuf.DoubleValue
+        ///
+        /// Applicable operators:  =, !=, &lt;, &gt;, IN, NOT IN
+        </span>Double = <span class="number">4</span>,
+        <span class="doccomment">/// Maps to an enum. It&#39;s specific definition can be found at type_url.
+        ///
+        /// Applicable operators:  =, !=, IN, NOT IN
+        </span>Enum = <span class="number">5</span>,
+        <span class="doccomment">/// Maps to google.protobuf.FloatValue
+        ///
+        /// Applicable operators:  =, !=, &lt;, &gt;, IN, NOT IN
+        </span>Float = <span class="number">6</span>,
+        <span class="doccomment">/// Maps to google.protobuf.Int32Value
+        ///
+        /// Applicable operators:  =, !=, &lt;, &gt;, &lt;=, &gt;=, BETWEEN, IN, NOT IN
+        </span>Int32 = <span class="number">7</span>,
+        <span class="doccomment">/// Maps to google.protobuf.Int64Value
+        ///
+        /// Applicable operators:  =, !=, &lt;, &gt;, &lt;=, &gt;=, BETWEEN, IN, NOT IN
+        </span>Int64 = <span class="number">8</span>,
+        <span class="doccomment">/// Maps to a protocol buffer message type. The data type&#39;s details can be
+        /// found in type_url.
+        ///
+        /// No operators work with MESSAGE fields.
+        </span>Message = <span class="number">9</span>,
+        <span class="doccomment">/// Maps to google.protobuf.StringValue. Represents the resource name
+        /// (unique id) of a resource or one of its foreign keys.
+        ///
+        /// No operators work with RESOURCE_NAME fields.
+        </span>ResourceName = <span class="number">10</span>,
+        <span class="doccomment">/// Maps to google.protobuf.StringValue.
+        ///
+        /// Applicable operators:  =, !=, LIKE, NOT LIKE, IN, NOT IN
+        </span>String = <span class="number">11</span>,
+        <span class="doccomment">/// Maps to google.protobuf.UInt64Value
+        ///
+        /// Applicable operators:  =, !=, &lt;, &gt;, &lt;=, &gt;=, BETWEEN, IN, NOT IN
+        </span>Uint64 = <span class="number">12</span>,
+    }
+    <span class="kw">impl </span>SearchAds360FieldDataType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                SearchAds360FieldDataType::Unspecified =&gt; <span class="string">&quot;UNSPECIFIED&quot;</span>,
+                SearchAds360FieldDataType::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
+                SearchAds360FieldDataType::Boolean =&gt; <span class="string">&quot;BOOLEAN&quot;</span>,
+                SearchAds360FieldDataType::Date =&gt; <span class="string">&quot;DATE&quot;</span>,
+                SearchAds360FieldDataType::Double =&gt; <span class="string">&quot;DOUBLE&quot;</span>,
+                SearchAds360FieldDataType::Enum =&gt; <span class="string">&quot;ENUM&quot;</span>,
+                SearchAds360FieldDataType::Float =&gt; <span class="string">&quot;FLOAT&quot;</span>,
+                SearchAds360FieldDataType::Int32 =&gt; <span class="string">&quot;INT32&quot;</span>,
+                SearchAds360FieldDataType::Int64 =&gt; <span class="string">&quot;INT64&quot;</span>,
+                SearchAds360FieldDataType::Message =&gt; <span class="string">&quot;MESSAGE&quot;</span>,
+                SearchAds360FieldDataType::ResourceName =&gt; <span class="string">&quot;RESOURCE_NAME&quot;</span>,
+                SearchAds360FieldDataType::String =&gt; <span class="string">&quot;STRING&quot;</span>,
+                SearchAds360FieldDataType::Uint64 =&gt; <span class="string">&quot;UINT64&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">&quot;BOOLEAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Boolean),
+                <span class="string">&quot;DATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Date),
+                <span class="string">&quot;DOUBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Double),
+                <span class="string">&quot;ENUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enum),
+                <span class="string">&quot;FLOAT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Float),
+                <span class="string">&quot;INT32&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Int32),
+                <span class="string">&quot;INT64&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Int64),
+                <span class="string">&quot;MESSAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Message),
+                <span class="string">&quot;RESOURCE_NAME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceName),
+                <span class="string">&quot;STRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::String),
+                <span class="string">&quot;UINT64&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Uint64),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }

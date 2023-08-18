@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["type"]};
+window.SIDEBAR_ITEMS = {"mod":["merchant","type"]};

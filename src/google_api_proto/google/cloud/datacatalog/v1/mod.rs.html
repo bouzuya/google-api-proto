@@ -5665,82 +5665,330 @@
 <a href="#5665" id="5665">5665</a>
 <a href="#5666" id="5666">5666</a>
 <a href="#5667" id="5667">5667</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Timestamps associated with this resource in a particular system.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Specification for the BigQuery connection.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SystemTimestamps {
-    <span class="doccomment">/// Creation timestamp of the resource within the given system.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Timestamp of the last modification of the resource or its metadata within
-    /// a given system.
-    ///
-    /// Note: Depending on the source system, not every modification updates this
-    /// timestamp.
-    /// For example, BigQuery timestamps every metadata modification but not data
-    /// or permission changes.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Expiration timestamp of the resource within the given system.
-    ///
-    /// Currently only applicable to BigQuery resources.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+</span><span class="kw">pub struct </span>BigQueryConnectionSpec {
+    <span class="doccomment">/// The type of the BigQuery connection.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;big_query_connection_spec::ConnectionType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>connection_type: i32,
+    <span class="doccomment">/// True if there are credentials attached to the BigQuery connection; false
+    /// otherwise.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>has_credential: bool,
+    <span class="attr">#[prost(oneof = <span class="string">&quot;big_query_connection_spec::ConnectionSpec&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>connection_spec: ::core::option::Option&lt;
+        big_query_connection_spec::ConnectionSpec,
+    &gt;,
 }
-<span class="doccomment">/// Describes a Cloud Storage fileset entry.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GcsFilesetSpec {
-    <span class="doccomment">/// Required. Patterns to identify a set of files in Google Cloud Storage.
-    ///
-    /// For more information, see [Wildcard Names]
-    /// (&lt;https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames&gt;).
-    ///
-    /// Note: Currently, bucket wildcards are not supported.
-    ///
-    /// Examples of valid `file_patterns`:
-    ///
-    ///   * `gs://bucket_name/dir/*`: matches all files in `bucket_name/dir`
-    ///                               directory
-    ///   * `gs://bucket_name/dir/**`: matches all files in `bucket_name/dir`
-    ///                                and all subdirectories
-    ///   * `gs://bucket_name/file*`: matches files prefixed by `file` in
-    ///                               `bucket_name`
-    ///   * `gs://bucket_name/??.txt`: matches files with two characters followed by
-    ///                                `.txt` in `bucket_name`
-    ///   * `gs://bucket_name/\[aeiou\].txt`: matches files that contain a single
-    ///                                     vowel character followed by `.txt` in
-    ///                                     `bucket_name`
-    ///   * `gs://bucket_name/\[a-m\].txt`: matches files that contain `a`, `b`, ...
-    ///                                   or `m` followed by `.txt` in `bucket_name`
-    ///   * `gs://bucket_name/a/*/b`: matches all files in `bucket_name` that match
-    ///                               the `a/*/b` pattern, such as `a/c/b`, `a/d/b`
-    ///   * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
-    ///
-    /// You can combine wildcards to match complex sets of files, for example:
-    ///
-    /// `gs://bucket_name/\[a-m\]??.j*g`
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>file_patterns: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Output only. Sample files contained in this fileset, not all files
-    /// contained in this fileset are represented here.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>sample_gcs_file_specs: ::prost::alloc::vec::Vec&lt;GcsFileSpec&gt;,
+<span class="doccomment">/// Nested message and enum types in `BigQueryConnectionSpec`.
+</span><span class="kw">pub mod </span>big_query_connection_spec {
+    <span class="doccomment">/// The type of the BigQuery connection.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>ConnectionType {
+        <span class="doccomment">/// Unspecified type.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Cloud SQL connection.
+        </span>CloudSql = <span class="number">1</span>,
+    }
+    <span class="kw">impl </span>ConnectionType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                ConnectionType::Unspecified =&gt; <span class="string">&quot;CONNECTION_TYPE_UNSPECIFIED&quot;</span>,
+                ConnectionType::CloudSql =&gt; <span class="string">&quot;CLOUD_SQL&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;CONNECTION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;CLOUD_SQL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudSql),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>ConnectionSpec {
+        <span class="doccomment">/// Specification for the BigQuery connection to a Cloud SQL instance.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>CloudSql(<span class="kw">super</span>::CloudSqlBigQueryConnectionSpec),
+    }
 }
-<span class="doccomment">/// Specification of a single file in Cloud Storage.
+<span class="doccomment">/// Specification for the BigQuery connection to a Cloud SQL instance.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GcsFileSpec {
-    <span class="doccomment">/// Required. Full file path. Example: `gs://bucket_name/a/b.txt`.
+</span><span class="kw">pub struct </span>CloudSqlBigQueryConnectionSpec {
+    <span class="doccomment">/// Cloud SQL instance ID in the format of `project:location:instance`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>file_path: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Creation, modification, and expiration timestamps of a Cloud
-    /// Storage file.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>gcs_timestamps: ::core::option::Option&lt;SystemTimestamps&gt;,
-    <span class="doccomment">/// Output only. File size in bytes.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>size_bytes: i64,
+    </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Database name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>database: ::prost::alloc::string::String,
+    <span class="doccomment">/// Type of the Cloud SQL database.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;cloud_sql_big_query_connection_spec::DatabaseType&quot;</span>,
+        tag = <span class="string">&quot;3&quot;
+    </span>)]
+    </span><span class="kw">pub </span>r#type: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `CloudSqlBigQueryConnectionSpec`.
+</span><span class="kw">pub mod </span>cloud_sql_big_query_connection_spec {
+    <span class="doccomment">/// Supported Cloud SQL database types.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>DatabaseType {
+        <span class="doccomment">/// Unspecified database type.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Cloud SQL for PostgreSQL.
+        </span>Postgres = <span class="number">1</span>,
+        <span class="doccomment">/// Cloud SQL for MySQL.
+        </span>Mysql = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>DatabaseType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                DatabaseType::Unspecified =&gt; <span class="string">&quot;DATABASE_TYPE_UNSPECIFIED&quot;</span>,
+                DatabaseType::Postgres =&gt; <span class="string">&quot;POSTGRES&quot;</span>,
+                DatabaseType::Mysql =&gt; <span class="string">&quot;MYSQL&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;DATABASE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;POSTGRES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Postgres),
+                <span class="string">&quot;MYSQL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mysql),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Fields specific for BigQuery routines.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BigQueryRoutineSpec {
+    <span class="doccomment">/// Paths of the imported libraries.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>imported_libraries: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// Represents a schema, for example, a BigQuery, GoogleSQL, or Avro schema.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Schema {
+    <span class="doccomment">/// The unified GoogleSQL-like schema of columns.
+    ///
+    /// The overall maximum number of columns and nested columns is 10,000.
+    /// The maximum nested depth is 15 levels.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>columns: ::prost::alloc::vec::Vec&lt;ColumnSchema&gt;,
+}
+<span class="doccomment">/// A column within a schema. Columns can be nested inside
+/// other columns.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ColumnSchema {
+    <span class="doccomment">/// Required. Name of the column.
+    ///
+    /// Must be a UTF-8 string without dots (.).
+    /// The maximum size is 64 bytes.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>column: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Type of the column.
+    ///
+    /// Must be a UTF-8 string with the maximum size of 128 bytes.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Description of the column. Default value is an empty string.
+    ///
+    /// The description must be a UTF-8 string with the maximum size of 2000
+    /// bytes.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. A column&#39;s mode indicates whether values in this column are
+    /// required, nullable, or repeated.
+    ///
+    /// Only `NULLABLE`, `REQUIRED`, and `REPEATED` values are supported.
+    /// Default mode is `NULLABLE`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>mode: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Default value for the column.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>default_value: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Ordinal position
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>ordinal_position: i32,
+    <span class="doccomment">/// Optional. Most important inclusion of this column.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;column_schema::IndexingType&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>highest_indexing_type: i32,
+    <span class="doccomment">/// Optional. Schema of sub-columns. A column can have zero or more
+    /// sub-columns.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>subcolumns: ::prost::alloc::vec::Vec&lt;ColumnSchema&gt;,
+    <span class="doccomment">/// Optional. Garbage collection policy for the column or column family.
+    /// Applies to systems like Cloud Bigtable.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>gc_rule: ::prost::alloc::string::String,
+    <span class="doccomment">/// Information only applying for columns in Entries from a specific system.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;column_schema::SystemSpec&quot;</span>, tags = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="kw">pub </span>system_spec: ::core::option::Option&lt;column_schema::SystemSpec&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ColumnSchema`.
+</span><span class="kw">pub mod </span>column_schema {
+    <span class="doccomment">/// Column info specific to Looker System.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>LookerColumnSpec {
+        <span class="doccomment">/// Looker specific column type of this column.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;looker_column_spec::LookerColumnType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>r#type: i32,
+    }
+    <span class="doccomment">/// Nested message and enum types in `LookerColumnSpec`.
+    </span><span class="kw">pub mod </span>looker_column_spec {
+        <span class="doccomment">/// Column type in Looker.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>LookerColumnType {
+            <span class="doccomment">/// Unspecified.
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// Dimension.
+            </span>Dimension = <span class="number">1</span>,
+            <span class="doccomment">/// Dimension group - parent for Dimension.
+            </span>DimensionGroup = <span class="number">2</span>,
+            <span class="doccomment">/// Filter.
+            </span>Filter = <span class="number">3</span>,
+            <span class="doccomment">/// Measure.
+            </span>Measure = <span class="number">4</span>,
+            <span class="doccomment">/// Parameter.
+            </span>Parameter = <span class="number">5</span>,
+        }
+        <span class="kw">impl </span>LookerColumnType {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    LookerColumnType::Unspecified =&gt; <span class="string">&quot;LOOKER_COLUMN_TYPE_UNSPECIFIED&quot;</span>,
+                    LookerColumnType::Dimension =&gt; <span class="string">&quot;DIMENSION&quot;</span>,
+                    LookerColumnType::DimensionGroup =&gt; <span class="string">&quot;DIMENSION_GROUP&quot;</span>,
+                    LookerColumnType::Filter =&gt; <span class="string">&quot;FILTER&quot;</span>,
+                    LookerColumnType::Measure =&gt; <span class="string">&quot;MEASURE&quot;</span>,
+                    LookerColumnType::Parameter =&gt; <span class="string">&quot;PARAMETER&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;LOOKER_COLUMN_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;DIMENSION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dimension),
+                    <span class="string">&quot;DIMENSION_GROUP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DimensionGroup),
+                    <span class="string">&quot;FILTER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Filter),
+                    <span class="string">&quot;MEASURE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Measure),
+                    <span class="string">&quot;PARAMETER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Parameter),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
+    <span class="doccomment">/// Specifies inclusion of the column in an index
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>IndexingType {
+        <span class="doccomment">/// Unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Column not a part of an index.
+        </span><span class="prelude-val">None </span>= <span class="number">1</span>,
+        <span class="doccomment">/// Column Part of non unique index.
+        </span>NonUnique = <span class="number">2</span>,
+        <span class="doccomment">/// Column part of unique index.
+        </span>Unique = <span class="number">3</span>,
+        <span class="doccomment">/// Column part of the primary key.
+        </span>PrimaryKey = <span class="number">4</span>,
+    }
+    <span class="kw">impl </span>IndexingType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                IndexingType::Unspecified =&gt; <span class="string">&quot;INDEXING_TYPE_UNSPECIFIED&quot;</span>,
+                IndexingType::None =&gt; <span class="string">&quot;INDEXING_TYPE_NONE&quot;</span>,
+                IndexingType::NonUnique =&gt; <span class="string">&quot;INDEXING_TYPE_NON_UNIQUE&quot;</span>,
+                IndexingType::Unique =&gt; <span class="string">&quot;INDEXING_TYPE_UNIQUE&quot;</span>,
+                IndexingType::PrimaryKey =&gt; <span class="string">&quot;INDEXING_TYPE_PRIMARY_KEY&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;INDEXING_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;INDEXING_TYPE_NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
+                <span class="string">&quot;INDEXING_TYPE_NON_UNIQUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NonUnique),
+                <span class="string">&quot;INDEXING_TYPE_UNIQUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unique),
+                <span class="string">&quot;INDEXING_TYPE_PRIMARY_KEY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PrimaryKey),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// Information only applying for columns in Entries from a specific system.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>SystemSpec {
+        <span class="doccomment">/// Looker specific column info of this column.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;18&quot;</span>)]
+        </span>LookerColumnSpec(LookerColumnSpec),
+    }
 }
 <span class="doccomment">/// Entry metadata relevant only to the user and private to them.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5843,6 +6091,28 @@
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
+}
+<span class="doccomment">/// Timestamps associated with this resource in a particular system.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SystemTimestamps {
+    <span class="doccomment">/// Creation timestamp of the resource within the given system.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Timestamp of the last modification of the resource or its metadata within
+    /// a given system.
+    ///
+    /// Note: Depending on the source system, not every modification updates this
+    /// timestamp.
+    /// For example, BigQuery timestamps every metadata modification but not data
+    /// or permission changes.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Expiration timestamp of the resource within the given system.
+    ///
+    /// Currently only applicable to BigQuery resources.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// A taxonomy is a collection of hierarchical policy tags that classify data
 /// along a common axis.
@@ -6658,193 +6928,346 @@
         </span>}
     }
 }
-<span class="doccomment">/// Represents a schema, for example, a BigQuery, GoogleSQL, or Avro schema.
+<span class="doccomment">/// A nested protocol buffer that represents a taxonomy and the hierarchy of its
+/// policy tags. Used for taxonomy replacement, import, and
+/// export.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Schema {
-    <span class="doccomment">/// The unified GoogleSQL-like schema of columns.
-    ///
-    /// The overall maximum number of columns and nested columns is 10,000.
-    /// The maximum nested depth is 15 levels.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>columns: ::prost::alloc::vec::Vec&lt;ColumnSchema&gt;,
-}
-<span class="doccomment">/// A column within a schema. Columns can be nested inside
-/// other columns.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ColumnSchema {
-    <span class="doccomment">/// Required. Name of the column.
-    ///
-    /// Must be a UTF-8 string without dots (.).
-    /// The maximum size is 64 bytes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>column: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Type of the column.
-    ///
-    /// Must be a UTF-8 string with the maximum size of 128 bytes.
+</span><span class="kw">pub struct </span>SerializedTaxonomy {
+    <span class="doccomment">/// Required. Display name of the taxonomy. At most 200 bytes when encoded in
+    /// UTF-8.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Description of the column. Default value is an empty string.
-    ///
-    /// The description must be a UTF-8 string with the maximum size of 2000
-    /// bytes.
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Description of the serialized taxonomy. At most 2000 bytes when
+    /// encoded in UTF-8. If not set, defaults to an empty description.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. A column&#39;s mode indicates whether values in this column are
-    /// required, nullable, or repeated.
-    ///
-    /// Only `NULLABLE`, `REQUIRED`, and `REPEATED` values are supported.
-    /// Default mode is `NULLABLE`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>mode: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Default value for the column.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>default_value: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Ordinal position
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>ordinal_position: i32,
-    <span class="doccomment">/// Optional. Most important inclusion of this column.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;column_schema::IndexingType&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>highest_indexing_type: i32,
-    <span class="doccomment">/// Optional. Schema of sub-columns. A column can have zero or more
-    /// sub-columns.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>subcolumns: ::prost::alloc::vec::Vec&lt;ColumnSchema&gt;,
-    <span class="doccomment">/// Optional. Garbage collection policy for the column or column family.
-    /// Applies to systems like Cloud Bigtable.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>gc_rule: ::prost::alloc::string::String,
-    <span class="doccomment">/// Information only applying for columns in Entries from a specific system.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;column_schema::SystemSpec&quot;</span>, tags = <span class="string">&quot;18&quot;</span>)]
-    </span><span class="kw">pub </span>system_spec: ::core::option::Option&lt;column_schema::SystemSpec&gt;,
+    <span class="doccomment">/// Top level policy tags associated with the taxonomy, if any.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>policy_tags: ::prost::alloc::vec::Vec&lt;SerializedPolicyTag&gt;,
+    <span class="doccomment">/// A list of policy types that are activated per taxonomy.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;taxonomy::PolicyType&quot;</span>, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>activated_policy_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
-<span class="doccomment">/// Nested message and enum types in `ColumnSchema`.
-</span><span class="kw">pub mod </span>column_schema {
-    <span class="doccomment">/// Column info specific to Looker System.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>LookerColumnSpec {
-        <span class="doccomment">/// Looker specific column type of this column.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;looker_column_spec::LookerColumnType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>r#type: i32,
-    }
-    <span class="doccomment">/// Nested message and enum types in `LookerColumnSpec`.
-    </span><span class="kw">pub mod </span>looker_column_spec {
-        <span class="doccomment">/// Column type in Looker.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>LookerColumnType {
-            <span class="doccomment">/// Unspecified.
-            </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// Dimension.
-            </span>Dimension = <span class="number">1</span>,
-            <span class="doccomment">/// Dimension group - parent for Dimension.
-            </span>DimensionGroup = <span class="number">2</span>,
-            <span class="doccomment">/// Filter.
-            </span>Filter = <span class="number">3</span>,
-            <span class="doccomment">/// Measure.
-            </span>Measure = <span class="number">4</span>,
-            <span class="doccomment">/// Parameter.
-            </span>Parameter = <span class="number">5</span>,
-        }
-        <span class="kw">impl </span>LookerColumnType {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    LookerColumnType::Unspecified =&gt; <span class="string">&quot;LOOKER_COLUMN_TYPE_UNSPECIFIED&quot;</span>,
-                    LookerColumnType::Dimension =&gt; <span class="string">&quot;DIMENSION&quot;</span>,
-                    LookerColumnType::DimensionGroup =&gt; <span class="string">&quot;DIMENSION_GROUP&quot;</span>,
-                    LookerColumnType::Filter =&gt; <span class="string">&quot;FILTER&quot;</span>,
-                    LookerColumnType::Measure =&gt; <span class="string">&quot;MEASURE&quot;</span>,
-                    LookerColumnType::Parameter =&gt; <span class="string">&quot;PARAMETER&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;LOOKER_COLUMN_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;DIMENSION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dimension),
-                    <span class="string">&quot;DIMENSION_GROUP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DimensionGroup),
-                    <span class="string">&quot;FILTER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Filter),
-                    <span class="string">&quot;MEASURE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Measure),
-                    <span class="string">&quot;PARAMETER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Parameter),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
-    <span class="doccomment">/// Specifies inclusion of the column in an index
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>IndexingType {
-        <span class="doccomment">/// Unspecified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Column not a part of an index.
-        </span><span class="prelude-val">None </span>= <span class="number">1</span>,
-        <span class="doccomment">/// Column Part of non unique index.
-        </span>NonUnique = <span class="number">2</span>,
-        <span class="doccomment">/// Column part of unique index.
-        </span>Unique = <span class="number">3</span>,
-        <span class="doccomment">/// Column part of the primary key.
-        </span>PrimaryKey = <span class="number">4</span>,
-    }
-    <span class="kw">impl </span>IndexingType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                IndexingType::Unspecified =&gt; <span class="string">&quot;INDEXING_TYPE_UNSPECIFIED&quot;</span>,
-                IndexingType::None =&gt; <span class="string">&quot;INDEXING_TYPE_NONE&quot;</span>,
-                IndexingType::NonUnique =&gt; <span class="string">&quot;INDEXING_TYPE_NON_UNIQUE&quot;</span>,
-                IndexingType::Unique =&gt; <span class="string">&quot;INDEXING_TYPE_UNIQUE&quot;</span>,
-                IndexingType::PrimaryKey =&gt; <span class="string">&quot;INDEXING_TYPE_PRIMARY_KEY&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;INDEXING_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;INDEXING_TYPE_NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
-                <span class="string">&quot;INDEXING_TYPE_NON_UNIQUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NonUnique),
-                <span class="string">&quot;INDEXING_TYPE_UNIQUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unique),
-                <span class="string">&quot;INDEXING_TYPE_PRIMARY_KEY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PrimaryKey),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// Information only applying for columns in Entries from a specific system.
+<span class="doccomment">/// A nested protocol buffer that represents a policy tag and all its
+/// descendants.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SerializedPolicyTag {
+    <span class="doccomment">/// Resource name of the policy tag.
+    ///
+    /// This field is ignored when calling `ImportTaxonomies`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>policy_tag: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Display name of the policy tag. At most 200 bytes when encoded
+    /// in UTF-8.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Description of the serialized policy tag. At most
+    /// 2000 bytes when encoded in UTF-8. If not set, defaults to an
+    /// empty description.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Children of the policy tag, if any.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>child_policy_tags: ::prost::alloc::vec::Vec&lt;SerializedPolicyTag&gt;,
+}
+<span class="doccomment">/// Request message for
+/// \[ReplaceTaxonomy][google.cloud.datacatalog.v1.PolicyTagManagerSerialization.ReplaceTaxonomy\].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ReplaceTaxonomyRequest {
+    <span class="doccomment">/// Required. Resource name of the taxonomy to update.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Taxonomy to update along with its child policy tags.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>serialized_taxonomy: ::core::option::Option&lt;SerializedTaxonomy&gt;,
+}
+<span class="doccomment">/// Request message for
+/// \[ImportTaxonomies][google.cloud.datacatalog.v1.PolicyTagManagerSerialization.ImportTaxonomies\].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImportTaxonomiesRequest {
+    <span class="doccomment">/// Required. Resource name of project that the imported taxonomies will belong
+    /// to.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Source taxonomies to import.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_taxonomies_request::Source&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="kw">pub </span>source: ::core::option::Option&lt;import_taxonomies_request::Source&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ImportTaxonomiesRequest`.
+</span><span class="kw">pub mod </span>import_taxonomies_request {
+    <span class="doccomment">/// Source taxonomies to import.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>SystemSpec {
-        <span class="doccomment">/// Looker specific column info of this column.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;18&quot;</span>)]
-        </span>LookerColumnSpec(LookerColumnSpec),
+    </span><span class="kw">pub enum </span>Source {
+        <span class="doccomment">/// Inline source taxonomy to import.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>InlineSource(<span class="kw">super</span>::InlineSource),
+        <span class="doccomment">/// Cross-regional source taxonomy to import.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>CrossRegionalSource(<span class="kw">super</span>::CrossRegionalSource),
+    }
+}
+<span class="doccomment">/// Inline source containing taxonomies to import.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>InlineSource {
+    <span class="doccomment">/// Required. Taxonomies to import.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;SerializedTaxonomy&gt;,
+}
+<span class="doccomment">/// Cross-regional source used to import an existing taxonomy into a different
+/// region.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CrossRegionalSource {
+    <span class="doccomment">/// Required. The resource name of the source taxonomy to import.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>taxonomy: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Response message for
+/// \[ImportTaxonomies][google.cloud.datacatalog.v1.PolicyTagManagerSerialization.ImportTaxonomies\].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImportTaxonomiesResponse {
+    <span class="doccomment">/// Imported taxonomies.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;Taxonomy&gt;,
+}
+<span class="doccomment">/// Request message for
+/// \[ExportTaxonomies][google.cloud.datacatalog.v1.PolicyTagManagerSerialization.ExportTaxonomies\].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExportTaxonomiesRequest {
+    <span class="doccomment">/// Required. Resource name of the project that the exported taxonomies belong
+    /// to.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Resource names of the taxonomies to export.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Required. Export destination for taxonomies.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;export_taxonomies_request::Destination&quot;</span>, tags = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>destination: ::core::option::Option&lt;export_taxonomies_request::Destination&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ExportTaxonomiesRequest`.
+</span><span class="kw">pub mod </span>export_taxonomies_request {
+    <span class="doccomment">/// Required. Export destination for taxonomies.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Destination {
+        <span class="doccomment">/// Serialized export taxonomies that contain all the policy
+        /// tags as nested protocol buffers.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>SerializedTaxonomies(bool),
+    }
+}
+<span class="doccomment">/// Response message for
+/// \[ExportTaxonomies][google.cloud.datacatalog.v1.PolicyTagManagerSerialization.ExportTaxonomies\].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExportTaxonomiesResponse {
+    <span class="doccomment">/// List of taxonomies and policy tags as nested protocol buffers.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;SerializedTaxonomy&gt;,
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>policy_tag_manager_serialization_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// Policy Tag Manager Serialization API service allows you to manipulate
+    /// your policy tags and taxonomies in a serialized format.
+    ///
+    /// Taxonomy is a hierarchical group of policy tags.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>PolicyTagManagerSerializationClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; PolicyTagManagerSerializationClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; PolicyTagManagerSerializationClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            PolicyTagManagerSerializationClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Replaces (updates) a taxonomy and all its policy tags.
+        ///
+        /// The taxonomy and its entire hierarchy of policy tags must be
+        /// represented literally by `SerializedTaxonomy` and the nested
+        /// `SerializedPolicyTag` messages.
+        ///
+        /// This operation automatically does the following:
+        ///
+        /// - Deletes the existing policy tags that are missing from the
+        ///   `SerializedPolicyTag`.
+        /// - Creates policy tags that don&#39;t have resource names. They are considered
+        ///   new.
+        /// - Updates policy tags with valid resources names accordingly.
+        </span><span class="kw">pub async fn </span>replace_taxonomy(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ReplaceTaxonomyRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Taxonomy&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1.PolicyTagManagerSerialization/ReplaceTaxonomy&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1.PolicyTagManagerSerialization&quot;</span>,
+                        <span class="string">&quot;ReplaceTaxonomy&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Creates new taxonomies (including their policy tags) in a given project
+        /// by importing from inlined or cross-regional sources.
+        ///
+        /// For a cross-regional source, new taxonomies are created by copying
+        /// from a source in another region.
+        ///
+        /// For an inlined source, taxonomies and policy tags are created in bulk using
+        /// nested protocol buffer structures.
+        </span><span class="kw">pub async fn </span>import_taxonomies(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ImportTaxonomiesRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ImportTaxonomiesResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1.PolicyTagManagerSerialization/ImportTaxonomies&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1.PolicyTagManagerSerialization&quot;</span>,
+                        <span class="string">&quot;ImportTaxonomies&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Exports taxonomies in the requested type and returns them,
+        /// including their policy tags. The requested taxonomies must belong to the
+        /// same project.
+        ///
+        /// This method generates `SerializedTaxonomy` protocol buffers with nested
+        /// policy tags that can be used as input for `ImportTaxonomies` calls.
+        </span><span class="kw">pub async fn </span>export_taxonomies(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ExportTaxonomiesRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ExportTaxonomiesResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.datacatalog.v1.PolicyTagManagerSerialization/ExportTaxonomies&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.datacatalog.v1.PolicyTagManagerSerialization&quot;</span>,
+                        <span class="string">&quot;ExportTaxonomies&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
     }
 }
 <span class="doccomment">/// Physical location of an entry.
@@ -7016,6 +7439,130 @@
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
         </span>Csv(CsvSchema),
     }
+}
+<span class="doccomment">/// Common Dataplex fields.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DataplexSpec {
+    <span class="doccomment">/// Fully qualified resource name of an asset in Dataplex, to which the
+    /// underlying data source (Cloud Storage bucket or BigQuery dataset) of the
+    /// entity is attached.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>asset: ::prost::alloc::string::String,
+    <span class="doccomment">/// Format of the data.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>data_format: ::core::option::Option&lt;PhysicalSchema&gt;,
+    <span class="doccomment">/// Compression format of the data, e.g., zip, gzip etc.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>compression_format: ::prost::alloc::string::String,
+    <span class="doccomment">/// Project ID of the underlying Cloud Storage or BigQuery data. Note that
+    /// this may not be the same project as the correspondingly Dataplex lake /
+    /// zone / asset.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Entry specyfication for a Dataplex fileset.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DataplexFilesetSpec {
+    <span class="doccomment">/// Common Dataplex fields.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>dataplex_spec: ::core::option::Option&lt;DataplexSpec&gt;,
+}
+<span class="doccomment">/// Entry specification for a Dataplex table.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DataplexTableSpec {
+    <span class="doccomment">/// List of external tables registered by Dataplex in other systems based on
+    /// the same underlying data.
+    ///
+    /// External tables allow to query this data in those systems.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>external_tables: ::prost::alloc::vec::Vec&lt;DataplexExternalTable&gt;,
+    <span class="doccomment">/// Common Dataplex fields.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>dataplex_spec: ::core::option::Option&lt;DataplexSpec&gt;,
+    <span class="doccomment">/// Indicates if the table schema is managed by the user or not.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>user_managed: bool,
+}
+<span class="doccomment">/// External table registered by Dataplex.
+/// Dataplex publishes data discovered from an asset into multiple other systems
+/// (BigQuery, DPMS) in form of tables. We call them &quot;external tables&quot;. External
+/// tables are also synced into the Data Catalog.
+/// This message contains pointers to
+/// those external tables (fully qualified name, resource name et cetera) within
+/// the Data Catalog.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DataplexExternalTable {
+    <span class="doccomment">/// Service in which the external table is registered.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;IntegratedSystem&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>system: i32,
+    <span class="doccomment">/// Fully qualified name (FQN) of the external table.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;28&quot;</span>)]
+    </span><span class="kw">pub </span>fully_qualified_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Google Cloud resource name of the external table.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>google_cloud_resource: ::prost::alloc::string::String,
+    <span class="doccomment">/// Name of the Data Catalog entry representing the external table.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>data_catalog_entry: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Describes a Cloud Storage fileset entry.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GcsFilesetSpec {
+    <span class="doccomment">/// Required. Patterns to identify a set of files in Google Cloud Storage.
+    ///
+    /// For more information, see [Wildcard Names]
+    /// (&lt;https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames&gt;).
+    ///
+    /// Note: Currently, bucket wildcards are not supported.
+    ///
+    /// Examples of valid `file_patterns`:
+    ///
+    ///   * `gs://bucket_name/dir/*`: matches all files in `bucket_name/dir`
+    ///                               directory
+    ///   * `gs://bucket_name/dir/**`: matches all files in `bucket_name/dir`
+    ///                                and all subdirectories
+    ///   * `gs://bucket_name/file*`: matches files prefixed by `file` in
+    ///                               `bucket_name`
+    ///   * `gs://bucket_name/??.txt`: matches files with two characters followed by
+    ///                                `.txt` in `bucket_name`
+    ///   * `gs://bucket_name/\[aeiou\].txt`: matches files that contain a single
+    ///                                     vowel character followed by `.txt` in
+    ///                                     `bucket_name`
+    ///   * `gs://bucket_name/\[a-m\].txt`: matches files that contain `a`, `b`, ...
+    ///                                   or `m` followed by `.txt` in `bucket_name`
+    ///   * `gs://bucket_name/a/*/b`: matches all files in `bucket_name` that match
+    ///                               the `a/*/b` pattern, such as `a/c/b`, `a/d/b`
+    ///   * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
+    ///
+    /// You can combine wildcards to match complex sets of files, for example:
+    ///
+    /// `gs://bucket_name/\[a-m\]??.j*g`
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>file_patterns: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Output only. Sample files contained in this fileset, not all files
+    /// contained in this fileset are represented here.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>sample_gcs_file_specs: ::prost::alloc::vec::Vec&lt;GcsFileSpec&gt;,
+}
+<span class="doccomment">/// Specification of a single file in Cloud Storage.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GcsFileSpec {
+    <span class="doccomment">/// Required. Full file path. Example: `gs://bucket_name/a/b.txt`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>file_path: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Creation, modification, and expiration timestamps of a Cloud
+    /// Storage file.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>gcs_timestamps: ::core::option::Option&lt;SystemTimestamps&gt;,
+    <span class="doccomment">/// Output only. File size in bytes.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>size_bytes: i64,
 }
 <span class="doccomment">/// Result in the response to a search request.
 ///
@@ -7580,211 +8127,6 @@
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
         </span>EnumType(EnumType),
     }
-}
-<span class="doccomment">/// Specification for the BigQuery connection.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BigQueryConnectionSpec {
-    <span class="doccomment">/// The type of the BigQuery connection.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;big_query_connection_spec::ConnectionType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>connection_type: i32,
-    <span class="doccomment">/// True if there are credentials attached to the BigQuery connection; false
-    /// otherwise.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>has_credential: bool,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;big_query_connection_spec::ConnectionSpec&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>connection_spec: ::core::option::Option&lt;
-        big_query_connection_spec::ConnectionSpec,
-    &gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `BigQueryConnectionSpec`.
-</span><span class="kw">pub mod </span>big_query_connection_spec {
-    <span class="doccomment">/// The type of the BigQuery connection.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>ConnectionType {
-        <span class="doccomment">/// Unspecified type.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Cloud SQL connection.
-        </span>CloudSql = <span class="number">1</span>,
-    }
-    <span class="kw">impl </span>ConnectionType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                ConnectionType::Unspecified =&gt; <span class="string">&quot;CONNECTION_TYPE_UNSPECIFIED&quot;</span>,
-                ConnectionType::CloudSql =&gt; <span class="string">&quot;CLOUD_SQL&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;CONNECTION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CLOUD_SQL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudSql),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>ConnectionSpec {
-        <span class="doccomment">/// Specification for the BigQuery connection to a Cloud SQL instance.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>CloudSql(<span class="kw">super</span>::CloudSqlBigQueryConnectionSpec),
-    }
-}
-<span class="doccomment">/// Specification for the BigQuery connection to a Cloud SQL instance.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CloudSqlBigQueryConnectionSpec {
-    <span class="doccomment">/// Cloud SQL instance ID in the format of `project:location:instance`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Database name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>database: ::prost::alloc::string::String,
-    <span class="doccomment">/// Type of the Cloud SQL database.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;cloud_sql_big_query_connection_spec::DatabaseType&quot;</span>,
-        tag = <span class="string">&quot;3&quot;
-    </span>)]
-    </span><span class="kw">pub </span>r#type: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `CloudSqlBigQueryConnectionSpec`.
-</span><span class="kw">pub mod </span>cloud_sql_big_query_connection_spec {
-    <span class="doccomment">/// Supported Cloud SQL database types.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>DatabaseType {
-        <span class="doccomment">/// Unspecified database type.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Cloud SQL for PostgreSQL.
-        </span>Postgres = <span class="number">1</span>,
-        <span class="doccomment">/// Cloud SQL for MySQL.
-        </span>Mysql = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>DatabaseType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                DatabaseType::Unspecified =&gt; <span class="string">&quot;DATABASE_TYPE_UNSPECIFIED&quot;</span>,
-                DatabaseType::Postgres =&gt; <span class="string">&quot;POSTGRES&quot;</span>,
-                DatabaseType::Mysql =&gt; <span class="string">&quot;MYSQL&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;DATABASE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;POSTGRES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Postgres),
-                <span class="string">&quot;MYSQL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mysql),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Fields specific for BigQuery routines.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BigQueryRoutineSpec {
-    <span class="doccomment">/// Paths of the imported libraries.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>imported_libraries: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Common Dataplex fields.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DataplexSpec {
-    <span class="doccomment">/// Fully qualified resource name of an asset in Dataplex, to which the
-    /// underlying data source (Cloud Storage bucket or BigQuery dataset) of the
-    /// entity is attached.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>asset: ::prost::alloc::string::String,
-    <span class="doccomment">/// Format of the data.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>data_format: ::core::option::Option&lt;PhysicalSchema&gt;,
-    <span class="doccomment">/// Compression format of the data, e.g., zip, gzip etc.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>compression_format: ::prost::alloc::string::String,
-    <span class="doccomment">/// Project ID of the underlying Cloud Storage or BigQuery data. Note that
-    /// this may not be the same project as the correspondingly Dataplex lake /
-    /// zone / asset.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Entry specyfication for a Dataplex fileset.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DataplexFilesetSpec {
-    <span class="doccomment">/// Common Dataplex fields.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>dataplex_spec: ::core::option::Option&lt;DataplexSpec&gt;,
-}
-<span class="doccomment">/// Entry specification for a Dataplex table.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DataplexTableSpec {
-    <span class="doccomment">/// List of external tables registered by Dataplex in other systems based on
-    /// the same underlying data.
-    ///
-    /// External tables allow to query this data in those systems.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>external_tables: ::prost::alloc::vec::Vec&lt;DataplexExternalTable&gt;,
-    <span class="doccomment">/// Common Dataplex fields.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>dataplex_spec: ::core::option::Option&lt;DataplexSpec&gt;,
-    <span class="doccomment">/// Indicates if the table schema is managed by the user or not.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>user_managed: bool,
-}
-<span class="doccomment">/// External table registered by Dataplex.
-/// Dataplex publishes data discovered from an asset into multiple other systems
-/// (BigQuery, DPMS) in form of tables. We call them &quot;external tables&quot;. External
-/// tables are also synced into the Data Catalog.
-/// This message contains pointers to
-/// those external tables (fully qualified name, resource name et cetera) within
-/// the Data Catalog.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DataplexExternalTable {
-    <span class="doccomment">/// Service in which the external table is registered.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;IntegratedSystem&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>system: i32,
-    <span class="doccomment">/// Fully qualified name (FQN) of the external table.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;28&quot;</span>)]
-    </span><span class="kw">pub </span>fully_qualified_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Google Cloud resource name of the external table.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>google_cloud_resource: ::prost::alloc::string::String,
-    <span class="doccomment">/// Name of the Data Catalog entry representing the external table.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>data_catalog_entry: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Detailed statistics on the entry&#39;s usage.
 ///
@@ -10988,348 +11330,6 @@
         <span class="doccomment">/// Entry and its tags.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
         </span>TaggedEntry(<span class="kw">super</span>::TaggedEntry),
-    }
-}
-<span class="doccomment">/// A nested protocol buffer that represents a taxonomy and the hierarchy of its
-/// policy tags. Used for taxonomy replacement, import, and
-/// export.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SerializedTaxonomy {
-    <span class="doccomment">/// Required. Display name of the taxonomy. At most 200 bytes when encoded in
-    /// UTF-8.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Description of the serialized taxonomy. At most 2000 bytes when
-    /// encoded in UTF-8. If not set, defaults to an empty description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Top level policy tags associated with the taxonomy, if any.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>policy_tags: ::prost::alloc::vec::Vec&lt;SerializedPolicyTag&gt;,
-    <span class="doccomment">/// A list of policy types that are activated per taxonomy.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;taxonomy::PolicyType&quot;</span>, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>activated_policy_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
-}
-<span class="doccomment">/// A nested protocol buffer that represents a policy tag and all its
-/// descendants.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SerializedPolicyTag {
-    <span class="doccomment">/// Resource name of the policy tag.
-    ///
-    /// This field is ignored when calling `ImportTaxonomies`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>policy_tag: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Display name of the policy tag. At most 200 bytes when encoded
-    /// in UTF-8.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Description of the serialized policy tag. At most
-    /// 2000 bytes when encoded in UTF-8. If not set, defaults to an
-    /// empty description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Children of the policy tag, if any.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>child_policy_tags: ::prost::alloc::vec::Vec&lt;SerializedPolicyTag&gt;,
-}
-<span class="doccomment">/// Request message for
-/// \[ReplaceTaxonomy][google.cloud.datacatalog.v1.PolicyTagManagerSerialization.ReplaceTaxonomy\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ReplaceTaxonomyRequest {
-    <span class="doccomment">/// Required. Resource name of the taxonomy to update.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Taxonomy to update along with its child policy tags.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>serialized_taxonomy: ::core::option::Option&lt;SerializedTaxonomy&gt;,
-}
-<span class="doccomment">/// Request message for
-/// \[ImportTaxonomies][google.cloud.datacatalog.v1.PolicyTagManagerSerialization.ImportTaxonomies\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportTaxonomiesRequest {
-    <span class="doccomment">/// Required. Resource name of project that the imported taxonomies will belong
-    /// to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Source taxonomies to import.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_taxonomies_request::Source&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
-    </span><span class="kw">pub </span>source: ::core::option::Option&lt;import_taxonomies_request::Source&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ImportTaxonomiesRequest`.
-</span><span class="kw">pub mod </span>import_taxonomies_request {
-    <span class="doccomment">/// Source taxonomies to import.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Source {
-        <span class="doccomment">/// Inline source taxonomy to import.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>InlineSource(<span class="kw">super</span>::InlineSource),
-        <span class="doccomment">/// Cross-regional source taxonomy to import.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>CrossRegionalSource(<span class="kw">super</span>::CrossRegionalSource),
-    }
-}
-<span class="doccomment">/// Inline source containing taxonomies to import.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>InlineSource {
-    <span class="doccomment">/// Required. Taxonomies to import.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;SerializedTaxonomy&gt;,
-}
-<span class="doccomment">/// Cross-regional source used to import an existing taxonomy into a different
-/// region.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CrossRegionalSource {
-    <span class="doccomment">/// Required. The resource name of the source taxonomy to import.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>taxonomy: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Response message for
-/// \[ImportTaxonomies][google.cloud.datacatalog.v1.PolicyTagManagerSerialization.ImportTaxonomies\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportTaxonomiesResponse {
-    <span class="doccomment">/// Imported taxonomies.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;Taxonomy&gt;,
-}
-<span class="doccomment">/// Request message for
-/// \[ExportTaxonomies][google.cloud.datacatalog.v1.PolicyTagManagerSerialization.ExportTaxonomies\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExportTaxonomiesRequest {
-    <span class="doccomment">/// Required. Resource name of the project that the exported taxonomies belong
-    /// to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Resource names of the taxonomies to export.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Required. Export destination for taxonomies.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;export_taxonomies_request::Destination&quot;</span>, tags = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>destination: ::core::option::Option&lt;export_taxonomies_request::Destination&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ExportTaxonomiesRequest`.
-</span><span class="kw">pub mod </span>export_taxonomies_request {
-    <span class="doccomment">/// Required. Export destination for taxonomies.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Destination {
-        <span class="doccomment">/// Serialized export taxonomies that contain all the policy
-        /// tags as nested protocol buffers.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>SerializedTaxonomies(bool),
-    }
-}
-<span class="doccomment">/// Response message for
-/// \[ExportTaxonomies][google.cloud.datacatalog.v1.PolicyTagManagerSerialization.ExportTaxonomies\].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExportTaxonomiesResponse {
-    <span class="doccomment">/// List of taxonomies and policy tags as nested protocol buffers.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>taxonomies: ::prost::alloc::vec::Vec&lt;SerializedTaxonomy&gt;,
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>policy_tag_manager_serialization_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// Policy Tag Manager Serialization API service allows you to manipulate
-    /// your policy tags and taxonomies in a serialized format.
-    ///
-    /// Taxonomy is a hierarchical group of policy tags.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>PolicyTagManagerSerializationClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; PolicyTagManagerSerializationClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; PolicyTagManagerSerializationClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            PolicyTagManagerSerializationClient::new(
-                InterceptedService::new(inner, interceptor),
-            )
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Replaces (updates) a taxonomy and all its policy tags.
-        ///
-        /// The taxonomy and its entire hierarchy of policy tags must be
-        /// represented literally by `SerializedTaxonomy` and the nested
-        /// `SerializedPolicyTag` messages.
-        ///
-        /// This operation automatically does the following:
-        ///
-        /// - Deletes the existing policy tags that are missing from the
-        ///   `SerializedPolicyTag`.
-        /// - Creates policy tags that don&#39;t have resource names. They are considered
-        ///   new.
-        /// - Updates policy tags with valid resources names accordingly.
-        </span><span class="kw">pub async fn </span>replace_taxonomy(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ReplaceTaxonomyRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Taxonomy&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1.PolicyTagManagerSerialization/ReplaceTaxonomy&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1.PolicyTagManagerSerialization&quot;</span>,
-                        <span class="string">&quot;ReplaceTaxonomy&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Creates new taxonomies (including their policy tags) in a given project
-        /// by importing from inlined or cross-regional sources.
-        ///
-        /// For a cross-regional source, new taxonomies are created by copying
-        /// from a source in another region.
-        ///
-        /// For an inlined source, taxonomies and policy tags are created in bulk using
-        /// nested protocol buffer structures.
-        </span><span class="kw">pub async fn </span>import_taxonomies(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ImportTaxonomiesRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ImportTaxonomiesResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1.PolicyTagManagerSerialization/ImportTaxonomies&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1.PolicyTagManagerSerialization&quot;</span>,
-                        <span class="string">&quot;ImportTaxonomies&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Exports taxonomies in the requested type and returns them,
-        /// including their policy tags. The requested taxonomies must belong to the
-        /// same project.
-        ///
-        /// This method generates `SerializedTaxonomy` protocol buffers with nested
-        /// policy tags that can be used as input for `ImportTaxonomies` calls.
-        </span><span class="kw">pub async fn </span>export_taxonomies(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ExportTaxonomiesRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ExportTaxonomiesResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.v1.PolicyTagManagerSerialization/ExportTaxonomies&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.v1.PolicyTagManagerSerialization&quot;</span>,
-                        <span class="string">&quot;ExportTaxonomies&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
     }
 }
 </code></pre></div></section></main></body></html>

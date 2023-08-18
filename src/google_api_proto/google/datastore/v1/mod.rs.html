@@ -1956,6 +1956,11 @@
 <a href="#1956" id="1956">1956</a>
 <a href="#1957" id="1957">1957</a>
 <a href="#1958" id="1958">1958</a>
+<a href="#1959" id="1959">1959</a>
+<a href="#1960" id="1960">1960</a>
+<a href="#1961" id="1961">1961</a>
+<a href="#1962" id="1962">1962</a>
+<a href="#1963" id="1963">1963</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A partition ID identifies a grouping of entities. The grouping is always
 /// by project and namespace, however the namespace ID may be empty.
 ///
@@ -2495,8 +2500,13 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PropertyReference {
-    <span class="doccomment">/// The name of the property.
-    /// If name includes &quot;.&quot;s, it may be interpreted as a property name path.
+    <span class="doccomment">/// A reference to a property.
+    ///
+    /// Requires:
+    ///
+    /// * MUST be a dot-delimited (`.`) string of segments, where each segment
+    /// conforms to [entity property name]\[google.datastore.v1.Entity.properties\]
+    /// limitations.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
