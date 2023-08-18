@@ -29,8 +29,8 @@ example, 10.0.0.0/29, 192.168.0.0/24, or 192.168.0.0/26, respectively. The
 range you specify can’t overlap with either existing subnets or assigned IP
 address ranges for other Filestore instances in the selected VPC
 network.</p>
-</div><span id="structfield.ip_addresses" class="structfield small-section-header"><a href="#structfield.ip_addresses" class="anchor field">§</a><code>ip_addresses: <a class="struct" href="https://doc.rust-lang.org/1.71.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.71.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;</code></span><div class="docblock"><p>Output only. IPv4 addresses in the format <code>{octet1}.{octet2}.{octet3}.{octet4}</code> or
-IPv6 addresses in the format
+</div><span id="structfield.ip_addresses" class="structfield small-section-header"><a href="#structfield.ip_addresses" class="anchor field">§</a><code>ip_addresses: <a class="struct" href="https://doc.rust-lang.org/1.71.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.71.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;</code></span><div class="docblock"><p>Output only. IPv4 addresses in the format
+<code>{octet1}.{octet2}.{octet3}.{octet4}</code> or IPv6 addresses in the format
 <code>{block1}:{block2}:{block3}:{block4}:{block5}:{block6}:{block7}:{block8}</code>.</p>
 </div><span id="structfield.connect_mode" class="structfield small-section-header"><a href="#structfield.connect_mode" class="anchor field">§</a><code>connect_mode: <a class="primitive" href="https://doc.rust-lang.org/1.71.1/std/primitive.i32.html">i32</a></code></span><div class="docblock"><p>The network connect mode of the Filestore instance.
 If not provided, the connect mode defaults to DIRECT_PEERING.</p>

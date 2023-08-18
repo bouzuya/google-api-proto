@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["AccessMode","SquashMode"]};
+window.SIDEBAR_ITEMS = {"enum":["AccessMode","SecurityFlavor","SquashMode"]};

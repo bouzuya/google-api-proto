@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["State","SuspensionReason","Tier"]};
+window.SIDEBAR_ITEMS = {"enum":["FileProtocol","State","SuspensionReason","Tier"]};

@@ -520,6 +520,23 @@
 </span><span class="kw">pub mod </span>predict;
 <span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-aiplatform-v1beta1-schema-trainingjob-definition&quot;</span>))]
 </span><span class="kw">pub mod </span>trainingjob;
+<span class="doccomment">/// An entry of mapping between color and AnnotationSpec. The mapping is used in
+/// segmentation mask.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AnnotationSpecColor {
+    <span class="doccomment">/// The color of the AnnotationSpec in a segmentation mask.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>color: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Color&gt;,
+    <span class="doccomment">/// The display name of the AnnotationSpec represented by the color in the
+    /// segmentation mask.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The ID of the AnnotationSpec represented by the color in the segmentation
+    /// mask.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// The metadata of Datasets that contain Image DataItems.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -661,23 +678,6 @@
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
     }
-}
-<span class="doccomment">/// An entry of mapping between color and AnnotationSpec. The mapping is used in
-/// segmentation mask.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AnnotationSpecColor {
-    <span class="doccomment">/// The color of the AnnotationSpec in a segmentation mask.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>color: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Color&gt;,
-    <span class="doccomment">/// The display name of the AnnotationSpec represented by the color in the
-    /// segmentation mask.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The ID of the AnnotationSpec represented by the color in the segmentation
-    /// mask.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A vertex represents a 2D point in the image.
 /// NOTE: the normalized vertex coordinates are relative to the original image

@@ -10081,191 +10081,7 @@
 <a href="#10081" id="10081">10081</a>
 <a href="#10082" id="10082">10082</a>
 <a href="#10083" id="10083">10083</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// A specific filter for a single dimension
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExpandedDataSetFilter {
-    <span class="doccomment">/// Required. The dimension name to filter.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>field_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// One of the above filters.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;expanded_data_set_filter::OneFilter&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
-    </span><span class="kw">pub </span>one_filter: ::core::option::Option&lt;expanded_data_set_filter::OneFilter&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ExpandedDataSetFilter`.
-</span><span class="kw">pub mod </span>expanded_data_set_filter {
-    <span class="doccomment">/// A filter for a string-type dimension that matches a particular pattern.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>StringFilter {
-        <span class="doccomment">/// Required. The match type for the string filter.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;string_filter::MatchType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>match_type: i32,
-        <span class="doccomment">/// Required. The string value to be matched against.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
-        <span class="doccomment">/// Optional. If true, the match is case-sensitive. If false, the match is
-        /// case-insensitive.
-        /// Must be true when match_type is EXACT.
-        /// Must be false when match_type is CONTAINS.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>case_sensitive: bool,
-    }
-    <span class="doccomment">/// Nested message and enum types in `StringFilter`.
-    </span><span class="kw">pub mod </span>string_filter {
-        <span class="doccomment">/// The match type for the string filter.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>MatchType {
-            <span class="doccomment">/// Unspecified
-            </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// Exact match of the string value.
-            </span>Exact = <span class="number">1</span>,
-            <span class="doccomment">/// Contains the string value.
-            </span>Contains = <span class="number">2</span>,
-        }
-        <span class="kw">impl </span>MatchType {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    MatchType::Unspecified =&gt; <span class="string">&quot;MATCH_TYPE_UNSPECIFIED&quot;</span>,
-                    MatchType::Exact =&gt; <span class="string">&quot;EXACT&quot;</span>,
-                    MatchType::Contains =&gt; <span class="string">&quot;CONTAINS&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;MATCH_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;EXACT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Exact),
-                    <span class="string">&quot;CONTAINS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Contains),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
-    <span class="doccomment">/// A filter for a string dimension that matches a particular list of options.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>InListFilter {
-        <span class="doccomment">/// Required. The list of possible string values to match against. Must be
-        /// non-empty.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-        <span class="doccomment">/// Optional. If true, the match is case-sensitive. If false, the match is
-        /// case-insensitive.
-        /// Must be true.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>case_sensitive: bool,
-    }
-    <span class="doccomment">/// One of the above filters.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>OneFilter {
-        <span class="doccomment">/// A filter for a string-type dimension that matches a particular pattern.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>StringFilter(StringFilter),
-        <span class="doccomment">/// A filter for a string dimension that matches a particular list of
-        /// options.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>InListFilter(InListFilter),
-    }
-}
-<span class="doccomment">/// A logical expression of EnhancedDataSet dimension filters.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExpandedDataSetFilterExpression {
-    <span class="doccomment">/// The expression applied to a filter.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;expanded_data_set_filter_expression::Expr&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
-    </span><span class="kw">pub </span>expr: ::core::option::Option&lt;expanded_data_set_filter_expression::Expr&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ExpandedDataSetFilterExpression`.
-</span><span class="kw">pub mod </span>expanded_data_set_filter_expression {
-    <span class="doccomment">/// The expression applied to a filter.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Expr {
-        <span class="doccomment">/// A list of expressions to be AND’ed together. It must contain a
-        /// ExpandedDataSetFilterExpression with either not_expression or
-        /// dimension_filter. This must be set for the top level
-        /// ExpandedDataSetFilterExpression.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>AndGroup(<span class="kw">super</span>::ExpandedDataSetFilterExpressionList),
-        <span class="doccomment">/// A filter expression to be NOT&#39;ed (that is, inverted, complemented). It
-        /// must include a dimension_filter. This cannot be set on the
-        /// top level ExpandedDataSetFilterExpression.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>NotExpression(
-            ::prost::alloc::boxed::Box&lt;<span class="kw">super</span>::ExpandedDataSetFilterExpression&gt;,
-        ),
-        <span class="doccomment">/// A filter on a single dimension. This cannot be set on the top
-        /// level ExpandedDataSetFilterExpression.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>Filter(<span class="kw">super</span>::ExpandedDataSetFilter),
-    }
-}
-<span class="doccomment">/// A list of ExpandedDataSet filter expressions.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExpandedDataSetFilterExpressionList {
-    <span class="doccomment">/// A list of ExpandedDataSet filter expressions.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>filter_expressions: ::prost::alloc::vec::Vec&lt;ExpandedDataSetFilterExpression&gt;,
-}
-<span class="doccomment">/// A resource message representing a GA4 ExpandedDataSet.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExpandedDataSet {
-    <span class="doccomment">/// Output only. The resource name for this ExpandedDataSet resource.
-    /// Format: properties/{property_id}/expandedDataSets/{expanded_data_set}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The display name of the ExpandedDataSet.
-    /// Max 200 chars.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The description of the ExpandedDataSet.
-    /// Max 50 chars.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Immutable. The list of dimensions included in the ExpandedDataSet.
-    /// See the [API
-    /// Dimensions](&lt;https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#dimensions&gt;)
-    /// for the list of dimension names.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>dimension_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Immutable. The list of metrics included in the ExpandedDataSet.
-    /// See the [API
-    /// Metrics](&lt;https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#metrics&gt;)
-    /// for the list of dimension names.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>metric_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Immutable. A logical expression of ExpandedDataSet filters applied to
-    /// dimension included in the ExpandedDataSet. This filter is used to reduce
-    /// the number of rows and thus the chance of encountering `other` row.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>dimension_filter_expression: ::core::option::Option&lt;
-        ExpandedDataSetFilterExpression,
-    &gt;,
-    <span class="doccomment">/// Output only. Time when expanded data set began (or will begin) collecing
-    /// data.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>data_collection_start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Dimensions are attributes of your data. For example, the dimension
+</pre></div><pre class="rust"><code><span class="doccomment">/// Dimensions are attributes of your data. For example, the dimension
 /// `userEmail` indicates the email of the user that accessed reporting data.
 /// Dimension values in report responses are strings.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -11775,6 +11591,190 @@
             }
         }
     }
+}
+<span class="doccomment">/// A specific filter for a single dimension
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExpandedDataSetFilter {
+    <span class="doccomment">/// Required. The dimension name to filter.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>field_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// One of the above filters.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;expanded_data_set_filter::OneFilter&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="kw">pub </span>one_filter: ::core::option::Option&lt;expanded_data_set_filter::OneFilter&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ExpandedDataSetFilter`.
+</span><span class="kw">pub mod </span>expanded_data_set_filter {
+    <span class="doccomment">/// A filter for a string-type dimension that matches a particular pattern.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>StringFilter {
+        <span class="doccomment">/// Required. The match type for the string filter.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;string_filter::MatchType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>match_type: i32,
+        <span class="doccomment">/// Required. The string value to be matched against.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
+        <span class="doccomment">/// Optional. If true, the match is case-sensitive. If false, the match is
+        /// case-insensitive.
+        /// Must be true when match_type is EXACT.
+        /// Must be false when match_type is CONTAINS.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>case_sensitive: bool,
+    }
+    <span class="doccomment">/// Nested message and enum types in `StringFilter`.
+    </span><span class="kw">pub mod </span>string_filter {
+        <span class="doccomment">/// The match type for the string filter.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>MatchType {
+            <span class="doccomment">/// Unspecified
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// Exact match of the string value.
+            </span>Exact = <span class="number">1</span>,
+            <span class="doccomment">/// Contains the string value.
+            </span>Contains = <span class="number">2</span>,
+        }
+        <span class="kw">impl </span>MatchType {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    MatchType::Unspecified =&gt; <span class="string">&quot;MATCH_TYPE_UNSPECIFIED&quot;</span>,
+                    MatchType::Exact =&gt; <span class="string">&quot;EXACT&quot;</span>,
+                    MatchType::Contains =&gt; <span class="string">&quot;CONTAINS&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;MATCH_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;EXACT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Exact),
+                    <span class="string">&quot;CONTAINS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Contains),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
+    <span class="doccomment">/// A filter for a string dimension that matches a particular list of options.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>InListFilter {
+        <span class="doccomment">/// Required. The list of possible string values to match against. Must be
+        /// non-empty.
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+        <span class="doccomment">/// Optional. If true, the match is case-sensitive. If false, the match is
+        /// case-insensitive.
+        /// Must be true.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>case_sensitive: bool,
+    }
+    <span class="doccomment">/// One of the above filters.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>OneFilter {
+        <span class="doccomment">/// A filter for a string-type dimension that matches a particular pattern.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>StringFilter(StringFilter),
+        <span class="doccomment">/// A filter for a string dimension that matches a particular list of
+        /// options.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>InListFilter(InListFilter),
+    }
+}
+<span class="doccomment">/// A logical expression of EnhancedDataSet dimension filters.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExpandedDataSetFilterExpression {
+    <span class="doccomment">/// The expression applied to a filter.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;expanded_data_set_filter_expression::Expr&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+    </span><span class="kw">pub </span>expr: ::core::option::Option&lt;expanded_data_set_filter_expression::Expr&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ExpandedDataSetFilterExpression`.
+</span><span class="kw">pub mod </span>expanded_data_set_filter_expression {
+    <span class="doccomment">/// The expression applied to a filter.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Expr {
+        <span class="doccomment">/// A list of expressions to be AND’ed together. It must contain a
+        /// ExpandedDataSetFilterExpression with either not_expression or
+        /// dimension_filter. This must be set for the top level
+        /// ExpandedDataSetFilterExpression.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>AndGroup(<span class="kw">super</span>::ExpandedDataSetFilterExpressionList),
+        <span class="doccomment">/// A filter expression to be NOT&#39;ed (that is, inverted, complemented). It
+        /// must include a dimension_filter. This cannot be set on the
+        /// top level ExpandedDataSetFilterExpression.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>NotExpression(
+            ::prost::alloc::boxed::Box&lt;<span class="kw">super</span>::ExpandedDataSetFilterExpression&gt;,
+        ),
+        <span class="doccomment">/// A filter on a single dimension. This cannot be set on the top
+        /// level ExpandedDataSetFilterExpression.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>Filter(<span class="kw">super</span>::ExpandedDataSetFilter),
+    }
+}
+<span class="doccomment">/// A list of ExpandedDataSet filter expressions.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExpandedDataSetFilterExpressionList {
+    <span class="doccomment">/// A list of ExpandedDataSet filter expressions.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>filter_expressions: ::prost::alloc::vec::Vec&lt;ExpandedDataSetFilterExpression&gt;,
+}
+<span class="doccomment">/// A resource message representing a GA4 ExpandedDataSet.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExpandedDataSet {
+    <span class="doccomment">/// Output only. The resource name for this ExpandedDataSet resource.
+    /// Format: properties/{property_id}/expandedDataSets/{expanded_data_set}
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The display name of the ExpandedDataSet.
+    /// Max 200 chars.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The description of the ExpandedDataSet.
+    /// Max 50 chars.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Immutable. The list of dimensions included in the ExpandedDataSet.
+    /// See the [API
+    /// Dimensions](&lt;https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#dimensions&gt;)
+    /// for the list of dimension names.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>dimension_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Immutable. The list of metrics included in the ExpandedDataSet.
+    /// See the [API
+    /// Metrics](&lt;https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#metrics&gt;)
+    /// for the list of dimension names.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>metric_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Immutable. A logical expression of ExpandedDataSet filters applied to
+    /// dimension included in the ExpandedDataSet. This filter is used to reduce
+    /// the number of rows and thus the chance of encountering `other` row.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>dimension_filter_expression: ::core::option::Option&lt;
+        ExpandedDataSetFilterExpression,
+    &gt;,
+    <span class="doccomment">/// Output only. Time when expanded data set began (or will begin) collecing
+    /// data.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>data_collection_start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// A resource message representing a Google Analytics account.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
