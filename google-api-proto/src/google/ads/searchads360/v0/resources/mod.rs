@@ -1,3 +1,75 @@
+/// A field or resource (artifact) used by SearchAds360Service.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchAds360Field {
+    /// Output only. The resource name of the artifact.
+    /// Artifact resource names have the form:
+    ///
+    /// `SearchAds360Fields/{name}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The name of the artifact.
+    #[prost(string, optional, tag = "21")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The category of the artifact.
+    #[prost(
+        enumeration = "super::enums::search_ads360_field_category_enum::SearchAds360FieldCategory",
+        tag = "3"
+    )]
+    pub category: i32,
+    /// Output only. Whether the artifact can be used in a SELECT clause in search
+    /// queries.
+    #[prost(bool, optional, tag = "22")]
+    pub selectable: ::core::option::Option<bool>,
+    /// Output only. Whether the artifact can be used in a WHERE clause in search
+    /// queries.
+    #[prost(bool, optional, tag = "23")]
+    pub filterable: ::core::option::Option<bool>,
+    /// Output only. Whether the artifact can be used in a ORDER BY clause in
+    /// search queries.
+    #[prost(bool, optional, tag = "24")]
+    pub sortable: ::core::option::Option<bool>,
+    /// Output only. The names of all resources, segments, and metrics that are
+    /// selectable with the described artifact.
+    #[prost(string, repeated, tag = "25")]
+    pub selectable_with: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. The names of all resources that are selectable with the
+    /// described artifact. Fields from these resources do not segment metrics when
+    /// included in search queries.
+    ///
+    /// This field is only set for artifacts whose category is RESOURCE.
+    #[prost(string, repeated, tag = "26")]
+    pub attribute_resources: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. This field lists the names of all metrics that are selectable
+    /// with the described artifact when it is used in the FROM clause. It is only
+    /// set for artifacts whose category is RESOURCE.
+    #[prost(string, repeated, tag = "27")]
+    pub metrics: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. This field lists the names of all artifacts, whether a segment
+    /// or another resource, that segment metrics when included in search queries
+    /// and when the described artifact is used in the FROM clause. It is only set
+    /// for artifacts whose category is RESOURCE.
+    #[prost(string, repeated, tag = "28")]
+    pub segments: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. Values the artifact can assume if it is a field of type ENUM.
+    ///
+    /// This field is only set for artifacts of category SEGMENT or ATTRIBUTE.
+    #[prost(string, repeated, tag = "29")]
+    pub enum_values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. This field determines the operators that can be used with the
+    /// artifact in WHERE clauses.
+    #[prost(
+        enumeration = "super::enums::search_ads360_field_data_type_enum::SearchAds360FieldDataType",
+        tag = "12"
+    )]
+    pub data_type: i32,
+    /// Output only. The URL of proto describing the artifact's data type.
+    #[prost(string, optional, tag = "30")]
+    pub type_url: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Whether the field artifact is repeated.
+    #[prost(bool, optional, tag = "31")]
+    pub is_repeated: ::core::option::Option<bool>,
+}
 /// An ad group.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1586,78 +1658,6 @@ pub struct WebpageView {
     /// `customers/{customer_id}/webpageViews/{ad_group_id}~{criterion_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-}
-/// A field or resource (artifact) used by SearchAds360Service.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchAds360Field {
-    /// Output only. The resource name of the artifact.
-    /// Artifact resource names have the form:
-    ///
-    /// `SearchAds360Fields/{name}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The name of the artifact.
-    #[prost(string, optional, tag = "21")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The category of the artifact.
-    #[prost(
-        enumeration = "super::enums::search_ads360_field_category_enum::SearchAds360FieldCategory",
-        tag = "3"
-    )]
-    pub category: i32,
-    /// Output only. Whether the artifact can be used in a SELECT clause in search
-    /// queries.
-    #[prost(bool, optional, tag = "22")]
-    pub selectable: ::core::option::Option<bool>,
-    /// Output only. Whether the artifact can be used in a WHERE clause in search
-    /// queries.
-    #[prost(bool, optional, tag = "23")]
-    pub filterable: ::core::option::Option<bool>,
-    /// Output only. Whether the artifact can be used in a ORDER BY clause in
-    /// search queries.
-    #[prost(bool, optional, tag = "24")]
-    pub sortable: ::core::option::Option<bool>,
-    /// Output only. The names of all resources, segments, and metrics that are
-    /// selectable with the described artifact.
-    #[prost(string, repeated, tag = "25")]
-    pub selectable_with: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. The names of all resources that are selectable with the
-    /// described artifact. Fields from these resources do not segment metrics when
-    /// included in search queries.
-    ///
-    /// This field is only set for artifacts whose category is RESOURCE.
-    #[prost(string, repeated, tag = "26")]
-    pub attribute_resources: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. This field lists the names of all metrics that are selectable
-    /// with the described artifact when it is used in the FROM clause. It is only
-    /// set for artifacts whose category is RESOURCE.
-    #[prost(string, repeated, tag = "27")]
-    pub metrics: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. This field lists the names of all artifacts, whether a segment
-    /// or another resource, that segment metrics when included in search queries
-    /// and when the described artifact is used in the FROM clause. It is only set
-    /// for artifacts whose category is RESOURCE.
-    #[prost(string, repeated, tag = "28")]
-    pub segments: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. Values the artifact can assume if it is a field of type ENUM.
-    ///
-    /// This field is only set for artifacts of category SEGMENT or ATTRIBUTE.
-    #[prost(string, repeated, tag = "29")]
-    pub enum_values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. This field determines the operators that can be used with the
-    /// artifact in WHERE clauses.
-    #[prost(
-        enumeration = "super::enums::search_ads360_field_data_type_enum::SearchAds360FieldDataType",
-        tag = "12"
-    )]
-    pub data_type: i32,
-    /// Output only. The URL of proto describing the artifact's data type.
-    #[prost(string, optional, tag = "30")]
-    pub type_url: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Whether the field artifact is repeated.
-    #[prost(bool, optional, tag = "31")]
-    pub is_repeated: ::core::option::Option<bool>,
 }
 /// A custom column.
 /// See Search Ads 360 custom column at
