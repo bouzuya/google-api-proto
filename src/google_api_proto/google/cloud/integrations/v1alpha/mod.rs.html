@@ -919,7 +919,44 @@
 <a href="#919" id="919">919</a>
 <a href="#920" id="920">920</a>
 <a href="#921" id="921">921</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// The type of the parameter.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Enum Product.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>Product {
+    <span class="doccomment">/// Default value.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Integration Platform.
+    </span>Ip = <span class="number">1</span>,
+    <span class="doccomment">/// Apigee.
+    </span>Apigee = <span class="number">2</span>,
+    <span class="doccomment">/// Security Command Center.
+    </span>Security = <span class="number">3</span>,
+}
+<span class="kw">impl </span>Product {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            Product::Unspecified =&gt; <span class="string">&quot;PRODUCT_UNSPECIFIED&quot;</span>,
+            Product::Ip =&gt; <span class="string">&quot;IP&quot;</span>,
+            Product::Apigee =&gt; <span class="string">&quot;APIGEE&quot;</span>,
+            Product::Security =&gt; <span class="string">&quot;SECURITY&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;PRODUCT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;IP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ip),
+            <span class="string">&quot;APIGEE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Apigee),
+            <span class="string">&quot;SECURITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Security),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// The type of the parameter.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ValueType {
@@ -1402,43 +1439,6 @@
     <span class="doccomment">/// User-provided label that is attached to this edge in the UI.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Enum Product.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>Product {
-    <span class="doccomment">/// Default value.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Integration Platform.
-    </span>Ip = <span class="number">1</span>,
-    <span class="doccomment">/// Apigee.
-    </span>Apigee = <span class="number">2</span>,
-    <span class="doccomment">/// Security Command Center.
-    </span>Security = <span class="number">3</span>,
-}
-<span class="kw">impl </span>Product {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            Product::Unspecified =&gt; <span class="string">&quot;PRODUCT_UNSPECIFIED&quot;</span>,
-            Product::Ip =&gt; <span class="string">&quot;IP&quot;</span>,
-            Product::Apigee =&gt; <span class="string">&quot;APIGEE&quot;</span>,
-            Product::Security =&gt; <span class="string">&quot;SECURITY&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;PRODUCT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;IP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ip),
-            <span class="string">&quot;APIGEE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Apigee),
-            <span class="string">&quot;SECURITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Security),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
 }
 <span class="doccomment">/// Log entry to log execution info for the monitored resource
 /// `integrations.googleapis.com/IntegrationVersion`.

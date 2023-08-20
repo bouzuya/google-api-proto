@@ -1765,7 +1765,95 @@
 <a href="#1765" id="1765">1765</a>
 <a href="#1766" id="1766">1766</a>
 <a href="#1767" id="1767">1767</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Defines a custom error message used by CreateScanConfig and UpdateScanConfig
+</pre></div><pre class="rust"><code><span class="doccomment">/// A CrawledUrl resource represents a URL that was crawled during a ScanRun. Web
+/// Security Scanner Service crawls the web applications, following all links
+/// within the scope of sites, to find the URLs to test against.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CrawledUrl {
+    <span class="doccomment">/// The http method of the request that was used to visit the URL, in
+    /// uppercase.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>http_method: ::prost::alloc::string::String,
+    <span class="doccomment">/// The URL that was crawled.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
+    <span class="doccomment">/// The body of the request that was used to visit the URL.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>body: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Output only.
+/// Defines a warning trace message for ScanRun. Warning traces provide customers
+/// with useful information that helps make the scanning process more effective.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ScanRunWarningTrace {
+    <span class="doccomment">/// Indicates the warning code.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run_warning_trace::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>code: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `ScanRunWarningTrace`.
+</span><span class="kw">pub mod </span>scan_run_warning_trace {
+    <span class="doccomment">/// Output only.
+    /// Defines a warning message code.
+    /// Next id: 6
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Code {
+        <span class="doccomment">/// Default value is never used.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Indicates that a scan discovered an unexpectedly low number of URLs. This
+        /// is sometimes caused by complex navigation features or by using a single
+        /// URL for numerous pages.
+        </span>InsufficientCrawlResults = <span class="number">1</span>,
+        <span class="doccomment">/// Indicates that a scan discovered too many URLs to test, or excessive
+        /// redundant URLs.
+        </span>TooManyCrawlResults = <span class="number">2</span>,
+        <span class="doccomment">/// Indicates that too many tests have been generated for the scan. Customer
+        /// should try reducing the number of starting URLs, increasing the QPS rate,
+        /// or narrowing down the scope of the scan using the excluded patterns.
+        </span>TooManyFuzzTasks = <span class="number">3</span>,
+        <span class="doccomment">/// Indicates that a scan is blocked by IAP.
+        </span>BlockedByIap = <span class="number">4</span>,
+    }
+    <span class="kw">impl </span>Code {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Code::Unspecified =&gt; <span class="string">&quot;CODE_UNSPECIFIED&quot;</span>,
+                Code::InsufficientCrawlResults =&gt; <span class="string">&quot;INSUFFICIENT_CRAWL_RESULTS&quot;</span>,
+                Code::TooManyCrawlResults =&gt; <span class="string">&quot;TOO_MANY_CRAWL_RESULTS&quot;</span>,
+                Code::TooManyFuzzTasks =&gt; <span class="string">&quot;TOO_MANY_FUZZ_TASKS&quot;</span>,
+                Code::BlockedByIap =&gt; <span class="string">&quot;BLOCKED_BY_IAP&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;INSUFFICIENT_CRAWL_RESULTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InsufficientCrawlResults),
+                <span class="string">&quot;TOO_MANY_CRAWL_RESULTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyCrawlResults),
+                <span class="string">&quot;TOO_MANY_FUZZ_TASKS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyFuzzTasks),
+                <span class="string">&quot;BLOCKED_BY_IAP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockedByIap),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Defines a custom error message used by CreateScanConfig and UpdateScanConfig
 /// APIs when scan configuration validation fails. It is also reported as part of
 /// a ScanRunErrorTrace message if scan validation fails due to a scan
 /// configuration error.
@@ -2139,236 +2227,6 @@
             }
         }
     }
-}
-<span class="doccomment">/// A FindingTypeStats resource represents stats regarding a specific FindingType
-/// of Findings under a given ScanRun.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FindingTypeStats {
-    <span class="doccomment">/// The finding type associated with the stats.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>finding_type: ::prost::alloc::string::String,
-    <span class="doccomment">/// The count of findings belonging to this finding type.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>finding_count: i32,
-}
-<span class="doccomment">/// ! Information about a vulnerability with an HTML.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Form {
-    <span class="doccomment">/// ! The URI where to send the form when it&#39;s submitted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>action_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// ! The names of form fields related to the vulnerability.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>fields: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Information reported for an outdated library.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>OutdatedLibrary {
-    <span class="doccomment">/// The name of the outdated library.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>library_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The version number.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
-    <span class="doccomment">/// URLs to learn more information about the vulnerabilities in the library.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>learn_more_urls: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Information regarding any resource causing the vulnerability such
-/// as JavaScript sources, image, audio files, etc.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ViolatingResource {
-    <span class="doccomment">/// The MIME type of this resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>content_type: ::prost::alloc::string::String,
-    <span class="doccomment">/// URL of this violating resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>resource_url: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Information about vulnerable request parameters.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VulnerableParameters {
-    <span class="doccomment">/// The vulnerable parameter names.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parameter_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Information about vulnerable or missing HTTP Headers.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VulnerableHeaders {
-    <span class="doccomment">/// List of vulnerable headers.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>headers: ::prost::alloc::vec::Vec&lt;vulnerable_headers::Header&gt;,
-    <span class="doccomment">/// List of missing headers.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>missing_headers: ::prost::alloc::vec::Vec&lt;vulnerable_headers::Header&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `VulnerableHeaders`.
-</span><span class="kw">pub mod </span>vulnerable_headers {
-    <span class="doccomment">/// Describes a HTTP Header.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Header {
-        <span class="doccomment">/// Header name.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-        <span class="doccomment">/// Header value.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
-    }
-}
-<span class="doccomment">/// Information reported for an XSS.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Xss {
-    <span class="doccomment">/// Stack traces leading to the point where the XSS occurred.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>stack_traces: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// An error message generated by a javascript breakage.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Output only.
-/// Defines a warning trace message for ScanRun. Warning traces provide customers
-/// with useful information that helps make the scanning process more effective.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ScanRunWarningTrace {
-    <span class="doccomment">/// Indicates the warning code.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run_warning_trace::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>code: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `ScanRunWarningTrace`.
-</span><span class="kw">pub mod </span>scan_run_warning_trace {
-    <span class="doccomment">/// Output only.
-    /// Defines a warning message code.
-    /// Next id: 6
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Code {
-        <span class="doccomment">/// Default value is never used.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Indicates that a scan discovered an unexpectedly low number of URLs. This
-        /// is sometimes caused by complex navigation features or by using a single
-        /// URL for numerous pages.
-        </span>InsufficientCrawlResults = <span class="number">1</span>,
-        <span class="doccomment">/// Indicates that a scan discovered too many URLs to test, or excessive
-        /// redundant URLs.
-        </span>TooManyCrawlResults = <span class="number">2</span>,
-        <span class="doccomment">/// Indicates that too many tests have been generated for the scan. Customer
-        /// should try reducing the number of starting URLs, increasing the QPS rate,
-        /// or narrowing down the scope of the scan using the excluded patterns.
-        </span>TooManyFuzzTasks = <span class="number">3</span>,
-        <span class="doccomment">/// Indicates that a scan is blocked by IAP.
-        </span>BlockedByIap = <span class="number">4</span>,
-    }
-    <span class="kw">impl </span>Code {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Code::Unspecified =&gt; <span class="string">&quot;CODE_UNSPECIFIED&quot;</span>,
-                Code::InsufficientCrawlResults =&gt; <span class="string">&quot;INSUFFICIENT_CRAWL_RESULTS&quot;</span>,
-                Code::TooManyCrawlResults =&gt; <span class="string">&quot;TOO_MANY_CRAWL_RESULTS&quot;</span>,
-                Code::TooManyFuzzTasks =&gt; <span class="string">&quot;TOO_MANY_FUZZ_TASKS&quot;</span>,
-                Code::BlockedByIap =&gt; <span class="string">&quot;BLOCKED_BY_IAP&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;INSUFFICIENT_CRAWL_RESULTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InsufficientCrawlResults),
-                <span class="string">&quot;TOO_MANY_CRAWL_RESULTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyCrawlResults),
-                <span class="string">&quot;TOO_MANY_FUZZ_TASKS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyFuzzTasks),
-                <span class="string">&quot;BLOCKED_BY_IAP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockedByIap),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// A Finding resource represents a vulnerability instance identified during a
-/// ScanRun.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Finding {
-    <span class="doccomment">/// The resource name of the Finding. The name follows the format of
-    /// &#39;projects/{projectId}/scanConfigs/{scanConfigId}/scanruns/{scanRunId}/findings/{findingId}&#39;.
-    /// The finding IDs are generated by the system.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The type of the Finding.
-    /// Detailed and up-to-date information on findings can be found here:
-    /// &lt;https://cloud.google.com/security-scanner/docs/scan-result-details&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>finding_type: ::prost::alloc::string::String,
-    <span class="doccomment">/// The http method of the request that triggered the vulnerability, in
-    /// uppercase.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>http_method: ::prost::alloc::string::String,
-    <span class="doccomment">/// The URL produced by the server-side fuzzer and used in the request that
-    /// triggered the vulnerability.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>fuzzed_url: ::prost::alloc::string::String,
-    <span class="doccomment">/// The body of the request that triggered the vulnerability.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>body: ::prost::alloc::string::String,
-    <span class="doccomment">/// The description of the vulnerability.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// The URL containing human-readable payload that user can leverage to
-    /// reproduce the vulnerability.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>reproduction_url: ::prost::alloc::string::String,
-    <span class="doccomment">/// If the vulnerability was originated from nested IFrame, the immediate
-    /// parent IFrame is reported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>frame_url: ::prost::alloc::string::String,
-    <span class="doccomment">/// The URL where the browser lands when the vulnerability is detected.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>final_url: ::prost::alloc::string::String,
-    <span class="doccomment">/// The tracking ID uniquely identifies a vulnerability instance across
-    /// multiple ScanRuns.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>tracking_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// An addon containing information reported for a vulnerability with an HTML
-    /// form, if any.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
-    </span><span class="kw">pub </span>form: ::core::option::Option&lt;Form&gt;,
-    <span class="doccomment">/// An addon containing information about outdated libraries.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>outdated_library: ::core::option::Option&lt;OutdatedLibrary&gt;,
-    <span class="doccomment">/// An addon containing detailed information regarding any resource causing the
-    /// vulnerability such as JavaScript sources, image, audio files, etc.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>violating_resource: ::core::option::Option&lt;ViolatingResource&gt;,
-    <span class="doccomment">/// An addon containing information about vulnerable or missing HTTP headers.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
-    </span><span class="kw">pub </span>vulnerable_headers: ::core::option::Option&lt;VulnerableHeaders&gt;,
-    <span class="doccomment">/// An addon containing information about request parameters which were found
-    /// to be vulnerable.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>vulnerable_parameters: ::core::option::Option&lt;VulnerableParameters&gt;,
-    <span class="doccomment">/// An addon containing information reported for an XSS, if any.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>xss: ::core::option::Option&lt;Xss&gt;,
 }
 <span class="doccomment">/// A ScanRun is a output-only resource representing an actual run of the scan.
 /// Next id: 12
@@ -2822,22 +2680,164 @@
         }
     }
 }
-<span class="doccomment">/// A CrawledUrl resource represents a URL that was crawled during a ScanRun. Web
-/// Security Scanner Service crawls the web applications, following all links
-/// within the scope of sites, to find the URLs to test against.
+<span class="doccomment">/// ! Information about a vulnerability with an HTML.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CrawledUrl {
-    <span class="doccomment">/// The http method of the request that was used to visit the URL, in
-    /// uppercase.
+</span><span class="kw">pub struct </span>Form {
+    <span class="doccomment">/// ! The URI where to send the form when it&#39;s submitted.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>http_method: ::prost::alloc::string::String,
-    <span class="doccomment">/// The URL that was crawled.
+    </span><span class="kw">pub </span>action_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// ! The names of form fields related to the vulnerability.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>fields: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// Information reported for an outdated library.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>OutdatedLibrary {
+    <span class="doccomment">/// The name of the outdated library.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>library_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The version number.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
-    <span class="doccomment">/// The body of the request that was used to visit the URL.
+    </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
+    <span class="doccomment">/// URLs to learn more information about the vulnerabilities in the library.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>learn_more_urls: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// Information regarding any resource causing the vulnerability such
+/// as JavaScript sources, image, audio files, etc.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ViolatingResource {
+    <span class="doccomment">/// The MIME type of this resource.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>content_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// URL of this violating resource.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>resource_url: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Information about vulnerable request parameters.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VulnerableParameters {
+    <span class="doccomment">/// The vulnerable parameter names.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parameter_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// Information about vulnerable or missing HTTP Headers.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VulnerableHeaders {
+    <span class="doccomment">/// List of vulnerable headers.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>headers: ::prost::alloc::vec::Vec&lt;vulnerable_headers::Header&gt;,
+    <span class="doccomment">/// List of missing headers.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>missing_headers: ::prost::alloc::vec::Vec&lt;vulnerable_headers::Header&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `VulnerableHeaders`.
+</span><span class="kw">pub mod </span>vulnerable_headers {
+    <span class="doccomment">/// Describes a HTTP Header.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Header {
+        <span class="doccomment">/// Header name.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+        <span class="doccomment">/// Header value.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
+    }
+}
+<span class="doccomment">/// Information reported for an XSS.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Xss {
+    <span class="doccomment">/// Stack traces leading to the point where the XSS occurred.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>stack_traces: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// An error message generated by a javascript breakage.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// A Finding resource represents a vulnerability instance identified during a
+/// ScanRun.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Finding {
+    <span class="doccomment">/// The resource name of the Finding. The name follows the format of
+    /// &#39;projects/{projectId}/scanConfigs/{scanConfigId}/scanruns/{scanRunId}/findings/{findingId}&#39;.
+    /// The finding IDs are generated by the system.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The type of the Finding.
+    /// Detailed and up-to-date information on findings can be found here:
+    /// &lt;https://cloud.google.com/security-scanner/docs/scan-result-details&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>finding_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// The http method of the request that triggered the vulnerability, in
+    /// uppercase.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>http_method: ::prost::alloc::string::String,
+    <span class="doccomment">/// The URL produced by the server-side fuzzer and used in the request that
+    /// triggered the vulnerability.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>fuzzed_url: ::prost::alloc::string::String,
+    <span class="doccomment">/// The body of the request that triggered the vulnerability.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>body: ::prost::alloc::string::String,
+    <span class="doccomment">/// The description of the vulnerability.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// The URL containing human-readable payload that user can leverage to
+    /// reproduce the vulnerability.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>reproduction_url: ::prost::alloc::string::String,
+    <span class="doccomment">/// If the vulnerability was originated from nested IFrame, the immediate
+    /// parent IFrame is reported.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>frame_url: ::prost::alloc::string::String,
+    <span class="doccomment">/// The URL where the browser lands when the vulnerability is detected.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>final_url: ::prost::alloc::string::String,
+    <span class="doccomment">/// The tracking ID uniquely identifies a vulnerability instance across
+    /// multiple ScanRuns.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>tracking_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// An addon containing information reported for a vulnerability with an HTML
+    /// form, if any.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="kw">pub </span>form: ::core::option::Option&lt;Form&gt;,
+    <span class="doccomment">/// An addon containing information about outdated libraries.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>outdated_library: ::core::option::Option&lt;OutdatedLibrary&gt;,
+    <span class="doccomment">/// An addon containing detailed information regarding any resource causing the
+    /// vulnerability such as JavaScript sources, image, audio files, etc.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>violating_resource: ::core::option::Option&lt;ViolatingResource&gt;,
+    <span class="doccomment">/// An addon containing information about vulnerable or missing HTTP headers.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>vulnerable_headers: ::core::option::Option&lt;VulnerableHeaders&gt;,
+    <span class="doccomment">/// An addon containing information about request parameters which were found
+    /// to be vulnerable.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>vulnerable_parameters: ::core::option::Option&lt;VulnerableParameters&gt;,
+    <span class="doccomment">/// An addon containing information reported for an XSS, if any.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>xss: ::core::option::Option&lt;Xss&gt;,
+}
+<span class="doccomment">/// A FindingTypeStats resource represents stats regarding a specific FindingType
+/// of Findings under a given ScanRun.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FindingTypeStats {
+    <span class="doccomment">/// The finding type associated with the stats.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>finding_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// The count of findings belonging to this finding type.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>finding_count: i32,
 }
 <span class="doccomment">/// Request for the `CreateScanConfig` method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
