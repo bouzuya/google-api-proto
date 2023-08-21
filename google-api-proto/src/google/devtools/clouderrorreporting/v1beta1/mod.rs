@@ -196,161 +196,6 @@ impl ResolutionStatus {
         }
     }
 }
-/// A request to return an individual group.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetGroupRequest {
-    /// Required. The group resource name. Written as
-    /// `projects/{projectID}/groups/{group_name}`. Call
-    /// \[`groupStats.list`\](<https://cloud.google.com/error-reporting/reference/rest/v1beta1/projects.groupStats/list>)
-    /// to return a list of groups belonging to this project.
-    ///
-    /// Example: `projects/my-project-123/groups/my-group`
-    #[prost(string, tag = "1")]
-    pub group_name: ::prost::alloc::string::String,
-}
-/// A request to replace the existing data for the given group.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateGroupRequest {
-    /// Required. The group which replaces the resource on the server.
-    #[prost(message, optional, tag = "1")]
-    pub group: ::core::option::Option<ErrorGroup>,
-}
-/// Generated client implementations.
-pub mod error_group_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Service for retrieving and updating individual error groups.
-    #[derive(Debug, Clone)]
-    pub struct ErrorGroupServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> ErrorGroupServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> ErrorGroupServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            ErrorGroupServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Get the specified group.
-        pub async fn get_group(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetGroupRequest>,
-        ) -> std::result::Result<tonic::Response<super::ErrorGroup>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.clouderrorreporting.v1beta1.ErrorGroupService/GetGroup",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.clouderrorreporting.v1beta1.ErrorGroupService",
-                        "GetGroup",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Replace the data for the specified group.
-        /// Fails if the group does not exist.
-        pub async fn update_group(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateGroupRequest>,
-        ) -> std::result::Result<tonic::Response<super::ErrorGroup>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.clouderrorreporting.v1beta1.ErrorGroupService/UpdateGroup",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.clouderrorreporting.v1beta1.ErrorGroupService",
-                        "UpdateGroup",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
 /// A request for reporting an individual error event.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1098,6 +943,161 @@ pub mod error_stats_service_client {
                     GrpcMethod::new(
                         "google.devtools.clouderrorreporting.v1beta1.ErrorStatsService",
                         "DeleteEvents",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// A request to return an individual group.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetGroupRequest {
+    /// Required. The group resource name. Written as
+    /// `projects/{projectID}/groups/{group_name}`. Call
+    /// \[`groupStats.list`\](<https://cloud.google.com/error-reporting/reference/rest/v1beta1/projects.groupStats/list>)
+    /// to return a list of groups belonging to this project.
+    ///
+    /// Example: `projects/my-project-123/groups/my-group`
+    #[prost(string, tag = "1")]
+    pub group_name: ::prost::alloc::string::String,
+}
+/// A request to replace the existing data for the given group.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateGroupRequest {
+    /// Required. The group which replaces the resource on the server.
+    #[prost(message, optional, tag = "1")]
+    pub group: ::core::option::Option<ErrorGroup>,
+}
+/// Generated client implementations.
+pub mod error_group_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Service for retrieving and updating individual error groups.
+    #[derive(Debug, Clone)]
+    pub struct ErrorGroupServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> ErrorGroupServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> ErrorGroupServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            ErrorGroupServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Get the specified group.
+        pub async fn get_group(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetGroupRequest>,
+        ) -> std::result::Result<tonic::Response<super::ErrorGroup>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.clouderrorreporting.v1beta1.ErrorGroupService/GetGroup",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.clouderrorreporting.v1beta1.ErrorGroupService",
+                        "GetGroup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Replace the data for the specified group.
+        /// Fails if the group does not exist.
+        pub async fn update_group(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateGroupRequest>,
+        ) -> std::result::Result<tonic::Response<super::ErrorGroup>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.clouderrorreporting.v1beta1.ErrorGroupService/UpdateGroup",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.clouderrorreporting.v1beta1.ErrorGroupService",
+                        "UpdateGroup",
                     ),
                 );
             self.inner.unary(req, path, codec).await
