@@ -1733,6 +1733,189 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>metric_values: ::prost::alloc::vec::Vec&lt;MetricValue&gt;,
 }
+<span class="doccomment">/// A common proto for logging HTTP requests. Only contains semantics
+/// defined by the HTTP specification. Product-specific logging
+/// information MUST be defined in a separate message.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>HttpRequest {
+    <span class="doccomment">/// The request method. Examples: `&quot;GET&quot;`, `&quot;HEAD&quot;`, `&quot;PUT&quot;`, `&quot;POST&quot;`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>request_method: ::prost::alloc::string::String,
+    <span class="doccomment">/// The scheme (http, https), the host name, the path, and the query
+    /// portion of the URL that was requested.
+    /// Example: `&quot;&lt;http://example.com/some/info?color=red&quot;`.&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>request_url: ::prost::alloc::string::String,
+    <span class="doccomment">/// The size of the HTTP request message in bytes, including the request
+    /// headers and the request body.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>request_size: i64,
+    <span class="doccomment">/// The response code indicating the status of the response.
+    /// Examples: 200, 404.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>status: i32,
+    <span class="doccomment">/// The size of the HTTP response message sent back to the client, in bytes,
+    /// including the response headers and the response body.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>response_size: i64,
+    <span class="doccomment">/// The user agent sent by the client. Example:
+    /// `&quot;Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Q312461; .NET
+    /// CLR 1.0.3705)&quot;`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>user_agent: ::prost::alloc::string::String,
+    <span class="doccomment">/// The IP address (IPv4 or IPv6) of the client that issued the HTTP
+    /// request. Examples: `&quot;192.168.1.1&quot;`, `&quot;FE80::0202:B3FF:FE1E:8329&quot;`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>remote_ip: ::prost::alloc::string::String,
+    <span class="doccomment">/// The IP address (IPv4 or IPv6) of the origin server that the request was
+    /// sent to.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>server_ip: ::prost::alloc::string::String,
+    <span class="doccomment">/// The referer URL of the request, as defined in
+    /// [HTTP/1.1 Header Field
+    /// Definitions](&lt;http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html&gt;).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>referer: ::prost::alloc::string::String,
+    <span class="doccomment">/// The request processing latency on the server, from the time the request was
+    /// received until the response was sent.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>latency: ::core::option::Option&lt;::prost_types::Duration&gt;,
+    <span class="doccomment">/// Whether or not a cache lookup was attempted.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>cache_lookup: bool,
+    <span class="doccomment">/// Whether or not an entity was served from cache
+    /// (with or without validation).
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>cache_hit: bool,
+    <span class="doccomment">/// Whether or not the response was validated with the origin server before
+    /// being served from cache. This field is only meaningful if `cache_hit` is
+    /// True.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>cache_validated_with_origin_server: bool,
+    <span class="doccomment">/// The number of HTTP response bytes inserted into cache. Set only when a
+    /// cache fill was attempted.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>cache_fill_bytes: i64,
+    <span class="doccomment">/// Protocol used for the request. Examples: &quot;HTTP/1.1&quot;, &quot;HTTP/2&quot;, &quot;websocket&quot;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>protocol: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// An individual log entry.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>LogEntry {
+    <span class="doccomment">/// Required. The log to which this log entry belongs. Examples: `&quot;syslog&quot;`,
+    /// `&quot;book_log&quot;`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The time the event described by the log entry occurred. If
+    /// omitted, defaults to operation start time.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The severity of the log entry. The default value is
+    /// `LogSeverity.DEFAULT`.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::super::super::logging::r#type::LogSeverity&quot;</span>,
+        tag = <span class="string">&quot;12&quot;
+    </span>)]
+    </span><span class="kw">pub </span>severity: i32,
+    <span class="doccomment">/// Optional. Information about the HTTP request associated with this
+    /// log entry, if applicable.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>http_request: ::core::option::Option&lt;HttpRequest&gt;,
+    <span class="doccomment">/// Optional. Resource name of the trace associated with the log entry, if any.
+    /// If this field contains a relative resource name, you can assume the name is
+    /// relative to `//tracing.googleapis.com`. Example:
+    /// `projects/my-projectid/traces/06796866738c859f2f19b7cfb3214824`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>trace: ::prost::alloc::string::String,
+    <span class="doccomment">/// A unique ID for the log entry used for deduplication. If omitted,
+    /// the implementation will generate one based on operation_id.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>insert_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// A set of user-defined (key, value) data that provides additional
+    /// information about the log entry.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Optional. Information about an operation associated with the log entry, if
+    /// applicable.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="kw">pub </span>operation: ::core::option::Option&lt;LogEntryOperation&gt;,
+    <span class="doccomment">/// Optional. Source code location information associated with the log entry,
+    /// if any.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="kw">pub </span>source_location: ::core::option::Option&lt;LogEntrySourceLocation&gt;,
+    <span class="doccomment">/// The log entry payload, which can be one of multiple types.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;log_entry::Payload&quot;</span>, tags = <span class="string">&quot;2, 3, 6&quot;</span>)]
+    </span><span class="kw">pub </span>payload: ::core::option::Option&lt;log_entry::Payload&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `LogEntry`.
+</span><span class="kw">pub mod </span>log_entry {
+    <span class="doccomment">/// The log entry payload, which can be one of multiple types.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Payload {
+        <span class="doccomment">/// The log entry payload, represented as a protocol buffer that is
+        /// expressed as a JSON object. The only accepted type currently is
+        /// \[AuditLog][google.cloud.audit.AuditLog\].
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>ProtoPayload(::prost_types::Any),
+        <span class="doccomment">/// The log entry payload, represented as a Unicode string (UTF-8).
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>TextPayload(::prost::alloc::string::String),
+        <span class="doccomment">/// The log entry payload, represented as a structure that
+        /// is expressed as a JSON object.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span>StructPayload(::prost_types::Struct),
+    }
+}
+<span class="doccomment">/// Additional information about a potentially long-running operation with which
+/// a log entry is associated.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>LogEntryOperation {
+    <span class="doccomment">/// Optional. An arbitrary operation identifier. Log entries with the
+    /// same identifier are assumed to be part of the same operation.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. An arbitrary producer identifier. The combination of
+    /// `id` and `producer` must be globally unique.  Examples for `producer`:
+    /// `&quot;MyDivision.MyBigCompany.com&quot;`, `&quot;github.com/MyProject/MyApplication&quot;`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>producer: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Set this to True if this is the first log entry in the operation.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>first: bool,
+    <span class="doccomment">/// Optional. Set this to True if this is the last log entry in the operation.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>last: bool,
+}
+<span class="doccomment">/// Additional information about the source code location that produced the log
+/// entry.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>LogEntrySourceLocation {
+    <span class="doccomment">/// Optional. Source file name. Depending on the runtime environment, this
+    /// might be a simple name or a fully-qualified name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>file: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Line within the source file. 1-based; 0 indicates no line number
+    /// available.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>line: i64,
+    <span class="doccomment">/// Optional. Human-readable name of the function or method being invoked, with
+    /// optional context such as the class or package name. This information may be
+    /// used in contexts such as the logs viewer, where a file and line number are
+    /// less meaningful. The format can vary by language. For example:
+    /// `qual.if.ied.Class.method` (Java), `dir/package.func` (Go), `function`
+    /// (Python).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>function: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// Request message for the AllocateQuota method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2124,74 +2307,6 @@
         </span>}
     }
 }
-<span class="doccomment">/// A common proto for logging HTTP requests. Only contains semantics
-/// defined by the HTTP specification. Product-specific logging
-/// information MUST be defined in a separate message.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>HttpRequest {
-    <span class="doccomment">/// The request method. Examples: `&quot;GET&quot;`, `&quot;HEAD&quot;`, `&quot;PUT&quot;`, `&quot;POST&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>request_method: ::prost::alloc::string::String,
-    <span class="doccomment">/// The scheme (http, https), the host name, the path, and the query
-    /// portion of the URL that was requested.
-    /// Example: `&quot;&lt;http://example.com/some/info?color=red&quot;`.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>request_url: ::prost::alloc::string::String,
-    <span class="doccomment">/// The size of the HTTP request message in bytes, including the request
-    /// headers and the request body.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>request_size: i64,
-    <span class="doccomment">/// The response code indicating the status of the response.
-    /// Examples: 200, 404.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>status: i32,
-    <span class="doccomment">/// The size of the HTTP response message sent back to the client, in bytes,
-    /// including the response headers and the response body.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>response_size: i64,
-    <span class="doccomment">/// The user agent sent by the client. Example:
-    /// `&quot;Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Q312461; .NET
-    /// CLR 1.0.3705)&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>user_agent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The IP address (IPv4 or IPv6) of the client that issued the HTTP
-    /// request. Examples: `&quot;192.168.1.1&quot;`, `&quot;FE80::0202:B3FF:FE1E:8329&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>remote_ip: ::prost::alloc::string::String,
-    <span class="doccomment">/// The IP address (IPv4 or IPv6) of the origin server that the request was
-    /// sent to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>server_ip: ::prost::alloc::string::String,
-    <span class="doccomment">/// The referer URL of the request, as defined in
-    /// [HTTP/1.1 Header Field
-    /// Definitions](&lt;http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>referer: ::prost::alloc::string::String,
-    <span class="doccomment">/// The request processing latency on the server, from the time the request was
-    /// received until the response was sent.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>latency: ::core::option::Option&lt;::prost_types::Duration&gt;,
-    <span class="doccomment">/// Whether or not a cache lookup was attempted.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>cache_lookup: bool,
-    <span class="doccomment">/// Whether or not an entity was served from cache
-    /// (with or without validation).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>cache_hit: bool,
-    <span class="doccomment">/// Whether or not the response was validated with the origin server before
-    /// being served from cache. This field is only meaningful if `cache_hit` is
-    /// True.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>cache_validated_with_origin_server: bool,
-    <span class="doccomment">/// The number of HTTP response bytes inserted into cache. Set only when a
-    /// cache fill was attempted.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>cache_fill_bytes: i64,
-    <span class="doccomment">/// Protocol used for the request. Examples: &quot;HTTP/1.1&quot;, &quot;HTTP/2&quot;, &quot;websocket&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
-    </span><span class="kw">pub </span>protocol: ::prost::alloc::string::String,
-}
 <span class="doccomment">/// Defines the errors to be returned in
 /// \[google.api.servicecontrol.v1.CheckResponse.check_errors][google.api.servicecontrol.v1.CheckResponse.check_errors\].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2345,121 +2460,6 @@
             }
         }
     }
-}
-<span class="doccomment">/// An individual log entry.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LogEntry {
-    <span class="doccomment">/// Required. The log to which this log entry belongs. Examples: `&quot;syslog&quot;`,
-    /// `&quot;book_log&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The time the event described by the log entry occurred. If
-    /// omitted, defaults to operation start time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The severity of the log entry. The default value is
-    /// `LogSeverity.DEFAULT`.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::super::super::logging::r#type::LogSeverity&quot;</span>,
-        tag = <span class="string">&quot;12&quot;
-    </span>)]
-    </span><span class="kw">pub </span>severity: i32,
-    <span class="doccomment">/// Optional. Information about the HTTP request associated with this
-    /// log entry, if applicable.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>http_request: ::core::option::Option&lt;HttpRequest&gt;,
-    <span class="doccomment">/// Optional. Resource name of the trace associated with the log entry, if any.
-    /// If this field contains a relative resource name, you can assume the name is
-    /// relative to `//tracing.googleapis.com`. Example:
-    /// `projects/my-projectid/traces/06796866738c859f2f19b7cfb3214824`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
-    </span><span class="kw">pub </span>trace: ::prost::alloc::string::String,
-    <span class="doccomment">/// A unique ID for the log entry used for deduplication. If omitted,
-    /// the implementation will generate one based on operation_id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>insert_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// A set of user-defined (key, value) data that provides additional
-    /// information about the log entry.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Optional. Information about an operation associated with the log entry, if
-    /// applicable.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
-    </span><span class="kw">pub </span>operation: ::core::option::Option&lt;LogEntryOperation&gt;,
-    <span class="doccomment">/// Optional. Source code location information associated with the log entry,
-    /// if any.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
-    </span><span class="kw">pub </span>source_location: ::core::option::Option&lt;LogEntrySourceLocation&gt;,
-    <span class="doccomment">/// The log entry payload, which can be one of multiple types.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;log_entry::Payload&quot;</span>, tags = <span class="string">&quot;2, 3, 6&quot;</span>)]
-    </span><span class="kw">pub </span>payload: ::core::option::Option&lt;log_entry::Payload&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `LogEntry`.
-</span><span class="kw">pub mod </span>log_entry {
-    <span class="doccomment">/// The log entry payload, which can be one of multiple types.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Payload {
-        <span class="doccomment">/// The log entry payload, represented as a protocol buffer that is
-        /// expressed as a JSON object. The only accepted type currently is
-        /// \[AuditLog][google.cloud.audit.AuditLog\].
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>ProtoPayload(::prost_types::Any),
-        <span class="doccomment">/// The log entry payload, represented as a Unicode string (UTF-8).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>TextPayload(::prost::alloc::string::String),
-        <span class="doccomment">/// The log entry payload, represented as a structure that
-        /// is expressed as a JSON object.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
-        </span>StructPayload(::prost_types::Struct),
-    }
-}
-<span class="doccomment">/// Additional information about a potentially long-running operation with which
-/// a log entry is associated.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LogEntryOperation {
-    <span class="doccomment">/// Optional. An arbitrary operation identifier. Log entries with the
-    /// same identifier are assumed to be part of the same operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. An arbitrary producer identifier. The combination of
-    /// `id` and `producer` must be globally unique.  Examples for `producer`:
-    /// `&quot;MyDivision.MyBigCompany.com&quot;`, `&quot;github.com/MyProject/MyApplication&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>producer: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Set this to True if this is the first log entry in the operation.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>first: bool,
-    <span class="doccomment">/// Optional. Set this to True if this is the last log entry in the operation.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>last: bool,
-}
-<span class="doccomment">/// Additional information about the source code location that produced the log
-/// entry.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LogEntrySourceLocation {
-    <span class="doccomment">/// Optional. Source file name. Depending on the runtime environment, this
-    /// might be a simple name or a fully-qualified name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>file: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Line within the source file. 1-based; 0 indicates no line number
-    /// available.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>line: i64,
-    <span class="doccomment">/// Optional. Human-readable name of the function or method being invoked, with
-    /// optional context such as the class or package name. This information may be
-    /// used in contexts such as the logs viewer, where a file and line number are
-    /// less meaningful. The format can vary by language. For example:
-    /// `qual.if.ied.Class.method` (Java), `dir/package.func` (Go), `function`
-    /// (Python).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>function: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents information regarding an operation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
