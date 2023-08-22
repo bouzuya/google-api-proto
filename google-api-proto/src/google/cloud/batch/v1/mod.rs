@@ -62,14 +62,52 @@ pub struct Gcs {
     #[prost(string, tag = "1")]
     pub remote_path: ::prost::alloc::string::String,
 }
-/// Compute resource requirements
+/// Compute resource requirements.
+///
+/// ComputeResource defines the amount of resources required for each task.
+/// Make sure your tasks have enough resources to successfully run.
+/// If you also define the types of resources for a job to use with the
+/// \[InstancePolicyOrTemplate\](<https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate>)
+/// field, make sure both fields are compatible with each other.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ComputeResource {
     /// The milliCPU count.
+    ///
+    /// `cpuMilli` defines the amount of CPU resources per task in milliCPU units.
+    /// For example, `1000` corresponds to 1 vCPU per task. If undefined, the
+    /// default value is `2000`.
+    ///
+    /// If you also define the VM's machine type using the `machineType` in
+    /// \[InstancePolicy\](<https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy>)
+    /// field or inside the `instanceTemplate` in the
+    /// \[InstancePolicyOrTemplate\](<https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate>)
+    /// field, make sure the CPU resources for both fields are compatible with each
+    /// other and with how many tasks you want to allow to run on the same VM at
+    /// the same time.
+    ///
+    /// For example, if you specify the `n2-standard-2` machine type, which has 2
+    /// vCPUs each, you are recommended to set `cpuMilli` no more than `2000`, or
+    /// you are recommended to run two tasks on the same VM if you set `cpuMilli`
+    /// to `1000` or less.
     #[prost(int64, tag = "1")]
     pub cpu_milli: i64,
     /// Memory in MiB.
+    ///
+    /// `memoryMib` defines the amount of memory per task in MiB units.
+    /// If undefined, the default value is `2000`.
+    /// If you also define the VM's machine type using the `machineType` in
+    /// \[InstancePolicy\](<https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy>)
+    /// field or inside the `instanceTemplate` in the
+    /// \[InstancePolicyOrTemplate\](<https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate>)
+    /// field, make sure the memory resources for both fields are compatible with
+    /// each other and with how many tasks you want to allow to run on the same VM
+    /// at the same time.
+    ///
+    /// For example, if you specify the `n2-standard-2` machine type, which has 8
+    /// GiB each, you are recommended to set `memoryMib` to no more than `8192`,
+    /// or you are recommended to run two tasks on the same VM if you set
+    /// `memoryMib` to `4096` or less.
     #[prost(int64, tag = "2")]
     pub memory_mib: i64,
     /// Extra boot disk size in MiB for each task.
@@ -908,17 +946,14 @@ pub mod allocation_policy {
         #[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         pub enum DataSource {
-            /// Name of an image used as the data source.
+            /// URL for a VM image to use as the data source for this disk.
             /// For example, the following are all valid URLs:
             ///
             /// * Specify the image by its family name:
-            /// <pre><code>projects/<var
-            /// class="apiparam">project</var>/global/images/family/<var
-            /// class="apiparam">image_family</var></code></pre>
+            /// projects/{project}/global/images/family/{image_family}
             /// * Specify the image version:
-            /// <pre>projects/<var
-            /// class="apiparam">project</var>/global/images/<var
-            /// class="apiparam">image_version</var></code></pre>
+            /// projects/{project}/global/images/{image_version}
+            ///
             /// You can also use Batch customized image in short names.
             /// The following image values are supported for a boot disk:
             ///
@@ -1011,10 +1046,16 @@ pub mod allocation_policy {
         pub boot_disk: ::core::option::Option<Disk>,
         /// Non-boot disks to be attached for each VM created by this InstancePolicy.
         /// New disks will be deleted when the VM is deleted.
+        /// A non-boot disk is a disk that can be of a device with a
+        /// file system or a raw storage drive that is not ready for data
+        /// storage and accessing.
         #[prost(message, repeated, tag = "6")]
         pub disks: ::prost::alloc::vec::Vec<AttachedDisk>,
     }
-    /// Either an InstancePolicy or an instance template.
+    /// InstancePolicyOrTemplate lets you define the type of resources to use for
+    /// this job either with an InstancePolicy or an instance template.
+    /// If undefined, Batch picks the type of VM to use and doesn't include
+    /// optional VM resources such as GPUs and extra disks.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct InstancePolicyOrTemplate {
@@ -1058,30 +1099,20 @@ pub mod allocation_policy {
         /// You can specify the network as a full or partial URL.
         ///
         /// For example, the following are all valid URLs:
-        /// <pre><code><https://www.googleapis.com/compute/v1/projects/<var>
-        /// class="apiparam">project</var>/global/networks/<var
-        /// class="apiparam">network</var></code></pre>
-        /// <pre><code>projects/<var
-        /// class="apiparam">project</var>/global/networks/<var
-        /// class="apiparam">network</var></code></pre>
-        /// <pre><code>global/networks/<var
-        /// class="apiparam">network</var></code></pre>
+        ///
+        /// * <https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}>
+        /// * projects/{project}/global/networks/{network}
+        /// * global/networks/{network}
         #[prost(string, tag = "1")]
         pub network: ::prost::alloc::string::String,
         /// The URL of an existing subnetwork resource in the network.
         /// You can specify the subnetwork as a full or partial URL.
         ///
         /// For example, the following are all valid URLs:
-        /// <pre><code><https://www.googleapis.com/compute/v1/projects/<var>
-        /// class="apiparam">project</var>/regions/<var
-        /// class="apiparam">region</var>/subnetworks/<var
-        /// class="apiparam">subnetwork</var></code></pre>
-        /// <pre><code>projects/<var class="apiparam">project</var>/regions/<var
-        /// class="apiparam">region</var>/subnetworks/<var
-        /// class="apiparam">subnetwork</var></code></pre>
-        /// <pre><code>regions/<var
-        /// class="apiparam">region</var>/subnetworks/<var
-        /// class="apiparam">subnetwork</var></code></pre>
+        ///
+        /// * <https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}>
+        /// * projects/{project}/regions/{region}/subnetworks/{subnetwork}
+        /// * regions/{region}/subnetworks/{subnetwork}
         #[prost(string, tag = "2")]
         pub subnetwork: ::prost::alloc::string::String,
         /// Default is false (with an external IP address). Required if
