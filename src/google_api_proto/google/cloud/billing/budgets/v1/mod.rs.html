@@ -758,6 +758,25 @@
 <a href="#758" id="758">758</a>
 <a href="#759" id="759">759</a>
 <a href="#760" id="760">760</a>
+<a href="#761" id="761">761</a>
+<a href="#762" id="762">762</a>
+<a href="#763" id="763">763</a>
+<a href="#764" id="764">764</a>
+<a href="#765" id="765">765</a>
+<a href="#766" id="766">766</a>
+<a href="#767" id="767">767</a>
+<a href="#768" id="768">768</a>
+<a href="#769" id="769">769</a>
+<a href="#770" id="770">770</a>
+<a href="#771" id="771">771</a>
+<a href="#772" id="772">772</a>
+<a href="#773" id="773">773</a>
+<a href="#774" id="774">774</a>
+<a href="#775" id="775">775</a>
+<a href="#776" id="776">776</a>
+<a href="#777" id="777">777</a>
+<a href="#778" id="778">778</a>
+<a href="#779" id="779">779</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A budget is a plan that describes what you expect to spend on Cloud
 /// projects, plus the rules to execute as spend is tracked against that plan,
 /// (for example, send an alert when 90% of the target spend is met).
@@ -1000,6 +1019,15 @@
     /// account.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>disable_default_iam_recipients: bool,
+    <span class="doccomment">/// Optional. When set to true, and when the budget has a single project
+    /// configured, notifications will be sent to project level recipients of that
+    /// project. This field will be ignored if the budget has multiple or no
+    /// project configured.
+    ///
+    /// Currently, project level recipients are the users with `Owner` role on a
+    /// cloud project.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>enable_project_level_recipients: bool,
 }
 <span class="doccomment">/// A filter for a budget, limiting the scope of the cost to calculate.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1014,8 +1042,10 @@
     <span class="doccomment">/// Optional. A set of folder and organization names of the form
     /// `folders/{folderId}` or `organizations/{organizationId}`, specifying that
     /// usage from only this set of folders and organizations should be included in
-    /// the budget. If omitted, the report includes all usage for all
-    /// organizations, regardless of which organization the usage occurred on.
+    /// the budget. If omitted, the budget includes all usage that the billing
+    /// account pays for. If the folder or organization contains projects that are
+    /// paid for by a different Cloud Billing account, the budget *doesn&#39;t* apply
+    /// to those projects.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>resource_ancestors: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. If
@@ -1250,6 +1280,14 @@
     /// are of the form `billingAccounts/{billingAccountId}`.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Set the scope of the budgets to be returned, in the format of the
+    /// resource name. The scope of a budget is the cost that it tracks, such as
+    /// costs for a single project, or the costs for all projects in a folder. Only
+    /// project scope (in the format of &quot;projects/project-id&quot; or &quot;projects/123&quot;) is
+    /// supported in this field. When this field is set to a project&#39;s resource
+    /// name, the budgets returned are tracking the costs for that project.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>scope: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of budgets to return per page.
     /// The default and maximum value are 100.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]

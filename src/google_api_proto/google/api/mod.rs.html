@@ -4782,6 +4782,21 @@
 <a href="#4782" id="4782">4782</a>
 <a href="#4783" id="4783">4783</a>
 <a href="#4784" id="4784">4784</a>
+<a href="#4785" id="4785">4785</a>
+<a href="#4786" id="4786">4786</a>
+<a href="#4787" id="4787">4787</a>
+<a href="#4788" id="4788">4788</a>
+<a href="#4789" id="4789">4789</a>
+<a href="#4790" id="4790">4790</a>
+<a href="#4791" id="4791">4791</a>
+<a href="#4792" id="4792">4792</a>
+<a href="#4793" id="4793">4793</a>
+<a href="#4794" id="4794">4794</a>
+<a href="#4795" id="4795">4795</a>
+<a href="#4796" id="4796">4796</a>
+<a href="#4797" id="4797">4797</a>
+<a href="#4798" id="4798">4798</a>
+<a href="#4799" id="4799">4799</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-api-apikeys-v2&quot;</span>))]
 </span><span class="kw">pub mod </span>apikeys;
 <span class="attr">#[cfg(
@@ -5681,6 +5696,19 @@
     /// a non-empty value will be returned. The user will not be aware of what
     /// non-empty value to expect.
     </span>NonEmptyDefault = <span class="number">7</span>,
+    <span class="doccomment">/// Denotes that the field in a resource (a message annotated with
+    /// google.api.resource) is used in the resource name to uniquely identify the
+    /// resource. For AIP-compliant APIs, this should only be applied to the
+    /// `name` field on the resource.
+    ///
+    /// This behavior should not be applied to references to other resources within
+    /// the message.
+    ///
+    /// The identifier field of resources often have different field behavior
+    /// depending on the request it is embedded in (e.g. for Create methods name
+    /// is optional and unused, while for Update methods it is required). Instead
+    /// of method-specific annotations, only `IDENTIFIER` is required.
+    </span>Identifier = <span class="number">8</span>,
 }
 <span class="kw">impl </span>FieldBehavior {
     <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -5697,6 +5725,7 @@
             FieldBehavior::Immutable =&gt; <span class="string">&quot;IMMUTABLE&quot;</span>,
             FieldBehavior::UnorderedList =&gt; <span class="string">&quot;UNORDERED_LIST&quot;</span>,
             FieldBehavior::NonEmptyDefault =&gt; <span class="string">&quot;NON_EMPTY_DEFAULT&quot;</span>,
+            FieldBehavior::Identifier =&gt; <span class="string">&quot;IDENTIFIER&quot;</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -5710,6 +5739,7 @@
             <span class="string">&quot;IMMUTABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Immutable),
             <span class="string">&quot;UNORDERED_LIST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnorderedList),
             <span class="string">&quot;NON_EMPTY_DEFAULT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NonEmptyDefault),
+            <span class="string">&quot;IDENTIFIER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Identifier),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
