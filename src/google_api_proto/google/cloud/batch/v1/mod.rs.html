@@ -1706,6 +1706,37 @@
 <a href="#1706" id="1706">1706</a>
 <a href="#1707" id="1707">1707</a>
 <a href="#1708" id="1708">1708</a>
+<a href="#1709" id="1709">1709</a>
+<a href="#1710" id="1710">1710</a>
+<a href="#1711" id="1711">1711</a>
+<a href="#1712" id="1712">1712</a>
+<a href="#1713" id="1713">1713</a>
+<a href="#1714" id="1714">1714</a>
+<a href="#1715" id="1715">1715</a>
+<a href="#1716" id="1716">1716</a>
+<a href="#1717" id="1717">1717</a>
+<a href="#1718" id="1718">1718</a>
+<a href="#1719" id="1719">1719</a>
+<a href="#1720" id="1720">1720</a>
+<a href="#1721" id="1721">1721</a>
+<a href="#1722" id="1722">1722</a>
+<a href="#1723" id="1723">1723</a>
+<a href="#1724" id="1724">1724</a>
+<a href="#1725" id="1725">1725</a>
+<a href="#1726" id="1726">1726</a>
+<a href="#1727" id="1727">1727</a>
+<a href="#1728" id="1728">1728</a>
+<a href="#1729" id="1729">1729</a>
+<a href="#1730" id="1730">1730</a>
+<a href="#1731" id="1731">1731</a>
+<a href="#1732" id="1732">1732</a>
+<a href="#1733" id="1733">1733</a>
+<a href="#1734" id="1734">1734</a>
+<a href="#1735" id="1735">1735</a>
+<a href="#1736" id="1736">1736</a>
+<a href="#1737" id="1737">1737</a>
+<a href="#1738" id="1738">1738</a>
+<a href="#1739" id="1739">1739</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Volume describes a volume and parameters for it to be mounted to a VM.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1770,14 +1801,52 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>remote_path: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Compute resource requirements
+<span class="doccomment">/// Compute resource requirements.
+///
+/// ComputeResource defines the amount of resources required for each task.
+/// Make sure your tasks have enough resources to successfully run.
+/// If you also define the types of resources for a job to use with the
+/// \[InstancePolicyOrTemplate\](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate&gt;)
+/// field, make sure both fields are compatible with each other.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ComputeResource {
     <span class="doccomment">/// The milliCPU count.
+    ///
+    /// `cpuMilli` defines the amount of CPU resources per task in milliCPU units.
+    /// For example, `1000` corresponds to 1 vCPU per task. If undefined, the
+    /// default value is `2000`.
+    ///
+    /// If you also define the VM&#39;s machine type using the `machineType` in
+    /// \[InstancePolicy\](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy&gt;)
+    /// field or inside the `instanceTemplate` in the
+    /// \[InstancePolicyOrTemplate\](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate&gt;)
+    /// field, make sure the CPU resources for both fields are compatible with each
+    /// other and with how many tasks you want to allow to run on the same VM at
+    /// the same time.
+    ///
+    /// For example, if you specify the `n2-standard-2` machine type, which has 2
+    /// vCPUs each, you are recommended to set `cpuMilli` no more than `2000`, or
+    /// you are recommended to run two tasks on the same VM if you set `cpuMilli`
+    /// to `1000` or less.
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>cpu_milli: i64,
     <span class="doccomment">/// Memory in MiB.
+    ///
+    /// `memoryMib` defines the amount of memory per task in MiB units.
+    /// If undefined, the default value is `2000`.
+    /// If you also define the VM&#39;s machine type using the `machineType` in
+    /// \[InstancePolicy\](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy&gt;)
+    /// field or inside the `instanceTemplate` in the
+    /// \[InstancePolicyOrTemplate\](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate&gt;)
+    /// field, make sure the memory resources for both fields are compatible with
+    /// each other and with how many tasks you want to allow to run on the same VM
+    /// at the same time.
+    ///
+    /// For example, if you specify the `n2-standard-2` machine type, which has 8
+    /// GiB each, you are recommended to set `memoryMib` to no more than `8192`,
+    /// or you are recommended to run two tasks on the same VM if you set
+    /// `memoryMib` to `4096` or less.
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>memory_mib: i64,
     <span class="doccomment">/// Extra boot disk size in MiB for each task.
@@ -2616,17 +2685,14 @@
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>DataSource {
-            <span class="doccomment">/// Name of an image used as the data source.
+            <span class="doccomment">/// URL for a VM image to use as the data source for this disk.
             /// For example, the following are all valid URLs:
             ///
             /// * Specify the image by its family name:
-            /// &lt;pre&gt;&lt;code&gt;projects/&lt;var
-            /// class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/global/images/family/&lt;var
-            /// class=&quot;apiparam&quot;&gt;image_family&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
+            /// projects/{project}/global/images/family/{image_family}
             /// * Specify the image version:
-            /// &lt;pre&gt;projects/&lt;var
-            /// class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/global/images/&lt;var
-            /// class=&quot;apiparam&quot;&gt;image_version&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
+            /// projects/{project}/global/images/{image_version}
+            ///
             /// You can also use Batch customized image in short names.
             /// The following image values are supported for a boot disk:
             ///
@@ -2719,10 +2785,16 @@
         </span><span class="kw">pub </span>boot_disk: ::core::option::Option&lt;Disk&gt;,
         <span class="doccomment">/// Non-boot disks to be attached for each VM created by this InstancePolicy.
         /// New disks will be deleted when the VM is deleted.
+        /// A non-boot disk is a disk that can be of a device with a
+        /// file system or a raw storage drive that is not ready for data
+        /// storage and accessing.
         </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
         </span><span class="kw">pub </span>disks: ::prost::alloc::vec::Vec&lt;AttachedDisk&gt;,
     }
-    <span class="doccomment">/// Either an InstancePolicy or an instance template.
+    <span class="doccomment">/// InstancePolicyOrTemplate lets you define the type of resources to use for
+    /// this job either with an InstancePolicy or an instance template.
+    /// If undefined, Batch picks the type of VM to use and doesn&#39;t include
+    /// optional VM resources such as GPUs and extra disks.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>InstancePolicyOrTemplate {
@@ -2766,30 +2838,20 @@
         /// You can specify the network as a full or partial URL.
         ///
         /// For example, the following are all valid URLs:
-        /// &lt;pre&gt;&lt;code&gt;&lt;https://www.googleapis.com/compute/v1/projects/&lt;var&gt;
-        /// class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/global/networks/&lt;var
-        /// class=&quot;apiparam&quot;&gt;network&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
-        /// &lt;pre&gt;&lt;code&gt;projects/&lt;var
-        /// class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/global/networks/&lt;var
-        /// class=&quot;apiparam&quot;&gt;network&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
-        /// &lt;pre&gt;&lt;code&gt;global/networks/&lt;var
-        /// class=&quot;apiparam&quot;&gt;network&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
+        ///
+        /// * &lt;https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}&gt;
+        /// * projects/{project}/global/networks/{network}
+        /// * global/networks/{network}
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
         <span class="doccomment">/// The URL of an existing subnetwork resource in the network.
         /// You can specify the subnetwork as a full or partial URL.
         ///
         /// For example, the following are all valid URLs:
-        /// &lt;pre&gt;&lt;code&gt;&lt;https://www.googleapis.com/compute/v1/projects/&lt;var&gt;
-        /// class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/regions/&lt;var
-        /// class=&quot;apiparam&quot;&gt;region&lt;/var&gt;/subnetworks/&lt;var
-        /// class=&quot;apiparam&quot;&gt;subnetwork&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
-        /// &lt;pre&gt;&lt;code&gt;projects/&lt;var class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/regions/&lt;var
-        /// class=&quot;apiparam&quot;&gt;region&lt;/var&gt;/subnetworks/&lt;var
-        /// class=&quot;apiparam&quot;&gt;subnetwork&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
-        /// &lt;pre&gt;&lt;code&gt;regions/&lt;var
-        /// class=&quot;apiparam&quot;&gt;region&lt;/var&gt;/subnetworks/&lt;var
-        /// class=&quot;apiparam&quot;&gt;subnetwork&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
+        ///
+        /// * &lt;https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}&gt;
+        /// * projects/{project}/regions/{region}/subnetworks/{subnetwork}
+        /// * regions/{region}/subnetworks/{subnetwork}
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>subnetwork: ::prost::alloc::string::String,
         <span class="doccomment">/// Default is false (with an external IP address). Required if
