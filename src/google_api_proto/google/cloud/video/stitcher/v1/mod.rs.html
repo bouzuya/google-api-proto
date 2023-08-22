@@ -2203,6 +2203,7 @@
 <a href="#2203" id="2203">2203</a>
 <a href="#2204" id="2204">2204</a>
 <a href="#2205" id="2205">2205</a>
+<a href="#2206" id="2206">2206</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Configuration for a CDN key. Used by the Video Stitcher
 /// to sign URIs for fetching video manifests and signing
 /// media segments for playback.
@@ -2280,7 +2281,9 @@
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>ad_requests: ::prost::alloc::vec::Vec&lt;AdRequest&gt;,
 }
-<span class="doccomment">/// Information related to the details for one ad tag.
+<span class="doccomment">/// Information related to the details for one ad tag. This resource is only
+/// available for VOD sessions that do not implement Google Ad Manager ad
+/// insertion.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>VodAdTagDetail {
@@ -2568,7 +2571,9 @@
         </span><span class="kw">pub </span>gam_slate_id: i64,
     }
 }
-<span class="doccomment">/// Detailed information related to the interstitial of a VOD session.
+<span class="doccomment">/// Detailed information related to the interstitial of a VOD session. This
+/// resource is only available for VOD sessions that do not implement Google Ad
+/// Manager ad insertion.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>VodStitchDetail {
@@ -2955,9 +2960,7 @@
     <span class="doccomment">/// Output only. The generated ID of the VodSession&#39;s source media.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>asset_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Determines how the ad should be tracked. If
-    /// \[gam_vod_config][google.cloud.video.stitcher.v1.VodSession.gam_vod_config\]
-    /// is set, the value must be `CLIENT` because the IMA SDK handles ad tracking.
+    <span class="doccomment">/// Required. Determines how the ad should be tracked.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;AdTracking&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>ad_tracking: i32,
     <span class="doccomment">/// This field should be set with appropriate values if GAM is being used for
@@ -3080,8 +3083,7 @@
 <span class="doccomment">/// Nested message and enum types in `LiveSession`.
 </span><span class="kw">pub mod </span>live_session {
     <span class="doccomment">/// Defines fields related to Google Ad Manager (GAM). This should be set if
-    /// GAM
-    /// is being used for ads.
+    /// GAM is being used for ads.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>GamSettings {
