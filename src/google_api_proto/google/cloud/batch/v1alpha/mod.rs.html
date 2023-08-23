@@ -1995,9 +1995,6 @@
 <a href="#1995" id="1995">1995</a>
 <a href="#1996" id="1996">1996</a>
 <a href="#1997" id="1997">1997</a>
-<a href="#1998" id="1998">1998</a>
-<a href="#1999" id="1999">1999</a>
-<a href="#2000" id="2000">2000</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Volume describes a volume and parameters for it to be mounted to a VM.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2169,6 +2166,10 @@
     /// exit code is for one task execution result, default is 0 as success.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>exit_code: i32,
+    <span class="doccomment">/// Optional. The tail end of any content written to standard error by the task
+    /// execution. This field will be populated only when the execution failed.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>stderr_snippet: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Status of a task
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2260,6 +2261,12 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Runnable {
+    <span class="doccomment">/// Optional. DisplayName is an optional field that can be provided by the
+    /// caller. If provided, it will be used in logs and other outputs to identify
+    /// the script, making it easier for users to understand the logs. If not
+    /// provided the index of the runnable will be used for outputs.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Normally, a non-zero exit status causes the Task to fail. This flag allows
     /// execution of other Runnables to continue instead.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
@@ -3152,17 +3159,14 @@
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>DataSource {
-            <span class="doccomment">/// Name of an image used as the data source.
+            <span class="doccomment">/// URL for a VM image to use as the data source for this disk.
             /// For example, the following are all valid URLs:
             ///
             /// * Specify the image by its family name:
-            /// &lt;pre&gt;&lt;code&gt;projects/&lt;var
-            /// class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/global/images/family/&lt;var
-            /// class=&quot;apiparam&quot;&gt;image_family&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
+            /// projects/{project}/global/images/family/{image_family}
             /// * Specify the image version:
-            /// &lt;pre&gt;projects/&lt;var
-            /// class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/global/images/&lt;var
-            /// class=&quot;apiparam&quot;&gt;image_version&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
+            /// projects/{project}/global/images/{image_version}
+            ///
             /// You can also use Batch customized image in short names.
             /// The following image values are supported for a boot disk:
             ///
@@ -3261,7 +3265,7 @@
         </span><span class="kw">pub </span>boot_disk: ::core::option::Option&lt;Disk&gt;,
         <span class="doccomment">/// Non-boot disks to be attached for each VM created by this InstancePolicy.
         /// New disks will be deleted when the VM is deleted.
-        /// A non bootable disk is a disk that can be of a device with a
+        /// A non-boot disk is a disk that can be of a device with a
         /// file system or a raw storage drive that is not ready for data
         /// storage and accessing.
         </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
@@ -3318,30 +3322,20 @@
         /// You can specify the network as a full or partial URL.
         ///
         /// For example, the following are all valid URLs:
-        /// &lt;pre&gt;&lt;code&gt;&lt;https://www.googleapis.com/compute/v1/projects/&lt;var&gt;
-        /// class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/global/networks/&lt;var
-        /// class=&quot;apiparam&quot;&gt;network&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
-        /// &lt;pre&gt;&lt;code&gt;projects/&lt;var
-        /// class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/global/networks/&lt;var
-        /// class=&quot;apiparam&quot;&gt;network&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
-        /// &lt;pre&gt;&lt;code&gt;global/networks/&lt;var
-        /// class=&quot;apiparam&quot;&gt;network&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
+        ///
+        /// * &lt;https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}&gt;
+        /// * projects/{project}/global/networks/{network}
+        /// * global/networks/{network}
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
         <span class="doccomment">/// The URL of an existing subnetwork resource in the network.
         /// You can specify the subnetwork as a full or partial URL.
         ///
         /// For example, the following are all valid URLs:
-        /// &lt;pre&gt;&lt;code&gt;&lt;https://www.googleapis.com/compute/v1/projects/&lt;var&gt;
-        /// class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/regions/&lt;var
-        /// class=&quot;apiparam&quot;&gt;region&lt;/var&gt;/subnetworks/&lt;var
-        /// class=&quot;apiparam&quot;&gt;subnetwork&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
-        /// &lt;pre&gt;&lt;code&gt;projects/&lt;var class=&quot;apiparam&quot;&gt;project&lt;/var&gt;/regions/&lt;var
-        /// class=&quot;apiparam&quot;&gt;region&lt;/var&gt;/subnetworks/&lt;var
-        /// class=&quot;apiparam&quot;&gt;subnetwork&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
-        /// &lt;pre&gt;&lt;code&gt;regions/&lt;var
-        /// class=&quot;apiparam&quot;&gt;region&lt;/var&gt;/subnetworks/&lt;var
-        /// class=&quot;apiparam&quot;&gt;subnetwork&lt;/var&gt;&lt;/code&gt;&lt;/pre&gt;
+        ///
+        /// * &lt;https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}&gt;
+        /// * projects/{project}/regions/{region}/subnetworks/{subnetwork}
+        /// * regions/{region}/subnetworks/{subnetwork}
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>subnetwork: ::prost::alloc::string::String,
         <span class="doccomment">/// Default is false (with an external IP address). Required if

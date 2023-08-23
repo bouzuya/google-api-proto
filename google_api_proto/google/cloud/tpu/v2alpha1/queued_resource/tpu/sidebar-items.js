@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["NodeSpec"]};
+window.SIDEBAR_ITEMS = {"mod":["node_spec"],"struct":["NodeSpec"]};
