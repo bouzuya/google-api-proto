@@ -29,3 +29,47 @@ pub struct CustomAttribute {
     #[prost(message, repeated, tag = "3")]
     pub group_values: ::prost::alloc::vec::Vec<CustomAttribute>,
 }
+/// Destinations available for a product.
+///
+/// Destinations are used in Merchant Center to allow you to control where the
+/// products from your data feed should be displayed.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum Destination {
+    /// Not specified.
+    Unspecified = 0,
+    /// Shopping ads.
+    ShoppingAds = 1,
+    /// Local inventory ads.
+    LocalInventoryAds = 2,
+    /// Free listings.
+    FreeListings = 3,
+    /// Free local product listings.
+    FreeLocalListings = 4,
+}
+impl Destination {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            Destination::Unspecified => "DESTINATION_UNSPECIFIED",
+            Destination::ShoppingAds => "SHOPPING_ADS",
+            Destination::LocalInventoryAds => "LOCAL_INVENTORY_ADS",
+            Destination::FreeListings => "FREE_LISTINGS",
+            Destination::FreeLocalListings => "FREE_LOCAL_LISTINGS",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "DESTINATION_UNSPECIFIED" => Some(Self::Unspecified),
+            "SHOPPING_ADS" => Some(Self::ShoppingAds),
+            "LOCAL_INVENTORY_ADS" => Some(Self::LocalInventoryAds),
+            "FREE_LISTINGS" => Some(Self::FreeListings),
+            "FREE_LOCAL_LISTINGS" => Some(Self::FreeLocalListings),
+            _ => None,
+        }
+    }
+}

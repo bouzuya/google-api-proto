@@ -194,7 +194,7 @@ pub mod data_policy {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DataMaskingPolicy {
     /// A masking expression to bind to the data masking rule.
-    #[prost(oneof = "data_masking_policy::MaskingExpression", tags = "1")]
+    #[prost(oneof = "data_masking_policy::MaskingExpression", tags = "1, 3")]
     pub masking_expression: ::core::option::Option<
         data_masking_policy::MaskingExpression,
     >,
@@ -320,6 +320,11 @@ pub mod data_masking_policy {
         /// A predefined masking expression.
         #[prost(enumeration = "PredefinedExpression", tag = "1")]
         PredefinedExpression(i32),
+        /// The name of the BigQuery routine that contains the custom masking
+        /// routine, in the format of
+        /// `projects/{project_number}/datasets/{dataset_id}/routines/{routine_id}`.
+        #[prost(string, tag = "3")]
+        Routine(::prost::alloc::string::String),
     }
 }
 /// Generated client implementations.

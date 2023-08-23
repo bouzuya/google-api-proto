@@ -553,6 +553,7 @@ pub mod search;
 #[cfg(
     any(
         feature = "google-shopping-merchant-inventories-v1beta",
+        feature = "google-shopping-merchant-reports-v1beta",
         feature = "google-shopping-type",
     )
 )]
