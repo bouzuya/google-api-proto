@@ -169,6 +169,10 @@ pub struct TaskExecution {
     /// exit code is for one task execution result, default is 0 as success.
     #[prost(int32, tag = "1")]
     pub exit_code: i32,
+    /// Optional. The tail end of any content written to standard error by the task
+    /// execution. This field will be populated only when the execution failed.
+    #[prost(string, tag = "2")]
+    pub stderr_snippet: ::prost::alloc::string::String,
 }
 /// Status of a task
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -260,6 +264,12 @@ pub struct TaskResourceUsage {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Runnable {
+    /// Optional. DisplayName is an optional field that can be provided by the
+    /// caller. If provided, it will be used in logs and other outputs to identify
+    /// the script, making it easier for users to understand the logs. If not
+    /// provided the index of the runnable will be used for outputs.
+    #[prost(string, tag = "10")]
+    pub display_name: ::prost::alloc::string::String,
     /// Normally, a non-zero exit status causes the Task to fail. This flag allows
     /// execution of other Runnables to continue instead.
     #[prost(bool, tag = "3")]
@@ -1152,17 +1162,14 @@ pub mod allocation_policy {
         #[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         pub enum DataSource {
-            /// Name of an image used as the data source.
+            /// URL for a VM image to use as the data source for this disk.
             /// For example, the following are all valid URLs:
             ///
             /// * Specify the image by its family name:
-            /// <pre><code>projects/<var
-            /// class="apiparam">project</var>/global/images/family/<var
-            /// class="apiparam">image_family</var></code></pre>
+            /// projects/{project}/global/images/family/{image_family}
             /// * Specify the image version:
-            /// <pre>projects/<var
-            /// class="apiparam">project</var>/global/images/<var
-            /// class="apiparam">image_version</var></code></pre>
+            /// projects/{project}/global/images/{image_version}
+            ///
             /// You can also use Batch customized image in short names.
             /// The following image values are supported for a boot disk:
             ///
@@ -1261,7 +1268,7 @@ pub mod allocation_policy {
         pub boot_disk: ::core::option::Option<Disk>,
         /// Non-boot disks to be attached for each VM created by this InstancePolicy.
         /// New disks will be deleted when the VM is deleted.
-        /// A non bootable disk is a disk that can be of a device with a
+        /// A non-boot disk is a disk that can be of a device with a
         /// file system or a raw storage drive that is not ready for data
         /// storage and accessing.
         #[prost(message, repeated, tag = "6")]
@@ -1318,30 +1325,20 @@ pub mod allocation_policy {
         /// You can specify the network as a full or partial URL.
         ///
         /// For example, the following are all valid URLs:
-        /// <pre><code><https://www.googleapis.com/compute/v1/projects/<var>
-        /// class="apiparam">project</var>/global/networks/<var
-        /// class="apiparam">network</var></code></pre>
-        /// <pre><code>projects/<var
-        /// class="apiparam">project</var>/global/networks/<var
-        /// class="apiparam">network</var></code></pre>
-        /// <pre><code>global/networks/<var
-        /// class="apiparam">network</var></code></pre>
+        ///
+        /// * <https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}>
+        /// * projects/{project}/global/networks/{network}
+        /// * global/networks/{network}
         #[prost(string, tag = "1")]
         pub network: ::prost::alloc::string::String,
         /// The URL of an existing subnetwork resource in the network.
         /// You can specify the subnetwork as a full or partial URL.
         ///
         /// For example, the following are all valid URLs:
-        /// <pre><code><https://www.googleapis.com/compute/v1/projects/<var>
-        /// class="apiparam">project</var>/regions/<var
-        /// class="apiparam">region</var>/subnetworks/<var
-        /// class="apiparam">subnetwork</var></code></pre>
-        /// <pre><code>projects/<var class="apiparam">project</var>/regions/<var
-        /// class="apiparam">region</var>/subnetworks/<var
-        /// class="apiparam">subnetwork</var></code></pre>
-        /// <pre><code>regions/<var
-        /// class="apiparam">region</var>/subnetworks/<var
-        /// class="apiparam">subnetwork</var></code></pre>
+        ///
+        /// * <https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}>
+        /// * projects/{project}/regions/{region}/subnetworks/{subnetwork}
+        /// * regions/{region}/subnetworks/{subnetwork}
         #[prost(string, tag = "2")]
         pub subnetwork: ::prost::alloc::string::String,
         /// Default is false (with an external IP address). Required if

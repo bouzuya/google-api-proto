@@ -854,6 +854,14 @@ pub mod import_context {
         /// Type of the bak content, FULL or DIFF
         #[prost(enumeration = "super::BakType", tag = "6")]
         pub bak_type: i32,
+        /// Optional. StopAt keyword for transaction log import, Applies to Cloud SQL
+        /// for SQL Server only
+        #[prost(message, optional, tag = "7")]
+        pub stop_at: ::core::option::Option<::prost_types::Timestamp>,
+        /// Optional. StopAtMark keyword for transaction log import, Applies to Cloud
+        /// SQL for SQL Server only
+        #[prost(string, tag = "8")]
+        pub stop_at_mark: ::prost::alloc::string::String,
     }
     /// Nested message and enum types in `SqlBakImportOptions`.
     pub mod sql_bak_import_options {
@@ -909,6 +917,27 @@ pub struct IpConfiguration {
     /// such as BigQuery.
     #[prost(message, optional, tag = "7")]
     pub enable_private_path_for_google_cloud_services: ::core::option::Option<bool>,
+    /// PSC settings for this instance.
+    #[prost(message, optional, tag = "9")]
+    pub psc_config: ::core::option::Option<PscConfig>,
+}
+/// PSC settings for a Cloud SQL instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PscConfig {
+    /// Whether PSC connectivity is enabled for this instance.
+    #[prost(bool, optional, tag = "1")]
+    pub psc_enabled: ::core::option::Option<bool>,
+    /// List of consumer projects that are allow-listed for PSC connections to this
+    /// instance. This instance can be connected to with PSC from any network in
+    /// these projects.
+    ///
+    /// Each consumer project in this list may be represented by a project number
+    /// (numeric) or by a project id (alphanumeric).
+    #[prost(string, repeated, tag = "2")]
+    pub allowed_consumer_projects: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
 }
 /// Preferred location. This specifies where a Cloud SQL instance is located.
 /// Note that if the preferred location is not available, the instance will be
@@ -1916,12 +1945,14 @@ impl SqlFileType {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum BakType {
-    /// default type.
+    /// Default type.
     Unspecified = 0,
     /// Full backup.
     Full = 1,
     /// Differential backup.
     Diff = 2,
+    /// Transaction Log backup
+    Tlog = 3,
 }
 impl BakType {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -1933,6 +1964,7 @@ impl BakType {
             BakType::Unspecified => "BAK_TYPE_UNSPECIFIED",
             BakType::Full => "FULL",
             BakType::Diff => "DIFF",
+            BakType::Tlog => "TLOG",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1941,6 +1973,7 @@ impl BakType {
             "BAK_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
             "FULL" => Some(Self::Full),
             "DIFF" => Some(Self::Diff),
+            "TLOG" => Some(Self::Tlog),
             _ => None,
         }
     }
@@ -4220,6 +4253,7 @@ pub struct SqlInstancesCloneRequest {
     pub body: ::core::option::Option<InstancesCloneRequest>,
 }
 /// Instance delete request.
+/// Next tag: 7
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SqlInstancesDeleteRequest {
@@ -4913,6 +4947,28 @@ pub struct SqlInstancesGetDiskShrinkConfigResponse {
     #[prost(string, tag = "3")]
     pub message: ::prost::alloc::string::String,
 }
+/// Instance get latest recovery time request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SqlInstancesGetLatestRecoveryTimeRequest {
+    /// Cloud SQL instance ID. This does not include the project ID.
+    #[prost(string, tag = "1")]
+    pub instance: ::prost::alloc::string::String,
+    /// Project ID of the project that contains the instance.
+    #[prost(string, tag = "2")]
+    pub project: ::prost::alloc::string::String,
+}
+/// Instance get latest recovery time response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SqlInstancesGetLatestRecoveryTimeResponse {
+    /// This is always `sql#getLatestRecoveryTime`.
+    #[prost(string, tag = "1")]
+    pub kind: ::prost::alloc::string::String,
+    /// Timestamp, identifies the latest recovery time of the source instance.
+    #[prost(message, optional, tag = "2")]
+    pub latest_recovery_time: ::core::option::Option<::prost_types::Timestamp>,
+}
 /// Database instance clone context.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4948,6 +5004,11 @@ pub struct CloneContext {
     /// instance. Clone all databases if empty.
     #[prost(string, repeated, tag = "9")]
     pub database_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. (Point-in-time recovery for PostgreSQL only) Clone to an instance
+    /// in the specified zone. If no zone is specified, clone to the same zone as
+    /// the source instance.
+    #[prost(string, optional, tag = "10")]
+    pub preferred_zone: ::core::option::Option<::prost::alloc::string::String>,
 }
 /// Binary log coordinates.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -5125,6 +5186,14 @@ pub struct DatabaseInstance {
     /// The current software version on the instance.
     #[prost(string, tag = "42")]
     pub maintenance_version: ::prost::alloc::string::String,
+    /// Output only. The link to service attachment of PSC instance.
+    #[prost(string, optional, tag = "48")]
+    pub psc_service_attachment_link: ::core::option::Option<
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. The dns name of the instance.
+    #[prost(string, optional, tag = "49")]
+    pub dns_name: ::core::option::Option<::prost::alloc::string::String>,
 }
 /// Nested message and enum types in `DatabaseInstance`.
 pub mod database_instance {
@@ -5551,6 +5620,9 @@ pub mod sql_external_sync_setting_error {
         InvalidFileInfo = 32,
         /// The source instance has unsupported database settings for migration.
         UnsupportedDatabaseSettings = 33,
+        /// The replication user is missing parallel import specific privileges.
+        /// (e.g. LOCK TABLES) for MySQL.
+        MysqlParallelImportInsufficientPrivilege = 34,
     }
     impl SqlExternalSyncSettingErrorType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -5653,6 +5725,9 @@ pub mod sql_external_sync_setting_error {
                 SqlExternalSyncSettingErrorType::UnsupportedDatabaseSettings => {
                     "UNSUPPORTED_DATABASE_SETTINGS"
                 }
+                SqlExternalSyncSettingErrorType::MysqlParallelImportInsufficientPrivilege => {
+                    "MYSQL_PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE"
+                }
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -5707,6 +5782,9 @@ pub mod sql_external_sync_setting_error {
                 "INVALID_FILE_INFO" => Some(Self::InvalidFileInfo),
                 "UNSUPPORTED_DATABASE_SETTINGS" => {
                     Some(Self::UnsupportedDatabaseSettings)
+                }
+                "MYSQL_PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE" => {
+                    Some(Self::MysqlParallelImportInsufficientPrivilege)
                 }
                 _ => None,
             }
@@ -6760,6 +6838,39 @@ pub mod sql_instances_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
+        /// Get Latest Recovery Time for a given instance.
+        pub async fn get_latest_recovery_time(
+            &mut self,
+            request: impl tonic::IntoRequest<
+                super::SqlInstancesGetLatestRecoveryTimeRequest,
+            >,
+        ) -> std::result::Result<
+            tonic::Response<super::SqlInstancesGetLatestRecoveryTimeResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.sql.v1.SqlInstancesService/GetLatestRecoveryTime",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.sql.v1.SqlInstancesService",
+                        "GetLatestRecoveryTime",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
     }
 }
 /// Flags list request.
@@ -7038,6 +7149,9 @@ pub struct ConnectSettings {
     /// object to determine the database type.
     #[prost(enumeration = "SqlBackendType", tag = "32")]
     pub backend_type: i32,
+    /// Whether PSC connectivity is enabled for this instance.
+    #[prost(bool, tag = "33")]
+    pub psc_enabled: bool,
     /// The dns name of the instance.
     #[prost(string, tag = "34")]
     pub dns_name: ::prost::alloc::string::String,

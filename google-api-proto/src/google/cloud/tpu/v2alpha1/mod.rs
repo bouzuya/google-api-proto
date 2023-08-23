@@ -511,9 +511,34 @@ pub mod queued_resource {
             /// instead. It's an error to specify both node_id and multi_node_params.
             #[prost(string, tag = "2")]
             pub node_id: ::prost::alloc::string::String,
+            /// Optional. Fields to specify in case of multi-node request.
+            #[prost(message, optional, tag = "6")]
+            pub multi_node_params: ::core::option::Option<node_spec::MultiNodeParams>,
             /// Required. The node.
             #[prost(message, optional, tag = "3")]
             pub node: ::core::option::Option<super::super::Node>,
+        }
+        /// Nested message and enum types in `NodeSpec`.
+        pub mod node_spec {
+            /// Parameters to specify for multi-node QueuedResource requests. This
+            /// field must be populated in case of multi-node requests instead of
+            /// node_id. It's an error to specify both node_id and multi_node_params.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct MultiNodeParams {
+                /// Required. Number of nodes with this spec. The system will attempt
+                /// to provison "node_count" nodes as part of the request.
+                /// This needs to be > 1.
+                #[prost(int32, tag = "1")]
+                pub node_count: i32,
+                /// Prefix of node_ids in case of multi-node request
+                /// Should follow the `^\[A-Za-z0-9_.~+%-\]+$` regex format.
+                /// If node_count = 3 and node_id_prefix = "np", node ids of nodes
+                /// created will be "np-0", "np-1", "np-2". If this field is not
+                /// provided we use queued_resource_id as the node_id_prefix.
+                #[prost(string, tag = "2")]
+                pub node_id_prefix: ::prost::alloc::string::String,
+            }
         }
     }
     /// BestEffort tier definition.
@@ -972,6 +997,15 @@ pub struct DeleteQueuedResourceRequest {
     /// ACCEPTED, FAILED, or SUSPENDED state.
     #[prost(bool, tag = "3")]
     pub force: bool,
+}
+/// Request for
+/// \[ResetQueuedResource][google.cloud.tpu.v2alpha1.Tpu.ResetQueuedResource\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResetQueuedResourceRequest {
+    /// Required. The name of the queued resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
 }
 /// The per-product per-project service identity for Cloud TPU service.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1701,6 +1735,37 @@ pub mod tpu_client {
                     GrpcMethod::new(
                         "google.cloud.tpu.v2alpha1.Tpu",
                         "DeleteQueuedResource",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Resets a QueuedResource TPU instance
+        pub async fn reset_queued_resource(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ResetQueuedResourceRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.tpu.v2alpha1.Tpu/ResetQueuedResource",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.tpu.v2alpha1.Tpu",
+                        "ResetQueuedResource",
                     ),
                 );
             self.inner.unary(req, path, codec).await
