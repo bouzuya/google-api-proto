@@ -156,6 +156,37 @@ pub struct DeliveryVehicleAttribute {
     /// The attribute's value.
     #[prost(string, tag = "2")]
     pub value: ::prost::alloc::string::String,
+    /// The attribute's value, can be in string, bool, or double type.
+    #[prost(
+        oneof = "delivery_vehicle_attribute::DeliveryVehicleAttributeValue",
+        tags = "3, 4, 5"
+    )]
+    pub delivery_vehicle_attribute_value: ::core::option::Option<
+        delivery_vehicle_attribute::DeliveryVehicleAttributeValue,
+    >,
+}
+/// Nested message and enum types in `DeliveryVehicleAttribute`.
+pub mod delivery_vehicle_attribute {
+    /// The attribute's value, can be in string, bool, or double type.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum DeliveryVehicleAttributeValue {
+        /// String typed attribute value.
+        ///
+        /// Note: This is identical to the `value` field which will eventually be
+        /// deprecated. For create or update methods, either field can be used, but
+        /// it's strongly recommended to use `string_value`. If both `string_value`
+        /// and `value` are set, they must be identical or an error will be thrown.
+        /// Both fields are populated in responses.
+        #[prost(string, tag = "3")]
+        StringValue(::prost::alloc::string::String),
+        /// Boolean typed attribute value.
+        #[prost(bool, tag = "4")]
+        BoolValue(bool),
+        /// Double typed attribute value.
+        #[prost(double, tag = "5")]
+        NumberValue(f64),
+    }
 }
 /// The location, speed, and heading of a vehicle at a point in time.
 #[allow(clippy::derive_partial_eq_without_eq)]
