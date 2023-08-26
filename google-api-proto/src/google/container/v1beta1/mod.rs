@@ -3548,6 +3548,21 @@ pub struct UpdateNodePoolRequest {
     /// Parameters that can be configured on Windows nodes.
     #[prost(message, optional, tag = "34")]
     pub windows_node_config: ::core::option::Option<WindowsNodeConfig>,
+    /// Optional. The desired machine type for nodes in the node pool.
+    /// Initiates an upgrade operation that migrates the nodes in the
+    /// node pool to the specified machine type.
+    #[prost(string, tag = "36")]
+    pub machine_type: ::prost::alloc::string::String,
+    /// Optional. The desired disk type for nodes in the node pool.
+    /// Initiates an upgrade operation that migrates the nodes in the
+    /// node pool to the specified disk type.
+    #[prost(string, tag = "37")]
+    pub disk_type: ::prost::alloc::string::String,
+    /// Optional. The desired disk size for nodes in the node pool.
+    /// Initiates an upgrade operation that migrates the nodes in the
+    /// node pool to the specified disk size.
+    #[prost(int64, tag = "38")]
+    pub disk_size_gb: i64,
 }
 /// SetNodePoolAutoscalingRequest sets the autoscaler settings of a node pool.
 #[allow(clippy::derive_partial_eq_without_eq)]
