@@ -8667,6 +8667,26 @@ pub struct RaySpec {
     /// the {@code resource_pool_images} field.
     #[prost(string, tag = "1")]
     pub image_uri: ::prost::alloc::string::String,
+    /// Optional. Required if image_uri is not set. A map of resource_pool_id to
+    /// prebuild Ray image if user need to use different images for different
+    /// head/worker pools. This map needs to cover all the resource pool ids.
+    /// Example:
+    /// {
+    ///    "ray_head_node_pool": "head image"
+    ///    "ray_worker_node_pool1": "worker image"
+    ///    "ray_worker_node_pool2": "another worker image"
+    /// }
+    #[prost(btree_map = "string, string", tag = "6")]
+    pub resource_pool_images: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Optional. This will be used to indicate which resource pool will serve as
+    /// the Ray head node(the first node within that pool). Will use the machine
+    /// from the first workerpool as the head node by default if this field is not
+    /// set.
+    #[prost(string, tag = "7")]
+    pub head_node_resource_pool_id: ::prost::alloc::string::String,
 }
 /// Persistent Cluster runtime information as output
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -24817,6 +24837,14 @@ pub struct CreatePersistentResourceOperationMetadata {
     #[prost(message, optional, tag = "1")]
     pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
 }
+/// Details of operations that perform update PersistentResource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdatePersistentResourceOperationMetadata {
+    /// Operation metadata for PersistentResource.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
 /// Request message for
 /// \[PersistentResourceService.GetPersistentResource][google.cloud.aiplatform.v1beta1.PersistentResourceService.GetPersistentResource\].
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -24870,6 +24898,22 @@ pub struct DeletePersistentResourceRequest {
     /// `projects/{project}/locations/{location}/persistentResources/{persistent_resource}`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
+}
+/// Request message for UpdatePersistentResource method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdatePersistentResourceRequest {
+    /// Required. The PersistentResource to update.
+    ///
+    /// The PersistentResource's `name` field is used to identify the
+    /// PersistentResource to update. Format:
+    /// `projects/{project}/locations/{location}/persistentResources/{persistent_resource}`
+    #[prost(message, optional, tag = "1")]
+    pub persistent_resource: ::core::option::Option<PersistentResource>,
+    /// Required. Specify the fields to be overwritten in the PersistentResource by
+    /// the update method.
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
 /// Generated client implementations.
 pub mod persistent_resource_service_client {
@@ -25068,6 +25112,37 @@ pub mod persistent_resource_service_client {
                     GrpcMethod::new(
                         "google.cloud.aiplatform.v1beta1.PersistentResourceService",
                         "DeletePersistentResource",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates a PersistentResource.
+        pub async fn update_persistent_resource(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdatePersistentResourceRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.PersistentResourceService/UpdatePersistentResource",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.PersistentResourceService",
+                        "UpdatePersistentResource",
                     ),
                 );
             self.inner.unary(req, path, codec).await

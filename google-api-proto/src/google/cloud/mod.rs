@@ -261,8 +261,6 @@ pub mod filestore;
     )
 )]
 pub mod functions;
-#[cfg(any(feature = "google-cloud-gaming-v1", feature = "google-cloud-gaming-v1beta"))]
-pub mod gaming;
 #[cfg(
     any(
         feature = "google-cloud-gkebackup-logging-v1",

@@ -191,8 +191,6 @@ pub mod cloud;
         feature = "google-cloud-functions-v2",
         feature = "google-cloud-functions-v2alpha",
         feature = "google-cloud-functions-v2beta",
-        feature = "google-cloud-gaming-v1",
-        feature = "google-cloud-gaming-v1beta",
         feature = "google-cloud-gkebackup-logging-v1",
         feature = "google-cloud-gkebackup-v1",
         feature = "google-cloud-gkeconnect-gateway-v1",
