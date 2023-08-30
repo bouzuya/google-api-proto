@@ -128,6 +128,25 @@ pub struct ProductPerformanceView {
     /// returned.
     #[prost(string, optional, tag = "4")]
     pub customer_country_code: ::core::option::Option<::prost::alloc::string::String>,
+    /// Merchant Center account id of the seller of the offer. Segment.
+    ///
+    /// Available only for multi-client accounts.
+    #[prost(int64, optional, tag = "29")]
+    pub account_id: ::core::option::Option<i64>,
+    /// Merchant Center account name of the seller of the offer. Segment.
+    ///
+    /// Available only for multi-client accounts.
+    #[prost(string, optional, tag = "30")]
+    pub account_display_name: ::core::option::Option<::prost::alloc::string::String>,
+    /// [External account
+    /// id](<https://support.google.com/merchants/answer/11537846?hl=en>) submitted
+    /// in an offer feed by a multi-seller account to identify the seller of the
+    /// offer. Segment.
+    ///
+    /// Available only for multi-client accounts. This field is non-empty only for
+    /// auto-seller accounts.
+    #[prost(string, optional, tag = "31")]
+    pub external_account_id: ::core::option::Option<::prost::alloc::string::String>,
     /// Merchant-provided id of the product. Segment.
     #[prost(string, optional, tag = "5")]
     pub offer_id: ::core::option::Option<::prost::alloc::string::String>,
