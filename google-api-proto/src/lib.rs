@@ -371,6 +371,7 @@ pub mod cloud;
         feature = "google-cloud-workstations-logging-v1",
         feature = "google-cloud-workstations-v1",
         feature = "google-cloud-workstations-v1beta",
+        feature = "google-compute-logging-dr-v1",
         feature = "google-compute-logging-gdnsusage-v1",
         feature = "google-container-v1",
         feature = "google-container-v1alpha1",
