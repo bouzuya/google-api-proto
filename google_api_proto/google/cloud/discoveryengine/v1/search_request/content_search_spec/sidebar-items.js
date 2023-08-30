@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["SnippetSpec"]};
+window.SIDEBAR_ITEMS = {"struct":["SnippetSpec","SummarySpec"]};

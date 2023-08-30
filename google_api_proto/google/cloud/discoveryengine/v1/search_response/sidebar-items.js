@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["SearchResult"]};
+window.SIDEBAR_ITEMS = {"mod":["facet","summary"],"struct":["Facet","QueryExpansionInfo","SearchResult","Summary"]};

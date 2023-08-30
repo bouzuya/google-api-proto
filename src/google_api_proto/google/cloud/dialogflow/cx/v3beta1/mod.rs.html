@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/dialogflow/cx/v3beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.1 (eb26296b5 2023-08-03)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../../../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../../../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../../../../../source-files.js"></script><script defer src="../../../../../../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/dialogflow/cx/v3beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../../source-files.js"></script><script defer src="../../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -12670,7 +12670,420 @@
 <a href="#12670" id="12670">12670</a>
 <a href="#12671" id="12671">12671</a>
 <a href="#12672" id="12672">12672</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Represents an experiment in an environment.
+<a href="#12673" id="12673">12673</a>
+<a href="#12674" id="12674">12674</a>
+<a href="#12675" id="12675">12675</a>
+<a href="#12676" id="12676">12676</a>
+<a href="#12677" id="12677">12677</a>
+<a href="#12678" id="12678">12678</a>
+<a href="#12679" id="12679">12679</a>
+<a href="#12680" id="12680">12680</a>
+<a href="#12681" id="12681">12681</a>
+<a href="#12682" id="12682">12682</a>
+<a href="#12683" id="12683">12683</a>
+<a href="#12684" id="12684">12684</a>
+<a href="#12685" id="12685">12685</a>
+<a href="#12686" id="12686">12686</a>
+<a href="#12687" id="12687">12687</a>
+<a href="#12688" id="12688">12688</a>
+<a href="#12689" id="12689">12689</a>
+<a href="#12690" id="12690">12690</a>
+<a href="#12691" id="12691">12691</a>
+<a href="#12692" id="12692">12692</a>
+<a href="#12693" id="12693">12693</a>
+<a href="#12694" id="12694">12694</a>
+<a href="#12695" id="12695">12695</a>
+<a href="#12696" id="12696">12696</a>
+<a href="#12697" id="12697">12697</a>
+<a href="#12698" id="12698">12698</a>
+<a href="#12699" id="12699">12699</a>
+<a href="#12700" id="12700">12700</a>
+<a href="#12701" id="12701">12701</a>
+<a href="#12702" id="12702">12702</a>
+<a href="#12703" id="12703">12703</a>
+<a href="#12704" id="12704">12704</a>
+<a href="#12705" id="12705">12705</a>
+<a href="#12706" id="12706">12706</a>
+<a href="#12707" id="12707">12707</a>
+<a href="#12708" id="12708">12708</a>
+<a href="#12709" id="12709">12709</a>
+<a href="#12710" id="12710">12710</a>
+<a href="#12711" id="12711">12711</a>
+<a href="#12712" id="12712">12712</a>
+<a href="#12713" id="12713">12713</a>
+<a href="#12714" id="12714">12714</a>
+<a href="#12715" id="12715">12715</a>
+<a href="#12716" id="12716">12716</a>
+<a href="#12717" id="12717">12717</a>
+<a href="#12718" id="12718">12718</a>
+<a href="#12719" id="12719">12719</a>
+<a href="#12720" id="12720">12720</a>
+<a href="#12721" id="12721">12721</a>
+<a href="#12722" id="12722">12722</a>
+<a href="#12723" id="12723">12723</a>
+<a href="#12724" id="12724">12724</a>
+<a href="#12725" id="12725">12725</a>
+<a href="#12726" id="12726">12726</a>
+<a href="#12727" id="12727">12727</a>
+<a href="#12728" id="12728">12728</a>
+<a href="#12729" id="12729">12729</a>
+<a href="#12730" id="12730">12730</a>
+<a href="#12731" id="12731">12731</a>
+<a href="#12732" id="12732">12732</a>
+<a href="#12733" id="12733">12733</a>
+<a href="#12734" id="12734">12734</a>
+<a href="#12735" id="12735">12735</a>
+<a href="#12736" id="12736">12736</a>
+<a href="#12737" id="12737">12737</a>
+<a href="#12738" id="12738">12738</a>
+<a href="#12739" id="12739">12739</a>
+<a href="#12740" id="12740">12740</a>
+<a href="#12741" id="12741">12741</a>
+<a href="#12742" id="12742">12742</a>
+<a href="#12743" id="12743">12743</a>
+<a href="#12744" id="12744">12744</a>
+<a href="#12745" id="12745">12745</a>
+<a href="#12746" id="12746">12746</a>
+<a href="#12747" id="12747">12747</a>
+<a href="#12748" id="12748">12748</a>
+<a href="#12749" id="12749">12749</a>
+<a href="#12750" id="12750">12750</a>
+<a href="#12751" id="12751">12751</a>
+<a href="#12752" id="12752">12752</a>
+<a href="#12753" id="12753">12753</a>
+<a href="#12754" id="12754">12754</a>
+<a href="#12755" id="12755">12755</a>
+<a href="#12756" id="12756">12756</a>
+<a href="#12757" id="12757">12757</a>
+<a href="#12758" id="12758">12758</a>
+<a href="#12759" id="12759">12759</a>
+<a href="#12760" id="12760">12760</a>
+<a href="#12761" id="12761">12761</a>
+<a href="#12762" id="12762">12762</a>
+<a href="#12763" id="12763">12763</a>
+<a href="#12764" id="12764">12764</a>
+<a href="#12765" id="12765">12765</a>
+<a href="#12766" id="12766">12766</a>
+<a href="#12767" id="12767">12767</a>
+<a href="#12768" id="12768">12768</a>
+<a href="#12769" id="12769">12769</a>
+<a href="#12770" id="12770">12770</a>
+<a href="#12771" id="12771">12771</a>
+<a href="#12772" id="12772">12772</a>
+<a href="#12773" id="12773">12773</a>
+<a href="#12774" id="12774">12774</a>
+<a href="#12775" id="12775">12775</a>
+<a href="#12776" id="12776">12776</a>
+<a href="#12777" id="12777">12777</a>
+<a href="#12778" id="12778">12778</a>
+<a href="#12779" id="12779">12779</a>
+<a href="#12780" id="12780">12780</a>
+<a href="#12781" id="12781">12781</a>
+<a href="#12782" id="12782">12782</a>
+<a href="#12783" id="12783">12783</a>
+<a href="#12784" id="12784">12784</a>
+<a href="#12785" id="12785">12785</a>
+<a href="#12786" id="12786">12786</a>
+<a href="#12787" id="12787">12787</a>
+<a href="#12788" id="12788">12788</a>
+<a href="#12789" id="12789">12789</a>
+<a href="#12790" id="12790">12790</a>
+<a href="#12791" id="12791">12791</a>
+<a href="#12792" id="12792">12792</a>
+<a href="#12793" id="12793">12793</a>
+<a href="#12794" id="12794">12794</a>
+<a href="#12795" id="12795">12795</a>
+<a href="#12796" id="12796">12796</a>
+<a href="#12797" id="12797">12797</a>
+<a href="#12798" id="12798">12798</a>
+<a href="#12799" id="12799">12799</a>
+<a href="#12800" id="12800">12800</a>
+<a href="#12801" id="12801">12801</a>
+<a href="#12802" id="12802">12802</a>
+<a href="#12803" id="12803">12803</a>
+<a href="#12804" id="12804">12804</a>
+<a href="#12805" id="12805">12805</a>
+<a href="#12806" id="12806">12806</a>
+<a href="#12807" id="12807">12807</a>
+<a href="#12808" id="12808">12808</a>
+<a href="#12809" id="12809">12809</a>
+<a href="#12810" id="12810">12810</a>
+<a href="#12811" id="12811">12811</a>
+<a href="#12812" id="12812">12812</a>
+<a href="#12813" id="12813">12813</a>
+<a href="#12814" id="12814">12814</a>
+<a href="#12815" id="12815">12815</a>
+<a href="#12816" id="12816">12816</a>
+<a href="#12817" id="12817">12817</a>
+<a href="#12818" id="12818">12818</a>
+<a href="#12819" id="12819">12819</a>
+<a href="#12820" id="12820">12820</a>
+<a href="#12821" id="12821">12821</a>
+<a href="#12822" id="12822">12822</a>
+<a href="#12823" id="12823">12823</a>
+<a href="#12824" id="12824">12824</a>
+<a href="#12825" id="12825">12825</a>
+<a href="#12826" id="12826">12826</a>
+<a href="#12827" id="12827">12827</a>
+<a href="#12828" id="12828">12828</a>
+<a href="#12829" id="12829">12829</a>
+<a href="#12830" id="12830">12830</a>
+<a href="#12831" id="12831">12831</a>
+<a href="#12832" id="12832">12832</a>
+<a href="#12833" id="12833">12833</a>
+<a href="#12834" id="12834">12834</a>
+<a href="#12835" id="12835">12835</a>
+<a href="#12836" id="12836">12836</a>
+<a href="#12837" id="12837">12837</a>
+<a href="#12838" id="12838">12838</a>
+<a href="#12839" id="12839">12839</a>
+<a href="#12840" id="12840">12840</a>
+<a href="#12841" id="12841">12841</a>
+<a href="#12842" id="12842">12842</a>
+<a href="#12843" id="12843">12843</a>
+<a href="#12844" id="12844">12844</a>
+<a href="#12845" id="12845">12845</a>
+<a href="#12846" id="12846">12846</a>
+<a href="#12847" id="12847">12847</a>
+<a href="#12848" id="12848">12848</a>
+<a href="#12849" id="12849">12849</a>
+<a href="#12850" id="12850">12850</a>
+<a href="#12851" id="12851">12851</a>
+<a href="#12852" id="12852">12852</a>
+<a href="#12853" id="12853">12853</a>
+<a href="#12854" id="12854">12854</a>
+<a href="#12855" id="12855">12855</a>
+<a href="#12856" id="12856">12856</a>
+<a href="#12857" id="12857">12857</a>
+<a href="#12858" id="12858">12858</a>
+<a href="#12859" id="12859">12859</a>
+<a href="#12860" id="12860">12860</a>
+<a href="#12861" id="12861">12861</a>
+<a href="#12862" id="12862">12862</a>
+<a href="#12863" id="12863">12863</a>
+<a href="#12864" id="12864">12864</a>
+<a href="#12865" id="12865">12865</a>
+<a href="#12866" id="12866">12866</a>
+<a href="#12867" id="12867">12867</a>
+<a href="#12868" id="12868">12868</a>
+<a href="#12869" id="12869">12869</a>
+<a href="#12870" id="12870">12870</a>
+<a href="#12871" id="12871">12871</a>
+<a href="#12872" id="12872">12872</a>
+<a href="#12873" id="12873">12873</a>
+<a href="#12874" id="12874">12874</a>
+<a href="#12875" id="12875">12875</a>
+<a href="#12876" id="12876">12876</a>
+<a href="#12877" id="12877">12877</a>
+<a href="#12878" id="12878">12878</a>
+<a href="#12879" id="12879">12879</a>
+<a href="#12880" id="12880">12880</a>
+<a href="#12881" id="12881">12881</a>
+<a href="#12882" id="12882">12882</a>
+<a href="#12883" id="12883">12883</a>
+<a href="#12884" id="12884">12884</a>
+<a href="#12885" id="12885">12885</a>
+<a href="#12886" id="12886">12886</a>
+<a href="#12887" id="12887">12887</a>
+<a href="#12888" id="12888">12888</a>
+<a href="#12889" id="12889">12889</a>
+<a href="#12890" id="12890">12890</a>
+<a href="#12891" id="12891">12891</a>
+<a href="#12892" id="12892">12892</a>
+<a href="#12893" id="12893">12893</a>
+<a href="#12894" id="12894">12894</a>
+<a href="#12895" id="12895">12895</a>
+<a href="#12896" id="12896">12896</a>
+<a href="#12897" id="12897">12897</a>
+<a href="#12898" id="12898">12898</a>
+<a href="#12899" id="12899">12899</a>
+<a href="#12900" id="12900">12900</a>
+<a href="#12901" id="12901">12901</a>
+<a href="#12902" id="12902">12902</a>
+<a href="#12903" id="12903">12903</a>
+<a href="#12904" id="12904">12904</a>
+<a href="#12905" id="12905">12905</a>
+<a href="#12906" id="12906">12906</a>
+<a href="#12907" id="12907">12907</a>
+<a href="#12908" id="12908">12908</a>
+<a href="#12909" id="12909">12909</a>
+<a href="#12910" id="12910">12910</a>
+<a href="#12911" id="12911">12911</a>
+<a href="#12912" id="12912">12912</a>
+<a href="#12913" id="12913">12913</a>
+<a href="#12914" id="12914">12914</a>
+<a href="#12915" id="12915">12915</a>
+<a href="#12916" id="12916">12916</a>
+<a href="#12917" id="12917">12917</a>
+<a href="#12918" id="12918">12918</a>
+<a href="#12919" id="12919">12919</a>
+<a href="#12920" id="12920">12920</a>
+<a href="#12921" id="12921">12921</a>
+<a href="#12922" id="12922">12922</a>
+<a href="#12923" id="12923">12923</a>
+<a href="#12924" id="12924">12924</a>
+<a href="#12925" id="12925">12925</a>
+<a href="#12926" id="12926">12926</a>
+<a href="#12927" id="12927">12927</a>
+<a href="#12928" id="12928">12928</a>
+<a href="#12929" id="12929">12929</a>
+<a href="#12930" id="12930">12930</a>
+<a href="#12931" id="12931">12931</a>
+<a href="#12932" id="12932">12932</a>
+<a href="#12933" id="12933">12933</a>
+<a href="#12934" id="12934">12934</a>
+<a href="#12935" id="12935">12935</a>
+<a href="#12936" id="12936">12936</a>
+<a href="#12937" id="12937">12937</a>
+<a href="#12938" id="12938">12938</a>
+<a href="#12939" id="12939">12939</a>
+<a href="#12940" id="12940">12940</a>
+<a href="#12941" id="12941">12941</a>
+<a href="#12942" id="12942">12942</a>
+<a href="#12943" id="12943">12943</a>
+<a href="#12944" id="12944">12944</a>
+<a href="#12945" id="12945">12945</a>
+<a href="#12946" id="12946">12946</a>
+<a href="#12947" id="12947">12947</a>
+<a href="#12948" id="12948">12948</a>
+<a href="#12949" id="12949">12949</a>
+<a href="#12950" id="12950">12950</a>
+<a href="#12951" id="12951">12951</a>
+<a href="#12952" id="12952">12952</a>
+<a href="#12953" id="12953">12953</a>
+<a href="#12954" id="12954">12954</a>
+<a href="#12955" id="12955">12955</a>
+<a href="#12956" id="12956">12956</a>
+<a href="#12957" id="12957">12957</a>
+<a href="#12958" id="12958">12958</a>
+<a href="#12959" id="12959">12959</a>
+<a href="#12960" id="12960">12960</a>
+<a href="#12961" id="12961">12961</a>
+<a href="#12962" id="12962">12962</a>
+<a href="#12963" id="12963">12963</a>
+<a href="#12964" id="12964">12964</a>
+<a href="#12965" id="12965">12965</a>
+<a href="#12966" id="12966">12966</a>
+<a href="#12967" id="12967">12967</a>
+<a href="#12968" id="12968">12968</a>
+<a href="#12969" id="12969">12969</a>
+<a href="#12970" id="12970">12970</a>
+<a href="#12971" id="12971">12971</a>
+<a href="#12972" id="12972">12972</a>
+<a href="#12973" id="12973">12973</a>
+<a href="#12974" id="12974">12974</a>
+<a href="#12975" id="12975">12975</a>
+<a href="#12976" id="12976">12976</a>
+<a href="#12977" id="12977">12977</a>
+<a href="#12978" id="12978">12978</a>
+<a href="#12979" id="12979">12979</a>
+<a href="#12980" id="12980">12980</a>
+<a href="#12981" id="12981">12981</a>
+<a href="#12982" id="12982">12982</a>
+<a href="#12983" id="12983">12983</a>
+<a href="#12984" id="12984">12984</a>
+<a href="#12985" id="12985">12985</a>
+<a href="#12986" id="12986">12986</a>
+<a href="#12987" id="12987">12987</a>
+<a href="#12988" id="12988">12988</a>
+<a href="#12989" id="12989">12989</a>
+<a href="#12990" id="12990">12990</a>
+<a href="#12991" id="12991">12991</a>
+<a href="#12992" id="12992">12992</a>
+<a href="#12993" id="12993">12993</a>
+<a href="#12994" id="12994">12994</a>
+<a href="#12995" id="12995">12995</a>
+<a href="#12996" id="12996">12996</a>
+<a href="#12997" id="12997">12997</a>
+<a href="#12998" id="12998">12998</a>
+<a href="#12999" id="12999">12999</a>
+<a href="#13000" id="13000">13000</a>
+<a href="#13001" id="13001">13001</a>
+<a href="#13002" id="13002">13002</a>
+<a href="#13003" id="13003">13003</a>
+<a href="#13004" id="13004">13004</a>
+<a href="#13005" id="13005">13005</a>
+<a href="#13006" id="13006">13006</a>
+<a href="#13007" id="13007">13007</a>
+<a href="#13008" id="13008">13008</a>
+<a href="#13009" id="13009">13009</a>
+<a href="#13010" id="13010">13010</a>
+<a href="#13011" id="13011">13011</a>
+<a href="#13012" id="13012">13012</a>
+<a href="#13013" id="13013">13013</a>
+<a href="#13014" id="13014">13014</a>
+<a href="#13015" id="13015">13015</a>
+<a href="#13016" id="13016">13016</a>
+<a href="#13017" id="13017">13017</a>
+<a href="#13018" id="13018">13018</a>
+<a href="#13019" id="13019">13019</a>
+<a href="#13020" id="13020">13020</a>
+<a href="#13021" id="13021">13021</a>
+<a href="#13022" id="13022">13022</a>
+<a href="#13023" id="13023">13023</a>
+<a href="#13024" id="13024">13024</a>
+<a href="#13025" id="13025">13025</a>
+<a href="#13026" id="13026">13026</a>
+<a href="#13027" id="13027">13027</a>
+<a href="#13028" id="13028">13028</a>
+<a href="#13029" id="13029">13029</a>
+<a href="#13030" id="13030">13030</a>
+<a href="#13031" id="13031">13031</a>
+<a href="#13032" id="13032">13032</a>
+<a href="#13033" id="13033">13033</a>
+<a href="#13034" id="13034">13034</a>
+<a href="#13035" id="13035">13035</a>
+<a href="#13036" id="13036">13036</a>
+<a href="#13037" id="13037">13037</a>
+<a href="#13038" id="13038">13038</a>
+<a href="#13039" id="13039">13039</a>
+<a href="#13040" id="13040">13040</a>
+<a href="#13041" id="13041">13041</a>
+<a href="#13042" id="13042">13042</a>
+<a href="#13043" id="13043">13043</a>
+<a href="#13044" id="13044">13044</a>
+<a href="#13045" id="13045">13045</a>
+<a href="#13046" id="13046">13046</a>
+<a href="#13047" id="13047">13047</a>
+<a href="#13048" id="13048">13048</a>
+<a href="#13049" id="13049">13049</a>
+<a href="#13050" id="13050">13050</a>
+<a href="#13051" id="13051">13051</a>
+<a href="#13052" id="13052">13052</a>
+<a href="#13053" id="13053">13053</a>
+<a href="#13054" id="13054">13054</a>
+<a href="#13055" id="13055">13055</a>
+<a href="#13056" id="13056">13056</a>
+<a href="#13057" id="13057">13057</a>
+<a href="#13058" id="13058">13058</a>
+<a href="#13059" id="13059">13059</a>
+<a href="#13060" id="13060">13060</a>
+<a href="#13061" id="13061">13061</a>
+<a href="#13062" id="13062">13062</a>
+<a href="#13063" id="13063">13063</a>
+</pre></div><pre class="rust"><code><span class="doccomment">/// Settings for Generative Safety.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SafetySettings {
+    <span class="doccomment">/// Banned phrases for generated text.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>banned_phrases: ::prost::alloc::vec::Vec&lt;safety_settings::Phrase&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `SafetySettings`.
+</span><span class="kw">pub mod </span>safety_settings {
+    <span class="doccomment">/// Text input which can be used for prompt or banned phrases.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Phrase {
+        <span class="doccomment">/// Required. Text input which can be used for prompt or banned phrases.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>text: ::prost::alloc::string::String,
+        <span class="doccomment">/// Required. Language code of the phrase.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    }
+}
+<span class="doccomment">/// Represents an experiment in an environment.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Experiment {
@@ -14864,6 +15277,60 @@
         </span>}
     }
 }
+<span class="doccomment">/// A data store connection. It represents a data store in Discovery Engine and
+/// the type of the contents it contains.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DataStoreConnection {
+    <span class="doccomment">/// The type of the connected data store.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DataStoreType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>data_store_type: i32,
+    <span class="doccomment">/// The full name of the referenced data store.
+    /// Formats:
+    /// `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`
+    /// `projects/{project}/locations/{location}/dataStores/{data_store}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>data_store: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Type of a data store.
+/// Determines how search is performed in the data store.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>DataStoreType {
+    <span class="doccomment">/// Not specified. This value indicates that the data store type is not
+    /// specified, so it will not be used during search.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// A data store that contains public web content.
+    </span>PublicWeb = <span class="number">1</span>,
+    <span class="doccomment">/// A data store that contains unstructured private data.
+    </span>Unstructured = <span class="number">2</span>,
+    <span class="doccomment">/// A data store that contains structured data (for example FAQ).
+    </span>Structured = <span class="number">3</span>,
+}
+<span class="kw">impl </span>DataStoreType {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            DataStoreType::Unspecified =&gt; <span class="string">&quot;DATA_STORE_TYPE_UNSPECIFIED&quot;</span>,
+            DataStoreType::PublicWeb =&gt; <span class="string">&quot;PUBLIC_WEB&quot;</span>,
+            DataStoreType::Unstructured =&gt; <span class="string">&quot;UNSTRUCTURED&quot;</span>,
+            DataStoreType::Structured =&gt; <span class="string">&quot;STRUCTURED&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;DATA_STORE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;PUBLIC_WEB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PublicWeb),
+            <span class="string">&quot;UNSTRUCTURED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unstructured),
+            <span class="string">&quot;STRUCTURED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Structured),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
 <span class="doccomment">/// Represents a response message that can be returned by a conversational agent.
 ///
 /// Response messages are also used for output audio synthesis. The approach is
@@ -14893,7 +15360,7 @@
     <span class="doccomment">/// Required. The rich response message.
     </span><span class="attr">#[prost(
         oneof = <span class="string">&quot;response_message::Message&quot;</span>,
-        tags = <span class="string">&quot;1, 2, 9, 8, 10, 11, 12, 13, 18&quot;
+        tags = <span class="string">&quot;1, 2, 9, 8, 10, 11, 12, 13, 18, 20&quot;
     </span>)]
     </span><span class="kw">pub </span>message: ::core::option::Option&lt;response_message::Message&gt;,
 }
@@ -15073,6 +15540,14 @@
             </span>PhoneNumber(::prost::alloc::string::String),
         }
     }
+    <span class="doccomment">/// Represents info card response. If the response contains generative
+    /// knowledge prediction, Dialogflow will return a payload with Infobot
+    /// Messenger compatible info card.
+    ///
+    /// Otherwise, the info card response is skipped.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>KnowledgeInfoCard {}
     <span class="doccomment">/// Required. The rich response message.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
@@ -15119,6 +15594,10 @@
         /// this agent to a third-party endpoint.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;18&quot;</span>)]
         </span>TelephonyTransferCall(TelephonyTransferCall),
+        <span class="doccomment">/// Represents info card for knowledge answers, to be better rendered in
+        /// Dialogflow Messenger.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;20&quot;</span>)]
+        </span>KnowledgeInfoCard(KnowledgeInfoCard),
     }
 }
 <span class="doccomment">/// A fulfillment can do one or more of the following actions at the same time:
@@ -15288,8 +15767,10 @@
     </span><span class="kw">pub </span>form: ::core::option::Option&lt;Form&gt;,
     <span class="doccomment">/// Ordered list of
     /// \[`TransitionRouteGroups`][google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroup\]
-    /// associated with the page. Transition route groups must be unique within a
-    /// page.
+    /// added to the page. Transition route groups must be unique within a page. If
+    /// the page links both flow-level transition route groups and agent-level
+    /// transition route groups, the flow-level ones will have higher priority and
+    /// will be put before the agent-level ones.
     ///
     /// *   If multiple transition routes within a page scope refer to the same
     ///      intent, then the precedence order is: page&#39;s transition route -&gt; page&#39;s
@@ -15335,6 +15816,9 @@
     /// no match or no input.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>event_handlers: ::prost::alloc::vec::Vec&lt;EventHandler&gt;,
+    <span class="doccomment">/// Optional. Knowledge connector configuration.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="kw">pub </span>knowledge_connector_settings: ::core::option::Option&lt;KnowledgeConnectorSettings&gt;,
 }
 <span class="doccomment">/// A form is a data model that groups related parameters that can be collected
 /// from the user. The process in which the agent prompts the user and collects
@@ -15524,6 +16008,10 @@
     <span class="doccomment">/// Output only. The unique identifier of this transition route.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The description of the transition route. The maximum length is
+    /// 500 characters.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// The unique identifier of an
     /// \[Intent][google.cloud.dialogflow.cx.v3beta1.Intent\]. Format:
     /// `projects/&lt;Project ID&gt;/locations/&lt;Location ID&gt;/agents/&lt;Agent
@@ -15761,6 +16249,55 @@
     ///     this page will be cleared).
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>force: bool,
+}
+<span class="doccomment">/// The Knowledge Connector settings for this page or flow.
+/// This includes information such as the attached Knowledge Bases, and the way
+/// to execute fulfillment.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>KnowledgeConnectorSettings {
+    <span class="doccomment">/// Whether Knowledge Connector is enabled or not.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>enabled: bool,
+    <span class="doccomment">/// The fulfillment to be triggered.
+    ///
+    /// When the answers from the Knowledge Connector are selected by Dialogflow,
+    /// you can utitlize the request scoped parameter `$request.knowledge.answers`
+    /// (contains up to the 5 highest confidence answers) and
+    /// `$request.knowledge.questions` (contains the corresponding questions) to
+    /// construct the fulfillment.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>trigger_fulfillment: ::core::option::Option&lt;Fulfillment&gt;,
+    <span class="doccomment">/// Optional. List of related data store connections.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>data_store_connections: ::prost::alloc::vec::Vec&lt;DataStoreConnection&gt;,
+    <span class="doccomment">/// The target to transition to, either a page in the same host flow (the flow
+    /// that owns this
+    /// \[KnowledgeConnectorSettings][google.cloud.dialogflow.cx.v3beta1.KnowledgeConnectorSettings\]),
+    /// or another flow in the same agent.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;knowledge_connector_settings::Target&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
+    </span><span class="kw">pub </span>target: ::core::option::Option&lt;knowledge_connector_settings::Target&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `KnowledgeConnectorSettings`.
+</span><span class="kw">pub mod </span>knowledge_connector_settings {
+    <span class="doccomment">/// The target to transition to, either a page in the same host flow (the flow
+    /// that owns this
+    /// \[KnowledgeConnectorSettings][google.cloud.dialogflow.cx.v3beta1.KnowledgeConnectorSettings\]),
+    /// or another flow in the same agent.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Target {
+        <span class="doccomment">/// The target page to transition to.
+        /// Format: `projects/&lt;Project ID&gt;/locations/&lt;Location ID&gt;/agents/&lt;Agent
+        /// ID&gt;/flows/&lt;Flow ID&gt;/pages/&lt;Page ID&gt;`.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span>TargetPage(::prost::alloc::string::String),
+        <span class="doccomment">/// The target flow to transition to.
+        /// Format: `projects/&lt;Project ID&gt;/locations/&lt;Location ID&gt;/agents/&lt;Agent
+        /// ID&gt;/flows/&lt;Flow ID&gt;`.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span>TargetFlow(::prost::alloc::string::String),
+    }
 }
 <span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>pages_client {
@@ -16944,6 +17481,8 @@
         </span>Pages = <span class="number">13</span>,
         <span class="doccomment">/// Transition route group.
         </span>TransitionRouteGroup = <span class="number">7</span>,
+        <span class="doccomment">/// Agent transition route group.
+        </span>AgentTransitionRouteGroup = <span class="number">14</span>,
     }
     <span class="kw">impl </span>ResourceType {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -16966,6 +17505,7 @@
                 ResourceType::Page =&gt; <span class="string">&quot;PAGE&quot;</span>,
                 ResourceType::Pages =&gt; <span class="string">&quot;PAGES&quot;</span>,
                 ResourceType::TransitionRouteGroup =&gt; <span class="string">&quot;TRANSITION_ROUTE_GROUP&quot;</span>,
+                ResourceType::AgentTransitionRouteGroup =&gt; <span class="string">&quot;AGENT_TRANSITION_ROUTE_GROUP&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -16985,6 +17525,7 @@
                 <span class="string">&quot;PAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Page),
                 <span class="string">&quot;PAGES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pages),
                 <span class="string">&quot;TRANSITION_ROUTE_GROUP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TransitionRouteGroup),
+                <span class="string">&quot;AGENT_TRANSITION_ROUTE_GROUP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AgentTransitionRouteGroup),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -17240,6 +17781,9 @@
     <span class="doccomment">/// NLU related settings of the flow.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>nlu_settings: ::core::option::Option&lt;NluSettings&gt;,
+    <span class="doccomment">/// Optional. Knowledge connector configuration.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="kw">pub </span>knowledge_connector_settings: ::core::option::Option&lt;KnowledgeConnectorSettings&gt;,
 }
 <span class="doccomment">/// The request message for
 /// \[Flows.CreateFlow][google.cloud.dialogflow.cx.v3beta1.Flows.CreateFlow\].
@@ -18709,9 +19253,12 @@
     </span><span class="kw">pub </span>single_utterance_end_time_offset: ::core::option::Option&lt;
         ::prost_types::Duration,
     &gt;,
-    <span class="doccomment">/// No speech timeout settings observed at runtime.
+    <span class="doccomment">/// No speech timeout settings for the stream.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
     </span><span class="kw">pub </span>no_speech_timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
+    <span class="doccomment">/// Speech endpointing timeout settings for the stream.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="kw">pub </span>endpointing_timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Whether the streaming terminates with an injected text query.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;16&quot;</span>)]
     </span><span class="kw">pub </span>is_input_text: bool,
@@ -22955,6 +23502,93 @@
         </span>}
     }
 }
+<span class="doccomment">/// Settings for Generative AI.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GenerativeSettings {
+    <span class="doccomment">/// Format: `projects/&lt;Project ID&gt;/locations/&lt;Location ID&gt;/agents/&lt;Agent
+    /// ID&gt;/generativeSettings`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Settings for Generative Fallback.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>fallback_settings: ::core::option::Option&lt;generative_settings::FallbackSettings&gt;,
+    <span class="doccomment">/// Settings for Generative Safety.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>generative_safety_settings: ::core::option::Option&lt;SafetySettings&gt;,
+    <span class="doccomment">/// Settings for knowledge connector.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>knowledge_connector_settings: ::core::option::Option&lt;
+        generative_settings::KnowledgeConnectorSettings,
+    &gt;,
+    <span class="doccomment">/// Language for this settings.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `GenerativeSettings`.
+</span><span class="kw">pub mod </span>generative_settings {
+    <span class="doccomment">/// Settings for Generative Fallback.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>FallbackSettings {
+        <span class="doccomment">/// Display name of the selected prompt.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>selected_prompt: ::prost::alloc::string::String,
+        <span class="doccomment">/// Stored prompts that can be selected, for example default templates like
+        /// &quot;conservative&quot; or &quot;chatty&quot;, or user defined ones.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>prompt_templates: ::prost::alloc::vec::Vec&lt;
+            fallback_settings::PromptTemplate,
+        &gt;,
+    }
+    <span class="doccomment">/// Nested message and enum types in `FallbackSettings`.
+    </span><span class="kw">pub mod </span>fallback_settings {
+        <span class="doccomment">/// Prompt template.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>PromptTemplate {
+            <span class="doccomment">/// Prompt name.
+            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+            <span class="doccomment">/// Prompt text that is sent to a LLM on no-match default, placeholders are
+            /// filled downstream. For example: &quot;Here is a conversation $conversation,
+            /// a response is: &quot;
+            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="kw">pub </span>prompt_text: ::prost::alloc::string::String,
+            <span class="doccomment">/// If the flag is true, the prompt is frozen and cannot be modified by
+            /// users.
+            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="kw">pub </span>frozen: bool,
+        }
+    }
+    <span class="doccomment">/// Settings for knowledge connector. These parameters are used for LLM prompt
+    /// like &quot;You are &lt;agent&gt;. You are a helpful and verbose &lt;agent_identity&gt; at
+    /// &lt;business&gt;, &lt;business_description&gt;. Your task is to help humans on
+    /// &lt;agent_scope&gt;&quot;.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>KnowledgeConnectorSettings {
+        <span class="doccomment">/// Name of the company, organization or other entity that the agent
+        /// represents. Used for knowledge connector LLM prompt and for knowledge
+        /// search.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>business: ::prost::alloc::string::String,
+        <span class="doccomment">/// Name of the virtual agent. Used for LLM prompt. Can be left empty.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>agent: ::prost::alloc::string::String,
+        <span class="doccomment">/// Identity of the agent, e.g. &quot;virtual agent&quot;, &quot;AI assistant&quot;.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>agent_identity: ::prost::alloc::string::String,
+        <span class="doccomment">/// Company description, used for LLM prompt, e.g. &quot;a family company selling
+        /// freshly roasted coffee beans&quot;.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>business_description: ::prost::alloc::string::String,
+        <span class="doccomment">/// Agent scope, e.g. &quot;Example company website&quot;, &quot;internal Example
+        /// company website for employees&quot;, &quot;manual of car owner&quot;.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>agent_scope: ::prost::alloc::string::String,
+    }
+}
 <span class="doccomment">/// Metadata associated with the long running operation for
 /// \[Versions.CreateVersion][google.cloud.dialogflow.cx.v3beta1.Versions.CreateVersion\].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -24012,7 +24646,7 @@
     <span class="doccomment">/// Specifies how data is retained. Note that even if the data is
     /// purged due to retention policy, we may still hold it in backup storage for
     /// a few days without allowing direct readings.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;security_settings::DataRetention&quot;</span>, tags = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;security_settings::DataRetention&quot;</span>, tags = <span class="string">&quot;6, 7&quot;</span>)]
     </span><span class="kw">pub </span>data_retention: ::core::option::Option&lt;security_settings::DataRetention&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SecuritySettings`.
@@ -24180,6 +24814,47 @@
             }
         }
     }
+    <span class="doccomment">/// Defines how long we retain persisted data that contains sensitive info.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>RetentionStrategy {
+        <span class="doccomment">/// Retains the persisted data with Dialogflow&#39;s internal default 365d TTLs.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Removes data when the conversation ends. If there is no \[Conversation][\]
+        /// explicitly established, a default conversation ends when the
+        /// corresponding Dialogflow session ends.
+        </span>RemoveAfterConversation = <span class="number">1</span>,
+    }
+    <span class="kw">impl </span>RetentionStrategy {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                RetentionStrategy::Unspecified =&gt; <span class="string">&quot;RETENTION_STRATEGY_UNSPECIFIED&quot;</span>,
+                RetentionStrategy::RemoveAfterConversation =&gt; <span class="string">&quot;REMOVE_AFTER_CONVERSATION&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;RETENTION_STRATEGY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;REMOVE_AFTER_CONVERSATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RemoveAfterConversation),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
     <span class="doccomment">/// Type of data we purge after retention settings triggers purge.
     </span><span class="attr">#[derive(
         Clone,
@@ -24235,6 +24910,10 @@
         /// setting to 0 also means we use default TTL.
         </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
         </span>RetentionWindowDays(i32),
+        <span class="doccomment">/// Specifies the retention behavior defined by
+        /// \[SecuritySettings.RetentionStrategy][google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RetentionStrategy\].
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;RetentionStrategy&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+        </span>RetentionStrategy(i32),
     }
 }
 <span class="doccomment">/// Generated client implementations.
@@ -24579,6 +25258,9 @@
     /// output audio content.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;31&quot;</span>)]
     </span><span class="kw">pub </span>text_to_speech_settings: ::core::option::Option&lt;TextToSpeechSettings&gt;,
+    <span class="doccomment">/// Gen App Builder-related agent-level settings.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;33&quot;</span>)]
+    </span><span class="kw">pub </span>gen_app_builder_settings: ::core::option::Option&lt;agent::GenAppBuilderSettings&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Agent`.
 </span><span class="kw">pub mod </span>agent {
@@ -24621,6 +25303,16 @@
             </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
             </span>GithubSettings(GithubSettings),
         }
+    }
+    <span class="doccomment">/// Settings for Gen App Builder.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>GenAppBuilderSettings {
+        <span class="doccomment">/// Required. The full name of the Gen App Builder engine related to this
+        /// agent if there is one. Format: `projects/{Project ID}/locations/{Location
+        /// ID}/collections/{Collection ID}/engines/{Engine ID}`
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>engine: ::prost::alloc::string::String,
     }
 }
 <span class="doccomment">/// The request message for
@@ -24961,6 +25653,34 @@
     <span class="doccomment">/// Contains all flow validation results.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>flow_validation_results: ::prost::alloc::vec::Vec&lt;FlowValidationResult&gt;,
+}
+<span class="doccomment">/// Request for
+/// \[GetGenerativeSettings][google.cloud.dialogflow.cx.v3beta1.Agents.GetGenerativeSettings\]
+/// RPC.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetGenerativeSettingsRequest {
+    <span class="doccomment">/// Required. Format: `projects/&lt;Project ID&gt;/locations/&lt;Location
+    /// ID&gt;/agents/&lt;Agent ID&gt;/generativeSettings`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Language code of the generative settings.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Request for
+/// \[UpdateGenerativeSettings][google.cloud.dialogflow.cx.v3beta1.Agents.UpdateGenerativeSettings\]
+/// RPC.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdateGenerativeSettingsRequest {
+    <span class="doccomment">/// Required. Generative settings to update.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>generative_settings: ::core::option::Option&lt;GenerativeSettings&gt;,
+    <span class="doccomment">/// Optional. The mask to control which fields get updated. If the mask is not
+    /// present, all fields will be updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
 </span><span class="kw">pub mod </span>agents_client {
@@ -25336,6 +26056,68 @@
                     GrpcMethod::new(
                         <span class="string">&quot;google.cloud.dialogflow.cx.v3beta1.Agents&quot;</span>,
                         <span class="string">&quot;GetAgentValidationResult&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Gets the generative settings for the agent.
+        </span><span class="kw">pub async fn </span>get_generative_settings(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetGenerativeSettingsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::GenerativeSettings&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.dialogflow.cx.v3beta1.Agents/GetGenerativeSettings&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.dialogflow.cx.v3beta1.Agents&quot;</span>,
+                        <span class="string">&quot;GetGenerativeSettings&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Updates the generative settings for the agent.
+        </span><span class="kw">pub async fn </span>update_generative_settings(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdateGenerativeSettingsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::GenerativeSettings&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.dialogflow.cx.v3beta1.Agents/UpdateGenerativeSettings&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.dialogflow.cx.v3beta1.Agents&quot;</span>,
+                        <span class="string">&quot;UpdateGenerativeSettings&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

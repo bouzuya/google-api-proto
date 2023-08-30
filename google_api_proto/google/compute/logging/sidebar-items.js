@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["gdnsusage"]};
+window.SIDEBAR_ITEMS = {"mod":["dr","gdnsusage"]};

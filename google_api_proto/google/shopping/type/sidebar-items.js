@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["CustomAttribute","Price"]};
+window.SIDEBAR_ITEMS = {"enum":["Destination"],"struct":["CustomAttribute","Price"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["fallback_settings"],"struct":["FallbackSettings","KnowledgeConnectorSettings"]};

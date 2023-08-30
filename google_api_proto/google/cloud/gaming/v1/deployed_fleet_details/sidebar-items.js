@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":["deployed_fleet"],"struct":["DeployedFleet","DeployedFleetAutoscaler"]};

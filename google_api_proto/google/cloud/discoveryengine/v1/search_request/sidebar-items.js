@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["content_search_spec","query_expansion_spec","spell_correction_spec"],"struct":["ContentSearchSpec","QueryExpansionSpec","SpellCorrectionSpec"]};
+window.SIDEBAR_ITEMS = {"mod":["boost_spec","content_search_spec","facet_spec","image_query","query_expansion_spec","spell_correction_spec"],"struct":["BoostSpec","ContentSearchSpec","FacetSpec","ImageQuery","QueryExpansionSpec","SpellCorrectionSpec"]};

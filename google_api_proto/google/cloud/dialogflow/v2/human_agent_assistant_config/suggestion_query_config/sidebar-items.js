@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["QuerySource"],"struct":["ContextFilterSettings","DialogflowQuerySource","DocumentQuerySource","KnowledgeBaseQuerySource"]};
+window.SIDEBAR_ITEMS = {"enum":["QuerySource"],"mod":["dialogflow_query_source"],"struct":["ContextFilterSettings","DialogflowQuerySource","DocumentQuerySource","KnowledgeBaseQuerySource"]};

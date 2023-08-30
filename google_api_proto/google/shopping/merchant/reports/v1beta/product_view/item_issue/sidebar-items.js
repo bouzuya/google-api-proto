@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ItemIssueResolution"],"mod":["item_issue_severity"],"struct":["ItemIssueSeverity","ItemIssueType"]};

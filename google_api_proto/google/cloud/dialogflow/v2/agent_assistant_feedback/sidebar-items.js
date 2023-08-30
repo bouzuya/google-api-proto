@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["AnswerRelevance","DocumentCorrectness","DocumentEfficiency"],"struct":["SummarizationFeedback"]};
+window.SIDEBAR_ITEMS = {"enum":["AnswerRelevance","DocumentCorrectness","DocumentEfficiency"],"struct":["KnowledgeSearchFeedback","SummarizationFeedback"]};

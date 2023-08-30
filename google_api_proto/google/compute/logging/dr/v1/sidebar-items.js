@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["disaster_recovery_event"],"struct":["DisasterRecoveryEvent"]};
