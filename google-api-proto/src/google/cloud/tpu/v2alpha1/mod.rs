@@ -262,6 +262,9 @@ pub struct Node {
     /// Output only. Whether the Node belongs to a Multislice group.
     #[prost(bool, tag = "47")]
     pub multislice_node: bool,
+    /// Optional. Boot disk configuration.
+    #[prost(message, optional, tag = "49")]
+    pub boot_disk_config: ::core::option::Option<BootDiskConfig>,
 }
 /// Nested message and enum types in `Node`.
 pub mod node {
@@ -1364,6 +1367,48 @@ pub struct ShieldedInstanceConfig {
     /// Defines whether the instance has Secure Boot enabled.
     #[prost(bool, tag = "1")]
     pub enable_secure_boot: bool,
+}
+/// Boot disk configurations.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BootDiskConfig {
+    /// Optional. Customer encryption key for boot disk.
+    #[prost(message, optional, tag = "1")]
+    pub customer_encryption_key: ::core::option::Option<CustomerEncryptionKey>,
+    /// Optional. Whether the boot disk will be created with confidential compute
+    /// mode.
+    #[prost(bool, tag = "2")]
+    pub enable_confidential_compute: bool,
+}
+/// Customer's encryption key.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomerEncryptionKey {
+    #[prost(oneof = "customer_encryption_key::Key", tags = "7")]
+    pub key: ::core::option::Option<customer_encryption_key::Key>,
+}
+/// Nested message and enum types in `CustomerEncryptionKey`.
+pub mod customer_encryption_key {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Key {
+        /// The name of the encryption key that is stored in Google Cloud KMS.
+        /// For example:
+        /// <pre class="lang-html">"kmsKeyName": "projects/
+        /// <var class="apiparam">kms_project_id</var>/locations/
+        /// <var class="apiparam">region</var>/keyRings/<var class="apiparam">
+        /// key_region</var>/cryptoKeys/<var class="apiparam">key</var>
+        /// </pre>
+        /// The fully-qualifed key name may be returned for resource GET requests.
+        /// For example:
+        /// <pre class="lang-html">"kmsKeyName": "projects/
+        /// <var class="apiparam">kms_project_id</var>/locations/
+        /// <var class="apiparam">region</var>/keyRings/<var class="apiparam">
+        /// key_region</var>/cryptoKeys/<var class="apiparam">key</var>
+        /// /cryptoKeyVersions/1</pre>
+        #[prost(string, tag = "7")]
+        KmsKeyName(::prost::alloc::string::String),
+    }
 }
 /// Generated client implementations.
 pub mod tpu_client {
