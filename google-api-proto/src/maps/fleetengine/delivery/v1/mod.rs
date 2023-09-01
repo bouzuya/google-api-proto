@@ -1470,7 +1470,8 @@ pub struct GetTaskRequest {
     #[prost(string, tag = "3")]
     pub name: ::prost::alloc::string::String,
 }
-/// The `SearchTasks` request message that contains the `tracking_id`.
+/// Deprecated: Issue `GetTaskTrackingInfoRequest`s to `GetTaskTrackingInfo`
+/// instead.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SearchTasksRequest {
@@ -1884,7 +1885,7 @@ pub mod delivery_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Gets all `Task`s with a particular `tracking_id`.
+        /// Deprecated: Use `GetTaskTrackingInfo` instead.
         pub async fn search_tasks(
             &mut self,
             request: impl tonic::IntoRequest<super::SearchTasksRequest>,

@@ -3155,11 +3155,7 @@ pub mod vehicle_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Returns a list of vehicles that match the request
-        /// options, but the vehicle locations will be somewhat altered for privacy.
-        /// This method does not support the `SearchVehicleRequest.order_by` field.
-        /// Vehicle matches in the response will be in order of distance from the
-        /// pickup point.  Only the `vehicle` and `trip_type` fields will be populated.
+        /// Deprecated: Use `SearchVehicles` instead.
         pub async fn search_fuzzed_vehicles(
             &mut self,
             request: impl tonic::IntoRequest<super::SearchVehiclesRequest>,
