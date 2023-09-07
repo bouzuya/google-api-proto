@@ -18,6 +18,19 @@ pub struct DeployedIndexRef {
     #[prost(string, tag = "2")]
     pub deployed_index_id: ::prost::alloc::string::String,
 }
+/// Represents a customer-managed encryption key spec that can be applied to
+/// a top-level resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EncryptionSpec {
+    /// Required. The Cloud KMS resource identifier of the customer managed
+    /// encryption key used to protect a resource. Has the form:
+    /// `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`.
+    /// The key needs to be in the same region as where the compute resource is
+    /// created.
+    #[prost(string, tag = "1")]
+    pub kms_key_name: ::prost::alloc::string::String,
+}
 /// A representation of a collection of database items organized in a way that
 /// allows for approximate nearest neighbor (a.k.a ANN) algorithms search.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -90,6 +103,10 @@ pub struct Index {
     /// BATCH_UPDATE will be used by default.
     #[prost(enumeration = "index::IndexUpdateMethod", tag = "16")]
     pub index_update_method: i32,
+    /// Immutable. Customer-managed encryption key spec for an Index. If set, this
+    /// Index and all sub-resources of this Index will be secured by this key.
+    #[prost(message, optional, tag = "17")]
+    pub encryption_spec: ::core::option::Option<EncryptionSpec>,
 }
 /// Nested message and enum types in `Index`.
 pub mod index {
@@ -808,19 +825,6 @@ pub mod index_service_client {
             self.inner.unary(req, path, codec).await
         }
     }
-}
-/// Represents a customer-managed encryption key spec that can be applied to
-/// a top-level resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EncryptionSpec {
-    /// Required. The Cloud KMS resource identifier of the customer managed
-    /// encryption key used to protect a resource. Has the form:
-    /// `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`.
-    /// The key needs to be in the same region as where the compute resource is
-    /// created.
-    #[prost(string, tag = "1")]
-    pub kms_key_name: ::prost::alloc::string::String,
 }
 /// Vertex AI Feature Store provides a centralized repository for organizing,
 /// storing, and serving ML features. The Featurestore is a top-level container
@@ -8725,6 +8729,7 @@ pub struct ListEndpointsRequest {
     ///      * A key including a space must be quoted. `labels."a key"`.
     ///
     /// Some examples:
+    ///
     ///    * `endpoint=1`
     ///    * `displayName="myDisplayName"`
     ///    * `labels.myKey="myValue"`
@@ -8747,6 +8752,7 @@ pub struct ListEndpointsRequest {
     /// A comma-separated list of fields to order by, sorted in ascending order.
     /// Use "desc" after a field name for descending.
     /// Supported fields:
+    ///
     ///    * `display_name`
     ///    * `create_time`
     ///    * `update_time`
@@ -9797,6 +9803,11 @@ pub struct IndexEndpoint {
     /// index endpoint.
     #[prost(string, tag = "14")]
     pub public_endpoint_domain_name: ::prost::alloc::string::String,
+    /// Immutable. Customer-managed encryption key spec for an IndexEndpoint. If
+    /// set, this IndexEndpoint and all sub-resources of this IndexEndpoint will be
+    /// secured by this key.
+    #[prost(message, optional, tag = "15")]
+    pub encryption_spec: ::core::option::Option<EncryptionSpec>,
 }
 /// A deployment of an Index. IndexEndpoints contain one or more DeployedIndexes.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -14411,6 +14422,26 @@ pub mod trial {
             }
         }
     }
+}
+/// Next ID: 3
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TrialContext {
+    /// A human-readable field which can store a description of this context.
+    /// This will become part of the resulting Trial's description field.
+    #[prost(string, tag = "1")]
+    pub description: ::prost::alloc::string::String,
+    /// If/when a Trial is generated or selected from this Context,
+    /// its Parameters will match any parameters specified here.
+    /// (I.e. if this context specifies parameter name:'a' int_value:3,
+    /// then a resulting Trial will have int_value:3 for its parameter named
+    /// 'a'.) Note that we first attempt to match existing REQUESTED Trials with
+    /// contexts, and if there are no matches, we generate suggestions in the
+    /// subspace defined by the parameters specified here.
+    /// NOTE: a Context without any Parameters matches the entire feasible search
+    ///    space.
+    #[prost(message, repeated, tag = "2")]
+    pub parameters: ::prost::alloc::vec::Vec<trial::Parameter>,
 }
 /// Represents specification of a Study.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -24497,6 +24528,44 @@ pub struct SuggestTrialsRequest {
     /// pending, and provide a new Trial if the last suggested Trial was completed.
     #[prost(string, tag = "3")]
     pub client_id: ::prost::alloc::string::String,
+    /// Optional. This allows you to specify the "context" for a Trial; a context
+    /// is a slice (a subspace) of the search space.
+    ///
+    /// Typical uses for contexts:
+    /// 1) You are using Vizier to tune a server for best performance, but there's
+    ///    a strong weekly cycle.  The context specifies the day-of-week.
+    ///    This allows Tuesday to generalize from Wednesday without assuming that
+    ///    everything is identical.
+    /// 2) Imagine you're optimizing some medical treatment for people.
+    ///    As they walk in the door, you know certain facts about them
+    ///    (e.g. sex, weight, height, blood-pressure).  Put that information in the
+    ///    context, and Vizier will adapt its suggestions to the patient.
+    /// 3) You want to do a fair A/B test efficiently.  Specify the "A" and "B"
+    ///    conditions as contexts, and Vizier will generalize between "A" and "B"
+    ///    conditions.  If they are similar, this will allow Vizier to converge
+    ///    to the optimum faster than if "A" and "B" were separate Studies.
+    ///    NOTE: You can also enter contexts as REQUESTED Trials, e.g. via the
+    ///    CreateTrial() RPC; that's the asynchronous option where you don't need a
+    ///    close association between contexts and suggestions.
+    ///
+    /// NOTE: All the Parameters you set in a context MUST be defined in the
+    ///    Study.
+    /// NOTE: You must supply 0 or $suggestion_count contexts.
+    ///    If you don't supply any contexts, Vizier will make suggestions
+    ///    from the full search space specified in the StudySpec; if you supply
+    ///    a full set of context, each suggestion will match the corresponding
+    ///    context.
+    /// NOTE: A Context with no features set matches anything, and allows
+    ///    suggestions from the full search space.
+    /// NOTE: Contexts MUST lie within the search space specified in the
+    ///    StudySpec.  It's an error if they don't.
+    /// NOTE: Contexts preferentially match ACTIVE then REQUESTED trials before
+    ///    new suggestions are generated.
+    /// NOTE: Generation of suggestions involves a match between a Context and
+    ///    (optionally) a REQUESTED trial; if that match is not fully specified, a
+    ///    suggestion will be geneated in the merged subspace.
+    #[prost(message, repeated, tag = "4")]
+    pub contexts: ::prost::alloc::vec::Vec<TrialContext>,
 }
 /// Response message for
 /// \[VizierService.SuggestTrials][google.cloud.aiplatform.v1.VizierService.SuggestTrials\].

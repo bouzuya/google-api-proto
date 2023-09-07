@@ -194,15 +194,6 @@ pub struct OptimizeToursRequest {
     /// By default, the solving mode is `DEFAULT_SOLVE` (0).
     #[prost(enumeration = "optimize_tours_request::SolvingMode", tag = "4")]
     pub solving_mode: i32,
-    /// Truncates the number of validation errors returned. These errors are
-    /// typically attached to an INVALID_ARGUMENT error payload as a BadRequest
-    /// error detail (<https://cloud.google.com/apis/design/errors#error_details>),
-    /// unless solving_mode=VALIDATE_ONLY: see the
-    /// \[OptimizeToursResponse.validation_errors][google.cloud.optimization.v1.OptimizeToursResponse.validation_errors\]
-    /// field.
-    /// This defaults to 100 and is capped at 10,000.
-    #[prost(int32, optional, tag = "5")]
-    pub max_validation_errors: ::core::option::Option<i32>,
     /// Search mode used to solve the request.
     #[prost(enumeration = "optimize_tours_request::SearchMode", tag = "6")]
     pub search_mode: i32,
@@ -368,6 +359,15 @@ pub struct OptimizeToursRequest {
     /// meters/seconds.
     #[prost(double, optional, tag = "16")]
     pub geodesic_meters_per_second: ::core::option::Option<f64>,
+    /// Truncates the number of validation errors returned. These errors are
+    /// typically attached to an INVALID_ARGUMENT error payload as a BadRequest
+    /// error detail (<https://cloud.google.com/apis/design/errors#error_details>),
+    /// unless solving_mode=VALIDATE_ONLY: see the
+    /// \[OptimizeToursResponse.validation_errors][google.cloud.optimization.v1.OptimizeToursResponse.validation_errors\]
+    /// field.
+    /// This defaults to 100 and is capped at 10,000.
+    #[prost(int32, optional, tag = "5")]
+    pub max_validation_errors: ::core::option::Option<i32>,
     /// Label that may be used to identify this request, reported back in the
     /// \[OptimizeToursResponse.request_label][google.cloud.optimization.v1.OptimizeToursResponse.request_label\].
     #[prost(string, tag = "17")]
@@ -409,12 +409,20 @@ pub mod optimize_tours_request {
         /// as possible.
         ValidateOnly = 1,
         /// Only populates
+        /// \[OptimizeToursResponse.validation_errors][google.cloud.optimization.v1.OptimizeToursResponse.validation_errors\]
+        /// or
         /// \[OptimizeToursResponse.skipped_shipments][google.cloud.optimization.v1.OptimizeToursResponse.skipped_shipments\],
         /// and doesn't actually solve the rest of the request (`status` and `routes`
         /// are unset in the response).
+        /// If infeasibilities in `injected_solution_constraint` routes are detected
+        /// they are populated in the
+        /// \[OptimizeToursResponse.validation_errors][google.cloud.optimization.v1.OptimizeToursResponse.validation_errors\]
+        /// field and
+        /// \[OptimizeToursResponse.skipped_shipments][google.cloud.optimization.v1.OptimizeToursResponse.skipped_shipments\]
+        /// is left empty.
         ///
         /// *IMPORTANT*: not all infeasible shipments are returned here, but only the
-        /// ones that are detected as infeasible as a preprocessing.
+        /// ones that are detected as infeasible during preprocessing.
         DetectSomeInfeasibleShipments = 2,
     }
     impl SolvingMode {
@@ -1775,6 +1783,8 @@ pub mod vehicle {
         Unspecified = 0,
         /// Travel mode corresponding to driving directions (car, ...).
         Driving = 1,
+        /// Travel mode corresponding to walking directions.
+        Walking = 2,
     }
     impl TravelMode {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -1785,6 +1795,7 @@ pub mod vehicle {
             match self {
                 TravelMode::Unspecified => "TRAVEL_MODE_UNSPECIFIED",
                 TravelMode::Driving => "DRIVING",
+                TravelMode::Walking => "WALKING",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1792,6 +1803,7 @@ pub mod vehicle {
             match value {
                 "TRAVEL_MODE_UNSPECIFIED" => Some(Self::Unspecified),
                 "DRIVING" => Some(Self::Driving),
+                "WALKING" => Some(Self::Walking),
                 _ => None,
             }
         }
@@ -1954,6 +1966,15 @@ pub struct DistanceLimit {
     /// nonnegative.
     #[prost(int64, optional, tag = "2")]
     pub soft_max_meters: ::core::option::Option<i64>,
+    /// Cost per kilometer incurred, increasing up to `soft_max_meters`, with
+    /// formula:
+    /// ```
+    ///    min(distance_meters, soft_max_meters) / 1000.0 *
+    ///    cost_per_kilometer_below_soft_max.
+    /// ```
+    /// This cost is not supported in `route_distance_limit`.
+    #[prost(double, optional, tag = "4")]
+    pub cost_per_kilometer_below_soft_max: ::core::option::Option<f64>,
     /// Cost per kilometer incurred if distance is above `soft_max_meters` limit.
     /// The additional cost is 0 if the distance is under the limit, otherwise the
     /// formula used to compute the cost is the following:
@@ -2985,7 +3006,8 @@ pub mod injected_solution_constraint {
                 /// them.
                 RelaxVisitTimesAfterThreshold = 1,
                 /// Same as `RELAX_VISIT_TIMES_AFTER_THRESHOLD`, but the visit sequence
-                /// is also relaxed: visits remain simply bound to their vehicle.
+                /// is also relaxed: visits can only be performed by this vehicle, but
+                /// can potentially become unperformed.
                 RelaxVisitTimesAndSequenceAfterThreshold = 2,
                 /// Same as `RELAX_VISIT_TIMES_AND_SEQUENCE_AFTER_THRESHOLD`, but the
                 /// vehicle is also relaxed: visits are completely free at or after the
@@ -3081,6 +3103,7 @@ pub struct OptimizeToursValidationError {
     ///      * INJECTED_SOLUTION_CONCURRENT_SOLUTION_TYPES = 2005;
     ///      * INJECTED_SOLUTION_MORE_THAN_ONE_PER_TYPE = 2006;
     ///      * INJECTED_SOLUTION_REFRESH_WITHOUT_POPULATE = 2008;
+    ///      * INJECTED_SOLUTION_CONSTRAINED_ROUTE_PORTION_INFEASIBLE = 2010;
     /// * SHIPMENT_MODEL_ERROR = 22;
     ///      * SHIPMENT_MODEL_TOO_LARGE = 2200;
     ///      * SHIPMENT_MODEL_TOO_MANY_CAPACITY_TYPES = 2201;
