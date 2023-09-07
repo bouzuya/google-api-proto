@@ -1,3 +1,24 @@
+/// Represents a billing account.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BillingAccount {
+    /// Output only. Resource name of the billing account.
+    /// Format: accounts/{account_id}/billingAccounts/{billing_account_id}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Display name of the billing account.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Output only. The time when this billing account was created.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The 3-letter currency code defined in ISO 4217.
+    #[prost(string, tag = "4")]
+    pub currency_code: ::prost::alloc::string::String,
+    /// Output only. The CLDR region code.
+    #[prost(string, tag = "5")]
+    pub region_code: ::prost::alloc::string::String,
+}
 /// Configuration for how a reseller will reprice a Customer.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -88,12 +109,26 @@ pub mod repricing_config {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Granularity {
-        /// Applies the repricing configuration at the entitlement level. This is
-        /// the only supported value for CustomerRepricingConfig.
+        /// Applies the repricing configuration at the entitlement level.
+        ///
+        /// Note: If a
+        /// \[ChannelPartnerRepricingConfig][google.cloud.channel.v1.ChannelPartnerRepricingConfig\]
+        /// using
+        /// \[RepricingConfig.EntitlementGranularity][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity\]
+        /// becomes effective, then no existing or future
+        /// \[RepricingConfig.ChannelPartnerGranularity][google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity\]
+        /// will apply to the
+        /// \[RepricingConfig.EntitlementGranularity.entitlement][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.entitlement\].
+        /// This is the recommended value for both
+        /// \[CustomerRepricingConfig][google.cloud.channel.v1.CustomerRepricingConfig\]
+        /// and
+        /// \[ChannelPartnerRepricingConfig][google.cloud.channel.v1.ChannelPartnerRepricingConfig\].
         #[prost(message, tag = "4")]
         EntitlementGranularity(EntitlementGranularity),
         /// Applies the repricing configuration at the channel partner level.
-        /// This is the only supported value for ChannelPartnerRepricingConfig.
+        /// Only
+        /// \[ChannelPartnerRepricingConfig][google.cloud.channel.v1.ChannelPartnerRepricingConfig\]
+        /// supports this value.
         #[prost(message, tag = "5")]
         ChannelPartnerGranularity(ChannelPartnerGranularity),
     }
@@ -586,9 +621,9 @@ pub struct Customer {
     #[prost(string, tag = "2")]
     pub org_display_name: ::prost::alloc::string::String,
     /// Required. The organization address for the customer. To enforce US laws and
-    /// embargoes, we require a region and zip code. You must provide valid
-    /// addresses for every customer. To set the customer's language, use the
-    /// Customer-level language code.
+    /// embargoes, we require a region, postal code, and address lines. You must
+    /// provide valid addresses for every customer. To set the customer's
+    /// language, use the Customer-level language code.
     #[prost(message, optional, tag = "3")]
     pub org_postal_address: ::core::option::Option<
         super::super::super::r#type::PostalAddress,
@@ -842,6 +877,8 @@ pub mod parameter_definition {
         String = 2,
         /// Double type.
         Double = 3,
+        /// Boolean type.
+        Boolean = 4,
     }
     impl ParameterType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -854,6 +891,7 @@ pub mod parameter_definition {
                 ParameterType::Int64 => "INT64",
                 ParameterType::String => "STRING",
                 ParameterType::Double => "DOUBLE",
+                ParameterType::Boolean => "BOOLEAN",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -863,6 +901,7 @@ pub mod parameter_definition {
                 "INT64" => Some(Self::Int64),
                 "STRING" => Some(Self::String),
                 "DOUBLE" => Some(Self::Double),
+                "BOOLEAN" => Some(Self::Boolean),
                 _ => None,
             }
         }
@@ -1426,7 +1465,7 @@ pub struct AssociationInfo {
 pub struct ProvisionedService {
     /// Output only. Provisioning ID of the entitlement. For Google Workspace, this
     /// is the underlying Subscription ID. For Google Cloud, this is the Billing
-    /// Account ID of the billing subaccount."
+    /// Account ID of the billing subaccount.
     #[prost(string, tag = "1")]
     pub provisioning_id: ::prost::alloc::string::String,
     /// Output only. The product pertaining to the provisioning resource as
@@ -1542,6 +1581,9 @@ pub mod transfer_eligibility {
         SkuNotEligible = 2,
         /// SKU subscription is suspended
         SkuSuspended = 3,
+        /// The reseller is not authorized to transact on this Product. See
+        /// <https://support.google.com/channelservices/answer/9759265>
+        ChannelPartnerNotAuthorizedForSku = 4,
     }
     impl Reason {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -1554,6 +1596,9 @@ pub mod transfer_eligibility {
                 Reason::PendingTosAcceptance => "PENDING_TOS_ACCEPTANCE",
                 Reason::SkuNotEligible => "SKU_NOT_ELIGIBLE",
                 Reason::SkuSuspended => "SKU_SUSPENDED",
+                Reason::ChannelPartnerNotAuthorizedForSku => {
+                    "CHANNEL_PARTNER_NOT_AUTHORIZED_FOR_SKU"
+                }
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1563,6 +1608,9 @@ pub mod transfer_eligibility {
                 "PENDING_TOS_ACCEPTANCE" => Some(Self::PendingTosAcceptance),
                 "SKU_NOT_ELIGIBLE" => Some(Self::SkuNotEligible),
                 "SKU_SUSPENDED" => Some(Self::SkuSuspended),
+                "CHANNEL_PARTNER_NOT_AUTHORIZED_FOR_SKU" => {
+                    Some(Self::ChannelPartnerNotAuthorizedForSku)
+                }
                 _ => None,
             }
         }
@@ -2336,6 +2384,13 @@ pub struct ListTransferableOffersRequest {
     /// The default value is "en-US".
     #[prost(string, tag = "7")]
     pub language_code: ::prost::alloc::string::String,
+    /// Optional. The Billing Account to look up Offers for. Format:
+    /// accounts/{account_id}/billingAccounts/{billing_account_id}.
+    ///
+    /// This field is only relevant for multi-currency accounts. It should be left
+    /// empty for single currency accounts.
+    #[prost(string, tag = "8")]
+    pub billing_account: ::prost::alloc::string::String,
     /// Specifies the identity of transferred customer.
     /// Either a cloud_identity_id of the customer or the customer name is
     /// required to look up transferrable Offers.
@@ -2993,6 +3048,13 @@ pub struct ChangeOfferRequest {
     /// (`00000000-0000-0000-0000-000000000000`).
     #[prost(string, tag = "6")]
     pub request_id: ::prost::alloc::string::String,
+    /// Optional. The billing account resource name that is used to pay for this
+    /// entitlement when setting up billing on a trial subscription.
+    ///
+    /// This field is only relevant for multi-currency accounts. It should be
+    /// left empty for single currency accounts.
+    #[prost(string, tag = "7")]
+    pub billing_account: ::prost::alloc::string::String,
 }
 /// Request message for
 /// \[CloudChannelService.StartPaidService][google.cloud.channel.v1.CloudChannelService.StartPaidService\].
@@ -3392,6 +3454,10 @@ pub mod list_purchasable_offers_request {
         /// Format: products/{product_id}/skus/{sku_id}.
         #[prost(string, tag = "1")]
         pub sku: ::prost::alloc::string::String,
+        /// Optional. Billing account that the result should be restricted to.
+        /// Format: accounts/{account_id}/billingAccounts/{billing_account_id}.
+        #[prost(string, tag = "2")]
+        pub billing_account: ::prost::alloc::string::String,
     }
     /// List Offers for ChangeOffer purchase.
     #[allow(clippy::derive_partial_eq_without_eq)]
@@ -3407,6 +3473,14 @@ pub mod list_purchasable_offers_request {
         /// products/{product_id}/skus/{sku_id}
         #[prost(string, tag = "2")]
         pub new_sku: ::prost::alloc::string::String,
+        /// Optional. Resource name of the new target Billing Account. Provide this
+        /// Billing Account when setting up billing for a trial subscription. Format:
+        /// accounts/{account_id}/billingAccounts/{billing_account_id}.
+        ///
+        /// This field is only relevant for multi-currency accounts. It should be
+        /// left empty for single currency accounts.
+        #[prost(string, tag = "3")]
+        pub billing_account: ::prost::alloc::string::String,
     }
     /// Defines the intended purchase.
     #[allow(clippy::derive_partial_eq_without_eq)]
@@ -3439,6 +3513,53 @@ pub struct PurchasableOffer {
     /// Offer.
     #[prost(message, optional, tag = "1")]
     pub offer: ::core::option::Option<Offer>,
+}
+/// Request message for QueryEligibleBillingAccounts.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryEligibleBillingAccountsRequest {
+    /// Required. The resource name of the customer to list eligible billing
+    /// accounts for. Format: accounts/{account_id}/customers/{customer_id}.
+    #[prost(string, tag = "1")]
+    pub customer: ::prost::alloc::string::String,
+    /// Required. List of SKUs to list eligible billing accounts for. At least one
+    /// SKU is required. Format: products/{product_id}/skus/{sku_id}.
+    #[prost(string, repeated, tag = "2")]
+    pub skus: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Response message for QueryEligibleBillingAccounts.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryEligibleBillingAccountsResponse {
+    /// List of SKU purchase groups where each group represents a set of SKUs that
+    /// must be purchased using the same billing account. Each SKU from
+    /// \[QueryEligibleBillingAccountsRequest.skus\] will appear in exactly one SKU
+    /// group.
+    #[prost(message, repeated, tag = "1")]
+    pub sku_purchase_groups: ::prost::alloc::vec::Vec<SkuPurchaseGroup>,
+}
+/// Represents a set of SKUs that must be purchased using the same billing
+/// account.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SkuPurchaseGroup {
+    /// Resource names of the SKUs included in this group.
+    /// Format: products/{product_id}/skus/{sku_id}.
+    #[prost(string, repeated, tag = "1")]
+    pub skus: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// List of billing accounts that are eligible to purhcase these SKUs.
+    #[prost(message, repeated, tag = "2")]
+    pub billing_account_purchase_infos: ::prost::alloc::vec::Vec<
+        BillingAccountPurchaseInfo,
+    >,
+}
+/// Represents a billing account that can be used to make a purchase.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BillingAccountPurchaseInfo {
+    /// The billing account resource.
+    #[prost(message, optional, tag = "1")]
+    pub billing_account: ::core::option::Option<BillingAccount>,
 }
 /// Request Message for RegisterSubscriber.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -3791,8 +3912,11 @@ pub mod cloud_channel_service_client {
         ///
         /// Possible error codes:
         ///
-        /// * PERMISSION_DENIED: The reseller account making the request is different
-        /// from the reseller account in the API request.
+        /// * PERMISSION_DENIED:
+        ///     * The reseller account making the request is different from the
+        ///     reseller account in the API request.
+        ///     * You are not authorized to create a customer. See
+        ///     https://support.google.com/channelservices/answer/9759265
         /// * INVALID_ARGUMENT:
         ///     * Required request parameters are missing or invalid.
         ///     * Domain field value doesn't match the primary email domain.
@@ -3910,8 +4034,11 @@ pub mod cloud_channel_service_client {
         ///
         /// Possible error codes:
         ///
-        /// * PERMISSION_DENIED: The reseller account making the request is different
-        /// from the reseller account in the API request.
+        /// * PERMISSION_DENIED:
+        ///     * The reseller account making the request is different from the
+        ///     reseller account in the API request.
+        ///     * You are not authorized to import the customer. See
+        ///     https://support.google.com/channelservices/answer/9759265
         /// * NOT_FOUND: Cloud Identity doesn't exist or was deleted.
         /// * INVALID_ARGUMENT: Required parameters are missing, or the auth_token is
         /// expired or invalid.
@@ -3952,7 +4079,10 @@ pub mod cloud_channel_service_client {
         ///
         /// Possible error codes:
         ///
-        /// *  PERMISSION_DENIED: The customer doesn't belong to the reseller.
+        /// *  PERMISSION_DENIED:
+        ///      * The customer doesn't belong to the reseller.
+        ///      * You are not authorized to provision cloud identity id. See
+        ///      https://support.google.com/channelservices/answer/9759265
         /// *  INVALID_ARGUMENT: Required request parameters are missing or invalid.
         /// *  NOT_FOUND: The customer was not found.
         /// *  ALREADY_EXISTS: The customer's primary email already exists. Retry
@@ -4103,6 +4233,8 @@ pub mod cloud_channel_service_client {
         ///     auth token.
         ///     * The reseller account making the request is different
         ///     from the reseller account in the query.
+        ///     * The reseller is not authorized to transact on this Product. See
+        ///     https://support.google.com/channelservices/answer/9759265
         /// * INVALID_ARGUMENT: Required request parameters are missing or invalid.
         ///
         /// Return value:
@@ -4180,7 +4312,10 @@ pub mod cloud_channel_service_client {
         ///
         /// Possible error codes:
         ///
-        /// * PERMISSION_DENIED: The customer doesn't belong to the reseller.
+        /// * PERMISSION_DENIED:
+        ///     * The customer doesn't belong to the reseller.
+        ///     * The reseller is not authorized to transact on this Product. See
+        ///     https://support.google.com/channelservices/answer/9759265
         /// * INVALID_ARGUMENT:
         ///     * Required request parameters are missing or invalid.
         ///     * There is already a customer entitlement for a SKU from the same
@@ -4621,7 +4756,10 @@ pub mod cloud_channel_service_client {
         ///
         /// Possible error codes:
         ///
-        /// * PERMISSION_DENIED: The customer doesn't belong to the reseller.
+        /// * PERMISSION_DENIED:
+        ///     * The customer doesn't belong to the reseller.
+        ///     * The reseller is not authorized to transact on this Product. See
+        ///     https://support.google.com/channelservices/answer/9759265
         /// * INVALID_ARGUMENT: Required request parameters are missing or invalid.
         /// * NOT_FOUND: The customer or offer resource was not found.
         /// * ALREADY_EXISTS: The SKU was already transferred for the customer.
@@ -5046,12 +5184,12 @@ pub mod cloud_channel_service_client {
         /// * The new config will not modify exports used with other configs.
         /// Changes to the config may be immediate, but may take up to 24 hours.
         /// * There is a limit of ten configs for any
-        /// [RepricingConfig.EntitlementGranularity.entitlement][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.entitlement]
-        /// or
+        /// [RepricingConfig.EntitlementGranularity.entitlement][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.entitlement],
+        /// for any
         /// [RepricingConfig.effective_invoice_month][google.cloud.channel.v1.RepricingConfig.effective_invoice_month].
         /// * The contained
         /// [CustomerRepricingConfig.repricing_config][google.cloud.channel.v1.CustomerRepricingConfig.repricing_config]
-        /// vaule must be different from the value used in the current config for a
+        /// value must be different from the value used in the current config for a
         /// [RepricingConfig.EntitlementGranularity.entitlement][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.entitlement].
         ///
         /// Possible Error Codes:
@@ -5330,10 +5468,12 @@ pub mod cloud_channel_service_client {
         /// * The new config will not modify exports used with other configs.
         /// Changes to the config may be immediate, but may take up to 24 hours.
         /// * There is a limit of ten configs for any ChannelPartner or
+        /// [RepricingConfig.EntitlementGranularity.entitlement][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.entitlement],
+        /// for any
         /// [RepricingConfig.effective_invoice_month][google.cloud.channel.v1.RepricingConfig.effective_invoice_month].
         /// * The contained
         /// [ChannelPartnerRepricingConfig.repricing_config][google.cloud.channel.v1.ChannelPartnerRepricingConfig.repricing_config]
-        /// vaule must be different from the value used in the current config for a
+        /// value must be different from the value used in the current config for a
         /// ChannelPartner.
         ///
         /// Possible Error Codes:
@@ -5781,7 +5921,10 @@ pub mod cloud_channel_service_client {
         ///
         /// Possible error codes:
         ///
-        /// * PERMISSION_DENIED: The customer doesn't belong to the reseller
+        /// * PERMISSION_DENIED:
+        ///     * The customer doesn't belong to the reseller
+        ///     * The reseller is not authorized to transact on this Product. See
+        ///     https://support.google.com/channelservices/answer/9759265
         /// * INVALID_ARGUMENT: Required request parameters are missing or invalid.
         pub async fn list_purchasable_offers(
             &mut self,
@@ -5809,6 +5952,48 @@ pub mod cloud_channel_service_client {
                     GrpcMethod::new(
                         "google.cloud.channel.v1.CloudChannelService",
                         "ListPurchasableOffers",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists the billing accounts that are eligible to purchase particular SKUs
+        /// for a given customer.
+        ///
+        /// Possible error codes:
+        ///
+        /// * PERMISSION_DENIED: The customer doesn't belong to the reseller.
+        /// * INVALID_ARGUMENT: Required request parameters are missing or invalid.
+        ///
+        /// Return value:
+        /// Based on the provided list of SKUs, returns a list of SKU groups that must
+        /// be purchased using the same billing account and the billing accounts
+        /// eligible to purchase each SKU group.
+        pub async fn query_eligible_billing_accounts(
+            &mut self,
+            request: impl tonic::IntoRequest<super::QueryEligibleBillingAccountsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::QueryEligibleBillingAccountsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.channel.v1.CloudChannelService/QueryEligibleBillingAccounts",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.channel.v1.CloudChannelService",
+                        "QueryEligibleBillingAccounts",
                     ),
                 );
             self.inner.unary(req, path, codec).await
