@@ -102,6 +102,9 @@ pub mod repricing_config {
     /// Applies the repricing configuration at the channel partner level.
     /// The channel partner value is derived from the resource name. Takes an
     /// empty json object.
+    /// Deprecated: This is no longer supported. Use
+    /// \[RepricingConfig.EntitlementGranularity][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity\]
+    /// instead.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct ChannelPartnerGranularity {}
@@ -128,7 +131,9 @@ pub mod repricing_config {
         /// Applies the repricing configuration at the channel partner level.
         /// Only
         /// \[ChannelPartnerRepricingConfig][google.cloud.channel.v1.ChannelPartnerRepricingConfig\]
-        /// supports this value.
+        /// supports this value. Deprecated: This is no longer supported. Use
+        /// \[RepricingConfig.entitlement_granularity][google.cloud.channel.v1.RepricingConfig.entitlement_granularity\]
+        /// instead.
         #[prost(message, tag = "5")]
         ChannelPartnerGranularity(ChannelPartnerGranularity),
     }

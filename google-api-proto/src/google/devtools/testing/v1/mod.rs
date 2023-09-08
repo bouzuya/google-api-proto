@@ -181,7 +181,8 @@ pub struct TestSetup {
     /// storage path prefix for that device.
     #[prost(string, repeated, tag = "2")]
     pub directories_to_pull: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// APKs to install in addition to those being directly tested.
+    /// APKs to install in addition to those being directly tested. These will be
+    /// installed after the app under test.
     /// Currently capped at 100.
     #[prost(message, repeated, tag = "3")]
     pub additional_apks: ::prost::alloc::vec::Vec<Apk>,
