@@ -1659,7 +1659,7 @@ pub mod snooze {
         ///
         ///      projects/\[PROJECT_ID_OR_NUMBER]/alertPolicies/[POLICY_ID\]
         ///
-        /// There is a limit of 10 policies per snooze. This limit is checked during
+        /// There is a limit of 16 policies per snooze. This limit is checked during
         /// snooze creation.
         #[prost(string, repeated, tag = "1")]
         pub policies: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
@@ -2269,7 +2269,9 @@ pub struct NotificationChannelDescriptor {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct NotificationChannel {
     /// The type of the notification channel. This field matches the
-    /// value of the \[NotificationChannelDescriptor.type][google.monitoring.v3.NotificationChannelDescriptor.type\] field.
+    /// value of the
+    /// \[NotificationChannelDescriptor.type][google.monitoring.v3.NotificationChannelDescriptor.type\]
+    /// field.
     #[prost(string, tag = "1")]
     pub r#type: ::prost::alloc::string::String,
     /// The full REST resource name for this channel. The format is:
@@ -2292,8 +2294,8 @@ pub struct NotificationChannel {
     pub description: ::prost::alloc::string::String,
     /// Configuration fields that define the channel and its behavior. The
     /// permissible and required labels are specified in the
-    /// \[NotificationChannelDescriptor.labels][google.monitoring.v3.NotificationChannelDescriptor.labels\] of the
-    /// `NotificationChannelDescriptor` corresponding to the `type` field.
+    /// \[NotificationChannelDescriptor.labels][google.monitoring.v3.NotificationChannelDescriptor.labels\]
+    /// of the `NotificationChannelDescriptor` corresponding to the `type` field.
     #[prost(btree_map = "string, string", tag = "5")]
     pub labels: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
@@ -2464,8 +2466,9 @@ pub struct GetNotificationChannelDescriptorRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateNotificationChannelRequest {
-    /// Required. The \[project\](<https://cloud.google.com/monitoring/api/v3#project_name>) on
-    /// which to execute the request. The format is:
+    /// Required. The
+    /// \[project\](<https://cloud.google.com/monitoring/api/v3#project_name>) on which
+    /// to execute the request. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
     ///
@@ -2483,8 +2486,9 @@ pub struct CreateNotificationChannelRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListNotificationChannelsRequest {
-    /// Required. The \[project\](<https://cloud.google.com/monitoring/api/v3#project_name>) on
-    /// which to execute the request. The format is:
+    /// Required. The
+    /// \[project\](<https://cloud.google.com/monitoring/api/v3#project_name>) on which
+    /// to execute the request. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
     ///
@@ -2592,9 +2596,9 @@ pub struct SendNotificationChannelVerificationCodeRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetNotificationChannelVerificationCodeRequest {
-    /// Required. The notification channel for which a verification code is to be generated
-    /// and retrieved. This must name a channel that is already verified; if
-    /// the specified channel is not verified, the request will fail.
+    /// Required. The notification channel for which a verification code is to be
+    /// generated and retrieved. This must name a channel that is already verified;
+    /// if the specified channel is not verified, the request will fail.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// The desired expiration time. If specified, the API will guarantee that
@@ -2789,6 +2793,8 @@ pub mod notification_channel_service_client {
             self.inner.unary(req, path, codec).await
         }
         /// Lists the notification channels that have been created for the project.
+        /// To list the types of notification channels that are supported, use
+        /// the `ListNotificationChannelDescriptors` method.
         pub async fn list_notification_channels(
             &mut self,
             request: impl tonic::IntoRequest<super::ListNotificationChannelsRequest>,
@@ -2856,6 +2862,11 @@ pub mod notification_channel_service_client {
         }
         /// Creates a new notification channel, representing a single notification
         /// endpoint such as an email address, SMS number, or PagerDuty service.
+        ///
+        /// Design your application to single-thread API calls that modify the state of
+        /// notification channels in a single project. This includes calls to
+        /// CreateNotificationChannel, DeleteNotificationChannel and
+        /// UpdateNotificationChannel.
         pub async fn create_notification_channel(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateNotificationChannelRequest>,
@@ -2888,6 +2899,11 @@ pub mod notification_channel_service_client {
         }
         /// Updates a notification channel. Fields not specified in the field mask
         /// remain unchanged.
+        ///
+        /// Design your application to single-thread API calls that modify the state of
+        /// notification channels in a single project. This includes calls to
+        /// CreateNotificationChannel, DeleteNotificationChannel and
+        /// UpdateNotificationChannel.
         pub async fn update_notification_channel(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateNotificationChannelRequest>,
@@ -2919,6 +2935,11 @@ pub mod notification_channel_service_client {
             self.inner.unary(req, path, codec).await
         }
         /// Deletes a notification channel.
+        ///
+        /// Design your application to single-thread API calls that modify the state of
+        /// notification channels in a single project. This includes calls to
+        /// CreateNotificationChannel, DeleteNotificationChannel and
+        /// UpdateNotificationChannel.
         pub async fn delete_notification_channel(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteNotificationChannelRequest>,
@@ -5160,6 +5181,7 @@ pub struct Group {
 /// considered to be "unhealthy" and the ways to notify people or services about
 /// this state. For an overview of alert policies, see
 /// [Introduction to Alerting](<https://cloud.google.com/monitoring/alerts/>).
+///
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AlertPolicy {
@@ -5179,6 +5201,12 @@ pub struct AlertPolicy {
     /// notifications, and incidents. To avoid confusion, don't use the same
     /// display name for multiple policies in the same project. The name is
     /// limited to 512 Unicode characters.
+    ///
+    /// The convention for the display_name of a PrometheusQueryLanguageCondition
+    /// is "{rule group name}/{alert name}", where the {rule group name} and
+    /// {alert name} should be taken from the corresponding Prometheus
+    /// configuration file. This convention is not enforced.
+    /// In any case the display_name is not a unique key of the AlertPolicy.
     #[prost(string, tag = "2")]
     pub display_name: ::prost::alloc::string::String,
     /// Documentation that is included with notifications and incidents related to
@@ -5195,6 +5223,13 @@ pub struct AlertPolicy {
     /// 63 Unicode characters or 128 bytes, whichever is smaller. Labels and
     /// values can contain only lowercase letters, numerals, underscores, and
     /// dashes. Keys must begin with a letter.
+    ///
+    /// Note that Prometheus {alert name} is a
+    /// [valid Prometheus label
+    /// names](<https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels>),
+    /// whereas Prometheus {rule group} is an unrestricted UTF-8 string.
+    /// This means that they cannot be stored as-is in user labels, because
+    /// they may contain characters that are not allowed in user-label values.
     #[prost(btree_map = "string, string", tag = "16")]
     pub user_labels: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
@@ -5205,6 +5240,8 @@ pub struct AlertPolicy {
     /// to true, then an incident is created. A policy can have from one to six
     /// conditions.
     /// If `condition_time_series_query_language` is present, it must be the only
+    /// `condition`.
+    /// If `condition_monitoring_query_language` is present, it must be the only
     /// `condition`.
     #[prost(message, repeated, tag = "12")]
     pub conditions: ::prost::alloc::vec::Vec<alert_policy::Condition>,
@@ -5221,8 +5258,9 @@ pub struct AlertPolicy {
     /// a field projection has been specified that strips it out.
     #[prost(message, optional, tag = "17")]
     pub enabled: ::core::option::Option<bool>,
-    /// Read-only description of how the alert policy is invalid. OK if the alert
-    /// policy is valid. If not OK, the alert policy will not generate incidents.
+    /// Read-only description of how the alert policy is invalid. This field is
+    /// only set when the alert policy is invalid. An invalid alert policy will not
+    /// generate incidents.
     #[prost(message, optional, tag = "18")]
     pub validity: ::core::option::Option<super::super::rpc::Status>,
     /// Identifies the notification channels to which notifications should be sent
@@ -5256,7 +5294,7 @@ pub mod alert_policy {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct Documentation {
-        /// The text of the documentation, interpreted according to `mime_type`.
+        /// The body of the documentation, interpreted according to `mime_type`.
         /// The content may not exceed 8,192 Unicode characters and may not exceed
         /// more than 10,240 bytes when encoded in UTF-8 format, whichever is
         /// smaller. This text can be [templatized by using
@@ -5268,6 +5306,21 @@ pub mod alert_policy {
         /// \[Markdown\](<https://en.wikipedia.org/wiki/Markdown>) for more information.
         #[prost(string, tag = "2")]
         pub mime_type: ::prost::alloc::string::String,
+        /// Optional. The subject line of the notification. The subject line may not
+        /// exceed 10,240 bytes. In notifications generated by this policy, the
+        /// contents of the subject line after variable expansion will be truncated
+        /// to 255 bytes or shorter at the latest UTF-8 character boundary. The
+        /// 255-byte limit is recommended by [this
+        /// thread](<https://stackoverflow.com/questions/1592291/what-is-the-email-subject-length-limit>).
+        /// It is both the limit imposed by some third-party ticketing products and
+        /// it is common to define textual fields in databases as VARCHAR(255).
+        ///
+        /// The contents of the subject line can be [templatized by using
+        /// variables](<https://cloud.google.com/monitoring/alerts/doc-variables>).
+        /// If this field is missing or empty, a default subject line will be
+        /// generated.
+        #[prost(string, tag = "3")]
+        pub subject: ::prost::alloc::string::String,
     }
     /// A condition is a true/false test that determines when an alerting policy
     /// should open an incident. If a condition evaluates to true, it signifies
@@ -5308,7 +5361,7 @@ pub mod alert_policy {
         #[prost(string, tag = "6")]
         pub display_name: ::prost::alloc::string::String,
         /// Only one of the following condition types will be specified.
-        #[prost(oneof = "condition::Condition", tags = "1, 2, 20, 19")]
+        #[prost(oneof = "condition::Condition", tags = "1, 2, 20, 19, 21")]
         pub condition: ::core::option::Option<condition::Condition>,
     }
     /// Nested message and enum types in `Condition`.
@@ -5343,7 +5396,8 @@ pub mod alert_policy {
         #[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         pub struct MetricThreshold {
-            /// Required. A \[filter\](<https://cloud.google.com/monitoring/api/v3/filters>) that
+            /// Required. A
+            /// \[filter\](<https://cloud.google.com/monitoring/api/v3/filters>) that
             /// identifies which time series should be compared with the threshold.
             ///
             /// The filter is similar to the one that is specified in the
@@ -5393,6 +5447,15 @@ pub mod alert_policy {
             pub denominator_aggregations: ::prost::alloc::vec::Vec<
                 super::super::Aggregation,
             >,
+            /// When this field is present, the `MetricThreshold` condition forecasts
+            /// whether the time series is predicted to violate the threshold within
+            /// the `forecast_horizon`. When this field is not set, the
+            /// `MetricThreshold` tests the current value of the timeseries against the
+            /// threshold.
+            #[prost(message, optional, tag = "12")]
+            pub forecast_options: ::core::option::Option<
+                metric_threshold::ForecastOptions,
+            >,
             /// The comparison to apply between the time series (indicated by `filter`
             /// and `aggregation`) and the threshold (indicated by `threshold_value`).
             /// The comparison is applied on each time series, with the time series
@@ -5429,6 +5492,22 @@ pub mod alert_policy {
             #[prost(enumeration = "EvaluationMissingData", tag = "11")]
             pub evaluation_missing_data: i32,
         }
+        /// Nested message and enum types in `MetricThreshold`.
+        pub mod metric_threshold {
+            /// Options used when forecasting the time series and testing
+            /// the predicted value against the threshold.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct ForecastOptions {
+                /// Required. The length of time into the future to forecast whether a
+                /// time series will violate the threshold. If the predicted value is
+                /// found to violate the threshold, and the violation is observed in all
+                /// forecasts made for the configured `duration`, then the time series is
+                /// considered to be failing.
+                #[prost(message, optional, tag = "1")]
+                pub forecast_horizon: ::core::option::Option<::prost_types::Duration>,
+            }
+        }
         /// A condition type that checks that monitored resources
         /// are reporting data. The configuration defines a metric and
         /// a set of monitored resources. The predicate is considered in violation
@@ -5437,7 +5516,8 @@ pub mod alert_policy {
         #[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         pub struct MetricAbsence {
-            /// Required. A \[filter\](<https://cloud.google.com/monitoring/api/v3/filters>) that
+            /// Required. A
+            /// \[filter\](<https://cloud.google.com/monitoring/api/v3/filters>) that
             /// identifies which time series should be compared with the threshold.
             ///
             /// The filter is similar to the one that is specified in the
@@ -5541,6 +5621,103 @@ pub mod alert_policy {
             #[prost(enumeration = "EvaluationMissingData", tag = "4")]
             pub evaluation_missing_data: i32,
         }
+        /// A condition type that allows alert policies to be defined using
+        /// [Prometheus Query Language
+        /// (PromQL)](<https://prometheus.io/docs/prometheus/latest/querying/basics/>).
+        ///
+        /// The PrometheusQueryLanguageCondition message contains information
+        /// from a Prometheus alerting rule and its associated rule group.
+        ///
+        /// A Prometheus alerting rule is described
+        /// \[here\](<https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/>).
+        /// The semantics of a Prometheus alerting rule is described
+        /// \[here\](<https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#rule>).
+        ///
+        /// A Prometheus rule group is described
+        /// \[here\](<https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/>).
+        /// The semantics of a Prometheus rule group is described
+        /// \[here\](<https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#rule_group>).
+        ///
+        /// Because Cloud Alerting has no representation of a Prometheus rule
+        /// group resource, we must embed the information of the parent rule
+        /// group inside each of the conditions that refer to it. We must also
+        /// update the contents of all Prometheus alerts in case the information
+        /// of their rule group changes.
+        ///
+        /// The PrometheusQueryLanguageCondition protocol buffer combines the
+        /// information of the corresponding rule group and alerting rule.
+        /// The structure of the PrometheusQueryLanguageCondition protocol buffer
+        /// does NOT mimic the structure of the Prometheus rule group and alerting
+        /// rule YAML declarations. The PrometheusQueryLanguageCondition protocol
+        /// buffer may change in the future to support future rule group and/or
+        /// alerting rule features. There are no new such features at the present
+        /// time (2023-06-26).
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct PrometheusQueryLanguageCondition {
+            /// Required. The PromQL expression to evaluate. Every evaluation cycle
+            /// this expression is evaluated at the current time, and all resultant
+            /// time series become pending/firing alerts. This field must not be empty.
+            #[prost(string, tag = "1")]
+            pub query: ::prost::alloc::string::String,
+            /// Optional. Alerts are considered firing once their PromQL expression was
+            /// evaluated to be "true" for this long.
+            /// Alerts whose PromQL expression was not evaluated to be "true" for
+            /// long enough are considered pending.
+            /// Must be a non-negative duration or missing.
+            /// This field is optional. Its default value is zero.
+            #[prost(message, optional, tag = "2")]
+            pub duration: ::core::option::Option<::prost_types::Duration>,
+            /// Optional. How often this rule should be evaluated.
+            /// Must be a positive multiple of 30 seconds or missing.
+            /// This field is optional. Its default value is 30 seconds.
+            /// If this PrometheusQueryLanguageCondition was generated from a
+            /// Prometheus alerting rule, then this value should be taken from the
+            /// enclosing rule group.
+            #[prost(message, optional, tag = "3")]
+            pub evaluation_interval: ::core::option::Option<::prost_types::Duration>,
+            /// Optional. Labels to add to or overwrite in the PromQL query result.
+            /// Label names [must be
+            /// valid](<https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels>).
+            /// Label values can be [templatized by using
+            /// variables](<https://cloud.google.com/monitoring/alerts/doc-variables>).
+            /// The only available variable names are the names of the labels in the
+            /// PromQL result, including "__name__" and "value". "labels" may be empty.
+            #[prost(btree_map = "string, string", tag = "4")]
+            pub labels: ::prost::alloc::collections::BTreeMap<
+                ::prost::alloc::string::String,
+                ::prost::alloc::string::String,
+            >,
+            /// Optional. The rule group name of this alert in the corresponding
+            /// Prometheus configuration file.
+            ///
+            /// Some external tools may require this field to be populated correctly
+            /// in order to refer to the original Prometheus configuration file.
+            /// The rule group name and the alert name are necessary to update the
+            /// relevant AlertPolicies in case the definition of the rule group changes
+            /// in the future.
+            ///
+            /// This field is optional. If this field is not empty, then it must
+            /// contain a valid UTF-8 string.
+            /// This field may not exceed 2048 Unicode characters in length.
+            #[prost(string, tag = "5")]
+            pub rule_group: ::prost::alloc::string::String,
+            /// Optional. The alerting rule name of this alert in the corresponding
+            /// Prometheus configuration file.
+            ///
+            /// Some external tools may require this field to be populated correctly
+            /// in order to refer to the original Prometheus configuration file.
+            /// The rule group name and the alert name are necessary to update the
+            /// relevant AlertPolicies in case the definition of the rule group changes
+            /// in the future.
+            ///
+            /// This field is optional. If this field is not empty, then it must be a
+            /// [valid Prometheus label
+            /// name](<https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels>).
+            /// This field may not exceed 2048 Unicode characters in length.
+            #[prost(string, tag = "6")]
+            pub alert_rule: ::prost::alloc::string::String,
+        }
         /// A condition control that determines how metric-threshold conditions
         /// are evaluated when data stops arriving.
         /// This control doesn't affect metric-absence policies.
@@ -5614,6 +5791,9 @@ pub mod alert_policy {
             /// alerts.
             #[prost(message, tag = "19")]
             ConditionMonitoringQueryLanguage(MonitoringQueryLanguageCondition),
+            /// A condition that uses the Prometheus query language to define alerts.
+            #[prost(message, tag = "21")]
+            ConditionPrometheusQueryLanguage(PrometheusQueryLanguageCondition),
         }
     }
     /// Control over how the notification channels in `notification_channels`
@@ -5632,6 +5812,11 @@ pub mod alert_policy {
         /// incidents will close
         #[prost(message, optional, tag = "3")]
         pub auto_close: ::core::option::Option<::prost_types::Duration>,
+        /// Control how notifications will be sent out, on a per-channel basis.
+        #[prost(message, repeated, tag = "4")]
+        pub notification_channel_strategy: ::prost::alloc::vec::Vec<
+            alert_strategy::NotificationChannelStrategy,
+        >,
     }
     /// Nested message and enum types in `AlertStrategy`.
     pub mod alert_strategy {
@@ -5643,6 +5828,27 @@ pub mod alert_policy {
             /// Not more than one notification per `period`.
             #[prost(message, optional, tag = "1")]
             pub period: ::core::option::Option<::prost_types::Duration>,
+        }
+        /// Control over how the notification channels in `notification_channels`
+        /// are notified when this alert fires, on a per-channel basis.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct NotificationChannelStrategy {
+            /// The full REST resource name for the notification channels that these
+            /// settings apply to. Each of these correspond to the name field in one
+            /// of the NotificationChannel objects referenced in the
+            /// notification_channels field of this AlertPolicy.
+            /// The format is:
+            ///
+            ///      projects/\[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID\]
+            #[prost(string, repeated, tag = "1")]
+            pub notification_channel_names: ::prost::alloc::vec::Vec<
+                ::prost::alloc::string::String,
+            >,
+            /// The frequency at which to send reminder notifications for open
+            /// incidents.
+            #[prost(message, optional, tag = "2")]
+            pub renotify_interval: ::core::option::Option<::prost_types::Duration>,
         }
     }
     /// Operators for combining conditions.
@@ -6442,8 +6648,9 @@ pub mod snooze_service_client {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateAlertPolicyRequest {
-    /// Required. The \[project\](<https://cloud.google.com/monitoring/api/v3#project_name>) in
-    /// which to create the alerting policy. The format is:
+    /// Required. The
+    /// \[project\](<https://cloud.google.com/monitoring/api/v3#project_name>) in which
+    /// to create the alerting policy. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
     ///
@@ -6456,9 +6663,9 @@ pub struct CreateAlertPolicyRequest {
     /// container.
     #[prost(string, tag = "3")]
     pub name: ::prost::alloc::string::String,
-    /// Required. The requested alerting policy. You should omit the `name` field in this
-    /// policy. The name will be returned in the new policy, including
-    /// a new `\[ALERT_POLICY_ID\]` value.
+    /// Required. The requested alerting policy. You should omit the `name` field
+    /// in this policy. The name will be returned in the new policy, including a
+    /// new `\[ALERT_POLICY_ID\]` value.
     #[prost(message, optional, tag = "2")]
     pub alert_policy: ::core::option::Option<AlertPolicy>,
 }
@@ -6476,8 +6683,9 @@ pub struct GetAlertPolicyRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListAlertPoliciesRequest {
-    /// Required. The \[project\](<https://cloud.google.com/monitoring/api/v3#project_name>)
-    /// whose alert policies are to be listed. The format is:
+    /// Required. The
+    /// \[project\](<https://cloud.google.com/monitoring/api/v3#project_name>) whose
+    /// alert policies are to be listed. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
     ///
@@ -6718,6 +6926,10 @@ pub mod alert_policy_service_client {
             self.inner.unary(req, path, codec).await
         }
         /// Creates a new alerting policy.
+        ///
+        /// Design your application to single-thread API calls that modify the state of
+        /// alerting policies in a single project. This includes calls to
+        /// CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy.
         pub async fn create_alert_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateAlertPolicyRequest>,
@@ -6746,6 +6958,10 @@ pub mod alert_policy_service_client {
             self.inner.unary(req, path, codec).await
         }
         /// Deletes an alerting policy.
+        ///
+        /// Design your application to single-thread API calls that modify the state of
+        /// alerting policies in a single project. This includes calls to
+        /// CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy.
         pub async fn delete_alert_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteAlertPolicyRequest>,
@@ -6777,6 +6993,10 @@ pub mod alert_policy_service_client {
         /// a new one or replace only certain fields in the current alerting policy by
         /// specifying the fields to be updated via `updateMask`. Returns the
         /// updated alerting policy.
+        ///
+        /// Design your application to single-thread API calls that modify the state of
+        /// alerting policies in a single project. This includes calls to
+        /// CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy.
         pub async fn update_alert_policy(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateAlertPolicyRequest>,
