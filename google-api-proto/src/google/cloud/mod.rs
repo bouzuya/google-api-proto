@@ -22,6 +22,7 @@ pub mod aiplatform;
 #[cfg(
     any(
         feature = "google-cloud-alloydb-connectors-v1alpha",
+        feature = "google-cloud-alloydb-connectors-v1beta",
         feature = "google-cloud-alloydb-v1",
         feature = "google-cloud-alloydb-v1alpha",
         feature = "google-cloud-alloydb-v1beta",

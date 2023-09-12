@@ -1,4 +1,9 @@
-#[cfg(any(feature = "google-cloud-alloydb-connectors-v1alpha"))]
+#[cfg(
+    any(
+        feature = "google-cloud-alloydb-connectors-v1alpha",
+        feature = "google-cloud-alloydb-connectors-v1beta",
+    )
+)]
 pub mod connectors;
 #[cfg(any(feature = "google-cloud-alloydb-v1"))]
 pub mod v1;
