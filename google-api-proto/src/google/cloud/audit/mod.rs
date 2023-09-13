@@ -2047,6 +2047,9 @@ pub mod big_query_audit_metadata {
         pub reservation_usage: ::prost::alloc::vec::Vec<
             job_stats::ReservationResourceUsage,
         >,
+        /// Reservation name or "unreserved" for on-demand resource usage.
+        #[prost(string, tag = "14")]
+        pub reservation: ::prost::alloc::string::String,
         /// Parent job name. Only present for child jobs.
         #[prost(string, tag = "12")]
         pub parent_job_name: ::prost::alloc::string::String,
