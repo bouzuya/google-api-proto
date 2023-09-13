@@ -1873,13 +1873,13 @@ pub struct ResponseParams {
     #[prost(string, optional, tag = "2")]
     pub cluster_id: ::core::option::Option<::prost::alloc::string::String>,
 }
-/// Feature flags supported by a client.
+/// Feature flags supported or enabled by a client.
 /// This is intended to be sent as part of request metadata to assure the server
 /// that certain behaviors are safe to enable. This proto is meant to be
 /// serialized and websafe-base64 encoded under the `bigtable-features` metadata
 /// key. The value will remain constant for the lifetime of a client and due to
 /// HTTP2's HPACK compression, the request overhead will be tiny.
-/// This is an internal implementation detail and should not be used by endusers
+/// This is an internal implementation detail and should not be used by end users
 /// directly.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1889,11 +1889,17 @@ pub struct FeatureFlags {
     #[prost(bool, tag = "1")]
     pub reverse_scans: bool,
     /// Notify the server that the client enables batch write flow control by
-    /// requesting RateLimitInfo from MutateRowsResponse.
+    /// requesting RateLimitInfo from MutateRowsResponse. Due to technical reasons,
+    /// this disables partial retries.
     #[prost(bool, tag = "3")]
     pub mutate_rows_rate_limit: bool,
+    /// Notify the server that the client enables batch write flow control by
+    /// requesting RateLimitInfo from MutateRowsResponse. With partial retries
+    /// enabled.
+    #[prost(bool, tag = "5")]
+    pub mutate_rows_rate_limit2: bool,
     /// Notify the server that the client supports the last_scanned_row field
-    /// in ReadRowsResponse for long-running sparse scans.
+    /// in ReadRowsResponse for long-running scans.
     #[prost(bool, tag = "4")]
     pub last_scanned_row_responses: bool,
 }
