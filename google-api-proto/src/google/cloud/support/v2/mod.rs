@@ -1,66 +1,3 @@
-/// An escalation of a support case.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Escalation {
-    /// Required. The reason why the Case is being escalated.
-    #[prost(enumeration = "escalation::Reason", tag = "4")]
-    pub reason: i32,
-    /// Required. A free text description to accompany the `reason` field above.
-    /// Provides additional context on why the case is being escalated.
-    #[prost(string, tag = "5")]
-    pub justification: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `Escalation`.
-pub mod escalation {
-    /// An enum detailing the possible reasons a case may be escalated.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Reason {
-        /// The escalation reason is in an unknown state or has not been specified.
-        Unspecified = 0,
-        /// The case is taking too long to resolve.
-        ResolutionTime = 1,
-        /// The support agent does not have the expertise required to successfully
-        /// resolve the issue.
-        TechnicalExpertise = 2,
-        /// The issue is having a significant business impact.
-        BusinessImpact = 3,
-    }
-    impl Reason {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Reason::Unspecified => "REASON_UNSPECIFIED",
-                Reason::ResolutionTime => "RESOLUTION_TIME",
-                Reason::TechnicalExpertise => "TECHNICAL_EXPERTISE",
-                Reason::BusinessImpact => "BUSINESS_IMPACT",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "REASON_UNSPECIFIED" => Some(Self::Unspecified),
-                "RESOLUTION_TIME" => Some(Self::ResolutionTime),
-                "TECHNICAL_EXPERTISE" => Some(Self::TechnicalExpertise),
-                "BUSINESS_IMPACT" => Some(Self::BusinessImpact),
-                _ => None,
-            }
-        }
-    }
-}
 /// An object containing information about the effective user and
 /// authenticated principal responsible for an action.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -82,203 +19,6 @@ pub struct Actor {
     /// Output only. Whether the actor is a Google support actor.
     #[prost(bool, tag = "4")]
     pub google_support: bool,
-}
-/// A support case.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Case {
-    /// The resource name for the case.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The short summary of the issue reported in this case.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// A broad description of the issue.
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-    /// The issue classification applicable to this case.
-    #[prost(message, optional, tag = "4")]
-    pub classification: ::core::option::Option<CaseClassification>,
-    /// The timezone of the user who created the support case.
-    /// It should be in a format IANA recognizes: <https://www.iana.org/time-zones.>
-    /// There is no additional validation done by the API.
-    #[prost(string, tag = "8")]
-    pub time_zone: ::prost::alloc::string::String,
-    /// The email addresses to receive updates on this case.
-    #[prost(string, repeated, tag = "9")]
-    pub subscriber_email_addresses: ::prost::alloc::vec::Vec<
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. The current status of the support case.
-    #[prost(enumeration = "case::State", tag = "12")]
-    pub state: i32,
-    /// Output only. The time this case was created.
-    #[prost(message, optional, tag = "13")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The time this case was last updated.
-    #[prost(message, optional, tag = "14")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The user who created the case.
-    ///
-    /// Note: The name and email will be obfuscated if the case was created by
-    /// Google Support.
-    #[prost(message, optional, tag = "15")]
-    pub creator: ::core::option::Option<Actor>,
-    /// A user-supplied email address to send case update notifications for. This
-    /// should only be used in BYOID flows, where we cannot infer the user's email
-    /// address directly from their EUCs.
-    #[prost(string, tag = "35")]
-    pub contact_email: ::prost::alloc::string::String,
-    /// Whether the case is currently escalated.
-    #[prost(bool, tag = "17")]
-    pub escalated: bool,
-    /// Whether this case was created for internal API testing and should not be
-    /// acted on by the support team.
-    #[prost(bool, tag = "19")]
-    pub test_case: bool,
-    /// The language the user has requested to receive support in. This should be a
-    /// BCP 47 language code (e.g., `"en"`, `"zh-CN"`, `"zh-TW"`, `"ja"`, `"ko"`).
-    /// If no language or an unsupported language is specified, this field defaults
-    /// to English (en).
-    ///
-    /// Language selection during case creation may affect your available support
-    /// options. For a list of supported languages and their support working hours,
-    /// see: <https://cloud.google.com/support/docs/language-working-hours>
-    #[prost(string, tag = "23")]
-    pub language_code: ::prost::alloc::string::String,
-    /// The priority of this case.
-    #[prost(enumeration = "case::Priority", tag = "32")]
-    pub priority: i32,
-}
-/// Nested message and enum types in `Case`.
-pub mod case {
-    /// The status of a support case.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Case is in an unknown state.
-        Unspecified = 0,
-        /// The case has been created but no one is assigned to work on it yet.
-        New = 1,
-        /// The case is currently being handled by Google support.
-        InProgressGoogleSupport = 2,
-        /// Google is waiting for a response.
-        ActionRequired = 3,
-        /// A solution has been offered for the case, but it isn't yet closed.
-        SolutionProvided = 4,
-        /// The case has been resolved.
-        Closed = 5,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::New => "NEW",
-                State::InProgressGoogleSupport => "IN_PROGRESS_GOOGLE_SUPPORT",
-                State::ActionRequired => "ACTION_REQUIRED",
-                State::SolutionProvided => "SOLUTION_PROVIDED",
-                State::Closed => "CLOSED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "NEW" => Some(Self::New),
-                "IN_PROGRESS_GOOGLE_SUPPORT" => Some(Self::InProgressGoogleSupport),
-                "ACTION_REQUIRED" => Some(Self::ActionRequired),
-                "SOLUTION_PROVIDED" => Some(Self::SolutionProvided),
-                "CLOSED" => Some(Self::Closed),
-                _ => None,
-            }
-        }
-    }
-    /// The case Priority. P0 is most urgent and P4 the least.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Priority {
-        /// Priority is undefined or has not been set yet.
-        Unspecified = 0,
-        /// Extreme impact on a production service. Service is hard down.
-        P0 = 1,
-        /// Critical impact on a production service. Service is currently unusable.
-        P1 = 2,
-        /// Severe impact on a production service. Service is usable but greatly
-        /// impaired.
-        P2 = 3,
-        /// Medium impact on a production service.  Service is available, but
-        /// moderately impaired.
-        P3 = 4,
-        /// General questions or minor issues.  Production service is fully
-        /// available.
-        P4 = 5,
-    }
-    impl Priority {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Priority::Unspecified => "PRIORITY_UNSPECIFIED",
-                Priority::P0 => "P0",
-                Priority::P1 => "P1",
-                Priority::P2 => "P2",
-                Priority::P3 => "P3",
-                Priority::P4 => "P4",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "PRIORITY_UNSPECIFIED" => Some(Self::Unspecified),
-                "P0" => Some(Self::P0),
-                "P1" => Some(Self::P1),
-                "P2" => Some(Self::P2),
-                "P3" => Some(Self::P3),
-                "P4" => Some(Self::P4),
-                _ => None,
-            }
-        }
-    }
-}
-/// A classification object with a product type and value.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CaseClassification {
-    /// The unique ID for a classification. Must be specified for case creation.
-    ///
-    /// To retrieve valid classification IDs for case creation, use
-    /// `caseClassifications.search`.
-    #[prost(string, tag = "3")]
-    pub id: ::prost::alloc::string::String,
-    /// The display name of the classification.
-    #[prost(string, tag = "4")]
-    pub display_name: ::prost::alloc::string::String,
 }
 /// Represents a file attached to a support case.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -502,6 +242,266 @@ pub mod comment_service_client {
             self.inner.unary(req, path, codec).await
         }
     }
+}
+/// An escalation of a support case.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Escalation {
+    /// Required. The reason why the Case is being escalated.
+    #[prost(enumeration = "escalation::Reason", tag = "4")]
+    pub reason: i32,
+    /// Required. A free text description to accompany the `reason` field above.
+    /// Provides additional context on why the case is being escalated.
+    #[prost(string, tag = "5")]
+    pub justification: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Escalation`.
+pub mod escalation {
+    /// An enum detailing the possible reasons a case may be escalated.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Reason {
+        /// The escalation reason is in an unknown state or has not been specified.
+        Unspecified = 0,
+        /// The case is taking too long to resolve.
+        ResolutionTime = 1,
+        /// The support agent does not have the expertise required to successfully
+        /// resolve the issue.
+        TechnicalExpertise = 2,
+        /// The issue is having a significant business impact.
+        BusinessImpact = 3,
+    }
+    impl Reason {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Reason::Unspecified => "REASON_UNSPECIFIED",
+                Reason::ResolutionTime => "RESOLUTION_TIME",
+                Reason::TechnicalExpertise => "TECHNICAL_EXPERTISE",
+                Reason::BusinessImpact => "BUSINESS_IMPACT",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "REASON_UNSPECIFIED" => Some(Self::Unspecified),
+                "RESOLUTION_TIME" => Some(Self::ResolutionTime),
+                "TECHNICAL_EXPERTISE" => Some(Self::TechnicalExpertise),
+                "BUSINESS_IMPACT" => Some(Self::BusinessImpact),
+                _ => None,
+            }
+        }
+    }
+}
+/// A support case.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Case {
+    /// The resource name for the case.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The short summary of the issue reported in this case.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// A broad description of the issue.
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+    /// The issue classification applicable to this case.
+    #[prost(message, optional, tag = "4")]
+    pub classification: ::core::option::Option<CaseClassification>,
+    /// The timezone of the user who created the support case.
+    /// It should be in a format IANA recognizes: <https://www.iana.org/time-zones.>
+    /// There is no additional validation done by the API.
+    #[prost(string, tag = "8")]
+    pub time_zone: ::prost::alloc::string::String,
+    /// The email addresses to receive updates on this case.
+    #[prost(string, repeated, tag = "9")]
+    pub subscriber_email_addresses: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. The current status of the support case.
+    #[prost(enumeration = "case::State", tag = "12")]
+    pub state: i32,
+    /// Output only. The time this case was created.
+    #[prost(message, optional, tag = "13")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The time this case was last updated.
+    #[prost(message, optional, tag = "14")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The user who created the case.
+    ///
+    /// Note: The name and email will be obfuscated if the case was created by
+    /// Google Support.
+    #[prost(message, optional, tag = "15")]
+    pub creator: ::core::option::Option<Actor>,
+    /// A user-supplied email address to send case update notifications for. This
+    /// should only be used in BYOID flows, where we cannot infer the user's email
+    /// address directly from their EUCs.
+    #[prost(string, tag = "35")]
+    pub contact_email: ::prost::alloc::string::String,
+    /// Whether the case is currently escalated.
+    #[prost(bool, tag = "17")]
+    pub escalated: bool,
+    /// Whether this case was created for internal API testing and should not be
+    /// acted on by the support team.
+    #[prost(bool, tag = "19")]
+    pub test_case: bool,
+    /// The language the user has requested to receive support in. This should be a
+    /// BCP 47 language code (e.g., `"en"`, `"zh-CN"`, `"zh-TW"`, `"ja"`, `"ko"`).
+    /// If no language or an unsupported language is specified, this field defaults
+    /// to English (en).
+    ///
+    /// Language selection during case creation may affect your available support
+    /// options. For a list of supported languages and their support working hours,
+    /// see: <https://cloud.google.com/support/docs/language-working-hours>
+    #[prost(string, tag = "23")]
+    pub language_code: ::prost::alloc::string::String,
+    /// The priority of this case.
+    #[prost(enumeration = "case::Priority", tag = "32")]
+    pub priority: i32,
+}
+/// Nested message and enum types in `Case`.
+pub mod case {
+    /// The status of a support case.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Case is in an unknown state.
+        Unspecified = 0,
+        /// The case has been created but no one is assigned to work on it yet.
+        New = 1,
+        /// The case is currently being handled by Google support.
+        InProgressGoogleSupport = 2,
+        /// Google is waiting for a response.
+        ActionRequired = 3,
+        /// A solution has been offered for the case, but it isn't yet closed.
+        SolutionProvided = 4,
+        /// The case has been resolved.
+        Closed = 5,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::New => "NEW",
+                State::InProgressGoogleSupport => "IN_PROGRESS_GOOGLE_SUPPORT",
+                State::ActionRequired => "ACTION_REQUIRED",
+                State::SolutionProvided => "SOLUTION_PROVIDED",
+                State::Closed => "CLOSED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "NEW" => Some(Self::New),
+                "IN_PROGRESS_GOOGLE_SUPPORT" => Some(Self::InProgressGoogleSupport),
+                "ACTION_REQUIRED" => Some(Self::ActionRequired),
+                "SOLUTION_PROVIDED" => Some(Self::SolutionProvided),
+                "CLOSED" => Some(Self::Closed),
+                _ => None,
+            }
+        }
+    }
+    /// The case Priority. P0 is most urgent and P4 the least.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Priority {
+        /// Priority is undefined or has not been set yet.
+        Unspecified = 0,
+        /// Extreme impact on a production service. Service is hard down.
+        P0 = 1,
+        /// Critical impact on a production service. Service is currently unusable.
+        P1 = 2,
+        /// Severe impact on a production service. Service is usable but greatly
+        /// impaired.
+        P2 = 3,
+        /// Medium impact on a production service.  Service is available, but
+        /// moderately impaired.
+        P3 = 4,
+        /// General questions or minor issues.  Production service is fully
+        /// available.
+        P4 = 5,
+    }
+    impl Priority {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Priority::Unspecified => "PRIORITY_UNSPECIFIED",
+                Priority::P0 => "P0",
+                Priority::P1 => "P1",
+                Priority::P2 => "P2",
+                Priority::P3 => "P3",
+                Priority::P4 => "P4",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "PRIORITY_UNSPECIFIED" => Some(Self::Unspecified),
+                "P0" => Some(Self::P0),
+                "P1" => Some(Self::P1),
+                "P2" => Some(Self::P2),
+                "P3" => Some(Self::P3),
+                "P4" => Some(Self::P4),
+                _ => None,
+            }
+        }
+    }
+}
+/// A classification object with a product type and value.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CaseClassification {
+    /// The unique ID for a classification. Must be specified for case creation.
+    ///
+    /// To retrieve valid classification IDs for case creation, use
+    /// `caseClassifications.search`.
+    #[prost(string, tag = "3")]
+    pub id: ::prost::alloc::string::String,
+    /// The display name of the classification.
+    #[prost(string, tag = "4")]
+    pub display_name: ::prost::alloc::string::String,
 }
 /// The request message for the GetCase endpoint.
 #[allow(clippy::derive_partial_eq_without_eq)]

@@ -1,281 +1,3 @@
-/// The service levels - Storage Pool, Volumes
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum ServiceLevel {
-    Unspecified = 0,
-    Premium = 1,
-    Extreme = 2,
-    /// Standard (Software offering)
-    Standard = 3,
-}
-impl ServiceLevel {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            ServiceLevel::Unspecified => "SERVICE_LEVEL_UNSPECIFIED",
-            ServiceLevel::Premium => "PREMIUM",
-            ServiceLevel::Extreme => "EXTREME",
-            ServiceLevel::Standard => "STANDARD",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "SERVICE_LEVEL_UNSPECIFIED" => Some(Self::Unspecified),
-            "PREMIUM" => Some(Self::Premium),
-            "EXTREME" => Some(Self::Extreme),
-            "STANDARD" => Some(Self::Standard),
-            _ => None,
-        }
-    }
-}
-/// Defined the current volume encryption key source.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum EncryptionType {
-    /// The source of encryption key is not specified.
-    Unspecified = 0,
-    /// Google managed encryption key.
-    ServiceManaged = 1,
-    /// Customer managed encryption key, which is stored in KMS.
-    CloudKms = 2,
-}
-impl EncryptionType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            EncryptionType::Unspecified => "ENCRYPTION_TYPE_UNSPECIFIED",
-            EncryptionType::ServiceManaged => "SERVICE_MANAGED",
-            EncryptionType::CloudKms => "CLOUD_KMS",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "ENCRYPTION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "SERVICE_MANAGED" => Some(Self::ServiceManaged),
-            "CLOUD_KMS" => Some(Self::CloudKms),
-            _ => None,
-        }
-    }
-}
-/// GetStoragePoolRequest gets a Storage Pool.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetStoragePoolRequest {
-    /// Required. Name of the storage pool
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// ListStoragePoolsRequest lists Storage Pools.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListStoragePoolsRequest {
-    /// Required. Parent value
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The maximum number of items to return.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// The next_page_token value to use if there are additional
-    /// results to retrieve for this list request.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Sort results. Supported values are "name", "name desc" or "" (unsorted).
-    #[prost(string, tag = "4")]
-    pub order_by: ::prost::alloc::string::String,
-    /// List filter.
-    #[prost(string, tag = "5")]
-    pub filter: ::prost::alloc::string::String,
-}
-/// ListStoragePoolsResponse is the response to a ListStoragePoolsRequest.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListStoragePoolsResponse {
-    /// The list of StoragePools
-    #[prost(message, repeated, tag = "1")]
-    pub storage_pools: ::prost::alloc::vec::Vec<StoragePool>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// CreateStoragePoolRequest creates a Storage Pool.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateStoragePoolRequest {
-    /// Required. Value for parent.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Id of the requesting storage pool
-    /// If auto-generating Id server-side, remove this field and
-    /// id from the method_signature of Create RPC
-    #[prost(string, tag = "2")]
-    pub storage_pool_id: ::prost::alloc::string::String,
-    /// Required. The required parameters to create a new storage pool.
-    #[prost(message, optional, tag = "3")]
-    pub storage_pool: ::core::option::Option<StoragePool>,
-}
-/// UpdateStoragePoolRequest updates a Storage Pool.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateStoragePoolRequest {
-    /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// StoragePool resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The pool being updated
-    #[prost(message, optional, tag = "2")]
-    pub storage_pool: ::core::option::Option<StoragePool>,
-}
-/// DeleteStoragePoolRequest deletes a Storage Pool.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteStoragePoolRequest {
-    /// Required. Name of the storage pool
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// StoragePool is a container for volumes with a service level and capacity.
-/// Volumes can be created in a pool of sufficient available capacity.
-/// StoragePool capacity is what you are billed for.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StoragePool {
-    /// Output only. Name of the storage pool
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Service level of the storage pool
-    #[prost(enumeration = "ServiceLevel", tag = "2")]
-    pub service_level: i32,
-    /// Required. Capacity in GIB of the pool
-    #[prost(int64, tag = "3")]
-    pub capacity_gib: i64,
-    /// Output only. Allocated size of all volumes in GIB in the storage pool
-    #[prost(int64, tag = "4")]
-    pub volume_capacity_gib: i64,
-    /// Output only. Volume count of the storage pool
-    #[prost(int32, tag = "5")]
-    pub volume_count: i32,
-    /// Output only. State of the storage pool
-    #[prost(enumeration = "storage_pool::State", tag = "6")]
-    pub state: i32,
-    /// Output only. State details of the storage pool
-    #[prost(string, tag = "7")]
-    pub state_details: ::prost::alloc::string::String,
-    /// Output only. Create time of the storage pool
-    #[prost(message, optional, tag = "8")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Description of the storage pool
-    #[prost(string, tag = "9")]
-    pub description: ::prost::alloc::string::String,
-    /// Labels as key value pairs
-    #[prost(btree_map = "string, string", tag = "10")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Required. VPC Network name.
-    /// Format: projects/{project}/global/networks/{network}
-    #[prost(string, tag = "11")]
-    pub network: ::prost::alloc::string::String,
-    /// Specifies the Active Directory to be used for creating a SMB volume.
-    #[prost(string, tag = "12")]
-    pub active_directory: ::prost::alloc::string::String,
-    /// Specifies the KMS config to be used for volume encryption.
-    #[prost(string, tag = "13")]
-    pub kms_config: ::prost::alloc::string::String,
-    /// Flag indicating if the pool is NFS LDAP enabled or not.
-    #[prost(bool, tag = "14")]
-    pub ldap_enabled: bool,
-    /// Name of the Private Service Access allocated range. If
-    /// not provided, any available range will be chosen.
-    #[prost(string, tag = "15")]
-    pub psa_range: ::prost::alloc::string::String,
-    /// Output only. Specifies the current pool encryption key source.
-    #[prost(enumeration = "EncryptionType", tag = "16")]
-    pub encryption_type: i32,
-    /// Optional. Allows SO pool to access AD or DNS server from other regions.
-    #[prost(bool, optional, tag = "17")]
-    pub global_access_allowed: ::core::option::Option<bool>,
-}
-/// Nested message and enum types in `StoragePool`.
-pub mod storage_pool {
-    /// The Storage Pool States
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified Storage Pool State
-        Unspecified = 0,
-        /// Storage Pool State is Ready
-        Ready = 1,
-        /// Storage Pool State is Creating
-        Creating = 2,
-        /// Storage Pool State is Deleting
-        Deleting = 3,
-        /// Storage Pool State is Updating
-        Updating = 4,
-        /// Storage Pool State is Restoring
-        Restoring = 5,
-        /// Storage Pool State is Disabled
-        Disabled = 6,
-        /// Storage Pool State is Error
-        Error = 7,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Ready => "READY",
-                State::Creating => "CREATING",
-                State::Deleting => "DELETING",
-                State::Updating => "UPDATING",
-                State::Restoring => "RESTORING",
-                State::Disabled => "DISABLED",
-                State::Error => "ERROR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "READY" => Some(Self::Ready),
-                "CREATING" => Some(Self::Creating),
-                "DELETING" => Some(Self::Deleting),
-                "UPDATING" => Some(Self::Updating),
-                "RESTORING" => Some(Self::Restoring),
-                "DISABLED" => Some(Self::Disabled),
-                "ERROR" => Some(Self::Error),
-                _ => None,
-            }
-        }
-    }
-}
 /// ListSnapshotsRequest lists snapshots.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -450,6 +172,464 @@ pub mod snapshot {
                 "UPDATING" => Some(Self::Updating),
                 "DISABLED" => Some(Self::Disabled),
                 "ERROR" => Some(Self::Error),
+                _ => None,
+            }
+        }
+    }
+}
+/// ListActiveDirectoriesRequest for requesting multiple active directories.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListActiveDirectoriesRequest {
+    /// Required. Parent value for ListActiveDirectoriesRequest
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Requested page size. Server may return fewer items than requested.
+    /// If unspecified, the server will pick an appropriate default.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Filtering results
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Hint for how to order the results
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// ListActiveDirectoriesResponse contains all the active directories requested.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListActiveDirectoriesResponse {
+    /// The list of active directories.
+    #[prost(message, repeated, tag = "1")]
+    pub active_directories: ::prost::alloc::vec::Vec<ActiveDirectory>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// GetActiveDirectory for getting a single active directory.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetActiveDirectoryRequest {
+    /// Required. Name of the active directory.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// CreateActiveDirectoryRequest for creating an active directory.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateActiveDirectoryRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Fields of the to be created active directory.
+    #[prost(message, optional, tag = "2")]
+    pub active_directory: ::core::option::Option<ActiveDirectory>,
+    /// Required. ID of the active directory to create.
+    #[prost(string, tag = "3")]
+    pub active_directory_id: ::prost::alloc::string::String,
+}
+/// UpdateActiveDirectoryRequest for updating an active directory.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateActiveDirectoryRequest {
+    /// Required. Field mask is used to specify the fields to be overwritten in the
+    /// Active Directory resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The volume being updated
+    #[prost(message, optional, tag = "2")]
+    pub active_directory: ::core::option::Option<ActiveDirectory>,
+}
+/// DeleteActiveDirectoryRequest for deleting a single active directory.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteActiveDirectoryRequest {
+    /// Required. Name of the active directory.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// ActiveDirectory is the public representation of the active directory config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ActiveDirectory {
+    /// Output only. The resource name of the active directory.
+    /// Format:
+    /// `projects/{project_number}/locations/{location_id}/activeDirectories/{active_directory_id}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Create time of the active directory.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The state of the AD.
+    #[prost(enumeration = "active_directory::State", tag = "3")]
+    pub state: i32,
+    /// Required. Name of the Active Directory domain
+    #[prost(string, tag = "4")]
+    pub domain: ::prost::alloc::string::String,
+    /// The Active Directory site the service will limit Domain Controller
+    /// discovery too.
+    #[prost(string, tag = "5")]
+    pub site: ::prost::alloc::string::String,
+    /// Required. Comma separated list of DNS server IP addresses for the Active
+    /// Directory domain.
+    #[prost(string, tag = "6")]
+    pub dns: ::prost::alloc::string::String,
+    /// Required. NetBIOSPrefix is used as a prefix for SMB server name.
+    #[prost(string, tag = "7")]
+    pub net_bios_prefix: ::prost::alloc::string::String,
+    /// The Organizational Unit (OU) within the Windows Active Directory the user
+    /// belongs to.
+    #[prost(string, tag = "8")]
+    pub organizational_unit: ::prost::alloc::string::String,
+    /// If enabled, AES encryption will be enabled for SMB communication.
+    #[prost(bool, tag = "9")]
+    pub aes_encryption: bool,
+    /// Required. Username of the Active Directory domain administrator.
+    #[prost(string, tag = "10")]
+    pub username: ::prost::alloc::string::String,
+    /// Required. Password of the Active Directory domain administrator.
+    #[prost(string, tag = "11")]
+    pub password: ::prost::alloc::string::String,
+    /// Users to be added to the Built-in Backup Operator active directory group.
+    #[prost(string, repeated, tag = "12")]
+    pub backup_operators: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Domain users to be given the SeSecurityPrivilege.
+    #[prost(string, repeated, tag = "13")]
+    pub security_operators: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Name of the active directory machine. This optional parameter is used only
+    /// while creating kerberos volume
+    #[prost(string, tag = "14")]
+    pub kdc_hostname: ::prost::alloc::string::String,
+    /// KDC server IP address for the active directory machine.
+    #[prost(string, tag = "15")]
+    pub kdc_ip: ::prost::alloc::string::String,
+    /// If enabled, will allow access to local users and LDAP users. If access is
+    /// needed for only LDAP users, it has to be disabled.
+    #[prost(bool, tag = "16")]
+    pub nfs_users_with_ldap: bool,
+    /// Description of the active directory.
+    #[prost(string, tag = "17")]
+    pub description: ::prost::alloc::string::String,
+    /// Specifies whether or not the LDAP traffic needs to be signed.
+    #[prost(bool, tag = "18")]
+    pub ldap_signing: bool,
+    /// If enabled, traffic between the SMB server to Domain Controller (DC) will
+    /// be encrypted.
+    #[prost(bool, tag = "19")]
+    pub encrypt_dc_connections: bool,
+    /// Labels for the active directory.
+    #[prost(btree_map = "string, string", tag = "20")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. The state details of the Active Directory.
+    #[prost(string, tag = "21")]
+    pub state_details: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `ActiveDirectory`.
+pub mod active_directory {
+    /// The Active Directory States
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified Active Directory State
+        Unspecified = 0,
+        /// Active Directory State is Creating
+        Creating = 1,
+        /// Active Directory State is Ready
+        Ready = 2,
+        /// Active Directory State is Updating
+        Updating = 3,
+        /// Active Directory State is In use
+        InUse = 4,
+        /// Active Directory State is Deleting
+        Deleting = 5,
+        /// Active Directory State is Error
+        Error = 6,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::Ready => "READY",
+                State::Updating => "UPDATING",
+                State::InUse => "IN_USE",
+                State::Deleting => "DELETING",
+                State::Error => "ERROR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "READY" => Some(Self::Ready),
+                "UPDATING" => Some(Self::Updating),
+                "IN_USE" => Some(Self::InUse),
+                "DELETING" => Some(Self::Deleting),
+                "ERROR" => Some(Self::Error),
+                _ => None,
+            }
+        }
+    }
+}
+/// GetKmsConfigRequest gets a KMS Config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetKmsConfigRequest {
+    /// Required. Name of the KmsConfig
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// ListKmsConfigsRequest lists KMS Configs.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListKmsConfigsRequest {
+    /// Required. Parent value
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The maximum number of items to return.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// The next_page_token value to use if there are additional
+    /// results to retrieve for this list request.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Sort results. Supported values are "name", "name desc" or "" (unsorted).
+    #[prost(string, tag = "4")]
+    pub order_by: ::prost::alloc::string::String,
+    /// List filter.
+    #[prost(string, tag = "5")]
+    pub filter: ::prost::alloc::string::String,
+}
+/// ListKmsConfigsResponse is the response to a ListKmsConfigsRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListKmsConfigsResponse {
+    /// The list of KmsConfigs
+    #[prost(message, repeated, tag = "1")]
+    pub kms_configs: ::prost::alloc::vec::Vec<KmsConfig>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// CreateKmsConfigRequest creates a KMS Config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateKmsConfigRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Id of the requesting KmsConfig
+    /// If auto-generating Id server-side, remove this field and
+    /// id from the method_signature of Create RPC
+    #[prost(string, tag = "2")]
+    pub kms_config_id: ::prost::alloc::string::String,
+    /// Required. The required parameters to create a new KmsConfig.
+    #[prost(message, optional, tag = "3")]
+    pub kms_config: ::core::option::Option<KmsConfig>,
+}
+/// UpdateKmsConfigRequest updates a KMS Config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateKmsConfigRequest {
+    /// Required. Field mask is used to specify the fields to be overwritten in the
+    /// KmsConfig resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The KmsConfig being updated
+    #[prost(message, optional, tag = "2")]
+    pub kms_config: ::core::option::Option<KmsConfig>,
+}
+/// DeleteKmsConfigRequest deletes a KMS Config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteKmsConfigRequest {
+    /// Required. Name of the KmsConfig.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// EncryptVolumesRequest specifies the KMS config to encrypt existing volumes.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EncryptVolumesRequest {
+    /// Required. Name of the KmsConfig.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// VerifyKmsConfigRequest specifies the KMS config to be validated.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VerifyKmsConfigRequest {
+    /// Required. Name of the KMS Config to be verified.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// VerifyKmsConfigResponse contains the information if the config is correctly
+/// and error message.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VerifyKmsConfigResponse {
+    /// Output only. If the customer key configured correctly to the encrypt
+    /// volume.
+    #[prost(bool, tag = "1")]
+    pub healthy: bool,
+    /// Output only. Error message if config is not healthy.
+    #[prost(string, tag = "2")]
+    pub health_error: ::prost::alloc::string::String,
+    /// Output only. Instructions for the customers to provide the access to the
+    /// encryption key.
+    #[prost(string, tag = "3")]
+    pub instructions: ::prost::alloc::string::String,
+}
+/// KmsConfig is the customer managed encryption key(CMEK) configuration.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct KmsConfig {
+    /// Output only. Name of the KmsConfig.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Customer managed crypto key resource full name. Format:
+    /// projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key}.
+    #[prost(string, tag = "2")]
+    pub crypto_key_name: ::prost::alloc::string::String,
+    /// Output only. State of the KmsConfig.
+    #[prost(enumeration = "kms_config::State", tag = "3")]
+    pub state: i32,
+    /// Output only. State details of the KmsConfig.
+    #[prost(string, tag = "4")]
+    pub state_details: ::prost::alloc::string::String,
+    /// Output only. Create time of the KmsConfig.
+    #[prost(message, optional, tag = "5")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Description of the KmsConfig.
+    #[prost(string, tag = "6")]
+    pub description: ::prost::alloc::string::String,
+    /// Labels as key value pairs
+    #[prost(btree_map = "string, string", tag = "7")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. Instructions to provide the access to the customer provided
+    /// encryption key.
+    #[prost(string, tag = "8")]
+    pub instructions: ::prost::alloc::string::String,
+    /// Output only. The Service account which will have access to the customer
+    /// provided encryption key.
+    #[prost(string, tag = "9")]
+    pub service_account: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `KmsConfig`.
+pub mod kms_config {
+    /// The KmsConfig States
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified KmsConfig State
+        Unspecified = 0,
+        /// KmsConfig State is Ready
+        Ready = 1,
+        /// KmsConfig State is Creating
+        Creating = 2,
+        /// KmsConfig State is Deleting
+        Deleting = 3,
+        /// KmsConfig State is Updating
+        Updating = 4,
+        /// KmsConfig State is In Use.
+        InUse = 5,
+        /// KmsConfig State is Error
+        Error = 6,
+        /// KmsConfig State is Pending to verify crypto key access.
+        KeyCheckPending = 7,
+        /// KmsConfig State is Not accessbile by the SDE service account to the
+        /// crypto key.
+        KeyNotReachable = 8,
+        /// KmsConfig State is Disabling.
+        Disabling = 9,
+        /// KmsConfig State is Disabled.
+        Disabled = 10,
+        /// KmsConfig State is Migrating.
+        /// The existing volumes are migrating from SMEK to CMEK.
+        Migrating = 11,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Ready => "READY",
+                State::Creating => "CREATING",
+                State::Deleting => "DELETING",
+                State::Updating => "UPDATING",
+                State::InUse => "IN_USE",
+                State::Error => "ERROR",
+                State::KeyCheckPending => "KEY_CHECK_PENDING",
+                State::KeyNotReachable => "KEY_NOT_REACHABLE",
+                State::Disabling => "DISABLING",
+                State::Disabled => "DISABLED",
+                State::Migrating => "MIGRATING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "READY" => Some(Self::Ready),
+                "CREATING" => Some(Self::Creating),
+                "DELETING" => Some(Self::Deleting),
+                "UPDATING" => Some(Self::Updating),
+                "IN_USE" => Some(Self::InUse),
+                "ERROR" => Some(Self::Error),
+                "KEY_CHECK_PENDING" => Some(Self::KeyCheckPending),
+                "KEY_NOT_REACHABLE" => Some(Self::KeyNotReachable),
+                "DISABLING" => Some(Self::Disabling),
+                "DISABLED" => Some(Self::Disabled),
+                "MIGRATING" => Some(Self::Migrating),
                 _ => None,
             }
         }
@@ -895,18 +1075,85 @@ pub struct ReverseReplicationDirectionRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// GetKmsConfigRequest gets a KMS Config.
+/// The service levels - Storage Pool, Volumes
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum ServiceLevel {
+    Unspecified = 0,
+    Premium = 1,
+    Extreme = 2,
+    /// Standard (Software offering)
+    Standard = 3,
+}
+impl ServiceLevel {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            ServiceLevel::Unspecified => "SERVICE_LEVEL_UNSPECIFIED",
+            ServiceLevel::Premium => "PREMIUM",
+            ServiceLevel::Extreme => "EXTREME",
+            ServiceLevel::Standard => "STANDARD",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "SERVICE_LEVEL_UNSPECIFIED" => Some(Self::Unspecified),
+            "PREMIUM" => Some(Self::Premium),
+            "EXTREME" => Some(Self::Extreme),
+            "STANDARD" => Some(Self::Standard),
+            _ => None,
+        }
+    }
+}
+/// Defined the current volume encryption key source.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum EncryptionType {
+    /// The source of encryption key is not specified.
+    Unspecified = 0,
+    /// Google managed encryption key.
+    ServiceManaged = 1,
+    /// Customer managed encryption key, which is stored in KMS.
+    CloudKms = 2,
+}
+impl EncryptionType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            EncryptionType::Unspecified => "ENCRYPTION_TYPE_UNSPECIFIED",
+            EncryptionType::ServiceManaged => "SERVICE_MANAGED",
+            EncryptionType::CloudKms => "CLOUD_KMS",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "ENCRYPTION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "SERVICE_MANAGED" => Some(Self::ServiceManaged),
+            "CLOUD_KMS" => Some(Self::CloudKms),
+            _ => None,
+        }
+    }
+}
+/// GetStoragePoolRequest gets a Storage Pool.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetKmsConfigRequest {
-    /// Required. Name of the KmsConfig
+pub struct GetStoragePoolRequest {
+    /// Required. Name of the storage pool
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// ListKmsConfigsRequest lists KMS Configs.
+/// ListStoragePoolsRequest lists Storage Pools.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListKmsConfigsRequest {
+pub struct ListStoragePoolsRequest {
     /// Required. Parent value
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
@@ -924,13 +1171,13 @@ pub struct ListKmsConfigsRequest {
     #[prost(string, tag = "5")]
     pub filter: ::prost::alloc::string::String,
 }
-/// ListKmsConfigsResponse is the response to a ListKmsConfigsRequest.
+/// ListStoragePoolsResponse is the response to a ListStoragePoolsRequest.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListKmsConfigsResponse {
-    /// The list of KmsConfigs
+pub struct ListStoragePoolsResponse {
+    /// The list of StoragePools
     #[prost(message, repeated, tag = "1")]
-    pub kms_configs: ::prost::alloc::vec::Vec<KmsConfig>,
+    pub storage_pools: ::prost::alloc::vec::Vec<StoragePool>,
     /// A token identifying a page of results the server should return.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
@@ -938,119 +1185,111 @@ pub struct ListKmsConfigsResponse {
     #[prost(string, repeated, tag = "3")]
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-/// CreateKmsConfigRequest creates a KMS Config.
+/// CreateStoragePoolRequest creates a Storage Pool.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateKmsConfigRequest {
+pub struct CreateStoragePoolRequest {
     /// Required. Value for parent.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Required. Id of the requesting KmsConfig
+    /// Required. Id of the requesting storage pool
     /// If auto-generating Id server-side, remove this field and
     /// id from the method_signature of Create RPC
     #[prost(string, tag = "2")]
-    pub kms_config_id: ::prost::alloc::string::String,
-    /// Required. The required parameters to create a new KmsConfig.
+    pub storage_pool_id: ::prost::alloc::string::String,
+    /// Required. The required parameters to create a new storage pool.
     #[prost(message, optional, tag = "3")]
-    pub kms_config: ::core::option::Option<KmsConfig>,
+    pub storage_pool: ::core::option::Option<StoragePool>,
 }
-/// UpdateKmsConfigRequest updates a KMS Config.
+/// UpdateStoragePoolRequest updates a Storage Pool.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateKmsConfigRequest {
+pub struct UpdateStoragePoolRequest {
     /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// KmsConfig resource by the update.
+    /// StoragePool resource by the update.
     /// The fields specified in the update_mask are relative to the resource, not
     /// the full request. A field will be overwritten if it is in the mask. If the
     /// user does not provide a mask then all fields will be overwritten.
     #[prost(message, optional, tag = "1")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The KmsConfig being updated
+    /// Required. The pool being updated
     #[prost(message, optional, tag = "2")]
-    pub kms_config: ::core::option::Option<KmsConfig>,
+    pub storage_pool: ::core::option::Option<StoragePool>,
 }
-/// DeleteKmsConfigRequest deletes a KMS Config.
+/// DeleteStoragePoolRequest deletes a Storage Pool.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteKmsConfigRequest {
-    /// Required. Name of the KmsConfig.
+pub struct DeleteStoragePoolRequest {
+    /// Required. Name of the storage pool
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// EncryptVolumesRequest specifies the KMS config to encrypt existing volumes.
+/// StoragePool is a container for volumes with a service level and capacity.
+/// Volumes can be created in a pool of sufficient available capacity.
+/// StoragePool capacity is what you are billed for.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EncryptVolumesRequest {
-    /// Required. Name of the KmsConfig.
+pub struct StoragePool {
+    /// Output only. Name of the storage pool
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-}
-/// VerifyKmsConfigRequest specifies the KMS config to be validated.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VerifyKmsConfigRequest {
-    /// Required. Name of the KMS Config to be verified.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// VerifyKmsConfigResponse contains the information if the config is correctly
-/// and error message.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VerifyKmsConfigResponse {
-    /// Output only. If the customer key configured correctly to the encrypt
-    /// volume.
-    #[prost(bool, tag = "1")]
-    pub healthy: bool,
-    /// Output only. Error message if config is not healthy.
-    #[prost(string, tag = "2")]
-    pub health_error: ::prost::alloc::string::String,
-    /// Output only. Instructions for the customers to provide the access to the
-    /// encryption key.
-    #[prost(string, tag = "3")]
-    pub instructions: ::prost::alloc::string::String,
-}
-/// KmsConfig is the customer managed encryption key(CMEK) configuration.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct KmsConfig {
-    /// Output only. Name of the KmsConfig.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Customer managed crypto key resource full name. Format:
-    /// projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key}.
-    #[prost(string, tag = "2")]
-    pub crypto_key_name: ::prost::alloc::string::String,
-    /// Output only. State of the KmsConfig.
-    #[prost(enumeration = "kms_config::State", tag = "3")]
+    /// Required. Service level of the storage pool
+    #[prost(enumeration = "ServiceLevel", tag = "2")]
+    pub service_level: i32,
+    /// Required. Capacity in GIB of the pool
+    #[prost(int64, tag = "3")]
+    pub capacity_gib: i64,
+    /// Output only. Allocated size of all volumes in GIB in the storage pool
+    #[prost(int64, tag = "4")]
+    pub volume_capacity_gib: i64,
+    /// Output only. Volume count of the storage pool
+    #[prost(int32, tag = "5")]
+    pub volume_count: i32,
+    /// Output only. State of the storage pool
+    #[prost(enumeration = "storage_pool::State", tag = "6")]
     pub state: i32,
-    /// Output only. State details of the KmsConfig.
-    #[prost(string, tag = "4")]
+    /// Output only. State details of the storage pool
+    #[prost(string, tag = "7")]
     pub state_details: ::prost::alloc::string::String,
-    /// Output only. Create time of the KmsConfig.
-    #[prost(message, optional, tag = "5")]
+    /// Output only. Create time of the storage pool
+    #[prost(message, optional, tag = "8")]
     pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Description of the KmsConfig.
-    #[prost(string, tag = "6")]
+    /// Description of the storage pool
+    #[prost(string, tag = "9")]
     pub description: ::prost::alloc::string::String,
     /// Labels as key value pairs
-    #[prost(btree_map = "string, string", tag = "7")]
+    #[prost(btree_map = "string, string", tag = "10")]
     pub labels: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
-    /// Output only. Instructions to provide the access to the customer provided
-    /// encryption key.
-    #[prost(string, tag = "8")]
-    pub instructions: ::prost::alloc::string::String,
-    /// Output only. The Service account which will have access to the customer
-    /// provided encryption key.
-    #[prost(string, tag = "9")]
-    pub service_account: ::prost::alloc::string::String,
+    /// Required. VPC Network name.
+    /// Format: projects/{project}/global/networks/{network}
+    #[prost(string, tag = "11")]
+    pub network: ::prost::alloc::string::String,
+    /// Specifies the Active Directory to be used for creating a SMB volume.
+    #[prost(string, tag = "12")]
+    pub active_directory: ::prost::alloc::string::String,
+    /// Specifies the KMS config to be used for volume encryption.
+    #[prost(string, tag = "13")]
+    pub kms_config: ::prost::alloc::string::String,
+    /// Flag indicating if the pool is NFS LDAP enabled or not.
+    #[prost(bool, tag = "14")]
+    pub ldap_enabled: bool,
+    /// Name of the Private Service Access allocated range. If
+    /// not provided, any available range will be chosen.
+    #[prost(string, tag = "15")]
+    pub psa_range: ::prost::alloc::string::String,
+    /// Output only. Specifies the current pool encryption key source.
+    #[prost(enumeration = "EncryptionType", tag = "16")]
+    pub encryption_type: i32,
+    /// Optional. Allows SO pool to access AD or DNS server from other regions.
+    #[prost(bool, optional, tag = "17")]
+    pub global_access_allowed: ::core::option::Option<bool>,
 }
-/// Nested message and enum types in `KmsConfig`.
-pub mod kms_config {
-    /// The KmsConfig States
+/// Nested message and enum types in `StoragePool`.
+pub mod storage_pool {
+    /// The Storage Pool States
     #[derive(
         Clone,
         Copy,
@@ -1064,32 +1303,22 @@ pub mod kms_config {
     )]
     #[repr(i32)]
     pub enum State {
-        /// Unspecified KmsConfig State
+        /// Unspecified Storage Pool State
         Unspecified = 0,
-        /// KmsConfig State is Ready
+        /// Storage Pool State is Ready
         Ready = 1,
-        /// KmsConfig State is Creating
+        /// Storage Pool State is Creating
         Creating = 2,
-        /// KmsConfig State is Deleting
+        /// Storage Pool State is Deleting
         Deleting = 3,
-        /// KmsConfig State is Updating
+        /// Storage Pool State is Updating
         Updating = 4,
-        /// KmsConfig State is In Use.
-        InUse = 5,
-        /// KmsConfig State is Error
-        Error = 6,
-        /// KmsConfig State is Pending to verify crypto key access.
-        KeyCheckPending = 7,
-        /// KmsConfig State is Not accessbile by the SDE service account to the
-        /// crypto key.
-        KeyNotReachable = 8,
-        /// KmsConfig State is Disabling.
-        Disabling = 9,
-        /// KmsConfig State is Disabled.
-        Disabled = 10,
-        /// KmsConfig State is Migrating.
-        /// The existing volumes are migrating from SMEK to CMEK.
-        Migrating = 11,
+        /// Storage Pool State is Restoring
+        Restoring = 5,
+        /// Storage Pool State is Disabled
+        Disabled = 6,
+        /// Storage Pool State is Error
+        Error = 7,
     }
     impl State {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -1103,13 +1332,9 @@ pub mod kms_config {
                 State::Creating => "CREATING",
                 State::Deleting => "DELETING",
                 State::Updating => "UPDATING",
-                State::InUse => "IN_USE",
-                State::Error => "ERROR",
-                State::KeyCheckPending => "KEY_CHECK_PENDING",
-                State::KeyNotReachable => "KEY_NOT_REACHABLE",
-                State::Disabling => "DISABLING",
+                State::Restoring => "RESTORING",
                 State::Disabled => "DISABLED",
-                State::Migrating => "MIGRATING",
+                State::Error => "ERROR",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1120,13 +1345,9 @@ pub mod kms_config {
                 "CREATING" => Some(Self::Creating),
                 "DELETING" => Some(Self::Deleting),
                 "UPDATING" => Some(Self::Updating),
-                "IN_USE" => Some(Self::InUse),
-                "ERROR" => Some(Self::Error),
-                "KEY_CHECK_PENDING" => Some(Self::KeyCheckPending),
-                "KEY_NOT_REACHABLE" => Some(Self::KeyNotReachable),
-                "DISABLING" => Some(Self::Disabling),
+                "RESTORING" => Some(Self::Restoring),
                 "DISABLED" => Some(Self::Disabled),
-                "MIGRATING" => Some(Self::Migrating),
+                "ERROR" => Some(Self::Error),
                 _ => None,
             }
         }
@@ -1785,227 +2006,6 @@ impl RestrictedAction {
             "RESTRICTED_ACTION_UNSPECIFIED" => Some(Self::Unspecified),
             "DELETE" => Some(Self::Delete),
             _ => None,
-        }
-    }
-}
-/// ListActiveDirectoriesRequest for requesting multiple active directories.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListActiveDirectoriesRequest {
-    /// Required. Parent value for ListActiveDirectoriesRequest
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Requested page size. Server may return fewer items than requested.
-    /// If unspecified, the server will pick an appropriate default.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Filtering results
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Hint for how to order the results
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// ListActiveDirectoriesResponse contains all the active directories requested.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListActiveDirectoriesResponse {
-    /// The list of active directories.
-    #[prost(message, repeated, tag = "1")]
-    pub active_directories: ::prost::alloc::vec::Vec<ActiveDirectory>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// GetActiveDirectory for getting a single active directory.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetActiveDirectoryRequest {
-    /// Required. Name of the active directory.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// CreateActiveDirectoryRequest for creating an active directory.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateActiveDirectoryRequest {
-    /// Required. Value for parent.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Fields of the to be created active directory.
-    #[prost(message, optional, tag = "2")]
-    pub active_directory: ::core::option::Option<ActiveDirectory>,
-    /// Required. ID of the active directory to create.
-    #[prost(string, tag = "3")]
-    pub active_directory_id: ::prost::alloc::string::String,
-}
-/// UpdateActiveDirectoryRequest for updating an active directory.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateActiveDirectoryRequest {
-    /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// Active Directory resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The volume being updated
-    #[prost(message, optional, tag = "2")]
-    pub active_directory: ::core::option::Option<ActiveDirectory>,
-}
-/// DeleteActiveDirectoryRequest for deleting a single active directory.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteActiveDirectoryRequest {
-    /// Required. Name of the active directory.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// ActiveDirectory is the public representation of the active directory config.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ActiveDirectory {
-    /// Output only. The resource name of the active directory.
-    /// Format:
-    /// `projects/{project_number}/locations/{location_id}/activeDirectories/{active_directory_id}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Create time of the active directory.
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The state of the AD.
-    #[prost(enumeration = "active_directory::State", tag = "3")]
-    pub state: i32,
-    /// Required. Name of the Active Directory domain
-    #[prost(string, tag = "4")]
-    pub domain: ::prost::alloc::string::String,
-    /// The Active Directory site the service will limit Domain Controller
-    /// discovery too.
-    #[prost(string, tag = "5")]
-    pub site: ::prost::alloc::string::String,
-    /// Required. Comma separated list of DNS server IP addresses for the Active
-    /// Directory domain.
-    #[prost(string, tag = "6")]
-    pub dns: ::prost::alloc::string::String,
-    /// Required. NetBIOSPrefix is used as a prefix for SMB server name.
-    #[prost(string, tag = "7")]
-    pub net_bios_prefix: ::prost::alloc::string::String,
-    /// The Organizational Unit (OU) within the Windows Active Directory the user
-    /// belongs to.
-    #[prost(string, tag = "8")]
-    pub organizational_unit: ::prost::alloc::string::String,
-    /// If enabled, AES encryption will be enabled for SMB communication.
-    #[prost(bool, tag = "9")]
-    pub aes_encryption: bool,
-    /// Required. Username of the Active Directory domain administrator.
-    #[prost(string, tag = "10")]
-    pub username: ::prost::alloc::string::String,
-    /// Required. Password of the Active Directory domain administrator.
-    #[prost(string, tag = "11")]
-    pub password: ::prost::alloc::string::String,
-    /// Users to be added to the Built-in Backup Operator active directory group.
-    #[prost(string, repeated, tag = "12")]
-    pub backup_operators: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Domain users to be given the SeSecurityPrivilege.
-    #[prost(string, repeated, tag = "13")]
-    pub security_operators: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Name of the active directory machine. This optional parameter is used only
-    /// while creating kerberos volume
-    #[prost(string, tag = "14")]
-    pub kdc_hostname: ::prost::alloc::string::String,
-    /// KDC server IP address for the active directory machine.
-    #[prost(string, tag = "15")]
-    pub kdc_ip: ::prost::alloc::string::String,
-    /// If enabled, will allow access to local users and LDAP users. If access is
-    /// needed for only LDAP users, it has to be disabled.
-    #[prost(bool, tag = "16")]
-    pub nfs_users_with_ldap: bool,
-    /// Description of the active directory.
-    #[prost(string, tag = "17")]
-    pub description: ::prost::alloc::string::String,
-    /// Specifies whether or not the LDAP traffic needs to be signed.
-    #[prost(bool, tag = "18")]
-    pub ldap_signing: bool,
-    /// If enabled, traffic between the SMB server to Domain Controller (DC) will
-    /// be encrypted.
-    #[prost(bool, tag = "19")]
-    pub encrypt_dc_connections: bool,
-    /// Labels for the active directory.
-    #[prost(btree_map = "string, string", tag = "20")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. The state details of the Active Directory.
-    #[prost(string, tag = "21")]
-    pub state_details: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `ActiveDirectory`.
-pub mod active_directory {
-    /// The Active Directory States
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified Active Directory State
-        Unspecified = 0,
-        /// Active Directory State is Creating
-        Creating = 1,
-        /// Active Directory State is Ready
-        Ready = 2,
-        /// Active Directory State is Updating
-        Updating = 3,
-        /// Active Directory State is In use
-        InUse = 4,
-        /// Active Directory State is Deleting
-        Deleting = 5,
-        /// Active Directory State is Error
-        Error = 6,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::Ready => "READY",
-                State::Updating => "UPDATING",
-                State::InUse => "IN_USE",
-                State::Deleting => "DELETING",
-                State::Error => "ERROR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "READY" => Some(Self::Ready),
-                "UPDATING" => Some(Self::Updating),
-                "IN_USE" => Some(Self::InUse),
-                "DELETING" => Some(Self::Deleting),
-                "ERROR" => Some(Self::Error),
-                _ => None,
-            }
         }
     }
 }

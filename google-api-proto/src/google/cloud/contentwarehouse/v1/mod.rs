@@ -1,3 +1,526 @@
+/// Meta information is used to improve the performance of the service.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RequestMetadata {
+    /// Provides user unique identification and groups information.
+    #[prost(message, optional, tag = "1")]
+    pub user_info: ::core::option::Option<UserInfo>,
+}
+/// Additional information returned to client, such as debugging information.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResponseMetadata {
+    /// A unique id associated with this call. This id is logged for tracking
+    /// purpose.
+    #[prost(string, tag = "1")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// The user information.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UserInfo {
+    /// A unique user identification string, as determined by the client.
+    /// The maximum number of allowed characters is 255.
+    /// Allowed characters include numbers 0 to 9, uppercase and lowercase letters,
+    /// and restricted special symbols (:, @, +, -, _, ~)
+    /// The format is "user:xxxx@example.com";
+    #[prost(string, tag = "1")]
+    pub id: ::prost::alloc::string::String,
+    /// The unique group identifications which the user is belong to.
+    /// The format is "group:yyyy@example.com";
+    #[prost(string, repeated, tag = "2")]
+    pub group_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Options for Update operations.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateOptions {
+    /// Type for update.
+    #[prost(enumeration = "UpdateType", tag = "1")]
+    pub update_type: i32,
+    /// Field mask for merging Document fields.
+    /// For the `FieldMask` definition,
+    /// see
+    /// <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask>
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Options for merging.
+    #[prost(message, optional, tag = "3")]
+    pub merge_fields_options: ::core::option::Option<MergeFieldsOptions>,
+}
+/// Options for merging updated fields.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MergeFieldsOptions {
+    /// When merging message fields, the default behavior is to merge
+    /// the content of two message fields together. If you instead want to use
+    /// the field from the source message to replace the corresponding field in
+    /// the destination message, set this flag to true. When this flag is set,
+    /// specified submessage fields that are missing in source will be cleared in
+    /// destination.
+    #[prost(bool, optional, tag = "1")]
+    pub replace_message_fields: ::core::option::Option<bool>,
+    /// When merging repeated fields, the default behavior is to append
+    /// entries from the source repeated field to the destination repeated field.
+    /// If you instead want to keep only the entries from the source repeated
+    /// field, set this flag to true.
+    ///
+    /// If you want to replace a repeated field within a message field on the
+    /// destination message, you must set both replace_repeated_fields and
+    /// replace_message_fields to true, otherwise the repeated fields will be
+    /// appended.
+    #[prost(bool, optional, tag = "2")]
+    pub replace_repeated_fields: ::core::option::Option<bool>,
+}
+/// Update type of the requests.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum UpdateType {
+    /// Defaults to full replace behavior, ie. FULL_REPLACE.
+    Unspecified = 0,
+    /// Fully replace all the fields (including previously linked raw document).
+    /// Any field masks will be ignored.
+    Replace = 1,
+    /// Merge the fields into the existing entities.
+    Merge = 2,
+    /// Inserts the properties by names.
+    InsertPropertiesByNames = 3,
+    /// Replace the properties by names.
+    ReplacePropertiesByNames = 4,
+    /// Delete the properties by names.
+    DeletePropertiesByNames = 5,
+    /// For each of the property, replaces the property if the it exists, otherwise
+    /// inserts a new property. And for the rest of the fields, merge them based on
+    /// update mask and merge fields options.
+    MergeAndReplaceOrInsertPropertiesByNames = 6,
+}
+impl UpdateType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            UpdateType::Unspecified => "UPDATE_TYPE_UNSPECIFIED",
+            UpdateType::Replace => "UPDATE_TYPE_REPLACE",
+            UpdateType::Merge => "UPDATE_TYPE_MERGE",
+            UpdateType::InsertPropertiesByNames => {
+                "UPDATE_TYPE_INSERT_PROPERTIES_BY_NAMES"
+            }
+            UpdateType::ReplacePropertiesByNames => {
+                "UPDATE_TYPE_REPLACE_PROPERTIES_BY_NAMES"
+            }
+            UpdateType::DeletePropertiesByNames => {
+                "UPDATE_TYPE_DELETE_PROPERTIES_BY_NAMES"
+            }
+            UpdateType::MergeAndReplaceOrInsertPropertiesByNames => {
+                "UPDATE_TYPE_MERGE_AND_REPLACE_OR_INSERT_PROPERTIES_BY_NAMES"
+            }
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "UPDATE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "UPDATE_TYPE_REPLACE" => Some(Self::Replace),
+            "UPDATE_TYPE_MERGE" => Some(Self::Merge),
+            "UPDATE_TYPE_INSERT_PROPERTIES_BY_NAMES" => {
+                Some(Self::InsertPropertiesByNames)
+            }
+            "UPDATE_TYPE_REPLACE_PROPERTIES_BY_NAMES" => {
+                Some(Self::ReplacePropertiesByNames)
+            }
+            "UPDATE_TYPE_DELETE_PROPERTIES_BY_NAMES" => {
+                Some(Self::DeletePropertiesByNames)
+            }
+            "UPDATE_TYPE_MERGE_AND_REPLACE_OR_INSERT_PROPERTIES_BY_NAMES" => {
+                Some(Self::MergeAndReplaceOrInsertPropertiesByNames)
+            }
+            _ => None,
+        }
+    }
+}
+/// Type of database used by the customer
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum DatabaseType {
+    /// This value is required by protobuf best practices
+    DbUnknown = 0,
+    /// Internal Spanner
+    DbInfraSpanner = 1,
+    /// Cloud Sql with a Postgres Sql instance
+    DbCloudSqlPostgres = 2,
+}
+impl DatabaseType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            DatabaseType::DbUnknown => "DB_UNKNOWN",
+            DatabaseType::DbInfraSpanner => "DB_INFRA_SPANNER",
+            DatabaseType::DbCloudSqlPostgres => "DB_CLOUD_SQL_POSTGRES",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "DB_UNKNOWN" => Some(Self::DbUnknown),
+            "DB_INFRA_SPANNER" => Some(Self::DbInfraSpanner),
+            "DB_CLOUD_SQL_POSTGRES" => Some(Self::DbCloudSqlPostgres),
+            _ => None,
+        }
+    }
+}
+/// Access Control Mode.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum AccessControlMode {
+    /// This value is required by protobuf best practices
+    AclModeUnknown = 0,
+    /// Universal Access: No document level access control.
+    AclModeUniversalAccess = 1,
+    /// Document level access control with customer own Identity Service.
+    AclModeDocumentLevelAccessControlByoid = 2,
+    /// Document level access control using Google Cloud Identity.
+    AclModeDocumentLevelAccessControlGci = 3,
+}
+impl AccessControlMode {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            AccessControlMode::AclModeUnknown => "ACL_MODE_UNKNOWN",
+            AccessControlMode::AclModeUniversalAccess => "ACL_MODE_UNIVERSAL_ACCESS",
+            AccessControlMode::AclModeDocumentLevelAccessControlByoid => {
+                "ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_BYOID"
+            }
+            AccessControlMode::AclModeDocumentLevelAccessControlGci => {
+                "ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_GCI"
+            }
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "ACL_MODE_UNKNOWN" => Some(Self::AclModeUnknown),
+            "ACL_MODE_UNIVERSAL_ACCESS" => Some(Self::AclModeUniversalAccess),
+            "ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_BYOID" => {
+                Some(Self::AclModeDocumentLevelAccessControlByoid)
+            }
+            "ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_GCI" => {
+                Some(Self::AclModeDocumentLevelAccessControlGci)
+            }
+            _ => None,
+        }
+    }
+}
+/// The default role of the document creator.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum DocumentCreatorDefaultRole {
+    /// Unspecified, will be default to document admin role.
+    Unspecified = 0,
+    /// Document Admin, same as contentwarehouse.googleapis.com/documentAdmin.
+    DocumentAdmin = 1,
+    /// Document Editor, same as contentwarehouse.googleapis.com/documentEditor.
+    DocumentEditor = 2,
+    /// Document Viewer, same as contentwarehouse.googleapis.com/documentViewer.
+    DocumentViewer = 3,
+}
+impl DocumentCreatorDefaultRole {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            DocumentCreatorDefaultRole::Unspecified => {
+                "DOCUMENT_CREATOR_DEFAULT_ROLE_UNSPECIFIED"
+            }
+            DocumentCreatorDefaultRole::DocumentAdmin => "DOCUMENT_ADMIN",
+            DocumentCreatorDefaultRole::DocumentEditor => "DOCUMENT_EDITOR",
+            DocumentCreatorDefaultRole::DocumentViewer => "DOCUMENT_VIEWER",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "DOCUMENT_CREATOR_DEFAULT_ROLE_UNSPECIFIED" => Some(Self::Unspecified),
+            "DOCUMENT_ADMIN" => Some(Self::DocumentAdmin),
+            "DOCUMENT_EDITOR" => Some(Self::DocumentEditor),
+            "DOCUMENT_VIEWER" => Some(Self::DocumentViewer),
+            _ => None,
+        }
+    }
+}
+/// Response message of RunPipeline method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RunPipelineResponse {}
+/// Metadata message of RunPipeline method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RunPipelineMetadata {
+    /// Number of files that were processed by the pipeline.
+    #[prost(int32, tag = "1")]
+    pub total_file_count: i32,
+    /// Number of files that have failed at some point in the pipeline.
+    #[prost(int32, tag = "2")]
+    pub failed_file_count: i32,
+    /// User unique identification and groups information.
+    #[prost(message, optional, tag = "3")]
+    pub user_info: ::core::option::Option<UserInfo>,
+    /// The list of response details of each document.
+    #[prost(message, repeated, tag = "5")]
+    pub individual_document_statuses: ::prost::alloc::vec::Vec<
+        run_pipeline_metadata::IndividualDocumentStatus,
+    >,
+    /// The pipeline metadata.
+    #[prost(oneof = "run_pipeline_metadata::PipelineMetadata", tags = "4, 6, 7")]
+    pub pipeline_metadata: ::core::option::Option<
+        run_pipeline_metadata::PipelineMetadata,
+    >,
+}
+/// Nested message and enum types in `RunPipelineMetadata`.
+pub mod run_pipeline_metadata {
+    /// The metadata message for GcsIngest pipeline.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct GcsIngestPipelineMetadata {
+        /// The input Cloud Storage folder in this pipeline.
+        /// Format: `gs://<bucket-name>/<folder-name>`.
+        #[prost(string, tag = "1")]
+        pub input_path: ::prost::alloc::string::String,
+    }
+    /// The metadata message for Export-to-CDW pipeline.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ExportToCdwPipelineMetadata {
+        /// The input list of all the resource names of the documents to be exported.
+        #[prost(string, repeated, tag = "1")]
+        pub documents: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// The output CDW dataset resource name.
+        #[prost(string, tag = "2")]
+        pub doc_ai_dataset: ::prost::alloc::string::String,
+        /// The output Cloud Storage folder in this pipeline.
+        #[prost(string, tag = "3")]
+        pub output_path: ::prost::alloc::string::String,
+    }
+    /// The metadata message for Process-with-DocAi pipeline.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ProcessWithDocAiPipelineMetadata {
+        /// The input list of all the resource names of the documents to be
+        /// processed.
+        #[prost(string, repeated, tag = "1")]
+        pub documents: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// The DocAI processor to process the documents with.
+        #[prost(message, optional, tag = "2")]
+        pub processor_info: ::core::option::Option<super::ProcessorInfo>,
+    }
+    /// The status of processing a document.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct IndividualDocumentStatus {
+        /// Document identifier of an existing document.
+        #[prost(string, tag = "1")]
+        pub document_id: ::prost::alloc::string::String,
+        /// The status processing the document.
+        #[prost(message, optional, tag = "2")]
+        pub status: ::core::option::Option<super::super::super::super::rpc::Status>,
+    }
+    /// The pipeline metadata.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum PipelineMetadata {
+        /// The pipeline metadata for GcsIngest pipeline.
+        #[prost(message, tag = "4")]
+        GcsIngestPipelineMetadata(GcsIngestPipelineMetadata),
+        /// The pipeline metadata for Export-to-CDW pipeline.
+        #[prost(message, tag = "6")]
+        ExportToCdwPipelineMetadata(ExportToCdwPipelineMetadata),
+        /// The pipeline metadata for Process-with-DocAi pipeline.
+        #[prost(message, tag = "7")]
+        ProcessWithDocAiPipelineMetadata(ProcessWithDocAiPipelineMetadata),
+    }
+}
+/// The DocAI processor information.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProcessorInfo {
+    /// The processor resource name.
+    /// Format is `projects/{project}/locations/{location}/processors/{processor}`,
+    /// or
+    /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
+    #[prost(string, tag = "1")]
+    pub processor_name: ::prost::alloc::string::String,
+    /// The processor will process the documents with this document type.
+    #[prost(string, tag = "2")]
+    pub document_type: ::prost::alloc::string::String,
+    /// The Document schema resource name. All documents processed by this
+    /// processor will use this schema.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documentSchemas/{document_schema_id}.
+    #[prost(string, tag = "3")]
+    pub schema_name: ::prost::alloc::string::String,
+}
+/// The ingestion pipeline config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct IngestPipelineConfig {
+    /// The document level acl policy config.
+    /// This refers to an Identity and Access (IAM) policy, which specifies access
+    /// controls for all documents ingested by the pipeline. The
+    /// \[role][google.iam.v1.Binding.role\] and
+    /// \[members][google.iam.v1.Binding.role\] under the policy needs to be
+    /// specified.
+    ///
+    /// The following roles are supported for document level acl control:
+    /// * roles/contentwarehouse.documentAdmin
+    /// * roles/contentwarehouse.documentEditor
+    /// * roles/contentwarehouse.documentViewer
+    ///
+    /// The following members are supported for document level acl control:
+    /// * user:user-email@example.com
+    /// * group:group-email@example.com
+    /// Note that for documents searched with LLM, only single level user or group
+    /// acl check is supported.
+    #[prost(message, optional, tag = "1")]
+    pub document_acl_policy: ::core::option::Option<
+        super::super::super::iam::v1::Policy,
+    >,
+    /// The document text extraction enabled flag.
+    /// If the flag is set to true, DWH will perform text extraction on the raw
+    /// document.
+    #[prost(bool, tag = "2")]
+    pub enable_document_text_extraction: bool,
+    /// Optional. The name of the folder to which all ingested documents will be
+    /// linked during ingestion process. Format is
+    /// `projects/{project}/locations/{location}/documents/{folder_id}`
+    #[prost(string, tag = "3")]
+    pub folder: ::prost::alloc::string::String,
+}
+/// The configuration of the Cloud Storage Ingestion pipeline.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcsIngestPipeline {
+    /// The input Cloud Storage folder. All files under this folder will be
+    /// imported to Document Warehouse.
+    /// Format: `gs://<bucket-name>/<folder-name>`.
+    #[prost(string, tag = "1")]
+    pub input_path: ::prost::alloc::string::String,
+    /// The Document Warehouse schema resource name. All documents processed by
+    /// this pipeline will use this schema.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documentSchemas/{document_schema_id}.
+    #[prost(string, tag = "2")]
+    pub schema_name: ::prost::alloc::string::String,
+    /// The Doc AI processor type name. Only used when the format of ingested
+    /// files is Doc AI Document proto format.
+    #[prost(string, tag = "3")]
+    pub processor_type: ::prost::alloc::string::String,
+    /// The flag whether to skip ingested documents.
+    /// If it is set to true, documents in Cloud Storage contains key "status" with
+    /// value "status=ingested" in custom metadata will be skipped to ingest.
+    #[prost(bool, tag = "4")]
+    pub skip_ingested_documents: bool,
+    /// Optional. The config for the Cloud Storage Ingestion pipeline.
+    /// It provides additional customization options to run the pipeline and can be
+    /// skipped if it is not applicable.
+    #[prost(message, optional, tag = "5")]
+    pub pipeline_config: ::core::option::Option<IngestPipelineConfig>,
+}
+/// The configuration of the Cloud Storage Ingestion with DocAI Processors
+/// pipeline.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcsIngestWithDocAiProcessorsPipeline {
+    /// The input Cloud Storage folder. All files under this folder will be
+    /// imported to Document Warehouse.
+    /// Format: `gs://<bucket-name>/<folder-name>`.
+    #[prost(string, tag = "1")]
+    pub input_path: ::prost::alloc::string::String,
+    /// The split and classify processor information.
+    /// The split and classify result will be used to find a matched extract
+    /// processor.
+    #[prost(message, optional, tag = "2")]
+    pub split_classify_processor_info: ::core::option::Option<ProcessorInfo>,
+    /// The extract processors information.
+    /// One matched extract processor will be used to process documents based on
+    /// the classify processor result. If no classify processor is specified, the
+    /// first extract processor will be used.
+    #[prost(message, repeated, tag = "3")]
+    pub extract_processor_infos: ::prost::alloc::vec::Vec<ProcessorInfo>,
+    /// The Cloud Storage folder path used to store the raw results from
+    /// processors.
+    /// Format: `gs://<bucket-name>/<folder-name>`.
+    #[prost(string, tag = "4")]
+    pub processor_results_folder_path: ::prost::alloc::string::String,
+    /// The flag whether to skip ingested documents.
+    /// If it is set to true, documents in Cloud Storage contains key "status" with
+    /// value "status=ingested" in custom metadata will be skipped to ingest.
+    #[prost(bool, tag = "5")]
+    pub skip_ingested_documents: bool,
+    /// Optional. The config for the Cloud Storage Ingestion with DocAI Processors
+    /// pipeline. It provides additional customization options to run the pipeline
+    /// and can be skipped if it is not applicable.
+    #[prost(message, optional, tag = "6")]
+    pub pipeline_config: ::core::option::Option<IngestPipelineConfig>,
+}
+/// The configuration of exporting documents from the Document Warehouse to CDW
+/// pipeline.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExportToCdwPipeline {
+    /// The list of all the resource names of the documents to be processed.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{document_id}.
+    #[prost(string, repeated, tag = "1")]
+    pub documents: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The Cloud Storage folder path used to store the exported documents before
+    /// being sent to CDW.
+    /// Format: `gs://<bucket-name>/<folder-name>`.
+    #[prost(string, tag = "2")]
+    pub export_folder_path: ::prost::alloc::string::String,
+    /// Optional. The CDW dataset resource name. This field is optional. If not
+    /// set, the documents will be exported to Cloud Storage only. Format:
+    /// projects/{project}/locations/{location}/processors/{processor}/dataset
+    #[prost(string, tag = "3")]
+    pub doc_ai_dataset: ::prost::alloc::string::String,
+    /// Ratio of training dataset split. When importing into Document AI Workbench,
+    /// documents will be automatically split into training and test split category
+    /// with the specified ratio. This field is required if doc_ai_dataset is set.
+    #[prost(float, tag = "4")]
+    pub training_split_ratio: f32,
+}
+/// The configuration of processing documents in Document Warehouse with DocAi
+/// processors pipeline.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProcessWithDocAiPipeline {
+    /// The list of all the resource names of the documents to be processed.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{document_id}.
+    #[prost(string, repeated, tag = "1")]
+    pub documents: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The Cloud Storage folder path used to store the exported documents before
+    /// being sent to CDW.
+    /// Format: `gs://<bucket-name>/<folder-name>`.
+    #[prost(string, tag = "2")]
+    pub export_folder_path: ::prost::alloc::string::String,
+    /// The CDW processor information.
+    #[prost(message, optional, tag = "3")]
+    pub processor_info: ::core::option::Option<ProcessorInfo>,
+    /// The Cloud Storage folder path used to store the raw results from
+    /// processors.
+    /// Format: `gs://<bucket-name>/<folder-name>`.
+    #[prost(string, tag = "4")]
+    pub processor_results_folder_path: ::prost::alloc::string::String,
+}
 /// Defines the structure for content warehouse document proto.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -421,1341 +944,6 @@ impl ContentCategory {
             "CONTENT_CATEGORY_AUDIO" => Some(Self::Audio),
             "CONTENT_CATEGORY_VIDEO" => Some(Self::Video),
             _ => None,
-        }
-    }
-}
-/// Represents a set of rules from a single customer.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RuleSet {
-    /// The resource name of the rule set. Managed internally.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/ruleSet/{rule_set_id}.
-    ///
-    /// The name is ignored when creating a rule set.
-    #[prost(string, tag = "6")]
-    pub name: ::prost::alloc::string::String,
-    /// Short description of the rule-set.
-    #[prost(string, tag = "1")]
-    pub description: ::prost::alloc::string::String,
-    /// Source of the rules i.e., customer name.
-    #[prost(string, tag = "2")]
-    pub source: ::prost::alloc::string::String,
-    /// List of rules given by the customer.
-    #[prost(message, repeated, tag = "3")]
-    pub rules: ::prost::alloc::vec::Vec<Rule>,
-}
-/// Represents the rule for a content warehouse trigger.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Rule {
-    /// Short description of the rule and its context.
-    #[prost(string, tag = "1")]
-    pub description: ::prost::alloc::string::String,
-    /// ID of the rule. It has to be unique across all the examples.
-    /// This is managed internally.
-    #[prost(string, tag = "2")]
-    pub rule_id: ::prost::alloc::string::String,
-    /// Identifies the trigger type for running the policy.
-    #[prost(enumeration = "rule::TriggerType", tag = "3")]
-    pub trigger_type: i32,
-    /// Represents the conditional expression to be evaluated.
-    /// Expression should evaluate to a boolean result.
-    /// When the condition is true actions are executed.
-    /// Example: user_role = "hsbc_role_1" AND doc.salary > 20000
-    #[prost(string, tag = "4")]
-    pub condition: ::prost::alloc::string::String,
-    /// List of actions that are executed when the rule is satisfied.
-    #[prost(message, repeated, tag = "5")]
-    pub actions: ::prost::alloc::vec::Vec<Action>,
-}
-/// Nested message and enum types in `Rule`.
-pub mod rule {
-    /// The trigger types for actions.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum TriggerType {
-        /// Trigger for unknown action.
-        Unknown = 0,
-        /// Trigger for create document action.
-        OnCreate = 1,
-        /// Trigger for update document action.
-        OnUpdate = 4,
-        /// Trigger for create link action.
-        OnCreateLink = 7,
-        /// Trigger for delete link action.
-        OnDeleteLink = 8,
-    }
-    impl TriggerType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                TriggerType::Unknown => "UNKNOWN",
-                TriggerType::OnCreate => "ON_CREATE",
-                TriggerType::OnUpdate => "ON_UPDATE",
-                TriggerType::OnCreateLink => "ON_CREATE_LINK",
-                TriggerType::OnDeleteLink => "ON_DELETE_LINK",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UNKNOWN" => Some(Self::Unknown),
-                "ON_CREATE" => Some(Self::OnCreate),
-                "ON_UPDATE" => Some(Self::OnUpdate),
-                "ON_CREATE_LINK" => Some(Self::OnCreateLink),
-                "ON_DELETE_LINK" => Some(Self::OnDeleteLink),
-                _ => None,
-            }
-        }
-    }
-}
-/// Represents the action triggered by Rule Engine when the rule is true.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Action {
-    /// ID of the action. Managed internally.
-    #[prost(string, tag = "1")]
-    pub action_id: ::prost::alloc::string::String,
-    #[prost(oneof = "action::Action", tags = "2, 3, 4, 5, 6, 9, 10")]
-    pub action: ::core::option::Option<action::Action>,
-}
-/// Nested message and enum types in `Action`.
-pub mod action {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Action {
-        /// Action triggering access control operations.
-        #[prost(message, tag = "2")]
-        AccessControl(super::AccessControlAction),
-        /// Action triggering data validation operations.
-        #[prost(message, tag = "3")]
-        DataValidation(super::DataValidationAction),
-        /// Action triggering data update operations.
-        #[prost(message, tag = "4")]
-        DataUpdate(super::DataUpdateAction),
-        /// Action triggering create document link operation.
-        #[prost(message, tag = "5")]
-        AddToFolder(super::AddToFolderAction),
-        /// Action publish to Pub/Sub operation.
-        #[prost(message, tag = "6")]
-        PublishToPubSub(super::PublishAction),
-        /// Action removing a document from a folder.
-        #[prost(message, tag = "9")]
-        RemoveFromFolderAction(super::RemoveFromFolderAction),
-        /// Action deleting the document.
-        #[prost(message, tag = "10")]
-        DeleteDocumentAction(super::DeleteDocumentAction),
-    }
-}
-/// Represents the action responsible for access control list management
-/// operations.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AccessControlAction {
-    /// Identifies the type of operation.
-    #[prost(enumeration = "access_control_action::OperationType", tag = "1")]
-    pub operation_type: i32,
-    /// Represents the new policy from which bindings are added, removed or
-    /// replaced based on the type of the operation. the policy is limited to a few
-    /// 10s of KB.
-    #[prost(message, optional, tag = "2")]
-    pub policy: ::core::option::Option<super::super::super::iam::v1::Policy>,
-}
-/// Nested message and enum types in `AccessControlAction`.
-pub mod access_control_action {
-    /// Type of ACL modification operation.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum OperationType {
-        /// The unknown operation type.
-        Unknown = 0,
-        /// Adds newly given policy bindings in the existing bindings list.
-        AddPolicyBinding = 1,
-        /// Removes newly given policy bindings from the existing bindings list.
-        RemovePolicyBinding = 2,
-        /// Replaces existing policy bindings with the given policy binding list
-        ReplacePolicyBinding = 3,
-    }
-    impl OperationType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                OperationType::Unknown => "UNKNOWN",
-                OperationType::AddPolicyBinding => "ADD_POLICY_BINDING",
-                OperationType::RemovePolicyBinding => "REMOVE_POLICY_BINDING",
-                OperationType::ReplacePolicyBinding => "REPLACE_POLICY_BINDING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UNKNOWN" => Some(Self::Unknown),
-                "ADD_POLICY_BINDING" => Some(Self::AddPolicyBinding),
-                "REMOVE_POLICY_BINDING" => Some(Self::RemovePolicyBinding),
-                "REPLACE_POLICY_BINDING" => Some(Self::ReplacePolicyBinding),
-                _ => None,
-            }
-        }
-    }
-}
-/// Represents the action responsible for data validation operations.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DataValidationAction {
-    /// Map of (K, V) -> (field, string condition to be evaluated on the field)
-    /// E.g., ("age", "age > 18  && age < 60") entry triggers validation of field
-    /// age with the given condition. Map entries will be ANDed during validation.
-    #[prost(btree_map = "string, string", tag = "1")]
-    pub conditions: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// Represents the action responsible for properties update operations.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DataUpdateAction {
-    /// Map of (K, V) -> (valid name of the field, new value of the field)
-    /// E.g., ("age", "60") entry triggers update of field age with a value of 60.
-    /// If the field is not present then new entry is added.
-    /// During update action execution, value strings will be casted to
-    /// appropriate types.
-    #[prost(btree_map = "string, string", tag = "1")]
-    pub entries: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// Represents the action responsible for adding document under a folder.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AddToFolderAction {
-    /// Names of the folder under which new document is to be added.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documents/{document_id}.
-    #[prost(string, repeated, tag = "1")]
-    pub folders: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Represents the action responsible for remove a document from a specific
-/// folder.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RemoveFromFolderAction {
-    /// Condition of the action to be executed.
-    #[prost(string, tag = "1")]
-    pub condition: ::prost::alloc::string::String,
-    /// Name of the folder under which new document is to be added.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documents/{document_id}.
-    #[prost(string, tag = "2")]
-    pub folder: ::prost::alloc::string::String,
-}
-/// Represents the action responsible for publishing messages to a Pub/Sub topic.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PublishAction {
-    /// The topic id in the Pub/Sub service for which messages will be published
-    /// to.
-    #[prost(string, tag = "1")]
-    pub topic_id: ::prost::alloc::string::String,
-    /// Messages to be published.
-    #[prost(string, repeated, tag = "2")]
-    pub messages: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Represents the action responsible for deleting the document.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteDocumentAction {
-    /// Boolean field to select between hard vs soft delete options.
-    /// Set 'true' for 'hard delete' and 'false' for 'soft delete'.
-    #[prost(bool, tag = "1")]
-    pub enable_hard_delete: bool,
-}
-/// Records the output of Rule Engine including rule evaluation and actions
-/// result.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RuleEngineOutput {
-    /// Name of the document against which the rules and actions were evaluated.
-    #[prost(string, tag = "3")]
-    pub document_name: ::prost::alloc::string::String,
-    /// Output from Rule Evaluator containing matched, unmatched and invalid rules.
-    #[prost(message, optional, tag = "1")]
-    pub rule_evaluator_output: ::core::option::Option<RuleEvaluatorOutput>,
-    /// Output from Action Executor containing rule and corresponding actions
-    /// execution result.
-    #[prost(message, optional, tag = "2")]
-    pub action_executor_output: ::core::option::Option<ActionExecutorOutput>,
-}
-/// Represents the output of the Rule Evaluator.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RuleEvaluatorOutput {
-    /// List of rules fetched from database for the given request trigger type.
-    #[prost(message, repeated, tag = "1")]
-    pub triggered_rules: ::prost::alloc::vec::Vec<Rule>,
-    /// A subset of triggered rules that are evaluated true for a given request.
-    #[prost(message, repeated, tag = "2")]
-    pub matched_rules: ::prost::alloc::vec::Vec<Rule>,
-    /// A subset of triggered rules that failed the validation check(s) after
-    /// parsing.
-    #[prost(message, repeated, tag = "3")]
-    pub invalid_rules: ::prost::alloc::vec::Vec<InvalidRule>,
-}
-/// A triggered rule that failed the validation check(s) after parsing.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct InvalidRule {
-    /// Triggered rule.
-    #[prost(message, optional, tag = "1")]
-    pub rule: ::core::option::Option<Rule>,
-    /// Validation error on a parsed expression.
-    #[prost(string, tag = "2")]
-    pub error: ::prost::alloc::string::String,
-}
-/// Represents the output of the Action Executor.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ActionExecutorOutput {
-    /// List of rule and corresponding actions result.
-    #[prost(message, repeated, tag = "1")]
-    pub rule_actions_pairs: ::prost::alloc::vec::Vec<RuleActionsPair>,
-}
-/// Represents a rule and outputs of associated actions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RuleActionsPair {
-    /// Represents the rule.
-    #[prost(message, optional, tag = "1")]
-    pub rule: ::core::option::Option<Rule>,
-    /// Outputs of executing the actions associated with the above rule.
-    #[prost(message, repeated, tag = "2")]
-    pub action_outputs: ::prost::alloc::vec::Vec<ActionOutput>,
-}
-/// Represents the result of executing an action.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ActionOutput {
-    /// ID of the action.
-    #[prost(string, tag = "1")]
-    pub action_id: ::prost::alloc::string::String,
-    /// State of an action.
-    #[prost(enumeration = "action_output::State", tag = "2")]
-    pub action_state: i32,
-    /// Action execution output message.
-    #[prost(string, tag = "3")]
-    pub output_message: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `ActionOutput`.
-pub mod action_output {
-    /// Represents execution state of the action.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// The unknown state.
-        Unknown = 0,
-        /// State indicating action executed successfully.
-        ActionSucceeded = 1,
-        /// State indicating action failed.
-        ActionFailed = 2,
-        /// State indicating action timed out.
-        ActionTimedOut = 3,
-        /// State indicating action is pending.
-        ActionPending = 4,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unknown => "UNKNOWN",
-                State::ActionSucceeded => "ACTION_SUCCEEDED",
-                State::ActionFailed => "ACTION_FAILED",
-                State::ActionTimedOut => "ACTION_TIMED_OUT",
-                State::ActionPending => "ACTION_PENDING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UNKNOWN" => Some(Self::Unknown),
-                "ACTION_SUCCEEDED" => Some(Self::ActionSucceeded),
-                "ACTION_FAILED" => Some(Self::ActionFailed),
-                "ACTION_TIMED_OUT" => Some(Self::ActionTimedOut),
-                "ACTION_PENDING" => Some(Self::ActionPending),
-                _ => None,
-            }
-        }
-    }
-}
-/// Request message for RuleSetService.CreateRuleSet.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateRuleSetRequest {
-    /// Required. The parent name.
-    /// Format: projects/{project_number}/locations/{location}.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The rule set to create.
-    #[prost(message, optional, tag = "2")]
-    pub rule_set: ::core::option::Option<RuleSet>,
-}
-/// Request message for RuleSetService.GetRuleSet.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetRuleSetRequest {
-    /// Required. The name of the rule set to retrieve.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/ruleSets/{rule_set_id}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request message for RuleSetService.UpdateRuleSet.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateRuleSetRequest {
-    /// Required. The name of the rule set to update.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/ruleSets/{rule_set_id}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The rule set to update.
-    #[prost(message, optional, tag = "2")]
-    pub rule_set: ::core::option::Option<RuleSet>,
-}
-/// Request message for RuleSetService.DeleteRuleSet.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteRuleSetRequest {
-    /// Required. The name of the rule set to delete.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/ruleSets/{rule_set_id}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request message for RuleSetService.ListRuleSets.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListRuleSetsRequest {
-    /// Required. The parent, which owns this collection of document.
-    /// Format: projects/{project_number}/locations/{location}.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The maximum number of rule sets to return. The service may return
-    /// fewer than this value.
-    /// If unspecified, at most 50 rule sets will be returned.
-    /// The maximum value is 1000; values above 1000 will be coerced to 1000.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A page token, received from a previous `ListRuleSets` call.
-    /// Provide this to retrieve the subsequent page.
-    ///
-    /// When paginating, all other parameters provided to `ListRuleSets`
-    /// must match the call that provided the page token.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// Response message for RuleSetService.ListRuleSets.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListRuleSetsResponse {
-    /// The rule sets from the specified parent.
-    #[prost(message, repeated, tag = "1")]
-    pub rule_sets: ::prost::alloc::vec::Vec<RuleSet>,
-    /// A token, which can be sent as `page_token` to retrieve the next page.
-    /// If this field is omitted, there are no subsequent pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Generated client implementations.
-pub mod rule_set_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Service to manage customer specific RuleSets.
-    #[derive(Debug, Clone)]
-    pub struct RuleSetServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> RuleSetServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> RuleSetServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            RuleSetServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Creates a ruleset.
-        pub async fn create_rule_set(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateRuleSetRequest>,
-        ) -> std::result::Result<tonic::Response<super::RuleSet>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.contentwarehouse.v1.RuleSetService/CreateRuleSet",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.contentwarehouse.v1.RuleSetService",
-                        "CreateRuleSet",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets a ruleset. Returns NOT_FOUND if the ruleset does not exist.
-        pub async fn get_rule_set(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetRuleSetRequest>,
-        ) -> std::result::Result<tonic::Response<super::RuleSet>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.contentwarehouse.v1.RuleSetService/GetRuleSet",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.contentwarehouse.v1.RuleSetService",
-                        "GetRuleSet",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates a ruleset. Returns INVALID_ARGUMENT if the name of the ruleset
-        /// is non-empty and does not equal the existing name.
-        pub async fn update_rule_set(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateRuleSetRequest>,
-        ) -> std::result::Result<tonic::Response<super::RuleSet>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.contentwarehouse.v1.RuleSetService/UpdateRuleSet",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.contentwarehouse.v1.RuleSetService",
-                        "UpdateRuleSet",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a ruleset. Returns NOT_FOUND if the document does not exist.
-        pub async fn delete_rule_set(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteRuleSetRequest>,
-        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.contentwarehouse.v1.RuleSetService/DeleteRuleSet",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.contentwarehouse.v1.RuleSetService",
-                        "DeleteRuleSet",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists rulesets.
-        pub async fn list_rule_sets(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListRuleSetsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListRuleSetsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.contentwarehouse.v1.RuleSetService/ListRuleSets",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.contentwarehouse.v1.RuleSetService",
-                        "ListRuleSets",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// Meta information is used to improve the performance of the service.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RequestMetadata {
-    /// Provides user unique identification and groups information.
-    #[prost(message, optional, tag = "1")]
-    pub user_info: ::core::option::Option<UserInfo>,
-}
-/// Additional information returned to client, such as debugging information.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ResponseMetadata {
-    /// A unique id associated with this call. This id is logged for tracking
-    /// purpose.
-    #[prost(string, tag = "1")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// The user information.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UserInfo {
-    /// A unique user identification string, as determined by the client.
-    /// The maximum number of allowed characters is 255.
-    /// Allowed characters include numbers 0 to 9, uppercase and lowercase letters,
-    /// and restricted special symbols (:, @, +, -, _, ~)
-    /// The format is "user:xxxx@example.com";
-    #[prost(string, tag = "1")]
-    pub id: ::prost::alloc::string::String,
-    /// The unique group identifications which the user is belong to.
-    /// The format is "group:yyyy@example.com";
-    #[prost(string, repeated, tag = "2")]
-    pub group_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Options for Update operations.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateOptions {
-    /// Type for update.
-    #[prost(enumeration = "UpdateType", tag = "1")]
-    pub update_type: i32,
-    /// Field mask for merging Document fields.
-    /// For the `FieldMask` definition,
-    /// see
-    /// <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask>
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Options for merging.
-    #[prost(message, optional, tag = "3")]
-    pub merge_fields_options: ::core::option::Option<MergeFieldsOptions>,
-}
-/// Options for merging updated fields.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MergeFieldsOptions {
-    /// When merging message fields, the default behavior is to merge
-    /// the content of two message fields together. If you instead want to use
-    /// the field from the source message to replace the corresponding field in
-    /// the destination message, set this flag to true. When this flag is set,
-    /// specified submessage fields that are missing in source will be cleared in
-    /// destination.
-    #[prost(bool, optional, tag = "1")]
-    pub replace_message_fields: ::core::option::Option<bool>,
-    /// When merging repeated fields, the default behavior is to append
-    /// entries from the source repeated field to the destination repeated field.
-    /// If you instead want to keep only the entries from the source repeated
-    /// field, set this flag to true.
-    ///
-    /// If you want to replace a repeated field within a message field on the
-    /// destination message, you must set both replace_repeated_fields and
-    /// replace_message_fields to true, otherwise the repeated fields will be
-    /// appended.
-    #[prost(bool, optional, tag = "2")]
-    pub replace_repeated_fields: ::core::option::Option<bool>,
-}
-/// Update type of the requests.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum UpdateType {
-    /// Defaults to full replace behavior, ie. FULL_REPLACE.
-    Unspecified = 0,
-    /// Fully replace all the fields (including previously linked raw document).
-    /// Any field masks will be ignored.
-    Replace = 1,
-    /// Merge the fields into the existing entities.
-    Merge = 2,
-    /// Inserts the properties by names.
-    InsertPropertiesByNames = 3,
-    /// Replace the properties by names.
-    ReplacePropertiesByNames = 4,
-    /// Delete the properties by names.
-    DeletePropertiesByNames = 5,
-    /// For each of the property, replaces the property if the it exists, otherwise
-    /// inserts a new property. And for the rest of the fields, merge them based on
-    /// update mask and merge fields options.
-    MergeAndReplaceOrInsertPropertiesByNames = 6,
-}
-impl UpdateType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            UpdateType::Unspecified => "UPDATE_TYPE_UNSPECIFIED",
-            UpdateType::Replace => "UPDATE_TYPE_REPLACE",
-            UpdateType::Merge => "UPDATE_TYPE_MERGE",
-            UpdateType::InsertPropertiesByNames => {
-                "UPDATE_TYPE_INSERT_PROPERTIES_BY_NAMES"
-            }
-            UpdateType::ReplacePropertiesByNames => {
-                "UPDATE_TYPE_REPLACE_PROPERTIES_BY_NAMES"
-            }
-            UpdateType::DeletePropertiesByNames => {
-                "UPDATE_TYPE_DELETE_PROPERTIES_BY_NAMES"
-            }
-            UpdateType::MergeAndReplaceOrInsertPropertiesByNames => {
-                "UPDATE_TYPE_MERGE_AND_REPLACE_OR_INSERT_PROPERTIES_BY_NAMES"
-            }
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "UPDATE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "UPDATE_TYPE_REPLACE" => Some(Self::Replace),
-            "UPDATE_TYPE_MERGE" => Some(Self::Merge),
-            "UPDATE_TYPE_INSERT_PROPERTIES_BY_NAMES" => {
-                Some(Self::InsertPropertiesByNames)
-            }
-            "UPDATE_TYPE_REPLACE_PROPERTIES_BY_NAMES" => {
-                Some(Self::ReplacePropertiesByNames)
-            }
-            "UPDATE_TYPE_DELETE_PROPERTIES_BY_NAMES" => {
-                Some(Self::DeletePropertiesByNames)
-            }
-            "UPDATE_TYPE_MERGE_AND_REPLACE_OR_INSERT_PROPERTIES_BY_NAMES" => {
-                Some(Self::MergeAndReplaceOrInsertPropertiesByNames)
-            }
-            _ => None,
-        }
-    }
-}
-/// Type of database used by the customer
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum DatabaseType {
-    /// This value is required by protobuf best practices
-    DbUnknown = 0,
-    /// Internal Spanner
-    DbInfraSpanner = 1,
-    /// Cloud Sql with a Postgres Sql instance
-    DbCloudSqlPostgres = 2,
-}
-impl DatabaseType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            DatabaseType::DbUnknown => "DB_UNKNOWN",
-            DatabaseType::DbInfraSpanner => "DB_INFRA_SPANNER",
-            DatabaseType::DbCloudSqlPostgres => "DB_CLOUD_SQL_POSTGRES",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "DB_UNKNOWN" => Some(Self::DbUnknown),
-            "DB_INFRA_SPANNER" => Some(Self::DbInfraSpanner),
-            "DB_CLOUD_SQL_POSTGRES" => Some(Self::DbCloudSqlPostgres),
-            _ => None,
-        }
-    }
-}
-/// Access Control Mode.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum AccessControlMode {
-    /// This value is required by protobuf best practices
-    AclModeUnknown = 0,
-    /// Universal Access: No document level access control.
-    AclModeUniversalAccess = 1,
-    /// Document level access control with customer own Identity Service.
-    AclModeDocumentLevelAccessControlByoid = 2,
-    /// Document level access control using Google Cloud Identity.
-    AclModeDocumentLevelAccessControlGci = 3,
-}
-impl AccessControlMode {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            AccessControlMode::AclModeUnknown => "ACL_MODE_UNKNOWN",
-            AccessControlMode::AclModeUniversalAccess => "ACL_MODE_UNIVERSAL_ACCESS",
-            AccessControlMode::AclModeDocumentLevelAccessControlByoid => {
-                "ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_BYOID"
-            }
-            AccessControlMode::AclModeDocumentLevelAccessControlGci => {
-                "ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_GCI"
-            }
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "ACL_MODE_UNKNOWN" => Some(Self::AclModeUnknown),
-            "ACL_MODE_UNIVERSAL_ACCESS" => Some(Self::AclModeUniversalAccess),
-            "ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_BYOID" => {
-                Some(Self::AclModeDocumentLevelAccessControlByoid)
-            }
-            "ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_GCI" => {
-                Some(Self::AclModeDocumentLevelAccessControlGci)
-            }
-            _ => None,
-        }
-    }
-}
-/// The default role of the document creator.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum DocumentCreatorDefaultRole {
-    /// Unspecified, will be default to document admin role.
-    Unspecified = 0,
-    /// Document Admin, same as contentwarehouse.googleapis.com/documentAdmin.
-    DocumentAdmin = 1,
-    /// Document Editor, same as contentwarehouse.googleapis.com/documentEditor.
-    DocumentEditor = 2,
-    /// Document Viewer, same as contentwarehouse.googleapis.com/documentViewer.
-    DocumentViewer = 3,
-}
-impl DocumentCreatorDefaultRole {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            DocumentCreatorDefaultRole::Unspecified => {
-                "DOCUMENT_CREATOR_DEFAULT_ROLE_UNSPECIFIED"
-            }
-            DocumentCreatorDefaultRole::DocumentAdmin => "DOCUMENT_ADMIN",
-            DocumentCreatorDefaultRole::DocumentEditor => "DOCUMENT_EDITOR",
-            DocumentCreatorDefaultRole::DocumentViewer => "DOCUMENT_VIEWER",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "DOCUMENT_CREATOR_DEFAULT_ROLE_UNSPECIFIED" => Some(Self::Unspecified),
-            "DOCUMENT_ADMIN" => Some(Self::DocumentAdmin),
-            "DOCUMENT_EDITOR" => Some(Self::DocumentEditor),
-            "DOCUMENT_VIEWER" => Some(Self::DocumentViewer),
-            _ => None,
-        }
-    }
-}
-/// Response message for DocumentLinkService.ListLinkedTargets.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListLinkedTargetsResponse {
-    /// Target document-links.
-    #[prost(message, repeated, tag = "1")]
-    pub document_links: ::prost::alloc::vec::Vec<DocumentLink>,
-    /// A token, which can be sent as `page_token` to retrieve the next page.
-    /// If this field is omitted, there are no subsequent pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Request message for DocumentLinkService.ListLinkedTargets.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListLinkedTargetsRequest {
-    /// Required. The name of the document, for which all target links are
-    /// returned. Format:
-    /// projects/{project_number}/locations/{location}/documents/{target_document_id}.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The meta information collected about the document creator, used to enforce
-    /// access control for the service.
-    #[prost(message, optional, tag = "2")]
-    pub request_metadata: ::core::option::Option<RequestMetadata>,
-}
-/// Response message for DocumentLinkService.ListLinkedSources.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListLinkedSourcesResponse {
-    /// Source document-links.
-    #[prost(message, repeated, tag = "1")]
-    pub document_links: ::prost::alloc::vec::Vec<DocumentLink>,
-    /// A token, which can be sent as `page_token` to retrieve the next page.
-    /// If this field is omitted, there are no subsequent pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Response message for DocumentLinkService.ListLinkedSources.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListLinkedSourcesRequest {
-    /// Required. The name of the document, for which all source links are
-    /// returned. Format:
-    /// projects/{project_number}/locations/{location}/documents/{source_document_id}.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The maximum number of document-links to return. The service may return
-    /// fewer than this value.
-    ///
-    /// If unspecified, at most 50 document-links will be returned.
-    /// The maximum value is 1000; values above 1000 will be coerced to 1000.
-    #[prost(int32, tag = "3")]
-    pub page_size: i32,
-    /// A page token, received from a previous `ListLinkedSources` call.
-    /// Provide this to retrieve the subsequent page.
-    ///
-    /// When paginating, all other parameters provided to `ListLinkedSources`
-    /// must match the call that provided the page token.
-    #[prost(string, tag = "4")]
-    pub page_token: ::prost::alloc::string::String,
-    /// The meta information collected about the document creator, used to enforce
-    /// access control for the service.
-    #[prost(message, optional, tag = "2")]
-    pub request_metadata: ::core::option::Option<RequestMetadata>,
-}
-/// A document-link between source and target document.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DocumentLink {
-    /// Name of this document-link.
-    /// It is required that the parent derived form the name to be consistent with
-    /// the source document reference. Otherwise an exception will be thrown.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documents/{source_document_id}/documentLinks/{document_link_id}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Document references of the source document.
-    #[prost(message, optional, tag = "2")]
-    pub source_document_reference: ::core::option::Option<DocumentReference>,
-    /// Document references of the target document.
-    #[prost(message, optional, tag = "3")]
-    pub target_document_reference: ::core::option::Option<DocumentReference>,
-    /// Description of this document-link.
-    #[prost(string, tag = "4")]
-    pub description: ::prost::alloc::string::String,
-    /// Output only. The time when the documentLink is last updated.
-    #[prost(message, optional, tag = "5")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The time when the documentLink is created.
-    #[prost(message, optional, tag = "6")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The state of the documentlink. If target node has been deleted, the
-    /// link is marked as invalid. Removing a source node will result in removal
-    /// of all associated links.
-    #[prost(enumeration = "document_link::State", tag = "7")]
-    pub state: i32,
-}
-/// Nested message and enum types in `DocumentLink`.
-pub mod document_link {
-    /// The state of a document-link.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unknown state of documentlink.
-        Unspecified = 0,
-        /// The documentlink has both source and target documents detected.
-        Active = 1,
-        /// Target document is deleted, and mark the documentlink as soft-deleted.
-        SoftDeleted = 2,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Active => "ACTIVE",
-                State::SoftDeleted => "SOFT_DELETED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "ACTIVE" => Some(Self::Active),
-                "SOFT_DELETED" => Some(Self::SoftDeleted),
-                _ => None,
-            }
-        }
-    }
-}
-/// Request message for DocumentLinkService.CreateDocumentLink.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateDocumentLinkRequest {
-    /// Required. Parent of the document-link to be created.
-    /// parent of document-link should be a document.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documents/{source_document_id}.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Document links associated with the source documents
-    /// (source_document_id).
-    #[prost(message, optional, tag = "2")]
-    pub document_link: ::core::option::Option<DocumentLink>,
-    /// The meta information collected about the document creator, used to enforce
-    /// access control for the service.
-    #[prost(message, optional, tag = "3")]
-    pub request_metadata: ::core::option::Option<RequestMetadata>,
-}
-/// Request message for DocumentLinkService.DeleteDocumentLink.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteDocumentLinkRequest {
-    /// Required. The name of the document-link to be deleted.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documents/{source_document_id}/documentLinks/{document_link_id}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The meta information collected about the document creator, used to enforce
-    /// access control for the service.
-    #[prost(message, optional, tag = "2")]
-    pub request_metadata: ::core::option::Option<RequestMetadata>,
-}
-/// Generated client implementations.
-pub mod document_link_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// This service lets you manage document-links.
-    /// Document-Links are treated as sub-resources under source documents.
-    #[derive(Debug, Clone)]
-    pub struct DocumentLinkServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> DocumentLinkServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> DocumentLinkServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            DocumentLinkServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Return all target document-links from the document.
-        pub async fn list_linked_targets(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListLinkedTargetsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListLinkedTargetsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.contentwarehouse.v1.DocumentLinkService/ListLinkedTargets",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.contentwarehouse.v1.DocumentLinkService",
-                        "ListLinkedTargets",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Return all source document-links from the document.
-        pub async fn list_linked_sources(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListLinkedSourcesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListLinkedSourcesResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.contentwarehouse.v1.DocumentLinkService/ListLinkedSources",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.contentwarehouse.v1.DocumentLinkService",
-                        "ListLinkedSources",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Create a link between a source document and a target document.
-        pub async fn create_document_link(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateDocumentLinkRequest>,
-        ) -> std::result::Result<tonic::Response<super::DocumentLink>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.contentwarehouse.v1.DocumentLinkService/CreateDocumentLink",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.contentwarehouse.v1.DocumentLinkService",
-                        "CreateDocumentLink",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Remove the link between the source and target documents.
-        pub async fn delete_document_link(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteDocumentLinkRequest>,
-        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.contentwarehouse.v1.DocumentLinkService/DeleteDocumentLink",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.contentwarehouse.v1.DocumentLinkService",
-                        "DeleteDocumentLink",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -2327,152 +1515,54 @@ pub mod synonym_set {
         pub words: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     }
 }
-/// Request message for SynonymSetService.CreateSynonymSet.
+/// Represents a set of rules from a single customer.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateSynonymSetRequest {
-    /// Required. The parent name.
-    /// Format: projects/{project_number}/locations/{location}.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The synonymSet to be created for a context
-    #[prost(message, optional, tag = "2")]
-    pub synonym_set: ::core::option::Option<SynonymSet>,
-}
-/// Request message for SynonymSetService.GetSynonymSet.
-/// Will return synonymSet for a certain context.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetSynonymSetRequest {
-    /// Required. The name of the synonymSet to retrieve
+pub struct RuleSet {
+    /// The resource name of the rule set. Managed internally.
     /// Format:
-    /// projects/{project_number}/locations/{location}/synonymSets/{context}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request message for SynonymSetService.ListSynonymSets.
-/// Will return all synonymSets belonging to the customer project.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListSynonymSetsRequest {
-    /// Required. The parent name.
-    /// Format: projects/{project_number}/locations/{location}.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The maximum number of synonymSets to return. The service may return
-    /// fewer than this value.
-    /// If unspecified, at most 50 rule sets will be returned.
-    /// The maximum value is 1000; values above 1000 will be coerced to 1000.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A page token, received from a previous `ListSynonymSets` call.
-    /// Provide this to retrieve the subsequent page.
+    /// projects/{project_number}/locations/{location}/ruleSet/{rule_set_id}.
     ///
-    /// When paginating, all other parameters provided to `ListSynonymSets`
-    /// must match the call that provided the page token.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// Response message for SynonymSetService.ListSynonymSets.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListSynonymSetsResponse {
-    /// The synonymSets from the specified parent.
-    #[prost(message, repeated, tag = "1")]
-    pub synonym_sets: ::prost::alloc::vec::Vec<SynonymSet>,
-    /// A page token, received from a previous `ListSynonymSets` call.
-    /// Provide this to retrieve the subsequent page.
+    /// The name is ignored when creating a rule set.
+    #[prost(string, tag = "6")]
+    pub name: ::prost::alloc::string::String,
+    /// Short description of the rule-set.
+    #[prost(string, tag = "1")]
+    pub description: ::prost::alloc::string::String,
+    /// Source of the rules i.e., customer name.
     #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
+    pub source: ::prost::alloc::string::String,
+    /// List of rules given by the customer.
+    #[prost(message, repeated, tag = "3")]
+    pub rules: ::prost::alloc::vec::Vec<Rule>,
 }
-/// Request message for SynonymSetService.UpdateSynonymSet.
-/// Removes the SynonymSet for the specified context and replaces
-/// it with the SynonymSet in this request.
+/// Represents the rule for a content warehouse trigger.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateSynonymSetRequest {
-    /// Required. The name of the synonymSet to update
-    /// Format:
-    /// projects/{project_number}/locations/{location}/synonymSets/{context}.
+pub struct Rule {
+    /// Short description of the rule and its context.
     #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The synonymSet to be updated for the customer
-    #[prost(message, optional, tag = "2")]
-    pub synonym_set: ::core::option::Option<SynonymSet>,
+    pub description: ::prost::alloc::string::String,
+    /// ID of the rule. It has to be unique across all the examples.
+    /// This is managed internally.
+    #[prost(string, tag = "2")]
+    pub rule_id: ::prost::alloc::string::String,
+    /// Identifies the trigger type for running the policy.
+    #[prost(enumeration = "rule::TriggerType", tag = "3")]
+    pub trigger_type: i32,
+    /// Represents the conditional expression to be evaluated.
+    /// Expression should evaluate to a boolean result.
+    /// When the condition is true actions are executed.
+    /// Example: user_role = "hsbc_role_1" AND doc.salary > 20000
+    #[prost(string, tag = "4")]
+    pub condition: ::prost::alloc::string::String,
+    /// List of actions that are executed when the rule is satisfied.
+    #[prost(message, repeated, tag = "5")]
+    pub actions: ::prost::alloc::vec::Vec<Action>,
 }
-/// Request message for SynonymSetService.DeleteSynonymSet.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteSynonymSetRequest {
-    /// Required. The name of the synonymSet to delete
-    /// Format:
-    /// projects/{project_number}/locations/{location}/synonymSets/{context}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// The histogram request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct HistogramQuery {
-    /// An expression specifies a histogram request against matching documents for
-    /// searches.
-    ///
-    /// See
-    /// \[SearchDocumentsRequest.histogram_queries][google.cloud.contentwarehouse.v1.SearchDocumentsRequest.histogram_queries\]
-    /// for details about syntax.
-    #[prost(string, tag = "1")]
-    pub histogram_query: ::prost::alloc::string::String,
-    /// Controls if the histogram query requires the return of a precise count.
-    /// Enable this flag may adversely impact performance.
-    ///
-    /// Defaults to true.
-    #[prost(bool, tag = "2")]
-    pub require_precise_result_size: bool,
-    /// Optional. Filter the result of histogram query by the property names. It
-    /// only works with histogram query count('FilterableProperties'). It is an
-    /// optional. It will perform histogram on all the property names for all the
-    /// document schemas. Setting this field will have a better performance.
-    #[prost(message, optional, tag = "3")]
-    pub filters: ::core::option::Option<HistogramQueryPropertyNameFilter>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct HistogramQueryPropertyNameFilter {
-    /// This filter specifies the exact document schema(s)
-    /// \[Document.document_schema_name][google.cloud.contentwarehouse.v1.Document.document_schema_name\]
-    /// to run histogram query against. It is optional. It will perform histogram
-    /// for property names for all the document schemas if it is not set.
-    ///
-    /// At most 10 document schema names are allowed.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documentSchemas/{document_schema_id}.
-    #[prost(string, repeated, tag = "1")]
-    pub document_schemas: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// It is optional. It will perform histogram for all the property names if it
-    /// is not set.
-    /// The properties need to be defined with the is_filterable flag set to
-    /// true and the name of the property should be in the format:
-    /// "schemaId.propertyName". The property needs to be defined in the schema.
-    /// Example: the schema id is abc. Then the name of property for property
-    /// MORTGAGE_TYPE will be "abc.MORTGAGE_TYPE".
-    #[prost(string, repeated, tag = "2")]
-    pub property_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// By default, the y_axis is HISTOGRAM_YAXIS_DOCUMENT if this field is not
-    /// set.
-    #[prost(
-        enumeration = "histogram_query_property_name_filter::HistogramYAxis",
-        tag = "3"
-    )]
-    pub y_axis: i32,
-}
-/// Nested message and enum types in `HistogramQueryPropertyNameFilter`.
-pub mod histogram_query_property_name_filter {
-    /// The result of the histogram query count('FilterableProperties') using
-    /// HISTOGRAM_YAXIS_DOCUMENT will be:
-    /// invoice_id: 2
-    /// address: 1
-    /// payment_method: 2
-    /// line_item_description: 1
+/// Nested message and enum types in `Rule`.
+pub mod rule {
+    /// The trigger types for actions.
     #[derive(
         Clone,
         Copy,
@@ -2485,325 +1575,348 @@ pub mod histogram_query_property_name_filter {
         ::prost::Enumeration
     )]
     #[repr(i32)]
-    pub enum HistogramYAxis {
-        /// Count the documents per property name.
-        HistogramYaxisDocument = 0,
-        /// Count the properties per property name.
-        HistogramYaxisProperty = 1,
+    pub enum TriggerType {
+        /// Trigger for unknown action.
+        Unknown = 0,
+        /// Trigger for create document action.
+        OnCreate = 1,
+        /// Trigger for update document action.
+        OnUpdate = 4,
+        /// Trigger for create link action.
+        OnCreateLink = 7,
+        /// Trigger for delete link action.
+        OnDeleteLink = 8,
     }
-    impl HistogramYAxis {
+    impl TriggerType {
         /// String value of the enum field names used in the ProtoBuf definition.
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         pub fn as_str_name(&self) -> &'static str {
             match self {
-                HistogramYAxis::HistogramYaxisDocument => "HISTOGRAM_YAXIS_DOCUMENT",
-                HistogramYAxis::HistogramYaxisProperty => "HISTOGRAM_YAXIS_PROPERTY",
+                TriggerType::Unknown => "UNKNOWN",
+                TriggerType::OnCreate => "ON_CREATE",
+                TriggerType::OnUpdate => "ON_UPDATE",
+                TriggerType::OnCreateLink => "ON_CREATE_LINK",
+                TriggerType::OnDeleteLink => "ON_DELETE_LINK",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
         pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
             match value {
-                "HISTOGRAM_YAXIS_DOCUMENT" => Some(Self::HistogramYaxisDocument),
-                "HISTOGRAM_YAXIS_PROPERTY" => Some(Self::HistogramYaxisProperty),
+                "UNKNOWN" => Some(Self::Unknown),
+                "ON_CREATE" => Some(Self::OnCreate),
+                "ON_UPDATE" => Some(Self::OnUpdate),
+                "ON_CREATE_LINK" => Some(Self::OnCreateLink),
+                "ON_DELETE_LINK" => Some(Self::OnDeleteLink),
                 _ => None,
             }
         }
     }
 }
-/// Histogram result that matches
-/// \[HistogramQuery][google.cloud.contentwarehouse.v1.HistogramQuery\] specified
-/// in searches.
+/// Represents the action triggered by Rule Engine when the rule is true.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct HistogramQueryResult {
-    /// Requested histogram expression.
+pub struct Action {
+    /// ID of the action. Managed internally.
     #[prost(string, tag = "1")]
-    pub histogram_query: ::prost::alloc::string::String,
-    /// A map from the values of the facet associated with distinct values to the
-    /// number of matching entries with corresponding value.
-    ///
-    /// The key format is:
-    ///
-    /// * (for string histogram) string values stored in the field.
-    #[prost(btree_map = "string, int64", tag = "2")]
-    pub histogram: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        i64,
-    >,
+    pub action_id: ::prost::alloc::string::String,
+    #[prost(oneof = "action::Action", tags = "2, 3, 4, 5, 6, 9, 10")]
+    pub action: ::core::option::Option<action::Action>,
 }
-/// Metadata object for CreateDocument request (currently empty).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateDocumentMetadata {}
-/// Metadata object for UpdateDocument request (currently empty).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateDocumentMetadata {}
-/// Response message of RunPipeline method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RunPipelineResponse {}
-/// Metadata message of RunPipeline method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RunPipelineMetadata {
-    /// Number of files that were processed by the pipeline.
-    #[prost(int32, tag = "1")]
-    pub total_file_count: i32,
-    /// Number of files that have failed at some point in the pipeline.
-    #[prost(int32, tag = "2")]
-    pub failed_file_count: i32,
-    /// User unique identification and groups information.
-    #[prost(message, optional, tag = "3")]
-    pub user_info: ::core::option::Option<UserInfo>,
-    /// The list of response details of each document.
-    #[prost(message, repeated, tag = "5")]
-    pub individual_document_statuses: ::prost::alloc::vec::Vec<
-        run_pipeline_metadata::IndividualDocumentStatus,
-    >,
-    /// The pipeline metadata.
-    #[prost(oneof = "run_pipeline_metadata::PipelineMetadata", tags = "4, 6, 7")]
-    pub pipeline_metadata: ::core::option::Option<
-        run_pipeline_metadata::PipelineMetadata,
-    >,
-}
-/// Nested message and enum types in `RunPipelineMetadata`.
-pub mod run_pipeline_metadata {
-    /// The metadata message for GcsIngest pipeline.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct GcsIngestPipelineMetadata {
-        /// The input Cloud Storage folder in this pipeline.
-        /// Format: `gs://<bucket-name>/<folder-name>`.
-        #[prost(string, tag = "1")]
-        pub input_path: ::prost::alloc::string::String,
-    }
-    /// The metadata message for Export-to-CDW pipeline.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ExportToCdwPipelineMetadata {
-        /// The input list of all the resource names of the documents to be exported.
-        #[prost(string, repeated, tag = "1")]
-        pub documents: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-        /// The output CDW dataset resource name.
-        #[prost(string, tag = "2")]
-        pub doc_ai_dataset: ::prost::alloc::string::String,
-        /// The output Cloud Storage folder in this pipeline.
-        #[prost(string, tag = "3")]
-        pub output_path: ::prost::alloc::string::String,
-    }
-    /// The metadata message for Process-with-DocAi pipeline.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ProcessWithDocAiPipelineMetadata {
-        /// The input list of all the resource names of the documents to be
-        /// processed.
-        #[prost(string, repeated, tag = "1")]
-        pub documents: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-        /// The DocAI processor to process the documents with.
-        #[prost(message, optional, tag = "2")]
-        pub processor_info: ::core::option::Option<super::ProcessorInfo>,
-    }
-    /// The status of processing a document.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct IndividualDocumentStatus {
-        /// Document identifier of an existing document.
-        #[prost(string, tag = "1")]
-        pub document_id: ::prost::alloc::string::String,
-        /// The status processing the document.
-        #[prost(message, optional, tag = "2")]
-        pub status: ::core::option::Option<super::super::super::super::rpc::Status>,
-    }
-    /// The pipeline metadata.
+/// Nested message and enum types in `Action`.
+pub mod action {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum PipelineMetadata {
-        /// The pipeline metadata for GcsIngest pipeline.
+    pub enum Action {
+        /// Action triggering access control operations.
+        #[prost(message, tag = "2")]
+        AccessControl(super::AccessControlAction),
+        /// Action triggering data validation operations.
+        #[prost(message, tag = "3")]
+        DataValidation(super::DataValidationAction),
+        /// Action triggering data update operations.
         #[prost(message, tag = "4")]
-        GcsIngestPipelineMetadata(GcsIngestPipelineMetadata),
-        /// The pipeline metadata for Export-to-CDW pipeline.
+        DataUpdate(super::DataUpdateAction),
+        /// Action triggering create document link operation.
+        #[prost(message, tag = "5")]
+        AddToFolder(super::AddToFolderAction),
+        /// Action publish to Pub/Sub operation.
         #[prost(message, tag = "6")]
-        ExportToCdwPipelineMetadata(ExportToCdwPipelineMetadata),
-        /// The pipeline metadata for Process-with-DocAi pipeline.
-        #[prost(message, tag = "7")]
-        ProcessWithDocAiPipelineMetadata(ProcessWithDocAiPipelineMetadata),
+        PublishToPubSub(super::PublishAction),
+        /// Action removing a document from a folder.
+        #[prost(message, tag = "9")]
+        RemoveFromFolderAction(super::RemoveFromFolderAction),
+        /// Action deleting the document.
+        #[prost(message, tag = "10")]
+        DeleteDocumentAction(super::DeleteDocumentAction),
     }
 }
-/// The DocAI processor information.
+/// Represents the action responsible for access control list management
+/// operations.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ProcessorInfo {
-    /// The processor resource name.
-    /// Format is `projects/{project}/locations/{location}/processors/{processor}`,
-    /// or
-    /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
-    #[prost(string, tag = "1")]
-    pub processor_name: ::prost::alloc::string::String,
-    /// The processor will process the documents with this document type.
-    #[prost(string, tag = "2")]
-    pub document_type: ::prost::alloc::string::String,
-    /// The Document schema resource name. All documents processed by this
-    /// processor will use this schema.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documentSchemas/{document_schema_id}.
-    #[prost(string, tag = "3")]
-    pub schema_name: ::prost::alloc::string::String,
+pub struct AccessControlAction {
+    /// Identifies the type of operation.
+    #[prost(enumeration = "access_control_action::OperationType", tag = "1")]
+    pub operation_type: i32,
+    /// Represents the new policy from which bindings are added, removed or
+    /// replaced based on the type of the operation. the policy is limited to a few
+    /// 10s of KB.
+    #[prost(message, optional, tag = "2")]
+    pub policy: ::core::option::Option<super::super::super::iam::v1::Policy>,
 }
-/// The ingestion pipeline config.
+/// Nested message and enum types in `AccessControlAction`.
+pub mod access_control_action {
+    /// Type of ACL modification operation.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum OperationType {
+        /// The unknown operation type.
+        Unknown = 0,
+        /// Adds newly given policy bindings in the existing bindings list.
+        AddPolicyBinding = 1,
+        /// Removes newly given policy bindings from the existing bindings list.
+        RemovePolicyBinding = 2,
+        /// Replaces existing policy bindings with the given policy binding list
+        ReplacePolicyBinding = 3,
+    }
+    impl OperationType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                OperationType::Unknown => "UNKNOWN",
+                OperationType::AddPolicyBinding => "ADD_POLICY_BINDING",
+                OperationType::RemovePolicyBinding => "REMOVE_POLICY_BINDING",
+                OperationType::ReplacePolicyBinding => "REPLACE_POLICY_BINDING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNKNOWN" => Some(Self::Unknown),
+                "ADD_POLICY_BINDING" => Some(Self::AddPolicyBinding),
+                "REMOVE_POLICY_BINDING" => Some(Self::RemovePolicyBinding),
+                "REPLACE_POLICY_BINDING" => Some(Self::ReplacePolicyBinding),
+                _ => None,
+            }
+        }
+    }
+}
+/// Represents the action responsible for data validation operations.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct IngestPipelineConfig {
-    /// The document level acl policy config.
-    /// This refers to an Identity and Access (IAM) policy, which specifies access
-    /// controls for all documents ingested by the pipeline. The
-    /// \[role][google.iam.v1.Binding.role\] and
-    /// \[members][google.iam.v1.Binding.role\] under the policy needs to be
-    /// specified.
-    ///
-    /// The following roles are supported for document level acl control:
-    /// * roles/contentwarehouse.documentAdmin
-    /// * roles/contentwarehouse.documentEditor
-    /// * roles/contentwarehouse.documentViewer
-    ///
-    /// The following members are supported for document level acl control:
-    /// * user:user-email@example.com
-    /// * group:group-email@example.com
-    /// Note that for documents searched with LLM, only single level user or group
-    /// acl check is supported.
-    #[prost(message, optional, tag = "1")]
-    pub document_acl_policy: ::core::option::Option<
-        super::super::super::iam::v1::Policy,
+pub struct DataValidationAction {
+    /// Map of (K, V) -> (field, string condition to be evaluated on the field)
+    /// E.g., ("age", "age > 18  && age < 60") entry triggers validation of field
+    /// age with the given condition. Map entries will be ANDed during validation.
+    #[prost(btree_map = "string, string", tag = "1")]
+    pub conditions: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
     >,
-    /// The document text extraction enabled flag.
-    /// If the flag is set to true, DWH will perform text extraction on the raw
-    /// document.
-    #[prost(bool, tag = "2")]
-    pub enable_document_text_extraction: bool,
-    /// Optional. The name of the folder to which all ingested documents will be
-    /// linked during ingestion process. Format is
-    /// `projects/{project}/locations/{location}/documents/{folder_id}`
-    #[prost(string, tag = "3")]
+}
+/// Represents the action responsible for properties update operations.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DataUpdateAction {
+    /// Map of (K, V) -> (valid name of the field, new value of the field)
+    /// E.g., ("age", "60") entry triggers update of field age with a value of 60.
+    /// If the field is not present then new entry is added.
+    /// During update action execution, value strings will be casted to
+    /// appropriate types.
+    #[prost(btree_map = "string, string", tag = "1")]
+    pub entries: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
+/// Represents the action responsible for adding document under a folder.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AddToFolderAction {
+    /// Names of the folder under which new document is to be added.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{document_id}.
+    #[prost(string, repeated, tag = "1")]
+    pub folders: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Represents the action responsible for remove a document from a specific
+/// folder.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RemoveFromFolderAction {
+    /// Condition of the action to be executed.
+    #[prost(string, tag = "1")]
+    pub condition: ::prost::alloc::string::String,
+    /// Name of the folder under which new document is to be added.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{document_id}.
+    #[prost(string, tag = "2")]
     pub folder: ::prost::alloc::string::String,
 }
-/// The configuration of the Cloud Storage Ingestion pipeline.
+/// Represents the action responsible for publishing messages to a Pub/Sub topic.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GcsIngestPipeline {
-    /// The input Cloud Storage folder. All files under this folder will be
-    /// imported to Document Warehouse.
-    /// Format: `gs://<bucket-name>/<folder-name>`.
+pub struct PublishAction {
+    /// The topic id in the Pub/Sub service for which messages will be published
+    /// to.
     #[prost(string, tag = "1")]
-    pub input_path: ::prost::alloc::string::String,
-    /// The Document Warehouse schema resource name. All documents processed by
-    /// this pipeline will use this schema.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documentSchemas/{document_schema_id}.
-    #[prost(string, tag = "2")]
-    pub schema_name: ::prost::alloc::string::String,
-    /// The Doc AI processor type name. Only used when the format of ingested
-    /// files is Doc AI Document proto format.
-    #[prost(string, tag = "3")]
-    pub processor_type: ::prost::alloc::string::String,
-    /// The flag whether to skip ingested documents.
-    /// If it is set to true, documents in Cloud Storage contains key "status" with
-    /// value "status=ingested" in custom metadata will be skipped to ingest.
-    #[prost(bool, tag = "4")]
-    pub skip_ingested_documents: bool,
-    /// Optional. The config for the Cloud Storage Ingestion pipeline.
-    /// It provides additional customization options to run the pipeline and can be
-    /// skipped if it is not applicable.
-    #[prost(message, optional, tag = "5")]
-    pub pipeline_config: ::core::option::Option<IngestPipelineConfig>,
+    pub topic_id: ::prost::alloc::string::String,
+    /// Messages to be published.
+    #[prost(string, repeated, tag = "2")]
+    pub messages: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-/// The configuration of the Cloud Storage Ingestion with DocAI Processors
-/// pipeline.
+/// Represents the action responsible for deleting the document.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GcsIngestWithDocAiProcessorsPipeline {
-    /// The input Cloud Storage folder. All files under this folder will be
-    /// imported to Document Warehouse.
-    /// Format: `gs://<bucket-name>/<folder-name>`.
-    #[prost(string, tag = "1")]
-    pub input_path: ::prost::alloc::string::String,
-    /// The split and classify processor information.
-    /// The split and classify result will be used to find a matched extract
-    /// processor.
+pub struct DeleteDocumentAction {
+    /// Boolean field to select between hard vs soft delete options.
+    /// Set 'true' for 'hard delete' and 'false' for 'soft delete'.
+    #[prost(bool, tag = "1")]
+    pub enable_hard_delete: bool,
+}
+/// Records the output of Rule Engine including rule evaluation and actions
+/// result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RuleEngineOutput {
+    /// Name of the document against which the rules and actions were evaluated.
+    #[prost(string, tag = "3")]
+    pub document_name: ::prost::alloc::string::String,
+    /// Output from Rule Evaluator containing matched, unmatched and invalid rules.
+    #[prost(message, optional, tag = "1")]
+    pub rule_evaluator_output: ::core::option::Option<RuleEvaluatorOutput>,
+    /// Output from Action Executor containing rule and corresponding actions
+    /// execution result.
     #[prost(message, optional, tag = "2")]
-    pub split_classify_processor_info: ::core::option::Option<ProcessorInfo>,
-    /// The extract processors information.
-    /// One matched extract processor will be used to process documents based on
-    /// the classify processor result. If no classify processor is specified, the
-    /// first extract processor will be used.
+    pub action_executor_output: ::core::option::Option<ActionExecutorOutput>,
+}
+/// Represents the output of the Rule Evaluator.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RuleEvaluatorOutput {
+    /// List of rules fetched from database for the given request trigger type.
+    #[prost(message, repeated, tag = "1")]
+    pub triggered_rules: ::prost::alloc::vec::Vec<Rule>,
+    /// A subset of triggered rules that are evaluated true for a given request.
+    #[prost(message, repeated, tag = "2")]
+    pub matched_rules: ::prost::alloc::vec::Vec<Rule>,
+    /// A subset of triggered rules that failed the validation check(s) after
+    /// parsing.
     #[prost(message, repeated, tag = "3")]
-    pub extract_processor_infos: ::prost::alloc::vec::Vec<ProcessorInfo>,
-    /// The Cloud Storage folder path used to store the raw results from
-    /// processors.
-    /// Format: `gs://<bucket-name>/<folder-name>`.
-    #[prost(string, tag = "4")]
-    pub processor_results_folder_path: ::prost::alloc::string::String,
-    /// The flag whether to skip ingested documents.
-    /// If it is set to true, documents in Cloud Storage contains key "status" with
-    /// value "status=ingested" in custom metadata will be skipped to ingest.
-    #[prost(bool, tag = "5")]
-    pub skip_ingested_documents: bool,
-    /// Optional. The config for the Cloud Storage Ingestion with DocAI Processors
-    /// pipeline. It provides additional customization options to run the pipeline
-    /// and can be skipped if it is not applicable.
-    #[prost(message, optional, tag = "6")]
-    pub pipeline_config: ::core::option::Option<IngestPipelineConfig>,
+    pub invalid_rules: ::prost::alloc::vec::Vec<InvalidRule>,
 }
-/// The configuration of exporting documents from the Document Warehouse to CDW
-/// pipeline.
+/// A triggered rule that failed the validation check(s) after parsing.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExportToCdwPipeline {
-    /// The list of all the resource names of the documents to be processed.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documents/{document_id}.
-    #[prost(string, repeated, tag = "1")]
-    pub documents: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The Cloud Storage folder path used to store the exported documents before
-    /// being sent to CDW.
-    /// Format: `gs://<bucket-name>/<folder-name>`.
+pub struct InvalidRule {
+    /// Triggered rule.
+    #[prost(message, optional, tag = "1")]
+    pub rule: ::core::option::Option<Rule>,
+    /// Validation error on a parsed expression.
     #[prost(string, tag = "2")]
-    pub export_folder_path: ::prost::alloc::string::String,
-    /// Optional. The CDW dataset resource name. This field is optional. If not
-    /// set, the documents will be exported to Cloud Storage only. Format:
-    /// projects/{project}/locations/{location}/processors/{processor}/dataset
+    pub error: ::prost::alloc::string::String,
+}
+/// Represents the output of the Action Executor.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ActionExecutorOutput {
+    /// List of rule and corresponding actions result.
+    #[prost(message, repeated, tag = "1")]
+    pub rule_actions_pairs: ::prost::alloc::vec::Vec<RuleActionsPair>,
+}
+/// Represents a rule and outputs of associated actions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RuleActionsPair {
+    /// Represents the rule.
+    #[prost(message, optional, tag = "1")]
+    pub rule: ::core::option::Option<Rule>,
+    /// Outputs of executing the actions associated with the above rule.
+    #[prost(message, repeated, tag = "2")]
+    pub action_outputs: ::prost::alloc::vec::Vec<ActionOutput>,
+}
+/// Represents the result of executing an action.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ActionOutput {
+    /// ID of the action.
+    #[prost(string, tag = "1")]
+    pub action_id: ::prost::alloc::string::String,
+    /// State of an action.
+    #[prost(enumeration = "action_output::State", tag = "2")]
+    pub action_state: i32,
+    /// Action execution output message.
     #[prost(string, tag = "3")]
-    pub doc_ai_dataset: ::prost::alloc::string::String,
-    /// Ratio of training dataset split. When importing into Document AI Workbench,
-    /// documents will be automatically split into training and test split category
-    /// with the specified ratio. This field is required if doc_ai_dataset is set.
-    #[prost(float, tag = "4")]
-    pub training_split_ratio: f32,
+    pub output_message: ::prost::alloc::string::String,
 }
-/// The configuration of processing documents in Document Warehouse with DocAi
-/// processors pipeline.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ProcessWithDocAiPipeline {
-    /// The list of all the resource names of the documents to be processed.
-    /// Format:
-    /// projects/{project_number}/locations/{location}/documents/{document_id}.
-    #[prost(string, repeated, tag = "1")]
-    pub documents: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The Cloud Storage folder path used to store the exported documents before
-    /// being sent to CDW.
-    /// Format: `gs://<bucket-name>/<folder-name>`.
-    #[prost(string, tag = "2")]
-    pub export_folder_path: ::prost::alloc::string::String,
-    /// The CDW processor information.
-    #[prost(message, optional, tag = "3")]
-    pub processor_info: ::core::option::Option<ProcessorInfo>,
-    /// The Cloud Storage folder path used to store the raw results from
-    /// processors.
-    /// Format: `gs://<bucket-name>/<folder-name>`.
-    #[prost(string, tag = "4")]
-    pub processor_results_folder_path: ::prost::alloc::string::String,
+/// Nested message and enum types in `ActionOutput`.
+pub mod action_output {
+    /// Represents execution state of the action.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// The unknown state.
+        Unknown = 0,
+        /// State indicating action executed successfully.
+        ActionSucceeded = 1,
+        /// State indicating action failed.
+        ActionFailed = 2,
+        /// State indicating action timed out.
+        ActionTimedOut = 3,
+        /// State indicating action is pending.
+        ActionPending = 4,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unknown => "UNKNOWN",
+                State::ActionSucceeded => "ACTION_SUCCEEDED",
+                State::ActionFailed => "ACTION_FAILED",
+                State::ActionTimedOut => "ACTION_TIMED_OUT",
+                State::ActionPending => "ACTION_PENDING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNKNOWN" => Some(Self::Unknown),
+                "ACTION_SUCCEEDED" => Some(Self::ActionSucceeded),
+                "ACTION_FAILED" => Some(Self::ActionFailed),
+                "ACTION_TIMED_OUT" => Some(Self::ActionTimedOut),
+                "ACTION_PENDING" => Some(Self::ActionPending),
+                _ => None,
+            }
+        }
+    }
 }
 /// Request message for DocumentService.RunPipeline.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2953,6 +2066,810 @@ pub mod pipeline_service_client {
         }
     }
 }
+/// Response message for DocumentLinkService.ListLinkedTargets.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListLinkedTargetsResponse {
+    /// Target document-links.
+    #[prost(message, repeated, tag = "1")]
+    pub document_links: ::prost::alloc::vec::Vec<DocumentLink>,
+    /// A token, which can be sent as `page_token` to retrieve the next page.
+    /// If this field is omitted, there are no subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request message for DocumentLinkService.ListLinkedTargets.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListLinkedTargetsRequest {
+    /// Required. The name of the document, for which all target links are
+    /// returned. Format:
+    /// projects/{project_number}/locations/{location}/documents/{target_document_id}.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The meta information collected about the document creator, used to enforce
+    /// access control for the service.
+    #[prost(message, optional, tag = "2")]
+    pub request_metadata: ::core::option::Option<RequestMetadata>,
+}
+/// Response message for DocumentLinkService.ListLinkedSources.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListLinkedSourcesResponse {
+    /// Source document-links.
+    #[prost(message, repeated, tag = "1")]
+    pub document_links: ::prost::alloc::vec::Vec<DocumentLink>,
+    /// A token, which can be sent as `page_token` to retrieve the next page.
+    /// If this field is omitted, there are no subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Response message for DocumentLinkService.ListLinkedSources.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListLinkedSourcesRequest {
+    /// Required. The name of the document, for which all source links are
+    /// returned. Format:
+    /// projects/{project_number}/locations/{location}/documents/{source_document_id}.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The maximum number of document-links to return. The service may return
+    /// fewer than this value.
+    ///
+    /// If unspecified, at most 50 document-links will be returned.
+    /// The maximum value is 1000; values above 1000 will be coerced to 1000.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// A page token, received from a previous `ListLinkedSources` call.
+    /// Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to `ListLinkedSources`
+    /// must match the call that provided the page token.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+    /// The meta information collected about the document creator, used to enforce
+    /// access control for the service.
+    #[prost(message, optional, tag = "2")]
+    pub request_metadata: ::core::option::Option<RequestMetadata>,
+}
+/// A document-link between source and target document.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DocumentLink {
+    /// Name of this document-link.
+    /// It is required that the parent derived form the name to be consistent with
+    /// the source document reference. Otherwise an exception will be thrown.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{source_document_id}/documentLinks/{document_link_id}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Document references of the source document.
+    #[prost(message, optional, tag = "2")]
+    pub source_document_reference: ::core::option::Option<DocumentReference>,
+    /// Document references of the target document.
+    #[prost(message, optional, tag = "3")]
+    pub target_document_reference: ::core::option::Option<DocumentReference>,
+    /// Description of this document-link.
+    #[prost(string, tag = "4")]
+    pub description: ::prost::alloc::string::String,
+    /// Output only. The time when the documentLink is last updated.
+    #[prost(message, optional, tag = "5")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The time when the documentLink is created.
+    #[prost(message, optional, tag = "6")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The state of the documentlink. If target node has been deleted, the
+    /// link is marked as invalid. Removing a source node will result in removal
+    /// of all associated links.
+    #[prost(enumeration = "document_link::State", tag = "7")]
+    pub state: i32,
+}
+/// Nested message and enum types in `DocumentLink`.
+pub mod document_link {
+    /// The state of a document-link.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unknown state of documentlink.
+        Unspecified = 0,
+        /// The documentlink has both source and target documents detected.
+        Active = 1,
+        /// Target document is deleted, and mark the documentlink as soft-deleted.
+        SoftDeleted = 2,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Active => "ACTIVE",
+                State::SoftDeleted => "SOFT_DELETED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "ACTIVE" => Some(Self::Active),
+                "SOFT_DELETED" => Some(Self::SoftDeleted),
+                _ => None,
+            }
+        }
+    }
+}
+/// Request message for DocumentLinkService.CreateDocumentLink.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateDocumentLinkRequest {
+    /// Required. Parent of the document-link to be created.
+    /// parent of document-link should be a document.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{source_document_id}.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Document links associated with the source documents
+    /// (source_document_id).
+    #[prost(message, optional, tag = "2")]
+    pub document_link: ::core::option::Option<DocumentLink>,
+    /// The meta information collected about the document creator, used to enforce
+    /// access control for the service.
+    #[prost(message, optional, tag = "3")]
+    pub request_metadata: ::core::option::Option<RequestMetadata>,
+}
+/// Request message for DocumentLinkService.DeleteDocumentLink.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteDocumentLinkRequest {
+    /// Required. The name of the document-link to be deleted.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documents/{source_document_id}/documentLinks/{document_link_id}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The meta information collected about the document creator, used to enforce
+    /// access control for the service.
+    #[prost(message, optional, tag = "2")]
+    pub request_metadata: ::core::option::Option<RequestMetadata>,
+}
+/// Generated client implementations.
+pub mod document_link_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// This service lets you manage document-links.
+    /// Document-Links are treated as sub-resources under source documents.
+    #[derive(Debug, Clone)]
+    pub struct DocumentLinkServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> DocumentLinkServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> DocumentLinkServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            DocumentLinkServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Return all target document-links from the document.
+        pub async fn list_linked_targets(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListLinkedTargetsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListLinkedTargetsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.contentwarehouse.v1.DocumentLinkService/ListLinkedTargets",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.contentwarehouse.v1.DocumentLinkService",
+                        "ListLinkedTargets",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Return all source document-links from the document.
+        pub async fn list_linked_sources(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListLinkedSourcesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListLinkedSourcesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.contentwarehouse.v1.DocumentLinkService/ListLinkedSources",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.contentwarehouse.v1.DocumentLinkService",
+                        "ListLinkedSources",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Create a link between a source document and a target document.
+        pub async fn create_document_link(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateDocumentLinkRequest>,
+        ) -> std::result::Result<tonic::Response<super::DocumentLink>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.contentwarehouse.v1.DocumentLinkService/CreateDocumentLink",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.contentwarehouse.v1.DocumentLinkService",
+                        "CreateDocumentLink",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Remove the link between the source and target documents.
+        pub async fn delete_document_link(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteDocumentLinkRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.contentwarehouse.v1.DocumentLinkService/DeleteDocumentLink",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.contentwarehouse.v1.DocumentLinkService",
+                        "DeleteDocumentLink",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Request message for RuleSetService.CreateRuleSet.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateRuleSetRequest {
+    /// Required. The parent name.
+    /// Format: projects/{project_number}/locations/{location}.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The rule set to create.
+    #[prost(message, optional, tag = "2")]
+    pub rule_set: ::core::option::Option<RuleSet>,
+}
+/// Request message for RuleSetService.GetRuleSet.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetRuleSetRequest {
+    /// Required. The name of the rule set to retrieve.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/ruleSets/{rule_set_id}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for RuleSetService.UpdateRuleSet.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateRuleSetRequest {
+    /// Required. The name of the rule set to update.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/ruleSets/{rule_set_id}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The rule set to update.
+    #[prost(message, optional, tag = "2")]
+    pub rule_set: ::core::option::Option<RuleSet>,
+}
+/// Request message for RuleSetService.DeleteRuleSet.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteRuleSetRequest {
+    /// Required. The name of the rule set to delete.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/ruleSets/{rule_set_id}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for RuleSetService.ListRuleSets.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListRuleSetsRequest {
+    /// Required. The parent, which owns this collection of document.
+    /// Format: projects/{project_number}/locations/{location}.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The maximum number of rule sets to return. The service may return
+    /// fewer than this value.
+    /// If unspecified, at most 50 rule sets will be returned.
+    /// The maximum value is 1000; values above 1000 will be coerced to 1000.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A page token, received from a previous `ListRuleSets` call.
+    /// Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to `ListRuleSets`
+    /// must match the call that provided the page token.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// Response message for RuleSetService.ListRuleSets.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListRuleSetsResponse {
+    /// The rule sets from the specified parent.
+    #[prost(message, repeated, tag = "1")]
+    pub rule_sets: ::prost::alloc::vec::Vec<RuleSet>,
+    /// A token, which can be sent as `page_token` to retrieve the next page.
+    /// If this field is omitted, there are no subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Generated client implementations.
+pub mod rule_set_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Service to manage customer specific RuleSets.
+    #[derive(Debug, Clone)]
+    pub struct RuleSetServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> RuleSetServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> RuleSetServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            RuleSetServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Creates a ruleset.
+        pub async fn create_rule_set(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateRuleSetRequest>,
+        ) -> std::result::Result<tonic::Response<super::RuleSet>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.contentwarehouse.v1.RuleSetService/CreateRuleSet",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.contentwarehouse.v1.RuleSetService",
+                        "CreateRuleSet",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets a ruleset. Returns NOT_FOUND if the ruleset does not exist.
+        pub async fn get_rule_set(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetRuleSetRequest>,
+        ) -> std::result::Result<tonic::Response<super::RuleSet>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.contentwarehouse.v1.RuleSetService/GetRuleSet",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.contentwarehouse.v1.RuleSetService",
+                        "GetRuleSet",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates a ruleset. Returns INVALID_ARGUMENT if the name of the ruleset
+        /// is non-empty and does not equal the existing name.
+        pub async fn update_rule_set(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateRuleSetRequest>,
+        ) -> std::result::Result<tonic::Response<super::RuleSet>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.contentwarehouse.v1.RuleSetService/UpdateRuleSet",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.contentwarehouse.v1.RuleSetService",
+                        "UpdateRuleSet",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a ruleset. Returns NOT_FOUND if the document does not exist.
+        pub async fn delete_rule_set(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteRuleSetRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.contentwarehouse.v1.RuleSetService/DeleteRuleSet",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.contentwarehouse.v1.RuleSetService",
+                        "DeleteRuleSet",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists rulesets.
+        pub async fn list_rule_sets(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListRuleSetsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListRuleSetsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.contentwarehouse.v1.RuleSetService/ListRuleSets",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.contentwarehouse.v1.RuleSetService",
+                        "ListRuleSets",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// The histogram request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct HistogramQuery {
+    /// An expression specifies a histogram request against matching documents for
+    /// searches.
+    ///
+    /// See
+    /// \[SearchDocumentsRequest.histogram_queries][google.cloud.contentwarehouse.v1.SearchDocumentsRequest.histogram_queries\]
+    /// for details about syntax.
+    #[prost(string, tag = "1")]
+    pub histogram_query: ::prost::alloc::string::String,
+    /// Controls if the histogram query requires the return of a precise count.
+    /// Enable this flag may adversely impact performance.
+    ///
+    /// Defaults to true.
+    #[prost(bool, tag = "2")]
+    pub require_precise_result_size: bool,
+    /// Optional. Filter the result of histogram query by the property names. It
+    /// only works with histogram query count('FilterableProperties'). It is an
+    /// optional. It will perform histogram on all the property names for all the
+    /// document schemas. Setting this field will have a better performance.
+    #[prost(message, optional, tag = "3")]
+    pub filters: ::core::option::Option<HistogramQueryPropertyNameFilter>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct HistogramQueryPropertyNameFilter {
+    /// This filter specifies the exact document schema(s)
+    /// \[Document.document_schema_name][google.cloud.contentwarehouse.v1.Document.document_schema_name\]
+    /// to run histogram query against. It is optional. It will perform histogram
+    /// for property names for all the document schemas if it is not set.
+    ///
+    /// At most 10 document schema names are allowed.
+    /// Format:
+    /// projects/{project_number}/locations/{location}/documentSchemas/{document_schema_id}.
+    #[prost(string, repeated, tag = "1")]
+    pub document_schemas: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// It is optional. It will perform histogram for all the property names if it
+    /// is not set.
+    /// The properties need to be defined with the is_filterable flag set to
+    /// true and the name of the property should be in the format:
+    /// "schemaId.propertyName". The property needs to be defined in the schema.
+    /// Example: the schema id is abc. Then the name of property for property
+    /// MORTGAGE_TYPE will be "abc.MORTGAGE_TYPE".
+    #[prost(string, repeated, tag = "2")]
+    pub property_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// By default, the y_axis is HISTOGRAM_YAXIS_DOCUMENT if this field is not
+    /// set.
+    #[prost(
+        enumeration = "histogram_query_property_name_filter::HistogramYAxis",
+        tag = "3"
+    )]
+    pub y_axis: i32,
+}
+/// Nested message and enum types in `HistogramQueryPropertyNameFilter`.
+pub mod histogram_query_property_name_filter {
+    /// The result of the histogram query count('FilterableProperties') using
+    /// HISTOGRAM_YAXIS_DOCUMENT will be:
+    /// invoice_id: 2
+    /// address: 1
+    /// payment_method: 2
+    /// line_item_description: 1
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum HistogramYAxis {
+        /// Count the documents per property name.
+        HistogramYaxisDocument = 0,
+        /// Count the properties per property name.
+        HistogramYaxisProperty = 1,
+    }
+    impl HistogramYAxis {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                HistogramYAxis::HistogramYaxisDocument => "HISTOGRAM_YAXIS_DOCUMENT",
+                HistogramYAxis::HistogramYaxisProperty => "HISTOGRAM_YAXIS_PROPERTY",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "HISTOGRAM_YAXIS_DOCUMENT" => Some(Self::HistogramYaxisDocument),
+                "HISTOGRAM_YAXIS_PROPERTY" => Some(Self::HistogramYaxisProperty),
+                _ => None,
+            }
+        }
+    }
+}
+/// Histogram result that matches
+/// \[HistogramQuery][google.cloud.contentwarehouse.v1.HistogramQuery\] specified
+/// in searches.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct HistogramQueryResult {
+    /// Requested histogram expression.
+    #[prost(string, tag = "1")]
+    pub histogram_query: ::prost::alloc::string::String,
+    /// A map from the values of the facet associated with distinct values to the
+    /// number of matching entries with corresponding value.
+    ///
+    /// The key format is:
+    ///
+    /// * (for string histogram) string values stored in the field.
+    #[prost(btree_map = "string, int64", tag = "2")]
+    pub histogram: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        i64,
+    >,
+}
+/// Metadata object for CreateDocument request (currently empty).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateDocumentMetadata {}
+/// Metadata object for UpdateDocument request (currently empty).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateDocumentMetadata {}
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DocumentQuery {
@@ -3639,6 +3556,316 @@ pub struct SetAclRequest {
     #[prost(bool, tag = "4")]
     pub project_owner: bool,
 }
+/// Request message for SynonymSetService.CreateSynonymSet.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateSynonymSetRequest {
+    /// Required. The parent name.
+    /// Format: projects/{project_number}/locations/{location}.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The synonymSet to be created for a context
+    #[prost(message, optional, tag = "2")]
+    pub synonym_set: ::core::option::Option<SynonymSet>,
+}
+/// Request message for SynonymSetService.GetSynonymSet.
+/// Will return synonymSet for a certain context.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetSynonymSetRequest {
+    /// Required. The name of the synonymSet to retrieve
+    /// Format:
+    /// projects/{project_number}/locations/{location}/synonymSets/{context}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for SynonymSetService.ListSynonymSets.
+/// Will return all synonymSets belonging to the customer project.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListSynonymSetsRequest {
+    /// Required. The parent name.
+    /// Format: projects/{project_number}/locations/{location}.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The maximum number of synonymSets to return. The service may return
+    /// fewer than this value.
+    /// If unspecified, at most 50 rule sets will be returned.
+    /// The maximum value is 1000; values above 1000 will be coerced to 1000.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A page token, received from a previous `ListSynonymSets` call.
+    /// Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to `ListSynonymSets`
+    /// must match the call that provided the page token.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// Response message for SynonymSetService.ListSynonymSets.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListSynonymSetsResponse {
+    /// The synonymSets from the specified parent.
+    #[prost(message, repeated, tag = "1")]
+    pub synonym_sets: ::prost::alloc::vec::Vec<SynonymSet>,
+    /// A page token, received from a previous `ListSynonymSets` call.
+    /// Provide this to retrieve the subsequent page.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request message for SynonymSetService.UpdateSynonymSet.
+/// Removes the SynonymSet for the specified context and replaces
+/// it with the SynonymSet in this request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateSynonymSetRequest {
+    /// Required. The name of the synonymSet to update
+    /// Format:
+    /// projects/{project_number}/locations/{location}/synonymSets/{context}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The synonymSet to be updated for the customer
+    #[prost(message, optional, tag = "2")]
+    pub synonym_set: ::core::option::Option<SynonymSet>,
+}
+/// Request message for SynonymSetService.DeleteSynonymSet.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteSynonymSetRequest {
+    /// Required. The name of the synonymSet to delete
+    /// Format:
+    /// projects/{project_number}/locations/{location}/synonymSets/{context}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Generated client implementations.
+pub mod synonym_set_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// A Service that manage/custom customer specified SynonymSets.
+    #[derive(Debug, Clone)]
+    pub struct SynonymSetServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> SynonymSetServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> SynonymSetServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            SynonymSetServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Creates a SynonymSet for a single context.
+        /// Throws an ALREADY_EXISTS exception if a synonymset already exists
+        /// for the context.
+        pub async fn create_synonym_set(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateSynonymSetRequest>,
+        ) -> std::result::Result<tonic::Response<super::SynonymSet>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.contentwarehouse.v1.SynonymSetService/CreateSynonymSet",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.contentwarehouse.v1.SynonymSetService",
+                        "CreateSynonymSet",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets a SynonymSet for a particular context.
+        /// Throws a NOT_FOUND exception if the Synonymset
+        /// does not exist
+        pub async fn get_synonym_set(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetSynonymSetRequest>,
+        ) -> std::result::Result<tonic::Response<super::SynonymSet>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.contentwarehouse.v1.SynonymSetService/GetSynonymSet",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.contentwarehouse.v1.SynonymSetService",
+                        "GetSynonymSet",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Remove the existing SynonymSet for the context and replaces it
+        /// with a new one.
+        /// Throws a NOT_FOUND exception if the SynonymSet is not found.
+        pub async fn update_synonym_set(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateSynonymSetRequest>,
+        ) -> std::result::Result<tonic::Response<super::SynonymSet>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.contentwarehouse.v1.SynonymSetService/UpdateSynonymSet",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.contentwarehouse.v1.SynonymSetService",
+                        "UpdateSynonymSet",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a SynonymSet for a given context.
+        /// Throws a NOT_FOUND exception if the SynonymSet is not found.
+        pub async fn delete_synonym_set(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteSynonymSetRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.contentwarehouse.v1.SynonymSetService/DeleteSynonymSet",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.contentwarehouse.v1.SynonymSetService",
+                        "DeleteSynonymSet",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Returns all SynonymSets (for all contexts) for the specified location.
+        pub async fn list_synonym_sets(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListSynonymSetsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListSynonymSetsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.contentwarehouse.v1.SynonymSetService/ListSynonymSets",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.contentwarehouse.v1.SynonymSetService",
+                        "ListSynonymSets",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
 /// Response message for DocumentService.CreateDocument.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4113,233 +4340,6 @@ pub mod document_service_client {
                     GrpcMethod::new(
                         "google.cloud.contentwarehouse.v1.DocumentService",
                         "SetAcl",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// Generated client implementations.
-pub mod synonym_set_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// A Service that manage/custom customer specified SynonymSets.
-    #[derive(Debug, Clone)]
-    pub struct SynonymSetServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> SynonymSetServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> SynonymSetServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            SynonymSetServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Creates a SynonymSet for a single context.
-        /// Throws an ALREADY_EXISTS exception if a synonymset already exists
-        /// for the context.
-        pub async fn create_synonym_set(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateSynonymSetRequest>,
-        ) -> std::result::Result<tonic::Response<super::SynonymSet>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.contentwarehouse.v1.SynonymSetService/CreateSynonymSet",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.contentwarehouse.v1.SynonymSetService",
-                        "CreateSynonymSet",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets a SynonymSet for a particular context.
-        /// Throws a NOT_FOUND exception if the Synonymset
-        /// does not exist
-        pub async fn get_synonym_set(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetSynonymSetRequest>,
-        ) -> std::result::Result<tonic::Response<super::SynonymSet>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.contentwarehouse.v1.SynonymSetService/GetSynonymSet",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.contentwarehouse.v1.SynonymSetService",
-                        "GetSynonymSet",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Remove the existing SynonymSet for the context and replaces it
-        /// with a new one.
-        /// Throws a NOT_FOUND exception if the SynonymSet is not found.
-        pub async fn update_synonym_set(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateSynonymSetRequest>,
-        ) -> std::result::Result<tonic::Response<super::SynonymSet>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.contentwarehouse.v1.SynonymSetService/UpdateSynonymSet",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.contentwarehouse.v1.SynonymSetService",
-                        "UpdateSynonymSet",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a SynonymSet for a given context.
-        /// Throws a NOT_FOUND exception if the SynonymSet is not found.
-        pub async fn delete_synonym_set(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteSynonymSetRequest>,
-        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.contentwarehouse.v1.SynonymSetService/DeleteSynonymSet",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.contentwarehouse.v1.SynonymSetService",
-                        "DeleteSynonymSet",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Returns all SynonymSets (for all contexts) for the specified location.
-        pub async fn list_synonym_sets(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListSynonymSetsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListSynonymSetsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.contentwarehouse.v1.SynonymSetService/ListSynonymSets",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.contentwarehouse.v1.SynonymSetService",
-                        "ListSynonymSets",
                     ),
                 );
             self.inner.unary(req, path, codec).await

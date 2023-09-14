@@ -24,6 +24,96 @@ pub mod servicemanagement;
     )
 )]
 pub mod serviceusage;
+/// An indicator of the behavior of a given field (for example, that a field
+/// is required in requests, or given as output but ignored as input).
+/// This **does not** change the behavior in protocol buffers itself; it only
+/// denotes the behavior and may affect how API tooling handles the field.
+///
+/// Note: This enum **may** receive new values in the future.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum FieldBehavior {
+    /// Conventional default for enums. Do not use this.
+    Unspecified = 0,
+    /// Specifically denotes a field as optional.
+    /// While all fields in protocol buffers are optional, this may be specified
+    /// for emphasis if appropriate.
+    Optional = 1,
+    /// Denotes a field as required.
+    /// This indicates that the field **must** be provided as part of the request,
+    /// and failure to do so will cause an error (usually `INVALID_ARGUMENT`).
+    Required = 2,
+    /// Denotes a field as output only.
+    /// This indicates that the field is provided in responses, but including the
+    /// field in a request does nothing (the server *must* ignore it and
+    /// *must not* throw an error as a result of the field's presence).
+    OutputOnly = 3,
+    /// Denotes a field as input only.
+    /// This indicates that the field is provided in requests, and the
+    /// corresponding field is not included in output.
+    InputOnly = 4,
+    /// Denotes a field as immutable.
+    /// This indicates that the field may be set once in a request to create a
+    /// resource, but may not be changed thereafter.
+    Immutable = 5,
+    /// Denotes that a (repeated) field is an unordered list.
+    /// This indicates that the service may provide the elements of the list
+    /// in any arbitrary  order, rather than the order the user originally
+    /// provided. Additionally, the list's order may or may not be stable.
+    UnorderedList = 6,
+    /// Denotes that this field returns a non-empty default value if not set.
+    /// This indicates that if the user provides the empty value in a request,
+    /// a non-empty value will be returned. The user will not be aware of what
+    /// non-empty value to expect.
+    NonEmptyDefault = 7,
+    /// Denotes that the field in a resource (a message annotated with
+    /// google.api.resource) is used in the resource name to uniquely identify the
+    /// resource. For AIP-compliant APIs, this should only be applied to the
+    /// `name` field on the resource.
+    ///
+    /// This behavior should not be applied to references to other resources within
+    /// the message.
+    ///
+    /// The identifier field of resources often have different field behavior
+    /// depending on the request it is embedded in (e.g. for Create methods name
+    /// is optional and unused, while for Update methods it is required). Instead
+    /// of method-specific annotations, only `IDENTIFIER` is required.
+    Identifier = 8,
+}
+impl FieldBehavior {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            FieldBehavior::Unspecified => "FIELD_BEHAVIOR_UNSPECIFIED",
+            FieldBehavior::Optional => "OPTIONAL",
+            FieldBehavior::Required => "REQUIRED",
+            FieldBehavior::OutputOnly => "OUTPUT_ONLY",
+            FieldBehavior::InputOnly => "INPUT_ONLY",
+            FieldBehavior::Immutable => "IMMUTABLE",
+            FieldBehavior::UnorderedList => "UNORDERED_LIST",
+            FieldBehavior::NonEmptyDefault => "NON_EMPTY_DEFAULT",
+            FieldBehavior::Identifier => "IDENTIFIER",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "FIELD_BEHAVIOR_UNSPECIFIED" => Some(Self::Unspecified),
+            "OPTIONAL" => Some(Self::Optional),
+            "REQUIRED" => Some(Self::Required),
+            "OUTPUT_ONLY" => Some(Self::OutputOnly),
+            "INPUT_ONLY" => Some(Self::InputOnly),
+            "IMMUTABLE" => Some(Self::Immutable),
+            "UNORDERED_LIST" => Some(Self::UnorderedList),
+            "NON_EMPTY_DEFAULT" => Some(Self::NonEmptyDefault),
+            "IDENTIFIER" => Some(Self::Identifier),
+            _ => None,
+        }
+    }
+}
 /// Defines the HTTP configuration for an API service. It contains a list of
 /// \[HttpRule][google.api.HttpRule\], each specifying the mapping of an RPC method
 /// to one or more HTTP REST API methods.
@@ -855,96 +945,6 @@ impl ClientLibraryDestination {
         }
     }
 }
-/// An indicator of the behavior of a given field (for example, that a field
-/// is required in requests, or given as output but ignored as input).
-/// This **does not** change the behavior in protocol buffers itself; it only
-/// denotes the behavior and may affect how API tooling handles the field.
-///
-/// Note: This enum **may** receive new values in the future.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum FieldBehavior {
-    /// Conventional default for enums. Do not use this.
-    Unspecified = 0,
-    /// Specifically denotes a field as optional.
-    /// While all fields in protocol buffers are optional, this may be specified
-    /// for emphasis if appropriate.
-    Optional = 1,
-    /// Denotes a field as required.
-    /// This indicates that the field **must** be provided as part of the request,
-    /// and failure to do so will cause an error (usually `INVALID_ARGUMENT`).
-    Required = 2,
-    /// Denotes a field as output only.
-    /// This indicates that the field is provided in responses, but including the
-    /// field in a request does nothing (the server *must* ignore it and
-    /// *must not* throw an error as a result of the field's presence).
-    OutputOnly = 3,
-    /// Denotes a field as input only.
-    /// This indicates that the field is provided in requests, and the
-    /// corresponding field is not included in output.
-    InputOnly = 4,
-    /// Denotes a field as immutable.
-    /// This indicates that the field may be set once in a request to create a
-    /// resource, but may not be changed thereafter.
-    Immutable = 5,
-    /// Denotes that a (repeated) field is an unordered list.
-    /// This indicates that the service may provide the elements of the list
-    /// in any arbitrary  order, rather than the order the user originally
-    /// provided. Additionally, the list's order may or may not be stable.
-    UnorderedList = 6,
-    /// Denotes that this field returns a non-empty default value if not set.
-    /// This indicates that if the user provides the empty value in a request,
-    /// a non-empty value will be returned. The user will not be aware of what
-    /// non-empty value to expect.
-    NonEmptyDefault = 7,
-    /// Denotes that the field in a resource (a message annotated with
-    /// google.api.resource) is used in the resource name to uniquely identify the
-    /// resource. For AIP-compliant APIs, this should only be applied to the
-    /// `name` field on the resource.
-    ///
-    /// This behavior should not be applied to references to other resources within
-    /// the message.
-    ///
-    /// The identifier field of resources often have different field behavior
-    /// depending on the request it is embedded in (e.g. for Create methods name
-    /// is optional and unused, while for Update methods it is required). Instead
-    /// of method-specific annotations, only `IDENTIFIER` is required.
-    Identifier = 8,
-}
-impl FieldBehavior {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            FieldBehavior::Unspecified => "FIELD_BEHAVIOR_UNSPECIFIED",
-            FieldBehavior::Optional => "OPTIONAL",
-            FieldBehavior::Required => "REQUIRED",
-            FieldBehavior::OutputOnly => "OUTPUT_ONLY",
-            FieldBehavior::InputOnly => "INPUT_ONLY",
-            FieldBehavior::Immutable => "IMMUTABLE",
-            FieldBehavior::UnorderedList => "UNORDERED_LIST",
-            FieldBehavior::NonEmptyDefault => "NON_EMPTY_DEFAULT",
-            FieldBehavior::Identifier => "IDENTIFIER",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "FIELD_BEHAVIOR_UNSPECIFIED" => Some(Self::Unspecified),
-            "OPTIONAL" => Some(Self::Optional),
-            "REQUIRED" => Some(Self::Required),
-            "OUTPUT_ONLY" => Some(Self::OutputOnly),
-            "INPUT_ONLY" => Some(Self::InputOnly),
-            "IMMUTABLE" => Some(Self::Immutable),
-            "UNORDERED_LIST" => Some(Self::UnorderedList),
-            "NON_EMPTY_DEFAULT" => Some(Self::NonEmptyDefault),
-            "IDENTIFIER" => Some(Self::Identifier),
-            _ => None,
-        }
-    }
-}
 /// A simple descriptor of a resource type.
 ///
 /// ResourceDescriptor annotates a resource message (either by means of a
@@ -1206,441 +1206,6 @@ pub struct ResourceReference {
     ///      }
     #[prost(string, tag = "2")]
     pub child_type: ::prost::alloc::string::String,
-}
-/// Specifies the routing information that should be sent along with the request
-/// in the form of routing header.
-/// **NOTE:** All service configuration rules follow the "last one wins" order.
-///
-/// The examples below will apply to an RPC which has the following request type:
-///
-/// Message Definition:
-///
-///      message Request {
-///        // The name of the Table
-///        // Values can be of the following formats:
-///        // - `projects/<project>/tables/<table>`
-///        // - `projects/<project>/instances/<instance>/tables/<table>`
-///        // - `region/<region>/zones/<zone>/tables/<table>`
-///        string table_name = 1;
-///
-///        // This value specifies routing for replication.
-///        // It can be in the following formats:
-///        // - `profiles/<profile_id>`
-///        // - a legacy `profile_id` that can be any string
-///        string app_profile_id = 2;
-///      }
-///
-/// Example message:
-///
-///      {
-///        table_name: projects/proj_foo/instances/instance_bar/table/table_baz,
-///        app_profile_id: profiles/prof_qux
-///      }
-///
-/// The routing header consists of one or multiple key-value pairs. Every key
-/// and value must be percent-encoded, and joined together in the format of
-/// `key1=value1&key2=value2`.
-/// In the examples below I am skipping the percent-encoding for readablity.
-///
-/// Example 1
-///
-/// Extracting a field from the request to put into the routing header
-/// unchanged, with the key equal to the field name.
-///
-/// annotation:
-///
-///      option (google.api.routing) = {
-///        // Take the `app_profile_id`.
-///        routing_parameters {
-///          field: "app_profile_id"
-///        }
-///      };
-///
-/// result:
-///
-///      x-goog-request-params: app_profile_id=profiles/prof_qux
-///
-/// Example 2
-///
-/// Extracting a field from the request to put into the routing header
-/// unchanged, with the key different from the field name.
-///
-/// annotation:
-///
-///      option (google.api.routing) = {
-///        // Take the `app_profile_id`, but name it `routing_id` in the header.
-///        routing_parameters {
-///          field: "app_profile_id"
-///          path_template: "{routing_id=**}"
-///        }
-///      };
-///
-/// result:
-///
-///      x-goog-request-params: routing_id=profiles/prof_qux
-///
-/// Example 3
-///
-/// Extracting a field from the request to put into the routing
-/// header, while matching a path template syntax on the field's value.
-///
-/// NB: it is more useful to send nothing than to send garbage for the purpose
-/// of dynamic routing, since garbage pollutes cache. Thus the matching.
-///
-/// Sub-example 3a
-///
-/// The field matches the template.
-///
-/// annotation:
-///
-///      option (google.api.routing) = {
-///        // Take the `table_name`, if it's well-formed (with project-based
-///        // syntax).
-///        routing_parameters {
-///          field: "table_name"
-///          path_template: "{table_name=projects/*/instances/*/**}"
-///        }
-///      };
-///
-/// result:
-///
-///      x-goog-request-params:
-///      table_name=projects/proj_foo/instances/instance_bar/table/table_baz
-///
-/// Sub-example 3b
-///
-/// The field does not match the template.
-///
-/// annotation:
-///
-///      option (google.api.routing) = {
-///        // Take the `table_name`, if it's well-formed (with region-based
-///        // syntax).
-///        routing_parameters {
-///          field: "table_name"
-///          path_template: "{table_name=regions/*/zones/*/**}"
-///        }
-///      };
-///
-/// result:
-///
-///      <no routing header will be sent>
-///
-/// Sub-example 3c
-///
-/// Multiple alternative conflictingly named path templates are
-/// specified. The one that matches is used to construct the header.
-///
-/// annotation:
-///
-///      option (google.api.routing) = {
-///        // Take the `table_name`, if it's well-formed, whether
-///        // using the region- or projects-based syntax.
-///
-///        routing_parameters {
-///          field: "table_name"
-///          path_template: "{table_name=regions/*/zones/*/**}"
-///        }
-///        routing_parameters {
-///          field: "table_name"
-///          path_template: "{table_name=projects/*/instances/*/**}"
-///        }
-///      };
-///
-/// result:
-///
-///      x-goog-request-params:
-///      table_name=projects/proj_foo/instances/instance_bar/table/table_baz
-///
-/// Example 4
-///
-/// Extracting a single routing header key-value pair by matching a
-/// template syntax on (a part of) a single request field.
-///
-/// annotation:
-///
-///      option (google.api.routing) = {
-///        // Take just the project id from the `table_name` field.
-///        routing_parameters {
-///          field: "table_name"
-///          path_template: "{routing_id=projects/*}/**"
-///        }
-///      };
-///
-/// result:
-///
-///      x-goog-request-params: routing_id=projects/proj_foo
-///
-/// Example 5
-///
-/// Extracting a single routing header key-value pair by matching
-/// several conflictingly named path templates on (parts of) a single request
-/// field. The last template to match "wins" the conflict.
-///
-/// annotation:
-///
-///      option (google.api.routing) = {
-///        // If the `table_name` does not have instances information,
-///        // take just the project id for routing.
-///        // Otherwise take project + instance.
-///
-///        routing_parameters {
-///          field: "table_name"
-///          path_template: "{routing_id=projects/*}/**"
-///        }
-///        routing_parameters {
-///          field: "table_name"
-///          path_template: "{routing_id=projects/*/instances/*}/**"
-///        }
-///      };
-///
-/// result:
-///
-///      x-goog-request-params:
-///      routing_id=projects/proj_foo/instances/instance_bar
-///
-/// Example 6
-///
-/// Extracting multiple routing header key-value pairs by matching
-/// several non-conflicting path templates on (parts of) a single request field.
-///
-/// Sub-example 6a
-///
-/// Make the templates strict, so that if the `table_name` does not
-/// have an instance information, nothing is sent.
-///
-/// annotation:
-///
-///      option (google.api.routing) = {
-///        // The routing code needs two keys instead of one composite
-///        // but works only for the tables with the "project-instance" name
-///        // syntax.
-///
-///        routing_parameters {
-///          field: "table_name"
-///          path_template: "{project_id=projects/*}/instances/*/**"
-///        }
-///        routing_parameters {
-///          field: "table_name"
-///          path_template: "projects/*/{instance_id=instances/*}/**"
-///        }
-///      };
-///
-/// result:
-///
-///      x-goog-request-params:
-///      project_id=projects/proj_foo&instance_id=instances/instance_bar
-///
-/// Sub-example 6b
-///
-/// Make the templates loose, so that if the `table_name` does not
-/// have an instance information, just the project id part is sent.
-///
-/// annotation:
-///
-///      option (google.api.routing) = {
-///        // The routing code wants two keys instead of one composite
-///        // but will work with just the `project_id` for tables without
-///        // an instance in the `table_name`.
-///
-///        routing_parameters {
-///          field: "table_name"
-///          path_template: "{project_id=projects/*}/**"
-///        }
-///        routing_parameters {
-///          field: "table_name"
-///          path_template: "projects/*/{instance_id=instances/*}/**"
-///        }
-///      };
-///
-/// result (is the same as 6a for our example message because it has the instance
-/// information):
-///
-///      x-goog-request-params:
-///      project_id=projects/proj_foo&instance_id=instances/instance_bar
-///
-/// Example 7
-///
-/// Extracting multiple routing header key-value pairs by matching
-/// several path templates on multiple request fields.
-///
-/// NB: note that here there is no way to specify sending nothing if one of the
-/// fields does not match its template. E.g. if the `table_name` is in the wrong
-/// format, the `project_id` will not be sent, but the `routing_id` will be.
-/// The backend routing code has to be aware of that and be prepared to not
-/// receive a full complement of keys if it expects multiple.
-///
-/// annotation:
-///
-///      option (google.api.routing) = {
-///        // The routing needs both `project_id` and `routing_id`
-///        // (from the `app_profile_id` field) for routing.
-///
-///        routing_parameters {
-///          field: "table_name"
-///          path_template: "{project_id=projects/*}/**"
-///        }
-///        routing_parameters {
-///          field: "app_profile_id"
-///          path_template: "{routing_id=**}"
-///        }
-///      };
-///
-/// result:
-///
-///      x-goog-request-params:
-///      project_id=projects/proj_foo&routing_id=profiles/prof_qux
-///
-/// Example 8
-///
-/// Extracting a single routing header key-value pair by matching
-/// several conflictingly named path templates on several request fields. The
-/// last template to match "wins" the conflict.
-///
-/// annotation:
-///
-///      option (google.api.routing) = {
-///        // The `routing_id` can be a project id or a region id depending on
-///        // the table name format, but only if the `app_profile_id` is not set.
-///        // If `app_profile_id` is set it should be used instead.
-///
-///        routing_parameters {
-///          field: "table_name"
-///          path_template: "{routing_id=projects/*}/**"
-///        }
-///        routing_parameters {
-///           field: "table_name"
-///           path_template: "{routing_id=regions/*}/**"
-///        }
-///        routing_parameters {
-///          field: "app_profile_id"
-///          path_template: "{routing_id=**}"
-///        }
-///      };
-///
-/// result:
-///
-///      x-goog-request-params: routing_id=profiles/prof_qux
-///
-/// Example 9
-///
-/// Bringing it all together.
-///
-/// annotation:
-///
-///      option (google.api.routing) = {
-///        // For routing both `table_location` and a `routing_id` are needed.
-///        //
-///        // table_location can be either an instance id or a region+zone id.
-///        //
-///        // For `routing_id`, take the value of `app_profile_id`
-///        // - If it's in the format `profiles/<profile_id>`, send
-///        // just the `<profile_id>` part.
-///        // - If it's any other literal, send it as is.
-///        // If the `app_profile_id` is empty, and the `table_name` starts with
-///        // the project_id, send that instead.
-///
-///        routing_parameters {
-///          field: "table_name"
-///          path_template: "projects/*/{table_location=instances/*}/tables/*"
-///        }
-///        routing_parameters {
-///          field: "table_name"
-///          path_template: "{table_location=regions/*/zones/*}/tables/*"
-///        }
-///        routing_parameters {
-///          field: "table_name"
-///          path_template: "{routing_id=projects/*}/**"
-///        }
-///        routing_parameters {
-///          field: "app_profile_id"
-///          path_template: "{routing_id=**}"
-///        }
-///        routing_parameters {
-///          field: "app_profile_id"
-///          path_template: "profiles/{routing_id=*}"
-///        }
-///      };
-///
-/// result:
-///
-///      x-goog-request-params:
-///      table_location=instances/instance_bar&routing_id=prof_qux
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RoutingRule {
-    /// A collection of Routing Parameter specifications.
-    /// **NOTE:** If multiple Routing Parameters describe the same key
-    /// (via the `path_template` field or via the `field` field when
-    /// `path_template` is not provided), "last one wins" rule
-    /// determines which Parameter gets used.
-    /// See the examples for more details.
-    #[prost(message, repeated, tag = "2")]
-    pub routing_parameters: ::prost::alloc::vec::Vec<RoutingParameter>,
-}
-/// A projection from an input message to the GRPC or REST header.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RoutingParameter {
-    /// A request field to extract the header key-value pair from.
-    #[prost(string, tag = "1")]
-    pub field: ::prost::alloc::string::String,
-    /// A pattern matching the key-value field. Optional.
-    /// If not specified, the whole field specified in the `field` field will be
-    /// taken as value, and its name used as key. If specified, it MUST contain
-    /// exactly one named segment (along with any number of unnamed segments) The
-    /// pattern will be matched over the field specified in the `field` field, then
-    /// if the match is successful:
-    /// - the name of the single named segment will be used as a header name,
-    /// - the match value of the segment will be used as a header value;
-    /// if the match is NOT successful, nothing will be sent.
-    ///
-    /// Example:
-    ///
-    ///                -- This is a field in the request message
-    ///               |   that the header value will be extracted from.
-    ///               |
-    ///               |                     -- This is the key name in the
-    ///               |                    |   routing header.
-    ///               V                    |
-    ///      field: "table_name"           v
-    ///      path_template: "projects/*/{table_location=instances/*}/tables/*"
-    ///                                                 ^            ^
-    ///                                                 |            |
-    ///        In the {} brackets is the pattern that --             |
-    ///        specifies what to extract from the                    |
-    ///        field as a value to be sent.                          |
-    ///                                                              |
-    ///       The string in the field must match the whole pattern --
-    ///       before brackets, inside brackets, after brackets.
-    ///
-    /// When looking at this specific example, we can see that:
-    /// - A key-value pair with the key `table_location`
-    ///    and the value matching `instances/*` should be added
-    ///    to the x-goog-request-params routing header.
-    /// - The value is extracted from the request message's `table_name` field
-    ///    if it matches the full pattern specified:
-    ///    `projects/*/instances/*/tables/*`.
-    ///
-    /// **NB:** If the `path_template` field is not provided, the key name is
-    /// equal to the field name, and the whole field should be sent as a value.
-    /// This makes the pattern for the field and the value functionally equivalent
-    /// to `**`, and the configuration
-    ///
-    ///      {
-    ///        field: "table_name"
-    ///      }
-    ///
-    /// is a functionally equivalent shorthand to:
-    ///
-    ///      {
-    ///        field: "table_name"
-    ///        path_template: "{table_name=**}"
-    ///      }
-    ///
-    /// See Example 1 for more details.
-    #[prost(string, tag = "2")]
-    pub path_template: ::prost::alloc::string::String,
 }
 /// A description of a label.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2351,62 +1916,665 @@ pub struct Metric {
         ::prost::alloc::string::String,
     >,
 }
-/// Message that represents an arbitrary HTTP body. It should only be used for
-/// payload formats that can't be represented as JSON, such as raw binary or
-/// an HTML page.
-///
-///
-/// This message can be used both in streaming and non-streaming API methods in
-/// the request as well as the response.
-///
-/// It can be used as a top-level request field, which is convenient if one
-/// wants to extract parameters from either the URL or HTTP template into the
-/// request fields and also want access to the raw HTTP body.
+/// `Context` defines which contexts an API requests.
 ///
 /// Example:
 ///
-///      message GetResourceRequest {
-///        // A unique request id.
-///        string request_id = 1;
+///      context:
+///        rules:
+///        - selector: "*"
+///          requested:
+///          - google.rpc.context.ProjectContext
+///          - google.rpc.context.OriginContext
 ///
-///        // The raw HTTP body is bound to this field.
-///        google.api.HttpBody http_body = 2;
+/// The above specifies that all methods in the API request
+/// `google.rpc.context.ProjectContext` and
+/// `google.rpc.context.OriginContext`.
 ///
-///      }
+/// Available context types are defined in package
+/// `google.rpc.context`.
 ///
-///      service ResourceService {
-///        rpc GetResource(GetResourceRequest)
-///          returns (google.api.HttpBody);
-///        rpc UpdateResource(google.api.HttpBody)
-///          returns (google.protobuf.Empty);
+/// This also provides mechanism to allowlist any protobuf message extension that
+/// can be sent in grpc metadata using “x-goog-ext-<extension_id>-bin” and
+/// “x-goog-ext-<extension_id>-jspb” format. For example, list any service
+/// specific protobuf types that can appear in grpc metadata as follows in your
+/// yaml file:
 ///
-///      }
+/// Example:
 ///
-/// Example with streaming methods:
+///      context:
+///        rules:
+///         - selector: "google.example.library.v1.LibraryService.CreateBook"
+///           allowed_request_extensions:
+///           - google.foo.v1.NewExtension
+///           allowed_response_extensions:
+///           - google.foo.v1.NewExtension
 ///
-///      service CaldavService {
-///        rpc GetCalendar(stream google.api.HttpBody)
-///          returns (stream google.api.HttpBody);
-///        rpc UpdateCalendar(stream google.api.HttpBody)
-///          returns (stream google.api.HttpBody);
-///
-///      }
-///
-/// Use of this type only changes how the request and response bodies are
-/// handled, all other features will continue to work unchanged.
+/// You can also specify extension ID instead of fully qualified extension name
+/// here.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct HttpBody {
-    /// The HTTP Content-Type header value specifying the content type of the body.
+pub struct Context {
+    /// A list of RPC context rules that apply to individual API methods.
+    ///
+    /// **NOTE:** All service configuration rules follow "last one wins" order.
+    #[prost(message, repeated, tag = "1")]
+    pub rules: ::prost::alloc::vec::Vec<ContextRule>,
+}
+/// A context rule provides information about the context for an individual API
+/// element.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ContextRule {
+    /// Selects the methods to which this rule applies.
+    ///
+    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
+    /// details.
     #[prost(string, tag = "1")]
-    pub content_type: ::prost::alloc::string::String,
-    /// The HTTP request/response body as raw binary.
-    #[prost(bytes = "bytes", tag = "2")]
-    pub data: ::prost::bytes::Bytes,
-    /// Application specific response metadata. Must be set in the first response
-    /// for streaming APIs.
+    pub selector: ::prost::alloc::string::String,
+    /// A list of full type names of requested contexts.
+    #[prost(string, repeated, tag = "2")]
+    pub requested: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// A list of full type names of provided contexts.
+    #[prost(string, repeated, tag = "3")]
+    pub provided: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// A list of full type names or extension IDs of extensions allowed in grpc
+    /// side channel from client to backend.
+    #[prost(string, repeated, tag = "4")]
+    pub allowed_request_extensions: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
+    /// A list of full type names or extension IDs of extensions allowed in grpc
+    /// side channel from backend to client.
+    #[prost(string, repeated, tag = "5")]
+    pub allowed_response_extensions: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
+}
+/// `Authentication` defines the authentication configuration for API methods
+/// provided by an API service.
+///
+/// Example:
+///
+///      name: calendar.googleapis.com
+///      authentication:
+///        providers:
+///        - id: google_calendar_auth
+///          jwks_uri: <https://www.googleapis.com/oauth2/v1/certs>
+///          issuer: <https://securetoken.google.com>
+///        rules:
+///        - selector: "*"
+///          requirements:
+///            provider_id: google_calendar_auth
+///        - selector: google.calendar.Delegate
+///          oauth:
+///            canonical_scopes: <https://www.googleapis.com/auth/calendar.read>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Authentication {
+    /// A list of authentication rules that apply to individual API methods.
+    ///
+    /// **NOTE:** All service configuration rules follow "last one wins" order.
     #[prost(message, repeated, tag = "3")]
-    pub extensions: ::prost::alloc::vec::Vec<::prost_types::Any>,
+    pub rules: ::prost::alloc::vec::Vec<AuthenticationRule>,
+    /// Defines a set of authentication providers that a service supports.
+    #[prost(message, repeated, tag = "4")]
+    pub providers: ::prost::alloc::vec::Vec<AuthProvider>,
+}
+/// Authentication rules for the service.
+///
+/// By default, if a method has any authentication requirements, every request
+/// must include a valid credential matching one of the requirements.
+/// It's an error to include more than one kind of credential in a single
+/// request.
+///
+/// If a method doesn't have any auth requirements, request credentials will be
+/// ignored.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AuthenticationRule {
+    /// Selects the methods to which this rule applies.
+    ///
+    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
+    /// details.
+    #[prost(string, tag = "1")]
+    pub selector: ::prost::alloc::string::String,
+    /// The requirements for OAuth credentials.
+    #[prost(message, optional, tag = "2")]
+    pub oauth: ::core::option::Option<OAuthRequirements>,
+    /// If true, the service accepts API keys without any other credential.
+    /// This flag only applies to HTTP and gRPC requests.
+    #[prost(bool, tag = "5")]
+    pub allow_without_credential: bool,
+    /// Requirements for additional authentication providers.
+    #[prost(message, repeated, tag = "7")]
+    pub requirements: ::prost::alloc::vec::Vec<AuthRequirement>,
+}
+/// Specifies a location to extract JWT from an API request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct JwtLocation {
+    /// The value prefix. The value format is "value_prefix{token}"
+    /// Only applies to "in" header type. Must be empty for "in" query type.
+    /// If not empty, the header value has to match (case sensitive) this prefix.
+    /// If not matched, JWT will not be extracted. If matched, JWT will be
+    /// extracted after the prefix is removed.
+    ///
+    /// For example, for "Authorization: Bearer {JWT}",
+    /// value_prefix="Bearer " with a space at the end.
+    #[prost(string, tag = "3")]
+    pub value_prefix: ::prost::alloc::string::String,
+    #[prost(oneof = "jwt_location::In", tags = "1, 2, 4")]
+    pub r#in: ::core::option::Option<jwt_location::In>,
+}
+/// Nested message and enum types in `JwtLocation`.
+pub mod jwt_location {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum In {
+        /// Specifies HTTP header name to extract JWT token.
+        #[prost(string, tag = "1")]
+        Header(::prost::alloc::string::String),
+        /// Specifies URL query parameter name to extract JWT token.
+        #[prost(string, tag = "2")]
+        Query(::prost::alloc::string::String),
+        /// Specifies cookie name to extract JWT token.
+        #[prost(string, tag = "4")]
+        Cookie(::prost::alloc::string::String),
+    }
+}
+/// Configuration for an authentication provider, including support for
+/// [JSON Web Token
+/// (JWT)](<https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32>).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AuthProvider {
+    /// The unique identifier of the auth provider. It will be referred to by
+    /// `AuthRequirement.provider_id`.
+    ///
+    /// Example: "bookstore_auth".
+    #[prost(string, tag = "1")]
+    pub id: ::prost::alloc::string::String,
+    /// Identifies the principal that issued the JWT. See
+    /// <https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.1>
+    /// Usually a URL or an email address.
+    ///
+    /// Example: <https://securetoken.google.com>
+    /// Example: 1234567-compute@developer.gserviceaccount.com
+    #[prost(string, tag = "2")]
+    pub issuer: ::prost::alloc::string::String,
+    /// URL of the provider's public key set to validate signature of the JWT. See
+    /// [OpenID
+    /// Discovery](<https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata>).
+    /// Optional if the key set document:
+    ///   - can be retrieved from
+    ///     [OpenID
+    ///     Discovery](<https://openid.net/specs/openid-connect-discovery-1_0.html>)
+    ///     of the issuer.
+    ///   - can be inferred from the email domain of the issuer (e.g. a Google
+    ///   service account).
+    ///
+    /// Example: <https://www.googleapis.com/oauth2/v1/certs>
+    #[prost(string, tag = "3")]
+    pub jwks_uri: ::prost::alloc::string::String,
+    /// The list of JWT
+    /// \[audiences\](<https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.3>).
+    /// that are allowed to access. A JWT containing any of these audiences will
+    /// be accepted. When this setting is absent, JWTs with audiences:
+    ///    - "<https://\[service.name]/[google.protobuf.Api.name\]">
+    ///    - "<https://\[service.name\]/">
+    /// will be accepted.
+    /// For example, if no audiences are in the setting, LibraryService API will
+    /// accept JWTs with the following audiences:
+    ///    -
+    ///    <https://library-example.googleapis.com/google.example.library.v1.LibraryService>
+    ///    - <https://library-example.googleapis.com/>
+    ///
+    /// Example:
+    ///
+    ///      audiences: bookstore_android.apps.googleusercontent.com,
+    ///                 bookstore_web.apps.googleusercontent.com
+    #[prost(string, tag = "4")]
+    pub audiences: ::prost::alloc::string::String,
+    /// Redirect URL if JWT token is required but not present or is expired.
+    /// Implement authorizationUrl of securityDefinitions in OpenAPI spec.
+    #[prost(string, tag = "5")]
+    pub authorization_url: ::prost::alloc::string::String,
+    /// Defines the locations to extract the JWT.  For now it is only used by the
+    /// Cloud Endpoints to store the OpenAPI extension \[x-google-jwt-locations\]
+    /// (<https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations>)
+    ///
+    /// JWT locations can be one of HTTP headers, URL query parameters or
+    /// cookies. The rule is that the first match wins.
+    ///
+    /// If not specified,  default to use following 3 locations:
+    ///     1) Authorization: Bearer
+    ///     2) x-goog-iap-jwt-assertion
+    ///     3) access_token query parameter
+    ///
+    /// Default locations can be specified as followings:
+    ///     jwt_locations:
+    ///     - header: Authorization
+    ///       value_prefix: "Bearer "
+    ///     - header: x-goog-iap-jwt-assertion
+    ///     - query: access_token
+    #[prost(message, repeated, tag = "6")]
+    pub jwt_locations: ::prost::alloc::vec::Vec<JwtLocation>,
+}
+/// OAuth scopes are a way to define data and permissions on data. For example,
+/// there are scopes defined for "Read-only access to Google Calendar" and
+/// "Access to Cloud Platform". Users can consent to a scope for an application,
+/// giving it permission to access that data on their behalf.
+///
+/// OAuth scope specifications should be fairly coarse grained; a user will need
+/// to see and understand the text description of what your scope means.
+///
+/// In most cases: use one or at most two OAuth scopes for an entire family of
+/// products. If your product has multiple APIs, you should probably be sharing
+/// the OAuth scope across all of those APIs.
+///
+/// When you need finer grained OAuth consent screens: talk with your product
+/// management about how developers will use them in practice.
+///
+/// Please note that even though each of the canonical scopes is enough for a
+/// request to be accepted and passed to the backend, a request can still fail
+/// due to the backend requiring additional scopes or permissions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OAuthRequirements {
+    /// The list of publicly documented OAuth scopes that are allowed access. An
+    /// OAuth token containing any of these scopes will be accepted.
+    ///
+    /// Example:
+    ///
+    ///       canonical_scopes: <https://www.googleapis.com/auth/calendar,>
+    ///                         <https://www.googleapis.com/auth/calendar.read>
+    #[prost(string, tag = "1")]
+    pub canonical_scopes: ::prost::alloc::string::String,
+}
+/// User-defined authentication requirements, including support for
+/// [JSON Web Token
+/// (JWT)](<https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32>).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AuthRequirement {
+    /// \[id][google.api.AuthProvider.id\] from authentication provider.
+    ///
+    /// Example:
+    ///
+    ///      provider_id: bookstore_auth
+    #[prost(string, tag = "1")]
+    pub provider_id: ::prost::alloc::string::String,
+    /// NOTE: This will be deprecated soon, once AuthProvider.audiences is
+    /// implemented and accepted in all the runtime components.
+    ///
+    /// The list of JWT
+    /// \[audiences\](<https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.3>).
+    /// that are allowed to access. A JWT containing any of these audiences will
+    /// be accepted. When this setting is absent, only JWTs with audience
+    /// "<https://\[Service_name][google.api.Service.name]/[API_name][google.protobuf.Api.name\]">
+    /// will be accepted. For example, if no audiences are in the setting,
+    /// LibraryService API will only accept JWTs with the following audience
+    /// "<https://library-example.googleapis.com/google.example.library.v1.LibraryService".>
+    ///
+    /// Example:
+    ///
+    ///      audiences: bookstore_android.apps.googleusercontent.com,
+    ///                 bookstore_web.apps.googleusercontent.com
+    #[prost(string, tag = "2")]
+    pub audiences: ::prost::alloc::string::String,
+}
+/// `Backend` defines the backend configuration for a service.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Backend {
+    /// A list of API backend rules that apply to individual API methods.
+    ///
+    /// **NOTE:** All service configuration rules follow "last one wins" order.
+    #[prost(message, repeated, tag = "1")]
+    pub rules: ::prost::alloc::vec::Vec<BackendRule>,
+}
+/// A backend rule provides configuration for an individual API element.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BackendRule {
+    /// Selects the methods to which this rule applies.
+    ///
+    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
+    /// details.
+    #[prost(string, tag = "1")]
+    pub selector: ::prost::alloc::string::String,
+    /// The address of the API backend.
+    ///
+    /// The scheme is used to determine the backend protocol and security.
+    /// The following schemes are accepted:
+    ///
+    ///     SCHEME        PROTOCOL    SECURITY
+    ///     http://       HTTP        None
+    ///     https://      HTTP        TLS
+    ///     grpc://       gRPC        None
+    ///     grpcs://      gRPC        TLS
+    ///
+    /// It is recommended to explicitly include a scheme. Leaving out the scheme
+    /// may cause constrasting behaviors across platforms.
+    ///
+    /// If the port is unspecified, the default is:
+    /// - 80 for schemes without TLS
+    /// - 443 for schemes with TLS
+    ///
+    /// For HTTP backends, use \[protocol][google.api.BackendRule.protocol\]
+    /// to specify the protocol version.
+    #[prost(string, tag = "2")]
+    pub address: ::prost::alloc::string::String,
+    /// The number of seconds to wait for a response from a request. The default
+    /// varies based on the request protocol and deployment environment.
+    #[prost(double, tag = "3")]
+    pub deadline: f64,
+    /// Deprecated, do not use.
+    #[deprecated]
+    #[prost(double, tag = "4")]
+    pub min_deadline: f64,
+    /// The number of seconds to wait for the completion of a long running
+    /// operation. The default is no deadline.
+    #[prost(double, tag = "5")]
+    pub operation_deadline: f64,
+    #[prost(enumeration = "backend_rule::PathTranslation", tag = "6")]
+    pub path_translation: i32,
+    /// The protocol used for sending a request to the backend.
+    /// The supported values are "http/1.1" and "h2".
+    ///
+    /// The default value is inferred from the scheme in the
+    /// \[address][google.api.BackendRule.address\] field:
+    ///
+    ///     SCHEME        PROTOCOL
+    ///     http://       http/1.1
+    ///     https://      http/1.1
+    ///     grpc://       h2
+    ///     grpcs://      h2
+    ///
+    /// For secure HTTP backends (https://) that support HTTP/2, set this field
+    /// to "h2" for improved performance.
+    ///
+    /// Configuring this field to non-default values is only supported for secure
+    /// HTTP backends. This field will be ignored for all other backends.
+    ///
+    /// See
+    /// <https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids>
+    /// for more details on the supported values.
+    #[prost(string, tag = "9")]
+    pub protocol: ::prost::alloc::string::String,
+    /// The map between request protocol and the backend address.
+    #[prost(btree_map = "string, message", tag = "10")]
+    pub overrides_by_request_protocol: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        BackendRule,
+    >,
+    /// Authentication settings used by the backend.
+    ///
+    /// These are typically used to provide service management functionality to
+    /// a backend served on a publicly-routable URL. The `authentication`
+    /// details should match the authentication behavior used by the backend.
+    ///
+    /// For example, specifying `jwt_audience` implies that the backend expects
+    /// authentication via a JWT.
+    ///
+    /// When authentication is unspecified, the resulting behavior is the same
+    /// as `disable_auth` set to `true`.
+    ///
+    /// Refer to <https://developers.google.com/identity/protocols/OpenIDConnect> for
+    /// JWT ID token.
+    #[prost(oneof = "backend_rule::Authentication", tags = "7, 8")]
+    pub authentication: ::core::option::Option<backend_rule::Authentication>,
+}
+/// Nested message and enum types in `BackendRule`.
+pub mod backend_rule {
+    /// Path Translation specifies how to combine the backend address with the
+    /// request path in order to produce the appropriate forwarding URL for the
+    /// request.
+    ///
+    /// Path Translation is applicable only to HTTP-based backends. Backends which
+    /// do not accept requests over HTTP/HTTPS should leave `path_translation`
+    /// unspecified.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum PathTranslation {
+        Unspecified = 0,
+        /// Use the backend address as-is, with no modification to the path. If the
+        /// URL pattern contains variables, the variable names and values will be
+        /// appended to the query string. If a query string parameter and a URL
+        /// pattern variable have the same name, this may result in duplicate keys in
+        /// the query string.
+        ///
+        /// # Examples
+        ///
+        /// Given the following operation config:
+        ///
+        ///      Method path:        /api/company/{cid}/user/{uid}
+        ///      Backend address:    <https://example.cloudfunctions.net/getUser>
+        ///
+        /// Requests to the following request paths will call the backend at the
+        /// translated path:
+        ///
+        ///      Request path: /api/company/widgetworks/user/johndoe
+        ///      Translated:
+        ///      <https://example.cloudfunctions.net/getUser?cid=widgetworks&uid=johndoe>
+        ///
+        ///      Request path: /api/company/widgetworks/user/johndoe?timezone=EST
+        ///      Translated:
+        ///      <https://example.cloudfunctions.net/getUser?timezone=EST&cid=widgetworks&uid=johndoe>
+        ConstantAddress = 1,
+        /// The request path will be appended to the backend address.
+        ///
+        /// # Examples
+        ///
+        /// Given the following operation config:
+        ///
+        ///      Method path:        /api/company/{cid}/user/{uid}
+        ///      Backend address:    <https://example.appspot.com>
+        ///
+        /// Requests to the following request paths will call the backend at the
+        /// translated path:
+        ///
+        ///      Request path: /api/company/widgetworks/user/johndoe
+        ///      Translated:
+        ///      <https://example.appspot.com/api/company/widgetworks/user/johndoe>
+        ///
+        ///      Request path: /api/company/widgetworks/user/johndoe?timezone=EST
+        ///      Translated:
+        ///      <https://example.appspot.com/api/company/widgetworks/user/johndoe?timezone=EST>
+        AppendPathToAddress = 2,
+    }
+    impl PathTranslation {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                PathTranslation::Unspecified => "PATH_TRANSLATION_UNSPECIFIED",
+                PathTranslation::ConstantAddress => "CONSTANT_ADDRESS",
+                PathTranslation::AppendPathToAddress => "APPEND_PATH_TO_ADDRESS",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "PATH_TRANSLATION_UNSPECIFIED" => Some(Self::Unspecified),
+                "CONSTANT_ADDRESS" => Some(Self::ConstantAddress),
+                "APPEND_PATH_TO_ADDRESS" => Some(Self::AppendPathToAddress),
+                _ => None,
+            }
+        }
+    }
+    /// Authentication settings used by the backend.
+    ///
+    /// These are typically used to provide service management functionality to
+    /// a backend served on a publicly-routable URL. The `authentication`
+    /// details should match the authentication behavior used by the backend.
+    ///
+    /// For example, specifying `jwt_audience` implies that the backend expects
+    /// authentication via a JWT.
+    ///
+    /// When authentication is unspecified, the resulting behavior is the same
+    /// as `disable_auth` set to `true`.
+    ///
+    /// Refer to <https://developers.google.com/identity/protocols/OpenIDConnect> for
+    /// JWT ID token.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Authentication {
+        /// The JWT audience is used when generating a JWT ID token for the backend.
+        /// This ID token will be added in the HTTP "authorization" header, and sent
+        /// to the backend.
+        #[prost(string, tag = "7")]
+        JwtAudience(::prost::alloc::string::String),
+        /// When disable_auth is true, a JWT ID token won't be generated and the
+        /// original "Authorization" HTTP header will be preserved. If the header is
+        /// used to carry the original token and is expected by the backend, this
+        /// field must be set to true to preserve the header.
+        #[prost(bool, tag = "8")]
+        DisableAuth(bool),
+    }
+}
+/// Billing related configuration of the service.
+///
+/// The following example shows how to configure monitored resources and metrics
+/// for billing, `consumer_destinations` is the only supported destination and
+/// the monitored resources need at least one label key
+/// `cloud.googleapis.com/location` to indicate the location of the billing
+/// usage, using different monitored resources between monitoring and billing is
+/// recommended so they can be evolved independently:
+///
+///
+///      monitored_resources:
+///      - type: library.googleapis.com/billing_branch
+///        labels:
+///        - key: cloud.googleapis.com/location
+///          description: |
+///            Predefined label to support billing location restriction.
+///        - key: city
+///          description: |
+///            Custom label to define the city where the library branch is located
+///            in.
+///        - key: name
+///          description: Custom label to define the name of the library branch.
+///      metrics:
+///      - name: library.googleapis.com/book/borrowed_count
+///        metric_kind: DELTA
+///        value_type: INT64
+///        unit: "1"
+///      billing:
+///        consumer_destinations:
+///        - monitored_resource: library.googleapis.com/billing_branch
+///          metrics:
+///          - library.googleapis.com/book/borrowed_count
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Billing {
+    /// Billing configurations for sending metrics to the consumer project.
+    /// There can be multiple consumer destinations per service, each one must have
+    /// a different monitored resource type. A metric can be used in at most
+    /// one consumer destination.
+    #[prost(message, repeated, tag = "8")]
+    pub consumer_destinations: ::prost::alloc::vec::Vec<billing::BillingDestination>,
+}
+/// Nested message and enum types in `Billing`.
+pub mod billing {
+    /// Configuration of a specific billing destination (Currently only support
+    /// bill against consumer project).
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct BillingDestination {
+        /// The monitored resource type. The type must be defined in
+        /// \[Service.monitored_resources][google.api.Service.monitored_resources\]
+        /// section.
+        #[prost(string, tag = "1")]
+        pub monitored_resource: ::prost::alloc::string::String,
+        /// Names of the metrics to report to this billing destination.
+        /// Each name must be defined in
+        /// \[Service.metrics][google.api.Service.metrics\] section.
+        #[prost(string, repeated, tag = "2")]
+        pub metrics: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+}
+/// Google API Policy Annotation
+///
+/// This message defines a simple API policy annotation that can be used to
+/// annotate API request and response message fields with applicable policies.
+/// One field may have multiple applicable policies that must all be satisfied
+/// before a request can be processed. This policy annotation is used to
+/// generate the overall policy that will be used for automatic runtime
+/// policy enforcement and documentation generation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FieldPolicy {
+    /// Selects one or more request or response message fields to apply this
+    /// `FieldPolicy`.
+    ///
+    /// When a `FieldPolicy` is used in proto annotation, the selector must
+    /// be left as empty. The service config generator will automatically fill
+    /// the correct value.
+    ///
+    /// When a `FieldPolicy` is used in service config, the selector must be a
+    /// comma-separated string with valid request or response field paths,
+    /// such as "foo.bar" or "foo.bar,foo.baz".
+    #[prost(string, tag = "1")]
+    pub selector: ::prost::alloc::string::String,
+    /// Specifies the required permission(s) for the resource referred to by the
+    /// field. It requires the field contains a valid resource reference, and
+    /// the request must pass the permission checks to proceed. For example,
+    /// "resourcemanager.projects.get".
+    #[prost(string, tag = "2")]
+    pub resource_permission: ::prost::alloc::string::String,
+    /// Specifies the resource type for the resource referred to by the field.
+    #[prost(string, tag = "3")]
+    pub resource_type: ::prost::alloc::string::String,
+}
+/// Defines policies applying to an RPC method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MethodPolicy {
+    /// Selects a method to which these policies should be enforced, for example,
+    /// "google.pubsub.v1.Subscriber.CreateSubscription".
+    ///
+    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
+    /// details.
+    ///
+    /// NOTE: This field must not be set in the proto annotation. It will be
+    /// automatically filled by the service config compiler .
+    #[prost(string, tag = "9")]
+    pub selector: ::prost::alloc::string::String,
+    /// Policies that are applicable to the request message.
+    #[prost(message, repeated, tag = "2")]
+    pub request_policies: ::prost::alloc::vec::Vec<FieldPolicy>,
+}
+/// Selects and configures the service controller used by the service.
+///
+/// Example:
+///
+///      control:
+///        environment: servicecontrol.googleapis.com
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Control {
+    /// The service controller environment to use. If empty, no control plane
+    /// feature (like quota and billing) will be enabled. The recommended value for
+    /// most services is servicecontrol.googleapis.com
+    #[prost(string, tag = "1")]
+    pub environment: ::prost::alloc::string::String,
+    /// Defines policies applying to the API methods of the service.
+    #[prost(message, repeated, tag = "4")]
+    pub method_policies: ::prost::alloc::vec::Vec<MethodPolicy>,
 }
 /// `Documentation` provides the information for describing a service.
 ///
@@ -2559,56 +2727,154 @@ pub struct Page {
     #[prost(message, repeated, tag = "3")]
     pub subpages: ::prost::alloc::vec::Vec<Page>,
 }
-/// Google API Policy Annotation
+/// `Endpoint` describes a network address of a service that serves a set of
+/// APIs. It is commonly known as a service endpoint. A service may expose
+/// any number of service endpoints, and all service endpoints share the same
+/// service definition, such as quota limits and monitoring metrics.
 ///
-/// This message defines a simple API policy annotation that can be used to
-/// annotate API request and response message fields with applicable policies.
-/// One field may have multiple applicable policies that must all be satisfied
-/// before a request can be processed. This policy annotation is used to
-/// generate the overall policy that will be used for automatic runtime
-/// policy enforcement and documentation generation.
+/// Example:
+///
+///      type: google.api.Service
+///      name: library-example.googleapis.com
+///      endpoints:
+///        # Declares network address `<https://library-example.googleapis.com`>
+///        # for service `library-example.googleapis.com`. The `https` scheme
+///        # is implicit for all service endpoints. Other schemes may be
+///        # supported in the future.
+///      - name: library-example.googleapis.com
+///        allow_cors: false
+///      - name: content-staging-library-example.googleapis.com
+///        # Allows HTTP OPTIONS calls to be passed to the API frontend, for it
+///        # to decide whether the subsequent cross-origin request is allowed
+///        # to proceed.
+///        allow_cors: true
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FieldPolicy {
-    /// Selects one or more request or response message fields to apply this
-    /// `FieldPolicy`.
-    ///
-    /// When a `FieldPolicy` is used in proto annotation, the selector must
-    /// be left as empty. The service config generator will automatically fill
-    /// the correct value.
-    ///
-    /// When a `FieldPolicy` is used in service config, the selector must be a
-    /// comma-separated string with valid request or response field paths,
-    /// such as "foo.bar" or "foo.bar,foo.baz".
+pub struct Endpoint {
+    /// The canonical name of this endpoint.
     #[prost(string, tag = "1")]
-    pub selector: ::prost::alloc::string::String,
-    /// Specifies the required permission(s) for the resource referred to by the
-    /// field. It requires the field contains a valid resource reference, and
-    /// the request must pass the permission checks to proceed. For example,
-    /// "resourcemanager.projects.get".
-    #[prost(string, tag = "2")]
-    pub resource_permission: ::prost::alloc::string::String,
-    /// Specifies the resource type for the resource referred to by the field.
-    #[prost(string, tag = "3")]
-    pub resource_type: ::prost::alloc::string::String,
+    pub name: ::prost::alloc::string::String,
+    /// Unimplemented. Dot not use.
+    ///
+    /// DEPRECATED: This field is no longer supported. Instead of using aliases,
+    /// please specify multiple \[google.api.Endpoint][google.api.Endpoint\] for each
+    /// of the intended aliases.
+    ///
+    /// Additional names that this endpoint will be hosted on.
+    #[deprecated]
+    #[prost(string, repeated, tag = "2")]
+    pub aliases: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The specification of an Internet routable address of API frontend that will
+    /// handle requests to this [API
+    /// Endpoint](<https://cloud.google.com/apis/design/glossary>). It should be
+    /// either a valid IPv4 address or a fully-qualified domain name. For example,
+    /// "8.8.8.8" or "myservice.appspot.com".
+    #[prost(string, tag = "101")]
+    pub target: ::prost::alloc::string::String,
+    /// Allowing
+    /// \[CORS\](<https://en.wikipedia.org/wiki/Cross-origin_resource_sharing>), aka
+    /// cross-domain traffic, would allow the backends served from this endpoint to
+    /// receive and respond to HTTP OPTIONS requests. The response will be used by
+    /// the browser to determine whether the subsequent cross-origin request is
+    /// allowed to proceed.
+    #[prost(bool, tag = "5")]
+    pub allow_cors: bool,
 }
-/// Defines policies applying to an RPC method.
+/// A description of a log type. Example in YAML format:
+///
+///      - name: library.googleapis.com/activity_history
+///        description: The history of borrowing and returning library items.
+///        display_name: Activity
+///        labels:
+///        - key: /customer_id
+///          description: Identifier of a library customer
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MethodPolicy {
-    /// Selects a method to which these policies should be enforced, for example,
-    /// "google.pubsub.v1.Subscriber.CreateSubscription".
-    ///
-    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
-    /// details.
-    ///
-    /// NOTE: This field must not be set in the proto annotation. It will be
-    /// automatically filled by the service config compiler .
-    #[prost(string, tag = "9")]
-    pub selector: ::prost::alloc::string::String,
-    /// Policies that are applicable to the request message.
+pub struct LogDescriptor {
+    /// The name of the log. It must be less than 512 characters long and can
+    /// include the following characters: upper- and lower-case alphanumeric
+    /// characters \[A-Za-z0-9\], and punctuation characters including
+    /// slash, underscore, hyphen, period \[/_-.\].
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The set of labels that are available to describe a specific log entry.
+    /// Runtime requests that contain labels not specified here are
+    /// considered invalid.
     #[prost(message, repeated, tag = "2")]
-    pub request_policies: ::prost::alloc::vec::Vec<FieldPolicy>,
+    pub labels: ::prost::alloc::vec::Vec<LabelDescriptor>,
+    /// A human-readable description of this log. This information appears in
+    /// the documentation and can contain details.
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+    /// The human-readable name for this log. This information appears on
+    /// the user interface and should be concise.
+    #[prost(string, tag = "4")]
+    pub display_name: ::prost::alloc::string::String,
+}
+/// Logging configuration of the service.
+///
+/// The following example shows how to configure logs to be sent to the
+/// producer and consumer projects. In the example, the `activity_history`
+/// log is sent to both the producer and consumer projects, whereas the
+/// `purchase_history` log is only sent to the producer project.
+///
+///      monitored_resources:
+///      - type: library.googleapis.com/branch
+///        labels:
+///        - key: /city
+///          description: The city where the library branch is located in.
+///        - key: /name
+///          description: The name of the branch.
+///      logs:
+///      - name: activity_history
+///        labels:
+///        - key: /customer_id
+///      - name: purchase_history
+///      logging:
+///        producer_destinations:
+///        - monitored_resource: library.googleapis.com/branch
+///          logs:
+///          - activity_history
+///          - purchase_history
+///        consumer_destinations:
+///        - monitored_resource: library.googleapis.com/branch
+///          logs:
+///          - activity_history
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Logging {
+    /// Logging configurations for sending logs to the producer project.
+    /// There can be multiple producer destinations, each one must have a
+    /// different monitored resource type. A log can be used in at most
+    /// one producer destination.
+    #[prost(message, repeated, tag = "1")]
+    pub producer_destinations: ::prost::alloc::vec::Vec<logging::LoggingDestination>,
+    /// Logging configurations for sending logs to the consumer project.
+    /// There can be multiple consumer destinations, each one must have a
+    /// different monitored resource type. A log can be used in at most
+    /// one consumer destination.
+    #[prost(message, repeated, tag = "2")]
+    pub consumer_destinations: ::prost::alloc::vec::Vec<logging::LoggingDestination>,
+}
+/// Nested message and enum types in `Logging`.
+pub mod logging {
+    /// Configuration of a specific logging destination (the producer project
+    /// or the consumer project).
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct LoggingDestination {
+        /// The monitored resource type. The type must be defined in the
+        /// \[Service.monitored_resources][google.api.Service.monitored_resources\]
+        /// section.
+        #[prost(string, tag = "3")]
+        pub monitored_resource: ::prost::alloc::string::String,
+        /// Names of the logs to be sent to this destination. Each name must
+        /// be defined in the \[Service.logs][google.api.Service.logs\] section. If the
+        /// log name is not a domain scoped name, it will be automatically prefixed
+        /// with the service name followed by "/".
+        #[prost(string, repeated, tag = "1")]
+        pub logs: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
 }
 /// Monitoring configuration of the service.
 ///
@@ -2703,6 +2969,678 @@ pub mod monitoring {
         /// \[Service.metrics][google.api.Service.metrics\] section.
         #[prost(string, repeated, tag = "2")]
         pub metrics: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+}
+/// Quota configuration helps to achieve fairness and budgeting in service
+/// usage.
+///
+/// The metric based quota configuration works this way:
+/// - The service configuration defines a set of metrics.
+/// - For API calls, the quota.metric_rules maps methods to metrics with
+///    corresponding costs.
+/// - The quota.limits defines limits on the metrics, which will be used for
+///    quota checks at runtime.
+///
+/// An example quota configuration in yaml format:
+///
+///     quota:
+///       limits:
+///
+///       - name: apiWriteQpsPerProject
+///         metric: library.googleapis.com/write_calls
+///         unit: "1/min/{project}"  # rate limit for consumer projects
+///         values:
+///           STANDARD: 10000
+///
+///
+///       (The metric rules bind all methods to the read_calls metric,
+///        except for the UpdateBook and DeleteBook methods. These two methods
+///        are mapped to the write_calls metric, with the UpdateBook method
+///        consuming at twice rate as the DeleteBook method.)
+///       metric_rules:
+///       - selector: "*"
+///         metric_costs:
+///           library.googleapis.com/read_calls: 1
+///       - selector: google.example.library.v1.LibraryService.UpdateBook
+///         metric_costs:
+///           library.googleapis.com/write_calls: 2
+///       - selector: google.example.library.v1.LibraryService.DeleteBook
+///         metric_costs:
+///           library.googleapis.com/write_calls: 1
+///
+///   Corresponding Metric definition:
+///
+///       metrics:
+///       - name: library.googleapis.com/read_calls
+///         display_name: Read requests
+///         metric_kind: DELTA
+///         value_type: INT64
+///
+///       - name: library.googleapis.com/write_calls
+///         display_name: Write requests
+///         metric_kind: DELTA
+///         value_type: INT64
+///
+///
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Quota {
+    /// List of QuotaLimit definitions for the service.
+    #[prost(message, repeated, tag = "3")]
+    pub limits: ::prost::alloc::vec::Vec<QuotaLimit>,
+    /// List of MetricRule definitions, each one mapping a selected method to one
+    /// or more metrics.
+    #[prost(message, repeated, tag = "4")]
+    pub metric_rules: ::prost::alloc::vec::Vec<MetricRule>,
+}
+/// Bind API methods to metrics. Binding a method to a metric causes that
+/// metric's configured quota behaviors to apply to the method call.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MetricRule {
+    /// Selects the methods to which this rule applies.
+    ///
+    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
+    /// details.
+    #[prost(string, tag = "1")]
+    pub selector: ::prost::alloc::string::String,
+    /// Metrics to update when the selected methods are called, and the associated
+    /// cost applied to each metric.
+    ///
+    /// The key of the map is the metric name, and the values are the amount
+    /// increased for the metric against which the quota limits are defined.
+    /// The value must not be negative.
+    #[prost(btree_map = "string, int64", tag = "2")]
+    pub metric_costs: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        i64,
+    >,
+}
+/// `QuotaLimit` defines a specific limit that applies over a specified duration
+/// for a limit type. There can be at most one limit for a duration and limit
+/// type combination defined within a `QuotaGroup`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuotaLimit {
+    /// Name of the quota limit.
+    ///
+    /// The name must be provided, and it must be unique within the service. The
+    /// name can only include alphanumeric characters as well as '-'.
+    ///
+    /// The maximum length of the limit name is 64 characters.
+    #[prost(string, tag = "6")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. User-visible, extended description for this quota limit.
+    /// Should be used only when more context is needed to understand this limit
+    /// than provided by the limit's display name (see: `display_name`).
+    #[prost(string, tag = "2")]
+    pub description: ::prost::alloc::string::String,
+    /// Default number of tokens that can be consumed during the specified
+    /// duration. This is the number of tokens assigned when a client
+    /// application developer activates the service for his/her project.
+    ///
+    /// Specifying a value of 0 will block all requests. This can be used if you
+    /// are provisioning quota to selected consumers and blocking others.
+    /// Similarly, a value of -1 will indicate an unlimited quota. No other
+    /// negative values are allowed.
+    ///
+    /// Used by group-based quotas only.
+    #[prost(int64, tag = "3")]
+    pub default_limit: i64,
+    /// Maximum number of tokens that can be consumed during the specified
+    /// duration. Client application developers can override the default limit up
+    /// to this maximum. If specified, this value cannot be set to a value less
+    /// than the default limit. If not specified, it is set to the default limit.
+    ///
+    /// To allow clients to apply overrides with no upper bound, set this to -1,
+    /// indicating unlimited maximum quota.
+    ///
+    /// Used by group-based quotas only.
+    #[prost(int64, tag = "4")]
+    pub max_limit: i64,
+    /// Free tier value displayed in the Developers Console for this limit.
+    /// The free tier is the number of tokens that will be subtracted from the
+    /// billed amount when billing is enabled.
+    /// This field can only be set on a limit with duration "1d", in a billable
+    /// group; it is invalid on any other limit. If this field is not set, it
+    /// defaults to 0, indicating that there is no free tier for this service.
+    ///
+    /// Used by group-based quotas only.
+    #[prost(int64, tag = "7")]
+    pub free_tier: i64,
+    /// Duration of this limit in textual notation. Must be "100s" or "1d".
+    ///
+    /// Used by group-based quotas only.
+    #[prost(string, tag = "5")]
+    pub duration: ::prost::alloc::string::String,
+    /// The name of the metric this quota limit applies to. The quota limits with
+    /// the same metric will be checked together during runtime. The metric must be
+    /// defined within the service config.
+    #[prost(string, tag = "8")]
+    pub metric: ::prost::alloc::string::String,
+    /// Specify the unit of the quota limit. It uses the same syntax as
+    /// \[Metric.unit][\]. The supported unit kinds are determined by the quota
+    /// backend system.
+    ///
+    /// Here are some examples:
+    /// * "1/min/{project}" for quota per minute per project.
+    ///
+    /// Note: the order of unit components is insignificant.
+    /// The "1" at the beginning is required to follow the metric unit syntax.
+    #[prost(string, tag = "9")]
+    pub unit: ::prost::alloc::string::String,
+    /// Tiered limit values. You must specify this as a key:value pair, with an
+    /// integer value that is the maximum number of requests allowed for the
+    /// specified unit. Currently only STANDARD is supported.
+    #[prost(btree_map = "string, int64", tag = "10")]
+    pub values: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        i64,
+    >,
+    /// User-visible display name for this limit.
+    /// Optional. If not set, the UI will provide a default display name based on
+    /// the quota configuration. This field can be used to override the default
+    /// display name generated from the configuration.
+    #[prost(string, tag = "12")]
+    pub display_name: ::prost::alloc::string::String,
+}
+/// Source information used to create a Service Config
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SourceInfo {
+    /// All files used during config generation.
+    #[prost(message, repeated, tag = "1")]
+    pub source_files: ::prost::alloc::vec::Vec<::prost_types::Any>,
+}
+/// ### System parameter configuration
+///
+/// A system parameter is a special kind of parameter defined by the API
+/// system, not by an individual API. It is typically mapped to an HTTP header
+/// and/or a URL query parameter. This configuration specifies which methods
+/// change the names of the system parameters.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SystemParameters {
+    /// Define system parameters.
+    ///
+    /// The parameters defined here will override the default parameters
+    /// implemented by the system. If this field is missing from the service
+    /// config, default system parameters will be used. Default system parameters
+    /// and names is implementation-dependent.
+    ///
+    /// Example: define api key for all methods
+    ///
+    ///      system_parameters
+    ///        rules:
+    ///          - selector: "*"
+    ///            parameters:
+    ///              - name: api_key
+    ///                url_query_parameter: api_key
+    ///
+    ///
+    /// Example: define 2 api key names for a specific method.
+    ///
+    ///      system_parameters
+    ///        rules:
+    ///          - selector: "/ListShelves"
+    ///            parameters:
+    ///              - name: api_key
+    ///                http_header: Api-Key1
+    ///              - name: api_key
+    ///                http_header: Api-Key2
+    ///
+    /// **NOTE:** All service configuration rules follow "last one wins" order.
+    #[prost(message, repeated, tag = "1")]
+    pub rules: ::prost::alloc::vec::Vec<SystemParameterRule>,
+}
+/// Define a system parameter rule mapping system parameter definitions to
+/// methods.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SystemParameterRule {
+    /// Selects the methods to which this rule applies. Use '*' to indicate all
+    /// methods in all APIs.
+    ///
+    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
+    /// details.
+    #[prost(string, tag = "1")]
+    pub selector: ::prost::alloc::string::String,
+    /// Define parameters. Multiple names may be defined for a parameter.
+    /// For a given method call, only one of them should be used. If multiple
+    /// names are used the behavior is implementation-dependent.
+    /// If none of the specified names are present the behavior is
+    /// parameter-dependent.
+    #[prost(message, repeated, tag = "2")]
+    pub parameters: ::prost::alloc::vec::Vec<SystemParameter>,
+}
+/// Define a parameter's name and location. The parameter may be passed as either
+/// an HTTP header or a URL query parameter, and if both are passed the behavior
+/// is implementation-dependent.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SystemParameter {
+    /// Define the name of the parameter, such as "api_key" . It is case sensitive.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Define the HTTP header name to use for the parameter. It is case
+    /// insensitive.
+    #[prost(string, tag = "2")]
+    pub http_header: ::prost::alloc::string::String,
+    /// Define the URL query parameter name to use for the parameter. It is case
+    /// sensitive.
+    #[prost(string, tag = "3")]
+    pub url_query_parameter: ::prost::alloc::string::String,
+}
+/// Configuration controlling usage of a service.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Usage {
+    /// Requirements that must be satisfied before a consumer project can use the
+    /// service. Each requirement is of the form <service.name>/<requirement-id>;
+    /// for example 'serviceusage.googleapis.com/billing-enabled'.
+    ///
+    /// For Google APIs, a Terms of Service requirement must be included here.
+    /// Google Cloud APIs must include "serviceusage.googleapis.com/tos/cloud".
+    /// Other Google APIs should include
+    /// "serviceusage.googleapis.com/tos/universal". Additional ToS can be
+    /// included based on the business needs.
+    #[prost(string, repeated, tag = "1")]
+    pub requirements: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// A list of usage rules that apply to individual API methods.
+    ///
+    /// **NOTE:** All service configuration rules follow "last one wins" order.
+    #[prost(message, repeated, tag = "6")]
+    pub rules: ::prost::alloc::vec::Vec<UsageRule>,
+    /// The full resource name of a channel used for sending notifications to the
+    /// service producer.
+    ///
+    /// Google Service Management currently only supports
+    /// [Google Cloud Pub/Sub](<https://cloud.google.com/pubsub>) as a notification
+    /// channel. To use Google Cloud Pub/Sub as the channel, this must be the name
+    /// of a Cloud Pub/Sub topic that uses the Cloud Pub/Sub topic name format
+    /// documented in <https://cloud.google.com/pubsub/docs/overview.>
+    #[prost(string, tag = "7")]
+    pub producer_notification_channel: ::prost::alloc::string::String,
+}
+/// Usage configuration rules for the service.
+///
+/// NOTE: Under development.
+///
+///
+/// Use this rule to configure unregistered calls for the service. Unregistered
+/// calls are calls that do not contain consumer project identity.
+/// (Example: calls that do not contain an API key).
+/// By default, API methods do not allow unregistered calls, and each method call
+/// must be identified by a consumer project identity. Use this rule to
+/// allow/disallow unregistered calls.
+///
+/// Example of an API that wants to allow unregistered calls for entire service.
+///
+///      usage:
+///        rules:
+///        - selector: "*"
+///          allow_unregistered_calls: true
+///
+/// Example of a method that wants to allow unregistered calls.
+///
+///      usage:
+///        rules:
+///        - selector: "google.example.library.v1.LibraryService.CreateBook"
+///          allow_unregistered_calls: true
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UsageRule {
+    /// Selects the methods to which this rule applies. Use '*' to indicate all
+    /// methods in all APIs.
+    ///
+    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
+    /// details.
+    #[prost(string, tag = "1")]
+    pub selector: ::prost::alloc::string::String,
+    /// If true, the selected method allows unregistered calls, e.g. calls
+    /// that don't identify any user or application.
+    #[prost(bool, tag = "2")]
+    pub allow_unregistered_calls: bool,
+    /// If true, the selected method should skip service control and the control
+    /// plane features, such as quota and billing, will not be available.
+    /// This flag is used by Google Cloud Endpoints to bypass checks for internal
+    /// methods, such as service health check methods.
+    #[prost(bool, tag = "3")]
+    pub skip_service_control: bool,
+}
+/// `Service` is the root object of Google API service configuration (service
+/// config). It describes the basic information about a logical service,
+/// such as the service name and the user-facing title, and delegates other
+/// aspects to sub-sections. Each sub-section is either a proto message or a
+/// repeated proto message that configures a specific aspect, such as auth.
+/// For more information, see each proto message definition.
+///
+/// Example:
+///
+///      type: google.api.Service
+///      name: calendar.googleapis.com
+///      title: Google Calendar API
+///      apis:
+///      - name: google.calendar.v3.Calendar
+///
+///      visibility:
+///        rules:
+///        - selector: "google.calendar.v3.*"
+///          restriction: PREVIEW
+///      backend:
+///        rules:
+///        - selector: "google.calendar.v3.*"
+///          address: calendar.example.com
+///
+///      authentication:
+///        providers:
+///        - id: google_calendar_auth
+///          jwks_uri: <https://www.googleapis.com/oauth2/v1/certs>
+///          issuer: <https://securetoken.google.com>
+///        rules:
+///        - selector: "*"
+///          requirements:
+///            provider_id: google_calendar_auth
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Service {
+    /// The service name, which is a DNS-like logical identifier for the
+    /// service, such as `calendar.googleapis.com`. The service name
+    /// typically goes through DNS verification to make sure the owner
+    /// of the service also owns the DNS name.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The product title for this service, it is the name displayed in Google
+    /// Cloud Console.
+    #[prost(string, tag = "2")]
+    pub title: ::prost::alloc::string::String,
+    /// The Google project that owns this service.
+    #[prost(string, tag = "22")]
+    pub producer_project_id: ::prost::alloc::string::String,
+    /// A unique ID for a specific instance of this message, typically assigned
+    /// by the client for tracking purpose. Must be no longer than 63 characters
+    /// and only lower case letters, digits, '.', '_' and '-' are allowed. If
+    /// empty, the server may choose to generate one instead.
+    #[prost(string, tag = "33")]
+    pub id: ::prost::alloc::string::String,
+    /// A list of API interfaces exported by this service. Only the `name` field
+    /// of the \[google.protobuf.Api][google.protobuf.Api\] needs to be provided by
+    /// the configuration author, as the remaining fields will be derived from the
+    /// IDL during the normalization process. It is an error to specify an API
+    /// interface here which cannot be resolved against the associated IDL files.
+    #[prost(message, repeated, tag = "3")]
+    pub apis: ::prost::alloc::vec::Vec<::prost_types::Api>,
+    /// A list of all proto message types included in this API service.
+    /// Types referenced directly or indirectly by the `apis` are automatically
+    /// included.  Messages which are not referenced but shall be included, such as
+    /// types used by the `google.protobuf.Any` type, should be listed here by
+    /// name by the configuration author. Example:
+    ///
+    ///      types:
+    ///      - name: google.protobuf.Int32
+    #[prost(message, repeated, tag = "4")]
+    pub types: ::prost::alloc::vec::Vec<::prost_types::Type>,
+    /// A list of all enum types included in this API service.  Enums referenced
+    /// directly or indirectly by the `apis` are automatically included.  Enums
+    /// which are not referenced but shall be included should be listed here by
+    /// name by the configuration author. Example:
+    ///
+    ///      enums:
+    ///      - name: google.someapi.v1.SomeEnum
+    #[prost(message, repeated, tag = "5")]
+    pub enums: ::prost::alloc::vec::Vec<::prost_types::Enum>,
+    /// Additional API documentation.
+    #[prost(message, optional, tag = "6")]
+    pub documentation: ::core::option::Option<Documentation>,
+    /// API backend configuration.
+    #[prost(message, optional, tag = "8")]
+    pub backend: ::core::option::Option<Backend>,
+    /// HTTP configuration.
+    #[prost(message, optional, tag = "9")]
+    pub http: ::core::option::Option<Http>,
+    /// Quota configuration.
+    #[prost(message, optional, tag = "10")]
+    pub quota: ::core::option::Option<Quota>,
+    /// Auth configuration.
+    #[prost(message, optional, tag = "11")]
+    pub authentication: ::core::option::Option<Authentication>,
+    /// Context configuration.
+    #[prost(message, optional, tag = "12")]
+    pub context: ::core::option::Option<Context>,
+    /// Configuration controlling usage of this service.
+    #[prost(message, optional, tag = "15")]
+    pub usage: ::core::option::Option<Usage>,
+    /// Configuration for network endpoints.  If this is empty, then an endpoint
+    /// with the same name as the service is automatically generated to service all
+    /// defined APIs.
+    #[prost(message, repeated, tag = "18")]
+    pub endpoints: ::prost::alloc::vec::Vec<Endpoint>,
+    /// Configuration for the service control plane.
+    #[prost(message, optional, tag = "21")]
+    pub control: ::core::option::Option<Control>,
+    /// Defines the logs used by this service.
+    #[prost(message, repeated, tag = "23")]
+    pub logs: ::prost::alloc::vec::Vec<LogDescriptor>,
+    /// Defines the metrics used by this service.
+    #[prost(message, repeated, tag = "24")]
+    pub metrics: ::prost::alloc::vec::Vec<MetricDescriptor>,
+    /// Defines the monitored resources used by this service. This is required
+    /// by the \[Service.monitoring][google.api.Service.monitoring\] and
+    /// \[Service.logging][google.api.Service.logging\] configurations.
+    #[prost(message, repeated, tag = "25")]
+    pub monitored_resources: ::prost::alloc::vec::Vec<MonitoredResourceDescriptor>,
+    /// Billing configuration.
+    #[prost(message, optional, tag = "26")]
+    pub billing: ::core::option::Option<Billing>,
+    /// Logging configuration.
+    #[prost(message, optional, tag = "27")]
+    pub logging: ::core::option::Option<Logging>,
+    /// Monitoring configuration.
+    #[prost(message, optional, tag = "28")]
+    pub monitoring: ::core::option::Option<Monitoring>,
+    /// System parameter configuration.
+    #[prost(message, optional, tag = "29")]
+    pub system_parameters: ::core::option::Option<SystemParameters>,
+    /// Output only. The source information for this configuration if available.
+    #[prost(message, optional, tag = "37")]
+    pub source_info: ::core::option::Option<SourceInfo>,
+    /// Settings for [Google Cloud Client
+    /// libraries](<https://cloud.google.com/apis/docs/cloud-client-libraries>)
+    /// generated from APIs defined as protocol buffers.
+    #[prost(message, optional, tag = "45")]
+    pub publishing: ::core::option::Option<Publishing>,
+    /// Obsolete. Do not use.
+    ///
+    /// This field has no semantic meaning. The service config compiler always
+    /// sets this field to `3`.
+    #[prost(message, optional, tag = "20")]
+    pub config_version: ::core::option::Option<u32>,
+}
+/// Output generated from semantically comparing two versions of a service
+/// configuration.
+///
+/// Includes detailed information about a field that have changed with
+/// applicable advice about potential consequences for the change, such as
+/// backwards-incompatibility.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ConfigChange {
+    /// Object hierarchy path to the change, with levels separated by a '.'
+    /// character. For repeated fields, an applicable unique identifier field is
+    /// used for the index (usually selector, name, or id). For maps, the term
+    /// 'key' is used. If the field has no unique identifier, the numeric index
+    /// is used.
+    /// Examples:
+    /// - visibility.rules\[selector=="google.LibraryService.ListBooks"\].restriction
+    /// - quota.metric_rules\[selector=="google"].metric_costs[key=="reads"\].value
+    /// - logging.producer_destinations\[0\]
+    #[prost(string, tag = "1")]
+    pub element: ::prost::alloc::string::String,
+    /// Value of the changed object in the old Service configuration,
+    /// in JSON format. This field will not be populated if ChangeType == ADDED.
+    #[prost(string, tag = "2")]
+    pub old_value: ::prost::alloc::string::String,
+    /// Value of the changed object in the new Service configuration,
+    /// in JSON format. This field will not be populated if ChangeType == REMOVED.
+    #[prost(string, tag = "3")]
+    pub new_value: ::prost::alloc::string::String,
+    /// The type for this change, either ADDED, REMOVED, or MODIFIED.
+    #[prost(enumeration = "ChangeType", tag = "4")]
+    pub change_type: i32,
+    /// Collection of advice provided for this change, useful for determining the
+    /// possible impact of this change.
+    #[prost(message, repeated, tag = "5")]
+    pub advices: ::prost::alloc::vec::Vec<Advice>,
+}
+/// Generated advice about this change, used for providing more
+/// information about how a change will affect the existing service.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Advice {
+    /// Useful description for why this advice was applied and what actions should
+    /// be taken to mitigate any implied risks.
+    #[prost(string, tag = "2")]
+    pub description: ::prost::alloc::string::String,
+}
+/// Classifies set of possible modifications to an object in the service
+/// configuration.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum ChangeType {
+    /// No value was provided.
+    Unspecified = 0,
+    /// The changed object exists in the 'new' service configuration, but not
+    /// in the 'old' service configuration.
+    Added = 1,
+    /// The changed object exists in the 'old' service configuration, but not
+    /// in the 'new' service configuration.
+    Removed = 2,
+    /// The changed object exists in both service configurations, but its value
+    /// is different.
+    Modified = 3,
+}
+impl ChangeType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            ChangeType::Unspecified => "CHANGE_TYPE_UNSPECIFIED",
+            ChangeType::Added => "ADDED",
+            ChangeType::Removed => "REMOVED",
+            ChangeType::Modified => "MODIFIED",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "CHANGE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "ADDED" => Some(Self::Added),
+            "REMOVED" => Some(Self::Removed),
+            "MODIFIED" => Some(Self::Modified),
+            _ => None,
+        }
+    }
+}
+/// A descriptor for defining project properties for a service. One service may
+/// have many consumer projects, and the service may want to behave differently
+/// depending on some properties on the project. For example, a project may be
+/// associated with a school, or a business, or a government agency, a business
+/// type property on the project may affect how a service responds to the client.
+/// This descriptor defines which properties are allowed to be set on a project.
+///
+/// Example:
+///
+///     project_properties:
+///       properties:
+///       - name: NO_WATERMARK
+///         type: BOOL
+///         description: Allows usage of the API without watermarks.
+///       - name: EXTENDED_TILE_CACHE_PERIOD
+///         type: INT64
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProjectProperties {
+    /// List of per consumer project-specific properties.
+    #[prost(message, repeated, tag = "1")]
+    pub properties: ::prost::alloc::vec::Vec<Property>,
+}
+/// Defines project properties.
+///
+/// API services can define properties that can be assigned to consumer projects
+/// so that backends can perform response customization without having to make
+/// additional calls or maintain additional storage. For example, Maps API
+/// defines properties that controls map tile cache period, or whether to embed a
+/// watermark in a result.
+///
+/// These values can be set via API producer console. Only API providers can
+/// define and set these properties.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Property {
+    /// The name of the property (a.k.a key).
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The type of this property.
+    #[prost(enumeration = "property::PropertyType", tag = "2")]
+    pub r#type: i32,
+    /// The description of the property
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Property`.
+pub mod property {
+    /// Supported data type of the property values
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum PropertyType {
+        /// The type is unspecified, and will result in an error.
+        Unspecified = 0,
+        /// The type is `int64`.
+        Int64 = 1,
+        /// The type is `bool`.
+        Bool = 2,
+        /// The type is `string`.
+        String = 3,
+        /// The type is 'double'.
+        Double = 4,
+    }
+    impl PropertyType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                PropertyType::Unspecified => "UNSPECIFIED",
+                PropertyType::Int64 => "INT64",
+                PropertyType::Bool => "BOOL",
+                PropertyType::String => "STRING",
+                PropertyType::Double => "DOUBLE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNSPECIFIED" => Some(Self::Unspecified),
+                "INT64" => Some(Self::Int64),
+                "BOOL" => Some(Self::Bool),
+                "STRING" => Some(Self::String),
+                "DOUBLE" => Some(Self::Double),
+                _ => None,
+            }
+        }
     }
 }
 /// Defines the supported values for `google.rpc.ErrorInfo.reason` for the
@@ -3306,1436 +4244,6 @@ impl ErrorReason {
         }
     }
 }
-/// `Backend` defines the backend configuration for a service.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Backend {
-    /// A list of API backend rules that apply to individual API methods.
-    ///
-    /// **NOTE:** All service configuration rules follow "last one wins" order.
-    #[prost(message, repeated, tag = "1")]
-    pub rules: ::prost::alloc::vec::Vec<BackendRule>,
-}
-/// A backend rule provides configuration for an individual API element.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BackendRule {
-    /// Selects the methods to which this rule applies.
-    ///
-    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
-    /// details.
-    #[prost(string, tag = "1")]
-    pub selector: ::prost::alloc::string::String,
-    /// The address of the API backend.
-    ///
-    /// The scheme is used to determine the backend protocol and security.
-    /// The following schemes are accepted:
-    ///
-    ///     SCHEME        PROTOCOL    SECURITY
-    ///     http://       HTTP        None
-    ///     https://      HTTP        TLS
-    ///     grpc://       gRPC        None
-    ///     grpcs://      gRPC        TLS
-    ///
-    /// It is recommended to explicitly include a scheme. Leaving out the scheme
-    /// may cause constrasting behaviors across platforms.
-    ///
-    /// If the port is unspecified, the default is:
-    /// - 80 for schemes without TLS
-    /// - 443 for schemes with TLS
-    ///
-    /// For HTTP backends, use \[protocol][google.api.BackendRule.protocol\]
-    /// to specify the protocol version.
-    #[prost(string, tag = "2")]
-    pub address: ::prost::alloc::string::String,
-    /// The number of seconds to wait for a response from a request. The default
-    /// varies based on the request protocol and deployment environment.
-    #[prost(double, tag = "3")]
-    pub deadline: f64,
-    /// Deprecated, do not use.
-    #[deprecated]
-    #[prost(double, tag = "4")]
-    pub min_deadline: f64,
-    /// The number of seconds to wait for the completion of a long running
-    /// operation. The default is no deadline.
-    #[prost(double, tag = "5")]
-    pub operation_deadline: f64,
-    #[prost(enumeration = "backend_rule::PathTranslation", tag = "6")]
-    pub path_translation: i32,
-    /// The protocol used for sending a request to the backend.
-    /// The supported values are "http/1.1" and "h2".
-    ///
-    /// The default value is inferred from the scheme in the
-    /// \[address][google.api.BackendRule.address\] field:
-    ///
-    ///     SCHEME        PROTOCOL
-    ///     http://       http/1.1
-    ///     https://      http/1.1
-    ///     grpc://       h2
-    ///     grpcs://      h2
-    ///
-    /// For secure HTTP backends (https://) that support HTTP/2, set this field
-    /// to "h2" for improved performance.
-    ///
-    /// Configuring this field to non-default values is only supported for secure
-    /// HTTP backends. This field will be ignored for all other backends.
-    ///
-    /// See
-    /// <https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids>
-    /// for more details on the supported values.
-    #[prost(string, tag = "9")]
-    pub protocol: ::prost::alloc::string::String,
-    /// The map between request protocol and the backend address.
-    #[prost(btree_map = "string, message", tag = "10")]
-    pub overrides_by_request_protocol: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        BackendRule,
-    >,
-    /// Authentication settings used by the backend.
-    ///
-    /// These are typically used to provide service management functionality to
-    /// a backend served on a publicly-routable URL. The `authentication`
-    /// details should match the authentication behavior used by the backend.
-    ///
-    /// For example, specifying `jwt_audience` implies that the backend expects
-    /// authentication via a JWT.
-    ///
-    /// When authentication is unspecified, the resulting behavior is the same
-    /// as `disable_auth` set to `true`.
-    ///
-    /// Refer to <https://developers.google.com/identity/protocols/OpenIDConnect> for
-    /// JWT ID token.
-    #[prost(oneof = "backend_rule::Authentication", tags = "7, 8")]
-    pub authentication: ::core::option::Option<backend_rule::Authentication>,
-}
-/// Nested message and enum types in `BackendRule`.
-pub mod backend_rule {
-    /// Path Translation specifies how to combine the backend address with the
-    /// request path in order to produce the appropriate forwarding URL for the
-    /// request.
-    ///
-    /// Path Translation is applicable only to HTTP-based backends. Backends which
-    /// do not accept requests over HTTP/HTTPS should leave `path_translation`
-    /// unspecified.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum PathTranslation {
-        Unspecified = 0,
-        /// Use the backend address as-is, with no modification to the path. If the
-        /// URL pattern contains variables, the variable names and values will be
-        /// appended to the query string. If a query string parameter and a URL
-        /// pattern variable have the same name, this may result in duplicate keys in
-        /// the query string.
-        ///
-        /// # Examples
-        ///
-        /// Given the following operation config:
-        ///
-        ///      Method path:        /api/company/{cid}/user/{uid}
-        ///      Backend address:    <https://example.cloudfunctions.net/getUser>
-        ///
-        /// Requests to the following request paths will call the backend at the
-        /// translated path:
-        ///
-        ///      Request path: /api/company/widgetworks/user/johndoe
-        ///      Translated:
-        ///      <https://example.cloudfunctions.net/getUser?cid=widgetworks&uid=johndoe>
-        ///
-        ///      Request path: /api/company/widgetworks/user/johndoe?timezone=EST
-        ///      Translated:
-        ///      <https://example.cloudfunctions.net/getUser?timezone=EST&cid=widgetworks&uid=johndoe>
-        ConstantAddress = 1,
-        /// The request path will be appended to the backend address.
-        ///
-        /// # Examples
-        ///
-        /// Given the following operation config:
-        ///
-        ///      Method path:        /api/company/{cid}/user/{uid}
-        ///      Backend address:    <https://example.appspot.com>
-        ///
-        /// Requests to the following request paths will call the backend at the
-        /// translated path:
-        ///
-        ///      Request path: /api/company/widgetworks/user/johndoe
-        ///      Translated:
-        ///      <https://example.appspot.com/api/company/widgetworks/user/johndoe>
-        ///
-        ///      Request path: /api/company/widgetworks/user/johndoe?timezone=EST
-        ///      Translated:
-        ///      <https://example.appspot.com/api/company/widgetworks/user/johndoe?timezone=EST>
-        AppendPathToAddress = 2,
-    }
-    impl PathTranslation {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                PathTranslation::Unspecified => "PATH_TRANSLATION_UNSPECIFIED",
-                PathTranslation::ConstantAddress => "CONSTANT_ADDRESS",
-                PathTranslation::AppendPathToAddress => "APPEND_PATH_TO_ADDRESS",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "PATH_TRANSLATION_UNSPECIFIED" => Some(Self::Unspecified),
-                "CONSTANT_ADDRESS" => Some(Self::ConstantAddress),
-                "APPEND_PATH_TO_ADDRESS" => Some(Self::AppendPathToAddress),
-                _ => None,
-            }
-        }
-    }
-    /// Authentication settings used by the backend.
-    ///
-    /// These are typically used to provide service management functionality to
-    /// a backend served on a publicly-routable URL. The `authentication`
-    /// details should match the authentication behavior used by the backend.
-    ///
-    /// For example, specifying `jwt_audience` implies that the backend expects
-    /// authentication via a JWT.
-    ///
-    /// When authentication is unspecified, the resulting behavior is the same
-    /// as `disable_auth` set to `true`.
-    ///
-    /// Refer to <https://developers.google.com/identity/protocols/OpenIDConnect> for
-    /// JWT ID token.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Authentication {
-        /// The JWT audience is used when generating a JWT ID token for the backend.
-        /// This ID token will be added in the HTTP "authorization" header, and sent
-        /// to the backend.
-        #[prost(string, tag = "7")]
-        JwtAudience(::prost::alloc::string::String),
-        /// When disable_auth is true, a JWT ID token won't be generated and the
-        /// original "Authorization" HTTP header will be preserved. If the header is
-        /// used to carry the original token and is expected by the backend, this
-        /// field must be set to true to preserve the header.
-        #[prost(bool, tag = "8")]
-        DisableAuth(bool),
-    }
-}
-/// `Context` defines which contexts an API requests.
-///
-/// Example:
-///
-///      context:
-///        rules:
-///        - selector: "*"
-///          requested:
-///          - google.rpc.context.ProjectContext
-///          - google.rpc.context.OriginContext
-///
-/// The above specifies that all methods in the API request
-/// `google.rpc.context.ProjectContext` and
-/// `google.rpc.context.OriginContext`.
-///
-/// Available context types are defined in package
-/// `google.rpc.context`.
-///
-/// This also provides mechanism to allowlist any protobuf message extension that
-/// can be sent in grpc metadata using “x-goog-ext-<extension_id>-bin” and
-/// “x-goog-ext-<extension_id>-jspb” format. For example, list any service
-/// specific protobuf types that can appear in grpc metadata as follows in your
-/// yaml file:
-///
-/// Example:
-///
-///      context:
-///        rules:
-///         - selector: "google.example.library.v1.LibraryService.CreateBook"
-///           allowed_request_extensions:
-///           - google.foo.v1.NewExtension
-///           allowed_response_extensions:
-///           - google.foo.v1.NewExtension
-///
-/// You can also specify extension ID instead of fully qualified extension name
-/// here.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Context {
-    /// A list of RPC context rules that apply to individual API methods.
-    ///
-    /// **NOTE:** All service configuration rules follow "last one wins" order.
-    #[prost(message, repeated, tag = "1")]
-    pub rules: ::prost::alloc::vec::Vec<ContextRule>,
-}
-/// A context rule provides information about the context for an individual API
-/// element.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ContextRule {
-    /// Selects the methods to which this rule applies.
-    ///
-    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
-    /// details.
-    #[prost(string, tag = "1")]
-    pub selector: ::prost::alloc::string::String,
-    /// A list of full type names of requested contexts.
-    #[prost(string, repeated, tag = "2")]
-    pub requested: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// A list of full type names of provided contexts.
-    #[prost(string, repeated, tag = "3")]
-    pub provided: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// A list of full type names or extension IDs of extensions allowed in grpc
-    /// side channel from client to backend.
-    #[prost(string, repeated, tag = "4")]
-    pub allowed_request_extensions: ::prost::alloc::vec::Vec<
-        ::prost::alloc::string::String,
-    >,
-    /// A list of full type names or extension IDs of extensions allowed in grpc
-    /// side channel from backend to client.
-    #[prost(string, repeated, tag = "5")]
-    pub allowed_response_extensions: ::prost::alloc::vec::Vec<
-        ::prost::alloc::string::String,
-    >,
-}
-/// Selects and configures the service controller used by the service.
-///
-/// Example:
-///
-///      control:
-///        environment: servicecontrol.googleapis.com
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Control {
-    /// The service controller environment to use. If empty, no control plane
-    /// feature (like quota and billing) will be enabled. The recommended value for
-    /// most services is servicecontrol.googleapis.com
-    #[prost(string, tag = "1")]
-    pub environment: ::prost::alloc::string::String,
-    /// Defines policies applying to the API methods of the service.
-    #[prost(message, repeated, tag = "4")]
-    pub method_policies: ::prost::alloc::vec::Vec<MethodPolicy>,
-}
-/// Quota configuration helps to achieve fairness and budgeting in service
-/// usage.
-///
-/// The metric based quota configuration works this way:
-/// - The service configuration defines a set of metrics.
-/// - For API calls, the quota.metric_rules maps methods to metrics with
-///    corresponding costs.
-/// - The quota.limits defines limits on the metrics, which will be used for
-///    quota checks at runtime.
-///
-/// An example quota configuration in yaml format:
-///
-///     quota:
-///       limits:
-///
-///       - name: apiWriteQpsPerProject
-///         metric: library.googleapis.com/write_calls
-///         unit: "1/min/{project}"  # rate limit for consumer projects
-///         values:
-///           STANDARD: 10000
-///
-///
-///       (The metric rules bind all methods to the read_calls metric,
-///        except for the UpdateBook and DeleteBook methods. These two methods
-///        are mapped to the write_calls metric, with the UpdateBook method
-///        consuming at twice rate as the DeleteBook method.)
-///       metric_rules:
-///       - selector: "*"
-///         metric_costs:
-///           library.googleapis.com/read_calls: 1
-///       - selector: google.example.library.v1.LibraryService.UpdateBook
-///         metric_costs:
-///           library.googleapis.com/write_calls: 2
-///       - selector: google.example.library.v1.LibraryService.DeleteBook
-///         metric_costs:
-///           library.googleapis.com/write_calls: 1
-///
-///   Corresponding Metric definition:
-///
-///       metrics:
-///       - name: library.googleapis.com/read_calls
-///         display_name: Read requests
-///         metric_kind: DELTA
-///         value_type: INT64
-///
-///       - name: library.googleapis.com/write_calls
-///         display_name: Write requests
-///         metric_kind: DELTA
-///         value_type: INT64
-///
-///
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Quota {
-    /// List of QuotaLimit definitions for the service.
-    #[prost(message, repeated, tag = "3")]
-    pub limits: ::prost::alloc::vec::Vec<QuotaLimit>,
-    /// List of MetricRule definitions, each one mapping a selected method to one
-    /// or more metrics.
-    #[prost(message, repeated, tag = "4")]
-    pub metric_rules: ::prost::alloc::vec::Vec<MetricRule>,
-}
-/// Bind API methods to metrics. Binding a method to a metric causes that
-/// metric's configured quota behaviors to apply to the method call.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MetricRule {
-    /// Selects the methods to which this rule applies.
-    ///
-    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
-    /// details.
-    #[prost(string, tag = "1")]
-    pub selector: ::prost::alloc::string::String,
-    /// Metrics to update when the selected methods are called, and the associated
-    /// cost applied to each metric.
-    ///
-    /// The key of the map is the metric name, and the values are the amount
-    /// increased for the metric against which the quota limits are defined.
-    /// The value must not be negative.
-    #[prost(btree_map = "string, int64", tag = "2")]
-    pub metric_costs: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        i64,
-    >,
-}
-/// `QuotaLimit` defines a specific limit that applies over a specified duration
-/// for a limit type. There can be at most one limit for a duration and limit
-/// type combination defined within a `QuotaGroup`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct QuotaLimit {
-    /// Name of the quota limit.
-    ///
-    /// The name must be provided, and it must be unique within the service. The
-    /// name can only include alphanumeric characters as well as '-'.
-    ///
-    /// The maximum length of the limit name is 64 characters.
-    #[prost(string, tag = "6")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. User-visible, extended description for this quota limit.
-    /// Should be used only when more context is needed to understand this limit
-    /// than provided by the limit's display name (see: `display_name`).
-    #[prost(string, tag = "2")]
-    pub description: ::prost::alloc::string::String,
-    /// Default number of tokens that can be consumed during the specified
-    /// duration. This is the number of tokens assigned when a client
-    /// application developer activates the service for his/her project.
-    ///
-    /// Specifying a value of 0 will block all requests. This can be used if you
-    /// are provisioning quota to selected consumers and blocking others.
-    /// Similarly, a value of -1 will indicate an unlimited quota. No other
-    /// negative values are allowed.
-    ///
-    /// Used by group-based quotas only.
-    #[prost(int64, tag = "3")]
-    pub default_limit: i64,
-    /// Maximum number of tokens that can be consumed during the specified
-    /// duration. Client application developers can override the default limit up
-    /// to this maximum. If specified, this value cannot be set to a value less
-    /// than the default limit. If not specified, it is set to the default limit.
-    ///
-    /// To allow clients to apply overrides with no upper bound, set this to -1,
-    /// indicating unlimited maximum quota.
-    ///
-    /// Used by group-based quotas only.
-    #[prost(int64, tag = "4")]
-    pub max_limit: i64,
-    /// Free tier value displayed in the Developers Console for this limit.
-    /// The free tier is the number of tokens that will be subtracted from the
-    /// billed amount when billing is enabled.
-    /// This field can only be set on a limit with duration "1d", in a billable
-    /// group; it is invalid on any other limit. If this field is not set, it
-    /// defaults to 0, indicating that there is no free tier for this service.
-    ///
-    /// Used by group-based quotas only.
-    #[prost(int64, tag = "7")]
-    pub free_tier: i64,
-    /// Duration of this limit in textual notation. Must be "100s" or "1d".
-    ///
-    /// Used by group-based quotas only.
-    #[prost(string, tag = "5")]
-    pub duration: ::prost::alloc::string::String,
-    /// The name of the metric this quota limit applies to. The quota limits with
-    /// the same metric will be checked together during runtime. The metric must be
-    /// defined within the service config.
-    #[prost(string, tag = "8")]
-    pub metric: ::prost::alloc::string::String,
-    /// Specify the unit of the quota limit. It uses the same syntax as
-    /// \[Metric.unit][\]. The supported unit kinds are determined by the quota
-    /// backend system.
-    ///
-    /// Here are some examples:
-    /// * "1/min/{project}" for quota per minute per project.
-    ///
-    /// Note: the order of unit components is insignificant.
-    /// The "1" at the beginning is required to follow the metric unit syntax.
-    #[prost(string, tag = "9")]
-    pub unit: ::prost::alloc::string::String,
-    /// Tiered limit values. You must specify this as a key:value pair, with an
-    /// integer value that is the maximum number of requests allowed for the
-    /// specified unit. Currently only STANDARD is supported.
-    #[prost(btree_map = "string, int64", tag = "10")]
-    pub values: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        i64,
-    >,
-    /// User-visible display name for this limit.
-    /// Optional. If not set, the UI will provide a default display name based on
-    /// the quota configuration. This field can be used to override the default
-    /// display name generated from the configuration.
-    #[prost(string, tag = "12")]
-    pub display_name: ::prost::alloc::string::String,
-}
-/// `Authentication` defines the authentication configuration for API methods
-/// provided by an API service.
-///
-/// Example:
-///
-///      name: calendar.googleapis.com
-///      authentication:
-///        providers:
-///        - id: google_calendar_auth
-///          jwks_uri: <https://www.googleapis.com/oauth2/v1/certs>
-///          issuer: <https://securetoken.google.com>
-///        rules:
-///        - selector: "*"
-///          requirements:
-///            provider_id: google_calendar_auth
-///        - selector: google.calendar.Delegate
-///          oauth:
-///            canonical_scopes: <https://www.googleapis.com/auth/calendar.read>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Authentication {
-    /// A list of authentication rules that apply to individual API methods.
-    ///
-    /// **NOTE:** All service configuration rules follow "last one wins" order.
-    #[prost(message, repeated, tag = "3")]
-    pub rules: ::prost::alloc::vec::Vec<AuthenticationRule>,
-    /// Defines a set of authentication providers that a service supports.
-    #[prost(message, repeated, tag = "4")]
-    pub providers: ::prost::alloc::vec::Vec<AuthProvider>,
-}
-/// Authentication rules for the service.
-///
-/// By default, if a method has any authentication requirements, every request
-/// must include a valid credential matching one of the requirements.
-/// It's an error to include more than one kind of credential in a single
-/// request.
-///
-/// If a method doesn't have any auth requirements, request credentials will be
-/// ignored.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AuthenticationRule {
-    /// Selects the methods to which this rule applies.
-    ///
-    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
-    /// details.
-    #[prost(string, tag = "1")]
-    pub selector: ::prost::alloc::string::String,
-    /// The requirements for OAuth credentials.
-    #[prost(message, optional, tag = "2")]
-    pub oauth: ::core::option::Option<OAuthRequirements>,
-    /// If true, the service accepts API keys without any other credential.
-    /// This flag only applies to HTTP and gRPC requests.
-    #[prost(bool, tag = "5")]
-    pub allow_without_credential: bool,
-    /// Requirements for additional authentication providers.
-    #[prost(message, repeated, tag = "7")]
-    pub requirements: ::prost::alloc::vec::Vec<AuthRequirement>,
-}
-/// Specifies a location to extract JWT from an API request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct JwtLocation {
-    /// The value prefix. The value format is "value_prefix{token}"
-    /// Only applies to "in" header type. Must be empty for "in" query type.
-    /// If not empty, the header value has to match (case sensitive) this prefix.
-    /// If not matched, JWT will not be extracted. If matched, JWT will be
-    /// extracted after the prefix is removed.
-    ///
-    /// For example, for "Authorization: Bearer {JWT}",
-    /// value_prefix="Bearer " with a space at the end.
-    #[prost(string, tag = "3")]
-    pub value_prefix: ::prost::alloc::string::String,
-    #[prost(oneof = "jwt_location::In", tags = "1, 2, 4")]
-    pub r#in: ::core::option::Option<jwt_location::In>,
-}
-/// Nested message and enum types in `JwtLocation`.
-pub mod jwt_location {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum In {
-        /// Specifies HTTP header name to extract JWT token.
-        #[prost(string, tag = "1")]
-        Header(::prost::alloc::string::String),
-        /// Specifies URL query parameter name to extract JWT token.
-        #[prost(string, tag = "2")]
-        Query(::prost::alloc::string::String),
-        /// Specifies cookie name to extract JWT token.
-        #[prost(string, tag = "4")]
-        Cookie(::prost::alloc::string::String),
-    }
-}
-/// Configuration for an authentication provider, including support for
-/// [JSON Web Token
-/// (JWT)](<https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32>).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AuthProvider {
-    /// The unique identifier of the auth provider. It will be referred to by
-    /// `AuthRequirement.provider_id`.
-    ///
-    /// Example: "bookstore_auth".
-    #[prost(string, tag = "1")]
-    pub id: ::prost::alloc::string::String,
-    /// Identifies the principal that issued the JWT. See
-    /// <https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.1>
-    /// Usually a URL or an email address.
-    ///
-    /// Example: <https://securetoken.google.com>
-    /// Example: 1234567-compute@developer.gserviceaccount.com
-    #[prost(string, tag = "2")]
-    pub issuer: ::prost::alloc::string::String,
-    /// URL of the provider's public key set to validate signature of the JWT. See
-    /// [OpenID
-    /// Discovery](<https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata>).
-    /// Optional if the key set document:
-    ///   - can be retrieved from
-    ///     [OpenID
-    ///     Discovery](<https://openid.net/specs/openid-connect-discovery-1_0.html>)
-    ///     of the issuer.
-    ///   - can be inferred from the email domain of the issuer (e.g. a Google
-    ///   service account).
-    ///
-    /// Example: <https://www.googleapis.com/oauth2/v1/certs>
-    #[prost(string, tag = "3")]
-    pub jwks_uri: ::prost::alloc::string::String,
-    /// The list of JWT
-    /// \[audiences\](<https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.3>).
-    /// that are allowed to access. A JWT containing any of these audiences will
-    /// be accepted. When this setting is absent, JWTs with audiences:
-    ///    - "<https://\[service.name]/[google.protobuf.Api.name\]">
-    ///    - "<https://\[service.name\]/">
-    /// will be accepted.
-    /// For example, if no audiences are in the setting, LibraryService API will
-    /// accept JWTs with the following audiences:
-    ///    -
-    ///    <https://library-example.googleapis.com/google.example.library.v1.LibraryService>
-    ///    - <https://library-example.googleapis.com/>
-    ///
-    /// Example:
-    ///
-    ///      audiences: bookstore_android.apps.googleusercontent.com,
-    ///                 bookstore_web.apps.googleusercontent.com
-    #[prost(string, tag = "4")]
-    pub audiences: ::prost::alloc::string::String,
-    /// Redirect URL if JWT token is required but not present or is expired.
-    /// Implement authorizationUrl of securityDefinitions in OpenAPI spec.
-    #[prost(string, tag = "5")]
-    pub authorization_url: ::prost::alloc::string::String,
-    /// Defines the locations to extract the JWT.  For now it is only used by the
-    /// Cloud Endpoints to store the OpenAPI extension \[x-google-jwt-locations\]
-    /// (<https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations>)
-    ///
-    /// JWT locations can be one of HTTP headers, URL query parameters or
-    /// cookies. The rule is that the first match wins.
-    ///
-    /// If not specified,  default to use following 3 locations:
-    ///     1) Authorization: Bearer
-    ///     2) x-goog-iap-jwt-assertion
-    ///     3) access_token query parameter
-    ///
-    /// Default locations can be specified as followings:
-    ///     jwt_locations:
-    ///     - header: Authorization
-    ///       value_prefix: "Bearer "
-    ///     - header: x-goog-iap-jwt-assertion
-    ///     - query: access_token
-    #[prost(message, repeated, tag = "6")]
-    pub jwt_locations: ::prost::alloc::vec::Vec<JwtLocation>,
-}
-/// OAuth scopes are a way to define data and permissions on data. For example,
-/// there are scopes defined for "Read-only access to Google Calendar" and
-/// "Access to Cloud Platform". Users can consent to a scope for an application,
-/// giving it permission to access that data on their behalf.
-///
-/// OAuth scope specifications should be fairly coarse grained; a user will need
-/// to see and understand the text description of what your scope means.
-///
-/// In most cases: use one or at most two OAuth scopes for an entire family of
-/// products. If your product has multiple APIs, you should probably be sharing
-/// the OAuth scope across all of those APIs.
-///
-/// When you need finer grained OAuth consent screens: talk with your product
-/// management about how developers will use them in practice.
-///
-/// Please note that even though each of the canonical scopes is enough for a
-/// request to be accepted and passed to the backend, a request can still fail
-/// due to the backend requiring additional scopes or permissions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OAuthRequirements {
-    /// The list of publicly documented OAuth scopes that are allowed access. An
-    /// OAuth token containing any of these scopes will be accepted.
-    ///
-    /// Example:
-    ///
-    ///       canonical_scopes: <https://www.googleapis.com/auth/calendar,>
-    ///                         <https://www.googleapis.com/auth/calendar.read>
-    #[prost(string, tag = "1")]
-    pub canonical_scopes: ::prost::alloc::string::String,
-}
-/// User-defined authentication requirements, including support for
-/// [JSON Web Token
-/// (JWT)](<https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32>).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AuthRequirement {
-    /// \[id][google.api.AuthProvider.id\] from authentication provider.
-    ///
-    /// Example:
-    ///
-    ///      provider_id: bookstore_auth
-    #[prost(string, tag = "1")]
-    pub provider_id: ::prost::alloc::string::String,
-    /// NOTE: This will be deprecated soon, once AuthProvider.audiences is
-    /// implemented and accepted in all the runtime components.
-    ///
-    /// The list of JWT
-    /// \[audiences\](<https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.3>).
-    /// that are allowed to access. A JWT containing any of these audiences will
-    /// be accepted. When this setting is absent, only JWTs with audience
-    /// "<https://\[Service_name][google.api.Service.name]/[API_name][google.protobuf.Api.name\]">
-    /// will be accepted. For example, if no audiences are in the setting,
-    /// LibraryService API will only accept JWTs with the following audience
-    /// "<https://library-example.googleapis.com/google.example.library.v1.LibraryService".>
-    ///
-    /// Example:
-    ///
-    ///      audiences: bookstore_android.apps.googleusercontent.com,
-    ///                 bookstore_web.apps.googleusercontent.com
-    #[prost(string, tag = "2")]
-    pub audiences: ::prost::alloc::string::String,
-}
-/// Billing related configuration of the service.
-///
-/// The following example shows how to configure monitored resources and metrics
-/// for billing, `consumer_destinations` is the only supported destination and
-/// the monitored resources need at least one label key
-/// `cloud.googleapis.com/location` to indicate the location of the billing
-/// usage, using different monitored resources between monitoring and billing is
-/// recommended so they can be evolved independently:
-///
-///
-///      monitored_resources:
-///      - type: library.googleapis.com/billing_branch
-///        labels:
-///        - key: cloud.googleapis.com/location
-///          description: |
-///            Predefined label to support billing location restriction.
-///        - key: city
-///          description: |
-///            Custom label to define the city where the library branch is located
-///            in.
-///        - key: name
-///          description: Custom label to define the name of the library branch.
-///      metrics:
-///      - name: library.googleapis.com/book/borrowed_count
-///        metric_kind: DELTA
-///        value_type: INT64
-///        unit: "1"
-///      billing:
-///        consumer_destinations:
-///        - monitored_resource: library.googleapis.com/billing_branch
-///          metrics:
-///          - library.googleapis.com/book/borrowed_count
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Billing {
-    /// Billing configurations for sending metrics to the consumer project.
-    /// There can be multiple consumer destinations per service, each one must have
-    /// a different monitored resource type. A metric can be used in at most
-    /// one consumer destination.
-    #[prost(message, repeated, tag = "8")]
-    pub consumer_destinations: ::prost::alloc::vec::Vec<billing::BillingDestination>,
-}
-/// Nested message and enum types in `Billing`.
-pub mod billing {
-    /// Configuration of a specific billing destination (Currently only support
-    /// bill against consumer project).
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct BillingDestination {
-        /// The monitored resource type. The type must be defined in
-        /// \[Service.monitored_resources][google.api.Service.monitored_resources\]
-        /// section.
-        #[prost(string, tag = "1")]
-        pub monitored_resource: ::prost::alloc::string::String,
-        /// Names of the metrics to report to this billing destination.
-        /// Each name must be defined in
-        /// \[Service.metrics][google.api.Service.metrics\] section.
-        #[prost(string, repeated, tag = "2")]
-        pub metrics: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    }
-}
-/// `Endpoint` describes a network address of a service that serves a set of
-/// APIs. It is commonly known as a service endpoint. A service may expose
-/// any number of service endpoints, and all service endpoints share the same
-/// service definition, such as quota limits and monitoring metrics.
-///
-/// Example:
-///
-///      type: google.api.Service
-///      name: library-example.googleapis.com
-///      endpoints:
-///        # Declares network address `<https://library-example.googleapis.com`>
-///        # for service `library-example.googleapis.com`. The `https` scheme
-///        # is implicit for all service endpoints. Other schemes may be
-///        # supported in the future.
-///      - name: library-example.googleapis.com
-///        allow_cors: false
-///      - name: content-staging-library-example.googleapis.com
-///        # Allows HTTP OPTIONS calls to be passed to the API frontend, for it
-///        # to decide whether the subsequent cross-origin request is allowed
-///        # to proceed.
-///        allow_cors: true
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Endpoint {
-    /// The canonical name of this endpoint.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Unimplemented. Dot not use.
-    ///
-    /// DEPRECATED: This field is no longer supported. Instead of using aliases,
-    /// please specify multiple \[google.api.Endpoint][google.api.Endpoint\] for each
-    /// of the intended aliases.
-    ///
-    /// Additional names that this endpoint will be hosted on.
-    #[deprecated]
-    #[prost(string, repeated, tag = "2")]
-    pub aliases: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The specification of an Internet routable address of API frontend that will
-    /// handle requests to this [API
-    /// Endpoint](<https://cloud.google.com/apis/design/glossary>). It should be
-    /// either a valid IPv4 address or a fully-qualified domain name. For example,
-    /// "8.8.8.8" or "myservice.appspot.com".
-    #[prost(string, tag = "101")]
-    pub target: ::prost::alloc::string::String,
-    /// Allowing
-    /// \[CORS\](<https://en.wikipedia.org/wiki/Cross-origin_resource_sharing>), aka
-    /// cross-domain traffic, would allow the backends served from this endpoint to
-    /// receive and respond to HTTP OPTIONS requests. The response will be used by
-    /// the browser to determine whether the subsequent cross-origin request is
-    /// allowed to proceed.
-    #[prost(bool, tag = "5")]
-    pub allow_cors: bool,
-}
-/// A description of a log type. Example in YAML format:
-///
-///      - name: library.googleapis.com/activity_history
-///        description: The history of borrowing and returning library items.
-///        display_name: Activity
-///        labels:
-///        - key: /customer_id
-///          description: Identifier of a library customer
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LogDescriptor {
-    /// The name of the log. It must be less than 512 characters long and can
-    /// include the following characters: upper- and lower-case alphanumeric
-    /// characters \[A-Za-z0-9\], and punctuation characters including
-    /// slash, underscore, hyphen, period \[/_-.\].
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The set of labels that are available to describe a specific log entry.
-    /// Runtime requests that contain labels not specified here are
-    /// considered invalid.
-    #[prost(message, repeated, tag = "2")]
-    pub labels: ::prost::alloc::vec::Vec<LabelDescriptor>,
-    /// A human-readable description of this log. This information appears in
-    /// the documentation and can contain details.
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-    /// The human-readable name for this log. This information appears on
-    /// the user interface and should be concise.
-    #[prost(string, tag = "4")]
-    pub display_name: ::prost::alloc::string::String,
-}
-/// Logging configuration of the service.
-///
-/// The following example shows how to configure logs to be sent to the
-/// producer and consumer projects. In the example, the `activity_history`
-/// log is sent to both the producer and consumer projects, whereas the
-/// `purchase_history` log is only sent to the producer project.
-///
-///      monitored_resources:
-///      - type: library.googleapis.com/branch
-///        labels:
-///        - key: /city
-///          description: The city where the library branch is located in.
-///        - key: /name
-///          description: The name of the branch.
-///      logs:
-///      - name: activity_history
-///        labels:
-///        - key: /customer_id
-///      - name: purchase_history
-///      logging:
-///        producer_destinations:
-///        - monitored_resource: library.googleapis.com/branch
-///          logs:
-///          - activity_history
-///          - purchase_history
-///        consumer_destinations:
-///        - monitored_resource: library.googleapis.com/branch
-///          logs:
-///          - activity_history
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Logging {
-    /// Logging configurations for sending logs to the producer project.
-    /// There can be multiple producer destinations, each one must have a
-    /// different monitored resource type. A log can be used in at most
-    /// one producer destination.
-    #[prost(message, repeated, tag = "1")]
-    pub producer_destinations: ::prost::alloc::vec::Vec<logging::LoggingDestination>,
-    /// Logging configurations for sending logs to the consumer project.
-    /// There can be multiple consumer destinations, each one must have a
-    /// different monitored resource type. A log can be used in at most
-    /// one consumer destination.
-    #[prost(message, repeated, tag = "2")]
-    pub consumer_destinations: ::prost::alloc::vec::Vec<logging::LoggingDestination>,
-}
-/// Nested message and enum types in `Logging`.
-pub mod logging {
-    /// Configuration of a specific logging destination (the producer project
-    /// or the consumer project).
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct LoggingDestination {
-        /// The monitored resource type. The type must be defined in the
-        /// \[Service.monitored_resources][google.api.Service.monitored_resources\]
-        /// section.
-        #[prost(string, tag = "3")]
-        pub monitored_resource: ::prost::alloc::string::String,
-        /// Names of the logs to be sent to this destination. Each name must
-        /// be defined in the \[Service.logs][google.api.Service.logs\] section. If the
-        /// log name is not a domain scoped name, it will be automatically prefixed
-        /// with the service name followed by "/".
-        #[prost(string, repeated, tag = "1")]
-        pub logs: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    }
-}
-/// Source information used to create a Service Config
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SourceInfo {
-    /// All files used during config generation.
-    #[prost(message, repeated, tag = "1")]
-    pub source_files: ::prost::alloc::vec::Vec<::prost_types::Any>,
-}
-/// ### System parameter configuration
-///
-/// A system parameter is a special kind of parameter defined by the API
-/// system, not by an individual API. It is typically mapped to an HTTP header
-/// and/or a URL query parameter. This configuration specifies which methods
-/// change the names of the system parameters.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SystemParameters {
-    /// Define system parameters.
-    ///
-    /// The parameters defined here will override the default parameters
-    /// implemented by the system. If this field is missing from the service
-    /// config, default system parameters will be used. Default system parameters
-    /// and names is implementation-dependent.
-    ///
-    /// Example: define api key for all methods
-    ///
-    ///      system_parameters
-    ///        rules:
-    ///          - selector: "*"
-    ///            parameters:
-    ///              - name: api_key
-    ///                url_query_parameter: api_key
-    ///
-    ///
-    /// Example: define 2 api key names for a specific method.
-    ///
-    ///      system_parameters
-    ///        rules:
-    ///          - selector: "/ListShelves"
-    ///            parameters:
-    ///              - name: api_key
-    ///                http_header: Api-Key1
-    ///              - name: api_key
-    ///                http_header: Api-Key2
-    ///
-    /// **NOTE:** All service configuration rules follow "last one wins" order.
-    #[prost(message, repeated, tag = "1")]
-    pub rules: ::prost::alloc::vec::Vec<SystemParameterRule>,
-}
-/// Define a system parameter rule mapping system parameter definitions to
-/// methods.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SystemParameterRule {
-    /// Selects the methods to which this rule applies. Use '*' to indicate all
-    /// methods in all APIs.
-    ///
-    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
-    /// details.
-    #[prost(string, tag = "1")]
-    pub selector: ::prost::alloc::string::String,
-    /// Define parameters. Multiple names may be defined for a parameter.
-    /// For a given method call, only one of them should be used. If multiple
-    /// names are used the behavior is implementation-dependent.
-    /// If none of the specified names are present the behavior is
-    /// parameter-dependent.
-    #[prost(message, repeated, tag = "2")]
-    pub parameters: ::prost::alloc::vec::Vec<SystemParameter>,
-}
-/// Define a parameter's name and location. The parameter may be passed as either
-/// an HTTP header or a URL query parameter, and if both are passed the behavior
-/// is implementation-dependent.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SystemParameter {
-    /// Define the name of the parameter, such as "api_key" . It is case sensitive.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Define the HTTP header name to use for the parameter. It is case
-    /// insensitive.
-    #[prost(string, tag = "2")]
-    pub http_header: ::prost::alloc::string::String,
-    /// Define the URL query parameter name to use for the parameter. It is case
-    /// sensitive.
-    #[prost(string, tag = "3")]
-    pub url_query_parameter: ::prost::alloc::string::String,
-}
-/// Configuration controlling usage of a service.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Usage {
-    /// Requirements that must be satisfied before a consumer project can use the
-    /// service. Each requirement is of the form <service.name>/<requirement-id>;
-    /// for example 'serviceusage.googleapis.com/billing-enabled'.
-    ///
-    /// For Google APIs, a Terms of Service requirement must be included here.
-    /// Google Cloud APIs must include "serviceusage.googleapis.com/tos/cloud".
-    /// Other Google APIs should include
-    /// "serviceusage.googleapis.com/tos/universal". Additional ToS can be
-    /// included based on the business needs.
-    #[prost(string, repeated, tag = "1")]
-    pub requirements: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// A list of usage rules that apply to individual API methods.
-    ///
-    /// **NOTE:** All service configuration rules follow "last one wins" order.
-    #[prost(message, repeated, tag = "6")]
-    pub rules: ::prost::alloc::vec::Vec<UsageRule>,
-    /// The full resource name of a channel used for sending notifications to the
-    /// service producer.
-    ///
-    /// Google Service Management currently only supports
-    /// [Google Cloud Pub/Sub](<https://cloud.google.com/pubsub>) as a notification
-    /// channel. To use Google Cloud Pub/Sub as the channel, this must be the name
-    /// of a Cloud Pub/Sub topic that uses the Cloud Pub/Sub topic name format
-    /// documented in <https://cloud.google.com/pubsub/docs/overview.>
-    #[prost(string, tag = "7")]
-    pub producer_notification_channel: ::prost::alloc::string::String,
-}
-/// Usage configuration rules for the service.
-///
-/// NOTE: Under development.
-///
-///
-/// Use this rule to configure unregistered calls for the service. Unregistered
-/// calls are calls that do not contain consumer project identity.
-/// (Example: calls that do not contain an API key).
-/// By default, API methods do not allow unregistered calls, and each method call
-/// must be identified by a consumer project identity. Use this rule to
-/// allow/disallow unregistered calls.
-///
-/// Example of an API that wants to allow unregistered calls for entire service.
-///
-///      usage:
-///        rules:
-///        - selector: "*"
-///          allow_unregistered_calls: true
-///
-/// Example of a method that wants to allow unregistered calls.
-///
-///      usage:
-///        rules:
-///        - selector: "google.example.library.v1.LibraryService.CreateBook"
-///          allow_unregistered_calls: true
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UsageRule {
-    /// Selects the methods to which this rule applies. Use '*' to indicate all
-    /// methods in all APIs.
-    ///
-    /// Refer to \[selector][google.api.DocumentationRule.selector\] for syntax
-    /// details.
-    #[prost(string, tag = "1")]
-    pub selector: ::prost::alloc::string::String,
-    /// If true, the selected method allows unregistered calls, e.g. calls
-    /// that don't identify any user or application.
-    #[prost(bool, tag = "2")]
-    pub allow_unregistered_calls: bool,
-    /// If true, the selected method should skip service control and the control
-    /// plane features, such as quota and billing, will not be available.
-    /// This flag is used by Google Cloud Endpoints to bypass checks for internal
-    /// methods, such as service health check methods.
-    #[prost(bool, tag = "3")]
-    pub skip_service_control: bool,
-}
-/// `Service` is the root object of Google API service configuration (service
-/// config). It describes the basic information about a logical service,
-/// such as the service name and the user-facing title, and delegates other
-/// aspects to sub-sections. Each sub-section is either a proto message or a
-/// repeated proto message that configures a specific aspect, such as auth.
-/// For more information, see each proto message definition.
-///
-/// Example:
-///
-///      type: google.api.Service
-///      name: calendar.googleapis.com
-///      title: Google Calendar API
-///      apis:
-///      - name: google.calendar.v3.Calendar
-///
-///      visibility:
-///        rules:
-///        - selector: "google.calendar.v3.*"
-///          restriction: PREVIEW
-///      backend:
-///        rules:
-///        - selector: "google.calendar.v3.*"
-///          address: calendar.example.com
-///
-///      authentication:
-///        providers:
-///        - id: google_calendar_auth
-///          jwks_uri: <https://www.googleapis.com/oauth2/v1/certs>
-///          issuer: <https://securetoken.google.com>
-///        rules:
-///        - selector: "*"
-///          requirements:
-///            provider_id: google_calendar_auth
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Service {
-    /// The service name, which is a DNS-like logical identifier for the
-    /// service, such as `calendar.googleapis.com`. The service name
-    /// typically goes through DNS verification to make sure the owner
-    /// of the service also owns the DNS name.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The product title for this service, it is the name displayed in Google
-    /// Cloud Console.
-    #[prost(string, tag = "2")]
-    pub title: ::prost::alloc::string::String,
-    /// The Google project that owns this service.
-    #[prost(string, tag = "22")]
-    pub producer_project_id: ::prost::alloc::string::String,
-    /// A unique ID for a specific instance of this message, typically assigned
-    /// by the client for tracking purpose. Must be no longer than 63 characters
-    /// and only lower case letters, digits, '.', '_' and '-' are allowed. If
-    /// empty, the server may choose to generate one instead.
-    #[prost(string, tag = "33")]
-    pub id: ::prost::alloc::string::String,
-    /// A list of API interfaces exported by this service. Only the `name` field
-    /// of the \[google.protobuf.Api][google.protobuf.Api\] needs to be provided by
-    /// the configuration author, as the remaining fields will be derived from the
-    /// IDL during the normalization process. It is an error to specify an API
-    /// interface here which cannot be resolved against the associated IDL files.
-    #[prost(message, repeated, tag = "3")]
-    pub apis: ::prost::alloc::vec::Vec<::prost_types::Api>,
-    /// A list of all proto message types included in this API service.
-    /// Types referenced directly or indirectly by the `apis` are automatically
-    /// included.  Messages which are not referenced but shall be included, such as
-    /// types used by the `google.protobuf.Any` type, should be listed here by
-    /// name by the configuration author. Example:
-    ///
-    ///      types:
-    ///      - name: google.protobuf.Int32
-    #[prost(message, repeated, tag = "4")]
-    pub types: ::prost::alloc::vec::Vec<::prost_types::Type>,
-    /// A list of all enum types included in this API service.  Enums referenced
-    /// directly or indirectly by the `apis` are automatically included.  Enums
-    /// which are not referenced but shall be included should be listed here by
-    /// name by the configuration author. Example:
-    ///
-    ///      enums:
-    ///      - name: google.someapi.v1.SomeEnum
-    #[prost(message, repeated, tag = "5")]
-    pub enums: ::prost::alloc::vec::Vec<::prost_types::Enum>,
-    /// Additional API documentation.
-    #[prost(message, optional, tag = "6")]
-    pub documentation: ::core::option::Option<Documentation>,
-    /// API backend configuration.
-    #[prost(message, optional, tag = "8")]
-    pub backend: ::core::option::Option<Backend>,
-    /// HTTP configuration.
-    #[prost(message, optional, tag = "9")]
-    pub http: ::core::option::Option<Http>,
-    /// Quota configuration.
-    #[prost(message, optional, tag = "10")]
-    pub quota: ::core::option::Option<Quota>,
-    /// Auth configuration.
-    #[prost(message, optional, tag = "11")]
-    pub authentication: ::core::option::Option<Authentication>,
-    /// Context configuration.
-    #[prost(message, optional, tag = "12")]
-    pub context: ::core::option::Option<Context>,
-    /// Configuration controlling usage of this service.
-    #[prost(message, optional, tag = "15")]
-    pub usage: ::core::option::Option<Usage>,
-    /// Configuration for network endpoints.  If this is empty, then an endpoint
-    /// with the same name as the service is automatically generated to service all
-    /// defined APIs.
-    #[prost(message, repeated, tag = "18")]
-    pub endpoints: ::prost::alloc::vec::Vec<Endpoint>,
-    /// Configuration for the service control plane.
-    #[prost(message, optional, tag = "21")]
-    pub control: ::core::option::Option<Control>,
-    /// Defines the logs used by this service.
-    #[prost(message, repeated, tag = "23")]
-    pub logs: ::prost::alloc::vec::Vec<LogDescriptor>,
-    /// Defines the metrics used by this service.
-    #[prost(message, repeated, tag = "24")]
-    pub metrics: ::prost::alloc::vec::Vec<MetricDescriptor>,
-    /// Defines the monitored resources used by this service. This is required
-    /// by the \[Service.monitoring][google.api.Service.monitoring\] and
-    /// \[Service.logging][google.api.Service.logging\] configurations.
-    #[prost(message, repeated, tag = "25")]
-    pub monitored_resources: ::prost::alloc::vec::Vec<MonitoredResourceDescriptor>,
-    /// Billing configuration.
-    #[prost(message, optional, tag = "26")]
-    pub billing: ::core::option::Option<Billing>,
-    /// Logging configuration.
-    #[prost(message, optional, tag = "27")]
-    pub logging: ::core::option::Option<Logging>,
-    /// Monitoring configuration.
-    #[prost(message, optional, tag = "28")]
-    pub monitoring: ::core::option::Option<Monitoring>,
-    /// System parameter configuration.
-    #[prost(message, optional, tag = "29")]
-    pub system_parameters: ::core::option::Option<SystemParameters>,
-    /// Output only. The source information for this configuration if available.
-    #[prost(message, optional, tag = "37")]
-    pub source_info: ::core::option::Option<SourceInfo>,
-    /// Settings for [Google Cloud Client
-    /// libraries](<https://cloud.google.com/apis/docs/cloud-client-libraries>)
-    /// generated from APIs defined as protocol buffers.
-    #[prost(message, optional, tag = "45")]
-    pub publishing: ::core::option::Option<Publishing>,
-    /// Obsolete. Do not use.
-    ///
-    /// This field has no semantic meaning. The service config compiler always
-    /// sets this field to `3`.
-    #[prost(message, optional, tag = "20")]
-    pub config_version: ::core::option::Option<u32>,
-}
-/// Output generated from semantically comparing two versions of a service
-/// configuration.
-///
-/// Includes detailed information about a field that have changed with
-/// applicable advice about potential consequences for the change, such as
-/// backwards-incompatibility.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ConfigChange {
-    /// Object hierarchy path to the change, with levels separated by a '.'
-    /// character. For repeated fields, an applicable unique identifier field is
-    /// used for the index (usually selector, name, or id). For maps, the term
-    /// 'key' is used. If the field has no unique identifier, the numeric index
-    /// is used.
-    /// Examples:
-    /// - visibility.rules\[selector=="google.LibraryService.ListBooks"\].restriction
-    /// - quota.metric_rules\[selector=="google"].metric_costs[key=="reads"\].value
-    /// - logging.producer_destinations\[0\]
-    #[prost(string, tag = "1")]
-    pub element: ::prost::alloc::string::String,
-    /// Value of the changed object in the old Service configuration,
-    /// in JSON format. This field will not be populated if ChangeType == ADDED.
-    #[prost(string, tag = "2")]
-    pub old_value: ::prost::alloc::string::String,
-    /// Value of the changed object in the new Service configuration,
-    /// in JSON format. This field will not be populated if ChangeType == REMOVED.
-    #[prost(string, tag = "3")]
-    pub new_value: ::prost::alloc::string::String,
-    /// The type for this change, either ADDED, REMOVED, or MODIFIED.
-    #[prost(enumeration = "ChangeType", tag = "4")]
-    pub change_type: i32,
-    /// Collection of advice provided for this change, useful for determining the
-    /// possible impact of this change.
-    #[prost(message, repeated, tag = "5")]
-    pub advices: ::prost::alloc::vec::Vec<Advice>,
-}
-/// Generated advice about this change, used for providing more
-/// information about how a change will affect the existing service.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Advice {
-    /// Useful description for why this advice was applied and what actions should
-    /// be taken to mitigate any implied risks.
-    #[prost(string, tag = "2")]
-    pub description: ::prost::alloc::string::String,
-}
-/// Classifies set of possible modifications to an object in the service
-/// configuration.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum ChangeType {
-    /// No value was provided.
-    Unspecified = 0,
-    /// The changed object exists in the 'new' service configuration, but not
-    /// in the 'old' service configuration.
-    Added = 1,
-    /// The changed object exists in the 'old' service configuration, but not
-    /// in the 'new' service configuration.
-    Removed = 2,
-    /// The changed object exists in both service configurations, but its value
-    /// is different.
-    Modified = 3,
-}
-impl ChangeType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            ChangeType::Unspecified => "CHANGE_TYPE_UNSPECIFIED",
-            ChangeType::Added => "ADDED",
-            ChangeType::Removed => "REMOVED",
-            ChangeType::Modified => "MODIFIED",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "CHANGE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "ADDED" => Some(Self::Added),
-            "REMOVED" => Some(Self::Removed),
-            "MODIFIED" => Some(Self::Modified),
-            _ => None,
-        }
-    }
-}
-/// A descriptor for defining project properties for a service. One service may
-/// have many consumer projects, and the service may want to behave differently
-/// depending on some properties on the project. For example, a project may be
-/// associated with a school, or a business, or a government agency, a business
-/// type property on the project may affect how a service responds to the client.
-/// This descriptor defines which properties are allowed to be set on a project.
-///
-/// Example:
-///
-///     project_properties:
-///       properties:
-///       - name: NO_WATERMARK
-///         type: BOOL
-///         description: Allows usage of the API without watermarks.
-///       - name: EXTENDED_TILE_CACHE_PERIOD
-///         type: INT64
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ProjectProperties {
-    /// List of per consumer project-specific properties.
-    #[prost(message, repeated, tag = "1")]
-    pub properties: ::prost::alloc::vec::Vec<Property>,
-}
-/// Defines project properties.
-///
-/// API services can define properties that can be assigned to consumer projects
-/// so that backends can perform response customization without having to make
-/// additional calls or maintain additional storage. For example, Maps API
-/// defines properties that controls map tile cache period, or whether to embed a
-/// watermark in a result.
-///
-/// These values can be set via API producer console. Only API providers can
-/// define and set these properties.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Property {
-    /// The name of the property (a.k.a key).
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The type of this property.
-    #[prost(enumeration = "property::PropertyType", tag = "2")]
-    pub r#type: i32,
-    /// The description of the property
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `Property`.
-pub mod property {
-    /// Supported data type of the property values
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum PropertyType {
-        /// The type is unspecified, and will result in an error.
-        Unspecified = 0,
-        /// The type is `int64`.
-        Int64 = 1,
-        /// The type is `bool`.
-        Bool = 2,
-        /// The type is `string`.
-        String = 3,
-        /// The type is 'double'.
-        Double = 4,
-    }
-    impl PropertyType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                PropertyType::Unspecified => "UNSPECIFIED",
-                PropertyType::Int64 => "INT64",
-                PropertyType::Bool => "BOOL",
-                PropertyType::String => "STRING",
-                PropertyType::Double => "DOUBLE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UNSPECIFIED" => Some(Self::Unspecified),
-                "INT64" => Some(Self::Int64),
-                "BOOL" => Some(Self::Bool),
-                "STRING" => Some(Self::String),
-                "DOUBLE" => Some(Self::Double),
-                _ => None,
-            }
-        }
-    }
-}
 /// `Visibility` restricts service consumer's access to service elements,
 /// such as whether an application can call a visibility-restricted method.
 /// The restriction is expressed by applying visibility labels on service
@@ -4796,4 +4304,496 @@ pub struct VisibilityRule {
     /// this method and only had access to it through INTERNAL.
     #[prost(string, tag = "2")]
     pub restriction: ::prost::alloc::string::String,
+}
+/// Specifies the routing information that should be sent along with the request
+/// in the form of routing header.
+/// **NOTE:** All service configuration rules follow the "last one wins" order.
+///
+/// The examples below will apply to an RPC which has the following request type:
+///
+/// Message Definition:
+///
+///      message Request {
+///        // The name of the Table
+///        // Values can be of the following formats:
+///        // - `projects/<project>/tables/<table>`
+///        // - `projects/<project>/instances/<instance>/tables/<table>`
+///        // - `region/<region>/zones/<zone>/tables/<table>`
+///        string table_name = 1;
+///
+///        // This value specifies routing for replication.
+///        // It can be in the following formats:
+///        // - `profiles/<profile_id>`
+///        // - a legacy `profile_id` that can be any string
+///        string app_profile_id = 2;
+///      }
+///
+/// Example message:
+///
+///      {
+///        table_name: projects/proj_foo/instances/instance_bar/table/table_baz,
+///        app_profile_id: profiles/prof_qux
+///      }
+///
+/// The routing header consists of one or multiple key-value pairs. Every key
+/// and value must be percent-encoded, and joined together in the format of
+/// `key1=value1&key2=value2`.
+/// In the examples below I am skipping the percent-encoding for readablity.
+///
+/// Example 1
+///
+/// Extracting a field from the request to put into the routing header
+/// unchanged, with the key equal to the field name.
+///
+/// annotation:
+///
+///      option (google.api.routing) = {
+///        // Take the `app_profile_id`.
+///        routing_parameters {
+///          field: "app_profile_id"
+///        }
+///      };
+///
+/// result:
+///
+///      x-goog-request-params: app_profile_id=profiles/prof_qux
+///
+/// Example 2
+///
+/// Extracting a field from the request to put into the routing header
+/// unchanged, with the key different from the field name.
+///
+/// annotation:
+///
+///      option (google.api.routing) = {
+///        // Take the `app_profile_id`, but name it `routing_id` in the header.
+///        routing_parameters {
+///          field: "app_profile_id"
+///          path_template: "{routing_id=**}"
+///        }
+///      };
+///
+/// result:
+///
+///      x-goog-request-params: routing_id=profiles/prof_qux
+///
+/// Example 3
+///
+/// Extracting a field from the request to put into the routing
+/// header, while matching a path template syntax on the field's value.
+///
+/// NB: it is more useful to send nothing than to send garbage for the purpose
+/// of dynamic routing, since garbage pollutes cache. Thus the matching.
+///
+/// Sub-example 3a
+///
+/// The field matches the template.
+///
+/// annotation:
+///
+///      option (google.api.routing) = {
+///        // Take the `table_name`, if it's well-formed (with project-based
+///        // syntax).
+///        routing_parameters {
+///          field: "table_name"
+///          path_template: "{table_name=projects/*/instances/*/**}"
+///        }
+///      };
+///
+/// result:
+///
+///      x-goog-request-params:
+///      table_name=projects/proj_foo/instances/instance_bar/table/table_baz
+///
+/// Sub-example 3b
+///
+/// The field does not match the template.
+///
+/// annotation:
+///
+///      option (google.api.routing) = {
+///        // Take the `table_name`, if it's well-formed (with region-based
+///        // syntax).
+///        routing_parameters {
+///          field: "table_name"
+///          path_template: "{table_name=regions/*/zones/*/**}"
+///        }
+///      };
+///
+/// result:
+///
+///      <no routing header will be sent>
+///
+/// Sub-example 3c
+///
+/// Multiple alternative conflictingly named path templates are
+/// specified. The one that matches is used to construct the header.
+///
+/// annotation:
+///
+///      option (google.api.routing) = {
+///        // Take the `table_name`, if it's well-formed, whether
+///        // using the region- or projects-based syntax.
+///
+///        routing_parameters {
+///          field: "table_name"
+///          path_template: "{table_name=regions/*/zones/*/**}"
+///        }
+///        routing_parameters {
+///          field: "table_name"
+///          path_template: "{table_name=projects/*/instances/*/**}"
+///        }
+///      };
+///
+/// result:
+///
+///      x-goog-request-params:
+///      table_name=projects/proj_foo/instances/instance_bar/table/table_baz
+///
+/// Example 4
+///
+/// Extracting a single routing header key-value pair by matching a
+/// template syntax on (a part of) a single request field.
+///
+/// annotation:
+///
+///      option (google.api.routing) = {
+///        // Take just the project id from the `table_name` field.
+///        routing_parameters {
+///          field: "table_name"
+///          path_template: "{routing_id=projects/*}/**"
+///        }
+///      };
+///
+/// result:
+///
+///      x-goog-request-params: routing_id=projects/proj_foo
+///
+/// Example 5
+///
+/// Extracting a single routing header key-value pair by matching
+/// several conflictingly named path templates on (parts of) a single request
+/// field. The last template to match "wins" the conflict.
+///
+/// annotation:
+///
+///      option (google.api.routing) = {
+///        // If the `table_name` does not have instances information,
+///        // take just the project id for routing.
+///        // Otherwise take project + instance.
+///
+///        routing_parameters {
+///          field: "table_name"
+///          path_template: "{routing_id=projects/*}/**"
+///        }
+///        routing_parameters {
+///          field: "table_name"
+///          path_template: "{routing_id=projects/*/instances/*}/**"
+///        }
+///      };
+///
+/// result:
+///
+///      x-goog-request-params:
+///      routing_id=projects/proj_foo/instances/instance_bar
+///
+/// Example 6
+///
+/// Extracting multiple routing header key-value pairs by matching
+/// several non-conflicting path templates on (parts of) a single request field.
+///
+/// Sub-example 6a
+///
+/// Make the templates strict, so that if the `table_name` does not
+/// have an instance information, nothing is sent.
+///
+/// annotation:
+///
+///      option (google.api.routing) = {
+///        // The routing code needs two keys instead of one composite
+///        // but works only for the tables with the "project-instance" name
+///        // syntax.
+///
+///        routing_parameters {
+///          field: "table_name"
+///          path_template: "{project_id=projects/*}/instances/*/**"
+///        }
+///        routing_parameters {
+///          field: "table_name"
+///          path_template: "projects/*/{instance_id=instances/*}/**"
+///        }
+///      };
+///
+/// result:
+///
+///      x-goog-request-params:
+///      project_id=projects/proj_foo&instance_id=instances/instance_bar
+///
+/// Sub-example 6b
+///
+/// Make the templates loose, so that if the `table_name` does not
+/// have an instance information, just the project id part is sent.
+///
+/// annotation:
+///
+///      option (google.api.routing) = {
+///        // The routing code wants two keys instead of one composite
+///        // but will work with just the `project_id` for tables without
+///        // an instance in the `table_name`.
+///
+///        routing_parameters {
+///          field: "table_name"
+///          path_template: "{project_id=projects/*}/**"
+///        }
+///        routing_parameters {
+///          field: "table_name"
+///          path_template: "projects/*/{instance_id=instances/*}/**"
+///        }
+///      };
+///
+/// result (is the same as 6a for our example message because it has the instance
+/// information):
+///
+///      x-goog-request-params:
+///      project_id=projects/proj_foo&instance_id=instances/instance_bar
+///
+/// Example 7
+///
+/// Extracting multiple routing header key-value pairs by matching
+/// several path templates on multiple request fields.
+///
+/// NB: note that here there is no way to specify sending nothing if one of the
+/// fields does not match its template. E.g. if the `table_name` is in the wrong
+/// format, the `project_id` will not be sent, but the `routing_id` will be.
+/// The backend routing code has to be aware of that and be prepared to not
+/// receive a full complement of keys if it expects multiple.
+///
+/// annotation:
+///
+///      option (google.api.routing) = {
+///        // The routing needs both `project_id` and `routing_id`
+///        // (from the `app_profile_id` field) for routing.
+///
+///        routing_parameters {
+///          field: "table_name"
+///          path_template: "{project_id=projects/*}/**"
+///        }
+///        routing_parameters {
+///          field: "app_profile_id"
+///          path_template: "{routing_id=**}"
+///        }
+///      };
+///
+/// result:
+///
+///      x-goog-request-params:
+///      project_id=projects/proj_foo&routing_id=profiles/prof_qux
+///
+/// Example 8
+///
+/// Extracting a single routing header key-value pair by matching
+/// several conflictingly named path templates on several request fields. The
+/// last template to match "wins" the conflict.
+///
+/// annotation:
+///
+///      option (google.api.routing) = {
+///        // The `routing_id` can be a project id or a region id depending on
+///        // the table name format, but only if the `app_profile_id` is not set.
+///        // If `app_profile_id` is set it should be used instead.
+///
+///        routing_parameters {
+///          field: "table_name"
+///          path_template: "{routing_id=projects/*}/**"
+///        }
+///        routing_parameters {
+///           field: "table_name"
+///           path_template: "{routing_id=regions/*}/**"
+///        }
+///        routing_parameters {
+///          field: "app_profile_id"
+///          path_template: "{routing_id=**}"
+///        }
+///      };
+///
+/// result:
+///
+///      x-goog-request-params: routing_id=profiles/prof_qux
+///
+/// Example 9
+///
+/// Bringing it all together.
+///
+/// annotation:
+///
+///      option (google.api.routing) = {
+///        // For routing both `table_location` and a `routing_id` are needed.
+///        //
+///        // table_location can be either an instance id or a region+zone id.
+///        //
+///        // For `routing_id`, take the value of `app_profile_id`
+///        // - If it's in the format `profiles/<profile_id>`, send
+///        // just the `<profile_id>` part.
+///        // - If it's any other literal, send it as is.
+///        // If the `app_profile_id` is empty, and the `table_name` starts with
+///        // the project_id, send that instead.
+///
+///        routing_parameters {
+///          field: "table_name"
+///          path_template: "projects/*/{table_location=instances/*}/tables/*"
+///        }
+///        routing_parameters {
+///          field: "table_name"
+///          path_template: "{table_location=regions/*/zones/*}/tables/*"
+///        }
+///        routing_parameters {
+///          field: "table_name"
+///          path_template: "{routing_id=projects/*}/**"
+///        }
+///        routing_parameters {
+///          field: "app_profile_id"
+///          path_template: "{routing_id=**}"
+///        }
+///        routing_parameters {
+///          field: "app_profile_id"
+///          path_template: "profiles/{routing_id=*}"
+///        }
+///      };
+///
+/// result:
+///
+///      x-goog-request-params:
+///      table_location=instances/instance_bar&routing_id=prof_qux
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RoutingRule {
+    /// A collection of Routing Parameter specifications.
+    /// **NOTE:** If multiple Routing Parameters describe the same key
+    /// (via the `path_template` field or via the `field` field when
+    /// `path_template` is not provided), "last one wins" rule
+    /// determines which Parameter gets used.
+    /// See the examples for more details.
+    #[prost(message, repeated, tag = "2")]
+    pub routing_parameters: ::prost::alloc::vec::Vec<RoutingParameter>,
+}
+/// A projection from an input message to the GRPC or REST header.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RoutingParameter {
+    /// A request field to extract the header key-value pair from.
+    #[prost(string, tag = "1")]
+    pub field: ::prost::alloc::string::String,
+    /// A pattern matching the key-value field. Optional.
+    /// If not specified, the whole field specified in the `field` field will be
+    /// taken as value, and its name used as key. If specified, it MUST contain
+    /// exactly one named segment (along with any number of unnamed segments) The
+    /// pattern will be matched over the field specified in the `field` field, then
+    /// if the match is successful:
+    /// - the name of the single named segment will be used as a header name,
+    /// - the match value of the segment will be used as a header value;
+    /// if the match is NOT successful, nothing will be sent.
+    ///
+    /// Example:
+    ///
+    ///                -- This is a field in the request message
+    ///               |   that the header value will be extracted from.
+    ///               |
+    ///               |                     -- This is the key name in the
+    ///               |                    |   routing header.
+    ///               V                    |
+    ///      field: "table_name"           v
+    ///      path_template: "projects/*/{table_location=instances/*}/tables/*"
+    ///                                                 ^            ^
+    ///                                                 |            |
+    ///        In the {} brackets is the pattern that --             |
+    ///        specifies what to extract from the                    |
+    ///        field as a value to be sent.                          |
+    ///                                                              |
+    ///       The string in the field must match the whole pattern --
+    ///       before brackets, inside brackets, after brackets.
+    ///
+    /// When looking at this specific example, we can see that:
+    /// - A key-value pair with the key `table_location`
+    ///    and the value matching `instances/*` should be added
+    ///    to the x-goog-request-params routing header.
+    /// - The value is extracted from the request message's `table_name` field
+    ///    if it matches the full pattern specified:
+    ///    `projects/*/instances/*/tables/*`.
+    ///
+    /// **NB:** If the `path_template` field is not provided, the key name is
+    /// equal to the field name, and the whole field should be sent as a value.
+    /// This makes the pattern for the field and the value functionally equivalent
+    /// to `**`, and the configuration
+    ///
+    ///      {
+    ///        field: "table_name"
+    ///      }
+    ///
+    /// is a functionally equivalent shorthand to:
+    ///
+    ///      {
+    ///        field: "table_name"
+    ///        path_template: "{table_name=**}"
+    ///      }
+    ///
+    /// See Example 1 for more details.
+    #[prost(string, tag = "2")]
+    pub path_template: ::prost::alloc::string::String,
+}
+/// Message that represents an arbitrary HTTP body. It should only be used for
+/// payload formats that can't be represented as JSON, such as raw binary or
+/// an HTML page.
+///
+///
+/// This message can be used both in streaming and non-streaming API methods in
+/// the request as well as the response.
+///
+/// It can be used as a top-level request field, which is convenient if one
+/// wants to extract parameters from either the URL or HTTP template into the
+/// request fields and also want access to the raw HTTP body.
+///
+/// Example:
+///
+///      message GetResourceRequest {
+///        // A unique request id.
+///        string request_id = 1;
+///
+///        // The raw HTTP body is bound to this field.
+///        google.api.HttpBody http_body = 2;
+///
+///      }
+///
+///      service ResourceService {
+///        rpc GetResource(GetResourceRequest)
+///          returns (google.api.HttpBody);
+///        rpc UpdateResource(google.api.HttpBody)
+///          returns (google.protobuf.Empty);
+///
+///      }
+///
+/// Example with streaming methods:
+///
+///      service CaldavService {
+///        rpc GetCalendar(stream google.api.HttpBody)
+///          returns (stream google.api.HttpBody);
+///        rpc UpdateCalendar(stream google.api.HttpBody)
+///          returns (stream google.api.HttpBody);
+///
+///      }
+///
+/// Use of this type only changes how the request and response bodies are
+/// handled, all other features will continue to work unchanged.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct HttpBody {
+    /// The HTTP Content-Type header value specifying the content type of the body.
+    #[prost(string, tag = "1")]
+    pub content_type: ::prost::alloc::string::String,
+    /// The HTTP request/response body as raw binary.
+    #[prost(bytes = "bytes", tag = "2")]
+    pub data: ::prost::bytes::Bytes,
+    /// Application specific response metadata. Must be set in the first response
+    /// for streaming APIs.
+    #[prost(message, repeated, tag = "3")]
+    pub extensions: ::prost::alloc::vec::Vec<::prost_types::Any>,
 }
