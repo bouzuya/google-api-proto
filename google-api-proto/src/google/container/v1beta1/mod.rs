@@ -414,6 +414,11 @@ pub struct NodeConfig {
     /// Google Compute Engine hosts.
     #[prost(message, optional, tag = "44")]
     pub host_maintenance_policy: ::core::option::Option<HostMaintenancePolicy>,
+    /// Optional. Enable confidential storage on Hyperdisk.
+    /// boot_disk_kms_key is required when enable_confidential_storage is true.
+    /// This is only available for private preview.
+    #[prost(bool, tag = "46")]
+    pub enable_confidential_storage: bool,
 }
 /// Specifies options for controlling advanced machine features.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2345,7 +2350,9 @@ pub struct Cluster {
     /// in autopilot clusters and node auto-provisioning enabled clusters.
     #[prost(message, optional, tag = "136")]
     pub node_pool_auto_config: ::core::option::Option<NodePoolAutoConfig>,
+    /// Deprecated: Use SecurityPostureConfig instead.
     /// Enable/Disable Protect API features for the cluster.
+    #[deprecated]
     #[prost(message, optional, tag = "137")]
     pub protect_config: ::core::option::Option<ProtectConfig>,
     /// This checksum is computed by the server based on the value of cluster
@@ -2647,6 +2654,9 @@ pub mod security_posture_config {
         VulnerabilityDisabled = 1,
         /// Applies basic vulnerability scanning on the cluster.
         VulnerabilityBasic = 2,
+        /// Applies the Security Posture's vulnerability on cluster Enterprise level
+        /// features.
+        VulnerabilityEnterprise = 3,
     }
     impl VulnerabilityMode {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -2658,6 +2668,7 @@ pub mod security_posture_config {
                 VulnerabilityMode::Unspecified => "VULNERABILITY_MODE_UNSPECIFIED",
                 VulnerabilityMode::VulnerabilityDisabled => "VULNERABILITY_DISABLED",
                 VulnerabilityMode::VulnerabilityBasic => "VULNERABILITY_BASIC",
+                VulnerabilityMode::VulnerabilityEnterprise => "VULNERABILITY_ENTERPRISE",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -2666,6 +2677,7 @@ pub mod security_posture_config {
                 "VULNERABILITY_MODE_UNSPECIFIED" => Some(Self::Unspecified),
                 "VULNERABILITY_DISABLED" => Some(Self::VulnerabilityDisabled),
                 "VULNERABILITY_BASIC" => Some(Self::VulnerabilityBasic),
+                "VULNERABILITY_ENTERPRISE" => Some(Self::VulnerabilityEnterprise),
                 _ => None,
             }
         }
@@ -2909,7 +2921,9 @@ pub struct ClusterUpdate {
     /// in autopilot clusters and node auto-provisioning enabled clusters.
     #[prost(message, optional, tag = "110")]
     pub desired_node_pool_auto_config_network_tags: ::core::option::Option<NetworkTags>,
+    /// Deprecated: Use DesiredSecurityPostureConfig instead.
     /// Enable/Disable Protect API features for the cluster.
+    #[deprecated]
     #[prost(message, optional, tag = "112")]
     pub desired_protect_config: ::core::option::Option<ProtectConfig>,
     /// The desired config of Gateway API on this cluster.
