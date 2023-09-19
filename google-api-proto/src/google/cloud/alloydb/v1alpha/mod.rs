@@ -530,8 +530,9 @@ pub struct Cluster {
     /// Required. The resource link for the VPC network in which cluster resources
     /// are created and from which they are accessible via Private IP. The network
     /// must belong to the same project as the cluster. It is specified in the
-    /// form: "projects/{project_number}/global/networks/{network_id}". This is
-    /// required to create a cluster. It can be updated, but it cannot be removed.
+    /// form: "projects/{project}/global/networks/{network_id}". This is required
+    /// to create a cluster. Deprecated, use network_config.network instead.
+    #[deprecated]
     #[prost(string, tag = "10")]
     pub network: ::prost::alloc::string::String,
     /// For Resource freshness validation (<https://google.aip.dev/154>)
@@ -610,12 +611,11 @@ pub mod cluster {
         /// The network must belong to the same project as the cluster. It is
         /// specified in the form:
         /// "projects/{project_number}/global/networks/{network_id}". This is
-        /// required to create a cluster. It can be updated, but it cannot be
-        /// removed.
+        /// required to create a cluster.
         #[prost(string, tag = "1")]
         pub network: ::prost::alloc::string::String,
-        /// Optional. The name of the allocated IP range for the private IP AlloyDB
-        /// cluster. For example: "google-managed-services-default". If set, the
+        /// Optional. Name of the allocated IP range for the private IP AlloyDB
+        /// cluster, for example: "google-managed-services-default". If set, the
         /// instance IPs for this cluster will be created in the allocated range. The
         /// range name must comply with RFC 1035. Specifically, the name must be 1-63
         /// characters long and match the regular expression
@@ -910,6 +910,11 @@ pub struct Instance {
     /// specify explicitly specify the value in each update request.
     #[prost(message, optional, tag = "22")]
     pub update_policy: ::core::option::Option<instance::UpdatePolicy>,
+    /// Optional. Client connection specific configurations
+    #[prost(message, optional, tag = "23")]
+    pub client_connection_config: ::core::option::Option<
+        instance::ClientConnectionConfig,
+    >,
     /// Reserved for future use.
     #[prost(bool, tag = "24")]
     pub satisfies_pzs: bool,
@@ -1030,6 +1035,18 @@ pub mod instance {
                 }
             }
         }
+    }
+    /// Client connection configuration
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ClientConnectionConfig {
+        /// Optional. Configuration to enforce connectors only (ex: AuthProxy)
+        /// connections to the database.
+        #[prost(bool, tag = "1")]
+        pub require_connectors: bool,
+        /// Optional. SSL config option for this instance.
+        #[prost(message, optional, tag = "2")]
+        pub ssl_config: ::core::option::Option<super::SslConfig>,
     }
     /// Instance State
     #[derive(
@@ -1215,8 +1232,9 @@ pub struct ConnectionInfo {
     /// This field currently has no semantic meaning.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Output only. The IP address for the Instance.
-    /// This is the connection endpoint for an end-user application.
+    /// Output only. The private network IP address for the Instance. This is the
+    /// default IP for the instance and is always created (even if enable_public_ip
+    /// is set). This is the connection endpoint for an end-user application.
     #[prost(string, tag = "2")]
     pub ip_address: ::prost::alloc::string::String,
     /// Output only. The pem-encoded chain that may be used to verify the X.509
@@ -1324,6 +1342,11 @@ pub struct Backup {
     /// Reserved for future use.
     #[prost(bool, tag = "21")]
     pub satisfies_pzs: bool,
+    /// Output only. The database engine major version of the cluster this backup
+    /// was created from. Any restored cluster created from this backup will have
+    /// the same database version.
+    #[prost(enumeration = "DatabaseVersion", tag = "22")]
+    pub database_version: i32,
 }
 /// Nested message and enum types in `Backup`.
 pub mod backup {
@@ -1728,6 +1751,8 @@ pub enum DatabaseVersion {
     Postgres13 = 1,
     /// The database version is Postgres 14.
     Postgres14 = 2,
+    /// The database version is Postgres 15.
+    Postgres15 = 3,
 }
 impl DatabaseVersion {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -1739,6 +1764,7 @@ impl DatabaseVersion {
             DatabaseVersion::Unspecified => "DATABASE_VERSION_UNSPECIFIED",
             DatabaseVersion::Postgres13 => "POSTGRES_13",
             DatabaseVersion::Postgres14 => "POSTGRES_14",
+            DatabaseVersion::Postgres15 => "POSTGRES_15",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1747,6 +1773,7 @@ impl DatabaseVersion {
             "DATABASE_VERSION_UNSPECIFIED" => Some(Self::Unspecified),
             "POSTGRES_13" => Some(Self::Postgres13),
             "POSTGRES_14" => Some(Self::Postgres14),
+            "POSTGRES_15" => Some(Self::Postgres15),
             _ => None,
         }
     }
