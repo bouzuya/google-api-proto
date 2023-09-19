@@ -408,9 +408,9 @@ pub struct ContinuousBackupConfig {
     /// Whether ContinuousBackup is enabled.
     #[prost(bool, optional, tag = "1")]
     pub enabled: ::core::option::Option<bool>,
-    /// The number of days backups and logs will be retained, which determines the
-    /// window of time that data is recoverable for. If not set, it defaults to 14
-    /// days.
+    /// The number of days that are eligible to restore from using PITR. To support
+    /// the entire recovery window, backups and logs are retained for one day more
+    /// than the recovery window. If not set, defaults to 14 days.
     #[prost(int32, tag = "4")]
     pub recovery_window_days: i32,
     /// The encryption config can be specified to encrypt the
@@ -519,9 +519,10 @@ pub struct Cluster {
     /// the cluster (i.e. `CreateCluster` vs. `CreateSecondaryCluster`
     #[prost(enumeration = "cluster::ClusterType", tag = "24")]
     pub cluster_type: i32,
-    /// Output only. The database engine major version. This is an output-only
-    /// field and it's populated at the Cluster creation time. This field cannot be
-    /// changed after cluster creation.
+    /// Optional. The database engine major version. This is an optional field and
+    /// it is populated at the Cluster creation time. If a database version is not
+    /// supplied at cluster creation time, then a default database version will
+    /// be used.
     #[prost(enumeration = "DatabaseVersion", tag = "9")]
     pub database_version: i32,
     #[prost(message, optional, tag = "29")]
@@ -529,8 +530,9 @@ pub struct Cluster {
     /// Required. The resource link for the VPC network in which cluster resources
     /// are created and from which they are accessible via Private IP. The network
     /// must belong to the same project as the cluster. It is specified in the
-    /// form: "projects/{project_number}/global/networks/{network_id}". This is
-    /// required to create a cluster. It can be updated, but it cannot be removed.
+    /// form: "projects/{project}/global/networks/{network_id}". This is required
+    /// to create a cluster. Deprecated, use network_config.network instead.
+    #[deprecated]
     #[prost(string, tag = "10")]
     pub network: ::prost::alloc::string::String,
     /// For Resource freshness validation (<https://google.aip.dev/154>)
@@ -606,12 +608,11 @@ pub mod cluster {
         /// The network must belong to the same project as the cluster. It is
         /// specified in the form:
         /// "projects/{project_number}/global/networks/{network_id}". This is
-        /// required to create a cluster. It can be updated, but it cannot be
-        /// removed.
+        /// required to create a cluster.
         #[prost(string, tag = "1")]
         pub network: ::prost::alloc::string::String,
-        /// Optional. The name of the allocated IP range for the private IP AlloyDB
-        /// cluster. For example: "google-managed-services-default". If set, the
+        /// Optional. Name of the allocated IP range for the private IP AlloyDB
+        /// cluster, for example: "google-managed-services-default". If set, the
         /// instance IPs for this cluster will be created in the allocated range. The
         /// range name must comply with RFC 1035. Specifically, the name must be 1-63
         /// characters long and match the regular expression
@@ -906,6 +907,11 @@ pub struct Instance {
     /// specify explicitly specify the value in each update request.
     #[prost(message, optional, tag = "22")]
     pub update_policy: ::core::option::Option<instance::UpdatePolicy>,
+    /// Optional. Client connection specific configurations
+    #[prost(message, optional, tag = "23")]
+    pub client_connection_config: ::core::option::Option<
+        instance::ClientConnectionConfig,
+    >,
 }
 /// Nested message and enum types in `Instance`.
 pub mod instance {
@@ -1023,6 +1029,18 @@ pub mod instance {
                 }
             }
         }
+    }
+    /// Client connection configuration
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ClientConnectionConfig {
+        /// Optional. Configuration to enforce connectors only (ex: AuthProxy)
+        /// connections to the database.
+        #[prost(bool, tag = "1")]
+        pub require_connectors: bool,
+        /// Optional. SSL config option for this instance.
+        #[prost(message, optional, tag = "2")]
+        pub ssl_config: ::core::option::Option<super::SslConfig>,
     }
     /// Instance State
     #[derive(
@@ -1208,8 +1226,9 @@ pub struct ConnectionInfo {
     /// This field currently has no semantic meaning.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Output only. The IP address for the Instance.
-    /// This is the connection endpoint for an end-user application.
+    /// Output only. The private network IP address for the Instance. This is the
+    /// default IP for the instance and is always created (even if enable_public_ip
+    /// is set). This is the connection endpoint for an end-user application.
     #[prost(string, tag = "2")]
     pub ip_address: ::prost::alloc::string::String,
     /// Output only. The pem-encoded chain that may be used to verify the X.509
@@ -1309,9 +1328,44 @@ pub struct Backup {
     /// added to the backup's create_time.
     #[prost(message, optional, tag = "19")]
     pub expiry_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The QuantityBasedExpiry of the backup, specified by the
+    /// backup's retention policy. Once the expiry quantity is over retention, the
+    /// backup is eligible to be garbage collected.
+    #[prost(message, optional, tag = "20")]
+    pub expiry_quantity: ::core::option::Option<backup::QuantityBasedExpiry>,
+    /// Output only. The database engine major version of the cluster this backup
+    /// was created from. Any restored cluster created from this backup will have
+    /// the same database version.
+    #[prost(enumeration = "DatabaseVersion", tag = "22")]
+    pub database_version: i32,
 }
 /// Nested message and enum types in `Backup`.
 pub mod backup {
+    /// A backup's position in a quantity-based retention queue, of backups with
+    /// the same source cluster and type, with length, retention, specified by the
+    /// backup's retention policy.
+    /// Once the position is greater than the retention, the backup is eligible to
+    /// be garbage collected.
+    ///
+    /// Example: 5 backups from the same source cluster and type with a
+    /// quantity-based retention of 3 and denoted by backup_id (position,
+    /// retention).
+    ///
+    /// Safe: backup_5 (1, 3), backup_4, (2, 3), backup_3 (3, 3).
+    /// Awaiting garbage collection: backup_2 (4, 3), backup_1 (5, 3)
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct QuantityBasedExpiry {
+        /// Output only. The backup's position among its backups with the same source
+        /// cluster and type, by descending chronological order create time(i.e.
+        /// newest first).
+        #[prost(int32, tag = "1")]
+        pub retention_count: i32,
+        /// Output only. The length of the quantity-based queue, specified by the
+        /// backup's retention policy.
+        #[prost(int32, tag = "2")]
+        pub total_retention_count: i32,
+    }
     /// Backup State
     #[derive(
         Clone,
@@ -1688,6 +1742,8 @@ pub enum DatabaseVersion {
     Postgres13 = 1,
     /// The database version is Postgres 14.
     Postgres14 = 2,
+    /// The database version is Postgres 15.
+    Postgres15 = 3,
 }
 impl DatabaseVersion {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -1699,6 +1755,7 @@ impl DatabaseVersion {
             DatabaseVersion::Unspecified => "DATABASE_VERSION_UNSPECIFIED",
             DatabaseVersion::Postgres13 => "POSTGRES_13",
             DatabaseVersion::Postgres14 => "POSTGRES_14",
+            DatabaseVersion::Postgres15 => "POSTGRES_15",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1707,6 +1764,7 @@ impl DatabaseVersion {
             "DATABASE_VERSION_UNSPECIFIED" => Some(Self::Unspecified),
             "POSTGRES_13" => Some(Self::Postgres13),
             "POSTGRES_14" => Some(Self::Postgres14),
+            "POSTGRES_15" => Some(Self::Postgres15),
             _ => None,
         }
     }
@@ -2708,6 +2766,11 @@ pub struct GenerateClientCertificateRequest {
     /// Optional. The public key from the client.
     #[prost(string, tag = "5")]
     pub public_key: ::prost::alloc::string::String,
+    /// Optional. An optional hint to the endpoint to generate a client
+    /// ceritificate that can be used by AlloyDB connectors to exchange additional
+    /// metadata with the server after TLS handshake.
+    #[prost(bool, tag = "6")]
+    pub use_metadata_exchange: bool,
 }
 /// Message returned by a GenerateClientCertificate operation.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -3764,10 +3827,10 @@ pub mod alloy_db_admin_client {
             self.inner.unary(req, path, codec).await
         }
         /// Generate a client certificate signed by a Cluster CA.
-        /// The sole purpose of this endpoint is to support the Auth Proxy client and
-        /// the endpoint's behavior is subject to change without notice, so do not rely
-        /// on its behavior remaining constant. Future changes will not break the Auth
-        /// Proxy client.
+        /// The sole purpose of this endpoint is to support AlloyDB connectors and the
+        /// Auth Proxy client. The endpoint's behavior is subject to change without
+        /// notice, so do not rely on its behavior remaining constant. Future changes
+        /// will not break AlloyDB connectors or the Auth Proxy client.
         pub async fn generate_client_certificate(
             &mut self,
             request: impl tonic::IntoRequest<super::GenerateClientCertificateRequest>,

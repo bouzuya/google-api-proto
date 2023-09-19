@@ -403,6 +403,31 @@ pub struct IngestPipelineConfig {
     /// `projects/{project}/locations/{location}/documents/{folder_id}`
     #[prost(string, tag = "3")]
     pub folder: ::prost::alloc::string::String,
+    /// The Cloud Function resource name. The Cloud Function needs to live inside
+    /// consumer project and is accessible to Document AI Warehouse P4SA.
+    /// Only Cloud Functions V2 is supported. Cloud function execution should
+    /// complete within 5 minutes or this file ingestion may fail due to timeout.
+    /// Format: `<https://{region}-{project_id}.cloudfunctions.net/{cloud_function}`>
+    /// The following keys are available the request json payload.
+    /// * display_name
+    /// * properties
+    /// * plain_text
+    /// * reference_id
+    /// * document_schema_name
+    /// * raw_document_path
+    /// * raw_document_file_type
+    ///
+    /// The following keys from the cloud function json response payload will be
+    /// ingested to the Document AI Warehouse as part of Document proto content
+    /// and/or related information. The original values will be overridden if any
+    /// key is present in the response.
+    /// * display_name
+    /// * properties
+    /// * plain_text
+    /// * document_acl_policy
+    /// * folder
+    #[prost(string, tag = "4")]
+    pub cloud_function: ::prost::alloc::string::String,
 }
 /// The configuration of the Cloud Storage Ingestion pipeline.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -3164,6 +3189,8 @@ pub mod file_type_filter {
         Folder = 2,
         /// Returns only non-folder documents.
         Document = 3,
+        /// Returns only root folders
+        RootFolder = 4,
     }
     impl FileType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -3176,6 +3203,7 @@ pub mod file_type_filter {
                 FileType::All => "ALL",
                 FileType::Folder => "FOLDER",
                 FileType::Document => "DOCUMENT",
+                FileType::RootFolder => "ROOT_FOLDER",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -3185,6 +3213,7 @@ pub mod file_type_filter {
                 "ALL" => Some(Self::All),
                 "FOLDER" => Some(Self::Folder),
                 "DOCUMENT" => Some(Self::Document),
+                "ROOT_FOLDER" => Some(Self::RootFolder),
                 _ => None,
             }
         }

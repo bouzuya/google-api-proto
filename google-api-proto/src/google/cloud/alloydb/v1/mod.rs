@@ -408,9 +408,9 @@ pub struct ContinuousBackupConfig {
     /// Whether ContinuousBackup is enabled.
     #[prost(bool, optional, tag = "1")]
     pub enabled: ::core::option::Option<bool>,
-    /// The number of days backups and logs will be retained, which determines the
-    /// window of time that data is recoverable for. If not set, it defaults to 14
-    /// days.
+    /// The number of days that are eligible to restore from using PITR. To support
+    /// the entire recovery window, backups and logs are retained for one day more
+    /// than the recovery window. If not set, defaults to 14 days.
     #[prost(int32, tag = "4")]
     pub recovery_window_days: i32,
     /// The encryption config can be specified to encrypt the
@@ -519,16 +519,20 @@ pub struct Cluster {
     /// the cluster (i.e. `CreateCluster` vs. `CreateSecondaryCluster`
     #[prost(enumeration = "cluster::ClusterType", tag = "24")]
     pub cluster_type: i32,
-    /// Output only. The database engine major version. This is an output-only
-    /// field and it's populated at the Cluster creation time. This field cannot be
-    /// changed after cluster creation.
+    /// Optional. The database engine major version. This is an optional field and
+    /// it is populated at the Cluster creation time. If a database version is not
+    /// supplied at cluster creation time, then a default database version will
+    /// be used.
     #[prost(enumeration = "DatabaseVersion", tag = "9")]
     pub database_version: i32,
+    #[prost(message, optional, tag = "29")]
+    pub network_config: ::core::option::Option<cluster::NetworkConfig>,
     /// Required. The resource link for the VPC network in which cluster resources
     /// are created and from which they are accessible via Private IP. The network
     /// must belong to the same project as the cluster. It is specified in the
-    /// form: "projects/{project_number}/global/networks/{network_id}". This is
-    /// required to create a cluster. It can be updated, but it cannot be removed.
+    /// form: "projects/{project}/global/networks/{network_id}". This is required
+    /// to create a cluster. Deprecated, use network_config.network instead.
+    #[deprecated]
     #[prost(string, tag = "10")]
     pub network: ::prost::alloc::string::String,
     /// For Resource freshness validation (<https://google.aip.dev/154>)
@@ -595,6 +599,28 @@ pub struct Cluster {
 }
 /// Nested message and enum types in `Cluster`.
 pub mod cluster {
+    /// Metadata related to network configuration.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct NetworkConfig {
+        /// Required. The resource link for the VPC network in which cluster
+        /// resources are created and from which they are accessible via Private IP.
+        /// The network must belong to the same project as the cluster. It is
+        /// specified in the form:
+        /// "projects/{project_number}/global/networks/{network_id}". This is
+        /// required to create a cluster.
+        #[prost(string, tag = "1")]
+        pub network: ::prost::alloc::string::String,
+        /// Optional. Name of the allocated IP range for the private IP AlloyDB
+        /// cluster, for example: "google-managed-services-default". If set, the
+        /// instance IPs for this cluster will be created in the allocated range. The
+        /// range name must comply with RFC 1035. Specifically, the name must be 1-63
+        /// characters long and match the regular expression
+        /// \[a-z]([-a-z0-9]*[a-z0-9\])?.
+        /// Field name is intended to be consistent with CloudSQL.
+        #[prost(string, tag = "2")]
+        pub allocated_ip_range: ::prost::alloc::string::String,
+    }
     /// Configuration information for the secondary cluster. This should be set
     /// if and only if the cluster is of type SECONDARY.
     #[allow(clippy::derive_partial_eq_without_eq)]
@@ -875,6 +901,11 @@ pub struct Instance {
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
+    /// Optional. Client connection specific configurations
+    #[prost(message, optional, tag = "23")]
+    pub client_connection_config: ::core::option::Option<
+        instance::ClientConnectionConfig,
+    >,
 }
 /// Nested message and enum types in `Instance`.
 pub mod instance {
@@ -937,6 +968,18 @@ pub mod instance {
         /// Read capacity, i.e. number of nodes in a read pool instance.
         #[prost(int32, tag = "1")]
         pub node_count: i32,
+    }
+    /// Client connection configuration
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ClientConnectionConfig {
+        /// Optional. Configuration to enforce connectors only (ex: AuthProxy)
+        /// connections to the database.
+        #[prost(bool, tag = "1")]
+        pub require_connectors: bool,
+        /// Optional. SSL config option for this instance.
+        #[prost(message, optional, tag = "2")]
+        pub ssl_config: ::core::option::Option<super::SslConfig>,
     }
     /// Instance State
     #[derive(
@@ -1200,9 +1243,44 @@ pub struct Backup {
     /// added to the backup's create_time.
     #[prost(message, optional, tag = "19")]
     pub expiry_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The QuantityBasedExpiry of the backup, specified by the
+    /// backup's retention policy. Once the expiry quantity is over retention, the
+    /// backup is eligible to be garbage collected.
+    #[prost(message, optional, tag = "20")]
+    pub expiry_quantity: ::core::option::Option<backup::QuantityBasedExpiry>,
+    /// Output only. The database engine major version of the cluster this backup
+    /// was created from. Any restored cluster created from this backup will have
+    /// the same database version.
+    #[prost(enumeration = "DatabaseVersion", tag = "22")]
+    pub database_version: i32,
 }
 /// Nested message and enum types in `Backup`.
 pub mod backup {
+    /// A backup's position in a quantity-based retention queue, of backups with
+    /// the same source cluster and type, with length, retention, specified by the
+    /// backup's retention policy.
+    /// Once the position is greater than the retention, the backup is eligible to
+    /// be garbage collected.
+    ///
+    /// Example: 5 backups from the same source cluster and type with a
+    /// quantity-based retention of 3 and denoted by backup_id (position,
+    /// retention).
+    ///
+    /// Safe: backup_5 (1, 3), backup_4, (2, 3), backup_3 (3, 3).
+    /// Awaiting garbage collection: backup_2 (4, 3), backup_1 (5, 3)
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct QuantityBasedExpiry {
+        /// Output only. The backup's position among its backups with the same source
+        /// cluster and type, by descending chronological order create time(i.e.
+        /// newest first).
+        #[prost(int32, tag = "1")]
+        pub retention_count: i32,
+        /// Output only. The length of the quantity-based queue, specified by the
+        /// backup's retention policy.
+        #[prost(int32, tag = "2")]
+        pub total_retention_count: i32,
+    }
     /// Backup State
     #[derive(
         Clone,
