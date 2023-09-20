@@ -723,6 +723,16 @@ pub mod queued_resource_state {
         /// The resources specified in the QueuedResource request have been
         /// deleted.
         Suspended = 8,
+        /// The QueuedResource request has passed initial validation and has been
+        /// persisted in the queue. It will remain in this state until there are
+        /// sufficient free resources to begin provisioning your request. Wait times
+        /// will vary significantly depending on demand levels. When demand is high,
+        /// not all requests can be immediately provisioned. If you
+        /// need more reliable obtainability of TPUs consider purchasing a
+        /// reservation. To put a limit on how long you are willing to wait, use
+        /// [timing
+        /// constraints](<https://cloud.google.com/tpu/docs/queued-resources#request_a_queued_resource_before_a_specified_time>).
+        WaitingForResources = 9,
     }
     impl State {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -740,6 +750,7 @@ pub mod queued_resource_state {
                 State::Active => "ACTIVE",
                 State::Suspending => "SUSPENDING",
                 State::Suspended => "SUSPENDED",
+                State::WaitingForResources => "WAITING_FOR_RESOURCES",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -754,6 +765,7 @@ pub mod queued_resource_state {
                 "ACTIVE" => Some(Self::Active),
                 "SUSPENDING" => Some(Self::Suspending),
                 "SUSPENDED" => Some(Self::Suspended),
+                "WAITING_FOR_RESOURCES" => Some(Self::WaitingForResources),
                 _ => None,
             }
         }
