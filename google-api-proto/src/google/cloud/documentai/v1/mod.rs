@@ -1562,6 +1562,13 @@ pub struct RawDocument {
     /// \[content][google.cloud.documentai.v1.RawDocument.content\].
     #[prost(string, tag = "2")]
     pub mime_type: ::prost::alloc::string::String,
+    /// The display name of the document, it supports all Unicode characters except
+    /// the following:
+    /// `*`, `?`, `[`, `]`, `%`, `{`, `}`,`'`, `\"`, `,`
+    /// `~`, `=` and `:` are reserved.
+    /// If not specified, a default ID will be generated.
+    #[prost(string, tag = "3")]
+    pub display_name: ::prost::alloc::string::String,
 }
 /// Specifies a document stored on Cloud Storage.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1691,6 +1698,8 @@ pub struct OcrConfig {
     #[prost(bool, tag = "6")]
     pub enable_symbol: bool,
     /// Turn on font id model and returns font style information.
+    /// Use PremiumFeatures.compute_style_info instead.
+    #[deprecated]
     #[prost(bool, tag = "8")]
     pub compute_style_info: bool,
 }
@@ -2030,6 +2039,17 @@ pub mod processor_version {
         }
     }
 }
+/// Contains the alias and the aliased resource name of processor version.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProcessorVersionAlias {
+    /// The alias in the form of `processor_version` resource name.
+    #[prost(string, tag = "1")]
+    pub alias: ::prost::alloc::string::String,
+    /// The resource name of aliased processor version.
+    #[prost(string, tag = "2")]
+    pub processor_version: ::prost::alloc::string::String,
+}
 /// The first-class citizen for Document AI. Each processor defines how to
 /// extract structural information from a document.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2053,6 +2073,9 @@ pub struct Processor {
     /// The default processor version.
     #[prost(string, tag = "9")]
     pub default_processor_version: ::prost::alloc::string::String,
+    /// Output only. The processor version aliases.
+    #[prost(message, repeated, tag = "10")]
+    pub processor_version_aliases: ::prost::alloc::vec::Vec<ProcessorVersionAlias>,
     /// Output only. Immutable. The http endpoint that can be called to invoke
     /// processing.
     #[prost(string, tag = "6")]
@@ -2880,8 +2903,8 @@ pub mod train_processor_version_request {
     }
     /// Nested message and enum types in `CustomDocumentExtractionOptions`.
     pub mod custom_document_extraction_options {
-        /// Training Method for CDE. TRAINING_METHOD_UNSPECIFIED will fallback to
-        /// MODEL_BASED.
+        /// Training Method for CDE. `TRAINING_METHOD_UNSPECIFIED` will fall back to
+        /// `MODEL_BASED`.
         #[derive(
             Clone,
             Copy,
