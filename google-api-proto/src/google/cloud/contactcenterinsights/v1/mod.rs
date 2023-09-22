@@ -1252,6 +1252,10 @@ pub struct Settings {
     /// conversations.
     #[prost(message, optional, tag = "10")]
     pub redaction_config: ::core::option::Option<RedactionConfig>,
+    /// Optional. Default Speech-to-Text resources to be used while ingesting audio
+    /// files. Optional, CCAI Insights will create a default if not provided.
+    #[prost(message, optional, tag = "11")]
+    pub speech_config: ::core::option::Option<SpeechConfig>,
 }
 /// Nested message and enum types in `Settings`.
 pub mod settings {
@@ -1287,6 +1291,16 @@ pub struct RedactionConfig {
     /// `projects/{project}/locations/{location}/inspectTemplates/{template}`
     #[prost(string, tag = "2")]
     pub inspect_template: ::prost::alloc::string::String,
+}
+/// Speech-to-Text configuration.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SpeechConfig {
+    /// The fully-qualified Speech Recognizer resource name.
+    /// Format:
+    /// `projects/{project_id}/locations/{location}/recognizer/{recognizer}`
+    #[prost(string, tag = "1")]
+    pub speech_recognizer: ::prost::alloc::string::String,
 }
 /// An annotation that was generated during the customer and agent interaction.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1947,6 +1961,10 @@ pub struct UploadConversationRequest {
     /// the config specified in Settings.
     #[prost(message, optional, tag = "4")]
     pub redaction_config: ::core::option::Option<RedactionConfig>,
+    /// Optional. Default Speech-to-Text configuration. Optional, will default to
+    /// the config specified in Settings.
+    #[prost(message, optional, tag = "11")]
+    pub speech_config: ::core::option::Option<SpeechConfig>,
 }
 /// The metadata for an UploadConversation operation.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2097,7 +2115,8 @@ pub mod ingest_conversations_request {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Source {
-        /// A cloud storage bucket source.
+        /// A cloud storage bucket source. Note that any previously ingested objects
+        /// from the source will be skipped to avoid duplication.
         #[prost(message, tag = "2")]
         GcsSource(GcsSource),
     }
