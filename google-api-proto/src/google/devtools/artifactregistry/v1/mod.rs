@@ -812,7 +812,8 @@ pub mod repository {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListRepositoriesRequest {
-    /// Required. The name of the parent resource whose repositories will be listed.
+    /// Required. The name of the parent resource whose repositories will be
+    /// listed.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// The maximum number of repositories to return. Maximum page size is 1,000.
@@ -846,7 +847,8 @@ pub struct GetRepositoryRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateRepositoryRequest {
-    /// Required. The name of the parent resource where the repository will be created.
+    /// Required. The name of the parent resource where the repository will be
+    /// created.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// The repository id to use for this repository.

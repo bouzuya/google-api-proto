@@ -2213,6 +2213,49 @@ pub struct RollbackRequest {
     #[prost(bytes = "bytes", tag = "2")]
     pub transaction_id: ::prost::bytes::Bytes,
 }
+/// The request for \[BatchWrite][google.spanner.v1.Spanner.BatchWrite\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchWriteRequest {
+    /// Required. The session in which the batch request is to be run.
+    #[prost(string, tag = "1")]
+    pub session: ::prost::alloc::string::String,
+    /// Common options for this request.
+    #[prost(message, optional, tag = "3")]
+    pub request_options: ::core::option::Option<RequestOptions>,
+    /// Required. The groups of mutations to be applied.
+    #[prost(message, repeated, tag = "4")]
+    pub mutation_groups: ::prost::alloc::vec::Vec<batch_write_request::MutationGroup>,
+}
+/// Nested message and enum types in `BatchWriteRequest`.
+pub mod batch_write_request {
+    /// A group of mutations to be committed together. Related mutations should be
+    /// placed in a group. For example, two mutations inserting rows with the same
+    /// primary key prefix in both parent and child tables are related.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct MutationGroup {
+        /// Required. The mutations in this group.
+        #[prost(message, repeated, tag = "1")]
+        pub mutations: ::prost::alloc::vec::Vec<super::Mutation>,
+    }
+}
+/// The result of applying a batch of mutations.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchWriteResponse {
+    /// The mutation groups applied in this batch. The values index into the
+    /// `mutation_groups` field in the corresponding `BatchWriteRequest`.
+    #[prost(int32, repeated, tag = "1")]
+    pub indexes: ::prost::alloc::vec::Vec<i32>,
+    /// An `OK` status indicates success. Any other status indicates a failure.
+    #[prost(message, optional, tag = "2")]
+    pub status: ::core::option::Option<super::super::rpc::Status>,
+    /// The commit timestamp of the transaction that applied this batch.
+    /// Present if `status` is `OK`, absent otherwise.
+    #[prost(message, optional, tag = "3")]
+    pub commit_timestamp: ::core::option::Option<::prost_types::Timestamp>,
+}
 /// Generated client implementations.
 pub mod spanner_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
@@ -2772,6 +2815,46 @@ pub mod spanner_client {
             req.extensions_mut()
                 .insert(GrpcMethod::new("google.spanner.v1.Spanner", "PartitionRead"));
             self.inner.unary(req, path, codec).await
+        }
+        /// Batches the supplied mutation groups in a collection of efficient
+        /// transactions. All mutations in a group are committed atomically. However,
+        /// mutations across groups can be committed non-atomically in an unspecified
+        /// order and thus, they must be independent of each other. Partial failure is
+        /// possible, i.e., some groups may have been committed successfully, while
+        /// some may have failed. The results of individual batches are streamed into
+        /// the response as the batches are applied.
+        ///
+        /// BatchWrite requests are not replay protected, meaning that each mutation
+        /// group may be applied more than once. Replays of non-idempotent mutations
+        /// may have undesirable effects. For example, replays of an insert mutation
+        /// may produce an already exists error or if you use generated or commit
+        /// timestamp-based keys, it may result in additional rows being added to the
+        /// mutation's table. We recommend structuring your mutation groups to be
+        /// idempotent to avoid this issue.
+        pub async fn batch_write(
+            &mut self,
+            request: impl tonic::IntoRequest<super::BatchWriteRequest>,
+        ) -> std::result::Result<
+            tonic::Response<tonic::codec::Streaming<super::BatchWriteResponse>>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.spanner.v1.Spanner/BatchWrite",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new("google.spanner.v1.Spanner", "BatchWrite"));
+            self.inner.server_streaming(req, path, codec).await
         }
     }
 }
