@@ -1402,7 +1402,7 @@ pub mod revision_ref {
     )]
     #[repr(i32)]
     pub enum RevisionCase {
-        /// Unspecified case, fallback to read the LATEST_HUMAN_REVIEW.
+        /// Unspecified case, fall back to read the `LATEST_HUMAN_REVIEW`.
         Unspecified = 0,
         /// The latest revision made by a human.
         LatestHumanReview = 1,
@@ -1452,6 +1452,118 @@ pub mod revision_ref {
         LatestProcessorVersion(::prost::alloc::string::String),
     }
 }
+/// Metadata for document summarization.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SummaryOptions {
+    /// How long the summary should be.
+    #[prost(enumeration = "summary_options::Length", tag = "1")]
+    pub length: i32,
+    /// The format the summary should be in.
+    #[prost(enumeration = "summary_options::Format", tag = "2")]
+    pub format: i32,
+}
+/// Nested message and enum types in `SummaryOptions`.
+pub mod summary_options {
+    /// The Length enum.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Length {
+        /// Default.
+        Unspecified = 0,
+        /// A brief summary of one or two sentences.
+        Brief = 1,
+        /// A paragraph-length summary.
+        Moderate = 2,
+        /// The longest option available.
+        Comprehensive = 3,
+    }
+    impl Length {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Length::Unspecified => "LENGTH_UNSPECIFIED",
+                Length::Brief => "BRIEF",
+                Length::Moderate => "MODERATE",
+                Length::Comprehensive => "COMPREHENSIVE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "LENGTH_UNSPECIFIED" => Some(Self::Unspecified),
+                "BRIEF" => Some(Self::Brief),
+                "MODERATE" => Some(Self::Moderate),
+                "COMPREHENSIVE" => Some(Self::Comprehensive),
+                _ => None,
+            }
+        }
+    }
+    /// The Format enum.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Format {
+        /// Default.
+        Unspecified = 0,
+        /// Format the output in paragraphs.
+        Paragraph = 1,
+        /// Format the output in bullets.
+        Bullets = 2,
+    }
+    impl Format {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Format::Unspecified => "FORMAT_UNSPECIFIED",
+                Format::Paragraph => "PARAGRAPH",
+                Format::Bullets => "BULLETS",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "FORMAT_UNSPECIFIED" => Some(Self::Unspecified),
+                "PARAGRAPH" => Some(Self::Paragraph),
+                "BULLETS" => Some(Self::Bullets),
+                _ => None,
+            }
+        }
+    }
+}
+/// Metadata for how this field value is extracted.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FieldExtractionMetadata {
+    /// Summary options config.
+    #[prost(message, optional, tag = "2")]
+    pub summary_options: ::core::option::Option<SummaryOptions>,
+}
 /// Metadata about a property.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1459,6 +1571,9 @@ pub struct PropertyMetadata {
     /// Whether the property should be considered as "inactive".
     #[prost(bool, tag = "3")]
     pub inactive: bool,
+    /// Field extraction metadata on the property.
+    #[prost(message, optional, tag = "9")]
+    pub field_extraction_metadata: ::core::option::Option<FieldExtractionMetadata>,
 }
 /// Metadata about an entity type.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1666,6 +1781,13 @@ pub struct RawDocument {
     /// \[content][google.cloud.documentai.v1beta3.RawDocument.content\].
     #[prost(string, tag = "2")]
     pub mime_type: ::prost::alloc::string::String,
+    /// The display name of the document, it supports all Unicode characters except
+    /// the following:
+    /// `*`, `?`, `[`, `]`, `%`, `{`, `}`,`'`, `\"`, `,`
+    /// `~`, `=` and `:` are reserved.
+    /// If not specified, a default ID is generated.
+    #[prost(string, tag = "3")]
+    pub display_name: ::prost::alloc::string::String,
 }
 /// Specifies a document stored on Cloud Storage.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1802,7 +1924,7 @@ pub struct OcrConfig {
     #[prost(bool, tag = "8")]
     pub compute_style_info: bool,
     /// Turn off character box detector in OCR engine. Character box detection is
-    /// enabled by default in OCR 2.0+ processors.
+    /// enabled by default in OCR 2.0 (and later) processors.
     #[prost(bool, tag = "10")]
     pub disable_character_boxes_detection: bool,
     /// Configurations for premium OCR features.
@@ -1828,8 +1950,8 @@ pub mod ocr_config {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct PremiumFeatures {
-        /// Turn on selection mark detector in OCR engine. Only available in OCR 2.0+
-        /// processors.
+        /// Turn on selection mark detector in OCR engine. Only available in OCR 2.0
+        /// (and later) processors.
         #[prost(bool, tag = "3")]
         pub enable_selection_mark_detection: bool,
         /// Turn on font identification model and return font style information.
@@ -2160,6 +2282,17 @@ pub mod processor_version {
         }
     }
 }
+/// Contains the alias and the aliased resource name of processor version.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProcessorVersionAlias {
+    /// The alias in the form of `processor_version` resource name.
+    #[prost(string, tag = "1")]
+    pub alias: ::prost::alloc::string::String,
+    /// The resource name of aliased processor version.
+    #[prost(string, tag = "2")]
+    pub processor_version: ::prost::alloc::string::String,
+}
 /// The first-class citizen for Document AI. Each processor defines how to
 /// extract structural information from a document.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2183,6 +2316,9 @@ pub struct Processor {
     /// The default processor version.
     #[prost(string, tag = "9")]
     pub default_processor_version: ::prost::alloc::string::String,
+    /// Output only. The processor version aliases.
+    #[prost(message, repeated, tag = "10")]
+    pub processor_version_aliases: ::prost::alloc::vec::Vec<ProcessorVersionAlias>,
     /// Output only. Immutable. The http endpoint that can be called to invoke
     /// processing.
     #[prost(string, tag = "6")]
@@ -2318,10 +2454,20 @@ pub struct ProcessOptions {
     /// processor types.
     #[prost(message, optional, tag = "1")]
     pub ocr_config: ::core::option::Option<OcrConfig>,
-    /// A subset of pages to process. If not specified, all pages will be
-    /// processed. NOTICE: If any of the page range is set, we will extract and
-    /// process only the given pages from the document. In the output document,
-    /// the page_number is referring to the page number in the original document.
+    /// Optional. Override the schema of the
+    /// \[ProcessorVersion][google.cloud.documentai.v1beta3.ProcessorVersion\]. Will
+    /// return an Invalid Argument error if this field is set when the underlying
+    /// \[ProcessorVersion][google.cloud.documentai.v1beta3.ProcessorVersion\]
+    /// doesn't support schema override.
+    #[prost(message, optional, tag = "8")]
+    pub schema_override: ::core::option::Option<DocumentSchema>,
+    /// A subset of pages to process. If not specified, all pages are processed.
+    ///   If a page range is set, only the given pages are extracted and processed
+    ///   from the document. In the output document,
+    ///   \[Document.Page.page_number][google.cloud.documentai.v1beta3.Document.Page.page_number\]
+    ///   refers to the page number in the original document. This configuration
+    ///   only applies to sync requests. `page_range` can be only one of the
+    ///   following:
     #[prost(oneof = "process_options::PageRange", tags = "5, 6, 7")]
     pub page_range: ::core::option::Option<process_options::PageRange>,
 }
@@ -2335,18 +2481,21 @@ pub mod process_options {
         #[prost(int32, repeated, packed = "false", tag = "1")]
         pub pages: ::prost::alloc::vec::Vec<i32>,
     }
-    /// A subset of pages to process. If not specified, all pages will be
-    /// processed. NOTICE: If any of the page range is set, we will extract and
-    /// process only the given pages from the document. In the output document,
-    /// the page_number is referring to the page number in the original document.
+    /// A subset of pages to process. If not specified, all pages are processed.
+    ///   If a page range is set, only the given pages are extracted and processed
+    ///   from the document. In the output document,
+    ///   \[Document.Page.page_number][google.cloud.documentai.v1beta3.Document.Page.page_number\]
+    ///   refers to the page number in the original document. This configuration
+    ///   only applies to sync requests. `page_range` can be only one of the
+    ///   following:
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum PageRange {
         /// Which pages to process (1-indexed).
         #[prost(message, tag = "5")]
         IndividualPageSelector(IndividualPageSelector),
-        /// Only process certain pages from the start, process all if the document
-        /// has less pages.
+        /// Only process certain pages from the start. Process all if the document
+        /// has fewer pages.
         #[prost(int32, tag = "6")]
         FromStart(i32),
         /// Only process certain pages from the end, same as above.
@@ -3106,8 +3255,8 @@ pub mod train_processor_version_request {
     }
     /// Nested message and enum types in `CustomDocumentExtractionOptions`.
     pub mod custom_document_extraction_options {
-        /// Training Method for CDE. TRAINING_METHOD_UNSPECIFIED will fallback to
-        /// MODEL_BASED.
+        /// Training Method for CDE. `TRAINING_METHOD_UNSPECIFIED` will fall back to
+        /// `MODEL_BASED`.
         #[derive(
             Clone,
             Copy,
@@ -3520,9 +3669,9 @@ pub struct ListEvaluationsResponse {
 }
 /// The request message for the
 /// \[ImportProcessorVersion][google.cloud.documentai.v1beta3.DocumentProcessorService.ImportProcessorVersion\]
-/// method. Requirements:
+/// method.
 ///
-/// - The Document AI [Service
+/// The Document AI [Service
 /// Agent](<https://cloud.google.com/iam/docs/service-agents>) of the destination
 /// project must have [Document AI Editor
 /// role](<https://cloud.google.com/document-ai/docs/access-control/iam-roles>) on
@@ -3531,8 +3680,10 @@ pub struct ListEvaluationsResponse {
 /// The destination project is specified as part of the
 /// \[parent][google.cloud.documentai.v1beta3.ImportProcessorVersionRequest.parent\]
 /// field. The source project is specified as part of the
-/// \[source\][ImportProcessorVersionRequest.processor_version_source or
-/// ImportProcessorVersionRequest.external_processor_version_source] field.
+/// \[source][google.cloud.documentai.v1beta3.ImportProcessorVersionRequest.processor_version_source\]
+/// or
+/// \[external_processor_version_source][google.cloud.documentai.v1beta3.ImportProcessorVersionRequest.external_processor_version_source\]
+/// field.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ImportProcessorVersionRequest {
@@ -3566,7 +3717,7 @@ pub mod import_processor_version_request {
         /// and destination processor need to be in the same environment and region.
         #[prost(string, tag = "2")]
         ProcessorVersionSource(::prost::alloc::string::String),
-        /// The source processor version to import from, and can be from different
+        /// The source processor version to import from. It can be from a different
         /// environment and region than the destination processor.
         #[prost(message, tag = "3")]
         ExternalProcessorVersionSource(ExternalProcessorVersionSource),
@@ -4618,7 +4769,7 @@ pub struct UpdateDatasetRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateDatasetOperationMetadata {
-    /// The basic metadata of the long running operation.
+    /// The basic metadata of the long-running operation.
     #[prost(message, optional, tag = "1")]
     pub common_metadata: ::core::option::Option<CommonOperationMetadata>,
 }
@@ -4683,7 +4834,7 @@ pub struct ImportDocumentsResponse {}
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ImportDocumentsMetadata {
-    /// The basic metadata of the long running operation.
+    /// The basic metadata of the long-running operation.
     #[prost(message, optional, tag = "1")]
     pub common_metadata: ::core::option::Option<CommonOperationMetadata>,
     /// The list of response details of each document.
@@ -4717,9 +4868,9 @@ pub mod import_documents_metadata {
         #[prost(message, optional, tag = "4")]
         pub output_document_id: ::core::option::Option<super::DocumentId>,
     }
-    /// The validation status of each import config. Status is set to errors if
-    /// there is no documents to import in the import_config, or OK if the
-    /// operation will try to proceed at least one document.
+    /// The validation status of each import config. Status is set to an error if
+    /// there are no documents to import in the `import_config`, or `OK` if the
+    /// operation will try to proceed with at least one document.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct ImportConfigValidationResult {
@@ -4759,6 +4910,77 @@ pub struct GetDocumentResponse {
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListDocumentsRequest {
+    /// Required. The resource name of the dataset to be listed.
+    /// Format:
+    /// projects/{project}/locations/{location}/processors/{processor}/dataset
+    #[prost(string, tag = "1")]
+    pub dataset: ::prost::alloc::string::String,
+    /// The maximum number of documents to return. The service may return
+    /// fewer than this value.
+    /// If unspecified, at most 20 documents will be returned.
+    /// The maximum value is 100; values above 100 will be coerced to 100.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A page token, received from a previous `ListDocuments` call.
+    /// Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to `ListDocuments`
+    /// must match the call that provided the page token.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Optional. Query to filter the documents based on
+    /// <https://google.aip.dev/160.>
+    /// ## Currently support query strings are:
+    ///
+    /// `SplitType=DATASET_SPLIT_TEST|DATASET_SPLIT_TRAIN|DATASET_SPLIT_UNASSIGNED`
+    /// - `LabelingState=DOCUMENT_LABELED|DOCUMENT_UNLABELED|DOCUMENT_AUTO_LABELED`
+    /// - `DisplayName=\"file_name.pdf\"`
+    /// - `EntityType=abc/def`
+    /// - `TagName=\"auto-labeling-running\"|\"sampled\"`
+    ///
+    /// Note:
+    /// - Only `AND`, `=` and `!=` are supported.
+    ///      e.g. `DisplayName=file_name AND EntityType!=abc` IS supported.
+    /// - Wildcard `*` is supported only in `DisplayName` filter
+    /// - No duplicate filter keys are allowed,
+    ///      e.g. `EntityType=a AND EntityType=b` is NOT supported.
+    /// - String match is case sensitive (for filter `DisplayName` & `EntityType`).
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Optional. Controls if the ListDocuments request requires a total size
+    /// of matched documents. See ListDocumentsResponse.total_size.
+    ///
+    /// Enabling this flag may adversely impact performance.
+    ///
+    /// Defaults to false.
+    #[prost(bool, tag = "6")]
+    pub return_total_size: bool,
+    /// Optional. Number of results to skip beginning from the `page_token` if
+    /// provided. <https://google.aip.dev/158#skipping-results.> It must be a
+    /// non-negative integer. Negative values wil be rejected. Note that this is
+    /// not the number of pages to skip. If this value causes the cursor to move
+    /// past the end of results, `ListDocumentsResponse.document_metadata` and
+    /// `ListDocumentsResponse.next_page_token` will be empty.
+    #[prost(int32, tag = "8")]
+    pub skip: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListDocumentsResponse {
+    /// Document metadata corresponding to the listed documents.
+    #[prost(message, repeated, tag = "1")]
+    pub document_metadata: ::prost::alloc::vec::Vec<DocumentMetadata>,
+    /// A token, which can be sent as `page_token` to retrieve the next page.
+    /// If this field is omitted, there are no subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Total count of documents queried.
+    #[prost(int32, tag = "3")]
+    pub total_size: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BatchDeleteDocumentsRequest {
     /// Required. The dataset resource name.
     /// Format:
@@ -4779,7 +5001,7 @@ pub struct BatchDeleteDocumentsResponse {}
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BatchDeleteDocumentsMetadata {
-    /// The basic metadata of the long running operation.
+    /// The basic metadata of the long-running operation.
     #[prost(message, optional, tag = "1")]
     pub common_metadata: ::core::option::Option<CommonOperationMetadata>,
     /// The list of response details of each document.
@@ -4844,13 +5066,32 @@ pub struct DocumentPageRange {
     #[prost(int32, tag = "2")]
     pub end: i32,
 }
+/// Metadata about a document.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DocumentMetadata {
+    /// Document identifier.
+    #[prost(message, optional, tag = "1")]
+    pub document_id: ::core::option::Option<DocumentId>,
+    /// Number of pages in the document.
+    #[prost(int32, tag = "2")]
+    pub page_count: i32,
+    /// Type of the dataset split to which the document belongs.
+    #[prost(enumeration = "DatasetSplitType", tag = "3")]
+    pub dataset_type: i32,
+    /// Labelling state of the document.
+    #[prost(enumeration = "DocumentLabelingState", tag = "5")]
+    pub labeling_state: i32,
+    /// The display name of the document.
+    #[prost(string, tag = "6")]
+    pub display_name: ::prost::alloc::string::String,
+}
 /// Documents belonging to a dataset will be split into different groups
 /// referred to as splits: train, test.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum DatasetSplitType {
     /// Default value if the enum is not set.
-    /// go/protodosdonts#do-include-an-unspecified-value-in-an-enum
     Unspecified = 0,
     /// Identifies the train documents.
     DatasetSplitTrain = 1,
@@ -4879,6 +5120,43 @@ impl DatasetSplitType {
             "DATASET_SPLIT_TRAIN" => Some(Self::DatasetSplitTrain),
             "DATASET_SPLIT_TEST" => Some(Self::DatasetSplitTest),
             "DATASET_SPLIT_UNASSIGNED" => Some(Self::DatasetSplitUnassigned),
+            _ => None,
+        }
+    }
+}
+/// Describes the labelling status of a document.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum DocumentLabelingState {
+    /// Default value if the enum is not set.
+    Unspecified = 0,
+    /// Document has been labelled.
+    DocumentLabeled = 1,
+    /// Document has not been labelled.
+    DocumentUnlabeled = 2,
+    /// Document has been auto-labelled.
+    DocumentAutoLabeled = 3,
+}
+impl DocumentLabelingState {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            DocumentLabelingState::Unspecified => "DOCUMENT_LABELING_STATE_UNSPECIFIED",
+            DocumentLabelingState::DocumentLabeled => "DOCUMENT_LABELED",
+            DocumentLabelingState::DocumentUnlabeled => "DOCUMENT_UNLABELED",
+            DocumentLabelingState::DocumentAutoLabeled => "DOCUMENT_AUTO_LABELED",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "DOCUMENT_LABELING_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+            "DOCUMENT_LABELED" => Some(Self::DocumentLabeled),
+            "DOCUMENT_UNLABELED" => Some(Self::DocumentUnlabeled),
+            "DOCUMENT_AUTO_LABELED" => Some(Self::DocumentAutoLabeled),
             _ => None,
         }
     }
@@ -5047,6 +5325,37 @@ pub mod document_service_client {
                     GrpcMethod::new(
                         "google.cloud.documentai.v1beta3.DocumentService",
                         "GetDocument",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Returns a list of documents present in the dataset.
+        pub async fn list_documents(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListDocumentsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListDocumentsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.documentai.v1beta3.DocumentService/ListDocuments",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.documentai.v1beta3.DocumentService",
+                        "ListDocuments",
                     ),
                 );
             self.inner.unary(req, path, codec).await

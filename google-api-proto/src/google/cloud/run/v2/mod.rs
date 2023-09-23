@@ -353,6 +353,8 @@ pub mod condition {
         Cancelled = 3,
         /// The execution is in the process of being cancelled.
         Cancelling = 4,
+        /// The execution was deleted.
+        Deleted = 5,
     }
     impl ExecutionReason {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -368,6 +370,7 @@ pub mod condition {
                 ExecutionReason::NonZeroExitCode => "NON_ZERO_EXIT_CODE",
                 ExecutionReason::Cancelled => "CANCELLED",
                 ExecutionReason::Cancelling => "CANCELLING",
+                ExecutionReason::Deleted => "DELETED",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -380,6 +383,7 @@ pub mod condition {
                 "NON_ZERO_EXIT_CODE" => Some(Self::NonZeroExitCode),
                 "CANCELLED" => Some(Self::Cancelled),
                 "CANCELLING" => Some(Self::Cancelling),
+                "DELETED" => Some(Self::Deleted),
                 _ => None,
             }
         }
@@ -404,7 +408,7 @@ pub mod condition {
 /// A single application container.
 /// This specifies both the container to run, the command to run in the container
 /// and the arguments to supply to it.
-/// Note that additional arguments may be supplied by the system to the container
+/// Note that additional arguments can be supplied by the system to the container
 /// at runtime.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -457,6 +461,9 @@ pub struct Container {
     /// fails.
     #[prost(message, optional, tag = "11")]
     pub startup_probe: ::core::option::Option<Probe>,
+    /// Names of the containers that must start before this container.
+    #[prost(string, repeated, tag = "12")]
+    pub depends_on: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// ResourceRequirements describes the compute resource requirements.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -489,7 +496,7 @@ pub struct ResourceRequirements {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct EnvVar {
     /// Required. Name of the environment variable. Must be a C_IDENTIFIER, and
-    /// mnay not exceed 32768 characters.
+    /// must not exceed 32768 characters.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     #[prost(oneof = "env_var::Values", tags = "2, 3")]
@@ -574,7 +581,7 @@ pub struct Volume {
     /// Required. Volume's name.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    #[prost(oneof = "volume::VolumeType", tags = "2, 3")]
+    #[prost(oneof = "volume::VolumeType", tags = "2, 3, 4")]
     pub volume_type: ::core::option::Option<volume::VolumeType>,
 }
 /// Nested message and enum types in `Volume`.
@@ -590,6 +597,9 @@ pub mod volume {
         /// more information on how to connect Cloud SQL and Cloud Run.
         #[prost(message, tag = "3")]
         CloudSqlInstance(super::CloudSqlInstance),
+        /// Ephemeral storage used as a shared volume.
+        #[prost(message, tag = "4")]
+        EmptyDir(super::EmptyDirVolumeSource),
     }
 }
 /// The secret's value will be presented as the content of a file whose
@@ -677,6 +687,72 @@ pub struct CloudSqlInstance {
     /// {project}:{location}:{instance}
     #[prost(string, repeated, tag = "1")]
     pub instances: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// In memory (tmpfs) ephemeral storage.
+/// It is ephemeral in the sense that when the sandbox is taken down, the data is
+/// destroyed with it (it does not persist across sandbox runs).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EmptyDirVolumeSource {
+    /// The medium on which the data is stored. Acceptable values today is only
+    /// MEMORY or none. When none, the default will currently be backed by memory
+    /// but could change over time. +optional
+    #[prost(enumeration = "empty_dir_volume_source::Medium", tag = "1")]
+    pub medium: i32,
+    /// Limit on the storage usable by this EmptyDir volume.
+    /// The size limit is also applicable for memory medium.
+    /// The maximum usage on memory medium EmptyDir would be the minimum value
+    /// between the SizeLimit specified here and the sum of memory limits of all
+    /// containers. The default is nil which means that the limit is undefined.
+    /// More info:
+    /// <https://cloud.google.com/run/docs/configuring/in-memory-volumes#configure-volume.>
+    /// Info in Kubernetes:
+    /// <https://kubernetes.io/docs/concepts/storage/volumes/#emptydir>
+    #[prost(string, tag = "2")]
+    pub size_limit: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `EmptyDirVolumeSource`.
+pub mod empty_dir_volume_source {
+    /// The different types of medium supported for EmptyDir.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Medium {
+        /// When not specified, falls back to the default implementation which
+        /// is currently in memory (this may change over time).
+        Unspecified = 0,
+        /// Explicitly set the EmptyDir to be in memory. Uses tmpfs.
+        Memory = 1,
+    }
+    impl Medium {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Medium::Unspecified => "MEDIUM_UNSPECIFIED",
+                Medium::Memory => "MEMORY",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "MEDIUM_UNSPECIFIED" => Some(Self::Unspecified),
+                "MEMORY" => Some(Self::Memory),
+                _ => None,
+            }
+        }
+    }
 }
 /// Probe describes a health check to be performed against a container to
 /// determine whether it is alive or ready to receive traffic.
@@ -773,29 +849,56 @@ pub struct GrpcAction {
     #[prost(int32, tag = "1")]
     pub port: i32,
     /// Service is the name of the service to place in the gRPC HealthCheckRequest
-    /// (see <https://github.com/grpc/grpc/blob/master/doc/health-checking.md>). If
+    /// (see <https://github.com/grpc/grpc/blob/master/doc/health-checking.md> ). If
     /// this is not specified, the default behavior is defined by gRPC.
     #[prost(string, tag = "2")]
     pub service: ::prost::alloc::string::String,
 }
-/// VPC Access settings. For more information on creating a VPC Connector, visit
-/// <https://cloud.google.com/vpc/docs/configure-serverless-vpc-access> For
-/// information on how to configure Cloud Run with an existing VPC Connector,
-/// visit <https://cloud.google.com/run/docs/configuring/connecting-vpc>
+/// VPC Access settings. For more information on sending traffic to a VPC
+/// network, visit <https://cloud.google.com/run/docs/configuring/connecting-vpc.>
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct VpcAccess {
     /// VPC Access connector name.
     /// Format: projects/{project}/locations/{location}/connectors/{connector},
     /// where {project} can be project id or number.
+    /// For more information on sending traffic to a VPC network via a connector,
+    /// visit <https://cloud.google.com/run/docs/configuring/vpc-connectors.>
     #[prost(string, tag = "1")]
     pub connector: ::prost::alloc::string::String,
-    /// Traffic VPC egress settings.
+    /// Traffic VPC egress settings. If not provided, it defaults to
+    /// PRIVATE_RANGES_ONLY.
     #[prost(enumeration = "vpc_access::VpcEgress", tag = "2")]
     pub egress: i32,
+    /// Direct VPC egress settings. Currently only single network interface is
+    /// supported.
+    #[prost(message, repeated, tag = "3")]
+    pub network_interfaces: ::prost::alloc::vec::Vec<vpc_access::NetworkInterface>,
 }
 /// Nested message and enum types in `VpcAccess`.
 pub mod vpc_access {
+    /// Direct VPC egress settings.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct NetworkInterface {
+        /// The VPC network that the Cloud Run resource will be able to send traffic
+        /// to. At least one of network or subnetwork must be specified. If both
+        /// network and subnetwork are specified, the given VPC subnetwork must
+        /// belong to the given VPC network. If network is not specified, it will be
+        /// looked up from the subnetwork.
+        #[prost(string, tag = "1")]
+        pub network: ::prost::alloc::string::String,
+        /// The VPC subnetwork that the Cloud Run resource will get IPs from. At
+        /// least one of network or subnetwork must be specified. If both
+        /// network and subnetwork are specified, the given VPC subnetwork must
+        /// belong to the given VPC network. If subnetwork is not specified, the
+        /// subnetwork with the same name with the network will be used.
+        #[prost(string, tag = "2")]
+        pub subnetwork: ::prost::alloc::string::String,
+        /// Network tags applied to this Cloud Run resource.
+        #[prost(string, repeated, tag = "3")]
+        pub tags: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
     /// Egress options for VPC access.
     #[derive(
         Clone,
@@ -1406,6 +1509,11 @@ pub struct Service {
     /// Output only. Reserved for future use.
     #[prost(bool, tag = "38")]
     pub satisfies_pzs: bool,
+    /// Optional. Override the traffic tag threshold limit. Garbage collection will
+    /// start cleaning up non-serving tagged traffic targets based on creation
+    /// item. The default value is 2000.
+    #[prost(int64, tag = "39")]
+    pub traffic_tags_cleanup_threshold: i64,
     /// Output only. Returns true if the Service is currently being acted upon by
     /// the system to bring it into the desired state.
     ///
@@ -1795,8 +1903,8 @@ pub mod task_template {
 pub struct GetExecutionRequest {
     /// Required. The full name of the Execution.
     /// Format:
-    /// projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
-    /// where {project} can be project id or number.
+    /// `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`,
+    /// where `{project}` can be project id or number.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -1806,8 +1914,8 @@ pub struct GetExecutionRequest {
 pub struct ListExecutionsRequest {
     /// Required. The Execution from which the Executions should be listed.
     /// To list all Executions across Jobs, use "-" instead of Job name.
-    /// Format: projects/{project}/locations/{location}/jobs/{job}, where {project}
-    /// can be project id or number.
+    /// Format: `projects/{project}/locations/{location}/jobs/{job}`, where
+    /// `{project}` can be project id or number.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// Maximum number of Executions to return in this call.
@@ -1839,12 +1947,31 @@ pub struct ListExecutionsResponse {
 pub struct DeleteExecutionRequest {
     /// Required. The name of the Execution to delete.
     /// Format:
-    /// projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
-    /// where {project} can be project id or number.
+    /// `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`,
+    /// where `{project}` can be project id or number.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Indicates that the request should be validated without actually
     /// deleting any resources.
+    #[prost(bool, tag = "2")]
+    pub validate_only: bool,
+    /// A system-generated fingerprint for this version of the resource.
+    /// This may be used to detect modification conflict during updates.
+    #[prost(string, tag = "3")]
+    pub etag: ::prost::alloc::string::String,
+}
+/// Request message for deleting an Execution.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CancelExecutionRequest {
+    /// Required. The name of the Execution to cancel.
+    /// Format:
+    /// `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`,
+    /// where `{project}` can be project id or number.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Indicates that the request should be validated without actually
+    /// cancelling any resources.
     #[prost(bool, tag = "2")]
     pub validate_only: bool,
     /// A system-generated fingerprint for this version of the resource.
@@ -2142,6 +2269,34 @@ pub mod executions_client {
                 );
             self.inner.unary(req, path, codec).await
         }
+        /// Cancels an Execution.
+        pub async fn cancel_execution(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CancelExecutionRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.run.v2.Executions/CancelExecution",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.run.v2.Executions", "CancelExecution"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
     }
 }
 /// ExecutionTemplate describes the data an execution should have when created
@@ -2316,6 +2471,52 @@ pub struct RunJobRequest {
     /// resource. May be used to detect modification conflict during updates.
     #[prost(string, tag = "3")]
     pub etag: ::prost::alloc::string::String,
+    /// Overrides specification for a given execution of a job. If provided,
+    /// overrides will be applied to update the execution or task spec.
+    #[prost(message, optional, tag = "4")]
+    pub overrides: ::core::option::Option<run_job_request::Overrides>,
+}
+/// Nested message and enum types in `RunJobRequest`.
+pub mod run_job_request {
+    /// RunJob Overrides that contains Execution fields to be overridden on the go.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Overrides {
+        /// Per container override specification.
+        #[prost(message, repeated, tag = "1")]
+        pub container_overrides: ::prost::alloc::vec::Vec<overrides::ContainerOverride>,
+        /// Optional. The desired number of tasks the execution should run. Will
+        /// replace existing task_count value.
+        #[prost(int32, tag = "2")]
+        pub task_count: i32,
+        /// Duration in seconds the task may be active before the system will
+        /// actively try to mark it failed and kill associated containers. Will
+        /// replace existing timeout_seconds value.
+        #[prost(message, optional, tag = "4")]
+        pub timeout: ::core::option::Option<::prost_types::Duration>,
+    }
+    /// Nested message and enum types in `Overrides`.
+    pub mod overrides {
+        /// Per container override specification.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct ContainerOverride {
+            /// The name of the container specified as a DNS_LABEL.
+            #[prost(string, tag = "1")]
+            pub name: ::prost::alloc::string::String,
+            /// Optional. Arguments to the entrypoint. Will replace existing args for
+            /// override.
+            #[prost(string, repeated, tag = "2")]
+            pub args: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+            /// List of environment variables to set in the container. Will be merged
+            /// with existing env for override.
+            #[prost(message, repeated, tag = "3")]
+            pub env: ::prost::alloc::vec::Vec<super::super::EnvVar>,
+            /// Optional. True if the intention is to clear out existing args list.
+            #[prost(bool, tag = "4")]
+            pub clear_args: bool,
+        }
+    }
 }
 /// Job represents the configuration of a single job, which references a
 /// container image that is run to completion.
@@ -2881,11 +3082,16 @@ pub struct Task {
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
-    /// Output only. Represents time when the task was created by the job
-    /// controller. It is not guaranteed to be set in happens-before order across
-    /// separate operations.
+    /// Output only. Represents time when the task was created by the system.
+    /// It is not guaranteed to be set in happens-before order across separate
+    /// operations.
     #[prost(message, optional, tag = "6")]
     pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Represents time when the task was scheduled to run by the
+    /// system. It is not guaranteed to be set in happens-before order across
+    /// separate operations.
+    #[prost(message, optional, tag = "34")]
+    pub scheduled_time: ::core::option::Option<::prost_types::Timestamp>,
     /// Output only. Represents time when the task started to run.
     /// It is not guaranteed to be set in happens-before order across separate
     /// operations.
