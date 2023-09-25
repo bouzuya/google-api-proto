@@ -1566,7 +1566,7 @@ pub struct RawDocument {
     /// the following:
     /// `*`, `?`, `[`, `]`, `%`, `{`, `}`,`'`, `\"`, `,`
     /// `~`, `=` and `:` are reserved.
-    /// If not specified, a default ID will be generated.
+    /// If not specified, a default ID is generated.
     #[prost(string, tag = "3")]
     pub display_name: ::prost::alloc::string::String,
 }
@@ -1697,11 +1697,20 @@ pub struct OcrConfig {
     /// Includes symbol level OCR information if set to true.
     #[prost(bool, tag = "6")]
     pub enable_symbol: bool,
-    /// Turn on font id model and returns font style information.
-    /// Use PremiumFeatures.compute_style_info instead.
+    /// Turn on font identification model and return font style information.
+    /// Deprecated, use
+    /// \[PremiumFeatures.compute_style_info][google.cloud.documentai.v1.OcrConfig.PremiumFeatures.compute_style_info\]
+    /// instead.
     #[deprecated]
     #[prost(bool, tag = "8")]
     pub compute_style_info: bool,
+    /// Turn off character box detector in OCR engine. Character box detection is
+    /// enabled by default in OCR 2.0+ processors.
+    #[prost(bool, tag = "10")]
+    pub disable_character_boxes_detection: bool,
+    /// Configurations for premium OCR features.
+    #[prost(message, optional, tag = "11")]
+    pub premium_features: ::core::option::Option<ocr_config::PremiumFeatures>,
 }
 /// Nested message and enum types in `OcrConfig`.
 pub mod ocr_config {
@@ -1717,6 +1726,21 @@ pub mod ocr_config {
         /// will be a significant hindrance if the hint is wrong).
         #[prost(string, repeated, tag = "1")]
         pub language_hints: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    /// Configurations for premium OCR features.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PremiumFeatures {
+        /// Turn on selection mark detector in OCR engine. Only available in OCR 2.0+
+        /// processors.
+        #[prost(bool, tag = "3")]
+        pub enable_selection_mark_detection: bool,
+        /// Turn on font identification model and return font style information.
+        #[prost(bool, tag = "4")]
+        pub compute_style_info: bool,
+        /// Turn on the model that can extract LaTeX math formulas.
+        #[prost(bool, tag = "5")]
+        pub enable_math_ocr: bool,
     }
 }
 /// Gives a short summary of an evaluation, and links to the evaluation itself.
@@ -2211,6 +2235,45 @@ pub struct ProcessOptions {
     /// processor types.
     #[prost(message, optional, tag = "1")]
     pub ocr_config: ::core::option::Option<OcrConfig>,
+    /// A subset of pages to process. If not specified, all pages will be
+    /// processed. NOTICE: If any of the page range is set, we will extract and
+    /// process only the given pages from the document. In the output document,
+    /// \[Document.Page.page_number][google.cloud.documentai.v1.Document.Page.page_number\]
+    /// is referring to the page number in the original document. This
+    /// configuration only applies to sync requests.
+    #[prost(oneof = "process_options::PageRange", tags = "5, 6, 7")]
+    pub page_range: ::core::option::Option<process_options::PageRange>,
+}
+/// Nested message and enum types in `ProcessOptions`.
+pub mod process_options {
+    /// A list of individual page numbers.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct IndividualPageSelector {
+        /// Optional. Indices of the pages (starting from 1).
+        #[prost(int32, repeated, packed = "false", tag = "1")]
+        pub pages: ::prost::alloc::vec::Vec<i32>,
+    }
+    /// A subset of pages to process. If not specified, all pages will be
+    /// processed. NOTICE: If any of the page range is set, we will extract and
+    /// process only the given pages from the document. In the output document,
+    /// \[Document.Page.page_number][google.cloud.documentai.v1.Document.Page.page_number\]
+    /// is referring to the page number in the original document. This
+    /// configuration only applies to sync requests.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum PageRange {
+        /// Which pages to process (1-indexed).
+        #[prost(message, tag = "5")]
+        IndividualPageSelector(IndividualPageSelector),
+        /// Only process certain pages from the start. Process all if the document
+        /// has fewer pages.
+        #[prost(int32, tag = "6")]
+        FromStart(i32),
+        /// Only process certain pages from the end, same as above.
+        #[prost(int32, tag = "7")]
+        FromEnd(i32),
+    }
 }
 /// Request message for the
 /// \[ProcessDocument][google.cloud.documentai.v1.DocumentProcessorService.ProcessDocument\]

@@ -181,6 +181,56 @@ pub struct GetNotificationRequest {
     #[prost(string, tag = "5")]
     pub language_code: ::prost::alloc::string::String,
 }
+/// Settings for Advisory Notifications.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Settings {
+    /// Output only. The resource name of the settings to retrieve.
+    /// Format:
+    /// organizations/{organization}/locations/{location}/settings.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Map of each notification type and its settings to get/set all
+    /// settings at once. The server will validate the value for each notification
+    /// type.
+    #[prost(btree_map = "string, message", tag = "2")]
+    pub notification_settings: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        NotificationSettings,
+    >,
+    /// Required. Fingerprint for optimistic concurrency returned in Get requests.
+    /// Must be provided for Update requests. If the value provided does not match
+    /// the value known to the server, ABORTED will be thrown, and the client
+    /// should retry the read-modify-write cycle.
+    #[prost(string, tag = "3")]
+    pub etag: ::prost::alloc::string::String,
+}
+/// Settings for each NotificationType.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct NotificationSettings {
+    /// Whether the associated NotificationType is enabled.
+    #[prost(bool, tag = "1")]
+    pub enabled: bool,
+}
+/// Request of GetSettings endpoint.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetSettingsRequest {
+    /// Required. The resource name of the settings to retrieve.
+    /// Format:
+    /// organizations/{organization}/locations/{location}/settings.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request of UpdateSettings endpoint.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateSettingsRequest {
+    /// Required. New settings.
+    #[prost(message, optional, tag = "1")]
+    pub settings: ::core::option::Option<Settings>,
+}
 /// Notification view.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -435,6 +485,62 @@ pub mod advisory_notifications_service_client {
                     GrpcMethod::new(
                         "google.cloud.advisorynotifications.v1.AdvisoryNotificationsService",
                         "GetNotification",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Get notification settings.
+        pub async fn get_settings(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetSettingsRequest>,
+        ) -> std::result::Result<tonic::Response<super::Settings>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.advisorynotifications.v1.AdvisoryNotificationsService/GetSettings",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.advisorynotifications.v1.AdvisoryNotificationsService",
+                        "GetSettings",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Update notification settings.
+        pub async fn update_settings(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateSettingsRequest>,
+        ) -> std::result::Result<tonic::Response<super::Settings>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.advisorynotifications.v1.AdvisoryNotificationsService/UpdateSettings",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.advisorynotifications.v1.AdvisoryNotificationsService",
+                        "UpdateSettings",
                     ),
                 );
             self.inner.unary(req, path, codec).await
