@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["container_analysis_v1_beta1_client","packages_summary_response"],"struct":["GeneratePackagesSummaryRequest","PackagesSummaryResponse"]};
+window.SIDEBAR_ITEMS = {"mod":["container_analysis_v1_beta1_client","packages_summary_response"],"struct":["ExportSbomRequest","ExportSbomResponse","GeneratePackagesSummaryRequest","PackagesSummaryResponse"]};

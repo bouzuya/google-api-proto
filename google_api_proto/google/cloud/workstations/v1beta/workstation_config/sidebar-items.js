@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["host","persistent_directory"],"struct":["Container","CustomerEncryptionKey","Host","PersistentDirectory","ReadinessCheck"]};
+window.SIDEBAR_ITEMS = {"mod":["ephemeral_directory","host","persistent_directory"],"struct":["Container","CustomerEncryptionKey","EphemeralDirectory","Host","PersistentDirectory","ReadinessCheck"]};

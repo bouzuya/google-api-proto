@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/alloydb/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/alloydb/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.1 (d5c2e9c34 2023-09-13)" data-channel="1.72.1" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -3700,6 +3700,84 @@
 <a href="#3700" id="3700">3700</a>
 <a href="#3701" id="3701">3701</a>
 <a href="#3702" id="3702">3702</a>
+<a href="#3703" id="3703">3703</a>
+<a href="#3704" id="3704">3704</a>
+<a href="#3705" id="3705">3705</a>
+<a href="#3706" id="3706">3706</a>
+<a href="#3707" id="3707">3707</a>
+<a href="#3708" id="3708">3708</a>
+<a href="#3709" id="3709">3709</a>
+<a href="#3710" id="3710">3710</a>
+<a href="#3711" id="3711">3711</a>
+<a href="#3712" id="3712">3712</a>
+<a href="#3713" id="3713">3713</a>
+<a href="#3714" id="3714">3714</a>
+<a href="#3715" id="3715">3715</a>
+<a href="#3716" id="3716">3716</a>
+<a href="#3717" id="3717">3717</a>
+<a href="#3718" id="3718">3718</a>
+<a href="#3719" id="3719">3719</a>
+<a href="#3720" id="3720">3720</a>
+<a href="#3721" id="3721">3721</a>
+<a href="#3722" id="3722">3722</a>
+<a href="#3723" id="3723">3723</a>
+<a href="#3724" id="3724">3724</a>
+<a href="#3725" id="3725">3725</a>
+<a href="#3726" id="3726">3726</a>
+<a href="#3727" id="3727">3727</a>
+<a href="#3728" id="3728">3728</a>
+<a href="#3729" id="3729">3729</a>
+<a href="#3730" id="3730">3730</a>
+<a href="#3731" id="3731">3731</a>
+<a href="#3732" id="3732">3732</a>
+<a href="#3733" id="3733">3733</a>
+<a href="#3734" id="3734">3734</a>
+<a href="#3735" id="3735">3735</a>
+<a href="#3736" id="3736">3736</a>
+<a href="#3737" id="3737">3737</a>
+<a href="#3738" id="3738">3738</a>
+<a href="#3739" id="3739">3739</a>
+<a href="#3740" id="3740">3740</a>
+<a href="#3741" id="3741">3741</a>
+<a href="#3742" id="3742">3742</a>
+<a href="#3743" id="3743">3743</a>
+<a href="#3744" id="3744">3744</a>
+<a href="#3745" id="3745">3745</a>
+<a href="#3746" id="3746">3746</a>
+<a href="#3747" id="3747">3747</a>
+<a href="#3748" id="3748">3748</a>
+<a href="#3749" id="3749">3749</a>
+<a href="#3750" id="3750">3750</a>
+<a href="#3751" id="3751">3751</a>
+<a href="#3752" id="3752">3752</a>
+<a href="#3753" id="3753">3753</a>
+<a href="#3754" id="3754">3754</a>
+<a href="#3755" id="3755">3755</a>
+<a href="#3756" id="3756">3756</a>
+<a href="#3757" id="3757">3757</a>
+<a href="#3758" id="3758">3758</a>
+<a href="#3759" id="3759">3759</a>
+<a href="#3760" id="3760">3760</a>
+<a href="#3761" id="3761">3761</a>
+<a href="#3762" id="3762">3762</a>
+<a href="#3763" id="3763">3763</a>
+<a href="#3764" id="3764">3764</a>
+<a href="#3765" id="3765">3765</a>
+<a href="#3766" id="3766">3766</a>
+<a href="#3767" id="3767">3767</a>
+<a href="#3768" id="3768">3768</a>
+<a href="#3769" id="3769">3769</a>
+<a href="#3770" id="3770">3770</a>
+<a href="#3771" id="3771">3771</a>
+<a href="#3772" id="3772">3772</a>
+<a href="#3773" id="3773">3773</a>
+<a href="#3774" id="3774">3774</a>
+<a href="#3775" id="3775">3775</a>
+<a href="#3776" id="3776">3776</a>
+<a href="#3777" id="3777">3777</a>
+<a href="#3778" id="3778">3778</a>
+<a href="#3779" id="3779">3779</a>
+<a href="#3780" id="3780">3780</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// The username/password for a database user. Used for specifying initial
 /// users at cluster creation time.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -4110,9 +4188,9 @@
     <span class="doccomment">/// Whether ContinuousBackup is enabled.
     </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>enabled: ::core::option::Option&lt;bool&gt;,
-    <span class="doccomment">/// The number of days backups and logs will be retained, which determines the
-    /// window of time that data is recoverable for. If not set, it defaults to 14
-    /// days.
+    <span class="doccomment">/// The number of days that are eligible to restore from using PITR. To support
+    /// the entire recovery window, backups and logs are retained for one day more
+    /// than the recovery window. If not set, defaults to 14 days.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>recovery_window_days: i32,
     <span class="doccomment">/// The encryption config can be specified to encrypt the
@@ -4221,17 +4299,21 @@
     /// the cluster (i.e. `CreateCluster` vs. `CreateSecondaryCluster`
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;cluster::ClusterType&quot;</span>, tag = <span class="string">&quot;24&quot;</span>)]
     </span><span class="kw">pub </span>cluster_type: i32,
-    <span class="doccomment">/// Output only. The database engine major version. This is an output-only
-    /// field and it&#39;s populated at the Cluster creation time. This field cannot be
-    /// changed after cluster creation.
+    <span class="doccomment">/// Optional. The database engine major version. This is an optional field and
+    /// it is populated at the Cluster creation time. If a database version is not
+    /// supplied at cluster creation time, then a default database version will
+    /// be used.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DatabaseVersion&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>database_version: i32,
+    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;29&quot;</span>)]
+    </span><span class="kw">pub </span>network_config: ::core::option::Option&lt;cluster::NetworkConfig&gt;,
     <span class="doccomment">/// Required. The resource link for the VPC network in which cluster resources
     /// are created and from which they are accessible via Private IP. The network
     /// must belong to the same project as the cluster. It is specified in the
-    /// form: &quot;projects/{project_number}/global/networks/{network_id}&quot;. This is
-    /// required to create a cluster. It can be updated, but it cannot be removed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    /// form: &quot;projects/{project}/global/networks/{network_id}&quot;. This is required
+    /// to create a cluster. Deprecated, use network_config.network instead.
+    </span><span class="attr">#[deprecated]
+    #[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
     <span class="doccomment">/// For Resource freshness validation (&lt;https://google.aip.dev/154&gt;)
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
@@ -4297,6 +4379,28 @@
 }
 <span class="doccomment">/// Nested message and enum types in `Cluster`.
 </span><span class="kw">pub mod </span>cluster {
+    <span class="doccomment">/// Metadata related to network configuration.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>NetworkConfig {
+        <span class="doccomment">/// Required. The resource link for the VPC network in which cluster
+        /// resources are created and from which they are accessible via Private IP.
+        /// The network must belong to the same project as the cluster. It is
+        /// specified in the form:
+        /// &quot;projects/{project_number}/global/networks/{network_id}&quot;. This is
+        /// required to create a cluster.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
+        <span class="doccomment">/// Optional. Name of the allocated IP range for the private IP AlloyDB
+        /// cluster, for example: &quot;google-managed-services-default&quot;. If set, the
+        /// instance IPs for this cluster will be created in the allocated range. The
+        /// range name must comply with RFC 1035. Specifically, the name must be 1-63
+        /// characters long and match the regular expression
+        /// \[a-z]([-a-z0-9]*[a-z0-9\])?.
+        /// Field name is intended to be consistent with CloudSQL.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>allocated_ip_range: ::prost::alloc::string::String,
+    }
     <span class="doccomment">/// Configuration information for the secondary cluster. This should be set
     /// if and only if the cluster is of type SECONDARY.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -4577,6 +4681,11 @@
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
+    <span class="doccomment">/// Optional. Client connection specific configurations
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="kw">pub </span>client_connection_config: ::core::option::Option&lt;
+        instance::ClientConnectionConfig,
+    &gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Instance`.
 </span><span class="kw">pub mod </span>instance {
@@ -4639,6 +4748,18 @@
         <span class="doccomment">/// Read capacity, i.e. number of nodes in a read pool instance.
         </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>node_count: i32,
+    }
+    <span class="doccomment">/// Client connection configuration
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ClientConnectionConfig {
+        <span class="doccomment">/// Optional. Configuration to enforce connectors only (ex: AuthProxy)
+        /// connections to the database.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>require_connectors: bool,
+        <span class="doccomment">/// Optional. SSL config option for this instance.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>ssl_config: ::core::option::Option&lt;<span class="kw">super</span>::SslConfig&gt;,
     }
     <span class="doccomment">/// Instance State
     </span><span class="attr">#[derive(
@@ -4902,9 +5023,44 @@
     /// added to the backup&#39;s create_time.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;19&quot;</span>)]
     </span><span class="kw">pub </span>expiry_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The QuantityBasedExpiry of the backup, specified by the
+    /// backup&#39;s retention policy. Once the expiry quantity is over retention, the
+    /// backup is eligible to be garbage collected.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="kw">pub </span>expiry_quantity: ::core::option::Option&lt;backup::QuantityBasedExpiry&gt;,
+    <span class="doccomment">/// Output only. The database engine major version of the cluster this backup
+    /// was created from. Any restored cluster created from this backup will have
+    /// the same database version.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DatabaseVersion&quot;</span>, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="kw">pub </span>database_version: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `Backup`.
 </span><span class="kw">pub mod </span>backup {
+    <span class="doccomment">/// A backup&#39;s position in a quantity-based retention queue, of backups with
+    /// the same source cluster and type, with length, retention, specified by the
+    /// backup&#39;s retention policy.
+    /// Once the position is greater than the retention, the backup is eligible to
+    /// be garbage collected.
+    ///
+    /// Example: 5 backups from the same source cluster and type with a
+    /// quantity-based retention of 3 and denoted by backup_id (position,
+    /// retention).
+    ///
+    /// Safe: backup_5 (1, 3), backup_4, (2, 3), backup_3 (3, 3).
+    /// Awaiting garbage collection: backup_2 (4, 3), backup_1 (5, 3)
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>QuantityBasedExpiry {
+        <span class="doccomment">/// Output only. The backup&#39;s position among its backups with the same source
+        /// cluster and type, by descending chronological order create time(i.e.
+        /// newest first).
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>retention_count: i32,
+        <span class="doccomment">/// Output only. The length of the quantity-based queue, specified by the
+        /// backup&#39;s retention policy.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>total_retention_count: i32,
+    }
     <span class="doccomment">/// Backup State
     </span><span class="attr">#[derive(
         Clone,

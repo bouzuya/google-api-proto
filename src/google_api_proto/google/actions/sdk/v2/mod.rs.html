@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/actions/sdk/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/actions/sdk/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.1 (d5c2e9c34 2023-09-13)" data-channel="1.72.1" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2572,6 +2572,641 @@
     )
 )]
 </span><span class="kw">pub mod </span>interactionmodel;
+<span class="doccomment">/// Styles applied to cards that are presented to users
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ThemeCustomization {
+    <span class="doccomment">/// Background color of cards. Acts as a fallback if `background_image` is
+    /// not provided by developers or `background_image` doesn&#39;t fit for certain
+    /// surfaces.
+    /// Example usage: #FAFAFA
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>background_color: ::prost::alloc::string::String,
+    <span class="doccomment">/// Primary theme color of the Action will be used to set text color of title,
+    /// action item background color for Actions on Google cards.
+    /// Example usage: #FAFAFA
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>primary_color: ::prost::alloc::string::String,
+    <span class="doccomment">/// The font family that will be used for title of cards.
+    /// Supported fonts:
+    /// - Sans Serif
+    /// - Sans Serif Medium
+    /// - Sans Serif Bold
+    /// - Sans Serif Black
+    /// - Sans Serif Condensed
+    /// - Sans Serif Condensed Medium
+    /// - Serif
+    /// - Serif Bold
+    /// - Monospace
+    /// - Cursive
+    /// - Sans Serif Smallcaps
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>font_family: ::prost::alloc::string::String,
+    <span class="doccomment">/// Border style of foreground image of cards. For example, can be applied on
+    /// the foreground image of a basic card or carousel card.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;theme_customization::ImageCornerStyle&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>image_corner_style: i32,
+    <span class="doccomment">/// Landscape mode (minimum 1920x1200 pixels).
+    /// This should be specified as a reference to the corresponding image in the
+    /// `resources/images/` directory. Eg: `$resources.images.foo` (without the
+    /// extension) for image in `resources/images/foo.jpg`
+    /// When working on a project pulled from Console the Google managed url pulled
+    /// could be used.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>landscape_background_image: ::prost::alloc::string::String,
+    <span class="doccomment">/// Portrait mode (minimum 1200x1920 pixels).
+    /// This should be specified as a reference to the corresponding image in the
+    /// `resources/images/` directory. Eg: `$resources.images.foo` (without the
+    /// extension) for image in `resources/images/foo.jpg`
+    /// When working on a project pulled from Console the Google managed url pulled
+    /// could be used.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>portrait_background_image: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `ThemeCustomization`.
+</span><span class="kw">pub mod </span>theme_customization {
+    <span class="doccomment">/// Describes how the borders of images should be rendered.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>ImageCornerStyle {
+        <span class="doccomment">/// Undefined / Unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Round corner for image.
+        </span>Curved = <span class="number">1</span>,
+        <span class="doccomment">/// Rectangular corner for image.
+        </span>Angled = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>ImageCornerStyle {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                ImageCornerStyle::Unspecified =&gt; <span class="string">&quot;IMAGE_CORNER_STYLE_UNSPECIFIED&quot;</span>,
+                ImageCornerStyle::Curved =&gt; <span class="string">&quot;CURVED&quot;</span>,
+                ImageCornerStyle::Angled =&gt; <span class="string">&quot;ANGLED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;IMAGE_CORNER_STYLE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;CURVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Curved),
+                <span class="string">&quot;ANGLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Angled),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Represents settings of an Actions project that are specific to a user locale.
+/// In this instance, user means the end user who invokes your Actions.
+/// **This message is localizable.**
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>LocalizedSettings {
+    <span class="doccomment">/// Required. The default display name for this Actions project (if there is no
+    /// translation available)
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The pronunciation of the display name to invoke it within a voice
+    /// (spoken) context.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>pronunciation: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The default short description for the Actions project (if there is no
+    /// translation available). 80 character limit.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>short_description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The default long description for the Actions project (if there is no
+    /// translation available). 4000 character limit.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>full_description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Small square image, 192 x 192 px.
+    /// This should be specified as a reference to the corresponding image in the
+    /// `resources/images/` directory. For example, `$resources.images.foo` (without the
+    /// extension) for image in `resources/images/foo.jpg`
+    /// When working on a project pulled from Console, the Google-managed URL
+    /// pulled could be used. URLs from external sources are not allowed.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>small_logo_image: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Large landscape image, 1920 x 1080 px.
+    /// This should be specified as a reference to the corresponding image in the
+    /// `resources/images/` directory. For example, `$resources.images.foo` (without the
+    /// extension) for image in `resources/images/foo.jpg`
+    /// When working on a project pulled from Console, the Google-managed URL
+    /// pulled could be used. URLs from external sources are not allowed.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>large_banner_image: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The name of the developer to be displayed to users.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>developer_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The contact email address for the developer.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>developer_email: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The terms of service URL.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>terms_of_service_url: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The Google Assistant voice type that users hear when they interact with
+    /// your Actions. The supported values are &quot;male_1&quot;, &quot;male_2&quot;, &quot;female_1&quot;, and
+    /// &quot;female_2&quot;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>voice: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The locale for the specified voice. If not specified, this resolves
+    /// to the user&#39;s Assistant locale. If specified, the voice locale must have
+    /// the same root language as the locale specified in LocalizedSettings.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>voice_locale: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The privacy policy URL.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>privacy_policy_url: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Sample invocation phrases displayed as part of your Actions project&#39;s
+    /// description in the Assistant directory. This will help users learn how to
+    /// use it.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>sample_invocations: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Optional. Theme customizations for visual components of your Actions.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>theme_customization: ::core::option::Option&lt;ThemeCustomization&gt;,
+}
+<span class="doccomment">/// AccountLinking allows Google to guide the user to sign-in to the App&#39;s web
+/// services.
+///
+/// For Google Sign In and OAuth + Google Sign In linking types, Google generates
+/// a client ID identifying your App to Google (&quot;Client ID issued by Google to
+/// your Actions&quot; on Console UI). This field is read-only and can be checked by
+/// navigating to the Console UI&#39;s Account Linking page.
+/// See: &lt;https://developers.google.com/assistant/identity/google-sign-in&gt;
+///
+/// Note: For all account linking setting types (except for Google Sign In), you
+/// must provide a username and password for a test account in
+/// Settings.testing_instructions for the review team to review the app (they
+/// will not be visible to users).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AccountLinking {
+    <span class="doccomment">/// Required. If `true`, users are allowed to sign up for new accounts via voice.
+    /// If `false`, account creation is only allowed on your website. Select this
+    /// option if you want to display your terms of service or obtain user consents
+    /// during sign-up.
+    /// linking_type cannot be GOOGLE_SIGN_IN when this is `false`.
+    /// linking_type cannot be OAUTH when this is `true`.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>enable_account_creation: bool,
+    <span class="doccomment">/// Required. The linking type to use.
+    /// See &lt;https://developers.google.com/assistant/identity&gt; for further details on
+    /// the linking types.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;account_linking::LinkingType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>linking_type: i32,
+    <span class="doccomment">/// Optional. Indicates the type of authentication for OAUTH linking_type.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;account_linking::AuthGrantType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>auth_grant_type: i32,
+    <span class="doccomment">/// Optional. Client ID issued by your App to Google.
+    /// This is the OAuth2 Client ID identifying Google to your service.
+    /// Only set when using OAuth.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>app_client_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Endpoint for your sign-in web page that supports OAuth2 code or
+    /// implicit flows.
+    /// URL must use HTTPS.
+    /// Only set when using OAuth.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>authorization_url: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. OAuth2 endpoint for token exchange.
+    /// URL must use HTTPS.
+    /// This is not set when only using OAuth with IMPLICIT grant as the
+    /// linking type.
+    /// Only set when using OAuth.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>token_url: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. List of permissions the user must consent to in order to use
+    /// your service.
+    /// Only set when using OAuth.
+    /// Make sure to provide a Terms of Service in the directory information in
+    /// LocalizedSettings.terms_of_service_url section if specifying this field.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>scopes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Optional. This is the web page on your service which describes the
+    /// permissions the user is granting to Google.
+    /// Only set if using OAuth and Google Sign In.
+    /// Make sure to provide a Terms of Service in the directory information in
+    /// LocalizedSettings.terms_of_service_url section if specifying this field.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>learn_more_url: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. If true, allow Google to transmit client ID and secret via HTTP
+    /// basic auth header. Otherwise, Google uses the client ID and secret inside
+    /// the post body.
+    /// Only set when using OAuth.
+    /// Make sure to provide a Terms of Service in the directory information in
+    /// LocalizedSettings.terms_of_service_url section if specifying this field.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>use_basic_auth_header: bool,
+}
+<span class="doccomment">/// Nested message and enum types in `AccountLinking`.
+</span><span class="kw">pub mod </span>account_linking {
+    <span class="doccomment">/// The type of Account Linking to perform.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>LinkingType {
+        <span class="doccomment">/// Unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Google Sign In linking type.
+        /// If using this linking type, no OAuth-related fields need to be set below.
+        </span>GoogleSignIn = <span class="number">1</span>,
+        <span class="doccomment">/// OAuth and Google Sign In linking type.
+        </span>OauthAndGoogleSignIn = <span class="number">2</span>,
+        <span class="doccomment">/// OAuth linking type.
+        </span>Oauth = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>LinkingType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                LinkingType::Unspecified =&gt; <span class="string">&quot;LINKING_TYPE_UNSPECIFIED&quot;</span>,
+                LinkingType::GoogleSignIn =&gt; <span class="string">&quot;GOOGLE_SIGN_IN&quot;</span>,
+                LinkingType::OauthAndGoogleSignIn =&gt; <span class="string">&quot;OAUTH_AND_GOOGLE_SIGN_IN&quot;</span>,
+                LinkingType::Oauth =&gt; <span class="string">&quot;OAUTH&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;LINKING_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;GOOGLE_SIGN_IN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GoogleSignIn),
+                <span class="string">&quot;OAUTH_AND_GOOGLE_SIGN_IN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OauthAndGoogleSignIn),
+                <span class="string">&quot;OAUTH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Oauth),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// The OAuth2 grant type Google uses to guide the user to sign in to your
+    /// App&#39;s web service.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>AuthGrantType {
+        <span class="doccomment">/// Unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Authorization code grant. Requires you to provide both
+        /// authentication URL and access token URL.
+        </span>AuthCode = <span class="number">1</span>,
+        <span class="doccomment">/// Implicit code grant. Only requires you to provide authentication
+        /// URL.
+        </span>Implicit = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>AuthGrantType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                AuthGrantType::Unspecified =&gt; <span class="string">&quot;AUTH_GRANT_TYPE_UNSPECIFIED&quot;</span>,
+                AuthGrantType::AuthCode =&gt; <span class="string">&quot;AUTH_CODE&quot;</span>,
+                AuthGrantType::Implicit =&gt; <span class="string">&quot;IMPLICIT&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;AUTH_GRANT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;AUTH_CODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AuthCode),
+                <span class="string">&quot;IMPLICIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Implicit),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Contains a set of requirements that the client surface must support to invoke
+/// Actions in your project.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SurfaceRequirements {
+    <span class="doccomment">/// The minimum set of capabilities needed to invoke the Actions in your
+    /// project. If the surface is missing any of these, the Action will not be
+    /// triggered.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>minimum_requirements: ::prost::alloc::vec::Vec&lt;CapabilityRequirement&gt;,
+}
+<span class="doccomment">/// Represents a requirement about the availability of a given capability.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CapabilityRequirement {
+    <span class="doccomment">/// The type of capability.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;capability_requirement::SurfaceCapability&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>capability: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `CapabilityRequirement`.
+</span><span class="kw">pub mod </span>capability_requirement {
+    <span class="doccomment">/// Possible set of surface capabilities.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>SurfaceCapability {
+        <span class="doccomment">/// Unknown / Unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Surface supports audio output.
+        </span>AudioOutput = <span class="number">1</span>,
+        <span class="doccomment">/// Surface supports screen/visual output.
+        </span>ScreenOutput = <span class="number">2</span>,
+        <span class="doccomment">/// Surface supports media response audio.
+        </span>MediaResponseAudio = <span class="number">3</span>,
+        <span class="doccomment">/// Surface supports web browsers.
+        </span>WebBrowser = <span class="number">4</span>,
+        <span class="doccomment">/// Surface supports account linking.
+        </span>AccountLinking = <span class="number">7</span>,
+        <span class="doccomment">/// Surface supports Interactive Canvas.
+        </span>InteractiveCanvas = <span class="number">8</span>,
+        <span class="doccomment">/// Surface supports home storage.
+        </span>HomeStorage = <span class="number">9</span>,
+    }
+    <span class="kw">impl </span>SurfaceCapability {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                SurfaceCapability::Unspecified =&gt; <span class="string">&quot;SURFACE_CAPABILITY_UNSPECIFIED&quot;</span>,
+                SurfaceCapability::AudioOutput =&gt; <span class="string">&quot;AUDIO_OUTPUT&quot;</span>,
+                SurfaceCapability::ScreenOutput =&gt; <span class="string">&quot;SCREEN_OUTPUT&quot;</span>,
+                SurfaceCapability::MediaResponseAudio =&gt; <span class="string">&quot;MEDIA_RESPONSE_AUDIO&quot;</span>,
+                SurfaceCapability::WebBrowser =&gt; <span class="string">&quot;WEB_BROWSER&quot;</span>,
+                SurfaceCapability::AccountLinking =&gt; <span class="string">&quot;ACCOUNT_LINKING&quot;</span>,
+                SurfaceCapability::InteractiveCanvas =&gt; <span class="string">&quot;INTERACTIVE_CANVAS&quot;</span>,
+                SurfaceCapability::HomeStorage =&gt; <span class="string">&quot;HOME_STORAGE&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;SURFACE_CAPABILITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;AUDIO_OUTPUT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AudioOutput),
+                <span class="string">&quot;SCREEN_OUTPUT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScreenOutput),
+                <span class="string">&quot;MEDIA_RESPONSE_AUDIO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MediaResponseAudio),
+                <span class="string">&quot;WEB_BROWSER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::WebBrowser),
+                <span class="string">&quot;ACCOUNT_LINKING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AccountLinking),
+                <span class="string">&quot;INTERACTIVE_CANVAS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InteractiveCanvas),
+                <span class="string">&quot;HOME_STORAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HomeStorage),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Represents settings of an Actions project that are not locale specific.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Settings {
+    <span class="doccomment">/// Actions project id.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Locale which is default for the project. For all files except under
+    /// `resources/` with no locale in the path, the localized data is attributed
+    /// to this `default_locale`. For files under `resources/` no locale means that
+    /// the resource is applicable to all locales.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>default_locale: ::prost::alloc::string::String,
+    <span class="doccomment">/// Represents the regions where users can invoke your Actions, which is
+    /// based on the user&#39;s location of presence. Cannot be set if
+    /// `disabled_regions` is set. If both `enabled_regions` and `disabled_regions`
+    /// are not specified, users can invoke your Actions in all regions. Each
+    /// region is represented using the Canonical Name of Adwords geotargets. See
+    /// &lt;https://developers.google.com/adwords/api/docs/appendix/geotargeting&gt;
+    /// Examples include:
+    /// - &quot;Germany&quot;
+    /// - &quot;Ghana&quot;
+    /// - &quot;Greece&quot;
+    /// - &quot;Grenada&quot;
+    /// - &quot;United Kingdom&quot;
+    /// - &quot;United States&quot;
+    /// - &quot;United States Minor Outlying Islands&quot;
+    /// - &quot;Uruguay&quot;
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>enabled_regions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Represents the regions where your Actions are blocked, based on the user&#39;s
+    /// location of presence. Cannot be set if `enabled_regions` is set.
+    /// Each region is represented using the Canonical Name of Adwords geotargets.
+    /// See &lt;https://developers.google.com/adwords/api/docs/appendix/geotargeting&gt;
+    /// Examples include:
+    /// - &quot;Germany&quot;
+    /// - &quot;Ghana&quot;
+    /// - &quot;Greece&quot;
+    /// - &quot;Grenada&quot;
+    /// - &quot;United Kingdom&quot;
+    /// - &quot;United States&quot;
+    /// - &quot;United States Minor Outlying Islands&quot;
+    /// - &quot;Uruguay&quot;
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>disabled_regions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// The category for this Actions project.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;settings::Category&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>category: i32,
+    <span class="doccomment">/// Whether Actions can use transactions (for example, making
+    /// reservations, taking orders, etc.). If false, then attempts to use the
+    /// Transactions APIs fail.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>uses_transactions_api: bool,
+    <span class="doccomment">/// Whether Actions can perform transactions for digital goods.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>uses_digital_purchase_api: bool,
+    <span class="doccomment">/// Whether Actions use Interactive Canvas.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>uses_interactive_canvas: bool,
+    <span class="doccomment">/// Whether Actions use the home storage feature.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="kw">pub </span>uses_home_storage: bool,
+    <span class="doccomment">/// Whether Actions content is designed for family (DFF).
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>designed_for_family: bool,
+    <span class="doccomment">/// Whether Actions contains alcohol or tobacco related content.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>contains_alcohol_or_tobacco_content: bool,
+    <span class="doccomment">/// Whether Actions may leave mic open without an explicit prompt during
+    /// conversation.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>keeps_mic_open: bool,
+    <span class="doccomment">/// The surface requirements that a client surface must support to invoke
+    /// Actions in this project.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>surface_requirements: ::core::option::Option&lt;SurfaceRequirements&gt;,
+    <span class="doccomment">/// Free-form testing instructions for Actions reviewer (for example, account
+    /// linking instructions).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>testing_instructions: ::prost::alloc::string::String,
+    <span class="doccomment">/// Localized settings for the project&#39;s default locale. Every additional
+    /// locale should have its own settings file in its own directory.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>localized_settings: ::core::option::Option&lt;LocalizedSettings&gt;,
+    <span class="doccomment">/// Allow users to create or link accounts through Google sign-in and/or your
+    /// own OAuth service.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="kw">pub </span>account_linking: ::core::option::Option&lt;AccountLinking&gt;,
+    <span class="doccomment">/// Android apps selected to acccess Google Play purchases for transactions.
+    /// This is a selection from the Android apps connected to the actions project
+    /// to verify brand ownership and enable additional features. See
+    /// &lt;https://developers.google.com/assistant/console/brand-verification&gt; for more
+    /// information.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="kw">pub </span>selected_android_apps: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Settings`.
+</span><span class="kw">pub mod </span>settings {
+    <span class="doccomment">/// The category choices for an Actions project.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Category {
+        <span class="doccomment">/// Unknown / Unspecified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Business and Finance category.
+        </span>BusinessAndFinance = <span class="number">2</span>,
+        <span class="doccomment">/// Education and Reference category.
+        </span>EducationAndReference = <span class="number">3</span>,
+        <span class="doccomment">/// Food and Drink category.
+        </span>FoodAndDrink = <span class="number">4</span>,
+        <span class="doccomment">/// Games and Trivia category.
+        </span>GamesAndTrivia = <span class="number">5</span>,
+        <span class="doccomment">/// Health and Fitness category.
+        </span>HealthAndFitness = <span class="number">6</span>,
+        <span class="doccomment">/// Kids and Family category.
+        </span>KidsAndFamily = <span class="number">20</span>,
+        <span class="doccomment">/// Lifestyle category.
+        </span>Lifestyle = <span class="number">7</span>,
+        <span class="doccomment">/// Local category.
+        </span>Local = <span class="number">8</span>,
+        <span class="doccomment">/// Movies and TV category.
+        </span>MoviesAndTv = <span class="number">9</span>,
+        <span class="doccomment">/// Music and Audio category.
+        </span>MusicAndAudio = <span class="number">10</span>,
+        <span class="doccomment">/// News category,
+        </span>News = <span class="number">1</span>,
+        <span class="doccomment">/// Novelty and Humor category.
+        </span>NoveltyAndHumor = <span class="number">11</span>,
+        <span class="doccomment">/// Productivity category.
+        </span>Productivity = <span class="number">12</span>,
+        <span class="doccomment">/// Shopping category.
+        </span>Shopping = <span class="number">13</span>,
+        <span class="doccomment">/// Social category.
+        </span>Social = <span class="number">14</span>,
+        <span class="doccomment">/// Sports category.
+        </span>Sports = <span class="number">15</span>,
+        <span class="doccomment">/// Travel and Transportation category.
+        </span>TravelAndTransportation = <span class="number">16</span>,
+        <span class="doccomment">/// Utilities category.
+        </span>Utilities = <span class="number">17</span>,
+        <span class="doccomment">/// Weather category.
+        </span>Weather = <span class="number">18</span>,
+        <span class="doccomment">/// Home Control category.
+        </span>HomeControl = <span class="number">19</span>,
+    }
+    <span class="kw">impl </span>Category {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Category::Unspecified =&gt; <span class="string">&quot;CATEGORY_UNSPECIFIED&quot;</span>,
+                Category::BusinessAndFinance =&gt; <span class="string">&quot;BUSINESS_AND_FINANCE&quot;</span>,
+                Category::EducationAndReference =&gt; <span class="string">&quot;EDUCATION_AND_REFERENCE&quot;</span>,
+                Category::FoodAndDrink =&gt; <span class="string">&quot;FOOD_AND_DRINK&quot;</span>,
+                Category::GamesAndTrivia =&gt; <span class="string">&quot;GAMES_AND_TRIVIA&quot;</span>,
+                Category::HealthAndFitness =&gt; <span class="string">&quot;HEALTH_AND_FITNESS&quot;</span>,
+                Category::KidsAndFamily =&gt; <span class="string">&quot;KIDS_AND_FAMILY&quot;</span>,
+                Category::Lifestyle =&gt; <span class="string">&quot;LIFESTYLE&quot;</span>,
+                Category::Local =&gt; <span class="string">&quot;LOCAL&quot;</span>,
+                Category::MoviesAndTv =&gt; <span class="string">&quot;MOVIES_AND_TV&quot;</span>,
+                Category::MusicAndAudio =&gt; <span class="string">&quot;MUSIC_AND_AUDIO&quot;</span>,
+                Category::News =&gt; <span class="string">&quot;NEWS&quot;</span>,
+                Category::NoveltyAndHumor =&gt; <span class="string">&quot;NOVELTY_AND_HUMOR&quot;</span>,
+                Category::Productivity =&gt; <span class="string">&quot;PRODUCTIVITY&quot;</span>,
+                Category::Shopping =&gt; <span class="string">&quot;SHOPPING&quot;</span>,
+                Category::Social =&gt; <span class="string">&quot;SOCIAL&quot;</span>,
+                Category::Sports =&gt; <span class="string">&quot;SPORTS&quot;</span>,
+                Category::TravelAndTransportation =&gt; <span class="string">&quot;TRAVEL_AND_TRANSPORTATION&quot;</span>,
+                Category::Utilities =&gt; <span class="string">&quot;UTILITIES&quot;</span>,
+                Category::Weather =&gt; <span class="string">&quot;WEATHER&quot;</span>,
+                Category::HomeControl =&gt; <span class="string">&quot;HOME_CONTROL&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;CATEGORY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;BUSINESS_AND_FINANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BusinessAndFinance),
+                <span class="string">&quot;EDUCATION_AND_REFERENCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EducationAndReference),
+                <span class="string">&quot;FOOD_AND_DRINK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FoodAndDrink),
+                <span class="string">&quot;GAMES_AND_TRIVIA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GamesAndTrivia),
+                <span class="string">&quot;HEALTH_AND_FITNESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HealthAndFitness),
+                <span class="string">&quot;KIDS_AND_FAMILY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KidsAndFamily),
+                <span class="string">&quot;LIFESTYLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Lifestyle),
+                <span class="string">&quot;LOCAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Local),
+                <span class="string">&quot;MOVIES_AND_TV&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MoviesAndTv),
+                <span class="string">&quot;MUSIC_AND_AUDIO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MusicAndAudio),
+                <span class="string">&quot;NEWS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::News),
+                <span class="string">&quot;NOVELTY_AND_HUMOR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoveltyAndHumor),
+                <span class="string">&quot;PRODUCTIVITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Productivity),
+                <span class="string">&quot;SHOPPING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Shopping),
+                <span class="string">&quot;SOCIAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Social),
+                <span class="string">&quot;SPORTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sports),
+                <span class="string">&quot;TRAVEL_AND_TRANSPORTATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TravelAndTransportation),
+                <span class="string">&quot;UTILITIES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Utilities),
+                <span class="string">&quot;WEATHER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Weather),
+                <span class="string">&quot;HOME_CONTROL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HomeControl),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
 <span class="doccomment">/// Contains information about execution event which happened during processing
 /// Actions Builder conversation request. For an overview of the stages involved
 /// in a conversation request, see
@@ -3286,23 +3921,6 @@
         </span>}
     }
 }
-<span class="doccomment">/// Definition of release channel resource.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ReleaseChannel {
-    <span class="doccomment">/// The unique name of the release channel in the following format.
-    /// `projects/{project}/releaseChannels/{release_channel}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Version currently deployed to this release channel in the following format:
-    /// `projects/{project}/versions/{version}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>current_version: ::prost::alloc::string::String,
-    <span class="doccomment">/// Version to be deployed to this release channel in the following format:
-    /// `projects/{project}/versions/{version}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>pending_version: ::prost::alloc::string::String,
-}
 <span class="doccomment">/// Information about the encrypted OAuth client secret used in account linking
 /// flows (for AUTH_CODE grant type).
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -3429,641 +4047,6 @@
     /// Example: &quot;1.0&quot;
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// AccountLinking allows Google to guide the user to sign-in to the App&#39;s web
-/// services.
-///
-/// For Google Sign In and OAuth + Google Sign In linking types, Google generates
-/// a client ID identifying your App to Google (&quot;Client ID issued by Google to
-/// your Actions&quot; on Console UI). This field is read-only and can be checked by
-/// navigating to the Console UI&#39;s Account Linking page.
-/// See: &lt;https://developers.google.com/assistant/identity/google-sign-in&gt;
-///
-/// Note: For all account linking setting types (except for Google Sign In), you
-/// must provide a username and password for a test account in
-/// Settings.testing_instructions for the review team to review the app (they
-/// will not be visible to users).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AccountLinking {
-    <span class="doccomment">/// Required. If `true`, users are allowed to sign up for new accounts via voice.
-    /// If `false`, account creation is only allowed on your website. Select this
-    /// option if you want to display your terms of service or obtain user consents
-    /// during sign-up.
-    /// linking_type cannot be GOOGLE_SIGN_IN when this is `false`.
-    /// linking_type cannot be OAUTH when this is `true`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>enable_account_creation: bool,
-    <span class="doccomment">/// Required. The linking type to use.
-    /// See &lt;https://developers.google.com/assistant/identity&gt; for further details on
-    /// the linking types.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;account_linking::LinkingType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>linking_type: i32,
-    <span class="doccomment">/// Optional. Indicates the type of authentication for OAUTH linking_type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;account_linking::AuthGrantType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>auth_grant_type: i32,
-    <span class="doccomment">/// Optional. Client ID issued by your App to Google.
-    /// This is the OAuth2 Client ID identifying Google to your service.
-    /// Only set when using OAuth.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>app_client_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Endpoint for your sign-in web page that supports OAuth2 code or
-    /// implicit flows.
-    /// URL must use HTTPS.
-    /// Only set when using OAuth.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>authorization_url: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. OAuth2 endpoint for token exchange.
-    /// URL must use HTTPS.
-    /// This is not set when only using OAuth with IMPLICIT grant as the
-    /// linking type.
-    /// Only set when using OAuth.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>token_url: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. List of permissions the user must consent to in order to use
-    /// your service.
-    /// Only set when using OAuth.
-    /// Make sure to provide a Terms of Service in the directory information in
-    /// LocalizedSettings.terms_of_service_url section if specifying this field.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>scopes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Optional. This is the web page on your service which describes the
-    /// permissions the user is granting to Google.
-    /// Only set if using OAuth and Google Sign In.
-    /// Make sure to provide a Terms of Service in the directory information in
-    /// LocalizedSettings.terms_of_service_url section if specifying this field.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>learn_more_url: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. If true, allow Google to transmit client ID and secret via HTTP
-    /// basic auth header. Otherwise, Google uses the client ID and secret inside
-    /// the post body.
-    /// Only set when using OAuth.
-    /// Make sure to provide a Terms of Service in the directory information in
-    /// LocalizedSettings.terms_of_service_url section if specifying this field.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>use_basic_auth_header: bool,
-}
-<span class="doccomment">/// Nested message and enum types in `AccountLinking`.
-</span><span class="kw">pub mod </span>account_linking {
-    <span class="doccomment">/// The type of Account Linking to perform.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>LinkingType {
-        <span class="doccomment">/// Unspecified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Google Sign In linking type.
-        /// If using this linking type, no OAuth-related fields need to be set below.
-        </span>GoogleSignIn = <span class="number">1</span>,
-        <span class="doccomment">/// OAuth and Google Sign In linking type.
-        </span>OauthAndGoogleSignIn = <span class="number">2</span>,
-        <span class="doccomment">/// OAuth linking type.
-        </span>Oauth = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>LinkingType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                LinkingType::Unspecified =&gt; <span class="string">&quot;LINKING_TYPE_UNSPECIFIED&quot;</span>,
-                LinkingType::GoogleSignIn =&gt; <span class="string">&quot;GOOGLE_SIGN_IN&quot;</span>,
-                LinkingType::OauthAndGoogleSignIn =&gt; <span class="string">&quot;OAUTH_AND_GOOGLE_SIGN_IN&quot;</span>,
-                LinkingType::Oauth =&gt; <span class="string">&quot;OAUTH&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;LINKING_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;GOOGLE_SIGN_IN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GoogleSignIn),
-                <span class="string">&quot;OAUTH_AND_GOOGLE_SIGN_IN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OauthAndGoogleSignIn),
-                <span class="string">&quot;OAUTH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Oauth),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// The OAuth2 grant type Google uses to guide the user to sign in to your
-    /// App&#39;s web service.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>AuthGrantType {
-        <span class="doccomment">/// Unspecified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Authorization code grant. Requires you to provide both
-        /// authentication URL and access token URL.
-        </span>AuthCode = <span class="number">1</span>,
-        <span class="doccomment">/// Implicit code grant. Only requires you to provide authentication
-        /// URL.
-        </span>Implicit = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>AuthGrantType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                AuthGrantType::Unspecified =&gt; <span class="string">&quot;AUTH_GRANT_TYPE_UNSPECIFIED&quot;</span>,
-                AuthGrantType::AuthCode =&gt; <span class="string">&quot;AUTH_CODE&quot;</span>,
-                AuthGrantType::Implicit =&gt; <span class="string">&quot;IMPLICIT&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;AUTH_GRANT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AUTH_CODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AuthCode),
-                <span class="string">&quot;IMPLICIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Implicit),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Styles applied to cards that are presented to users
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ThemeCustomization {
-    <span class="doccomment">/// Background color of cards. Acts as a fallback if `background_image` is
-    /// not provided by developers or `background_image` doesn&#39;t fit for certain
-    /// surfaces.
-    /// Example usage: #FAFAFA
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>background_color: ::prost::alloc::string::String,
-    <span class="doccomment">/// Primary theme color of the Action will be used to set text color of title,
-    /// action item background color for Actions on Google cards.
-    /// Example usage: #FAFAFA
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>primary_color: ::prost::alloc::string::String,
-    <span class="doccomment">/// The font family that will be used for title of cards.
-    /// Supported fonts:
-    /// - Sans Serif
-    /// - Sans Serif Medium
-    /// - Sans Serif Bold
-    /// - Sans Serif Black
-    /// - Sans Serif Condensed
-    /// - Sans Serif Condensed Medium
-    /// - Serif
-    /// - Serif Bold
-    /// - Monospace
-    /// - Cursive
-    /// - Sans Serif Smallcaps
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>font_family: ::prost::alloc::string::String,
-    <span class="doccomment">/// Border style of foreground image of cards. For example, can be applied on
-    /// the foreground image of a basic card or carousel card.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;theme_customization::ImageCornerStyle&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>image_corner_style: i32,
-    <span class="doccomment">/// Landscape mode (minimum 1920x1200 pixels).
-    /// This should be specified as a reference to the corresponding image in the
-    /// `resources/images/` directory. Eg: `$resources.images.foo` (without the
-    /// extension) for image in `resources/images/foo.jpg`
-    /// When working on a project pulled from Console the Google managed url pulled
-    /// could be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>landscape_background_image: ::prost::alloc::string::String,
-    <span class="doccomment">/// Portrait mode (minimum 1200x1920 pixels).
-    /// This should be specified as a reference to the corresponding image in the
-    /// `resources/images/` directory. Eg: `$resources.images.foo` (without the
-    /// extension) for image in `resources/images/foo.jpg`
-    /// When working on a project pulled from Console the Google managed url pulled
-    /// could be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>portrait_background_image: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `ThemeCustomization`.
-</span><span class="kw">pub mod </span>theme_customization {
-    <span class="doccomment">/// Describes how the borders of images should be rendered.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>ImageCornerStyle {
-        <span class="doccomment">/// Undefined / Unspecified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Round corner for image.
-        </span>Curved = <span class="number">1</span>,
-        <span class="doccomment">/// Rectangular corner for image.
-        </span>Angled = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>ImageCornerStyle {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                ImageCornerStyle::Unspecified =&gt; <span class="string">&quot;IMAGE_CORNER_STYLE_UNSPECIFIED&quot;</span>,
-                ImageCornerStyle::Curved =&gt; <span class="string">&quot;CURVED&quot;</span>,
-                ImageCornerStyle::Angled =&gt; <span class="string">&quot;ANGLED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;IMAGE_CORNER_STYLE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CURVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Curved),
-                <span class="string">&quot;ANGLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Angled),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Represents settings of an Actions project that are specific to a user locale.
-/// In this instance, user means the end user who invokes your Actions.
-/// **This message is localizable.**
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LocalizedSettings {
-    <span class="doccomment">/// Required. The default display name for this Actions project (if there is no
-    /// translation available)
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The pronunciation of the display name to invoke it within a voice
-    /// (spoken) context.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>pronunciation: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The default short description for the Actions project (if there is no
-    /// translation available). 80 character limit.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>short_description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The default long description for the Actions project (if there is no
-    /// translation available). 4000 character limit.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>full_description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Small square image, 192 x 192 px.
-    /// This should be specified as a reference to the corresponding image in the
-    /// `resources/images/` directory. For example, `$resources.images.foo` (without the
-    /// extension) for image in `resources/images/foo.jpg`
-    /// When working on a project pulled from Console, the Google-managed URL
-    /// pulled could be used. URLs from external sources are not allowed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>small_logo_image: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Large landscape image, 1920 x 1080 px.
-    /// This should be specified as a reference to the corresponding image in the
-    /// `resources/images/` directory. For example, `$resources.images.foo` (without the
-    /// extension) for image in `resources/images/foo.jpg`
-    /// When working on a project pulled from Console, the Google-managed URL
-    /// pulled could be used. URLs from external sources are not allowed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>large_banner_image: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The name of the developer to be displayed to users.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>developer_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The contact email address for the developer.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>developer_email: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The terms of service URL.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>terms_of_service_url: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The Google Assistant voice type that users hear when they interact with
-    /// your Actions. The supported values are &quot;male_1&quot;, &quot;male_2&quot;, &quot;female_1&quot;, and
-    /// &quot;female_2&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>voice: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The locale for the specified voice. If not specified, this resolves
-    /// to the user&#39;s Assistant locale. If specified, the voice locale must have
-    /// the same root language as the locale specified in LocalizedSettings.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>voice_locale: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The privacy policy URL.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>privacy_policy_url: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Sample invocation phrases displayed as part of your Actions project&#39;s
-    /// description in the Assistant directory. This will help users learn how to
-    /// use it.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>sample_invocations: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Optional. Theme customizations for visual components of your Actions.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>theme_customization: ::core::option::Option&lt;ThemeCustomization&gt;,
-}
-<span class="doccomment">/// Contains a set of requirements that the client surface must support to invoke
-/// Actions in your project.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SurfaceRequirements {
-    <span class="doccomment">/// The minimum set of capabilities needed to invoke the Actions in your
-    /// project. If the surface is missing any of these, the Action will not be
-    /// triggered.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>minimum_requirements: ::prost::alloc::vec::Vec&lt;CapabilityRequirement&gt;,
-}
-<span class="doccomment">/// Represents a requirement about the availability of a given capability.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CapabilityRequirement {
-    <span class="doccomment">/// The type of capability.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;capability_requirement::SurfaceCapability&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>capability: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `CapabilityRequirement`.
-</span><span class="kw">pub mod </span>capability_requirement {
-    <span class="doccomment">/// Possible set of surface capabilities.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>SurfaceCapability {
-        <span class="doccomment">/// Unknown / Unspecified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Surface supports audio output.
-        </span>AudioOutput = <span class="number">1</span>,
-        <span class="doccomment">/// Surface supports screen/visual output.
-        </span>ScreenOutput = <span class="number">2</span>,
-        <span class="doccomment">/// Surface supports media response audio.
-        </span>MediaResponseAudio = <span class="number">3</span>,
-        <span class="doccomment">/// Surface supports web browsers.
-        </span>WebBrowser = <span class="number">4</span>,
-        <span class="doccomment">/// Surface supports account linking.
-        </span>AccountLinking = <span class="number">7</span>,
-        <span class="doccomment">/// Surface supports Interactive Canvas.
-        </span>InteractiveCanvas = <span class="number">8</span>,
-        <span class="doccomment">/// Surface supports home storage.
-        </span>HomeStorage = <span class="number">9</span>,
-    }
-    <span class="kw">impl </span>SurfaceCapability {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                SurfaceCapability::Unspecified =&gt; <span class="string">&quot;SURFACE_CAPABILITY_UNSPECIFIED&quot;</span>,
-                SurfaceCapability::AudioOutput =&gt; <span class="string">&quot;AUDIO_OUTPUT&quot;</span>,
-                SurfaceCapability::ScreenOutput =&gt; <span class="string">&quot;SCREEN_OUTPUT&quot;</span>,
-                SurfaceCapability::MediaResponseAudio =&gt; <span class="string">&quot;MEDIA_RESPONSE_AUDIO&quot;</span>,
-                SurfaceCapability::WebBrowser =&gt; <span class="string">&quot;WEB_BROWSER&quot;</span>,
-                SurfaceCapability::AccountLinking =&gt; <span class="string">&quot;ACCOUNT_LINKING&quot;</span>,
-                SurfaceCapability::InteractiveCanvas =&gt; <span class="string">&quot;INTERACTIVE_CANVAS&quot;</span>,
-                SurfaceCapability::HomeStorage =&gt; <span class="string">&quot;HOME_STORAGE&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;SURFACE_CAPABILITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AUDIO_OUTPUT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AudioOutput),
-                <span class="string">&quot;SCREEN_OUTPUT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScreenOutput),
-                <span class="string">&quot;MEDIA_RESPONSE_AUDIO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MediaResponseAudio),
-                <span class="string">&quot;WEB_BROWSER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::WebBrowser),
-                <span class="string">&quot;ACCOUNT_LINKING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AccountLinking),
-                <span class="string">&quot;INTERACTIVE_CANVAS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InteractiveCanvas),
-                <span class="string">&quot;HOME_STORAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HomeStorage),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Represents settings of an Actions project that are not locale specific.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Settings {
-    <span class="doccomment">/// Actions project id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Locale which is default for the project. For all files except under
-    /// `resources/` with no locale in the path, the localized data is attributed
-    /// to this `default_locale`. For files under `resources/` no locale means that
-    /// the resource is applicable to all locales.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>default_locale: ::prost::alloc::string::String,
-    <span class="doccomment">/// Represents the regions where users can invoke your Actions, which is
-    /// based on the user&#39;s location of presence. Cannot be set if
-    /// `disabled_regions` is set. If both `enabled_regions` and `disabled_regions`
-    /// are not specified, users can invoke your Actions in all regions. Each
-    /// region is represented using the Canonical Name of Adwords geotargets. See
-    /// &lt;https://developers.google.com/adwords/api/docs/appendix/geotargeting&gt;
-    /// Examples include:
-    /// - &quot;Germany&quot;
-    /// - &quot;Ghana&quot;
-    /// - &quot;Greece&quot;
-    /// - &quot;Grenada&quot;
-    /// - &quot;United Kingdom&quot;
-    /// - &quot;United States&quot;
-    /// - &quot;United States Minor Outlying Islands&quot;
-    /// - &quot;Uruguay&quot;
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>enabled_regions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Represents the regions where your Actions are blocked, based on the user&#39;s
-    /// location of presence. Cannot be set if `enabled_regions` is set.
-    /// Each region is represented using the Canonical Name of Adwords geotargets.
-    /// See &lt;https://developers.google.com/adwords/api/docs/appendix/geotargeting&gt;
-    /// Examples include:
-    /// - &quot;Germany&quot;
-    /// - &quot;Ghana&quot;
-    /// - &quot;Greece&quot;
-    /// - &quot;Grenada&quot;
-    /// - &quot;United Kingdom&quot;
-    /// - &quot;United States&quot;
-    /// - &quot;United States Minor Outlying Islands&quot;
-    /// - &quot;Uruguay&quot;
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>disabled_regions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// The category for this Actions project.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;settings::Category&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>category: i32,
-    <span class="doccomment">/// Whether Actions can use transactions (for example, making
-    /// reservations, taking orders, etc.). If false, then attempts to use the
-    /// Transactions APIs fail.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>uses_transactions_api: bool,
-    <span class="doccomment">/// Whether Actions can perform transactions for digital goods.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>uses_digital_purchase_api: bool,
-    <span class="doccomment">/// Whether Actions use Interactive Canvas.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>uses_interactive_canvas: bool,
-    <span class="doccomment">/// Whether Actions use the home storage feature.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;17&quot;</span>)]
-    </span><span class="kw">pub </span>uses_home_storage: bool,
-    <span class="doccomment">/// Whether Actions content is designed for family (DFF).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>designed_for_family: bool,
-    <span class="doccomment">/// Whether Actions contains alcohol or tobacco related content.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>contains_alcohol_or_tobacco_content: bool,
-    <span class="doccomment">/// Whether Actions may leave mic open without an explicit prompt during
-    /// conversation.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>keeps_mic_open: bool,
-    <span class="doccomment">/// The surface requirements that a client surface must support to invoke
-    /// Actions in this project.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>surface_requirements: ::core::option::Option&lt;SurfaceRequirements&gt;,
-    <span class="doccomment">/// Free-form testing instructions for Actions reviewer (for example, account
-    /// linking instructions).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>testing_instructions: ::prost::alloc::string::String,
-    <span class="doccomment">/// Localized settings for the project&#39;s default locale. Every additional
-    /// locale should have its own settings file in its own directory.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
-    </span><span class="kw">pub </span>localized_settings: ::core::option::Option&lt;LocalizedSettings&gt;,
-    <span class="doccomment">/// Allow users to create or link accounts through Google sign-in and/or your
-    /// own OAuth service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
-    </span><span class="kw">pub </span>account_linking: ::core::option::Option&lt;AccountLinking&gt;,
-    <span class="doccomment">/// Android apps selected to acccess Google Play purchases for transactions.
-    /// This is a selection from the Android apps connected to the actions project
-    /// to verify brand ownership and enable additional features. See
-    /// &lt;https://developers.google.com/assistant/console/brand-verification&gt; for more
-    /// information.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;20&quot;</span>)]
-    </span><span class="kw">pub </span>selected_android_apps: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Settings`.
-</span><span class="kw">pub mod </span>settings {
-    <span class="doccomment">/// The category choices for an Actions project.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Category {
-        <span class="doccomment">/// Unknown / Unspecified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Business and Finance category.
-        </span>BusinessAndFinance = <span class="number">2</span>,
-        <span class="doccomment">/// Education and Reference category.
-        </span>EducationAndReference = <span class="number">3</span>,
-        <span class="doccomment">/// Food and Drink category.
-        </span>FoodAndDrink = <span class="number">4</span>,
-        <span class="doccomment">/// Games and Trivia category.
-        </span>GamesAndTrivia = <span class="number">5</span>,
-        <span class="doccomment">/// Health and Fitness category.
-        </span>HealthAndFitness = <span class="number">6</span>,
-        <span class="doccomment">/// Kids and Family category.
-        </span>KidsAndFamily = <span class="number">20</span>,
-        <span class="doccomment">/// Lifestyle category.
-        </span>Lifestyle = <span class="number">7</span>,
-        <span class="doccomment">/// Local category.
-        </span>Local = <span class="number">8</span>,
-        <span class="doccomment">/// Movies and TV category.
-        </span>MoviesAndTv = <span class="number">9</span>,
-        <span class="doccomment">/// Music and Audio category.
-        </span>MusicAndAudio = <span class="number">10</span>,
-        <span class="doccomment">/// News category,
-        </span>News = <span class="number">1</span>,
-        <span class="doccomment">/// Novelty and Humor category.
-        </span>NoveltyAndHumor = <span class="number">11</span>,
-        <span class="doccomment">/// Productivity category.
-        </span>Productivity = <span class="number">12</span>,
-        <span class="doccomment">/// Shopping category.
-        </span>Shopping = <span class="number">13</span>,
-        <span class="doccomment">/// Social category.
-        </span>Social = <span class="number">14</span>,
-        <span class="doccomment">/// Sports category.
-        </span>Sports = <span class="number">15</span>,
-        <span class="doccomment">/// Travel and Transportation category.
-        </span>TravelAndTransportation = <span class="number">16</span>,
-        <span class="doccomment">/// Utilities category.
-        </span>Utilities = <span class="number">17</span>,
-        <span class="doccomment">/// Weather category.
-        </span>Weather = <span class="number">18</span>,
-        <span class="doccomment">/// Home Control category.
-        </span>HomeControl = <span class="number">19</span>,
-    }
-    <span class="kw">impl </span>Category {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Category::Unspecified =&gt; <span class="string">&quot;CATEGORY_UNSPECIFIED&quot;</span>,
-                Category::BusinessAndFinance =&gt; <span class="string">&quot;BUSINESS_AND_FINANCE&quot;</span>,
-                Category::EducationAndReference =&gt; <span class="string">&quot;EDUCATION_AND_REFERENCE&quot;</span>,
-                Category::FoodAndDrink =&gt; <span class="string">&quot;FOOD_AND_DRINK&quot;</span>,
-                Category::GamesAndTrivia =&gt; <span class="string">&quot;GAMES_AND_TRIVIA&quot;</span>,
-                Category::HealthAndFitness =&gt; <span class="string">&quot;HEALTH_AND_FITNESS&quot;</span>,
-                Category::KidsAndFamily =&gt; <span class="string">&quot;KIDS_AND_FAMILY&quot;</span>,
-                Category::Lifestyle =&gt; <span class="string">&quot;LIFESTYLE&quot;</span>,
-                Category::Local =&gt; <span class="string">&quot;LOCAL&quot;</span>,
-                Category::MoviesAndTv =&gt; <span class="string">&quot;MOVIES_AND_TV&quot;</span>,
-                Category::MusicAndAudio =&gt; <span class="string">&quot;MUSIC_AND_AUDIO&quot;</span>,
-                Category::News =&gt; <span class="string">&quot;NEWS&quot;</span>,
-                Category::NoveltyAndHumor =&gt; <span class="string">&quot;NOVELTY_AND_HUMOR&quot;</span>,
-                Category::Productivity =&gt; <span class="string">&quot;PRODUCTIVITY&quot;</span>,
-                Category::Shopping =&gt; <span class="string">&quot;SHOPPING&quot;</span>,
-                Category::Social =&gt; <span class="string">&quot;SOCIAL&quot;</span>,
-                Category::Sports =&gt; <span class="string">&quot;SPORTS&quot;</span>,
-                Category::TravelAndTransportation =&gt; <span class="string">&quot;TRAVEL_AND_TRANSPORTATION&quot;</span>,
-                Category::Utilities =&gt; <span class="string">&quot;UTILITIES&quot;</span>,
-                Category::Weather =&gt; <span class="string">&quot;WEATHER&quot;</span>,
-                Category::HomeControl =&gt; <span class="string">&quot;HOME_CONTROL&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;CATEGORY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;BUSINESS_AND_FINANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BusinessAndFinance),
-                <span class="string">&quot;EDUCATION_AND_REFERENCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EducationAndReference),
-                <span class="string">&quot;FOOD_AND_DRINK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FoodAndDrink),
-                <span class="string">&quot;GAMES_AND_TRIVIA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GamesAndTrivia),
-                <span class="string">&quot;HEALTH_AND_FITNESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HealthAndFitness),
-                <span class="string">&quot;KIDS_AND_FAMILY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KidsAndFamily),
-                <span class="string">&quot;LIFESTYLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Lifestyle),
-                <span class="string">&quot;LOCAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Local),
-                <span class="string">&quot;MOVIES_AND_TV&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MoviesAndTv),
-                <span class="string">&quot;MUSIC_AND_AUDIO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MusicAndAudio),
-                <span class="string">&quot;NEWS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::News),
-                <span class="string">&quot;NOVELTY_AND_HUMOR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoveltyAndHumor),
-                <span class="string">&quot;PRODUCTIVITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Productivity),
-                <span class="string">&quot;SHOPPING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Shopping),
-                <span class="string">&quot;SOCIAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Social),
-                <span class="string">&quot;SPORTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sports),
-                <span class="string">&quot;TRAVEL_AND_TRANSPORTATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TravelAndTransportation),
-                <span class="string">&quot;UTILITIES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Utilities),
-                <span class="string">&quot;WEATHER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Weather),
-                <span class="string">&quot;HOME_CONTROL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HomeControl),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
 }
 <span class="doccomment">/// Metadata for different types of webhooks. If you&#39;re using
 /// `inlineCloudFunction`, your source code must be in a directory with the same
@@ -4300,6 +4283,23 @@
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
         </span>DataFiles(<span class="kw">super</span>::DataFiles),
     }
+}
+<span class="doccomment">/// Definition of release channel resource.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ReleaseChannel {
+    <span class="doccomment">/// The unique name of the release channel in the following format.
+    /// `projects/{project}/releaseChannels/{release_channel}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Version currently deployed to this release channel in the following format:
+    /// `projects/{project}/versions/{version}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>current_version: ::prost::alloc::string::String,
+    <span class="doccomment">/// Version to be deployed to this release channel in the following format:
+    /// `projects/{project}/versions/{version}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>pending_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Wrapper for repeated validation result.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

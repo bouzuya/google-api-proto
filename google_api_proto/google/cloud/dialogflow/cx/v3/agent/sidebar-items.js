@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["git_integration_settings"],"struct":["GitIntegrationSettings"]};
+window.SIDEBAR_ITEMS = {"mod":["git_integration_settings"],"struct":["GenAppBuilderSettings","GitIntegrationSettings"]};

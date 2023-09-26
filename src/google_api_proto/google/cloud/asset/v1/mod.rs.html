@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/asset/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/asset/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.1 (d5c2e9c34 2023-09-13)" data-channel="1.72.1" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -4667,6 +4667,128 @@
 <a href="#4667" id="4667">4667</a>
 <a href="#4668" id="4668">4668</a>
 <a href="#4669" id="4669">4669</a>
+<a href="#4670" id="4670">4670</a>
+<a href="#4671" id="4671">4671</a>
+<a href="#4672" id="4672">4672</a>
+<a href="#4673" id="4673">4673</a>
+<a href="#4674" id="4674">4674</a>
+<a href="#4675" id="4675">4675</a>
+<a href="#4676" id="4676">4676</a>
+<a href="#4677" id="4677">4677</a>
+<a href="#4678" id="4678">4678</a>
+<a href="#4679" id="4679">4679</a>
+<a href="#4680" id="4680">4680</a>
+<a href="#4681" id="4681">4681</a>
+<a href="#4682" id="4682">4682</a>
+<a href="#4683" id="4683">4683</a>
+<a href="#4684" id="4684">4684</a>
+<a href="#4685" id="4685">4685</a>
+<a href="#4686" id="4686">4686</a>
+<a href="#4687" id="4687">4687</a>
+<a href="#4688" id="4688">4688</a>
+<a href="#4689" id="4689">4689</a>
+<a href="#4690" id="4690">4690</a>
+<a href="#4691" id="4691">4691</a>
+<a href="#4692" id="4692">4692</a>
+<a href="#4693" id="4693">4693</a>
+<a href="#4694" id="4694">4694</a>
+<a href="#4695" id="4695">4695</a>
+<a href="#4696" id="4696">4696</a>
+<a href="#4697" id="4697">4697</a>
+<a href="#4698" id="4698">4698</a>
+<a href="#4699" id="4699">4699</a>
+<a href="#4700" id="4700">4700</a>
+<a href="#4701" id="4701">4701</a>
+<a href="#4702" id="4702">4702</a>
+<a href="#4703" id="4703">4703</a>
+<a href="#4704" id="4704">4704</a>
+<a href="#4705" id="4705">4705</a>
+<a href="#4706" id="4706">4706</a>
+<a href="#4707" id="4707">4707</a>
+<a href="#4708" id="4708">4708</a>
+<a href="#4709" id="4709">4709</a>
+<a href="#4710" id="4710">4710</a>
+<a href="#4711" id="4711">4711</a>
+<a href="#4712" id="4712">4712</a>
+<a href="#4713" id="4713">4713</a>
+<a href="#4714" id="4714">4714</a>
+<a href="#4715" id="4715">4715</a>
+<a href="#4716" id="4716">4716</a>
+<a href="#4717" id="4717">4717</a>
+<a href="#4718" id="4718">4718</a>
+<a href="#4719" id="4719">4719</a>
+<a href="#4720" id="4720">4720</a>
+<a href="#4721" id="4721">4721</a>
+<a href="#4722" id="4722">4722</a>
+<a href="#4723" id="4723">4723</a>
+<a href="#4724" id="4724">4724</a>
+<a href="#4725" id="4725">4725</a>
+<a href="#4726" id="4726">4726</a>
+<a href="#4727" id="4727">4727</a>
+<a href="#4728" id="4728">4728</a>
+<a href="#4729" id="4729">4729</a>
+<a href="#4730" id="4730">4730</a>
+<a href="#4731" id="4731">4731</a>
+<a href="#4732" id="4732">4732</a>
+<a href="#4733" id="4733">4733</a>
+<a href="#4734" id="4734">4734</a>
+<a href="#4735" id="4735">4735</a>
+<a href="#4736" id="4736">4736</a>
+<a href="#4737" id="4737">4737</a>
+<a href="#4738" id="4738">4738</a>
+<a href="#4739" id="4739">4739</a>
+<a href="#4740" id="4740">4740</a>
+<a href="#4741" id="4741">4741</a>
+<a href="#4742" id="4742">4742</a>
+<a href="#4743" id="4743">4743</a>
+<a href="#4744" id="4744">4744</a>
+<a href="#4745" id="4745">4745</a>
+<a href="#4746" id="4746">4746</a>
+<a href="#4747" id="4747">4747</a>
+<a href="#4748" id="4748">4748</a>
+<a href="#4749" id="4749">4749</a>
+<a href="#4750" id="4750">4750</a>
+<a href="#4751" id="4751">4751</a>
+<a href="#4752" id="4752">4752</a>
+<a href="#4753" id="4753">4753</a>
+<a href="#4754" id="4754">4754</a>
+<a href="#4755" id="4755">4755</a>
+<a href="#4756" id="4756">4756</a>
+<a href="#4757" id="4757">4757</a>
+<a href="#4758" id="4758">4758</a>
+<a href="#4759" id="4759">4759</a>
+<a href="#4760" id="4760">4760</a>
+<a href="#4761" id="4761">4761</a>
+<a href="#4762" id="4762">4762</a>
+<a href="#4763" id="4763">4763</a>
+<a href="#4764" id="4764">4764</a>
+<a href="#4765" id="4765">4765</a>
+<a href="#4766" id="4766">4766</a>
+<a href="#4767" id="4767">4767</a>
+<a href="#4768" id="4768">4768</a>
+<a href="#4769" id="4769">4769</a>
+<a href="#4770" id="4770">4770</a>
+<a href="#4771" id="4771">4771</a>
+<a href="#4772" id="4772">4772</a>
+<a href="#4773" id="4773">4773</a>
+<a href="#4774" id="4774">4774</a>
+<a href="#4775" id="4775">4775</a>
+<a href="#4776" id="4776">4776</a>
+<a href="#4777" id="4777">4777</a>
+<a href="#4778" id="4778">4778</a>
+<a href="#4779" id="4779">4779</a>
+<a href="#4780" id="4780">4780</a>
+<a href="#4781" id="4781">4781</a>
+<a href="#4782" id="4782">4782</a>
+<a href="#4783" id="4783">4783</a>
+<a href="#4784" id="4784">4784</a>
+<a href="#4785" id="4785">4785</a>
+<a href="#4786" id="4786">4786</a>
+<a href="#4787" id="4787">4787</a>
+<a href="#4788" id="4788">4788</a>
+<a href="#4789" id="4789">4789</a>
+<a href="#4790" id="4790">4790</a>
+<a href="#4791" id="4791">4791</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// An asset in Google Cloud and its temporal metadata, including the time window
 /// when it was observed and its status during that window.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -4991,8 +5113,46 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>relationship_type: ::prost::alloc::string::String,
 }
+<span class="doccomment">/// The key and value for a
+/// \[tag\](&lt;https://cloud.google.com/resource-manager/docs/tags/tags-overview&gt;),
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Tag {
+    <span class="doccomment">/// TagKey namespaced name, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>tag_key: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// TagValue namespaced name, in the format of
+    /// {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>tag_value: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// TagValue ID, in the format of tagValues/{TAG_VALUE_ID}.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>tag_value_id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// The effective tags and the ancestor resources from which they were inherited.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EffectiveTagDetails {
+    <span class="doccomment">/// The [full resource
+    /// name](&lt;https://cloud.google.com/asset-inventory/docs/resource-name-format&gt;)
+    /// of the ancestor from which an \[effective_tag][\] is inherited, according to
+    /// [tag
+    /// inheritance](&lt;https://cloud.google.com/resource-manager/docs/tags/tags-overview#inheritance&gt;).
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>attached_resource: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// The effective tags inherited from the
+    /// \[attached_resource][google.cloud.asset.v1.EffectiveTagDetails.attached_resource\].
+    /// Note that tags with the same key but different values may attach to
+    /// resources at a different hierarchy levels. The lower hierarchy tag value
+    /// will overwrite the higher hierarchy tag value of the same tag key. In this
+    /// case, the tag value at the higher hierarchy level will be removed. For more
+    /// information, see [tag
+    /// inheritance](&lt;https://cloud.google.com/resource-manager/docs/tags/tags-overview#inheritance&gt;).
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>effective_tags: ::prost::alloc::vec::Vec&lt;Tag&gt;,
+}
 <span class="doccomment">/// A result of Resource Search, containing information of a cloud resource.
-/// Next ID: 32
+/// Next ID: 34
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ResourceSearchResult {
@@ -5249,7 +5409,10 @@
         ::prost::alloc::string::String,
         RelatedResources,
     &gt;,
-    <span class="doccomment">/// TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
+    <span class="doccomment">/// This field is only present for the purpose of backward compatibility.
+    /// Please use the `tags` field instead.
+    ///
+    /// TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
     /// To search against the `tagKeys`:
     ///
     /// * Use a field query. Example:
@@ -5259,9 +5422,13 @@
     ///
     /// * Use a free text query. Example:
     ///      - `env`
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="attr">#[deprecated]
+    #[prost(string, repeated, tag = <span class="string">&quot;23&quot;</span>)]
     </span><span class="kw">pub </span>tag_keys: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// TagValue namespaced names, in the format of
+    <span class="doccomment">/// This field is only present for the purpose of backward compatibility.
+    /// Please use the `tags` field instead.
+    ///
+    /// TagValue namespaced names, in the format of
     /// {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
     /// To search against the `tagValues`:
     ///
@@ -5273,19 +5440,59 @@
     ///
     /// * Use a free text query. Example:
     ///      - `prod`
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;25&quot;</span>)]
+    </span><span class="attr">#[deprecated]
+    #[prost(string, repeated, tag = <span class="string">&quot;25&quot;</span>)]
     </span><span class="kw">pub </span>tag_values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}.
+    <span class="doccomment">/// This field is only present for the purpose of backward compatibility.
+    /// Please use the `tags` field instead.
+    ///
+    /// TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}.
     /// To search against the `tagValueIds`:
     ///
     /// * Use a field query. Example:
-    ///      - `tagValueIds:&quot;456&quot;`
     ///      - `tagValueIds=&quot;tagValues/456&quot;`
     ///
     /// * Use a free text query. Example:
     ///      - `456`
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;26&quot;</span>)]
+    </span><span class="attr">#[deprecated]
+    #[prost(string, repeated, tag = <span class="string">&quot;26&quot;</span>)]
     </span><span class="kw">pub </span>tag_value_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// The tags directly attached to this resource.
+    ///
+    /// To search against the `tags`:
+    ///
+    /// * Use a field query. Example:
+    ///      - `tagKeys:&quot;123456789/env*&quot;`
+    ///      - `tagKeys=&quot;123456789/env&quot;`
+    ///      - `tagKeys:&quot;env&quot;`
+    ///      - `tagValues:&quot;env&quot;`
+    ///      - `tagValues:&quot;env/prod&quot;`
+    ///      - `tagValues:&quot;123456789/env/prod*&quot;`
+    ///      - `tagValues=&quot;123456789/env/prod&quot;`
+    ///      - `tagValueIds=&quot;tagValues/456&quot;`
+    ///
+    /// * Use a free text query. Example:
+    ///      - `env/prod`
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;29&quot;</span>)]
+    </span><span class="kw">pub </span>tags: ::prost::alloc::vec::Vec&lt;Tag&gt;,
+    <span class="doccomment">/// The effective tags on this resource. All of the tags that are both attached
+    /// to and inherited by a resource are collectively called the effective
+    /// tags. For more information, see [tag
+    /// inheritance](&lt;https://cloud.google.com/resource-manager/docs/tags/tags-overview#inheritance&gt;).
+    ///
+    /// To search against the `effective_tags`:
+    ///
+    /// * Use a field query. Example:
+    ///      - `effectiveTagKeys:&quot;123456789/env*&quot;`
+    ///      - `effectiveTagKeys=&quot;123456789/env&quot;`
+    ///      - `effectiveTagKeys:&quot;env&quot;`
+    ///      - `effectiveTagValues:&quot;env&quot;`
+    ///      - `effectiveTagValues:&quot;env/prod&quot;`
+    ///      - `effectiveTagValues:&quot;123456789/env/prod*&quot;`
+    ///      - `effectiveTagValues=&quot;123456789/env/prod&quot;`
+    ///      - `effectiveTagValueIds=&quot;tagValues/456&quot;`
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;30&quot;</span>)]
+    </span><span class="kw">pub </span>effective_tags: ::prost::alloc::vec::Vec&lt;EffectiveTagDetails&gt;,
     <span class="doccomment">/// The type of this resource&#39;s immediate parent, if there is one.
     ///
     /// To search against the `parent_asset_type`:
@@ -5296,6 +5503,24 @@
     /// `cloudresourcemanager.googleapis.com/Project`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;103&quot;</span>)]
     </span><span class="kw">pub </span>parent_asset_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// The actual content of Security Command Center security marks associated
+    /// with the asset.
+    ///
+    ///
+    /// Note that both staging &amp; prod SecurityMarks are attached on prod resources.
+    /// In CAS preprod/prod, both staging &amp; prod SecurityMarks are ingested and
+    /// returned in the following `security_marks` map. In that case, the prefix
+    /// &quot;staging.&quot; will be added to the keys of all the staging marks.
+    /// To search against SCC SecurityMarks field:
+    ///
+    ///    * Use a field query:
+    ///      - query by a given key value pair. Example: `sccSecurityMarks.foo=bar`
+    ///      - query by a given key&#39;s existence. Example: `sccSecurityMarks.foo:*`
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;32&quot;</span>)]
+    </span><span class="kw">pub </span>scc_security_marks: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
 }
 <span class="doccomment">/// Resource representation as defined by the corresponding service providing the
 /// resource for a given API version.
@@ -5626,17 +5851,17 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Identity {
-        <span class="doccomment">/// The identity name in any form of members appear in
+        <span class="doccomment">/// The identity of members, formatted as appear in an
         /// [IAM policy
-        /// binding](&lt;https://cloud.google.com/iam/reference/rest/v1/Binding&gt;), such
-        /// as:
+        /// binding](&lt;https://cloud.google.com/iam/reference/rest/v1/Binding&gt;). For
+        /// example, they might be formatted like the following:
+        ///
         /// - user:foo@google.com
         /// - group:group1@google.com
         /// - serviceAccount:s1@prj1.iam.gserviceaccount.com
         /// - projectOwner:some_project_id
         /// - domain:google.com
         /// - allUsers
-        /// - etc.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
         <span class="doccomment">/// The analysis state of this identity.
@@ -6393,49 +6618,73 @@
     /// Examples:
     ///
     /// * `name:Important` to find Google Cloud resources whose name contains
-    ///    &quot;Important&quot; as a word.
+    ///    `Important` as a word.
     /// * `name=Important` to find the Google Cloud resource whose name is exactly
-    ///    &quot;Important&quot;.
+    ///    `Important`.
     /// * `displayName:Impor*` to find Google Cloud resources whose display name
-    ///    contains &quot;Impor&quot; as a prefix of any word in the field.
+    ///    contains `Impor` as a prefix of any word in the field.
     /// * `location:us-west*` to find Google Cloud resources whose location
-    ///    contains both &quot;us&quot; and &quot;west&quot; as prefixes.
-    /// * `labels:prod` to find Google Cloud resources whose labels contain &quot;prod&quot;
+    ///    contains both `us` and `west` as prefixes.
+    /// * `labels:prod` to find Google Cloud resources whose labels contain `prod`
     ///    as a key or value.
-    /// * `labels.env:prod` to find Google Cloud resources that have a label &quot;env&quot;
-    ///    and its value is &quot;prod&quot;.
-    /// * `labels.env:*` to find Google Cloud resources that have a label &quot;env&quot;.
+    /// * `labels.env:prod` to find Google Cloud resources that have a label `env`
+    ///    and its value is `prod`.
+    /// * `labels.env:*` to find Google Cloud resources that have a label `env`.
+    /// * `tagKeys:env` to find Google Cloud resources that have directly
+    ///    attached tags where the
+    ///    \[`TagKey`\](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagKeys#resource:-tagkey&gt;)
+    ///    .`namespacedName` contains `env`.
+    /// * `tagValues:prod*` to find Google Cloud resources that have directly
+    ///    attached tags where the
+    ///    \[`TagValue`\](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagValues#resource:-tagvalue&gt;)
+    ///    .`namespacedName` contains a word prefixed by `prod`.
+    /// * `tagValueIds=tagValues/123` to find Google Cloud resources that have
+    ///    directly attached tags where the
+    ///    \[`TagValue`\](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagValues#resource:-tagvalue&gt;)
+    ///    .`name` is exactly `tagValues/123`.
+    /// * `effectiveTagKeys:env` to find Google Cloud resources that have
+    ///    directly attached or inherited tags where the
+    ///    \[`TagKey`\](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagKeys#resource:-tagkey&gt;)
+    ///    .`namespacedName` contains `env`.
+    /// * `effectiveTagValues:prod*` to find Google Cloud resources that have
+    ///    directly attached or inherited tags where the
+    ///    \[`TagValue`\](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagValues#resource:-tagvalue&gt;)
+    ///    .`namespacedName` contains a word prefixed by `prod`.
+    /// * `effectiveTagValueIds=tagValues/123` to find Google Cloud resources that
+    ///     have directly attached or inherited tags where the
+    ///    \[`TagValue`\](&lt;https://cloud.google.com/resource-manager/reference/rest/v3/tagValues#resource:-tagvalue&gt;)
+    ///    .`name` is exactly `tagValues/123`.
     /// * `kmsKey:key` to find Google Cloud resources encrypted with a
-    ///    customer-managed encryption key whose name contains &quot;key&quot; as a word. This
+    ///    customer-managed encryption key whose name contains `key` as a word. This
     ///    field is deprecated. Please use the `kmsKeys` field to retrieve Cloud KMS
     ///    key information.
     /// * `kmsKeys:key` to find Google Cloud resources encrypted with
-    ///    customer-managed encryption keys whose name contains the word &quot;key&quot;.
+    ///    customer-managed encryption keys whose name contains the word `key`.
     /// * `relationships:instance-group-1` to find Google Cloud resources that have
-    ///    relationships with &quot;instance-group-1&quot; in the related resource name.
+    ///    relationships with `instance-group-1` in the related resource name.
     /// * `relationships:INSTANCE_TO_INSTANCEGROUP` to find Compute Engine
-    ///    instances that have relationships of type &quot;INSTANCE_TO_INSTANCEGROUP&quot;.
+    ///    instances that have relationships of type `INSTANCE_TO_INSTANCEGROUP`.
     /// * `relationships.INSTANCE_TO_INSTANCEGROUP:instance-group-1` to find
-    ///    Compute Engine instances that have relationships with &quot;instance-group-1&quot;
+    ///    Compute Engine instances that have relationships with `instance-group-1`
     ///    in the Compute Engine instance group resource name, for relationship type
-    ///    &quot;INSTANCE_TO_INSTANCEGROUP&quot;.
+    ///    `INSTANCE_TO_INSTANCEGROUP`.
     /// * `state:ACTIVE` to find Google Cloud resources whose state contains
-    ///    &quot;ACTIVE&quot; as a word.
+    ///    `ACTIVE` as a word.
     /// * `NOT state:ACTIVE` to find Google Cloud resources whose state doesn&#39;t
-    ///    contain &quot;ACTIVE&quot; as a word.
+    ///    contain `ACTIVE` as a word.
     /// * `createTime&lt;1609459200` to find Google Cloud resources that were created
-    ///    before &quot;2021-01-01 00:00:00 UTC&quot;. 1609459200 is the epoch timestamp of
-    ///    &quot;2021-01-01 00:00:00 UTC&quot; in seconds.
+    ///    before `2021-01-01 00:00:00 UTC`. `1609459200` is the epoch timestamp of
+    ///    `2021-01-01 00:00:00 UTC` in seconds.
     /// * `updateTime&gt;1609459200` to find Google Cloud resources that were updated
-    ///    after &quot;2021-01-01 00:00:00 UTC&quot;. 1609459200 is the epoch timestamp of
-    ///    &quot;2021-01-01 00:00:00 UTC&quot; in seconds.
-    /// * `Important` to find Google Cloud resources that contain &quot;Important&quot; as a
+    ///    after `2021-01-01 00:00:00 UTC`. `1609459200` is the epoch timestamp of
+    ///    `2021-01-01 00:00:00 UTC` in seconds.
+    /// * `Important` to find Google Cloud resources that contain `Important` as a
     ///    word in any of the searchable fields.
-    /// * `Impor*` to find Google Cloud resources that contain &quot;Impor&quot; as a prefix
+    /// * `Impor*` to find Google Cloud resources that contain `Impor` as a prefix
     ///    of any word in any of the searchable fields.
     /// * `Important location:(us-west1 OR global)` to find Google Cloud
-    ///    resources that contain &quot;Important&quot; as a word in any of the searchable
-    ///    fields and are also located in the &quot;us-west1&quot; region or the &quot;global&quot;
+    ///    resources that contain `Important` as a word in any of the searchable
+    ///    fields and are also located in the `us-west1` region or the `global`
     ///    location.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
@@ -6456,10 +6705,10 @@
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>asset_types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. The page size for search result pagination. Page size is capped
-    /// at 500 even if a larger value is given. If set to zero, server will pick an
-    /// appropriate default. Returned results may be fewer than requested. When
-    /// this happens, there could be more results as long as `next_page_token` is
-    /// returned.
+    /// at 500 even if a larger value is given. If set to zero or a negative value,
+    /// server will pick an appropriate default. Returned results may be fewer than
+    /// requested. When this happens, there could be more results as long as
+    /// `next_page_token` is returned.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. If present, then retrieve the next batch of results from the
@@ -6472,7 +6721,7 @@
     /// the results. The default order is ascending. Add &quot; DESC&quot; after the field
     /// name to indicate descending order. Redundant space characters are ignored.
     /// Example: &quot;location DESC, name&quot;.
-    /// Only singular primitive fields in the response are sortable:
+    /// Only the following fields in the response are sortable:
     ///
     ///    * name
     ///    * assetType
@@ -6485,44 +6734,38 @@
     ///    * state
     ///    * parentFullResourceName
     ///    * parentAssetType
-    ///
-    /// All the other fields such as repeated fields (e.g., `networkTags`,
-    /// `kmsKeys`), map fields (e.g., `labels`) and struct fields (e.g.,
-    /// `additionalAttributes`) are not supported.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. A comma-separated list of fields specifying which fields to be
-    /// returned in ResourceSearchResult. Only &#39;*&#39; or combination of top level
-    /// fields can be specified. Field names of both snake_case and camelCase are
-    /// supported. Examples: `&quot;*&quot;`, `&quot;name,location&quot;`, `&quot;name,versionedResources&quot;`.
+    <span class="doccomment">/// Optional. A comma-separated list of fields that you want returned in the
+    /// results. The following fields are returned by default if not specified:
     ///
-    /// The read_mask paths must be valid field paths listed but not limited to
-    /// (both snake_case and camelCase are supported):
+    ///    * `name`
+    ///    * `assetType`
+    ///    * `project`
+    ///    * `folders`
+    ///    * `organization`
+    ///    * `displayName`
+    ///    * `description`
+    ///    * `location`
+    ///    * `labels`
+    ///    * `tags`
+    ///    * `effectiveTags`
+    ///    * `networkTags`
+    ///    * `kmsKeys`
+    ///    * `createTime`
+    ///    * `updateTime`
+    ///    * `state`
+    ///    * `additionalAttributes`
+    ///    * `parentFullResourceName`
+    ///    * `parentAssetType`
     ///
-    ///    * name
-    ///    * assetType
-    ///    * project
-    ///    * displayName
-    ///    * description
-    ///    * location
-    ///    * tagKeys
-    ///    * tagValues
-    ///    * tagValueIds
-    ///    * labels
-    ///    * networkTags
-    ///    * kmsKey (This field is deprecated. Please use the `kmsKeys` field to
-    ///      retrieve Cloud KMS key information.)
-    ///    * kmsKeys
-    ///    * createTime
-    ///    * updateTime
-    ///    * state
-    ///    * additionalAttributes
-    ///    * versionedResources
-    ///
-    /// If read_mask is not specified, all fields except versionedResources will
-    /// be returned.
-    /// If only &#39;*&#39; is specified, all fields including versionedResources will be
-    /// returned.
+    /// Some fields of large size, such as `versionedResources`,
+    /// `attachedResources`, `effectiveTags` etc., are not returned by default, but
+    /// you can specify them in the `read_mask` parameter if you want to include
+    /// them. If `&quot;*&quot;` is specified, all [available
+    /// fields](&lt;https://cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllResources#resourcesearchresult&gt;)
+    /// are returned.
+    /// Examples: `&quot;name,location&quot;`, `&quot;name,versionedResources&quot;`, `&quot;*&quot;`.
     /// Any invalid field path will trigger INVALID_ARGUMENT error.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>read_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
@@ -6604,10 +6847,10 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The page size for search result pagination. Page size is capped
-    /// at 500 even if a larger value is given. If set to zero, server will pick an
-    /// appropriate default. Returned results may be fewer than requested. When
-    /// this happens, there could be more results as long as `next_page_token` is
-    /// returned.
+    /// at 500 even if a larger value is given. If set to zero or a negative value,
+    /// server will pick an appropriate default. Returned results may be fewer than
+    /// requested. When this happens, there could be more results as long as
+    /// `next_page_token` is returned.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. If present, retrieve the next batch of results from the preceding
@@ -7548,8 +7791,8 @@
     <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Query {
-        <span class="doccomment">/// Optional. A SQL statement that&#39;s compatible with [BigQuery Standard
-        /// SQL](&lt;http://cloud/bigquery/docs/reference/standard-sql/enabling-standard-sql&gt;).
+        <span class="doccomment">/// Optional. A SQL statement that&#39;s compatible with [BigQuery
+        /// SQL](&lt;https://cloud.google.com/bigquery/docs/introduction-sql&gt;).
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span>Statement(::prost::alloc::string::String),
         <span class="doccomment">/// Optional. Reference to the query job, which is from the
@@ -7822,7 +8065,10 @@
 }
 <span class="doccomment">/// Nested message and enum types in `AnalyzerOrgPolicy`.
 </span><span class="kw">pub mod </span>analyzer_org_policy {
-    <span class="doccomment">/// Represents a rule defined in an organization policy
+    <span class="doccomment">/// This rule message is a customized version of the one defined in the
+    /// Organization Policy system. In addition to the fields defined in the
+    /// original organization policy, it contains additional field(s) under
+    /// specific circumstances to support analysis results.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Rule {
@@ -8405,7 +8651,7 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>GovernedIamPolicy {
-        <span class="doccomment">/// The full resource name of the resource associated with this IAM policy.
+        <span class="doccomment">/// The full resource name of the resource on which this IAM policy is set.
         /// Example:
         /// `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
         /// See [Cloud Asset Inventory Resource Name
@@ -9004,8 +9250,7 @@
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Issue a job that queries assets using a SQL statement compatible with
-        /// [BigQuery Standard
-        /// SQL](http://cloud/bigquery/docs/reference/standard-sql/enabling-standard-sql).
+        /// [BigQuery SQL](https://cloud.google.com/bigquery/docs/introduction-sql).
         ///
         /// If the query execution finishes within timeout and there&#39;s no pagination,
         /// the full query results will be returned in the `QueryAssetsResponse`.
@@ -9014,9 +9259,8 @@
         /// with the `job_reference` from the a previous `QueryAssets` call.
         ///
         /// Note, the query result has approximately 10 GB limitation enforced by
-        /// BigQuery
-        /// https://cloud.google.com/bigquery/docs/best-practices-performance-output,
-        /// queries return larger results will result in errors.
+        /// [BigQuery](https://cloud.google.com/bigquery/docs/best-practices-performance-output).
+        /// Queries return larger results will result in errors.
         </span><span class="kw">pub async fn </span>query_assets(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::QueryAssetsRequest&gt;,

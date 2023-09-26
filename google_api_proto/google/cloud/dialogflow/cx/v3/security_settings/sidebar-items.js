@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["DataRetention","PurgeDataType","RedactionScope","RedactionStrategy"],"mod":["audio_export_settings"],"struct":["AudioExportSettings","InsightsExportSettings"]};
+window.SIDEBAR_ITEMS = {"enum":["DataRetention","PurgeDataType","RedactionScope","RedactionStrategy","RetentionStrategy"],"mod":["audio_export_settings"],"struct":["AudioExportSettings","InsightsExportSettings"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["State","Type"]};
+window.SIDEBAR_ITEMS = {"enum":["State","Type"],"struct":["QuantityBasedExpiry"]};

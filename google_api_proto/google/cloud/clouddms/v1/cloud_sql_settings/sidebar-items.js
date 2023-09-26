@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["SqlActivationPolicy","SqlAvailabilityType","SqlDataDiskType","SqlDatabaseVersion"]};
+window.SIDEBAR_ITEMS = {"enum":["Edition","SqlActivationPolicy","SqlAvailabilityType","SqlDataDiskType","SqlDatabaseVersion"]};

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/support/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/support/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.1 (d5c2e9c34 2023-09-13)" data-channel="1.72.1" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1153,70 +1153,7 @@
 <a href="#1153" id="1153">1153</a>
 <a href="#1154" id="1154">1154</a>
 <a href="#1155" id="1155">1155</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// An escalation of a support case.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Escalation {
-    <span class="doccomment">/// Required. The reason why the Case is being escalated.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;escalation::Reason&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>reason: i32,
-    <span class="doccomment">/// Required. A free text description to accompany the `reason` field above.
-    /// Provides additional context on why the case is being escalated.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>justification: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `Escalation`.
-</span><span class="kw">pub mod </span>escalation {
-    <span class="doccomment">/// An enum detailing the possible reasons a case may be escalated.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Reason {
-        <span class="doccomment">/// The escalation reason is in an unknown state or has not been specified.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The case is taking too long to resolve.
-        </span>ResolutionTime = <span class="number">1</span>,
-        <span class="doccomment">/// The support agent does not have the expertise required to successfully
-        /// resolve the issue.
-        </span>TechnicalExpertise = <span class="number">2</span>,
-        <span class="doccomment">/// The issue is having a significant business impact.
-        </span>BusinessImpact = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>Reason {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Reason::Unspecified =&gt; <span class="string">&quot;REASON_UNSPECIFIED&quot;</span>,
-                Reason::ResolutionTime =&gt; <span class="string">&quot;RESOLUTION_TIME&quot;</span>,
-                Reason::TechnicalExpertise =&gt; <span class="string">&quot;TECHNICAL_EXPERTISE&quot;</span>,
-                Reason::BusinessImpact =&gt; <span class="string">&quot;BUSINESS_IMPACT&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RESOLUTION_TIME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResolutionTime),
-                <span class="string">&quot;TECHNICAL_EXPERTISE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TechnicalExpertise),
-                <span class="string">&quot;BUSINESS_IMPACT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BusinessImpact),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// An object containing information about the effective user and
+</pre></div><pre class="rust"><code><span class="doccomment">/// An object containing information about the effective user and
 /// authenticated principal responsible for an action.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1237,203 +1174,6 @@
     <span class="doccomment">/// Output only. Whether the actor is a Google support actor.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>google_support: bool,
-}
-<span class="doccomment">/// A support case.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Case {
-    <span class="doccomment">/// The resource name for the case.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The short summary of the issue reported in this case.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// A broad description of the issue.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// The issue classification applicable to this case.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>classification: ::core::option::Option&lt;CaseClassification&gt;,
-    <span class="doccomment">/// The timezone of the user who created the support case.
-    /// It should be in a format IANA recognizes: &lt;https://www.iana.org/time-zones.&gt;
-    /// There is no additional validation done by the API.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>time_zone: ::prost::alloc::string::String,
-    <span class="doccomment">/// The email addresses to receive updates on this case.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>subscriber_email_addresses: ::prost::alloc::vec::Vec&lt;
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Output only. The current status of the support case.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;case::State&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Output only. The time this case was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The time this case was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The user who created the case.
-    ///
-    /// Note: The name and email will be obfuscated if the case was created by
-    /// Google Support.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
-    </span><span class="kw">pub </span>creator: ::core::option::Option&lt;Actor&gt;,
-    <span class="doccomment">/// A user-supplied email address to send case update notifications for. This
-    /// should only be used in BYOID flows, where we cannot infer the user&#39;s email
-    /// address directly from their EUCs.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;35&quot;</span>)]
-    </span><span class="kw">pub </span>contact_email: ::prost::alloc::string::String,
-    <span class="doccomment">/// Whether the case is currently escalated.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;17&quot;</span>)]
-    </span><span class="kw">pub </span>escalated: bool,
-    <span class="doccomment">/// Whether this case was created for internal API testing and should not be
-    /// acted on by the support team.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;19&quot;</span>)]
-    </span><span class="kw">pub </span>test_case: bool,
-    <span class="doccomment">/// The language the user has requested to receive support in. This should be a
-    /// BCP 47 language code (e.g., `&quot;en&quot;`, `&quot;zh-CN&quot;`, `&quot;zh-TW&quot;`, `&quot;ja&quot;`, `&quot;ko&quot;`).
-    /// If no language or an unsupported language is specified, this field defaults
-    /// to English (en).
-    ///
-    /// Language selection during case creation may affect your available support
-    /// options. For a list of supported languages and their support working hours,
-    /// see: &lt;https://cloud.google.com/support/docs/language-working-hours&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;23&quot;</span>)]
-    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// The priority of this case.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;case::Priority&quot;</span>, tag = <span class="string">&quot;32&quot;</span>)]
-    </span><span class="kw">pub </span>priority: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `Case`.
-</span><span class="kw">pub mod </span>case {
-    <span class="doccomment">/// The status of a support case.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Case is in an unknown state.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The case has been created but no one is assigned to work on it yet.
-        </span>New = <span class="number">1</span>,
-        <span class="doccomment">/// The case is currently being handled by Google support.
-        </span>InProgressGoogleSupport = <span class="number">2</span>,
-        <span class="doccomment">/// Google is waiting for a response.
-        </span>ActionRequired = <span class="number">3</span>,
-        <span class="doccomment">/// A solution has been offered for the case, but it isn&#39;t yet closed.
-        </span>SolutionProvided = <span class="number">4</span>,
-        <span class="doccomment">/// The case has been resolved.
-        </span>Closed = <span class="number">5</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::New =&gt; <span class="string">&quot;NEW&quot;</span>,
-                State::InProgressGoogleSupport =&gt; <span class="string">&quot;IN_PROGRESS_GOOGLE_SUPPORT&quot;</span>,
-                State::ActionRequired =&gt; <span class="string">&quot;ACTION_REQUIRED&quot;</span>,
-                State::SolutionProvided =&gt; <span class="string">&quot;SOLUTION_PROVIDED&quot;</span>,
-                State::Closed =&gt; <span class="string">&quot;CLOSED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NEW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::New),
-                <span class="string">&quot;IN_PROGRESS_GOOGLE_SUPPORT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InProgressGoogleSupport),
-                <span class="string">&quot;ACTION_REQUIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ActionRequired),
-                <span class="string">&quot;SOLUTION_PROVIDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SolutionProvided),
-                <span class="string">&quot;CLOSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Closed),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// The case Priority. P0 is most urgent and P4 the least.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Priority {
-        <span class="doccomment">/// Priority is undefined or has not been set yet.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Extreme impact on a production service. Service is hard down.
-        </span>P0 = <span class="number">1</span>,
-        <span class="doccomment">/// Critical impact on a production service. Service is currently unusable.
-        </span>P1 = <span class="number">2</span>,
-        <span class="doccomment">/// Severe impact on a production service. Service is usable but greatly
-        /// impaired.
-        </span>P2 = <span class="number">3</span>,
-        <span class="doccomment">/// Medium impact on a production service.  Service is available, but
-        /// moderately impaired.
-        </span>P3 = <span class="number">4</span>,
-        <span class="doccomment">/// General questions or minor issues.  Production service is fully
-        /// available.
-        </span>P4 = <span class="number">5</span>,
-    }
-    <span class="kw">impl </span>Priority {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Priority::Unspecified =&gt; <span class="string">&quot;PRIORITY_UNSPECIFIED&quot;</span>,
-                Priority::P0 =&gt; <span class="string">&quot;P0&quot;</span>,
-                Priority::P1 =&gt; <span class="string">&quot;P1&quot;</span>,
-                Priority::P2 =&gt; <span class="string">&quot;P2&quot;</span>,
-                Priority::P3 =&gt; <span class="string">&quot;P3&quot;</span>,
-                Priority::P4 =&gt; <span class="string">&quot;P4&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;PRIORITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;P0&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P0),
-                <span class="string">&quot;P1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P1),
-                <span class="string">&quot;P2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P2),
-                <span class="string">&quot;P3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P3),
-                <span class="string">&quot;P4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P4),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// A classification object with a product type and value.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CaseClassification {
-    <span class="doccomment">/// The unique ID for a classification. Must be specified for case creation.
-    ///
-    /// To retrieve valid classification IDs for case creation, use
-    /// `caseClassifications.search`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The display name of the classification.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents a file attached to a support case.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1657,6 +1397,266 @@
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
     }
+}
+<span class="doccomment">/// An escalation of a support case.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Escalation {
+    <span class="doccomment">/// Required. The reason why the Case is being escalated.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;escalation::Reason&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>reason: i32,
+    <span class="doccomment">/// Required. A free text description to accompany the `reason` field above.
+    /// Provides additional context on why the case is being escalated.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>justification: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `Escalation`.
+</span><span class="kw">pub mod </span>escalation {
+    <span class="doccomment">/// An enum detailing the possible reasons a case may be escalated.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Reason {
+        <span class="doccomment">/// The escalation reason is in an unknown state or has not been specified.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The case is taking too long to resolve.
+        </span>ResolutionTime = <span class="number">1</span>,
+        <span class="doccomment">/// The support agent does not have the expertise required to successfully
+        /// resolve the issue.
+        </span>TechnicalExpertise = <span class="number">2</span>,
+        <span class="doccomment">/// The issue is having a significant business impact.
+        </span>BusinessImpact = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>Reason {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Reason::Unspecified =&gt; <span class="string">&quot;REASON_UNSPECIFIED&quot;</span>,
+                Reason::ResolutionTime =&gt; <span class="string">&quot;RESOLUTION_TIME&quot;</span>,
+                Reason::TechnicalExpertise =&gt; <span class="string">&quot;TECHNICAL_EXPERTISE&quot;</span>,
+                Reason::BusinessImpact =&gt; <span class="string">&quot;BUSINESS_IMPACT&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;RESOLUTION_TIME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResolutionTime),
+                <span class="string">&quot;TECHNICAL_EXPERTISE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TechnicalExpertise),
+                <span class="string">&quot;BUSINESS_IMPACT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BusinessImpact),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// A support case.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Case {
+    <span class="doccomment">/// The resource name for the case.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The short summary of the issue reported in this case.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// A broad description of the issue.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// The issue classification applicable to this case.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>classification: ::core::option::Option&lt;CaseClassification&gt;,
+    <span class="doccomment">/// The timezone of the user who created the support case.
+    /// It should be in a format IANA recognizes: &lt;https://www.iana.org/time-zones.&gt;
+    /// There is no additional validation done by the API.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>time_zone: ::prost::alloc::string::String,
+    <span class="doccomment">/// The email addresses to receive updates on this case.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>subscriber_email_addresses: ::prost::alloc::vec::Vec&lt;
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Output only. The current status of the support case.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;case::State&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Output only. The time this case was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The time this case was last updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The user who created the case.
+    ///
+    /// Note: The name and email will be obfuscated if the case was created by
+    /// Google Support.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>creator: ::core::option::Option&lt;Actor&gt;,
+    <span class="doccomment">/// A user-supplied email address to send case update notifications for. This
+    /// should only be used in BYOID flows, where we cannot infer the user&#39;s email
+    /// address directly from their EUCs.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;35&quot;</span>)]
+    </span><span class="kw">pub </span>contact_email: ::prost::alloc::string::String,
+    <span class="doccomment">/// Whether the case is currently escalated.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="kw">pub </span>escalated: bool,
+    <span class="doccomment">/// Whether this case was created for internal API testing and should not be
+    /// acted on by the support team.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="kw">pub </span>test_case: bool,
+    <span class="doccomment">/// The language the user has requested to receive support in. This should be a
+    /// BCP 47 language code (e.g., `&quot;en&quot;`, `&quot;zh-CN&quot;`, `&quot;zh-TW&quot;`, `&quot;ja&quot;`, `&quot;ko&quot;`).
+    /// If no language or an unsupported language is specified, this field defaults
+    /// to English (en).
+    ///
+    /// Language selection during case creation may affect your available support
+    /// options. For a list of supported languages and their support working hours,
+    /// see: &lt;https://cloud.google.com/support/docs/language-working-hours&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// The priority of this case.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;case::Priority&quot;</span>, tag = <span class="string">&quot;32&quot;</span>)]
+    </span><span class="kw">pub </span>priority: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `Case`.
+</span><span class="kw">pub mod </span>case {
+    <span class="doccomment">/// The status of a support case.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Case is in an unknown state.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The case has been created but no one is assigned to work on it yet.
+        </span>New = <span class="number">1</span>,
+        <span class="doccomment">/// The case is currently being handled by Google support.
+        </span>InProgressGoogleSupport = <span class="number">2</span>,
+        <span class="doccomment">/// Google is waiting for a response.
+        </span>ActionRequired = <span class="number">3</span>,
+        <span class="doccomment">/// A solution has been offered for the case, but it isn&#39;t yet closed.
+        </span>SolutionProvided = <span class="number">4</span>,
+        <span class="doccomment">/// The case has been resolved.
+        </span>Closed = <span class="number">5</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::New =&gt; <span class="string">&quot;NEW&quot;</span>,
+                State::InProgressGoogleSupport =&gt; <span class="string">&quot;IN_PROGRESS_GOOGLE_SUPPORT&quot;</span>,
+                State::ActionRequired =&gt; <span class="string">&quot;ACTION_REQUIRED&quot;</span>,
+                State::SolutionProvided =&gt; <span class="string">&quot;SOLUTION_PROVIDED&quot;</span>,
+                State::Closed =&gt; <span class="string">&quot;CLOSED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;NEW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::New),
+                <span class="string">&quot;IN_PROGRESS_GOOGLE_SUPPORT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InProgressGoogleSupport),
+                <span class="string">&quot;ACTION_REQUIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ActionRequired),
+                <span class="string">&quot;SOLUTION_PROVIDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SolutionProvided),
+                <span class="string">&quot;CLOSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Closed),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// The case Priority. P0 is most urgent and P4 the least.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Priority {
+        <span class="doccomment">/// Priority is undefined or has not been set yet.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Extreme impact on a production service. Service is hard down.
+        </span>P0 = <span class="number">1</span>,
+        <span class="doccomment">/// Critical impact on a production service. Service is currently unusable.
+        </span>P1 = <span class="number">2</span>,
+        <span class="doccomment">/// Severe impact on a production service. Service is usable but greatly
+        /// impaired.
+        </span>P2 = <span class="number">3</span>,
+        <span class="doccomment">/// Medium impact on a production service.  Service is available, but
+        /// moderately impaired.
+        </span>P3 = <span class="number">4</span>,
+        <span class="doccomment">/// General questions or minor issues.  Production service is fully
+        /// available.
+        </span>P4 = <span class="number">5</span>,
+    }
+    <span class="kw">impl </span>Priority {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Priority::Unspecified =&gt; <span class="string">&quot;PRIORITY_UNSPECIFIED&quot;</span>,
+                Priority::P0 =&gt; <span class="string">&quot;P0&quot;</span>,
+                Priority::P1 =&gt; <span class="string">&quot;P1&quot;</span>,
+                Priority::P2 =&gt; <span class="string">&quot;P2&quot;</span>,
+                Priority::P3 =&gt; <span class="string">&quot;P3&quot;</span>,
+                Priority::P4 =&gt; <span class="string">&quot;P4&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;PRIORITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;P0&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P0),
+                <span class="string">&quot;P1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P1),
+                <span class="string">&quot;P2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P2),
+                <span class="string">&quot;P3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P3),
+                <span class="string">&quot;P4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P4),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// A classification object with a product type and value.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CaseClassification {
+    <span class="doccomment">/// The unique ID for a classification. Must be specified for case creation.
+    ///
+    /// To retrieve valid classification IDs for case creation, use
+    /// `caseClassifications.search`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The display name of the classification.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request message for the GetCase endpoint.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

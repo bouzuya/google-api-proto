@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/migrationcenter/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/migrationcenter/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.1 (d5c2e9c34 2023-09-13)" data-channel="1.72.1" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -6024,6 +6024,416 @@
 <a href="#6024" id="6024">6024</a>
 <a href="#6025" id="6025">6025</a>
 <a href="#6026" id="6026">6026</a>
+<a href="#6027" id="6027">6027</a>
+<a href="#6028" id="6028">6028</a>
+<a href="#6029" id="6029">6029</a>
+<a href="#6030" id="6030">6030</a>
+<a href="#6031" id="6031">6031</a>
+<a href="#6032" id="6032">6032</a>
+<a href="#6033" id="6033">6033</a>
+<a href="#6034" id="6034">6034</a>
+<a href="#6035" id="6035">6035</a>
+<a href="#6036" id="6036">6036</a>
+<a href="#6037" id="6037">6037</a>
+<a href="#6038" id="6038">6038</a>
+<a href="#6039" id="6039">6039</a>
+<a href="#6040" id="6040">6040</a>
+<a href="#6041" id="6041">6041</a>
+<a href="#6042" id="6042">6042</a>
+<a href="#6043" id="6043">6043</a>
+<a href="#6044" id="6044">6044</a>
+<a href="#6045" id="6045">6045</a>
+<a href="#6046" id="6046">6046</a>
+<a href="#6047" id="6047">6047</a>
+<a href="#6048" id="6048">6048</a>
+<a href="#6049" id="6049">6049</a>
+<a href="#6050" id="6050">6050</a>
+<a href="#6051" id="6051">6051</a>
+<a href="#6052" id="6052">6052</a>
+<a href="#6053" id="6053">6053</a>
+<a href="#6054" id="6054">6054</a>
+<a href="#6055" id="6055">6055</a>
+<a href="#6056" id="6056">6056</a>
+<a href="#6057" id="6057">6057</a>
+<a href="#6058" id="6058">6058</a>
+<a href="#6059" id="6059">6059</a>
+<a href="#6060" id="6060">6060</a>
+<a href="#6061" id="6061">6061</a>
+<a href="#6062" id="6062">6062</a>
+<a href="#6063" id="6063">6063</a>
+<a href="#6064" id="6064">6064</a>
+<a href="#6065" id="6065">6065</a>
+<a href="#6066" id="6066">6066</a>
+<a href="#6067" id="6067">6067</a>
+<a href="#6068" id="6068">6068</a>
+<a href="#6069" id="6069">6069</a>
+<a href="#6070" id="6070">6070</a>
+<a href="#6071" id="6071">6071</a>
+<a href="#6072" id="6072">6072</a>
+<a href="#6073" id="6073">6073</a>
+<a href="#6074" id="6074">6074</a>
+<a href="#6075" id="6075">6075</a>
+<a href="#6076" id="6076">6076</a>
+<a href="#6077" id="6077">6077</a>
+<a href="#6078" id="6078">6078</a>
+<a href="#6079" id="6079">6079</a>
+<a href="#6080" id="6080">6080</a>
+<a href="#6081" id="6081">6081</a>
+<a href="#6082" id="6082">6082</a>
+<a href="#6083" id="6083">6083</a>
+<a href="#6084" id="6084">6084</a>
+<a href="#6085" id="6085">6085</a>
+<a href="#6086" id="6086">6086</a>
+<a href="#6087" id="6087">6087</a>
+<a href="#6088" id="6088">6088</a>
+<a href="#6089" id="6089">6089</a>
+<a href="#6090" id="6090">6090</a>
+<a href="#6091" id="6091">6091</a>
+<a href="#6092" id="6092">6092</a>
+<a href="#6093" id="6093">6093</a>
+<a href="#6094" id="6094">6094</a>
+<a href="#6095" id="6095">6095</a>
+<a href="#6096" id="6096">6096</a>
+<a href="#6097" id="6097">6097</a>
+<a href="#6098" id="6098">6098</a>
+<a href="#6099" id="6099">6099</a>
+<a href="#6100" id="6100">6100</a>
+<a href="#6101" id="6101">6101</a>
+<a href="#6102" id="6102">6102</a>
+<a href="#6103" id="6103">6103</a>
+<a href="#6104" id="6104">6104</a>
+<a href="#6105" id="6105">6105</a>
+<a href="#6106" id="6106">6106</a>
+<a href="#6107" id="6107">6107</a>
+<a href="#6108" id="6108">6108</a>
+<a href="#6109" id="6109">6109</a>
+<a href="#6110" id="6110">6110</a>
+<a href="#6111" id="6111">6111</a>
+<a href="#6112" id="6112">6112</a>
+<a href="#6113" id="6113">6113</a>
+<a href="#6114" id="6114">6114</a>
+<a href="#6115" id="6115">6115</a>
+<a href="#6116" id="6116">6116</a>
+<a href="#6117" id="6117">6117</a>
+<a href="#6118" id="6118">6118</a>
+<a href="#6119" id="6119">6119</a>
+<a href="#6120" id="6120">6120</a>
+<a href="#6121" id="6121">6121</a>
+<a href="#6122" id="6122">6122</a>
+<a href="#6123" id="6123">6123</a>
+<a href="#6124" id="6124">6124</a>
+<a href="#6125" id="6125">6125</a>
+<a href="#6126" id="6126">6126</a>
+<a href="#6127" id="6127">6127</a>
+<a href="#6128" id="6128">6128</a>
+<a href="#6129" id="6129">6129</a>
+<a href="#6130" id="6130">6130</a>
+<a href="#6131" id="6131">6131</a>
+<a href="#6132" id="6132">6132</a>
+<a href="#6133" id="6133">6133</a>
+<a href="#6134" id="6134">6134</a>
+<a href="#6135" id="6135">6135</a>
+<a href="#6136" id="6136">6136</a>
+<a href="#6137" id="6137">6137</a>
+<a href="#6138" id="6138">6138</a>
+<a href="#6139" id="6139">6139</a>
+<a href="#6140" id="6140">6140</a>
+<a href="#6141" id="6141">6141</a>
+<a href="#6142" id="6142">6142</a>
+<a href="#6143" id="6143">6143</a>
+<a href="#6144" id="6144">6144</a>
+<a href="#6145" id="6145">6145</a>
+<a href="#6146" id="6146">6146</a>
+<a href="#6147" id="6147">6147</a>
+<a href="#6148" id="6148">6148</a>
+<a href="#6149" id="6149">6149</a>
+<a href="#6150" id="6150">6150</a>
+<a href="#6151" id="6151">6151</a>
+<a href="#6152" id="6152">6152</a>
+<a href="#6153" id="6153">6153</a>
+<a href="#6154" id="6154">6154</a>
+<a href="#6155" id="6155">6155</a>
+<a href="#6156" id="6156">6156</a>
+<a href="#6157" id="6157">6157</a>
+<a href="#6158" id="6158">6158</a>
+<a href="#6159" id="6159">6159</a>
+<a href="#6160" id="6160">6160</a>
+<a href="#6161" id="6161">6161</a>
+<a href="#6162" id="6162">6162</a>
+<a href="#6163" id="6163">6163</a>
+<a href="#6164" id="6164">6164</a>
+<a href="#6165" id="6165">6165</a>
+<a href="#6166" id="6166">6166</a>
+<a href="#6167" id="6167">6167</a>
+<a href="#6168" id="6168">6168</a>
+<a href="#6169" id="6169">6169</a>
+<a href="#6170" id="6170">6170</a>
+<a href="#6171" id="6171">6171</a>
+<a href="#6172" id="6172">6172</a>
+<a href="#6173" id="6173">6173</a>
+<a href="#6174" id="6174">6174</a>
+<a href="#6175" id="6175">6175</a>
+<a href="#6176" id="6176">6176</a>
+<a href="#6177" id="6177">6177</a>
+<a href="#6178" id="6178">6178</a>
+<a href="#6179" id="6179">6179</a>
+<a href="#6180" id="6180">6180</a>
+<a href="#6181" id="6181">6181</a>
+<a href="#6182" id="6182">6182</a>
+<a href="#6183" id="6183">6183</a>
+<a href="#6184" id="6184">6184</a>
+<a href="#6185" id="6185">6185</a>
+<a href="#6186" id="6186">6186</a>
+<a href="#6187" id="6187">6187</a>
+<a href="#6188" id="6188">6188</a>
+<a href="#6189" id="6189">6189</a>
+<a href="#6190" id="6190">6190</a>
+<a href="#6191" id="6191">6191</a>
+<a href="#6192" id="6192">6192</a>
+<a href="#6193" id="6193">6193</a>
+<a href="#6194" id="6194">6194</a>
+<a href="#6195" id="6195">6195</a>
+<a href="#6196" id="6196">6196</a>
+<a href="#6197" id="6197">6197</a>
+<a href="#6198" id="6198">6198</a>
+<a href="#6199" id="6199">6199</a>
+<a href="#6200" id="6200">6200</a>
+<a href="#6201" id="6201">6201</a>
+<a href="#6202" id="6202">6202</a>
+<a href="#6203" id="6203">6203</a>
+<a href="#6204" id="6204">6204</a>
+<a href="#6205" id="6205">6205</a>
+<a href="#6206" id="6206">6206</a>
+<a href="#6207" id="6207">6207</a>
+<a href="#6208" id="6208">6208</a>
+<a href="#6209" id="6209">6209</a>
+<a href="#6210" id="6210">6210</a>
+<a href="#6211" id="6211">6211</a>
+<a href="#6212" id="6212">6212</a>
+<a href="#6213" id="6213">6213</a>
+<a href="#6214" id="6214">6214</a>
+<a href="#6215" id="6215">6215</a>
+<a href="#6216" id="6216">6216</a>
+<a href="#6217" id="6217">6217</a>
+<a href="#6218" id="6218">6218</a>
+<a href="#6219" id="6219">6219</a>
+<a href="#6220" id="6220">6220</a>
+<a href="#6221" id="6221">6221</a>
+<a href="#6222" id="6222">6222</a>
+<a href="#6223" id="6223">6223</a>
+<a href="#6224" id="6224">6224</a>
+<a href="#6225" id="6225">6225</a>
+<a href="#6226" id="6226">6226</a>
+<a href="#6227" id="6227">6227</a>
+<a href="#6228" id="6228">6228</a>
+<a href="#6229" id="6229">6229</a>
+<a href="#6230" id="6230">6230</a>
+<a href="#6231" id="6231">6231</a>
+<a href="#6232" id="6232">6232</a>
+<a href="#6233" id="6233">6233</a>
+<a href="#6234" id="6234">6234</a>
+<a href="#6235" id="6235">6235</a>
+<a href="#6236" id="6236">6236</a>
+<a href="#6237" id="6237">6237</a>
+<a href="#6238" id="6238">6238</a>
+<a href="#6239" id="6239">6239</a>
+<a href="#6240" id="6240">6240</a>
+<a href="#6241" id="6241">6241</a>
+<a href="#6242" id="6242">6242</a>
+<a href="#6243" id="6243">6243</a>
+<a href="#6244" id="6244">6244</a>
+<a href="#6245" id="6245">6245</a>
+<a href="#6246" id="6246">6246</a>
+<a href="#6247" id="6247">6247</a>
+<a href="#6248" id="6248">6248</a>
+<a href="#6249" id="6249">6249</a>
+<a href="#6250" id="6250">6250</a>
+<a href="#6251" id="6251">6251</a>
+<a href="#6252" id="6252">6252</a>
+<a href="#6253" id="6253">6253</a>
+<a href="#6254" id="6254">6254</a>
+<a href="#6255" id="6255">6255</a>
+<a href="#6256" id="6256">6256</a>
+<a href="#6257" id="6257">6257</a>
+<a href="#6258" id="6258">6258</a>
+<a href="#6259" id="6259">6259</a>
+<a href="#6260" id="6260">6260</a>
+<a href="#6261" id="6261">6261</a>
+<a href="#6262" id="6262">6262</a>
+<a href="#6263" id="6263">6263</a>
+<a href="#6264" id="6264">6264</a>
+<a href="#6265" id="6265">6265</a>
+<a href="#6266" id="6266">6266</a>
+<a href="#6267" id="6267">6267</a>
+<a href="#6268" id="6268">6268</a>
+<a href="#6269" id="6269">6269</a>
+<a href="#6270" id="6270">6270</a>
+<a href="#6271" id="6271">6271</a>
+<a href="#6272" id="6272">6272</a>
+<a href="#6273" id="6273">6273</a>
+<a href="#6274" id="6274">6274</a>
+<a href="#6275" id="6275">6275</a>
+<a href="#6276" id="6276">6276</a>
+<a href="#6277" id="6277">6277</a>
+<a href="#6278" id="6278">6278</a>
+<a href="#6279" id="6279">6279</a>
+<a href="#6280" id="6280">6280</a>
+<a href="#6281" id="6281">6281</a>
+<a href="#6282" id="6282">6282</a>
+<a href="#6283" id="6283">6283</a>
+<a href="#6284" id="6284">6284</a>
+<a href="#6285" id="6285">6285</a>
+<a href="#6286" id="6286">6286</a>
+<a href="#6287" id="6287">6287</a>
+<a href="#6288" id="6288">6288</a>
+<a href="#6289" id="6289">6289</a>
+<a href="#6290" id="6290">6290</a>
+<a href="#6291" id="6291">6291</a>
+<a href="#6292" id="6292">6292</a>
+<a href="#6293" id="6293">6293</a>
+<a href="#6294" id="6294">6294</a>
+<a href="#6295" id="6295">6295</a>
+<a href="#6296" id="6296">6296</a>
+<a href="#6297" id="6297">6297</a>
+<a href="#6298" id="6298">6298</a>
+<a href="#6299" id="6299">6299</a>
+<a href="#6300" id="6300">6300</a>
+<a href="#6301" id="6301">6301</a>
+<a href="#6302" id="6302">6302</a>
+<a href="#6303" id="6303">6303</a>
+<a href="#6304" id="6304">6304</a>
+<a href="#6305" id="6305">6305</a>
+<a href="#6306" id="6306">6306</a>
+<a href="#6307" id="6307">6307</a>
+<a href="#6308" id="6308">6308</a>
+<a href="#6309" id="6309">6309</a>
+<a href="#6310" id="6310">6310</a>
+<a href="#6311" id="6311">6311</a>
+<a href="#6312" id="6312">6312</a>
+<a href="#6313" id="6313">6313</a>
+<a href="#6314" id="6314">6314</a>
+<a href="#6315" id="6315">6315</a>
+<a href="#6316" id="6316">6316</a>
+<a href="#6317" id="6317">6317</a>
+<a href="#6318" id="6318">6318</a>
+<a href="#6319" id="6319">6319</a>
+<a href="#6320" id="6320">6320</a>
+<a href="#6321" id="6321">6321</a>
+<a href="#6322" id="6322">6322</a>
+<a href="#6323" id="6323">6323</a>
+<a href="#6324" id="6324">6324</a>
+<a href="#6325" id="6325">6325</a>
+<a href="#6326" id="6326">6326</a>
+<a href="#6327" id="6327">6327</a>
+<a href="#6328" id="6328">6328</a>
+<a href="#6329" id="6329">6329</a>
+<a href="#6330" id="6330">6330</a>
+<a href="#6331" id="6331">6331</a>
+<a href="#6332" id="6332">6332</a>
+<a href="#6333" id="6333">6333</a>
+<a href="#6334" id="6334">6334</a>
+<a href="#6335" id="6335">6335</a>
+<a href="#6336" id="6336">6336</a>
+<a href="#6337" id="6337">6337</a>
+<a href="#6338" id="6338">6338</a>
+<a href="#6339" id="6339">6339</a>
+<a href="#6340" id="6340">6340</a>
+<a href="#6341" id="6341">6341</a>
+<a href="#6342" id="6342">6342</a>
+<a href="#6343" id="6343">6343</a>
+<a href="#6344" id="6344">6344</a>
+<a href="#6345" id="6345">6345</a>
+<a href="#6346" id="6346">6346</a>
+<a href="#6347" id="6347">6347</a>
+<a href="#6348" id="6348">6348</a>
+<a href="#6349" id="6349">6349</a>
+<a href="#6350" id="6350">6350</a>
+<a href="#6351" id="6351">6351</a>
+<a href="#6352" id="6352">6352</a>
+<a href="#6353" id="6353">6353</a>
+<a href="#6354" id="6354">6354</a>
+<a href="#6355" id="6355">6355</a>
+<a href="#6356" id="6356">6356</a>
+<a href="#6357" id="6357">6357</a>
+<a href="#6358" id="6358">6358</a>
+<a href="#6359" id="6359">6359</a>
+<a href="#6360" id="6360">6360</a>
+<a href="#6361" id="6361">6361</a>
+<a href="#6362" id="6362">6362</a>
+<a href="#6363" id="6363">6363</a>
+<a href="#6364" id="6364">6364</a>
+<a href="#6365" id="6365">6365</a>
+<a href="#6366" id="6366">6366</a>
+<a href="#6367" id="6367">6367</a>
+<a href="#6368" id="6368">6368</a>
+<a href="#6369" id="6369">6369</a>
+<a href="#6370" id="6370">6370</a>
+<a href="#6371" id="6371">6371</a>
+<a href="#6372" id="6372">6372</a>
+<a href="#6373" id="6373">6373</a>
+<a href="#6374" id="6374">6374</a>
+<a href="#6375" id="6375">6375</a>
+<a href="#6376" id="6376">6376</a>
+<a href="#6377" id="6377">6377</a>
+<a href="#6378" id="6378">6378</a>
+<a href="#6379" id="6379">6379</a>
+<a href="#6380" id="6380">6380</a>
+<a href="#6381" id="6381">6381</a>
+<a href="#6382" id="6382">6382</a>
+<a href="#6383" id="6383">6383</a>
+<a href="#6384" id="6384">6384</a>
+<a href="#6385" id="6385">6385</a>
+<a href="#6386" id="6386">6386</a>
+<a href="#6387" id="6387">6387</a>
+<a href="#6388" id="6388">6388</a>
+<a href="#6389" id="6389">6389</a>
+<a href="#6390" id="6390">6390</a>
+<a href="#6391" id="6391">6391</a>
+<a href="#6392" id="6392">6392</a>
+<a href="#6393" id="6393">6393</a>
+<a href="#6394" id="6394">6394</a>
+<a href="#6395" id="6395">6395</a>
+<a href="#6396" id="6396">6396</a>
+<a href="#6397" id="6397">6397</a>
+<a href="#6398" id="6398">6398</a>
+<a href="#6399" id="6399">6399</a>
+<a href="#6400" id="6400">6400</a>
+<a href="#6401" id="6401">6401</a>
+<a href="#6402" id="6402">6402</a>
+<a href="#6403" id="6403">6403</a>
+<a href="#6404" id="6404">6404</a>
+<a href="#6405" id="6405">6405</a>
+<a href="#6406" id="6406">6406</a>
+<a href="#6407" id="6407">6407</a>
+<a href="#6408" id="6408">6408</a>
+<a href="#6409" id="6409">6409</a>
+<a href="#6410" id="6410">6410</a>
+<a href="#6411" id="6411">6411</a>
+<a href="#6412" id="6412">6412</a>
+<a href="#6413" id="6413">6413</a>
+<a href="#6414" id="6414">6414</a>
+<a href="#6415" id="6415">6415</a>
+<a href="#6416" id="6416">6416</a>
+<a href="#6417" id="6417">6417</a>
+<a href="#6418" id="6418">6418</a>
+<a href="#6419" id="6419">6419</a>
+<a href="#6420" id="6420">6420</a>
+<a href="#6421" id="6421">6421</a>
+<a href="#6422" id="6422">6422</a>
+<a href="#6423" id="6423">6423</a>
+<a href="#6424" id="6424">6424</a>
+<a href="#6425" id="6425">6425</a>
+<a href="#6426" id="6426">6426</a>
+<a href="#6427" id="6427">6427</a>
+<a href="#6428" id="6428">6428</a>
+<a href="#6429" id="6429">6429</a>
+<a href="#6430" id="6430">6430</a>
+<a href="#6431" id="6431">6431</a>
+<a href="#6432" id="6432">6432</a>
+<a href="#6433" id="6433">6433</a>
+<a href="#6434" id="6434">6434</a>
+<a href="#6435" id="6435">6435</a>
+<a href="#6436" id="6436">6436</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// An asset represents a resource in your environment. Asset types include
 /// virtual machines and databases.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -7917,6 +8327,7 @@
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Asset performance data samples.
+    /// Samples that are from more than 40 days ago or after tomorrow are ignored.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>performance_samples: ::prost::alloc::vec::Vec&lt;PerformanceSample&gt;,
     <span class="doccomment">/// Optional. Trace token is optionally provided to assist with debugging and
@@ -8165,7 +8576,9 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BiosDetails {
     <span class="doccomment">/// BIOS name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// This fields is deprecated. Please use the `id` field instead.
+    </span><span class="attr">#[deprecated]
+    #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>bios_name: ::prost::alloc::string::String,
     <span class="doccomment">/// BIOS ID.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
@@ -9288,6 +9701,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PerformanceSample {
     <span class="doccomment">/// Time the sample was collected.
+    /// If omitted, the frame report time will be used.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>sample_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Memory usage sample.
@@ -9405,7 +9819,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Insight {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;insight::Insight&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">&quot;insight::Insight&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
     </span><span class="kw">pub </span>insight: ::core::option::Option&lt;insight::Insight&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Insight`.
@@ -9416,7 +9830,29 @@
         <span class="doccomment">/// Output only. An insight about potential migrations for an asset.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
         </span>MigrationInsight(<span class="kw">super</span>::MigrationInsight),
+        <span class="doccomment">/// Output only. A generic insight about an asset
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>GenericInsight(<span class="kw">super</span>::GenericInsight),
     }
+}
+<span class="doccomment">/// A generic insight about an asset.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GenericInsight {
+    <span class="doccomment">/// Output only. Represents a globally unique message id for
+    /// this insight, can be used for localization purposes, in case message_code
+    /// is not yet known by the client use default_message instead.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>message_id: i64,
+    <span class="doccomment">/// Output only. In case message_code is not yet known by the client
+    /// default_message will be the message to be used instead.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>default_message: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Additional information about the insight, each entry can be a
+    /// logical entry and must make sense if it is displayed with line breaks
+    /// between each entry. Text can contain md style links.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>additional_information: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// An insight about potential migrations for an asset.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -9448,6 +9884,40 @@
     <span class="doccomment">/// Description of the suggested shape for the migration target.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>shape: ::core::option::Option&lt;ComputeEngineShapeDescriptor&gt;,
+}
+<span class="doccomment">/// Compute Engine target shape descriptor.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ComputeEngineShapeDescriptor {
+    <span class="doccomment">/// Memory in mebibytes.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>memory_mb: i32,
+    <span class="doccomment">/// Number of physical cores.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>physical_core_count: i32,
+    <span class="doccomment">/// Number of logical cores.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>logical_core_count: i32,
+    <span class="doccomment">/// Compute Engine machine series.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>series: ::prost::alloc::string::String,
+    <span class="doccomment">/// Compute Engine machine type.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>machine_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// Compute Engine storage. Never empty.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>storage: ::prost::alloc::vec::Vec&lt;ComputeStorageDescriptor&gt;,
+}
+<span class="doccomment">/// Compute Engine storage option descriptor.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ComputeStorageDescriptor {
+    <span class="doccomment">/// Disk type backing the storage.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;PersistentDiskType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>r#type: i32,
+    <span class="doccomment">/// Disk size in GiB.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>size_gb: i32,
 }
 <span class="doccomment">/// Describes the fit level of an asset for migration to a specific target.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -9506,26 +9976,6 @@
             }
         }
     }
-}
-<span class="doccomment">/// Compute Engine target shape descriptor.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ComputeEngineShapeDescriptor {
-    <span class="doccomment">/// Memory in mebibytes.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>memory_mb: i32,
-    <span class="doccomment">/// Number of physical cores.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>physical_core_count: i32,
-    <span class="doccomment">/// Number of logical cores.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>logical_core_count: i32,
-    <span class="doccomment">/// Compute Engine machine series.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>series: ::prost::alloc::string::String,
-    <span class="doccomment">/// Compute Engine machine type.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>machine_type: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message describing an aggregation. The message includes the aggregation type,
 /// parameters, and the field on which to perform the aggregation.
@@ -9704,7 +10154,7 @@
     <span class="doccomment">/// Validation errors encountered during the execution of the import job.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>execution_errors: ::core::option::Option&lt;ValidationReport&gt;,
-    <span class="doccomment">/// Total number of rows in the import job.
+    <span class="doccomment">/// Output only. Total number of rows in the import job.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>total_rows_count: i32,
 }
@@ -9828,6 +10278,11 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>VirtualMachinePreferences {
+    <span class="doccomment">/// Target product for assets using this preference set.
+    /// Specify either target product or business goal, but
+    /// not both.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ComputeMigrationTargetProduct&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>target_product: i32,
     <span class="doccomment">/// Region preferences for assets using this preference set.
     /// If you are unsure which value to set, the migration service API region is
     /// often a good value to start with.
@@ -9850,6 +10305,13 @@
     /// Engine target.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>compute_engine_preferences: ::core::option::Option&lt;ComputeEnginePreferences&gt;,
+    <span class="doccomment">/// Preferences concerning insights and recommendations for
+    /// Google Cloud VMware Engine.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>vmware_engine_preferences: ::core::option::Option&lt;VmwareEnginePreferences&gt;,
+    <span class="doccomment">/// Preferences concerning Sole Tenant nodes and virtual machines.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>sole_tenancy_preferences: ::core::option::Option&lt;SoleTenancyPreferences&gt;,
 }
 <span class="doccomment">/// The user preferences relating to Compute Engine target platform.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -9884,6 +10346,245 @@
     /// for more details on the available series.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>code: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// The user preferences relating to Google Cloud VMware Engine target platform.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VmwareEnginePreferences {
+    <span class="doccomment">/// CPU overcommit ratio.
+    /// Acceptable values are between 1.0 and 8.0, with 0.1 increment.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>cpu_overcommit_ratio: f64,
+    <span class="doccomment">/// Memory overcommit ratio.
+    /// Acceptable values are 1.0, 1.25, 1.5, 1.75 and 2.0.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>memory_overcommit_ratio: f64,
+    <span class="doccomment">/// The Deduplication and Compression ratio is based on the logical (Used
+    /// Before) space required to store data before applying deduplication and
+    /// compression, in relation to the physical (Used After) space required after
+    /// applying deduplication and compression. Specifically, the ratio is the Used
+    /// Before space divided by the Used After space. For example, if the Used
+    /// Before space is 3 GB, but the physical Used After space is 1 GB, the
+    /// deduplication and compression ratio is 3x. Acceptable values are
+    /// between 1.0 and 4.0.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>storage_deduplication_compression_ratio: f64,
+    <span class="doccomment">/// Commitment plan to consider when calculating costs for virtual machine
+    /// insights and recommendations.
+    /// If you are unsure which value to set, a 3 year commitment plan is often a
+    /// good value to start with.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;vmware_engine_preferences::CommitmentPlan&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>commitment_plan: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `VmwareEnginePreferences`.
+</span><span class="kw">pub mod </span>vmware_engine_preferences {
+    <span class="doccomment">/// Type of committed use discount.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>CommitmentPlan {
+        <span class="doccomment">/// Unspecified commitment plan.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// No commitment plan (on-demand usage).
+        </span>OnDemand = <span class="number">1</span>,
+        <span class="doccomment">/// 1 year commitment (monthly payments).
+        </span>Commitment1YearMonthlyPayments = <span class="number">2</span>,
+        <span class="doccomment">/// 3 year commitment (monthly payments).
+        </span>Commitment3YearMonthlyPayments = <span class="number">3</span>,
+        <span class="doccomment">/// 1 year commitment (upfront payment).
+        </span>Commitment1YearUpfrontPayment = <span class="number">4</span>,
+        <span class="doccomment">/// 3 years commitment (upfront payment).
+        </span>Commitment3YearUpfrontPayment = <span class="number">5</span>,
+    }
+    <span class="kw">impl </span>CommitmentPlan {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                CommitmentPlan::Unspecified =&gt; <span class="string">&quot;COMMITMENT_PLAN_UNSPECIFIED&quot;</span>,
+                CommitmentPlan::OnDemand =&gt; <span class="string">&quot;ON_DEMAND&quot;</span>,
+                CommitmentPlan::Commitment1YearMonthlyPayments =&gt; {
+                    <span class="string">&quot;COMMITMENT_1_YEAR_MONTHLY_PAYMENTS&quot;
+                </span>}
+                CommitmentPlan::Commitment3YearMonthlyPayments =&gt; {
+                    <span class="string">&quot;COMMITMENT_3_YEAR_MONTHLY_PAYMENTS&quot;
+                </span>}
+                CommitmentPlan::Commitment1YearUpfrontPayment =&gt; {
+                    <span class="string">&quot;COMMITMENT_1_YEAR_UPFRONT_PAYMENT&quot;
+                </span>}
+                CommitmentPlan::Commitment3YearUpfrontPayment =&gt; {
+                    <span class="string">&quot;COMMITMENT_3_YEAR_UPFRONT_PAYMENT&quot;
+                </span>}
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;COMMITMENT_PLAN_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ON_DEMAND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OnDemand),
+                <span class="string">&quot;COMMITMENT_1_YEAR_MONTHLY_PAYMENTS&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::Commitment1YearMonthlyPayments)
+                }
+                <span class="string">&quot;COMMITMENT_3_YEAR_MONTHLY_PAYMENTS&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::Commitment3YearMonthlyPayments)
+                }
+                <span class="string">&quot;COMMITMENT_1_YEAR_UPFRONT_PAYMENT&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::Commitment1YearUpfrontPayment)
+                }
+                <span class="string">&quot;COMMITMENT_3_YEAR_UPFRONT_PAYMENT&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::Commitment3YearUpfrontPayment)
+                }
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Preferences concerning Sole Tenancy nodes and VMs.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SoleTenancyPreferences {
+    <span class="doccomment">/// CPU overcommit ratio.
+    /// Acceptable values are between 1.0 and 2.0 inclusive.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>cpu_overcommit_ratio: f64,
+    <span class="doccomment">/// Sole Tenancy nodes maintenance policy.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;sole_tenancy_preferences::HostMaintenancePolicy&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>host_maintenance_policy: i32,
+    <span class="doccomment">/// Commitment plan to consider when calculating costs for virtual machine
+    /// insights and recommendations.
+    /// If you are unsure which value to set, a 3 year commitment plan is often a
+    /// good value to start with.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;sole_tenancy_preferences::CommitmentPlan&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>commitment_plan: i32,
+    <span class="doccomment">/// A list of sole tenant node types.
+    /// An empty list means that all possible node types will be considered.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>node_types: ::prost::alloc::vec::Vec&lt;SoleTenantNodeType&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `SoleTenancyPreferences`.
+</span><span class="kw">pub mod </span>sole_tenancy_preferences {
+    <span class="doccomment">/// Sole Tenancy nodes maintenance policy.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>HostMaintenancePolicy {
+        <span class="doccomment">/// Unspecified host maintenance policy.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Default host maintenance policy.
+        </span>Default = <span class="number">1</span>,
+        <span class="doccomment">/// Restart in place host maintenance policy.
+        </span>RestartInPlace = <span class="number">2</span>,
+        <span class="doccomment">/// Migrate within node group host maintenance policy.
+        </span>MigrateWithinNodeGroup = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>HostMaintenancePolicy {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                HostMaintenancePolicy::Unspecified =&gt; {
+                    <span class="string">&quot;HOST_MAINTENANCE_POLICY_UNSPECIFIED&quot;
+                </span>}
+                HostMaintenancePolicy::Default =&gt; <span class="string">&quot;HOST_MAINTENANCE_POLICY_DEFAULT&quot;</span>,
+                HostMaintenancePolicy::RestartInPlace =&gt; {
+                    <span class="string">&quot;HOST_MAINTENANCE_POLICY_RESTART_IN_PLACE&quot;
+                </span>}
+                HostMaintenancePolicy::MigrateWithinNodeGroup =&gt; {
+                    <span class="string">&quot;HOST_MAINTENANCE_POLICY_MIGRATE_WITHIN_NODE_GROUP&quot;
+                </span>}
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;HOST_MAINTENANCE_POLICY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;HOST_MAINTENANCE_POLICY_DEFAULT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Default),
+                <span class="string">&quot;HOST_MAINTENANCE_POLICY_RESTART_IN_PLACE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RestartInPlace),
+                <span class="string">&quot;HOST_MAINTENANCE_POLICY_MIGRATE_WITHIN_NODE_GROUP&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::MigrateWithinNodeGroup)
+                }
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// Type of committed use discount.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>CommitmentPlan {
+        <span class="doccomment">/// Unspecified commitment plan.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// No commitment plan (on-demand usage).
+        </span>OnDemand = <span class="number">1</span>,
+        <span class="doccomment">/// 1 year commitment.
+        </span>Commitment1Year = <span class="number">2</span>,
+        <span class="doccomment">/// 3 years commitment.
+        </span>Commitment3Year = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>CommitmentPlan {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                CommitmentPlan::Unspecified =&gt; <span class="string">&quot;COMMITMENT_PLAN_UNSPECIFIED&quot;</span>,
+                CommitmentPlan::OnDemand =&gt; <span class="string">&quot;ON_DEMAND&quot;</span>,
+                CommitmentPlan::Commitment1Year =&gt; <span class="string">&quot;COMMITMENT_1_YEAR&quot;</span>,
+                CommitmentPlan::Commitment3Year =&gt; <span class="string">&quot;COMMITMENT_3_YEAR&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;COMMITMENT_PLAN_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ON_DEMAND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OnDemand),
+                <span class="string">&quot;COMMITMENT_1_YEAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Commitment1Year),
+                <span class="string">&quot;COMMITMENT_3_YEAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Commitment3Year),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// A Sole Tenant node type.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SoleTenantNodeType {
+    <span class="doccomment">/// Name of the Sole Tenant node. Consult
+    /// &lt;https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>node_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The user preferences relating to target regions.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -10057,6 +10758,72 @@
         </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::PersistentDiskType&quot;</span>, repeated, tag = <span class="string">&quot;4&quot;</span>)]
         </span><span class="kw">pub </span>allocated_disk_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
     }
+    <span class="doccomment">/// A set of findings that applies to assets destined for VMWare Engine.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>VmwareEngineFinding {
+        <span class="doccomment">/// Set of regions in which the assets were allocated
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>allocated_regions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+        <span class="doccomment">/// Count of assets which are allocated
+        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>allocated_asset_count: i64,
+        <span class="doccomment">/// Set of per-nodetype allocation records
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>node_allocations: ::prost::alloc::vec::Vec&lt;VmwareNodeAllocation&gt;,
+    }
+    <span class="doccomment">/// Represents assets allocated to a specific VMWare Node type.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>VmwareNodeAllocation {
+        <span class="doccomment">/// VMWare node type, e.g. &quot;ve1-standard-72&quot;
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>vmware_node: ::core::option::Option&lt;VmwareNode&gt;,
+        <span class="doccomment">/// Count of this node type to be provisioned
+        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>node_count: i64,
+        <span class="doccomment">/// Count of assets allocated to these nodes
+        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>allocated_asset_count: i64,
+    }
+    <span class="doccomment">/// A VMWare Engine Node
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>VmwareNode {
+        <span class="doccomment">/// Code to identify VMware Engine node series, e.g. &quot;ve1-standard-72&quot;. Based
+        /// on the displayName of
+        /// cloud.google.com/vmware-engine/docs/reference/rest/v1/projects.locations.nodeTypes
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>code: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// A set of findings that applies to assets destined for Sole-Tenant nodes.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SoleTenantFinding {
+        <span class="doccomment">/// Set of regions in which the assets are allocated
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>allocated_regions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+        <span class="doccomment">/// Count of assets which are allocated
+        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>allocated_asset_count: i64,
+        <span class="doccomment">/// Set of per-nodetype allocation records
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>node_allocations: ::prost::alloc::vec::Vec&lt;SoleTenantNodeAllocation&gt;,
+    }
+    <span class="doccomment">/// Represents the assets allocated to a specific Sole-Tenant node type.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>SoleTenantNodeAllocation {
+        <span class="doccomment">/// Sole Tenant node type, e.g. &quot;m3-node-128-3904&quot;
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>node: ::core::option::Option&lt;<span class="kw">super</span>::SoleTenantNodeType&gt;,
+        <span class="doccomment">/// Count of this node type to be provisioned
+        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>node_count: i64,
+        <span class="doccomment">/// Count of assets allocated to these nodes
+        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>allocated_asset_count: i64,
+    }
     <span class="doccomment">/// Summary Findings for a specific Group/PreferenceSet combination.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
@@ -10105,6 +10872,12 @@
         <span class="doccomment">/// A set of findings that applies to Compute Engine machines in the input.
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
         </span><span class="kw">pub </span>compute_engine_finding: ::core::option::Option&lt;ComputeEngineFinding&gt;,
+        <span class="doccomment">/// A set of findings that applies to VMWare machines in the input.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="kw">pub </span>vmware_engine_finding: ::core::option::Option&lt;VmwareEngineFinding&gt;,
+        <span class="doccomment">/// A set of findings that applies to Sole-Tenant machines in the input.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+        </span><span class="kw">pub </span>sole_tenant_finding: ::core::option::Option&lt;SoleTenantFinding&gt;,
     }
     <span class="doccomment">/// Summary Findings for a specific Group.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -10119,9 +10892,9 @@
         <span class="doccomment">/// Summary statistics for all the assets in this group.
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>asset_aggregate_stats: ::core::option::Option&lt;AssetAggregateStats&gt;,
-        <span class="doccomment">/// Count of the number of assets in this group which are also included
-        /// in another group within the same report.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+        <span class="doccomment">/// This field is deprecated, do not rely on it having a value.
+        </span><span class="attr">#[deprecated]
+        #[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
         </span><span class="kw">pub </span>overlapping_asset_count: i64,
         <span class="doccomment">/// Findings for each of the PreferenceSets for this group.
         </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
@@ -10478,6 +11251,53 @@
             <span class="string">&quot;COMMITMENT_PLAN_NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
             <span class="string">&quot;COMMITMENT_PLAN_ONE_YEAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OneYear),
             <span class="string">&quot;COMMITMENT_PLAN_THREE_YEARS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ThreeYears),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// The preference for a specific Google Cloud product platform.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>ComputeMigrationTargetProduct {
+    <span class="doccomment">/// Unspecified (default value).
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Prefer to migrate to Google Cloud Compute Engine.
+    </span>ComputeEngine = <span class="number">1</span>,
+    <span class="doccomment">/// Prefer to migrate to Google Cloud VMware Engine.
+    </span>VmwareEngine = <span class="number">2</span>,
+    <span class="doccomment">/// Prefer to migrate to Google Cloud Sole Tenant Nodes.
+    </span>SoleTenancy = <span class="number">3</span>,
+}
+<span class="kw">impl </span>ComputeMigrationTargetProduct {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            ComputeMigrationTargetProduct::Unspecified =&gt; {
+                <span class="string">&quot;COMPUTE_MIGRATION_TARGET_PRODUCT_UNSPECIFIED&quot;
+            </span>}
+            ComputeMigrationTargetProduct::ComputeEngine =&gt; {
+                <span class="string">&quot;COMPUTE_MIGRATION_TARGET_PRODUCT_COMPUTE_ENGINE&quot;
+            </span>}
+            ComputeMigrationTargetProduct::VmwareEngine =&gt; {
+                <span class="string">&quot;COMPUTE_MIGRATION_TARGET_PRODUCT_VMWARE_ENGINE&quot;
+            </span>}
+            ComputeMigrationTargetProduct::SoleTenancy =&gt; {
+                <span class="string">&quot;COMPUTE_MIGRATION_TARGET_PRODUCT_SOLE_TENANCY&quot;
+            </span>}
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;COMPUTE_MIGRATION_TARGET_PRODUCT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;COMPUTE_MIGRATION_TARGET_PRODUCT_COMPUTE_ENGINE&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::ComputeEngine)
+            }
+            <span class="string">&quot;COMPUTE_MIGRATION_TARGET_PRODUCT_VMWARE_ENGINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VmwareEngine),
+            <span class="string">&quot;COMPUTE_MIGRATION_TARGET_PRODUCT_SOLE_TENANCY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SoleTenancy),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }

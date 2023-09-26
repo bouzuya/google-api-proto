@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Message","ResponseType"],"mod":["mixed_audio","output_audio_text","telephony_transfer_call"],"struct":["ConversationSuccess","EndInteraction","LiveAgentHandoff","MixedAudio","OutputAudioText","PlayAudio","TelephonyTransferCall","Text"]};
+window.SIDEBAR_ITEMS = {"enum":["Message","ResponseType"],"mod":["mixed_audio","output_audio_text","telephony_transfer_call"],"struct":["ConversationSuccess","EndInteraction","KnowledgeInfoCard","LiveAgentHandoff","MixedAudio","OutputAudioText","PlayAudio","TelephonyTransferCall","Text"]};

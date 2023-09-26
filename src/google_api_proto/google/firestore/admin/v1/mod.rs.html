@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/firestore/admin/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/firestore/admin/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.1 (d5c2e9c34 2023-09-13)" data-channel="1.72.1" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2051,6 +2051,151 @@
         }
     }
 }
+<span class="doccomment">/// Represents a single field in the database.
+///
+/// Fields are grouped by their &quot;Collection Group&quot;, which represent all
+/// collections in the database with the same id.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Field {
+    <span class="doccomment">/// Required. A field name of the form
+    /// `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
+    ///
+    /// A field path may be a simple field name, e.g. `address` or a path to fields
+    /// within map_value , e.g. `address.city`,
+    /// or a special field path. The only valid special field is `*`, which
+    /// represents any field.
+    ///
+    /// Field paths may be quoted using ` (backtick). The only character that needs
+    /// to be escaped within a quoted field path is the backtick character itself,
+    /// escaped using a backslash. Special characters in field paths that
+    /// must be quoted include: `*`, `.`,
+    /// ``` (backtick), `[`, `]`, as well as any ascii symbolic characters.
+    ///
+    /// Examples:
+    /// (Note: Comments here are written in markdown syntax, so there is an
+    ///   additional layer of backticks to represent a code block)
+    /// `\`address.city\`` represents a field named `address.city`, not the map key
+    /// `city` in the field `address`.
+    /// `\`*\`` represents a field named `*`, not any field.
+    ///
+    /// A special `Field` contains the default indexing settings for all fields.
+    /// This field&#39;s resource name is:
+    /// `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/*`
+    /// Indexes defined on this `Field` will be applied to all fields which do not
+    /// have their own `Field` index configuration.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The index configuration for this field. If unset, field indexing will
+    /// revert to the configuration defined by the `ancestor_field`. To
+    /// explicitly remove all indexes for this field, specify an index config
+    /// with an empty list of indexes.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>index_config: ::core::option::Option&lt;field::IndexConfig&gt;,
+    <span class="doccomment">/// The TTL configuration for this `Field`.
+    /// Setting or unsetting this will enable or disable the TTL for
+    /// documents that have this `Field`.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>ttl_config: ::core::option::Option&lt;field::TtlConfig&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Field`.
+</span><span class="kw">pub mod </span>field {
+    <span class="doccomment">/// The index configuration for this field.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>IndexConfig {
+        <span class="doccomment">/// The indexes supported for this field.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>indexes: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::Index&gt;,
+        <span class="doccomment">/// Output only. When true, the `Field`&#39;s index configuration is set from the
+        /// configuration specified by the `ancestor_field`.
+        /// When false, the `Field`&#39;s index configuration is defined explicitly.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>uses_ancestor_config: bool,
+        <span class="doccomment">/// Output only. Specifies the resource name of the `Field` from which this field&#39;s
+        /// index configuration is set (when `uses_ancestor_config` is true),
+        /// or from which it *would* be set if this field had no index configuration
+        /// (when `uses_ancestor_config` is false).
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>ancestor_field: ::prost::alloc::string::String,
+        <span class="doccomment">/// Output only
+        /// When true, the `Field`&#39;s index configuration is in the process of being
+        /// reverted. Once complete, the index config will transition to the same
+        /// state as the field specified by `ancestor_field`, at which point
+        /// `uses_ancestor_config` will be `true` and `reverting` will be `false`.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>reverting: bool,
+    }
+    <span class="doccomment">/// The TTL (time-to-live) configuration for documents that have this `Field`
+    /// set.
+    /// Storing a timestamp value into a TTL-enabled field will be treated as
+    /// the document&#39;s absolute expiration time. Using any other data type or
+    /// leaving the field absent will disable the TTL for the individual document.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>TtlConfig {
+        <span class="doccomment">/// Output only. The state of the TTL configuration.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ttl_config::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>state: i32,
+    }
+    <span class="doccomment">/// Nested message and enum types in `TtlConfig`.
+    </span><span class="kw">pub mod </span>ttl_config {
+        <span class="doccomment">/// The state of applying the TTL configuration to all documents.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>State {
+            <span class="doccomment">/// The state is unspecified or unknown.
+            </span>Unspecified = <span class="number">0</span>,
+            <span class="doccomment">/// The TTL is being applied. There is an active long-running operation to
+            /// track the change. Newly written documents will have TTLs applied as
+            /// requested. Requested TTLs on existing documents are still being
+            /// processed. When TTLs on all existing documents have been processed, the
+            /// state will move to &#39;ACTIVE&#39;.
+            </span>Creating = <span class="number">1</span>,
+            <span class="doccomment">/// The TTL is active for all documents.
+            </span>Active = <span class="number">2</span>,
+            <span class="doccomment">/// The TTL configuration could not be enabled for all existing documents.
+            /// Newly written documents will continue to have their TTL applied.
+            /// The LRO returned when last attempting to enable TTL for this `Field`
+            /// has failed, and may have more details.
+            </span>NeedsRepair = <span class="number">3</span>,
+        }
+        <span class="kw">impl </span>State {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                    State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
+                    State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
+                    State::NeedsRepair =&gt; <span class="string">&quot;NEEDS_REPAIR&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                    <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                    <span class="string">&quot;NEEDS_REPAIR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NeedsRepair),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
+}
 <span class="doccomment">/// A Cloud Firestore Database.
 /// Currently only one database is allowed per cloud project; this database
 /// must have a `database_id` of &#39;(default)&#39;.
@@ -2244,151 +2389,6 @@
                 <span class="string">&quot;ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
                 <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Represents a single field in the database.
-///
-/// Fields are grouped by their &quot;Collection Group&quot;, which represent all
-/// collections in the database with the same id.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Field {
-    <span class="doccomment">/// Required. A field name of the form
-    /// `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
-    ///
-    /// A field path may be a simple field name, e.g. `address` or a path to fields
-    /// within map_value , e.g. `address.city`,
-    /// or a special field path. The only valid special field is `*`, which
-    /// represents any field.
-    ///
-    /// Field paths may be quoted using ` (backtick). The only character that needs
-    /// to be escaped within a quoted field path is the backtick character itself,
-    /// escaped using a backslash. Special characters in field paths that
-    /// must be quoted include: `*`, `.`,
-    /// ``` (backtick), `[`, `]`, as well as any ascii symbolic characters.
-    ///
-    /// Examples:
-    /// (Note: Comments here are written in markdown syntax, so there is an
-    ///   additional layer of backticks to represent a code block)
-    /// `\`address.city\`` represents a field named `address.city`, not the map key
-    /// `city` in the field `address`.
-    /// `\`*\`` represents a field named `*`, not any field.
-    ///
-    /// A special `Field` contains the default indexing settings for all fields.
-    /// This field&#39;s resource name is:
-    /// `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/*`
-    /// Indexes defined on this `Field` will be applied to all fields which do not
-    /// have their own `Field` index configuration.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The index configuration for this field. If unset, field indexing will
-    /// revert to the configuration defined by the `ancestor_field`. To
-    /// explicitly remove all indexes for this field, specify an index config
-    /// with an empty list of indexes.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>index_config: ::core::option::Option&lt;field::IndexConfig&gt;,
-    <span class="doccomment">/// The TTL configuration for this `Field`.
-    /// Setting or unsetting this will enable or disable the TTL for
-    /// documents that have this `Field`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>ttl_config: ::core::option::Option&lt;field::TtlConfig&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Field`.
-</span><span class="kw">pub mod </span>field {
-    <span class="doccomment">/// The index configuration for this field.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>IndexConfig {
-        <span class="doccomment">/// The indexes supported for this field.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>indexes: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::Index&gt;,
-        <span class="doccomment">/// Output only. When true, the `Field`&#39;s index configuration is set from the
-        /// configuration specified by the `ancestor_field`.
-        /// When false, the `Field`&#39;s index configuration is defined explicitly.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>uses_ancestor_config: bool,
-        <span class="doccomment">/// Output only. Specifies the resource name of the `Field` from which this field&#39;s
-        /// index configuration is set (when `uses_ancestor_config` is true),
-        /// or from which it *would* be set if this field had no index configuration
-        /// (when `uses_ancestor_config` is false).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>ancestor_field: ::prost::alloc::string::String,
-        <span class="doccomment">/// Output only
-        /// When true, the `Field`&#39;s index configuration is in the process of being
-        /// reverted. Once complete, the index config will transition to the same
-        /// state as the field specified by `ancestor_field`, at which point
-        /// `uses_ancestor_config` will be `true` and `reverting` will be `false`.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
-        </span><span class="kw">pub </span>reverting: bool,
-    }
-    <span class="doccomment">/// The TTL (time-to-live) configuration for documents that have this `Field`
-    /// set.
-    /// Storing a timestamp value into a TTL-enabled field will be treated as
-    /// the document&#39;s absolute expiration time. Using any other data type or
-    /// leaving the field absent will disable the TTL for the individual document.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>TtlConfig {
-        <span class="doccomment">/// Output only. The state of the TTL configuration.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ttl_config::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>state: i32,
-    }
-    <span class="doccomment">/// Nested message and enum types in `TtlConfig`.
-    </span><span class="kw">pub mod </span>ttl_config {
-        <span class="doccomment">/// The state of applying the TTL configuration to all documents.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>State {
-            <span class="doccomment">/// The state is unspecified or unknown.
-            </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// The TTL is being applied. There is an active long-running operation to
-            /// track the change. Newly written documents will have TTLs applied as
-            /// requested. Requested TTLs on existing documents are still being
-            /// processed. When TTLs on all existing documents have been processed, the
-            /// state will move to &#39;ACTIVE&#39;.
-            </span>Creating = <span class="number">1</span>,
-            <span class="doccomment">/// The TTL is active for all documents.
-            </span>Active = <span class="number">2</span>,
-            <span class="doccomment">/// The TTL configuration could not be enabled for all existing documents.
-            /// Newly written documents will continue to have their TTL applied.
-            /// The LRO returned when last attempting to enable TTL for this `Field`
-            /// has failed, and may have more details.
-            </span>NeedsRepair = <span class="number">3</span>,
-        }
-        <span class="kw">impl </span>State {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                    State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                    State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                    State::NeedsRepair =&gt; <span class="string">&quot;NEEDS_REPAIR&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                    <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                    <span class="string">&quot;NEEDS_REPAIR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NeedsRepair),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
             }
         }
     }

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/apps/drive/labels/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../../source-files.js"></script><script defer src="../../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/apps/drive/labels/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.1 (d5c2e9c34 2023-09-13)" data-channel="1.72.1" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../../source-files.js"></script><script defer src="../../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1581,70 +1581,7 @@
 <a href="#1581" id="1581">1581</a>
 <a href="#1582" id="1582">1582</a>
 <a href="#1583" id="1583">1583</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// The permission that applies to a principal (user, group, audience) on a
-/// label.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>LabelPermission {}
-<span class="doccomment">/// Nested message and enum types in `LabelPermission`.
-</span><span class="kw">pub mod </span>label_permission {
-    <span class="doccomment">/// Roles are concentric with subsequent role.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>LabelRole {
-        <span class="doccomment">/// Unknown role.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// A reader can read the label and associated metadata applied to Drive
-        /// items.
-        </span>Reader = <span class="number">1</span>,
-        <span class="doccomment">/// An applier can write associated metadata on Drive items in which they
-        /// also have write access to. Implies `READER`.
-        </span>Applier = <span class="number">2</span>,
-        <span class="doccomment">/// An organizer can pin this label in shared drives they manage
-        /// and add new appliers to the label.
-        </span>Organizer = <span class="number">3</span>,
-        <span class="doccomment">/// Editors can make any update including deleting the label which
-        /// also deletes the associated Drive item metadata. Implies `APPLIER`.
-        </span>Editor = <span class="number">4</span>,
-    }
-    <span class="kw">impl </span>LabelRole {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                LabelRole::Unspecified =&gt; <span class="string">&quot;LABEL_ROLE_UNSPECIFIED&quot;</span>,
-                LabelRole::Reader =&gt; <span class="string">&quot;READER&quot;</span>,
-                LabelRole::Applier =&gt; <span class="string">&quot;APPLIER&quot;</span>,
-                LabelRole::Organizer =&gt; <span class="string">&quot;ORGANIZER&quot;</span>,
-                LabelRole::Editor =&gt; <span class="string">&quot;EDITOR&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;LABEL_ROLE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;READER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reader),
-                <span class="string">&quot;APPLIER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Applier),
-                <span class="string">&quot;ORGANIZER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Organizer),
-                <span class="string">&quot;EDITOR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Editor),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// The lifecycle state of an object, such as label, field, or choice. The
+</pre></div><pre class="rust"><code><span class="doccomment">/// The lifecycle state of an object, such as label, field, or choice. The
 /// lifecycle enforces the following transitions:
 ///
 /// * `UNPUBLISHED_DRAFT` (starting state)
@@ -2506,266 +2443,67 @@
         }
     }
 }
-<span class="doccomment">/// Request to get a label by resource name.
+<span class="doccomment">/// The permission that applies to a principal (user, group, audience) on a
+/// label.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetLabelRequest {
-    <span class="doccomment">/// Required. Label resource name.
-    ///
-    /// May be any of:
-    ///
-    /// * `labels/{id}` (equivalent to labels/{id}@latest)
-    /// * `labels/{id}@latest`
-    /// * `labels/{id}@published`
-    /// * `labels/{id}@{revision_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Set to `true` in order to use the user&#39;s admin credentials. The server
-    /// verifies that the user is an admin for the label before allowing access.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>use_admin_access: bool,
-    <span class="doccomment">/// The BCP-47 language code to use for evaluating localized field labels.
-    /// When not specified, values in the default configured language are used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// When specified, only certain fields belonging to the indicated view are
-    /// returned.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;LabelView&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>view: i32,
-}
-<span class="doccomment">/// Request to list labels available to the current user.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListLabelsRequest {
-    <span class="doccomment">/// Whether to include only published labels in the results.
-    ///
-    /// * When `true`, only the current published label revisions are returned.
-    ///    Disabled labels are included. Returned label resource names
-    ///    reference the published revision (`labels/{id}/{revision_id}`).
-    /// * When `false`, the current label revisions are returned, which might not
-    ///    be published. Returned label resource names don&#39;t reference a specific
-    ///    revision (`labels/{id}`).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>published_only: bool,
-    <span class="doccomment">/// The BCP-47 language code to use for evaluating localized field labels.
-    /// When not specified, values in the default configured language are used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Maximum number of labels to return per page. Default: 50. Max: 200.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// The token of the page to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// When specified, only certain fields belonging to the indicated view are
-    /// returned.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;LabelView&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>view: i32,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;list_labels_request::Access&quot;</span>, tags = <span class="string">&quot;3, 4&quot;</span>)]
-    </span><span class="kw">pub </span>access: ::core::option::Option&lt;list_labels_request::Access&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ListLabelsRequest`.
-</span><span class="kw">pub mod </span>list_labels_request {
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Access {
-        <span class="doccomment">/// Set to `true` in order to use the user&#39;s admin credentials. This will
-        /// return all Labels within the customer.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>UseAdminAccess(bool),
-        <span class="doccomment">/// Specifies the level of access the user must have on the returned Labels.
-        /// The minimum role a user must have on a label.
-        /// Defaults to `READER`.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::label_permission::LabelRole&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-        </span>MinimumRole(i32),
+</span><span class="kw">pub struct </span>LabelPermission {}
+<span class="doccomment">/// Nested message and enum types in `LabelPermission`.
+</span><span class="kw">pub mod </span>label_permission {
+    <span class="doccomment">/// Roles are concentric with subsequent role.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>LabelRole {
+        <span class="doccomment">/// Unknown role.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// A reader can read the label and associated metadata applied to Drive
+        /// items.
+        </span>Reader = <span class="number">1</span>,
+        <span class="doccomment">/// An applier can write associated metadata on Drive items in which they
+        /// also have write access to. Implies `READER`.
+        </span>Applier = <span class="number">2</span>,
+        <span class="doccomment">/// An organizer can pin this label in shared drives they manage
+        /// and add new appliers to the label.
+        </span>Organizer = <span class="number">3</span>,
+        <span class="doccomment">/// Editors can make any update including deleting the label which
+        /// also deletes the associated Drive item metadata. Implies `APPLIER`.
+        </span>Editor = <span class="number">4</span>,
     }
-}
-<span class="doccomment">/// Response for listing Labels.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListLabelsResponse {
-    <span class="doccomment">/// Labels.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::vec::Vec&lt;Label&gt;,
-    <span class="doccomment">/// The token of the next page in the response.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Resource view that can be applied to label responses. The default value
-/// `LABEL_VIEW_BASIC` implies the field mask:
-/// `name,id,revision_id,label_type,properties.*`\
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>LabelView {
-    <span class="doccomment">/// Implies the field mask:
-    /// `name,id,revision_id,label_type,properties.*`
-    </span>Basic = <span class="number">0</span>,
-    <span class="doccomment">/// All possible fields.
-    </span>Full = <span class="number">1</span>,
-}
-<span class="kw">impl </span>LabelView {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            LabelView::Basic =&gt; <span class="string">&quot;LABEL_VIEW_BASIC&quot;</span>,
-            LabelView::Full =&gt; <span class="string">&quot;LABEL_VIEW_FULL&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;LABEL_VIEW_BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
-            <span class="string">&quot;LABEL_VIEW_FULL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>label_service_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// Manage metadata taxonomies based on Labels and Fields that may be used within
-    /// Google Drive to organize and find files using custom metadata.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>LabelServiceClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; LabelServiceClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; LabelServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            LabelServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
+    <span class="kw">impl </span>LabelRole {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
         ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// List labels.
-        </span><span class="kw">pub async fn </span>list_labels(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListLabelsRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListLabelsResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.drive.labels.v2.LabelService/ListLabels&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.apps.drive.labels.v2.LabelService&quot;</span>,
-                        <span class="string">&quot;ListLabels&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Get a label by its resource name.
-        /// Resource name may be any of:
-        ///
-        /// * `labels/{id}` - See `labels/{id}@latest`
-        /// * `labels/{id}@latest` - Gets the latest revision of the label.
-        /// * `labels/{id}@published` - Gets the current published revision of the
-        ///   label.
-        /// * `labels/{id}@{revision_id}` - Gets the label at the specified revision
-        ///   ID.
-        </span><span class="kw">pub async fn </span>get_label(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetLabelRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Label&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.drive.labels.v2.LabelService/GetLabel&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.apps.drive.labels.v2.LabelService&quot;</span>,
-                        <span class="string">&quot;GetLabel&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                LabelRole::Unspecified =&gt; <span class="string">&quot;LABEL_ROLE_UNSPECIFIED&quot;</span>,
+                LabelRole::Reader =&gt; <span class="string">&quot;READER&quot;</span>,
+                LabelRole::Applier =&gt; <span class="string">&quot;APPLIER&quot;</span>,
+                LabelRole::Organizer =&gt; <span class="string">&quot;ORGANIZER&quot;</span>,
+                LabelRole::Editor =&gt; <span class="string">&quot;EDITOR&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;LABEL_ROLE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;READER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reader),
+                <span class="string">&quot;APPLIER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Applier),
+                <span class="string">&quot;ORGANIZER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Organizer),
+                <span class="string">&quot;EDITOR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Editor),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
     }
 }
 <span class="doccomment">/// Describes violations in a request to create or update a Label or its
@@ -3162,6 +2900,268 @@
             <span class="string">&quot;INTERNAL_SERVER_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalServerError),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
+    }
+}
+<span class="doccomment">/// Request to get a label by resource name.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetLabelRequest {
+    <span class="doccomment">/// Required. Label resource name.
+    ///
+    /// May be any of:
+    ///
+    /// * `labels/{id}` (equivalent to labels/{id}@latest)
+    /// * `labels/{id}@latest`
+    /// * `labels/{id}@published`
+    /// * `labels/{id}@{revision_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Set to `true` in order to use the user&#39;s admin credentials. The server
+    /// verifies that the user is an admin for the label before allowing access.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>use_admin_access: bool,
+    <span class="doccomment">/// The BCP-47 language code to use for evaluating localized field labels.
+    /// When not specified, values in the default configured language are used.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// When specified, only certain fields belonging to the indicated view are
+    /// returned.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;LabelView&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>view: i32,
+}
+<span class="doccomment">/// Request to list labels available to the current user.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListLabelsRequest {
+    <span class="doccomment">/// Whether to include only published labels in the results.
+    ///
+    /// * When `true`, only the current published label revisions are returned.
+    ///    Disabled labels are included. Returned label resource names
+    ///    reference the published revision (`labels/{id}/{revision_id}`).
+    /// * When `false`, the current label revisions are returned, which might not
+    ///    be published. Returned label resource names don&#39;t reference a specific
+    ///    revision (`labels/{id}`).
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>published_only: bool,
+    <span class="doccomment">/// The BCP-47 language code to use for evaluating localized field labels.
+    /// When not specified, values in the default configured language are used.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Maximum number of labels to return per page. Default: 50. Max: 200.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// The token of the page to return.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// When specified, only certain fields belonging to the indicated view are
+    /// returned.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;LabelView&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>view: i32,
+    <span class="attr">#[prost(oneof = <span class="string">&quot;list_labels_request::Access&quot;</span>, tags = <span class="string">&quot;3, 4&quot;</span>)]
+    </span><span class="kw">pub </span>access: ::core::option::Option&lt;list_labels_request::Access&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ListLabelsRequest`.
+</span><span class="kw">pub mod </span>list_labels_request {
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Access {
+        <span class="doccomment">/// Set to `true` in order to use the user&#39;s admin credentials. This will
+        /// return all Labels within the customer.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>UseAdminAccess(bool),
+        <span class="doccomment">/// Specifies the level of access the user must have on the returned Labels.
+        /// The minimum role a user must have on a label.
+        /// Defaults to `READER`.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::label_permission::LabelRole&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+        </span>MinimumRole(i32),
+    }
+}
+<span class="doccomment">/// Response for listing Labels.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListLabelsResponse {
+    <span class="doccomment">/// Labels.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::vec::Vec&lt;Label&gt;,
+    <span class="doccomment">/// The token of the next page in the response.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Resource view that can be applied to label responses. The default value
+/// `LABEL_VIEW_BASIC` implies the field mask:
+/// `name,id,revision_id,label_type,properties.*`\
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>LabelView {
+    <span class="doccomment">/// Implies the field mask:
+    /// `name,id,revision_id,label_type,properties.*`
+    </span>Basic = <span class="number">0</span>,
+    <span class="doccomment">/// All possible fields.
+    </span>Full = <span class="number">1</span>,
+}
+<span class="kw">impl </span>LabelView {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            LabelView::Basic =&gt; <span class="string">&quot;LABEL_VIEW_BASIC&quot;</span>,
+            LabelView::Full =&gt; <span class="string">&quot;LABEL_VIEW_FULL&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;LABEL_VIEW_BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
+            <span class="string">&quot;LABEL_VIEW_FULL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>label_service_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// Manage metadata taxonomies based on Labels and Fields that may be used within
+    /// Google Drive to organize and find files using custom metadata.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>LabelServiceClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; LabelServiceClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; LabelServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            LabelServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// List labels.
+        </span><span class="kw">pub async fn </span>list_labels(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListLabelsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListLabelsResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.apps.drive.labels.v2.LabelService/ListLabels&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.apps.drive.labels.v2.LabelService&quot;</span>,
+                        <span class="string">&quot;ListLabels&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Get a label by its resource name.
+        /// Resource name may be any of:
+        ///
+        /// * `labels/{id}` - See `labels/{id}@latest`
+        /// * `labels/{id}@latest` - Gets the latest revision of the label.
+        /// * `labels/{id}@published` - Gets the current published revision of the
+        ///   label.
+        /// * `labels/{id}@{revision_id}` - Gets the label at the specified revision
+        ///   ID.
+        </span><span class="kw">pub async fn </span>get_label(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetLabelRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Label&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.apps.drive.labels.v2.LabelService/GetLabel&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.apps.drive.labels.v2.LabelService&quot;</span>,
+                        <span class="string">&quot;GetLabel&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
     }
 }
 </code></pre></div></section></main></body></html>

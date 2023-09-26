@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/run/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/run/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.1 (d5c2e9c34 2023-09-13)" data-channel="1.72.1" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -3479,638 +3479,213 @@
 <a href="#3479" id="3479">3479</a>
 <a href="#3480" id="3480">3480</a>
 <a href="#3481" id="3481">3481</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// A single application container.
-/// This specifies both the container to run, the command to run in the container
-/// and the arguments to supply to it.
-/// Note that additional arguments may be supplied by the system to the container
-/// at runtime.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Container {
-    <span class="doccomment">/// Name of the container specified as a DNS_LABEL (RFC 1123).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Name of the container image in Dockerhub, Google Artifact
-    /// Registry, or Google Container Registry. If the host is not provided,
-    /// Dockerhub is assumed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>image: ::prost::alloc::string::String,
-    <span class="doccomment">/// Entrypoint array. Not executed within a shell.
-    /// The docker image&#39;s ENTRYPOINT is used if this is not provided.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>command: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Arguments to the entrypoint.
-    /// The docker image&#39;s CMD is used if this is not provided.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>args: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// List of environment variables to set in the container.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>env: ::prost::alloc::vec::Vec&lt;EnvVar&gt;,
-    <span class="doccomment">/// Compute Resource requirements by this container.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>resources: ::core::option::Option&lt;ResourceRequirements&gt;,
-    <span class="doccomment">/// List of ports to expose from the container. Only a single port can be
-    /// specified. The specified ports must be listening on all interfaces
-    /// (0.0.0.0) within the container to be accessible.
-    ///
-    /// If omitted, a port number will be chosen and passed to the container
-    /// through the PORT environment variable for the container to listen on.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>ports: ::prost::alloc::vec::Vec&lt;ContainerPort&gt;,
-    <span class="doccomment">/// Volume to mount into the container&#39;s filesystem.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>volume_mounts: ::prost::alloc::vec::Vec&lt;VolumeMount&gt;,
-    <span class="doccomment">/// Container&#39;s working directory.
-    /// If not specified, the container runtime&#39;s default will be used, which
-    /// might be configured in the container image.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>working_dir: ::prost::alloc::string::String,
-    <span class="doccomment">/// Periodic probe of container liveness.
-    /// Container will be restarted if the probe fails.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>liveness_probe: ::core::option::Option&lt;Probe&gt;,
-    <span class="doccomment">/// Startup probe of application within the container.
-    /// All other probes are disabled if a startup probe is provided, until it
-    /// succeeds. Container will not be added to service endpoints if the probe
-    /// fails.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>startup_probe: ::core::option::Option&lt;Probe&gt;,
-}
-<span class="doccomment">/// ResourceRequirements describes the compute resource requirements.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ResourceRequirements {
-    <span class="doccomment">/// Only ´memory´ and &#39;cpu&#39; are supported.
-    ///
-    /// &lt;p&gt;Notes:
-    ///   * The only supported values for CPU are &#39;1&#39;, &#39;2&#39;, &#39;4&#39;, and &#39;8&#39;. Setting 4
-    /// CPU requires at least 2Gi of memory. For more information, go to
-    /// &lt;https://cloud.google.com/run/docs/configuring/cpu.&gt;
-    ///    * For supported &#39;memory&#39; values and syntax, go to
-    ///   &lt;https://cloud.google.com/run/docs/configuring/memory-limits&gt;
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>limits: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Determines whether CPU should be throttled or not outside of requests.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>cpu_idle: bool,
-    <span class="doccomment">/// Determines whether CPU should be boosted on startup of a new container
-    /// instance above the requested CPU threshold, this can help reduce cold-start
-    /// latency.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>startup_cpu_boost: bool,
-}
-<span class="doccomment">/// EnvVar represents an environment variable present in a Container.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>EnvVar {
-    <span class="doccomment">/// Required. Name of the environment variable. Must be a C_IDENTIFIER, and
-    /// mnay not exceed 32768 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;env_var::Values&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
-    </span><span class="kw">pub </span>values: ::core::option::Option&lt;env_var::Values&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `EnvVar`.
-</span><span class="kw">pub mod </span>env_var {
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Values {
-        <span class="doccomment">/// Variable references $(VAR_NAME) are expanded
-        /// using the previous defined environment variables in the container and
-        /// any route environment variables. If a variable cannot be resolved,
-        /// the reference in the input string will be unchanged. The $(VAR_NAME)
-        /// syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped
-        /// references will never be expanded, regardless of whether the variable
-        /// exists or not.
-        /// Defaults to &quot;&quot;, and the maximum length is 32768 bytes.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>Value(::prost::alloc::string::String),
-        <span class="doccomment">/// Source for the environment variable&#39;s value.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>ValueSource(<span class="kw">super</span>::EnvVarSource),
-    }
-}
-<span class="doccomment">/// EnvVarSource represents a source for the value of an EnvVar.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>EnvVarSource {
-    <span class="doccomment">/// Selects a secret and a specific version from Cloud Secret Manager.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>secret_key_ref: ::core::option::Option&lt;SecretKeySelector&gt;,
-}
-<span class="doccomment">/// SecretEnvVarSource represents a source for the value of an EnvVar.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SecretKeySelector {
-    <span class="doccomment">/// Required. The name of the secret in Cloud Secret Manager.
-    /// Format: {secret_name} if the secret is in the same project.
-    /// projects/{project}/secrets/{secret_name} if the secret is
-    /// in a different project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>secret: ::prost::alloc::string::String,
-    <span class="doccomment">/// The Cloud Secret Manager secret version.
-    /// Can be &#39;latest&#39; for the latest version, an integer for a specific version,
-    /// or a version alias.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// ContainerPort represents a network port in a single container.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ContainerPort {
-    <span class="doccomment">/// If specified, used to specify which protocol to use.
-    /// Allowed values are &quot;http1&quot; and &quot;h2c&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Port number the container listens on.
-    /// This must be a valid TCP port number, 0 &lt; container_port &lt; 65536.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>container_port: i32,
-}
-<span class="doccomment">/// VolumeMount describes a mounting of a Volume within a container.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VolumeMount {
-    <span class="doccomment">/// Required. This must match the Name of a Volume.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Path within the container at which the volume should be mounted.
-    /// Must not contain &#39;:&#39;. For Cloud SQL volumes, it can be left empty, or must
-    /// otherwise be `/cloudsql`. All instances defined in the Volume will be
-    /// available as `/cloudsql/\[instance\]`. For more information on Cloud SQL
-    /// volumes, visit &lt;https://cloud.google.com/sql/docs/mysql/connect-run&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>mount_path: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Volume represents a named volume in a container.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Volume {
-    <span class="doccomment">/// Required. Volume&#39;s name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;volume::VolumeType&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
-    </span><span class="kw">pub </span>volume_type: ::core::option::Option&lt;volume::VolumeType&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Volume`.
-</span><span class="kw">pub mod </span>volume {
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>VolumeType {
-        <span class="doccomment">/// Secret represents a secret that should populate this volume.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>Secret(<span class="kw">super</span>::SecretVolumeSource),
-        <span class="doccomment">/// For Cloud SQL volumes, contains the specific instances that should be
-        /// mounted. Visit &lt;https://cloud.google.com/sql/docs/mysql/connect-run&gt; for
-        /// more information on how to connect Cloud SQL and Cloud Run.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>CloudSqlInstance(<span class="kw">super</span>::CloudSqlInstance),
-    }
-}
-<span class="doccomment">/// The secret&#39;s value will be presented as the content of a file whose
-/// name is defined in the item path. If no items are defined, the name of
-/// the file is the secret.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SecretVolumeSource {
-    <span class="doccomment">/// Required. The name of the secret in Cloud Secret Manager.
-    /// Format: {secret} if the secret is in the same project.
-    /// projects/{project}/secrets/{secret} if the secret is
-    /// in a different project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>secret: ::prost::alloc::string::String,
-    <span class="doccomment">/// If unspecified, the volume will expose a file whose name is the
-    /// secret, relative to VolumeMount.mount_path.
-    /// If specified, the key will be used as the version to fetch from Cloud
-    /// Secret Manager and the path will be the name of the file exposed in the
-    /// volume. When items are defined, they must specify a path and a version.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>items: ::prost::alloc::vec::Vec&lt;VersionToPath&gt;,
-    <span class="doccomment">/// Integer representation of mode bits to use on created files by default.
-    /// Must be a value between 0000 and 0777 (octal), defaulting to 0444.
-    /// Directories within the path are not affected by  this setting.
-    ///
-    /// Notes
-    ///
-    /// * Internally, a umask of 0222 will be applied to any non-zero value.
-    /// * This is an integer representation of the mode bits. So, the octal
-    /// integer value should look exactly as the chmod numeric notation with a
-    /// leading zero. Some examples: for chmod 777 (a=rwx), set to 0777 (octal) or
-    /// 511 (base-10). For chmod 640 (u=rw,g=r), set to 0640 (octal) or
-    /// 416 (base-10). For chmod 755 (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493
-    /// (base-10).
-    /// * This might be in conflict with other options that affect the
-    /// file mode, like fsGroup, and the result can be other mode bits set.
-    ///
-    /// This might be in conflict with other options that affect the
-    /// file mode, like fsGroup, and as a result, other mode bits could be set.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>default_mode: i32,
-}
-<span class="doccomment">/// VersionToPath maps a specific version of a secret to a relative file to mount
-/// to, relative to VolumeMount&#39;s mount_path.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VersionToPath {
-    <span class="doccomment">/// Required. The relative path of the secret in the container.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
-    <span class="doccomment">/// The Cloud Secret Manager secret version.
-    /// Can be &#39;latest&#39; for the latest value, or an integer or a secret alias for a
-    /// specific version.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
-    <span class="doccomment">/// Integer octal mode bits to use on this file, must be a value between
-    /// 01 and 0777 (octal). If 0 or not set, the Volume&#39;s default mode will be
-    /// used.
-    ///
-    /// Notes
-    ///
-    /// * Internally, a umask of 0222 will be applied to any non-zero value.
-    /// * This is an integer representation of the mode bits. So, the octal
-    /// integer value should look exactly as the chmod numeric notation with a
-    /// leading zero. Some examples: for chmod 777 (a=rwx), set to 0777 (octal) or
-    /// 511 (base-10). For chmod 640 (u=rw,g=r), set to 0640 (octal) or
-    /// 416 (base-10). For chmod 755 (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493
-    /// (base-10).
-    /// * This might be in conflict with other options that affect the
-    /// file mode, like fsGroup, and the result can be other mode bits set.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>mode: i32,
-}
-<span class="doccomment">/// Represents a set of Cloud SQL instances. Each one will be available under
-/// /cloudsql/\[instance\]. Visit
-/// &lt;https://cloud.google.com/sql/docs/mysql/connect-run&gt; for more information on
-/// how to connect Cloud SQL and Cloud Run.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CloudSqlInstance {
-    <span class="doccomment">/// The Cloud SQL instance connection names, as can be found in
-    /// &lt;https://console.cloud.google.com/sql/instances.&gt; Visit
-    /// &lt;https://cloud.google.com/sql/docs/mysql/connect-run&gt; for more information on
-    /// how to connect Cloud SQL and Cloud Run. Format:
-    /// {project}:{location}:{instance}
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>instances: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// Probe describes a health check to be performed against a container to
-/// determine whether it is alive or ready to receive traffic.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Probe {
-    <span class="doccomment">/// Number of seconds after the container has started before the probe is
-    /// initiated.
-    /// Defaults to 0 seconds. Minimum value is 0. Maximum value for liveness probe
-    /// is 3600. Maximum value for startup probe is 240.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>initial_delay_seconds: i32,
-    <span class="doccomment">/// Number of seconds after which the probe times out.
-    /// Defaults to 1 second. Minimum value is 1. Maximum value is 3600.
-    /// Must be smaller than period_seconds.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>timeout_seconds: i32,
-    <span class="doccomment">/// How often (in seconds) to perform the probe.
-    /// Default to 10 seconds. Minimum value is 1. Maximum value for liveness probe
-    /// is 3600. Maximum value for startup probe is 240.
-    /// Must be greater or equal than timeout_seconds.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>period_seconds: i32,
-    <span class="doccomment">/// Minimum consecutive failures for the probe to be considered failed after
-    /// having succeeded. Defaults to 3. Minimum value is 1.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>failure_threshold: i32,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;probe::ProbeType&quot;</span>, tags = <span class="string">&quot;5, 6, 7&quot;</span>)]
-    </span><span class="kw">pub </span>probe_type: ::core::option::Option&lt;probe::ProbeType&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Probe`.
-</span><span class="kw">pub mod </span>probe {
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>ProbeType {
-        <span class="doccomment">/// HTTPGet specifies the http request to perform.
-        /// Exactly one of httpGet, tcpSocket, or grpc must be specified.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
-        </span>HttpGet(<span class="kw">super</span>::HttpGetAction),
-        <span class="doccomment">/// TCPSocket specifies an action involving a TCP port.
-        /// Exactly one of httpGet, tcpSocket, or grpc must be specified.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
-        </span>TcpSocket(<span class="kw">super</span>::TcpSocketAction),
-        <span class="doccomment">/// GRPC specifies an action involving a gRPC port.
-        /// Exactly one of httpGet, tcpSocket, or grpc must be specified.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
-        </span>Grpc(<span class="kw">super</span>::GrpcAction),
-    }
-}
-<span class="doccomment">/// HTTPGetAction describes an action based on HTTP Get requests.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>HttpGetAction {
-    <span class="doccomment">/// Path to access on the HTTP server. Defaults to &#39;/&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
-    <span class="doccomment">/// Custom headers to set in the request. HTTP allows repeated headers.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>http_headers: ::prost::alloc::vec::Vec&lt;HttpHeader&gt;,
-    <span class="doccomment">/// Port number to access on the container. Must be in the range 1 to 65535.
-    /// If not specified, defaults to the exposed port of the container, which is
-    /// the value of container.ports\[0\].containerPort.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>port: i32,
-}
-<span class="doccomment">/// HTTPHeader describes a custom header to be used in HTTP probes
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>HttpHeader {
-    <span class="doccomment">/// Required. The header field name
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The header field value
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// TCPSocketAction describes an action based on opening a socket
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TcpSocketAction {
-    <span class="doccomment">/// Port number to access on the container. Must be in the range 1 to 65535.
-    /// If not specified, defaults to the exposed port of the container, which is
-    /// the value of container.ports\[0\].containerPort.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>port: i32,
-}
-<span class="doccomment">/// GRPCAction describes an action involving a GRPC port.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GrpcAction {
-    <span class="doccomment">/// Port number of the gRPC service. Number must be in the range 1 to 65535.
-    /// If not specified, defaults to the exposed port of the container, which is
-    /// the value of container.ports\[0\].containerPort.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>port: i32,
-    <span class="doccomment">/// Service is the name of the service to place in the gRPC HealthCheckRequest
-    /// (see &lt;https://github.com/grpc/grpc/blob/master/doc/health-checking.md&gt;). If
-    /// this is not specified, the default behavior is defined by gRPC.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// VPC Access settings. For more information on creating a VPC Connector, visit
-/// &lt;https://cloud.google.com/vpc/docs/configure-serverless-vpc-access&gt; For
-/// information on how to configure Cloud Run with an existing VPC Connector,
-/// visit &lt;https://cloud.google.com/run/docs/configuring/connecting-vpc&gt;
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VpcAccess {
-    <span class="doccomment">/// VPC Access connector name.
-    /// Format: projects/{project}/locations/{location}/connectors/{connector},
-    /// where {project} can be project id or number.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>connector: ::prost::alloc::string::String,
-    <span class="doccomment">/// Traffic VPC egress settings.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;vpc_access::VpcEgress&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>egress: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `VpcAccess`.
-</span><span class="kw">pub mod </span>vpc_access {
-    <span class="doccomment">/// Egress options for VPC access.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>VpcEgress {
-        <span class="doccomment">/// Unspecified
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// All outbound traffic is routed through the VPC connector.
-        </span>AllTraffic = <span class="number">1</span>,
-        <span class="doccomment">/// Only private IP ranges are routed through the VPC connector.
-        </span>PrivateRangesOnly = <span class="number">2</span>,
-    }
-    <span class="kw">impl </span>VpcEgress {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                VpcEgress::Unspecified =&gt; <span class="string">&quot;VPC_EGRESS_UNSPECIFIED&quot;</span>,
-                VpcEgress::AllTraffic =&gt; <span class="string">&quot;ALL_TRAFFIC&quot;</span>,
-                VpcEgress::PrivateRangesOnly =&gt; <span class="string">&quot;PRIVATE_RANGES_ONLY&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;VPC_EGRESS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ALL_TRAFFIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AllTraffic),
-                <span class="string">&quot;PRIVATE_RANGES_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PrivateRangesOnly),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Settings for Binary Authorization feature.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BinaryAuthorization {
-    <span class="doccomment">/// If present, indicates to use Breakglass using this justification.
-    /// If use_default is False, then it must be empty.
-    /// For more information on breakglass, see
-    /// &lt;https://cloud.google.com/binary-authorization/docs/using-breakglass&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>breakglass_justification: ::prost::alloc::string::String,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;binary_authorization::BinauthzMethod&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>binauthz_method: ::core::option::Option&lt;binary_authorization::BinauthzMethod&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `BinaryAuthorization`.
-</span><span class="kw">pub mod </span>binary_authorization {
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>BinauthzMethod {
-        <span class="doccomment">/// If True, indicates to use the default project&#39;s binary authorization
-        /// policy. If False, binary authorization will be disabled.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>UseDefault(bool),
-    }
-}
-<span class="doccomment">/// Settings for revision-level scaling settings.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>RevisionScaling {
-    <span class="doccomment">/// Minimum number of serving instances that this resource should have.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>min_instance_count: i32,
-    <span class="doccomment">/// Maximum number of serving instances that this resource should have.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>max_instance_count: i32,
-}
-<span class="doccomment">/// Allowed ingress traffic for the Container.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>IngressTraffic {
-    <span class="doccomment">/// Unspecified
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// All inbound traffic is allowed.
-    </span>All = <span class="number">1</span>,
-    <span class="doccomment">/// Only internal traffic is allowed.
-    </span>InternalOnly = <span class="number">2</span>,
-    <span class="doccomment">/// Both internal and Google Cloud Load Balancer traffic is allowed.
-    </span>InternalLoadBalancer = <span class="number">3</span>,
-}
-<span class="kw">impl </span>IngressTraffic {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            IngressTraffic::Unspecified =&gt; <span class="string">&quot;INGRESS_TRAFFIC_UNSPECIFIED&quot;</span>,
-            IngressTraffic::All =&gt; <span class="string">&quot;INGRESS_TRAFFIC_ALL&quot;</span>,
-            IngressTraffic::InternalOnly =&gt; <span class="string">&quot;INGRESS_TRAFFIC_INTERNAL_ONLY&quot;</span>,
-            IngressTraffic::InternalLoadBalancer =&gt; {
-                <span class="string">&quot;INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER&quot;
-            </span>}
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;INGRESS_TRAFFIC_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;INGRESS_TRAFFIC_ALL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::All),
-            <span class="string">&quot;INGRESS_TRAFFIC_INTERNAL_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalOnly),
-            <span class="string">&quot;INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalLoadBalancer),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// Alternatives for execution environments.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>ExecutionEnvironment {
-    <span class="doccomment">/// Unspecified
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Uses the First Generation environment.
-    </span>Gen1 = <span class="number">1</span>,
-    <span class="doccomment">/// Uses Second Generation environment.
-    </span>Gen2 = <span class="number">2</span>,
-}
-<span class="kw">impl </span>ExecutionEnvironment {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            ExecutionEnvironment::Unspecified =&gt; <span class="string">&quot;EXECUTION_ENVIRONMENT_UNSPECIFIED&quot;</span>,
-            ExecutionEnvironment::Gen1 =&gt; <span class="string">&quot;EXECUTION_ENVIRONMENT_GEN1&quot;</span>,
-            ExecutionEnvironment::Gen2 =&gt; <span class="string">&quot;EXECUTION_ENVIRONMENT_GEN2&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;EXECUTION_ENVIRONMENT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;EXECUTION_ENVIRONMENT_GEN1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gen1),
-            <span class="string">&quot;EXECUTION_ENVIRONMENT_GEN2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gen2),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// Specifies behavior if an encryption key used by a resource is revoked.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>EncryptionKeyRevocationAction {
-    <span class="doccomment">/// Unspecified
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Prevents the creation of new instances.
-    </span>PreventNew = <span class="number">1</span>,
-    <span class="doccomment">/// Shuts down existing instances, and prevents creation of new ones.
-    </span>Shutdown = <span class="number">2</span>,
-}
-<span class="kw">impl </span>EncryptionKeyRevocationAction {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            EncryptionKeyRevocationAction::Unspecified =&gt; {
-                <span class="string">&quot;ENCRYPTION_KEY_REVOCATION_ACTION_UNSPECIFIED&quot;
-            </span>}
-            EncryptionKeyRevocationAction::PreventNew =&gt; <span class="string">&quot;PREVENT_NEW&quot;</span>,
-            EncryptionKeyRevocationAction::Shutdown =&gt; <span class="string">&quot;SHUTDOWN&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;ENCRYPTION_KEY_REVOCATION_ACTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;PREVENT_NEW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PreventNew),
-            <span class="string">&quot;SHUTDOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Shutdown),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// TaskTemplate describes the data a task should have when created
-/// from a template.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TaskTemplate {
-    <span class="doccomment">/// Holds the single container that defines the unit of execution for this
-    /// task.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>containers: ::prost::alloc::vec::Vec&lt;Container&gt;,
-    <span class="doccomment">/// A list of Volumes to make available to containers.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>volumes: ::prost::alloc::vec::Vec&lt;Volume&gt;,
-    <span class="doccomment">/// Max allowed time duration the Task may be active before the system will
-    /// actively try to mark it failed and kill associated containers. This applies
-    /// per attempt of a task, meaning each retry can run for the full timeout.
-    /// Defaults to 600 seconds.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
-    <span class="doccomment">/// Email address of the IAM service account associated with the Task of a
-    /// Job. The service account represents the identity of the
-    /// running task, and determines what permissions the task has. If
-    /// not provided, the task will use the project&#39;s default service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>service_account: ::prost::alloc::string::String,
-    <span class="doccomment">/// The execution environment being used to host this Task.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ExecutionEnvironment&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>execution_environment: i32,
-    <span class="doccomment">/// A reference to a customer managed encryption key (CMEK) to use to encrypt
-    /// this container image. For more information, go to
-    /// &lt;https://cloud.google.com/run/docs/securing/using-cmek&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>encryption_key: ::prost::alloc::string::String,
-    <span class="doccomment">/// VPC Access configuration to use for this Task. For more information,
-    /// visit &lt;https://cloud.google.com/run/docs/configuring/connecting-vpc.&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>vpc_access: ::core::option::Option&lt;VpcAccess&gt;,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;task_template::Retries&quot;</span>, tags = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>retries: ::core::option::Option&lt;task_template::Retries&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `TaskTemplate`.
-</span><span class="kw">pub mod </span>task_template {
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Retries {
-        <span class="doccomment">/// Number of retries allowed per Task, before marking this Task failed.
-        /// Defaults to 3.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>MaxRetries(i32),
-    }
-}
-<span class="doccomment">/// Defines a status condition for a resource.
+<a href="#3482" id="3482">3482</a>
+<a href="#3483" id="3483">3483</a>
+<a href="#3484" id="3484">3484</a>
+<a href="#3485" id="3485">3485</a>
+<a href="#3486" id="3486">3486</a>
+<a href="#3487" id="3487">3487</a>
+<a href="#3488" id="3488">3488</a>
+<a href="#3489" id="3489">3489</a>
+<a href="#3490" id="3490">3490</a>
+<a href="#3491" id="3491">3491</a>
+<a href="#3492" id="3492">3492</a>
+<a href="#3493" id="3493">3493</a>
+<a href="#3494" id="3494">3494</a>
+<a href="#3495" id="3495">3495</a>
+<a href="#3496" id="3496">3496</a>
+<a href="#3497" id="3497">3497</a>
+<a href="#3498" id="3498">3498</a>
+<a href="#3499" id="3499">3499</a>
+<a href="#3500" id="3500">3500</a>
+<a href="#3501" id="3501">3501</a>
+<a href="#3502" id="3502">3502</a>
+<a href="#3503" id="3503">3503</a>
+<a href="#3504" id="3504">3504</a>
+<a href="#3505" id="3505">3505</a>
+<a href="#3506" id="3506">3506</a>
+<a href="#3507" id="3507">3507</a>
+<a href="#3508" id="3508">3508</a>
+<a href="#3509" id="3509">3509</a>
+<a href="#3510" id="3510">3510</a>
+<a href="#3511" id="3511">3511</a>
+<a href="#3512" id="3512">3512</a>
+<a href="#3513" id="3513">3513</a>
+<a href="#3514" id="3514">3514</a>
+<a href="#3515" id="3515">3515</a>
+<a href="#3516" id="3516">3516</a>
+<a href="#3517" id="3517">3517</a>
+<a href="#3518" id="3518">3518</a>
+<a href="#3519" id="3519">3519</a>
+<a href="#3520" id="3520">3520</a>
+<a href="#3521" id="3521">3521</a>
+<a href="#3522" id="3522">3522</a>
+<a href="#3523" id="3523">3523</a>
+<a href="#3524" id="3524">3524</a>
+<a href="#3525" id="3525">3525</a>
+<a href="#3526" id="3526">3526</a>
+<a href="#3527" id="3527">3527</a>
+<a href="#3528" id="3528">3528</a>
+<a href="#3529" id="3529">3529</a>
+<a href="#3530" id="3530">3530</a>
+<a href="#3531" id="3531">3531</a>
+<a href="#3532" id="3532">3532</a>
+<a href="#3533" id="3533">3533</a>
+<a href="#3534" id="3534">3534</a>
+<a href="#3535" id="3535">3535</a>
+<a href="#3536" id="3536">3536</a>
+<a href="#3537" id="3537">3537</a>
+<a href="#3538" id="3538">3538</a>
+<a href="#3539" id="3539">3539</a>
+<a href="#3540" id="3540">3540</a>
+<a href="#3541" id="3541">3541</a>
+<a href="#3542" id="3542">3542</a>
+<a href="#3543" id="3543">3543</a>
+<a href="#3544" id="3544">3544</a>
+<a href="#3545" id="3545">3545</a>
+<a href="#3546" id="3546">3546</a>
+<a href="#3547" id="3547">3547</a>
+<a href="#3548" id="3548">3548</a>
+<a href="#3549" id="3549">3549</a>
+<a href="#3550" id="3550">3550</a>
+<a href="#3551" id="3551">3551</a>
+<a href="#3552" id="3552">3552</a>
+<a href="#3553" id="3553">3553</a>
+<a href="#3554" id="3554">3554</a>
+<a href="#3555" id="3555">3555</a>
+<a href="#3556" id="3556">3556</a>
+<a href="#3557" id="3557">3557</a>
+<a href="#3558" id="3558">3558</a>
+<a href="#3559" id="3559">3559</a>
+<a href="#3560" id="3560">3560</a>
+<a href="#3561" id="3561">3561</a>
+<a href="#3562" id="3562">3562</a>
+<a href="#3563" id="3563">3563</a>
+<a href="#3564" id="3564">3564</a>
+<a href="#3565" id="3565">3565</a>
+<a href="#3566" id="3566">3566</a>
+<a href="#3567" id="3567">3567</a>
+<a href="#3568" id="3568">3568</a>
+<a href="#3569" id="3569">3569</a>
+<a href="#3570" id="3570">3570</a>
+<a href="#3571" id="3571">3571</a>
+<a href="#3572" id="3572">3572</a>
+<a href="#3573" id="3573">3573</a>
+<a href="#3574" id="3574">3574</a>
+<a href="#3575" id="3575">3575</a>
+<a href="#3576" id="3576">3576</a>
+<a href="#3577" id="3577">3577</a>
+<a href="#3578" id="3578">3578</a>
+<a href="#3579" id="3579">3579</a>
+<a href="#3580" id="3580">3580</a>
+<a href="#3581" id="3581">3581</a>
+<a href="#3582" id="3582">3582</a>
+<a href="#3583" id="3583">3583</a>
+<a href="#3584" id="3584">3584</a>
+<a href="#3585" id="3585">3585</a>
+<a href="#3586" id="3586">3586</a>
+<a href="#3587" id="3587">3587</a>
+<a href="#3588" id="3588">3588</a>
+<a href="#3589" id="3589">3589</a>
+<a href="#3590" id="3590">3590</a>
+<a href="#3591" id="3591">3591</a>
+<a href="#3592" id="3592">3592</a>
+<a href="#3593" id="3593">3593</a>
+<a href="#3594" id="3594">3594</a>
+<a href="#3595" id="3595">3595</a>
+<a href="#3596" id="3596">3596</a>
+<a href="#3597" id="3597">3597</a>
+<a href="#3598" id="3598">3598</a>
+<a href="#3599" id="3599">3599</a>
+<a href="#3600" id="3600">3600</a>
+<a href="#3601" id="3601">3601</a>
+<a href="#3602" id="3602">3602</a>
+<a href="#3603" id="3603">3603</a>
+<a href="#3604" id="3604">3604</a>
+<a href="#3605" id="3605">3605</a>
+<a href="#3606" id="3606">3606</a>
+<a href="#3607" id="3607">3607</a>
+<a href="#3608" id="3608">3608</a>
+<a href="#3609" id="3609">3609</a>
+<a href="#3610" id="3610">3610</a>
+<a href="#3611" id="3611">3611</a>
+<a href="#3612" id="3612">3612</a>
+<a href="#3613" id="3613">3613</a>
+<a href="#3614" id="3614">3614</a>
+<a href="#3615" id="3615">3615</a>
+<a href="#3616" id="3616">3616</a>
+<a href="#3617" id="3617">3617</a>
+<a href="#3618" id="3618">3618</a>
+<a href="#3619" id="3619">3619</a>
+<a href="#3620" id="3620">3620</a>
+<a href="#3621" id="3621">3621</a>
+<a href="#3622" id="3622">3622</a>
+<a href="#3623" id="3623">3623</a>
+<a href="#3624" id="3624">3624</a>
+<a href="#3625" id="3625">3625</a>
+<a href="#3626" id="3626">3626</a>
+<a href="#3627" id="3627">3627</a>
+<a href="#3628" id="3628">3628</a>
+<a href="#3629" id="3629">3629</a>
+<a href="#3630" id="3630">3630</a>
+<a href="#3631" id="3631">3631</a>
+<a href="#3632" id="3632">3632</a>
+<a href="#3633" id="3633">3633</a>
+<a href="#3634" id="3634">3634</a>
+<a href="#3635" id="3635">3635</a>
+<a href="#3636" id="3636">3636</a>
+<a href="#3637" id="3637">3637</a>
+<a href="#3638" id="3638">3638</a>
+<a href="#3639" id="3639">3639</a>
+<a href="#3640" id="3640">3640</a>
+<a href="#3641" id="3641">3641</a>
+<a href="#3642" id="3642">3642</a>
+<a href="#3643" id="3643">3643</a>
+<a href="#3644" id="3644">3644</a>
+<a href="#3645" id="3645">3645</a>
+<a href="#3646" id="3646">3646</a>
+<a href="#3647" id="3647">3647</a>
+<a href="#3648" id="3648">3648</a>
+<a href="#3649" id="3649">3649</a>
+<a href="#3650" id="3650">3650</a>
+<a href="#3651" id="3651">3651</a>
+<a href="#3652" id="3652">3652</a>
+<a href="#3653" id="3653">3653</a>
+<a href="#3654" id="3654">3654</a>
+<a href="#3655" id="3655">3655</a>
+<a href="#3656" id="3656">3656</a>
+<a href="#3657" id="3657">3657</a>
+<a href="#3658" id="3658">3658</a>
+<a href="#3659" id="3659">3659</a>
+<a href="#3660" id="3660">3660</a>
+<a href="#3661" id="3661">3661</a>
+<a href="#3662" id="3662">3662</a>
+<a href="#3663" id="3663">3663</a>
+<a href="#3664" id="3664">3664</a>
+<a href="#3665" id="3665">3665</a>
+<a href="#3666" id="3666">3666</a>
+<a href="#3667" id="3667">3667</a>
+<a href="#3668" id="3668">3668</a>
+<a href="#3669" id="3669">3669</a>
+<a href="#3670" id="3670">3670</a>
+<a href="#3671" id="3671">3671</a>
+<a href="#3672" id="3672">3672</a>
+<a href="#3673" id="3673">3673</a>
+<a href="#3674" id="3674">3674</a>
+<a href="#3675" id="3675">3675</a>
+<a href="#3676" id="3676">3676</a>
+<a href="#3677" id="3677">3677</a>
+<a href="#3678" id="3678">3678</a>
+<a href="#3679" id="3679">3679</a>
+<a href="#3680" id="3680">3680</a>
+<a href="#3681" id="3681">3681</a>
+<a href="#3682" id="3682">3682</a>
+<a href="#3683" id="3683">3683</a>
+<a href="#3684" id="3684">3684</a>
+<a href="#3685" id="3685">3685</a>
+<a href="#3686" id="3686">3686</a>
+<a href="#3687" id="3687">3687</a>
+</pre></div><pre class="rust"><code><span class="doccomment">/// Defines a status condition for a resource.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Condition {
@@ -4465,6 +4040,8 @@
         </span>Cancelled = <span class="number">3</span>,
         <span class="doccomment">/// The execution is in the process of being cancelled.
         </span>Cancelling = <span class="number">4</span>,
+        <span class="doccomment">/// The execution was deleted.
+        </span>Deleted = <span class="number">5</span>,
     }
     <span class="kw">impl </span>ExecutionReason {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -4480,6 +4057,7 @@
                 ExecutionReason::NonZeroExitCode =&gt; <span class="string">&quot;NON_ZERO_EXIT_CODE&quot;</span>,
                 ExecutionReason::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
                 ExecutionReason::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
+                ExecutionReason::Deleted =&gt; <span class="string">&quot;DELETED&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -4492,6 +4070,7 @@
                 <span class="string">&quot;NON_ZERO_EXIT_CODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NonZeroExitCode),
                 <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
                 <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
+                <span class="string">&quot;DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4511,6 +4090,686 @@
         <span class="doccomment">/// A reason for the execution condition.
         </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ExecutionReason&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
         </span>ExecutionReason(i32),
+    }
+}
+<span class="doccomment">/// A single application container.
+/// This specifies both the container to run, the command to run in the container
+/// and the arguments to supply to it.
+/// Note that additional arguments can be supplied by the system to the container
+/// at runtime.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Container {
+    <span class="doccomment">/// Name of the container specified as a DNS_LABEL (RFC 1123).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Name of the container image in Dockerhub, Google Artifact
+    /// Registry, or Google Container Registry. If the host is not provided,
+    /// Dockerhub is assumed.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>image: ::prost::alloc::string::String,
+    <span class="doccomment">/// Entrypoint array. Not executed within a shell.
+    /// The docker image&#39;s ENTRYPOINT is used if this is not provided.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>command: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Arguments to the entrypoint.
+    /// The docker image&#39;s CMD is used if this is not provided.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>args: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// List of environment variables to set in the container.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>env: ::prost::alloc::vec::Vec&lt;EnvVar&gt;,
+    <span class="doccomment">/// Compute Resource requirements by this container.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>resources: ::core::option::Option&lt;ResourceRequirements&gt;,
+    <span class="doccomment">/// List of ports to expose from the container. Only a single port can be
+    /// specified. The specified ports must be listening on all interfaces
+    /// (0.0.0.0) within the container to be accessible.
+    ///
+    /// If omitted, a port number will be chosen and passed to the container
+    /// through the PORT environment variable for the container to listen on.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>ports: ::prost::alloc::vec::Vec&lt;ContainerPort&gt;,
+    <span class="doccomment">/// Volume to mount into the container&#39;s filesystem.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>volume_mounts: ::prost::alloc::vec::Vec&lt;VolumeMount&gt;,
+    <span class="doccomment">/// Container&#39;s working directory.
+    /// If not specified, the container runtime&#39;s default will be used, which
+    /// might be configured in the container image.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>working_dir: ::prost::alloc::string::String,
+    <span class="doccomment">/// Periodic probe of container liveness.
+    /// Container will be restarted if the probe fails.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>liveness_probe: ::core::option::Option&lt;Probe&gt;,
+    <span class="doccomment">/// Startup probe of application within the container.
+    /// All other probes are disabled if a startup probe is provided, until it
+    /// succeeds. Container will not be added to service endpoints if the probe
+    /// fails.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>startup_probe: ::core::option::Option&lt;Probe&gt;,
+    <span class="doccomment">/// Names of the containers that must start before this container.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>depends_on: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// ResourceRequirements describes the compute resource requirements.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ResourceRequirements {
+    <span class="doccomment">/// Only ´memory´ and &#39;cpu&#39; are supported.
+    ///
+    /// &lt;p&gt;Notes:
+    ///   * The only supported values for CPU are &#39;1&#39;, &#39;2&#39;, &#39;4&#39;, and &#39;8&#39;. Setting 4
+    /// CPU requires at least 2Gi of memory. For more information, go to
+    /// &lt;https://cloud.google.com/run/docs/configuring/cpu.&gt;
+    ///    * For supported &#39;memory&#39; values and syntax, go to
+    ///   &lt;https://cloud.google.com/run/docs/configuring/memory-limits&gt;
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>limits: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Determines whether CPU should be throttled or not outside of requests.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>cpu_idle: bool,
+    <span class="doccomment">/// Determines whether CPU should be boosted on startup of a new container
+    /// instance above the requested CPU threshold, this can help reduce cold-start
+    /// latency.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>startup_cpu_boost: bool,
+}
+<span class="doccomment">/// EnvVar represents an environment variable present in a Container.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EnvVar {
+    <span class="doccomment">/// Required. Name of the environment variable. Must be a C_IDENTIFIER, and
+    /// must not exceed 32768 characters.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="attr">#[prost(oneof = <span class="string">&quot;env_var::Values&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="kw">pub </span>values: ::core::option::Option&lt;env_var::Values&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `EnvVar`.
+</span><span class="kw">pub mod </span>env_var {
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Values {
+        <span class="doccomment">/// Variable references $(VAR_NAME) are expanded
+        /// using the previous defined environment variables in the container and
+        /// any route environment variables. If a variable cannot be resolved,
+        /// the reference in the input string will be unchanged. The $(VAR_NAME)
+        /// syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped
+        /// references will never be expanded, regardless of whether the variable
+        /// exists or not.
+        /// Defaults to &quot;&quot;, and the maximum length is 32768 bytes.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>Value(::prost::alloc::string::String),
+        <span class="doccomment">/// Source for the environment variable&#39;s value.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>ValueSource(<span class="kw">super</span>::EnvVarSource),
+    }
+}
+<span class="doccomment">/// EnvVarSource represents a source for the value of an EnvVar.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EnvVarSource {
+    <span class="doccomment">/// Selects a secret and a specific version from Cloud Secret Manager.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>secret_key_ref: ::core::option::Option&lt;SecretKeySelector&gt;,
+}
+<span class="doccomment">/// SecretEnvVarSource represents a source for the value of an EnvVar.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SecretKeySelector {
+    <span class="doccomment">/// Required. The name of the secret in Cloud Secret Manager.
+    /// Format: {secret_name} if the secret is in the same project.
+    /// projects/{project}/secrets/{secret_name} if the secret is
+    /// in a different project.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>secret: ::prost::alloc::string::String,
+    <span class="doccomment">/// The Cloud Secret Manager secret version.
+    /// Can be &#39;latest&#39; for the latest version, an integer for a specific version,
+    /// or a version alias.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// ContainerPort represents a network port in a single container.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ContainerPort {
+    <span class="doccomment">/// If specified, used to specify which protocol to use.
+    /// Allowed values are &quot;http1&quot; and &quot;h2c&quot;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Port number the container listens on.
+    /// This must be a valid TCP port number, 0 &lt; container_port &lt; 65536.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>container_port: i32,
+}
+<span class="doccomment">/// VolumeMount describes a mounting of a Volume within a container.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VolumeMount {
+    <span class="doccomment">/// Required. This must match the Name of a Volume.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Path within the container at which the volume should be mounted.
+    /// Must not contain &#39;:&#39;. For Cloud SQL volumes, it can be left empty, or must
+    /// otherwise be `/cloudsql`. All instances defined in the Volume will be
+    /// available as `/cloudsql/\[instance\]`. For more information on Cloud SQL
+    /// volumes, visit &lt;https://cloud.google.com/sql/docs/mysql/connect-run&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>mount_path: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Volume represents a named volume in a container.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Volume {
+    <span class="doccomment">/// Required. Volume&#39;s name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="attr">#[prost(oneof = <span class="string">&quot;volume::VolumeType&quot;</span>, tags = <span class="string">&quot;2, 3, 4&quot;</span>)]
+    </span><span class="kw">pub </span>volume_type: ::core::option::Option&lt;volume::VolumeType&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Volume`.
+</span><span class="kw">pub mod </span>volume {
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>VolumeType {
+        <span class="doccomment">/// Secret represents a secret that should populate this volume.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>Secret(<span class="kw">super</span>::SecretVolumeSource),
+        <span class="doccomment">/// For Cloud SQL volumes, contains the specific instances that should be
+        /// mounted. Visit &lt;https://cloud.google.com/sql/docs/mysql/connect-run&gt; for
+        /// more information on how to connect Cloud SQL and Cloud Run.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>CloudSqlInstance(<span class="kw">super</span>::CloudSqlInstance),
+        <span class="doccomment">/// Ephemeral storage used as a shared volume.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span>EmptyDir(<span class="kw">super</span>::EmptyDirVolumeSource),
+    }
+}
+<span class="doccomment">/// The secret&#39;s value will be presented as the content of a file whose
+/// name is defined in the item path. If no items are defined, the name of
+/// the file is the secret.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SecretVolumeSource {
+    <span class="doccomment">/// Required. The name of the secret in Cloud Secret Manager.
+    /// Format: {secret} if the secret is in the same project.
+    /// projects/{project}/secrets/{secret} if the secret is
+    /// in a different project.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>secret: ::prost::alloc::string::String,
+    <span class="doccomment">/// If unspecified, the volume will expose a file whose name is the
+    /// secret, relative to VolumeMount.mount_path.
+    /// If specified, the key will be used as the version to fetch from Cloud
+    /// Secret Manager and the path will be the name of the file exposed in the
+    /// volume. When items are defined, they must specify a path and a version.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>items: ::prost::alloc::vec::Vec&lt;VersionToPath&gt;,
+    <span class="doccomment">/// Integer representation of mode bits to use on created files by default.
+    /// Must be a value between 0000 and 0777 (octal), defaulting to 0444.
+    /// Directories within the path are not affected by  this setting.
+    ///
+    /// Notes
+    ///
+    /// * Internally, a umask of 0222 will be applied to any non-zero value.
+    /// * This is an integer representation of the mode bits. So, the octal
+    /// integer value should look exactly as the chmod numeric notation with a
+    /// leading zero. Some examples: for chmod 777 (a=rwx), set to 0777 (octal) or
+    /// 511 (base-10). For chmod 640 (u=rw,g=r), set to 0640 (octal) or
+    /// 416 (base-10). For chmod 755 (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493
+    /// (base-10).
+    /// * This might be in conflict with other options that affect the
+    /// file mode, like fsGroup, and the result can be other mode bits set.
+    ///
+    /// This might be in conflict with other options that affect the
+    /// file mode, like fsGroup, and as a result, other mode bits could be set.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>default_mode: i32,
+}
+<span class="doccomment">/// VersionToPath maps a specific version of a secret to a relative file to mount
+/// to, relative to VolumeMount&#39;s mount_path.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VersionToPath {
+    <span class="doccomment">/// Required. The relative path of the secret in the container.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
+    <span class="doccomment">/// The Cloud Secret Manager secret version.
+    /// Can be &#39;latest&#39; for the latest value, or an integer or a secret alias for a
+    /// specific version.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
+    <span class="doccomment">/// Integer octal mode bits to use on this file, must be a value between
+    /// 01 and 0777 (octal). If 0 or not set, the Volume&#39;s default mode will be
+    /// used.
+    ///
+    /// Notes
+    ///
+    /// * Internally, a umask of 0222 will be applied to any non-zero value.
+    /// * This is an integer representation of the mode bits. So, the octal
+    /// integer value should look exactly as the chmod numeric notation with a
+    /// leading zero. Some examples: for chmod 777 (a=rwx), set to 0777 (octal) or
+    /// 511 (base-10). For chmod 640 (u=rw,g=r), set to 0640 (octal) or
+    /// 416 (base-10). For chmod 755 (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493
+    /// (base-10).
+    /// * This might be in conflict with other options that affect the
+    /// file mode, like fsGroup, and the result can be other mode bits set.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>mode: i32,
+}
+<span class="doccomment">/// Represents a set of Cloud SQL instances. Each one will be available under
+/// /cloudsql/\[instance\]. Visit
+/// &lt;https://cloud.google.com/sql/docs/mysql/connect-run&gt; for more information on
+/// how to connect Cloud SQL and Cloud Run.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CloudSqlInstance {
+    <span class="doccomment">/// The Cloud SQL instance connection names, as can be found in
+    /// &lt;https://console.cloud.google.com/sql/instances.&gt; Visit
+    /// &lt;https://cloud.google.com/sql/docs/mysql/connect-run&gt; for more information on
+    /// how to connect Cloud SQL and Cloud Run. Format:
+    /// {project}:{location}:{instance}
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>instances: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// In memory (tmpfs) ephemeral storage.
+/// It is ephemeral in the sense that when the sandbox is taken down, the data is
+/// destroyed with it (it does not persist across sandbox runs).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EmptyDirVolumeSource {
+    <span class="doccomment">/// The medium on which the data is stored. Acceptable values today is only
+    /// MEMORY or none. When none, the default will currently be backed by memory
+    /// but could change over time. +optional
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;empty_dir_volume_source::Medium&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>medium: i32,
+    <span class="doccomment">/// Limit on the storage usable by this EmptyDir volume.
+    /// The size limit is also applicable for memory medium.
+    /// The maximum usage on memory medium EmptyDir would be the minimum value
+    /// between the SizeLimit specified here and the sum of memory limits of all
+    /// containers. The default is nil which means that the limit is undefined.
+    /// More info:
+    /// &lt;https://cloud.google.com/run/docs/configuring/in-memory-volumes#configure-volume.&gt;
+    /// Info in Kubernetes:
+    /// &lt;https://kubernetes.io/docs/concepts/storage/volumes/#emptydir&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>size_limit: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `EmptyDirVolumeSource`.
+</span><span class="kw">pub mod </span>empty_dir_volume_source {
+    <span class="doccomment">/// The different types of medium supported for EmptyDir.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Medium {
+        <span class="doccomment">/// When not specified, falls back to the default implementation which
+        /// is currently in memory (this may change over time).
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Explicitly set the EmptyDir to be in memory. Uses tmpfs.
+        </span>Memory = <span class="number">1</span>,
+    }
+    <span class="kw">impl </span>Medium {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Medium::Unspecified =&gt; <span class="string">&quot;MEDIUM_UNSPECIFIED&quot;</span>,
+                Medium::Memory =&gt; <span class="string">&quot;MEMORY&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;MEDIUM_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;MEMORY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Memory),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Probe describes a health check to be performed against a container to
+/// determine whether it is alive or ready to receive traffic.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Probe {
+    <span class="doccomment">/// Number of seconds after the container has started before the probe is
+    /// initiated.
+    /// Defaults to 0 seconds. Minimum value is 0. Maximum value for liveness probe
+    /// is 3600. Maximum value for startup probe is 240.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>initial_delay_seconds: i32,
+    <span class="doccomment">/// Number of seconds after which the probe times out.
+    /// Defaults to 1 second. Minimum value is 1. Maximum value is 3600.
+    /// Must be smaller than period_seconds.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>timeout_seconds: i32,
+    <span class="doccomment">/// How often (in seconds) to perform the probe.
+    /// Default to 10 seconds. Minimum value is 1. Maximum value for liveness probe
+    /// is 3600. Maximum value for startup probe is 240.
+    /// Must be greater or equal than timeout_seconds.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>period_seconds: i32,
+    <span class="doccomment">/// Minimum consecutive failures for the probe to be considered failed after
+    /// having succeeded. Defaults to 3. Minimum value is 1.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>failure_threshold: i32,
+    <span class="attr">#[prost(oneof = <span class="string">&quot;probe::ProbeType&quot;</span>, tags = <span class="string">&quot;5, 6, 7&quot;</span>)]
+    </span><span class="kw">pub </span>probe_type: ::core::option::Option&lt;probe::ProbeType&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Probe`.
+</span><span class="kw">pub mod </span>probe {
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>ProbeType {
+        <span class="doccomment">/// HTTPGet specifies the http request to perform.
+        /// Exactly one of httpGet, tcpSocket, or grpc must be specified.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span>HttpGet(<span class="kw">super</span>::HttpGetAction),
+        <span class="doccomment">/// TCPSocket specifies an action involving a TCP port.
+        /// Exactly one of httpGet, tcpSocket, or grpc must be specified.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span>TcpSocket(<span class="kw">super</span>::TcpSocketAction),
+        <span class="doccomment">/// GRPC specifies an action involving a gRPC port.
+        /// Exactly one of httpGet, tcpSocket, or grpc must be specified.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span>Grpc(<span class="kw">super</span>::GrpcAction),
+    }
+}
+<span class="doccomment">/// HTTPGetAction describes an action based on HTTP Get requests.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>HttpGetAction {
+    <span class="doccomment">/// Path to access on the HTTP server. Defaults to &#39;/&#39;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
+    <span class="doccomment">/// Custom headers to set in the request. HTTP allows repeated headers.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>http_headers: ::prost::alloc::vec::Vec&lt;HttpHeader&gt;,
+    <span class="doccomment">/// Port number to access on the container. Must be in the range 1 to 65535.
+    /// If not specified, defaults to the exposed port of the container, which is
+    /// the value of container.ports\[0\].containerPort.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>port: i32,
+}
+<span class="doccomment">/// HTTPHeader describes a custom header to be used in HTTP probes
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>HttpHeader {
+    <span class="doccomment">/// Required. The header field name
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The header field value
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// TCPSocketAction describes an action based on opening a socket
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TcpSocketAction {
+    <span class="doccomment">/// Port number to access on the container. Must be in the range 1 to 65535.
+    /// If not specified, defaults to the exposed port of the container, which is
+    /// the value of container.ports\[0\].containerPort.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>port: i32,
+}
+<span class="doccomment">/// GRPCAction describes an action involving a GRPC port.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GrpcAction {
+    <span class="doccomment">/// Port number of the gRPC service. Number must be in the range 1 to 65535.
+    /// If not specified, defaults to the exposed port of the container, which is
+    /// the value of container.ports\[0\].containerPort.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>port: i32,
+    <span class="doccomment">/// Service is the name of the service to place in the gRPC HealthCheckRequest
+    /// (see &lt;https://github.com/grpc/grpc/blob/master/doc/health-checking.md&gt; ). If
+    /// this is not specified, the default behavior is defined by gRPC.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// VPC Access settings. For more information on sending traffic to a VPC
+/// network, visit &lt;https://cloud.google.com/run/docs/configuring/connecting-vpc.&gt;
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VpcAccess {
+    <span class="doccomment">/// VPC Access connector name.
+    /// Format: projects/{project}/locations/{location}/connectors/{connector},
+    /// where {project} can be project id or number.
+    /// For more information on sending traffic to a VPC network via a connector,
+    /// visit &lt;https://cloud.google.com/run/docs/configuring/vpc-connectors.&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>connector: ::prost::alloc::string::String,
+    <span class="doccomment">/// Traffic VPC egress settings. If not provided, it defaults to
+    /// PRIVATE_RANGES_ONLY.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;vpc_access::VpcEgress&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>egress: i32,
+    <span class="doccomment">/// Direct VPC egress settings. Currently only single network interface is
+    /// supported.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>network_interfaces: ::prost::alloc::vec::Vec&lt;vpc_access::NetworkInterface&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `VpcAccess`.
+</span><span class="kw">pub mod </span>vpc_access {
+    <span class="doccomment">/// Direct VPC egress settings.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>NetworkInterface {
+        <span class="doccomment">/// The VPC network that the Cloud Run resource will be able to send traffic
+        /// to. At least one of network or subnetwork must be specified. If both
+        /// network and subnetwork are specified, the given VPC subnetwork must
+        /// belong to the given VPC network. If network is not specified, it will be
+        /// looked up from the subnetwork.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
+        <span class="doccomment">/// The VPC subnetwork that the Cloud Run resource will get IPs from. At
+        /// least one of network or subnetwork must be specified. If both
+        /// network and subnetwork are specified, the given VPC subnetwork must
+        /// belong to the given VPC network. If subnetwork is not specified, the
+        /// subnetwork with the same name with the network will be used.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>subnetwork: ::prost::alloc::string::String,
+        <span class="doccomment">/// Network tags applied to this Cloud Run resource.
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    }
+    <span class="doccomment">/// Egress options for VPC access.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>VpcEgress {
+        <span class="doccomment">/// Unspecified
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// All outbound traffic is routed through the VPC connector.
+        </span>AllTraffic = <span class="number">1</span>,
+        <span class="doccomment">/// Only private IP ranges are routed through the VPC connector.
+        </span>PrivateRangesOnly = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>VpcEgress {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                VpcEgress::Unspecified =&gt; <span class="string">&quot;VPC_EGRESS_UNSPECIFIED&quot;</span>,
+                VpcEgress::AllTraffic =&gt; <span class="string">&quot;ALL_TRAFFIC&quot;</span>,
+                VpcEgress::PrivateRangesOnly =&gt; <span class="string">&quot;PRIVATE_RANGES_ONLY&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;VPC_EGRESS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;ALL_TRAFFIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AllTraffic),
+                <span class="string">&quot;PRIVATE_RANGES_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PrivateRangesOnly),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Settings for Binary Authorization feature.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BinaryAuthorization {
+    <span class="doccomment">/// If present, indicates to use Breakglass using this justification.
+    /// If use_default is False, then it must be empty.
+    /// For more information on breakglass, see
+    /// &lt;https://cloud.google.com/binary-authorization/docs/using-breakglass&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>breakglass_justification: ::prost::alloc::string::String,
+    <span class="attr">#[prost(oneof = <span class="string">&quot;binary_authorization::BinauthzMethod&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>binauthz_method: ::core::option::Option&lt;binary_authorization::BinauthzMethod&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `BinaryAuthorization`.
+</span><span class="kw">pub mod </span>binary_authorization {
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>BinauthzMethod {
+        <span class="doccomment">/// If True, indicates to use the default project&#39;s binary authorization
+        /// policy. If False, binary authorization will be disabled.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>UseDefault(bool),
+    }
+}
+<span class="doccomment">/// Settings for revision-level scaling settings.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>RevisionScaling {
+    <span class="doccomment">/// Minimum number of serving instances that this resource should have.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>min_instance_count: i32,
+    <span class="doccomment">/// Maximum number of serving instances that this resource should have.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>max_instance_count: i32,
+}
+<span class="doccomment">/// Allowed ingress traffic for the Container.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>IngressTraffic {
+    <span class="doccomment">/// Unspecified
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// All inbound traffic is allowed.
+    </span>All = <span class="number">1</span>,
+    <span class="doccomment">/// Only internal traffic is allowed.
+    </span>InternalOnly = <span class="number">2</span>,
+    <span class="doccomment">/// Both internal and Google Cloud Load Balancer traffic is allowed.
+    </span>InternalLoadBalancer = <span class="number">3</span>,
+}
+<span class="kw">impl </span>IngressTraffic {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            IngressTraffic::Unspecified =&gt; <span class="string">&quot;INGRESS_TRAFFIC_UNSPECIFIED&quot;</span>,
+            IngressTraffic::All =&gt; <span class="string">&quot;INGRESS_TRAFFIC_ALL&quot;</span>,
+            IngressTraffic::InternalOnly =&gt; <span class="string">&quot;INGRESS_TRAFFIC_INTERNAL_ONLY&quot;</span>,
+            IngressTraffic::InternalLoadBalancer =&gt; {
+                <span class="string">&quot;INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER&quot;
+            </span>}
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;INGRESS_TRAFFIC_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;INGRESS_TRAFFIC_ALL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::All),
+            <span class="string">&quot;INGRESS_TRAFFIC_INTERNAL_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalOnly),
+            <span class="string">&quot;INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalLoadBalancer),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// Alternatives for execution environments.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>ExecutionEnvironment {
+    <span class="doccomment">/// Unspecified
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Uses the First Generation environment.
+    </span>Gen1 = <span class="number">1</span>,
+    <span class="doccomment">/// Uses Second Generation environment.
+    </span>Gen2 = <span class="number">2</span>,
+}
+<span class="kw">impl </span>ExecutionEnvironment {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            ExecutionEnvironment::Unspecified =&gt; <span class="string">&quot;EXECUTION_ENVIRONMENT_UNSPECIFIED&quot;</span>,
+            ExecutionEnvironment::Gen1 =&gt; <span class="string">&quot;EXECUTION_ENVIRONMENT_GEN1&quot;</span>,
+            ExecutionEnvironment::Gen2 =&gt; <span class="string">&quot;EXECUTION_ENVIRONMENT_GEN2&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;EXECUTION_ENVIRONMENT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;EXECUTION_ENVIRONMENT_GEN1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gen1),
+            <span class="string">&quot;EXECUTION_ENVIRONMENT_GEN2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gen2),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// Specifies behavior if an encryption key used by a resource is revoked.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>EncryptionKeyRevocationAction {
+    <span class="doccomment">/// Unspecified
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Prevents the creation of new instances.
+    </span>PreventNew = <span class="number">1</span>,
+    <span class="doccomment">/// Shuts down existing instances, and prevents creation of new ones.
+    </span>Shutdown = <span class="number">2</span>,
+}
+<span class="kw">impl </span>EncryptionKeyRevocationAction {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            EncryptionKeyRevocationAction::Unspecified =&gt; {
+                <span class="string">&quot;ENCRYPTION_KEY_REVOCATION_ACTION_UNSPECIFIED&quot;
+            </span>}
+            EncryptionKeyRevocationAction::PreventNew =&gt; <span class="string">&quot;PREVENT_NEW&quot;</span>,
+            EncryptionKeyRevocationAction::Shutdown =&gt; <span class="string">&quot;SHUTDOWN&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;ENCRYPTION_KEY_REVOCATION_ACTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;PREVENT_NEW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PreventNew),
+            <span class="string">&quot;SHUTDOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Shutdown),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
     }
 }
 <span class="doccomment">/// RevisionTemplate describes the data a revision should have when created from
@@ -4937,6 +5196,11 @@
     <span class="doccomment">/// Output only. Reserved for future use.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;38&quot;</span>)]
     </span><span class="kw">pub </span>satisfies_pzs: bool,
+    <span class="doccomment">/// Optional. Override the traffic tag threshold limit. Garbage collection will
+    /// start cleaning up non-serving tagged traffic targets based on creation
+    /// item. The default value is 2000.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;39&quot;</span>)]
+    </span><span class="kw">pub </span>traffic_tags_cleanup_threshold: i64,
     <span class="doccomment">/// Output only. Returns true if the Service is currently being acted upon by
     /// the system to bring it into the desired state.
     ///
@@ -5270,383 +5534,55 @@
         </span>}
     }
 }
-<span class="doccomment">/// Request message for obtaining a Task by its full name.
+<span class="doccomment">/// TaskTemplate describes the data a task should have when created
+/// from a template.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetTaskRequest {
-    <span class="doccomment">/// Required. The full name of the Task.
-    /// Format:
-    /// projects/{project}/locations/{location}/jobs/{job}/executions/{execution}/tasks/{task}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Request message for retrieving a list of Tasks.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListTasksRequest {
-    <span class="doccomment">/// Required. The Execution from which the Tasks should be listed.
-    /// To list all Tasks across Executions of a Job, use &quot;-&quot; instead of Execution
-    /// name. To list all Tasks across Jobs, use &quot;-&quot; instead of Job name. Format:
-    /// projects/{project}/locations/{location}/jobs/{job}/executions/{execution}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Maximum number of Tasks to return in this call.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// A page token received from a previous call to ListTasks.
-    /// All other parameters must match.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// If true, returns deleted (but unexpired) resources along with active ones.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>show_deleted: bool,
-}
-<span class="doccomment">/// Response message containing a list of Tasks.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListTasksResponse {
-    <span class="doccomment">/// The resulting list of Tasks.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>tasks: ::prost::alloc::vec::Vec&lt;Task&gt;,
-    <span class="doccomment">/// A token indicating there are more items than page_size. Use it in the next
-    /// ListTasks request to continue.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Task represents a single run of a container to completion.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Task {
-    <span class="doccomment">/// Output only. The unique name of this Task.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Server assigned unique identifier for the Task. The value is a
-    /// UUID4 string and guaranteed to remain unchanged until the resource is
-    /// deleted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. A number that monotonically increases every time the user
-    /// modifies the desired state.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>generation: i64,
-    <span class="doccomment">/// Output only. Unstructured key value map that can be used to organize and
-    /// categorize objects. User-provided labels are shared with Google&#39;s billing
-    /// system, so they can be used to filter, or break down billing charges by
-    /// team, component, environment, state, etc. For more information, visit
-    /// &lt;https://cloud.google.com/resource-manager/docs/creating-managing-labels&gt; or
-    /// &lt;https://cloud.google.com/run/docs/configuring/labels&gt;
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Output only. Unstructured key value map that may
-    /// be set by external tools to store and arbitrary metadata.
-    /// They are not queryable and should be preserved
-    /// when modifying objects.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Output only. Represents time when the task was created by the job
-    /// controller. It is not guaranteed to be set in happens-before order across
-    /// separate operations.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Represents time when the task started to run.
-    /// It is not guaranteed to be set in happens-before order across separate
-    /// operations.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;27&quot;</span>)]
-    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Represents time when the Task was completed. It is not
-    /// guaranteed to be set in happens-before order across separate operations.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>completion_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The last-modified time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. For a deleted resource, the deletion time. It is only
-    /// populated as a response to a Delete request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. For a deleted resource, the time after which it will be
-    /// permamently deleted. It is only populated as a response to a Delete
-    /// request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The name of the parent Job.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>job: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The name of the parent Execution.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>execution: ::prost::alloc::string::String,
+</span><span class="kw">pub struct </span>TaskTemplate {
     <span class="doccomment">/// Holds the single container that defines the unit of execution for this
     /// task.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>containers: ::prost::alloc::vec::Vec&lt;Container&gt;,
     <span class="doccomment">/// A list of Volumes to make available to containers.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>volumes: ::prost::alloc::vec::Vec&lt;Volume&gt;,
-    <span class="doccomment">/// Number of retries allowed per Task, before marking this Task failed.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;16&quot;</span>)]
-    </span><span class="kw">pub </span>max_retries: i32,
     <span class="doccomment">/// Max allowed time duration the Task may be active before the system will
     /// actively try to mark it failed and kill associated containers. This applies
     /// per attempt of a task, meaning each retry can run for the full timeout.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
+    /// Defaults to 600 seconds.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Email address of the IAM service account associated with the Task of a
     /// Job. The service account represents the identity of the
     /// running task, and determines what permissions the task has. If
     /// not provided, the task will use the project&#39;s default service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>service_account: ::prost::alloc::string::String,
     <span class="doccomment">/// The execution environment being used to host this Task.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ExecutionEnvironment&quot;</span>, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ExecutionEnvironment&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>execution_environment: i32,
-    <span class="doccomment">/// Output only. Indicates whether the resource&#39;s reconciliation is still in
-    /// progress. See comments in `Job.reconciling` for additional information on
-    /// reconciliation process in Cloud Run.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;21&quot;</span>)]
-    </span><span class="kw">pub </span>reconciling: bool,
-    <span class="doccomment">/// Output only. The Condition of this Task, containing its readiness status,
-    /// and detailed error information in case it did not reach the desired state.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;22&quot;</span>)]
-    </span><span class="kw">pub </span>conditions: ::prost::alloc::vec::Vec&lt;Condition&gt;,
-    <span class="doccomment">/// Output only. The generation of this Task. See comments in `Job.reconciling`
-    /// for additional information on reconciliation process in Cloud Run.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;23&quot;</span>)]
-    </span><span class="kw">pub </span>observed_generation: i64,
-    <span class="doccomment">/// Output only. Index of the Task, unique per execution, and beginning at 0.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;24&quot;</span>)]
-    </span><span class="kw">pub </span>index: i32,
-    <span class="doccomment">/// Output only. The number of times this Task was retried.
-    /// Tasks are retried when they fail up to the maxRetries limit.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;25&quot;</span>)]
-    </span><span class="kw">pub </span>retried: i32,
-    <span class="doccomment">/// Output only. Result of the last attempt of this Task.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;26&quot;</span>)]
-    </span><span class="kw">pub </span>last_attempt_result: ::core::option::Option&lt;TaskAttemptResult&gt;,
-    <span class="doccomment">/// Output only. A reference to a customer managed encryption key (CMEK) to use
-    /// to encrypt this container image. For more information, go to
+    <span class="doccomment">/// A reference to a customer managed encryption key (CMEK) to use to encrypt
+    /// this container image. For more information, go to
     /// &lt;https://cloud.google.com/run/docs/securing/using-cmek&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;28&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>encryption_key: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. VPC Access configuration to use for this Task. For more
-    /// information, visit
-    /// &lt;https://cloud.google.com/run/docs/configuring/connecting-vpc.&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;29&quot;</span>)]
+    <span class="doccomment">/// VPC Access configuration to use for this Task. For more information,
+    /// visit &lt;https://cloud.google.com/run/docs/configuring/connecting-vpc.&gt;
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>vpc_access: ::core::option::Option&lt;VpcAccess&gt;,
-    <span class="doccomment">/// Output only. URI where logs for this execution can be found in Cloud
-    /// Console.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;32&quot;</span>)]
-    </span><span class="kw">pub </span>log_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Reserved for future use.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;33&quot;</span>)]
-    </span><span class="kw">pub </span>satisfies_pzs: bool,
-    <span class="doccomment">/// Output only. A system-generated fingerprint for this version of the
-    /// resource. May be used to detect modification conflict during updates.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;99&quot;</span>)]
-    </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
+    <span class="attr">#[prost(oneof = <span class="string">&quot;task_template::Retries&quot;</span>, tags = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>retries: ::core::option::Option&lt;task_template::Retries&gt;,
 }
-<span class="doccomment">/// Result of a task attempt.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TaskAttemptResult {
-    <span class="doccomment">/// Output only. The status of this attempt.
-    /// If the status code is OK, then the attempt succeeded.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
-    <span class="doccomment">/// Output only. The exit code of this attempt.
-    /// This may be unset if the container was unable to exit cleanly with a code
-    /// due to some other failure.
-    /// See status field for possible failure details.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>exit_code: i32,
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>tasks_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// Cloud Run Task Control Plane API.
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>TasksClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
+<span class="doccomment">/// Nested message and enum types in `TaskTemplate`.
+</span><span class="kw">pub mod </span>task_template {
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Retries {
+        <span class="doccomment">/// Number of retries allowed per Task, before marking this Task failed.
+        /// Defaults to 3.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>MaxRetries(i32),
     }
-    <span class="kw">impl</span>&lt;T&gt; TasksClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; TasksClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            TasksClient::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Gets information about a Task.
-        </span><span class="kw">pub async fn </span>get_task(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetTaskRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Task&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.run.v2.Tasks/GetTask&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.run.v2.Tasks&quot;</span>, <span class="string">&quot;GetTask&quot;</span>));
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Lists Tasks from an Execution of a Job.
-        </span><span class="kw">pub async fn </span>list_tasks(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListTasksRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListTasksResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.run.v2.Tasks/ListTasks&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.run.v2.Tasks&quot;</span>, <span class="string">&quot;ListTasks&quot;</span>));
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-    }
-}
-<span class="doccomment">/// ExecutionTemplate describes the data an execution should have when created
-/// from a template.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExecutionTemplate {
-    <span class="doccomment">/// Unstructured key value map that can be used to organize and categorize
-    /// objects.
-    /// User-provided labels are shared with Google&#39;s billing system, so they can
-    /// be used to filter, or break down billing charges by team, component,
-    /// environment, state, etc. For more information, visit
-    /// &lt;https://cloud.google.com/resource-manager/docs/creating-managing-labels&gt; or
-    /// &lt;https://cloud.google.com/run/docs/configuring/labels.&gt;
-    ///
-    /// &lt;p&gt;Cloud Run API v2 does not support labels with `run.googleapis.com`,
-    /// `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev`
-    /// namespaces, and they will be rejected. All system labels in v1 now have a
-    /// corresponding field in v2 ExecutionTemplate.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Unstructured key value map that may be set by external tools to store and
-    /// arbitrary metadata. They are not queryable and should be preserved
-    /// when modifying objects.
-    ///
-    /// &lt;p&gt;Cloud Run API v2 does not support annotations with `run.googleapis.com`,
-    /// `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev`
-    /// namespaces, and they will be rejected. All system annotations in v1 now
-    /// have a corresponding field in v2 ExecutionTemplate.
-    ///
-    /// &lt;p&gt;This field follows Kubernetes annotations&#39; namespacing, limits, and
-    /// rules.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Specifies the maximum desired number of tasks the execution should run at
-    /// given time. Must be &lt;= task_count.
-    /// When the job is run, if this field is 0 or unset, the maximum possible
-    /// value will be used for that execution.
-    /// The actual number of tasks running in steady state will be less than this
-    /// number when there are fewer tasks waiting to be completed remaining,
-    /// i.e. when the work left to do is less than max parallelism.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>parallelism: i32,
-    <span class="doccomment">/// Specifies the desired number of tasks the execution should run.
-    /// Setting to 1 means that parallelism is limited to 1 and the success of
-    /// that task signals the success of the execution. Defaults to 1.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>task_count: i32,
-    <span class="doccomment">/// Required. Describes the task(s) that will be created when executing an
-    /// execution.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>template: ::core::option::Option&lt;TaskTemplate&gt;,
 }
 <span class="doccomment">/// Request message for obtaining a Execution by its full name.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5654,8 +5590,8 @@
 </span><span class="kw">pub struct </span>GetExecutionRequest {
     <span class="doccomment">/// Required. The full name of the Execution.
     /// Format:
-    /// projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
-    /// where {project} can be project id or number.
+    /// `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`,
+    /// where `{project}` can be project id or number.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
@@ -5665,8 +5601,8 @@
 </span><span class="kw">pub struct </span>ListExecutionsRequest {
     <span class="doccomment">/// Required. The Execution from which the Executions should be listed.
     /// To list all Executions across Jobs, use &quot;-&quot; instead of Job name.
-    /// Format: projects/{project}/locations/{location}/jobs/{job}, where {project}
-    /// can be project id or number.
+    /// Format: `projects/{project}/locations/{location}/jobs/{job}`, where
+    /// `{project}` can be project id or number.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Maximum number of Executions to return in this call.
@@ -5698,12 +5634,31 @@
 </span><span class="kw">pub struct </span>DeleteExecutionRequest {
     <span class="doccomment">/// Required. The name of the Execution to delete.
     /// Format:
-    /// projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
-    /// where {project} can be project id or number.
+    /// `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`,
+    /// where `{project}` can be project id or number.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Indicates that the request should be validated without actually
     /// deleting any resources.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>validate_only: bool,
+    <span class="doccomment">/// A system-generated fingerprint for this version of the resource.
+    /// This may be used to detect modification conflict during updates.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Request message for deleting an Execution.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CancelExecutionRequest {
+    <span class="doccomment">/// Required. The name of the Execution to cancel.
+    /// Format:
+    /// `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`,
+    /// where `{project}` can be project id or number.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Indicates that the request should be validated without actually
+    /// cancelling any resources.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
     <span class="doccomment">/// A system-generated fingerprint for this version of the resource.
@@ -6001,7 +5956,92 @@
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
+        <span class="doccomment">/// Cancels an Execution.
+        </span><span class="kw">pub async fn </span>cancel_execution(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CancelExecutionRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.run.v2.Executions/CancelExecution&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(<span class="string">&quot;google.cloud.run.v2.Executions&quot;</span>, <span class="string">&quot;CancelExecution&quot;</span>),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
     }
+}
+<span class="doccomment">/// ExecutionTemplate describes the data an execution should have when created
+/// from a template.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExecutionTemplate {
+    <span class="doccomment">/// Unstructured key value map that can be used to organize and categorize
+    /// objects.
+    /// User-provided labels are shared with Google&#39;s billing system, so they can
+    /// be used to filter, or break down billing charges by team, component,
+    /// environment, state, etc. For more information, visit
+    /// &lt;https://cloud.google.com/resource-manager/docs/creating-managing-labels&gt; or
+    /// &lt;https://cloud.google.com/run/docs/configuring/labels.&gt;
+    ///
+    /// &lt;p&gt;Cloud Run API v2 does not support labels with `run.googleapis.com`,
+    /// `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev`
+    /// namespaces, and they will be rejected. All system labels in v1 now have a
+    /// corresponding field in v2 ExecutionTemplate.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Unstructured key value map that may be set by external tools to store and
+    /// arbitrary metadata. They are not queryable and should be preserved
+    /// when modifying objects.
+    ///
+    /// &lt;p&gt;Cloud Run API v2 does not support annotations with `run.googleapis.com`,
+    /// `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev`
+    /// namespaces, and they will be rejected. All system annotations in v1 now
+    /// have a corresponding field in v2 ExecutionTemplate.
+    ///
+    /// &lt;p&gt;This field follows Kubernetes annotations&#39; namespacing, limits, and
+    /// rules.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Specifies the maximum desired number of tasks the execution should run at
+    /// given time. Must be &lt;= task_count.
+    /// When the job is run, if this field is 0 or unset, the maximum possible
+    /// value will be used for that execution.
+    /// The actual number of tasks running in steady state will be less than this
+    /// number when there are fewer tasks waiting to be completed remaining,
+    /// i.e. when the work left to do is less than max parallelism.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>parallelism: i32,
+    <span class="doccomment">/// Specifies the desired number of tasks the execution should run.
+    /// Setting to 1 means that parallelism is limited to 1 and the success of
+    /// that task signals the success of the execution. Defaults to 1.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>task_count: i32,
+    <span class="doccomment">/// Required. Describes the task(s) that will be created when executing an
+    /// execution.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>template: ::core::option::Option&lt;TaskTemplate&gt;,
 }
 <span class="doccomment">/// Request message for creating a Job.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -6118,6 +6158,52 @@
     /// resource. May be used to detect modification conflict during updates.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
+    <span class="doccomment">/// Overrides specification for a given execution of a job. If provided,
+    /// overrides will be applied to update the execution or task spec.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>overrides: ::core::option::Option&lt;run_job_request::Overrides&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `RunJobRequest`.
+</span><span class="kw">pub mod </span>run_job_request {
+    <span class="doccomment">/// RunJob Overrides that contains Execution fields to be overridden on the go.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Overrides {
+        <span class="doccomment">/// Per container override specification.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>container_overrides: ::prost::alloc::vec::Vec&lt;overrides::ContainerOverride&gt;,
+        <span class="doccomment">/// Optional. The desired number of tasks the execution should run. Will
+        /// replace existing task_count value.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>task_count: i32,
+        <span class="doccomment">/// Duration in seconds the task may be active before the system will
+        /// actively try to mark it failed and kill associated containers. Will
+        /// replace existing timeout_seconds value.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
+    }
+    <span class="doccomment">/// Nested message and enum types in `Overrides`.
+    </span><span class="kw">pub mod </span>overrides {
+        <span class="doccomment">/// Per container override specification.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>ContainerOverride {
+            <span class="doccomment">/// The name of the container specified as a DNS_LABEL.
+            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+            <span class="doccomment">/// Optional. Arguments to the entrypoint. Will replace existing args for
+            /// override.
+            </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="kw">pub </span>args: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+            <span class="doccomment">/// List of environment variables to set in the container. Will be merged
+            /// with existing env for override.
+            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="kw">pub </span>env: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::EnvVar&gt;,
+            <span class="doccomment">/// Optional. True if the intention is to clear out existing args list.
+            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="kw">pub </span>clear_args: bool,
+        }
+    }
 }
 <span class="doccomment">/// Job represents the configuration of a single job, which references a
 /// container image that is run to completion.
@@ -6600,6 +6686,332 @@
                 .insert(
                     GrpcMethod::new(<span class="string">&quot;google.cloud.run.v2.Jobs&quot;</span>, <span class="string">&quot;TestIamPermissions&quot;</span>),
                 );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
+}
+<span class="doccomment">/// Request message for obtaining a Task by its full name.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetTaskRequest {
+    <span class="doccomment">/// Required. The full name of the Task.
+    /// Format:
+    /// projects/{project}/locations/{location}/jobs/{job}/executions/{execution}/tasks/{task}
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Request message for retrieving a list of Tasks.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListTasksRequest {
+    <span class="doccomment">/// Required. The Execution from which the Tasks should be listed.
+    /// To list all Tasks across Executions of a Job, use &quot;-&quot; instead of Execution
+    /// name. To list all Tasks across Jobs, use &quot;-&quot; instead of Job name. Format:
+    /// projects/{project}/locations/{location}/jobs/{job}/executions/{execution}
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Maximum number of Tasks to return in this call.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// A page token received from a previous call to ListTasks.
+    /// All other parameters must match.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// If true, returns deleted (but unexpired) resources along with active ones.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>show_deleted: bool,
+}
+<span class="doccomment">/// Response message containing a list of Tasks.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListTasksResponse {
+    <span class="doccomment">/// The resulting list of Tasks.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>tasks: ::prost::alloc::vec::Vec&lt;Task&gt;,
+    <span class="doccomment">/// A token indicating there are more items than page_size. Use it in the next
+    /// ListTasks request to continue.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Task represents a single run of a container to completion.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Task {
+    <span class="doccomment">/// Output only. The unique name of this Task.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Server assigned unique identifier for the Task. The value is a
+    /// UUID4 string and guaranteed to remain unchanged until the resource is
+    /// deleted.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. A number that monotonically increases every time the user
+    /// modifies the desired state.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>generation: i64,
+    <span class="doccomment">/// Output only. Unstructured key value map that can be used to organize and
+    /// categorize objects. User-provided labels are shared with Google&#39;s billing
+    /// system, so they can be used to filter, or break down billing charges by
+    /// team, component, environment, state, etc. For more information, visit
+    /// &lt;https://cloud.google.com/resource-manager/docs/creating-managing-labels&gt; or
+    /// &lt;https://cloud.google.com/run/docs/configuring/labels&gt;
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Output only. Unstructured key value map that may
+    /// be set by external tools to store and arbitrary metadata.
+    /// They are not queryable and should be preserved
+    /// when modifying objects.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Output only. Represents time when the task was created by the system.
+    /// It is not guaranteed to be set in happens-before order across separate
+    /// operations.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Represents time when the task was scheduled to run by the
+    /// system. It is not guaranteed to be set in happens-before order across
+    /// separate operations.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;34&quot;</span>)]
+    </span><span class="kw">pub </span>scheduled_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Represents time when the task started to run.
+    /// It is not guaranteed to be set in happens-before order across separate
+    /// operations.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;27&quot;</span>)]
+    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Represents time when the Task was completed. It is not
+    /// guaranteed to be set in happens-before order across separate operations.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>completion_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The last-modified time.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. For a deleted resource, the deletion time. It is only
+    /// populated as a response to a Delete request.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. For a deleted resource, the time after which it will be
+    /// permamently deleted. It is only populated as a response to a Delete
+    /// request.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The name of the parent Job.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>job: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The name of the parent Execution.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>execution: ::prost::alloc::string::String,
+    <span class="doccomment">/// Holds the single container that defines the unit of execution for this
+    /// task.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>containers: ::prost::alloc::vec::Vec&lt;Container&gt;,
+    <span class="doccomment">/// A list of Volumes to make available to containers.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>volumes: ::prost::alloc::vec::Vec&lt;Volume&gt;,
+    <span class="doccomment">/// Number of retries allowed per Task, before marking this Task failed.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="kw">pub </span>max_retries: i32,
+    <span class="doccomment">/// Max allowed time duration the Task may be active before the system will
+    /// actively try to mark it failed and kill associated containers. This applies
+    /// per attempt of a task, meaning each retry can run for the full timeout.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="kw">pub </span>timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
+    <span class="doccomment">/// Email address of the IAM service account associated with the Task of a
+    /// Job. The service account represents the identity of the
+    /// running task, and determines what permissions the task has. If
+    /// not provided, the task will use the project&#39;s default service account.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="kw">pub </span>service_account: ::prost::alloc::string::String,
+    <span class="doccomment">/// The execution environment being used to host this Task.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ExecutionEnvironment&quot;</span>, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="kw">pub </span>execution_environment: i32,
+    <span class="doccomment">/// Output only. Indicates whether the resource&#39;s reconciliation is still in
+    /// progress. See comments in `Job.reconciling` for additional information on
+    /// reconciliation process in Cloud Run.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="kw">pub </span>reconciling: bool,
+    <span class="doccomment">/// Output only. The Condition of this Task, containing its readiness status,
+    /// and detailed error information in case it did not reach the desired state.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="kw">pub </span>conditions: ::prost::alloc::vec::Vec&lt;Condition&gt;,
+    <span class="doccomment">/// Output only. The generation of this Task. See comments in `Job.reconciling`
+    /// for additional information on reconciliation process in Cloud Run.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="kw">pub </span>observed_generation: i64,
+    <span class="doccomment">/// Output only. Index of the Task, unique per execution, and beginning at 0.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="kw">pub </span>index: i32,
+    <span class="doccomment">/// Output only. The number of times this Task was retried.
+    /// Tasks are retried when they fail up to the maxRetries limit.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;25&quot;</span>)]
+    </span><span class="kw">pub </span>retried: i32,
+    <span class="doccomment">/// Output only. Result of the last attempt of this Task.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;26&quot;</span>)]
+    </span><span class="kw">pub </span>last_attempt_result: ::core::option::Option&lt;TaskAttemptResult&gt;,
+    <span class="doccomment">/// Output only. A reference to a customer managed encryption key (CMEK) to use
+    /// to encrypt this container image. For more information, go to
+    /// &lt;https://cloud.google.com/run/docs/securing/using-cmek&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;28&quot;</span>)]
+    </span><span class="kw">pub </span>encryption_key: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. VPC Access configuration to use for this Task. For more
+    /// information, visit
+    /// &lt;https://cloud.google.com/run/docs/configuring/connecting-vpc.&gt;
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;29&quot;</span>)]
+    </span><span class="kw">pub </span>vpc_access: ::core::option::Option&lt;VpcAccess&gt;,
+    <span class="doccomment">/// Output only. URI where logs for this execution can be found in Cloud
+    /// Console.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;32&quot;</span>)]
+    </span><span class="kw">pub </span>log_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Reserved for future use.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;33&quot;</span>)]
+    </span><span class="kw">pub </span>satisfies_pzs: bool,
+    <span class="doccomment">/// Output only. A system-generated fingerprint for this version of the
+    /// resource. May be used to detect modification conflict during updates.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;99&quot;</span>)]
+    </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Result of a task attempt.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TaskAttemptResult {
+    <span class="doccomment">/// Output only. The status of this attempt.
+    /// If the status code is OK, then the attempt succeeded.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
+    <span class="doccomment">/// Output only. The exit code of this attempt.
+    /// This may be unset if the container was unable to exit cleanly with a code
+    /// due to some other failure.
+    /// See status field for possible failure details.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>exit_code: i32,
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>tasks_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// Cloud Run Task Control Plane API.
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>TasksClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; TasksClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; TasksClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            TasksClient::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Gets information about a Task.
+        </span><span class="kw">pub async fn </span>get_task(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetTaskRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Task&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.run.v2.Tasks/GetTask&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.run.v2.Tasks&quot;</span>, <span class="string">&quot;GetTask&quot;</span>));
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Lists Tasks from an Execution of a Job.
+        </span><span class="kw">pub async fn </span>list_tasks(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListTasksRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListTasksResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.run.v2.Tasks/ListTasks&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.run.v2.Tasks&quot;</span>, <span class="string">&quot;ListTasks&quot;</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
     }

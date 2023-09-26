@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/vision/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/vision/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.1 (d5c2e9c34 2023-09-13)" data-channel="1.72.1" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -3457,6 +3457,333 @@
     </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>z: f32,
 }
+<span class="doccomment">/// TextAnnotation contains a structured representation of OCR extracted text.
+/// The hierarchy of an OCR extracted text structure is like this:
+///      TextAnnotation -&gt; Page -&gt; Block -&gt; Paragraph -&gt; Word -&gt; Symbol
+/// Each structural component, starting from Page, may further have their own
+/// properties. Properties describe detected languages, breaks etc.. Please refer
+/// to the \[TextAnnotation.TextProperty][google.cloud.vision.v1.TextAnnotation.TextProperty\] message definition below for more
+/// detail.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextAnnotation {
+    <span class="doccomment">/// List of pages detected by OCR.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>pages: ::prost::alloc::vec::Vec&lt;Page&gt;,
+    <span class="doccomment">/// UTF-8 text detected on the pages.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>text: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `TextAnnotation`.
+</span><span class="kw">pub mod </span>text_annotation {
+    <span class="doccomment">/// Detected language for a structural component.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>DetectedLanguage {
+        <span class="doccomment">/// The BCP-47 language code, such as &quot;en-US&quot; or &quot;sr-Latn&quot;. For more
+        /// information, see
+        /// &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt;
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+        <span class="doccomment">/// Confidence of detected language. Range [0, 1].
+        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>confidence: f32,
+    }
+    <span class="doccomment">/// Detected start or end of a structural component.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>DetectedBreak {
+        <span class="doccomment">/// Detected break type.
+        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;detected_break::BreakType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>r#type: i32,
+        <span class="doccomment">/// True if break prepends the element.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>is_prefix: bool,
+    }
+    <span class="doccomment">/// Nested message and enum types in `DetectedBreak`.
+    </span><span class="kw">pub mod </span>detected_break {
+        <span class="doccomment">/// Enum to denote the type of break found. New line, space etc.
+        </span><span class="attr">#[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        </span><span class="kw">pub enum </span>BreakType {
+            <span class="doccomment">/// Unknown break label type.
+            </span>Unknown = <span class="number">0</span>,
+            <span class="doccomment">/// Regular space.
+            </span>Space = <span class="number">1</span>,
+            <span class="doccomment">/// Sure space (very wide).
+            </span>SureSpace = <span class="number">2</span>,
+            <span class="doccomment">/// Line-wrapping break.
+            </span>EolSureSpace = <span class="number">3</span>,
+            <span class="doccomment">/// End-line hyphen that is not present in text; does not co-occur with
+            /// `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`.
+            </span>Hyphen = <span class="number">4</span>,
+            <span class="doccomment">/// Line break that ends a paragraph.
+            </span>LineBreak = <span class="number">5</span>,
+        }
+        <span class="kw">impl </span>BreakType {
+            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                <span class="kw">match </span><span class="self">self </span>{
+                    BreakType::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
+                    BreakType::Space =&gt; <span class="string">&quot;SPACE&quot;</span>,
+                    BreakType::SureSpace =&gt; <span class="string">&quot;SURE_SPACE&quot;</span>,
+                    BreakType::EolSureSpace =&gt; <span class="string">&quot;EOL_SURE_SPACE&quot;</span>,
+                    BreakType::Hyphen =&gt; <span class="string">&quot;HYPHEN&quot;</span>,
+                    BreakType::LineBreak =&gt; <span class="string">&quot;LINE_BREAK&quot;</span>,
+                }
+            }
+            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                <span class="kw">match </span>value {
+                    <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                    <span class="string">&quot;SPACE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Space),
+                    <span class="string">&quot;SURE_SPACE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SureSpace),
+                    <span class="string">&quot;EOL_SURE_SPACE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EolSureSpace),
+                    <span class="string">&quot;HYPHEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hyphen),
+                    <span class="string">&quot;LINE_BREAK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LineBreak),
+                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                }
+            }
+        }
+    }
+    <span class="doccomment">/// Additional information detected on the structural component.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>TextProperty {
+        <span class="doccomment">/// A list of detected languages together with confidence.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>detected_languages: ::prost::alloc::vec::Vec&lt;DetectedLanguage&gt;,
+        <span class="doccomment">/// Detected start or end of a text segment.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>detected_break: ::core::option::Option&lt;DetectedBreak&gt;,
+    }
+}
+<span class="doccomment">/// Detected page from OCR.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Page {
+    <span class="doccomment">/// Additional information detected on the page.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>property: ::core::option::Option&lt;text_annotation::TextProperty&gt;,
+    <span class="doccomment">/// Page width. For PDFs the unit is points. For images (including
+    /// TIFFs) the unit is pixels.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>width: i32,
+    <span class="doccomment">/// Page height. For PDFs the unit is points. For images (including
+    /// TIFFs) the unit is pixels.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>height: i32,
+    <span class="doccomment">/// List of blocks of text, images etc on this page.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>blocks: ::prost::alloc::vec::Vec&lt;Block&gt;,
+    <span class="doccomment">/// Confidence of the OCR results on the page. Range [0, 1].
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>confidence: f32,
+}
+<span class="doccomment">/// Logical element on the page.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Block {
+    <span class="doccomment">/// Additional information detected for the block.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>property: ::core::option::Option&lt;text_annotation::TextProperty&gt;,
+    <span class="doccomment">/// The bounding box for the block.
+    /// The vertices are in the order of top-left, top-right, bottom-right,
+    /// bottom-left. When a rotation of the bounding box is detected the rotation
+    /// is represented as around the top-left corner as defined when the text is
+    /// read in the &#39;natural&#39; orientation.
+    /// For example:
+    ///
+    /// * when the text is horizontal it might look like:
+    ///
+    ///          0----1
+    ///          |    |
+    ///          3----2
+    ///
+    /// * when it&#39;s rotated 180 degrees around the top-left corner it becomes:
+    ///
+    ///          2----3
+    ///          |    |
+    ///          1----0
+    ///
+    ///    and the vertex order will still be (0, 1, 2, 3).
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>bounding_box: ::core::option::Option&lt;BoundingPoly&gt;,
+    <span class="doccomment">/// List of paragraphs in this block (if this blocks is of type text).
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>paragraphs: ::prost::alloc::vec::Vec&lt;Paragraph&gt;,
+    <span class="doccomment">/// Detected block type (text, image etc) for this block.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;block::BlockType&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>block_type: i32,
+    <span class="doccomment">/// Confidence of the OCR results on the block. Range [0, 1].
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>confidence: f32,
+}
+<span class="doccomment">/// Nested message and enum types in `Block`.
+</span><span class="kw">pub mod </span>block {
+    <span class="doccomment">/// Type of a block (text, image etc) as identified by OCR.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>BlockType {
+        <span class="doccomment">/// Unknown block type.
+        </span>Unknown = <span class="number">0</span>,
+        <span class="doccomment">/// Regular text block.
+        </span>Text = <span class="number">1</span>,
+        <span class="doccomment">/// Table block.
+        </span>Table = <span class="number">2</span>,
+        <span class="doccomment">/// Image block.
+        </span>Picture = <span class="number">3</span>,
+        <span class="doccomment">/// Horizontal/vertical line box.
+        </span>Ruler = <span class="number">4</span>,
+        <span class="doccomment">/// Barcode block.
+        </span>Barcode = <span class="number">5</span>,
+    }
+    <span class="kw">impl </span>BlockType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                BlockType::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
+                BlockType::Text =&gt; <span class="string">&quot;TEXT&quot;</span>,
+                BlockType::Table =&gt; <span class="string">&quot;TABLE&quot;</span>,
+                BlockType::Picture =&gt; <span class="string">&quot;PICTURE&quot;</span>,
+                BlockType::Ruler =&gt; <span class="string">&quot;RULER&quot;</span>,
+                BlockType::Barcode =&gt; <span class="string">&quot;BARCODE&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">&quot;TEXT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Text),
+                <span class="string">&quot;TABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Table),
+                <span class="string">&quot;PICTURE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Picture),
+                <span class="string">&quot;RULER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ruler),
+                <span class="string">&quot;BARCODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Barcode),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Structural unit of text representing a number of words in certain order.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Paragraph {
+    <span class="doccomment">/// Additional information detected for the paragraph.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>property: ::core::option::Option&lt;text_annotation::TextProperty&gt;,
+    <span class="doccomment">/// The bounding box for the paragraph.
+    /// The vertices are in the order of top-left, top-right, bottom-right,
+    /// bottom-left. When a rotation of the bounding box is detected the rotation
+    /// is represented as around the top-left corner as defined when the text is
+    /// read in the &#39;natural&#39; orientation.
+    /// For example:
+    ///    * when the text is horizontal it might look like:
+    ///       0----1
+    ///       |    |
+    ///       3----2
+    ///    * when it&#39;s rotated 180 degrees around the top-left corner it becomes:
+    ///       2----3
+    ///       |    |
+    ///       1----0
+    ///    and the vertex order will still be (0, 1, 2, 3).
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>bounding_box: ::core::option::Option&lt;BoundingPoly&gt;,
+    <span class="doccomment">/// List of all words in this paragraph.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>words: ::prost::alloc::vec::Vec&lt;Word&gt;,
+    <span class="doccomment">/// Confidence of the OCR results for the paragraph. Range [0, 1].
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>confidence: f32,
+}
+<span class="doccomment">/// A word representation.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Word {
+    <span class="doccomment">/// Additional information detected for the word.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>property: ::core::option::Option&lt;text_annotation::TextProperty&gt;,
+    <span class="doccomment">/// The bounding box for the word.
+    /// The vertices are in the order of top-left, top-right, bottom-right,
+    /// bottom-left. When a rotation of the bounding box is detected the rotation
+    /// is represented as around the top-left corner as defined when the text is
+    /// read in the &#39;natural&#39; orientation.
+    /// For example:
+    ///    * when the text is horizontal it might look like:
+    ///       0----1
+    ///       |    |
+    ///       3----2
+    ///    * when it&#39;s rotated 180 degrees around the top-left corner it becomes:
+    ///       2----3
+    ///       |    |
+    ///       1----0
+    ///    and the vertex order will still be (0, 1, 2, 3).
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>bounding_box: ::core::option::Option&lt;BoundingPoly&gt;,
+    <span class="doccomment">/// List of symbols in the word.
+    /// The order of the symbols follows the natural reading order.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>symbols: ::prost::alloc::vec::Vec&lt;Symbol&gt;,
+    <span class="doccomment">/// Confidence of the OCR results for the word. Range [0, 1].
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>confidence: f32,
+}
+<span class="doccomment">/// A single symbol representation.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Symbol {
+    <span class="doccomment">/// Additional information detected for the symbol.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>property: ::core::option::Option&lt;text_annotation::TextProperty&gt;,
+    <span class="doccomment">/// The bounding box for the symbol.
+    /// The vertices are in the order of top-left, top-right, bottom-right,
+    /// bottom-left. When a rotation of the bounding box is detected the rotation
+    /// is represented as around the top-left corner as defined when the text is
+    /// read in the &#39;natural&#39; orientation.
+    /// For example:
+    ///    * when the text is horizontal it might look like:
+    ///       0----1
+    ///       |    |
+    ///       3----2
+    ///    * when it&#39;s rotated 180 degrees around the top-left corner it becomes:
+    ///       2----3
+    ///       |    |
+    ///       1----0
+    ///    and the vertex order will still be (0, 1, 2, 3).
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>bounding_box: ::core::option::Option&lt;BoundingPoly&gt;,
+    <span class="doccomment">/// The actual UTF-8 representation of the symbol.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>text: ::prost::alloc::string::String,
+    <span class="doccomment">/// Confidence of the OCR results for the symbol. Range [0, 1].
+    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>confidence: f32,
+}
 <span class="doccomment">/// A Product contains ReferenceImages.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -5100,333 +5427,6 @@
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     }
-}
-<span class="doccomment">/// TextAnnotation contains a structured representation of OCR extracted text.
-/// The hierarchy of an OCR extracted text structure is like this:
-///      TextAnnotation -&gt; Page -&gt; Block -&gt; Paragraph -&gt; Word -&gt; Symbol
-/// Each structural component, starting from Page, may further have their own
-/// properties. Properties describe detected languages, breaks etc.. Please refer
-/// to the \[TextAnnotation.TextProperty][google.cloud.vision.v1.TextAnnotation.TextProperty\] message definition below for more
-/// detail.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextAnnotation {
-    <span class="doccomment">/// List of pages detected by OCR.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>pages: ::prost::alloc::vec::Vec&lt;Page&gt;,
-    <span class="doccomment">/// UTF-8 text detected on the pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>text: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `TextAnnotation`.
-</span><span class="kw">pub mod </span>text_annotation {
-    <span class="doccomment">/// Detected language for a structural component.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>DetectedLanguage {
-        <span class="doccomment">/// The BCP-47 language code, such as &quot;en-US&quot; or &quot;sr-Latn&quot;. For more
-        /// information, see
-        /// &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-        <span class="doccomment">/// Confidence of detected language. Range [0, 1].
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>confidence: f32,
-    }
-    <span class="doccomment">/// Detected start or end of a structural component.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>DetectedBreak {
-        <span class="doccomment">/// Detected break type.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;detected_break::BreakType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>r#type: i32,
-        <span class="doccomment">/// True if break prepends the element.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>is_prefix: bool,
-    }
-    <span class="doccomment">/// Nested message and enum types in `DetectedBreak`.
-    </span><span class="kw">pub mod </span>detected_break {
-        <span class="doccomment">/// Enum to denote the type of break found. New line, space etc.
-        </span><span class="attr">#[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        </span><span class="kw">pub enum </span>BreakType {
-            <span class="doccomment">/// Unknown break label type.
-            </span>Unknown = <span class="number">0</span>,
-            <span class="doccomment">/// Regular space.
-            </span>Space = <span class="number">1</span>,
-            <span class="doccomment">/// Sure space (very wide).
-            </span>SureSpace = <span class="number">2</span>,
-            <span class="doccomment">/// Line-wrapping break.
-            </span>EolSureSpace = <span class="number">3</span>,
-            <span class="doccomment">/// End-line hyphen that is not present in text; does not co-occur with
-            /// `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`.
-            </span>Hyphen = <span class="number">4</span>,
-            <span class="doccomment">/// Line break that ends a paragraph.
-            </span>LineBreak = <span class="number">5</span>,
-        }
-        <span class="kw">impl </span>BreakType {
-            <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                <span class="kw">match </span><span class="self">self </span>{
-                    BreakType::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
-                    BreakType::Space =&gt; <span class="string">&quot;SPACE&quot;</span>,
-                    BreakType::SureSpace =&gt; <span class="string">&quot;SURE_SPACE&quot;</span>,
-                    BreakType::EolSureSpace =&gt; <span class="string">&quot;EOL_SURE_SPACE&quot;</span>,
-                    BreakType::Hyphen =&gt; <span class="string">&quot;HYPHEN&quot;</span>,
-                    BreakType::LineBreak =&gt; <span class="string">&quot;LINE_BREAK&quot;</span>,
-                }
-            }
-            <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-            </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                <span class="kw">match </span>value {
-                    <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                    <span class="string">&quot;SPACE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Space),
-                    <span class="string">&quot;SURE_SPACE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SureSpace),
-                    <span class="string">&quot;EOL_SURE_SPACE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EolSureSpace),
-                    <span class="string">&quot;HYPHEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hyphen),
-                    <span class="string">&quot;LINE_BREAK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LineBreak),
-                    <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                }
-            }
-        }
-    }
-    <span class="doccomment">/// Additional information detected on the structural component.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>TextProperty {
-        <span class="doccomment">/// A list of detected languages together with confidence.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>detected_languages: ::prost::alloc::vec::Vec&lt;DetectedLanguage&gt;,
-        <span class="doccomment">/// Detected start or end of a text segment.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>detected_break: ::core::option::Option&lt;DetectedBreak&gt;,
-    }
-}
-<span class="doccomment">/// Detected page from OCR.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Page {
-    <span class="doccomment">/// Additional information detected on the page.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>property: ::core::option::Option&lt;text_annotation::TextProperty&gt;,
-    <span class="doccomment">/// Page width. For PDFs the unit is points. For images (including
-    /// TIFFs) the unit is pixels.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>width: i32,
-    <span class="doccomment">/// Page height. For PDFs the unit is points. For images (including
-    /// TIFFs) the unit is pixels.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>height: i32,
-    <span class="doccomment">/// List of blocks of text, images etc on this page.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>blocks: ::prost::alloc::vec::Vec&lt;Block&gt;,
-    <span class="doccomment">/// Confidence of the OCR results on the page. Range [0, 1].
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>confidence: f32,
-}
-<span class="doccomment">/// Logical element on the page.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Block {
-    <span class="doccomment">/// Additional information detected for the block.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>property: ::core::option::Option&lt;text_annotation::TextProperty&gt;,
-    <span class="doccomment">/// The bounding box for the block.
-    /// The vertices are in the order of top-left, top-right, bottom-right,
-    /// bottom-left. When a rotation of the bounding box is detected the rotation
-    /// is represented as around the top-left corner as defined when the text is
-    /// read in the &#39;natural&#39; orientation.
-    /// For example:
-    ///
-    /// * when the text is horizontal it might look like:
-    ///
-    ///          0----1
-    ///          |    |
-    ///          3----2
-    ///
-    /// * when it&#39;s rotated 180 degrees around the top-left corner it becomes:
-    ///
-    ///          2----3
-    ///          |    |
-    ///          1----0
-    ///
-    ///    and the vertex order will still be (0, 1, 2, 3).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>bounding_box: ::core::option::Option&lt;BoundingPoly&gt;,
-    <span class="doccomment">/// List of paragraphs in this block (if this blocks is of type text).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>paragraphs: ::prost::alloc::vec::Vec&lt;Paragraph&gt;,
-    <span class="doccomment">/// Detected block type (text, image etc) for this block.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;block::BlockType&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>block_type: i32,
-    <span class="doccomment">/// Confidence of the OCR results on the block. Range [0, 1].
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>confidence: f32,
-}
-<span class="doccomment">/// Nested message and enum types in `Block`.
-</span><span class="kw">pub mod </span>block {
-    <span class="doccomment">/// Type of a block (text, image etc) as identified by OCR.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>BlockType {
-        <span class="doccomment">/// Unknown block type.
-        </span>Unknown = <span class="number">0</span>,
-        <span class="doccomment">/// Regular text block.
-        </span>Text = <span class="number">1</span>,
-        <span class="doccomment">/// Table block.
-        </span>Table = <span class="number">2</span>,
-        <span class="doccomment">/// Image block.
-        </span>Picture = <span class="number">3</span>,
-        <span class="doccomment">/// Horizontal/vertical line box.
-        </span>Ruler = <span class="number">4</span>,
-        <span class="doccomment">/// Barcode block.
-        </span>Barcode = <span class="number">5</span>,
-    }
-    <span class="kw">impl </span>BlockType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                BlockType::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
-                BlockType::Text =&gt; <span class="string">&quot;TEXT&quot;</span>,
-                BlockType::Table =&gt; <span class="string">&quot;TABLE&quot;</span>,
-                BlockType::Picture =&gt; <span class="string">&quot;PICTURE&quot;</span>,
-                BlockType::Ruler =&gt; <span class="string">&quot;RULER&quot;</span>,
-                BlockType::Barcode =&gt; <span class="string">&quot;BARCODE&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;TEXT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Text),
-                <span class="string">&quot;TABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Table),
-                <span class="string">&quot;PICTURE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Picture),
-                <span class="string">&quot;RULER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ruler),
-                <span class="string">&quot;BARCODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Barcode),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Structural unit of text representing a number of words in certain order.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Paragraph {
-    <span class="doccomment">/// Additional information detected for the paragraph.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>property: ::core::option::Option&lt;text_annotation::TextProperty&gt;,
-    <span class="doccomment">/// The bounding box for the paragraph.
-    /// The vertices are in the order of top-left, top-right, bottom-right,
-    /// bottom-left. When a rotation of the bounding box is detected the rotation
-    /// is represented as around the top-left corner as defined when the text is
-    /// read in the &#39;natural&#39; orientation.
-    /// For example:
-    ///    * when the text is horizontal it might look like:
-    ///       0----1
-    ///       |    |
-    ///       3----2
-    ///    * when it&#39;s rotated 180 degrees around the top-left corner it becomes:
-    ///       2----3
-    ///       |    |
-    ///       1----0
-    ///    and the vertex order will still be (0, 1, 2, 3).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>bounding_box: ::core::option::Option&lt;BoundingPoly&gt;,
-    <span class="doccomment">/// List of all words in this paragraph.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>words: ::prost::alloc::vec::Vec&lt;Word&gt;,
-    <span class="doccomment">/// Confidence of the OCR results for the paragraph. Range [0, 1].
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>confidence: f32,
-}
-<span class="doccomment">/// A word representation.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Word {
-    <span class="doccomment">/// Additional information detected for the word.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>property: ::core::option::Option&lt;text_annotation::TextProperty&gt;,
-    <span class="doccomment">/// The bounding box for the word.
-    /// The vertices are in the order of top-left, top-right, bottom-right,
-    /// bottom-left. When a rotation of the bounding box is detected the rotation
-    /// is represented as around the top-left corner as defined when the text is
-    /// read in the &#39;natural&#39; orientation.
-    /// For example:
-    ///    * when the text is horizontal it might look like:
-    ///       0----1
-    ///       |    |
-    ///       3----2
-    ///    * when it&#39;s rotated 180 degrees around the top-left corner it becomes:
-    ///       2----3
-    ///       |    |
-    ///       1----0
-    ///    and the vertex order will still be (0, 1, 2, 3).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>bounding_box: ::core::option::Option&lt;BoundingPoly&gt;,
-    <span class="doccomment">/// List of symbols in the word.
-    /// The order of the symbols follows the natural reading order.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>symbols: ::prost::alloc::vec::Vec&lt;Symbol&gt;,
-    <span class="doccomment">/// Confidence of the OCR results for the word. Range [0, 1].
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>confidence: f32,
-}
-<span class="doccomment">/// A single symbol representation.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Symbol {
-    <span class="doccomment">/// Additional information detected for the symbol.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>property: ::core::option::Option&lt;text_annotation::TextProperty&gt;,
-    <span class="doccomment">/// The bounding box for the symbol.
-    /// The vertices are in the order of top-left, top-right, bottom-right,
-    /// bottom-left. When a rotation of the bounding box is detected the rotation
-    /// is represented as around the top-left corner as defined when the text is
-    /// read in the &#39;natural&#39; orientation.
-    /// For example:
-    ///    * when the text is horizontal it might look like:
-    ///       0----1
-    ///       |    |
-    ///       3----2
-    ///    * when it&#39;s rotated 180 degrees around the top-left corner it becomes:
-    ///       2----3
-    ///       |    |
-    ///       1----0
-    ///    and the vertex order will still be (0, 1, 2, 3).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>bounding_box: ::core::option::Option&lt;BoundingPoly&gt;,
-    <span class="doccomment">/// The actual UTF-8 representation of the symbol.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>text: ::prost::alloc::string::String,
-    <span class="doccomment">/// Confidence of the OCR results for the symbol. Range [0, 1].
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>confidence: f32,
 }
 <span class="doccomment">/// The type of Google Cloud Vision API detection to perform, and the maximum
 /// number of results to return for that type. Multiple `Feature` objects can

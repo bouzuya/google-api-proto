@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/maps/regionlookup/v1alpha/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/maps/regionlookup/v1alpha/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.1 (d5c2e9c34 2023-09-13)" data-channel="1.72.1" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -591,158 +591,7 @@
 <a href="#591" id="591">591</a>
 <a href="#592" id="592">592</a>
 <a href="#593" id="593">593</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Region Search Values.
-///
-/// Desired search values of a single region.
-///
-/// Location must be specified by one of the following: address, latlng or
-/// place_id. If none is specified, an INVALID_ARGUMENT error is returned.
-/// region_code must also be provided when address is specified.
-///
-/// The fields address, latlng and place_id specify a location contained inside
-/// the region to match. For example if address is &quot;1600 Amphitheatre Pkwy,
-/// Mountain View, CA 94043&quot; the API returns the following matched_place_id
-/// results when the following place_types are specified:
-///
-/// place_type:                   matched_place_id results:
-/// postal_code                   Place ID for &quot;94043&quot;
-/// administrative_area_level_1   Place ID for The State of California
-/// administrative_area_level_2   Place ID for Santa Clara County
-/// etc.
-///
-/// More Examples:
-///
-/// If latlng is &quot;latitude: 37.4220656 longitude: -122.0862784&quot; and place_type
-/// is &quot;locality&quot;, the result contains the Place ID (of type &quot;locality&quot;) for
-/// that location (the Place ID of Mountain View, CA, in this case).
-///
-/// If place_id is &quot;ChIJj61dQgK6j4AR4GeTYWZsKWw&quot; (Place ID for Google office in
-/// Mountain view, CA) and place_type is &quot;locality&quot;, the result contains the
-/// Place ID (of type &quot;locality&quot;) for that location (the Place ID of Mountain
-/// View, CA, in this case).
-///
-/// If no match is found, matched_place_id is not set.
-///
-/// Candidates Place IDs are returned when a search finds multiple Place
-/// IDs for the location specified. For example if the API is searching for
-/// region Place IDs of type neighboorhood for a location that is contained
-/// within multiple neighboords. The Place Ids will be returned as candidates in
-/// the candidate_place_ids field.
-///
-/// Next available tag: 10
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>RegionSearchValue {
-    <span class="doccomment">/// Required. The type of the place to match.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;region_search_value::PlaceType&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>place_type: i32,
-    <span class="doccomment">/// The BCP-47 language code, such as &quot;en-US&quot; or &quot;sr-Latn&quot;, corresponding to
-    /// the language in which the place name and address is requested. If none is
-    /// requested, then it defaults to English.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Two-letter ISO-3166 country/region code for the location you&#39;re trying to
-    /// match. region_code is required when address is specified.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>region_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// The location must be specified by one of the following:
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;region_search_value::Location&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
-    </span><span class="kw">pub </span>location: ::core::option::Option&lt;region_search_value::Location&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `RegionSearchValue`.
-</span><span class="kw">pub mod </span>region_search_value {
-    <span class="doccomment">/// Possible place types to match to.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>PlaceType {
-        <span class="doccomment">/// Default value. This value is unused.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Postal code.
-        </span>PostalCode = <span class="number">1</span>,
-        <span class="doccomment">/// Administrative area level 1 (State in the US).
-        </span>AdministrativeAreaLevel1 = <span class="number">2</span>,
-        <span class="doccomment">/// Administrative area level 2 (County in the US).
-        </span>AdministrativeAreaLevel2 = <span class="number">3</span>,
-        <span class="doccomment">/// Locality (City).
-        </span>Locality = <span class="number">4</span>,
-        <span class="doccomment">/// Neighborhood.
-        </span>Neighborhood = <span class="number">5</span>,
-        <span class="doccomment">/// Country.
-        </span>Country = <span class="number">6</span>,
-        <span class="doccomment">/// Sublocality.
-        </span>Sublocality = <span class="number">7</span>,
-        <span class="doccomment">/// Administrative area level 3.
-        </span>AdministrativeAreaLevel3 = <span class="number">8</span>,
-        <span class="doccomment">/// Administrative area level 4.
-        </span>AdministrativeAreaLevel4 = <span class="number">9</span>,
-        <span class="doccomment">/// School district.
-        </span>SchoolDistrict = <span class="number">10</span>,
-    }
-    <span class="kw">impl </span>PlaceType {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                PlaceType::Unspecified =&gt; <span class="string">&quot;PLACE_TYPE_UNSPECIFIED&quot;</span>,
-                PlaceType::PostalCode =&gt; <span class="string">&quot;POSTAL_CODE&quot;</span>,
-                PlaceType::AdministrativeAreaLevel1 =&gt; <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_1&quot;</span>,
-                PlaceType::AdministrativeAreaLevel2 =&gt; <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_2&quot;</span>,
-                PlaceType::Locality =&gt; <span class="string">&quot;LOCALITY&quot;</span>,
-                PlaceType::Neighborhood =&gt; <span class="string">&quot;NEIGHBORHOOD&quot;</span>,
-                PlaceType::Country =&gt; <span class="string">&quot;COUNTRY&quot;</span>,
-                PlaceType::Sublocality =&gt; <span class="string">&quot;SUBLOCALITY&quot;</span>,
-                PlaceType::AdministrativeAreaLevel3 =&gt; <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_3&quot;</span>,
-                PlaceType::AdministrativeAreaLevel4 =&gt; <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_4&quot;</span>,
-                PlaceType::SchoolDistrict =&gt; <span class="string">&quot;SCHOOL_DISTRICT&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;PLACE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;POSTAL_CODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PostalCode),
-                <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel1),
-                <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel2),
-                <span class="string">&quot;LOCALITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Locality),
-                <span class="string">&quot;NEIGHBORHOOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Neighborhood),
-                <span class="string">&quot;COUNTRY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Country),
-                <span class="string">&quot;SUBLOCALITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sublocality),
-                <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel3),
-                <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel4),
-                <span class="string">&quot;SCHOOL_DISTRICT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SchoolDistrict),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-    <span class="doccomment">/// The location must be specified by one of the following:
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Location {
-        <span class="doccomment">/// The unstructured street address that is contained inside a region to
-        /// match. region_code is required when address is specified.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>Address(::prost::alloc::string::String),
-        <span class="doccomment">/// The latitude and longitude that is contained inside a region to match.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>Latlng(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng),
-        <span class="doccomment">/// The Place ID that is contained inside a region to match.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-        </span>PlaceId(::prost::alloc::string::String),
-    }
-}
-<span class="doccomment">/// Region Identifier.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Region Identifier.
 ///
 /// Identifies a region to look up.
 ///
@@ -940,6 +789,157 @@
     <span class="doccomment">/// Matching debug information for when no match is found.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>debug_info: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Region Search Values.
+///
+/// Desired search values of a single region.
+///
+/// Location must be specified by one of the following: address, latlng or
+/// place_id. If none is specified, an INVALID_ARGUMENT error is returned.
+/// region_code must also be provided when address is specified.
+///
+/// The fields address, latlng and place_id specify a location contained inside
+/// the region to match. For example if address is &quot;1600 Amphitheatre Pkwy,
+/// Mountain View, CA 94043&quot; the API returns the following matched_place_id
+/// results when the following place_types are specified:
+///
+/// place_type:                   matched_place_id results:
+/// postal_code                   Place ID for &quot;94043&quot;
+/// administrative_area_level_1   Place ID for The State of California
+/// administrative_area_level_2   Place ID for Santa Clara County
+/// etc.
+///
+/// More Examples:
+///
+/// If latlng is &quot;latitude: 37.4220656 longitude: -122.0862784&quot; and place_type
+/// is &quot;locality&quot;, the result contains the Place ID (of type &quot;locality&quot;) for
+/// that location (the Place ID of Mountain View, CA, in this case).
+///
+/// If place_id is &quot;ChIJj61dQgK6j4AR4GeTYWZsKWw&quot; (Place ID for Google office in
+/// Mountain view, CA) and place_type is &quot;locality&quot;, the result contains the
+/// Place ID (of type &quot;locality&quot;) for that location (the Place ID of Mountain
+/// View, CA, in this case).
+///
+/// If no match is found, matched_place_id is not set.
+///
+/// Candidates Place IDs are returned when a search finds multiple Place
+/// IDs for the location specified. For example if the API is searching for
+/// region Place IDs of type neighboorhood for a location that is contained
+/// within multiple neighboords. The Place Ids will be returned as candidates in
+/// the candidate_place_ids field.
+///
+/// Next available tag: 10
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>RegionSearchValue {
+    <span class="doccomment">/// Required. The type of the place to match.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;region_search_value::PlaceType&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>place_type: i32,
+    <span class="doccomment">/// The BCP-47 language code, such as &quot;en-US&quot; or &quot;sr-Latn&quot;, corresponding to
+    /// the language in which the place name and address is requested. If none is
+    /// requested, then it defaults to English.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Two-letter ISO-3166 country/region code for the location you&#39;re trying to
+    /// match. region_code is required when address is specified.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>region_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// The location must be specified by one of the following:
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;region_search_value::Location&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+    </span><span class="kw">pub </span>location: ::core::option::Option&lt;region_search_value::Location&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `RegionSearchValue`.
+</span><span class="kw">pub mod </span>region_search_value {
+    <span class="doccomment">/// Possible place types to match to.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>PlaceType {
+        <span class="doccomment">/// Default value. This value is unused.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Postal code.
+        </span>PostalCode = <span class="number">1</span>,
+        <span class="doccomment">/// Administrative area level 1 (State in the US).
+        </span>AdministrativeAreaLevel1 = <span class="number">2</span>,
+        <span class="doccomment">/// Administrative area level 2 (County in the US).
+        </span>AdministrativeAreaLevel2 = <span class="number">3</span>,
+        <span class="doccomment">/// Locality (City).
+        </span>Locality = <span class="number">4</span>,
+        <span class="doccomment">/// Neighborhood.
+        </span>Neighborhood = <span class="number">5</span>,
+        <span class="doccomment">/// Country.
+        </span>Country = <span class="number">6</span>,
+        <span class="doccomment">/// Sublocality.
+        </span>Sublocality = <span class="number">7</span>,
+        <span class="doccomment">/// Administrative area level 3.
+        </span>AdministrativeAreaLevel3 = <span class="number">8</span>,
+        <span class="doccomment">/// Administrative area level 4.
+        </span>AdministrativeAreaLevel4 = <span class="number">9</span>,
+        <span class="doccomment">/// School district.
+        </span>SchoolDistrict = <span class="number">10</span>,
+    }
+    <span class="kw">impl </span>PlaceType {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                PlaceType::Unspecified =&gt; <span class="string">&quot;PLACE_TYPE_UNSPECIFIED&quot;</span>,
+                PlaceType::PostalCode =&gt; <span class="string">&quot;POSTAL_CODE&quot;</span>,
+                PlaceType::AdministrativeAreaLevel1 =&gt; <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_1&quot;</span>,
+                PlaceType::AdministrativeAreaLevel2 =&gt; <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_2&quot;</span>,
+                PlaceType::Locality =&gt; <span class="string">&quot;LOCALITY&quot;</span>,
+                PlaceType::Neighborhood =&gt; <span class="string">&quot;NEIGHBORHOOD&quot;</span>,
+                PlaceType::Country =&gt; <span class="string">&quot;COUNTRY&quot;</span>,
+                PlaceType::Sublocality =&gt; <span class="string">&quot;SUBLOCALITY&quot;</span>,
+                PlaceType::AdministrativeAreaLevel3 =&gt; <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_3&quot;</span>,
+                PlaceType::AdministrativeAreaLevel4 =&gt; <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_4&quot;</span>,
+                PlaceType::SchoolDistrict =&gt; <span class="string">&quot;SCHOOL_DISTRICT&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;PLACE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;POSTAL_CODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PostalCode),
+                <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel1),
+                <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel2),
+                <span class="string">&quot;LOCALITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Locality),
+                <span class="string">&quot;NEIGHBORHOOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Neighborhood),
+                <span class="string">&quot;COUNTRY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Country),
+                <span class="string">&quot;SUBLOCALITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sublocality),
+                <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel3),
+                <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel4),
+                <span class="string">&quot;SCHOOL_DISTRICT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SchoolDistrict),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// The location must be specified by one of the following:
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Location {
+        <span class="doccomment">/// The unstructured street address that is contained inside a region to
+        /// match. region_code is required when address is specified.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>Address(::prost::alloc::string::String),
+        <span class="doccomment">/// The latitude and longitude that is contained inside a region to match.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>Latlng(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng),
+        <span class="doccomment">/// The Place ID that is contained inside a region to match.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span>PlaceId(::prost::alloc::string::String),
+    }
 }
 <span class="doccomment">/// Lookup Region Request.
 ///

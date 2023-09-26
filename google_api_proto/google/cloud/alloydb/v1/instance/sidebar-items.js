@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["AvailabilityType","InstanceType","State"],"struct":["MachineConfig","Node","QueryInsightsInstanceConfig","ReadPoolConfig"]};
+window.SIDEBAR_ITEMS = {"enum":["AvailabilityType","InstanceType","State"],"struct":["ClientConnectionConfig","MachineConfig","Node","QueryInsightsInstanceConfig","ReadPoolConfig"]};

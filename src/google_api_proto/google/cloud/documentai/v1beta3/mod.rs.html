@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/documentai/v1beta3/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/documentai/v1beta3/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.1 (d5c2e9c34 2023-09-13)" data-channel="1.72.1" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -5079,7 +5079,455 @@
 <a href="#5079" id="5079">5079</a>
 <a href="#5080" id="5080">5080</a>
 <a href="#5081" id="5081">5081</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Encodes the detailed information of a barcode.
+<a href="#5082" id="5082">5082</a>
+<a href="#5083" id="5083">5083</a>
+<a href="#5084" id="5084">5084</a>
+<a href="#5085" id="5085">5085</a>
+<a href="#5086" id="5086">5086</a>
+<a href="#5087" id="5087">5087</a>
+<a href="#5088" id="5088">5088</a>
+<a href="#5089" id="5089">5089</a>
+<a href="#5090" id="5090">5090</a>
+<a href="#5091" id="5091">5091</a>
+<a href="#5092" id="5092">5092</a>
+<a href="#5093" id="5093">5093</a>
+<a href="#5094" id="5094">5094</a>
+<a href="#5095" id="5095">5095</a>
+<a href="#5096" id="5096">5096</a>
+<a href="#5097" id="5097">5097</a>
+<a href="#5098" id="5098">5098</a>
+<a href="#5099" id="5099">5099</a>
+<a href="#5100" id="5100">5100</a>
+<a href="#5101" id="5101">5101</a>
+<a href="#5102" id="5102">5102</a>
+<a href="#5103" id="5103">5103</a>
+<a href="#5104" id="5104">5104</a>
+<a href="#5105" id="5105">5105</a>
+<a href="#5106" id="5106">5106</a>
+<a href="#5107" id="5107">5107</a>
+<a href="#5108" id="5108">5108</a>
+<a href="#5109" id="5109">5109</a>
+<a href="#5110" id="5110">5110</a>
+<a href="#5111" id="5111">5111</a>
+<a href="#5112" id="5112">5112</a>
+<a href="#5113" id="5113">5113</a>
+<a href="#5114" id="5114">5114</a>
+<a href="#5115" id="5115">5115</a>
+<a href="#5116" id="5116">5116</a>
+<a href="#5117" id="5117">5117</a>
+<a href="#5118" id="5118">5118</a>
+<a href="#5119" id="5119">5119</a>
+<a href="#5120" id="5120">5120</a>
+<a href="#5121" id="5121">5121</a>
+<a href="#5122" id="5122">5122</a>
+<a href="#5123" id="5123">5123</a>
+<a href="#5124" id="5124">5124</a>
+<a href="#5125" id="5125">5125</a>
+<a href="#5126" id="5126">5126</a>
+<a href="#5127" id="5127">5127</a>
+<a href="#5128" id="5128">5128</a>
+<a href="#5129" id="5129">5129</a>
+<a href="#5130" id="5130">5130</a>
+<a href="#5131" id="5131">5131</a>
+<a href="#5132" id="5132">5132</a>
+<a href="#5133" id="5133">5133</a>
+<a href="#5134" id="5134">5134</a>
+<a href="#5135" id="5135">5135</a>
+<a href="#5136" id="5136">5136</a>
+<a href="#5137" id="5137">5137</a>
+<a href="#5138" id="5138">5138</a>
+<a href="#5139" id="5139">5139</a>
+<a href="#5140" id="5140">5140</a>
+<a href="#5141" id="5141">5141</a>
+<a href="#5142" id="5142">5142</a>
+<a href="#5143" id="5143">5143</a>
+<a href="#5144" id="5144">5144</a>
+<a href="#5145" id="5145">5145</a>
+<a href="#5146" id="5146">5146</a>
+<a href="#5147" id="5147">5147</a>
+<a href="#5148" id="5148">5148</a>
+<a href="#5149" id="5149">5149</a>
+<a href="#5150" id="5150">5150</a>
+<a href="#5151" id="5151">5151</a>
+<a href="#5152" id="5152">5152</a>
+<a href="#5153" id="5153">5153</a>
+<a href="#5154" id="5154">5154</a>
+<a href="#5155" id="5155">5155</a>
+<a href="#5156" id="5156">5156</a>
+<a href="#5157" id="5157">5157</a>
+<a href="#5158" id="5158">5158</a>
+<a href="#5159" id="5159">5159</a>
+<a href="#5160" id="5160">5160</a>
+<a href="#5161" id="5161">5161</a>
+<a href="#5162" id="5162">5162</a>
+<a href="#5163" id="5163">5163</a>
+<a href="#5164" id="5164">5164</a>
+<a href="#5165" id="5165">5165</a>
+<a href="#5166" id="5166">5166</a>
+<a href="#5167" id="5167">5167</a>
+<a href="#5168" id="5168">5168</a>
+<a href="#5169" id="5169">5169</a>
+<a href="#5170" id="5170">5170</a>
+<a href="#5171" id="5171">5171</a>
+<a href="#5172" id="5172">5172</a>
+<a href="#5173" id="5173">5173</a>
+<a href="#5174" id="5174">5174</a>
+<a href="#5175" id="5175">5175</a>
+<a href="#5176" id="5176">5176</a>
+<a href="#5177" id="5177">5177</a>
+<a href="#5178" id="5178">5178</a>
+<a href="#5179" id="5179">5179</a>
+<a href="#5180" id="5180">5180</a>
+<a href="#5181" id="5181">5181</a>
+<a href="#5182" id="5182">5182</a>
+<a href="#5183" id="5183">5183</a>
+<a href="#5184" id="5184">5184</a>
+<a href="#5185" id="5185">5185</a>
+<a href="#5186" id="5186">5186</a>
+<a href="#5187" id="5187">5187</a>
+<a href="#5188" id="5188">5188</a>
+<a href="#5189" id="5189">5189</a>
+<a href="#5190" id="5190">5190</a>
+<a href="#5191" id="5191">5191</a>
+<a href="#5192" id="5192">5192</a>
+<a href="#5193" id="5193">5193</a>
+<a href="#5194" id="5194">5194</a>
+<a href="#5195" id="5195">5195</a>
+<a href="#5196" id="5196">5196</a>
+<a href="#5197" id="5197">5197</a>
+<a href="#5198" id="5198">5198</a>
+<a href="#5199" id="5199">5199</a>
+<a href="#5200" id="5200">5200</a>
+<a href="#5201" id="5201">5201</a>
+<a href="#5202" id="5202">5202</a>
+<a href="#5203" id="5203">5203</a>
+<a href="#5204" id="5204">5204</a>
+<a href="#5205" id="5205">5205</a>
+<a href="#5206" id="5206">5206</a>
+<a href="#5207" id="5207">5207</a>
+<a href="#5208" id="5208">5208</a>
+<a href="#5209" id="5209">5209</a>
+<a href="#5210" id="5210">5210</a>
+<a href="#5211" id="5211">5211</a>
+<a href="#5212" id="5212">5212</a>
+<a href="#5213" id="5213">5213</a>
+<a href="#5214" id="5214">5214</a>
+<a href="#5215" id="5215">5215</a>
+<a href="#5216" id="5216">5216</a>
+<a href="#5217" id="5217">5217</a>
+<a href="#5218" id="5218">5218</a>
+<a href="#5219" id="5219">5219</a>
+<a href="#5220" id="5220">5220</a>
+<a href="#5221" id="5221">5221</a>
+<a href="#5222" id="5222">5222</a>
+<a href="#5223" id="5223">5223</a>
+<a href="#5224" id="5224">5224</a>
+<a href="#5225" id="5225">5225</a>
+<a href="#5226" id="5226">5226</a>
+<a href="#5227" id="5227">5227</a>
+<a href="#5228" id="5228">5228</a>
+<a href="#5229" id="5229">5229</a>
+<a href="#5230" id="5230">5230</a>
+<a href="#5231" id="5231">5231</a>
+<a href="#5232" id="5232">5232</a>
+<a href="#5233" id="5233">5233</a>
+<a href="#5234" id="5234">5234</a>
+<a href="#5235" id="5235">5235</a>
+<a href="#5236" id="5236">5236</a>
+<a href="#5237" id="5237">5237</a>
+<a href="#5238" id="5238">5238</a>
+<a href="#5239" id="5239">5239</a>
+<a href="#5240" id="5240">5240</a>
+<a href="#5241" id="5241">5241</a>
+<a href="#5242" id="5242">5242</a>
+<a href="#5243" id="5243">5243</a>
+<a href="#5244" id="5244">5244</a>
+<a href="#5245" id="5245">5245</a>
+<a href="#5246" id="5246">5246</a>
+<a href="#5247" id="5247">5247</a>
+<a href="#5248" id="5248">5248</a>
+<a href="#5249" id="5249">5249</a>
+<a href="#5250" id="5250">5250</a>
+<a href="#5251" id="5251">5251</a>
+<a href="#5252" id="5252">5252</a>
+<a href="#5253" id="5253">5253</a>
+<a href="#5254" id="5254">5254</a>
+<a href="#5255" id="5255">5255</a>
+<a href="#5256" id="5256">5256</a>
+<a href="#5257" id="5257">5257</a>
+<a href="#5258" id="5258">5258</a>
+<a href="#5259" id="5259">5259</a>
+<a href="#5260" id="5260">5260</a>
+<a href="#5261" id="5261">5261</a>
+<a href="#5262" id="5262">5262</a>
+<a href="#5263" id="5263">5263</a>
+<a href="#5264" id="5264">5264</a>
+<a href="#5265" id="5265">5265</a>
+<a href="#5266" id="5266">5266</a>
+<a href="#5267" id="5267">5267</a>
+<a href="#5268" id="5268">5268</a>
+<a href="#5269" id="5269">5269</a>
+<a href="#5270" id="5270">5270</a>
+<a href="#5271" id="5271">5271</a>
+<a href="#5272" id="5272">5272</a>
+<a href="#5273" id="5273">5273</a>
+<a href="#5274" id="5274">5274</a>
+<a href="#5275" id="5275">5275</a>
+<a href="#5276" id="5276">5276</a>
+<a href="#5277" id="5277">5277</a>
+<a href="#5278" id="5278">5278</a>
+<a href="#5279" id="5279">5279</a>
+<a href="#5280" id="5280">5280</a>
+<a href="#5281" id="5281">5281</a>
+<a href="#5282" id="5282">5282</a>
+<a href="#5283" id="5283">5283</a>
+<a href="#5284" id="5284">5284</a>
+<a href="#5285" id="5285">5285</a>
+<a href="#5286" id="5286">5286</a>
+<a href="#5287" id="5287">5287</a>
+<a href="#5288" id="5288">5288</a>
+<a href="#5289" id="5289">5289</a>
+<a href="#5290" id="5290">5290</a>
+<a href="#5291" id="5291">5291</a>
+<a href="#5292" id="5292">5292</a>
+<a href="#5293" id="5293">5293</a>
+<a href="#5294" id="5294">5294</a>
+<a href="#5295" id="5295">5295</a>
+<a href="#5296" id="5296">5296</a>
+<a href="#5297" id="5297">5297</a>
+<a href="#5298" id="5298">5298</a>
+<a href="#5299" id="5299">5299</a>
+<a href="#5300" id="5300">5300</a>
+<a href="#5301" id="5301">5301</a>
+<a href="#5302" id="5302">5302</a>
+<a href="#5303" id="5303">5303</a>
+<a href="#5304" id="5304">5304</a>
+<a href="#5305" id="5305">5305</a>
+<a href="#5306" id="5306">5306</a>
+<a href="#5307" id="5307">5307</a>
+<a href="#5308" id="5308">5308</a>
+<a href="#5309" id="5309">5309</a>
+<a href="#5310" id="5310">5310</a>
+<a href="#5311" id="5311">5311</a>
+<a href="#5312" id="5312">5312</a>
+<a href="#5313" id="5313">5313</a>
+<a href="#5314" id="5314">5314</a>
+<a href="#5315" id="5315">5315</a>
+<a href="#5316" id="5316">5316</a>
+<a href="#5317" id="5317">5317</a>
+<a href="#5318" id="5318">5318</a>
+<a href="#5319" id="5319">5319</a>
+<a href="#5320" id="5320">5320</a>
+<a href="#5321" id="5321">5321</a>
+<a href="#5322" id="5322">5322</a>
+<a href="#5323" id="5323">5323</a>
+<a href="#5324" id="5324">5324</a>
+<a href="#5325" id="5325">5325</a>
+<a href="#5326" id="5326">5326</a>
+<a href="#5327" id="5327">5327</a>
+<a href="#5328" id="5328">5328</a>
+<a href="#5329" id="5329">5329</a>
+<a href="#5330" id="5330">5330</a>
+<a href="#5331" id="5331">5331</a>
+<a href="#5332" id="5332">5332</a>
+<a href="#5333" id="5333">5333</a>
+<a href="#5334" id="5334">5334</a>
+<a href="#5335" id="5335">5335</a>
+<a href="#5336" id="5336">5336</a>
+<a href="#5337" id="5337">5337</a>
+<a href="#5338" id="5338">5338</a>
+<a href="#5339" id="5339">5339</a>
+<a href="#5340" id="5340">5340</a>
+<a href="#5341" id="5341">5341</a>
+<a href="#5342" id="5342">5342</a>
+<a href="#5343" id="5343">5343</a>
+<a href="#5344" id="5344">5344</a>
+<a href="#5345" id="5345">5345</a>
+<a href="#5346" id="5346">5346</a>
+<a href="#5347" id="5347">5347</a>
+<a href="#5348" id="5348">5348</a>
+<a href="#5349" id="5349">5349</a>
+<a href="#5350" id="5350">5350</a>
+<a href="#5351" id="5351">5351</a>
+<a href="#5352" id="5352">5352</a>
+<a href="#5353" id="5353">5353</a>
+<a href="#5354" id="5354">5354</a>
+<a href="#5355" id="5355">5355</a>
+<a href="#5356" id="5356">5356</a>
+<a href="#5357" id="5357">5357</a>
+<a href="#5358" id="5358">5358</a>
+<a href="#5359" id="5359">5359</a>
+<a href="#5360" id="5360">5360</a>
+<a href="#5361" id="5361">5361</a>
+<a href="#5362" id="5362">5362</a>
+<a href="#5363" id="5363">5363</a>
+<a href="#5364" id="5364">5364</a>
+<a href="#5365" id="5365">5365</a>
+<a href="#5366" id="5366">5366</a>
+<a href="#5367" id="5367">5367</a>
+<a href="#5368" id="5368">5368</a>
+<a href="#5369" id="5369">5369</a>
+<a href="#5370" id="5370">5370</a>
+<a href="#5371" id="5371">5371</a>
+<a href="#5372" id="5372">5372</a>
+<a href="#5373" id="5373">5373</a>
+<a href="#5374" id="5374">5374</a>
+<a href="#5375" id="5375">5375</a>
+<a href="#5376" id="5376">5376</a>
+<a href="#5377" id="5377">5377</a>
+<a href="#5378" id="5378">5378</a>
+<a href="#5379" id="5379">5379</a>
+<a href="#5380" id="5380">5380</a>
+<a href="#5381" id="5381">5381</a>
+<a href="#5382" id="5382">5382</a>
+<a href="#5383" id="5383">5383</a>
+<a href="#5384" id="5384">5384</a>
+<a href="#5385" id="5385">5385</a>
+<a href="#5386" id="5386">5386</a>
+<a href="#5387" id="5387">5387</a>
+<a href="#5388" id="5388">5388</a>
+<a href="#5389" id="5389">5389</a>
+<a href="#5390" id="5390">5390</a>
+<a href="#5391" id="5391">5391</a>
+<a href="#5392" id="5392">5392</a>
+<a href="#5393" id="5393">5393</a>
+<a href="#5394" id="5394">5394</a>
+<a href="#5395" id="5395">5395</a>
+<a href="#5396" id="5396">5396</a>
+<a href="#5397" id="5397">5397</a>
+<a href="#5398" id="5398">5398</a>
+<a href="#5399" id="5399">5399</a>
+<a href="#5400" id="5400">5400</a>
+<a href="#5401" id="5401">5401</a>
+<a href="#5402" id="5402">5402</a>
+<a href="#5403" id="5403">5403</a>
+<a href="#5404" id="5404">5404</a>
+<a href="#5405" id="5405">5405</a>
+<a href="#5406" id="5406">5406</a>
+<a href="#5407" id="5407">5407</a>
+<a href="#5408" id="5408">5408</a>
+<a href="#5409" id="5409">5409</a>
+<a href="#5410" id="5410">5410</a>
+<a href="#5411" id="5411">5411</a>
+<a href="#5412" id="5412">5412</a>
+<a href="#5413" id="5413">5413</a>
+<a href="#5414" id="5414">5414</a>
+<a href="#5415" id="5415">5415</a>
+<a href="#5416" id="5416">5416</a>
+<a href="#5417" id="5417">5417</a>
+<a href="#5418" id="5418">5418</a>
+<a href="#5419" id="5419">5419</a>
+<a href="#5420" id="5420">5420</a>
+<a href="#5421" id="5421">5421</a>
+<a href="#5422" id="5422">5422</a>
+<a href="#5423" id="5423">5423</a>
+<a href="#5424" id="5424">5424</a>
+<a href="#5425" id="5425">5425</a>
+<a href="#5426" id="5426">5426</a>
+<a href="#5427" id="5427">5427</a>
+<a href="#5428" id="5428">5428</a>
+<a href="#5429" id="5429">5429</a>
+<a href="#5430" id="5430">5430</a>
+<a href="#5431" id="5431">5431</a>
+<a href="#5432" id="5432">5432</a>
+<a href="#5433" id="5433">5433</a>
+<a href="#5434" id="5434">5434</a>
+<a href="#5435" id="5435">5435</a>
+<a href="#5436" id="5436">5436</a>
+<a href="#5437" id="5437">5437</a>
+<a href="#5438" id="5438">5438</a>
+<a href="#5439" id="5439">5439</a>
+<a href="#5440" id="5440">5440</a>
+<a href="#5441" id="5441">5441</a>
+<a href="#5442" id="5442">5442</a>
+<a href="#5443" id="5443">5443</a>
+<a href="#5444" id="5444">5444</a>
+<a href="#5445" id="5445">5445</a>
+<a href="#5446" id="5446">5446</a>
+<a href="#5447" id="5447">5447</a>
+<a href="#5448" id="5448">5448</a>
+<a href="#5449" id="5449">5449</a>
+<a href="#5450" id="5450">5450</a>
+<a href="#5451" id="5451">5451</a>
+</pre></div><pre class="rust"><code><span class="doccomment">/// The common metadata for long running operations.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CommonOperationMetadata {
+    <span class="doccomment">/// The state of the operation.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;common_operation_metadata::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// A message providing more details about the current state of processing.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>state_message: ::prost::alloc::string::String,
+    <span class="doccomment">/// A related resource to this operation.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
+    <span class="doccomment">/// The creation time of the operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The last update time of the operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `CommonOperationMetadata`.
+</span><span class="kw">pub mod </span>common_operation_metadata {
+    <span class="doccomment">/// State of the longrunning operation.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Unspecified state.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Operation is still running.
+        </span>Running = <span class="number">1</span>,
+        <span class="doccomment">/// Operation is being cancelled.
+        </span>Cancelling = <span class="number">2</span>,
+        <span class="doccomment">/// Operation succeeded.
+        </span>Succeeded = <span class="number">3</span>,
+        <span class="doccomment">/// Operation failed.
+        </span>Failed = <span class="number">4</span>,
+        <span class="doccomment">/// Operation is cancelled.
+        </span>Cancelled = <span class="number">5</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
+                State::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
+                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
+                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
+                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Encodes the detailed information of a barcode.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Barcode {
@@ -6405,7 +6853,7 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>RevisionCase {
-        <span class="doccomment">/// Unspecified case, fallback to read the LATEST_HUMAN_REVIEW.
+        <span class="doccomment">/// Unspecified case, fall back to read the `LATEST_HUMAN_REVIEW`.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// The latest revision made by a human.
         </span>LatestHumanReview = <span class="number">1</span>,
@@ -6453,6 +6901,516 @@
         /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
         </span>LatestProcessorVersion(::prost::alloc::string::String),
+    }
+}
+<span class="doccomment">/// Metadata for document summarization.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SummaryOptions {
+    <span class="doccomment">/// How long the summary should be.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;summary_options::Length&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>length: i32,
+    <span class="doccomment">/// The format the summary should be in.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;summary_options::Format&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>format: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `SummaryOptions`.
+</span><span class="kw">pub mod </span>summary_options {
+    <span class="doccomment">/// The Length enum.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Length {
+        <span class="doccomment">/// Default.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// A brief summary of one or two sentences.
+        </span>Brief = <span class="number">1</span>,
+        <span class="doccomment">/// A paragraph-length summary.
+        </span>Moderate = <span class="number">2</span>,
+        <span class="doccomment">/// The longest option available.
+        </span>Comprehensive = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>Length {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Length::Unspecified =&gt; <span class="string">&quot;LENGTH_UNSPECIFIED&quot;</span>,
+                Length::Brief =&gt; <span class="string">&quot;BRIEF&quot;</span>,
+                Length::Moderate =&gt; <span class="string">&quot;MODERATE&quot;</span>,
+                Length::Comprehensive =&gt; <span class="string">&quot;COMPREHENSIVE&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;LENGTH_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;BRIEF&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Brief),
+                <span class="string">&quot;MODERATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Moderate),
+                <span class="string">&quot;COMPREHENSIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Comprehensive),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+    <span class="doccomment">/// The Format enum.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Format {
+        <span class="doccomment">/// Default.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Format the output in paragraphs.
+        </span>Paragraph = <span class="number">1</span>,
+        <span class="doccomment">/// Format the output in bullets.
+        </span>Bullets = <span class="number">2</span>,
+    }
+    <span class="kw">impl </span>Format {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Format::Unspecified =&gt; <span class="string">&quot;FORMAT_UNSPECIFIED&quot;</span>,
+                Format::Paragraph =&gt; <span class="string">&quot;PARAGRAPH&quot;</span>,
+                Format::Bullets =&gt; <span class="string">&quot;BULLETS&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;FORMAT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;PARAGRAPH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paragraph),
+                <span class="string">&quot;BULLETS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bullets),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Metadata for how this field value is extracted.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FieldExtractionMetadata {
+    <span class="doccomment">/// Summary options config.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>summary_options: ::core::option::Option&lt;SummaryOptions&gt;,
+}
+<span class="doccomment">/// Metadata about a property.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PropertyMetadata {
+    <span class="doccomment">/// Whether the property should be considered as &quot;inactive&quot;.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>inactive: bool,
+    <span class="doccomment">/// Field extraction metadata on the property.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>field_extraction_metadata: ::core::option::Option&lt;FieldExtractionMetadata&gt;,
+}
+<span class="doccomment">/// Metadata about an entity type.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EntityTypeMetadata {
+    <span class="doccomment">/// Whether the entity type should be considered inactive.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>inactive: bool,
+}
+<span class="doccomment">/// The schema defines the output of the processed document by a processor.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DocumentSchema {
+    <span class="doccomment">/// Display name to show to users.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Description of the schema.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Entity types of the schema.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>entity_types: ::prost::alloc::vec::Vec&lt;document_schema::EntityType&gt;,
+    <span class="doccomment">/// Metadata of the schema.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;document_schema::Metadata&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `DocumentSchema`.
+</span><span class="kw">pub mod </span>document_schema {
+    <span class="doccomment">/// EntityType is the wrapper of a label of the corresponding model with
+    /// detailed attributes and limitations for entity-based processors. Multiple
+    /// types can also compose a dependency tree to represent nested types.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>EntityType {
+        <span class="doccomment">/// User defined name for the type.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+        </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+        <span class="doccomment">/// Name of the type. It must be unique within the schema file and
+        /// cannot be a &quot;Common Type&quot;.  The following naming conventions are used:
+        ///
+        /// - Use `snake_casing`.
+        /// - Name matching is case-sensitive.
+        /// - Maximum 64 characters.
+        /// - Must start with a letter.
+        /// - Allowed characters: ASCII letters `\[a-z0-9_-\]`.  (For backward
+        ///    compatibility internal infrastructure and tooling can handle any ascii
+        ///    character.)
+        /// - The `/` is sometimes used to denote a property of a type.  For example
+        ///    `line_item/amount`.  This convention is deprecated, but will still be
+        ///    honored for backward compatibility.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+        <span class="doccomment">/// The entity type that this type is derived from.  For now, one and only
+        /// one should be set.
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>base_types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+        <span class="doccomment">/// Description the nested structure, or composition of an entity.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="kw">pub </span>properties: ::prost::alloc::vec::Vec&lt;entity_type::Property&gt;,
+        <span class="doccomment">/// Metadata for the entity type.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="kw">pub </span>entity_type_metadata: ::core::option::Option&lt;<span class="kw">super</span>::EntityTypeMetadata&gt;,
+        <span class="attr">#[prost(oneof = <span class="string">&quot;entity_type::ValueSource&quot;</span>, tags = <span class="string">&quot;14&quot;</span>)]
+        </span><span class="kw">pub </span>value_source: ::core::option::Option&lt;entity_type::ValueSource&gt;,
+    }
+    <span class="doccomment">/// Nested message and enum types in `EntityType`.
+    </span><span class="kw">pub mod </span>entity_type {
+        <span class="doccomment">/// Defines the a list of enum values.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>EnumValues {
+            <span class="doccomment">/// The individual values that this enum values type can include.
+            </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+        }
+        <span class="doccomment">/// Defines properties that can be part of the entity type.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>Property {
+            <span class="doccomment">/// The name of the property.  Follows the same guidelines as the
+            /// EntityType name.
+            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+            <span class="doccomment">/// A reference to the value type of the property.  This type is subject
+            /// to the same conventions as the `Entity.base_types` field.
+            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="kw">pub </span>value_type: ::prost::alloc::string::String,
+            <span class="doccomment">/// Occurrence type limits the number of instances an entity type appears
+            /// in the document.
+            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;property::OccurrenceType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="kw">pub </span>occurrence_type: i32,
+            <span class="doccomment">/// Any additional metadata about the property can be added here.
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+            </span><span class="kw">pub </span>property_metadata: ::core::option::Option&lt;
+                <span class="kw">super</span>::<span class="kw">super</span>::PropertyMetadata,
+            &gt;,
+        }
+        <span class="doccomment">/// Nested message and enum types in `Property`.
+        </span><span class="kw">pub mod </span>property {
+            <span class="doccomment">/// Types of occurrences of the entity type in the document.  This
+            /// represents the number of instances of instances of an entity, not
+            /// number of mentions of an entity.  For example, a bank statement may
+            /// only have one `account_number`, but this account number may be
+            /// mentioned in several places on the document.  In this case the
+            /// &#39;account_number&#39; would be considered a `REQUIRED_ONCE` entity type. If,
+            /// on the other hand, we expect a bank statement to contain the status of
+            /// multiple different accounts for the customers, the occurrence type will
+            /// be set to `REQUIRED_MULTIPLE`.
+            </span><span class="attr">#[derive(
+                Clone,
+                Copy,
+                Debug,
+                PartialEq,
+                Eq,
+                Hash,
+                PartialOrd,
+                Ord,
+                ::prost::Enumeration
+            )]
+            #[repr(i32)]
+            </span><span class="kw">pub enum </span>OccurrenceType {
+                <span class="doccomment">/// Unspecified occurrence type.
+                </span>Unspecified = <span class="number">0</span>,
+                <span class="doccomment">/// There will be zero or one instance of this entity type.  The same
+                /// entity instance may be mentioned multiple times.
+                </span>OptionalOnce = <span class="number">1</span>,
+                <span class="doccomment">/// The entity type will appear zero or multiple times.
+                </span>OptionalMultiple = <span class="number">2</span>,
+                <span class="doccomment">/// The entity type will only appear exactly once.  The same
+                /// entity instance may be mentioned multiple times.
+                </span>RequiredOnce = <span class="number">3</span>,
+                <span class="doccomment">/// The entity type will appear once or more times.
+                </span>RequiredMultiple = <span class="number">4</span>,
+            }
+            <span class="kw">impl </span>OccurrenceType {
+                <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+                ///
+                /// The values are not transformed in any way and thus are considered stable
+                /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+                </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                    <span class="kw">match </span><span class="self">self </span>{
+                        OccurrenceType::Unspecified =&gt; <span class="string">&quot;OCCURRENCE_TYPE_UNSPECIFIED&quot;</span>,
+                        OccurrenceType::OptionalOnce =&gt; <span class="string">&quot;OPTIONAL_ONCE&quot;</span>,
+                        OccurrenceType::OptionalMultiple =&gt; <span class="string">&quot;OPTIONAL_MULTIPLE&quot;</span>,
+                        OccurrenceType::RequiredOnce =&gt; <span class="string">&quot;REQUIRED_ONCE&quot;</span>,
+                        OccurrenceType::RequiredMultiple =&gt; <span class="string">&quot;REQUIRED_MULTIPLE&quot;</span>,
+                    }
+                }
+                <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+                </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+                    <span class="kw">match </span>value {
+                        <span class="string">&quot;OCCURRENCE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                        <span class="string">&quot;OPTIONAL_ONCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OptionalOnce),
+                        <span class="string">&quot;OPTIONAL_MULTIPLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OptionalMultiple),
+                        <span class="string">&quot;REQUIRED_ONCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RequiredOnce),
+                        <span class="string">&quot;REQUIRED_MULTIPLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RequiredMultiple),
+                        <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+                    }
+                }
+            }
+        }
+        <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        </span><span class="kw">pub enum </span>ValueSource {
+            <span class="doccomment">/// If specified, lists all the possible values for this entity.  This
+            /// should not be more than a handful of values.  If the number of values
+            /// is &gt;10 or could change frequently use the `EntityType.value_ontology`
+            /// field and specify a list of all possible values in a value ontology
+            /// file.
+            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;14&quot;</span>)]
+            </span>EnumValues(EnumValues),
+        }
+    }
+    <span class="doccomment">/// Metadata for global schema behavior.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Metadata {
+        <span class="doccomment">/// If true, a `document` entity type can be applied to subdocument
+        /// (splitting). Otherwise, it can only be applied to the entire document
+        /// (classification).
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>document_splitter: bool,
+        <span class="doccomment">/// If true, on a given page, there can be multiple `document` annotations
+        /// covering it.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>document_allow_multiple_labels: bool,
+        <span class="doccomment">/// If set, all the nested entities must be prefixed with the parents.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="kw">pub </span>prefixed_naming_on_properties: bool,
+        <span class="doccomment">/// If set, we will skip the naming format validation in the schema. So the
+        /// string values in `DocumentSchema.EntityType.name` and
+        /// `DocumentSchema.EntityType.Property.name` will not be checked.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="kw">pub </span>skip_naming_validation: bool,
+    }
+}
+<span class="doccomment">/// Payload message of raw document content (bytes).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>RawDocument {
+    <span class="doccomment">/// Inline document content.
+    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>content: ::prost::bytes::Bytes,
+    <span class="doccomment">/// An IANA MIME type (RFC6838) indicating the nature and format of the
+    /// \[content][google.cloud.documentai.v1beta3.RawDocument.content\].
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
+    <span class="doccomment">/// The display name of the document, it supports all Unicode characters except
+    /// the following:
+    /// `*`, `?`, `[`, `]`, `%`, `{`, `}`,`&#39;`, `\&quot;`, `,`
+    /// `~`, `=` and `:` are reserved.
+    /// If not specified, a default ID is generated.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Specifies a document stored on Cloud Storage.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GcsDocument {
+    <span class="doccomment">/// The Cloud Storage object uri.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// An IANA MIME type (RFC6838) of the content.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Specifies a set of documents on Cloud Storage.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GcsDocuments {
+    <span class="doccomment">/// The list of documents.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>documents: ::prost::alloc::vec::Vec&lt;GcsDocument&gt;,
+}
+<span class="doccomment">/// Specifies all documents on Cloud Storage with a common prefix.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GcsPrefix {
+    <span class="doccomment">/// The URI prefix.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>gcs_uri_prefix: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// The common config to specify a set of documents used as input.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BatchDocumentsInputConfig {
+    <span class="doccomment">/// The source.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;batch_documents_input_config::Source&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="kw">pub </span>source: ::core::option::Option&lt;batch_documents_input_config::Source&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `BatchDocumentsInputConfig`.
+</span><span class="kw">pub mod </span>batch_documents_input_config {
+    <span class="doccomment">/// The source.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Source {
+        <span class="doccomment">/// The set of documents that match the specified Cloud Storage `gcs_prefix`.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>GcsPrefix(<span class="kw">super</span>::GcsPrefix),
+        <span class="doccomment">/// The set of documents individually specified on Cloud Storage.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>GcsDocuments(<span class="kw">super</span>::GcsDocuments),
+    }
+}
+<span class="doccomment">/// Config that controls the output of documents. All documents will be written
+/// as a JSON file.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DocumentOutputConfig {
+    <span class="doccomment">/// The destination of the results.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;document_output_config::Destination&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>destination: ::core::option::Option&lt;document_output_config::Destination&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `DocumentOutputConfig`.
+</span><span class="kw">pub mod </span>document_output_config {
+    <span class="doccomment">/// The configuration used when outputting documents.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>GcsOutputConfig {
+        <span class="doccomment">/// The Cloud Storage uri (a directory) of the output.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
+        <span class="doccomment">/// Specifies which fields to include in the output documents.
+        /// Only supports top level document and pages field so it must be in the
+        /// form of `{document_field_name}` or `pages.{page_field_name}`.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>field_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
+        <span class="doccomment">/// Specifies the sharding config for the output document.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>sharding_config: ::core::option::Option&lt;gcs_output_config::ShardingConfig&gt;,
+    }
+    <span class="doccomment">/// Nested message and enum types in `GcsOutputConfig`.
+    </span><span class="kw">pub mod </span>gcs_output_config {
+        <span class="doccomment">/// The sharding config for the output document.
+        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        </span><span class="kw">pub struct </span>ShardingConfig {
+            <span class="doccomment">/// The number of pages per shard.
+            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="kw">pub </span>pages_per_shard: i32,
+            <span class="doccomment">/// The number of overlapping pages between consecutive shards.
+            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="kw">pub </span>pages_overlap: i32,
+        }
+    }
+    <span class="doccomment">/// The destination of the results.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Destination {
+        <span class="doccomment">/// Output config to write the results to Cloud Storage.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>GcsOutputConfig(GcsOutputConfig),
+    }
+}
+<span class="doccomment">/// Config for Document OCR.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>OcrConfig {
+    <span class="doccomment">/// Hints for the OCR model.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>hints: ::core::option::Option&lt;ocr_config::Hints&gt;,
+    <span class="doccomment">/// Enables special handling for PDFs with existing text information. Results
+    /// in better text extraction quality in such PDF inputs.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>enable_native_pdf_parsing: bool,
+    <span class="doccomment">/// Enables intelligent document quality scores after OCR. Can help with
+    /// diagnosing why OCR responses are of poor quality for a given input.
+    /// Adds additional latency comparable to regular OCR to the process call.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>enable_image_quality_scores: bool,
+    <span class="doccomment">/// A list of advanced OCR options to further fine-tune OCR behavior. Current
+    /// valid values are:
+    ///
+    /// - `legacy_layout`: a heuristics layout detection algorithm, which serves as
+    /// an alternative to the current ML-based layout detection algorithm.
+    /// Customers can choose the best suitable layout algorithm based on their
+    /// situation.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>advanced_ocr_options: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Includes symbol level OCR information if set to true.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>enable_symbol: bool,
+    <span class="doccomment">/// Turn on font identification model and return font style information.
+    /// Deprecated, use
+    /// \[PremiumFeatures.compute_style_info][google.cloud.documentai.v1beta3.OcrConfig.PremiumFeatures.compute_style_info\]
+    /// instead.
+    </span><span class="attr">#[deprecated]
+    #[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>compute_style_info: bool,
+    <span class="doccomment">/// Turn off character box detector in OCR engine. Character box detection is
+    /// enabled by default in OCR 2.0 (and later) processors.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>disable_character_boxes_detection: bool,
+    <span class="doccomment">/// Configurations for premium OCR features.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>premium_features: ::core::option::Option&lt;ocr_config::PremiumFeatures&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `OcrConfig`.
+</span><span class="kw">pub mod </span>ocr_config {
+    <span class="doccomment">/// Hints for OCR Engine
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>Hints {
+        <span class="doccomment">/// List of BCP-47 language codes to use for OCR. In most cases, not
+        /// specifying it yields the best results since it enables automatic language
+        /// detection. For languages based on the Latin alphabet, setting hints is
+        /// not needed. In rare cases, when the language of the text in the
+        /// image is known, setting a hint will help get better results (although it
+        /// will be a significant hindrance if the hint is wrong).
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>language_hints: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    }
+    <span class="doccomment">/// Configurations for premium OCR features.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>PremiumFeatures {
+        <span class="doccomment">/// Turn on selection mark detector in OCR engine. Only available in OCR 2.0
+        /// (and later) processors.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>enable_selection_mark_detection: bool,
+        <span class="doccomment">/// Turn on font identification model and return font style information.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>compute_style_info: bool,
+        <span class="doccomment">/// Turn on the model that can extract LaTeX math formulas.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="kw">pub </span>enable_math_ocr: bool,
     }
 }
 <span class="doccomment">/// Gives a short summary of an evaluation, and links to the evaluation itself.
@@ -6654,446 +7612,6 @@
         }
     }
 }
-<span class="doccomment">/// Payload message of raw document content (bytes).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>RawDocument {
-    <span class="doccomment">/// Inline document content.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>content: ::prost::bytes::Bytes,
-    <span class="doccomment">/// An IANA MIME type (RFC6838) indicating the nature and format of the
-    /// \[content][google.cloud.documentai.v1beta3.RawDocument.content\].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Specifies a document stored on Cloud Storage.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GcsDocument {
-    <span class="doccomment">/// The Cloud Storage object uri.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// An IANA MIME type (RFC6838) of the content.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Specifies a set of documents on Cloud Storage.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GcsDocuments {
-    <span class="doccomment">/// The list of documents.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>documents: ::prost::alloc::vec::Vec&lt;GcsDocument&gt;,
-}
-<span class="doccomment">/// Specifies all documents on Cloud Storage with a common prefix.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GcsPrefix {
-    <span class="doccomment">/// The URI prefix.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>gcs_uri_prefix: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// The common config to specify a set of documents used as input.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BatchDocumentsInputConfig {
-    <span class="doccomment">/// The source.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;batch_documents_input_config::Source&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
-    </span><span class="kw">pub </span>source: ::core::option::Option&lt;batch_documents_input_config::Source&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `BatchDocumentsInputConfig`.
-</span><span class="kw">pub mod </span>batch_documents_input_config {
-    <span class="doccomment">/// The source.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Source {
-        <span class="doccomment">/// The set of documents that match the specified Cloud Storage `gcs_prefix`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>GcsPrefix(<span class="kw">super</span>::GcsPrefix),
-        <span class="doccomment">/// The set of documents individually specified on Cloud Storage.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>GcsDocuments(<span class="kw">super</span>::GcsDocuments),
-    }
-}
-<span class="doccomment">/// Config that controls the output of documents. All documents will be written
-/// as a JSON file.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DocumentOutputConfig {
-    <span class="doccomment">/// The destination of the results.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;document_output_config::Destination&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>destination: ::core::option::Option&lt;document_output_config::Destination&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `DocumentOutputConfig`.
-</span><span class="kw">pub mod </span>document_output_config {
-    <span class="doccomment">/// The configuration used when outputting documents.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>GcsOutputConfig {
-        <span class="doccomment">/// The Cloud Storage uri (a directory) of the output.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
-        <span class="doccomment">/// Specifies which fields to include in the output documents.
-        /// Only supports top level document and pages field so it must be in the
-        /// form of `{document_field_name}` or `pages.{page_field_name}`.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>field_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
-        <span class="doccomment">/// Specifies the sharding config for the output document.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-        </span><span class="kw">pub </span>sharding_config: ::core::option::Option&lt;gcs_output_config::ShardingConfig&gt;,
-    }
-    <span class="doccomment">/// Nested message and enum types in `GcsOutputConfig`.
-    </span><span class="kw">pub mod </span>gcs_output_config {
-        <span class="doccomment">/// The sharding config for the output document.
-        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        </span><span class="kw">pub struct </span>ShardingConfig {
-            <span class="doccomment">/// The number of pages per shard.
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-            </span><span class="kw">pub </span>pages_per_shard: i32,
-            <span class="doccomment">/// The number of overlapping pages between consecutive shards.
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-            </span><span class="kw">pub </span>pages_overlap: i32,
-        }
-    }
-    <span class="doccomment">/// The destination of the results.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Destination {
-        <span class="doccomment">/// Output config to write the results to Cloud Storage.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>GcsOutputConfig(GcsOutputConfig),
-    }
-}
-<span class="doccomment">/// Config for Document OCR.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>OcrConfig {
-    <span class="doccomment">/// Hints for the OCR model.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>hints: ::core::option::Option&lt;ocr_config::Hints&gt;,
-    <span class="doccomment">/// Enables special handling for PDFs with existing text information. Results
-    /// in better text extraction quality in such PDF inputs.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>enable_native_pdf_parsing: bool,
-    <span class="doccomment">/// Enables intelligent document quality scores after OCR. Can help with
-    /// diagnosing why OCR responses are of poor quality for a given input.
-    /// Adds additional latency comparable to regular OCR to the process call.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>enable_image_quality_scores: bool,
-    <span class="doccomment">/// A list of advanced OCR options to further fine-tune OCR behavior. Current
-    /// valid values are:
-    ///
-    /// - `legacy_layout`: a heuristics layout detection algorithm, which serves as
-    /// an alternative to the current ML-based layout detection algorithm.
-    /// Customers can choose the best suitable layout algorithm based on their
-    /// situation.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>advanced_ocr_options: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Includes symbol level OCR information if set to true.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>enable_symbol: bool,
-    <span class="doccomment">/// Turn on font id model and returns font style information.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>compute_style_info: bool,
-}
-<span class="doccomment">/// Nested message and enum types in `OcrConfig`.
-</span><span class="kw">pub mod </span>ocr_config {
-    <span class="doccomment">/// Hints for OCR Engine
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Hints {
-        <span class="doccomment">/// List of BCP-47 language codes to use for OCR. In most cases, not
-        /// specifying it yields the best results since it enables automatic language
-        /// detection. For languages based on the Latin alphabet, setting hints is
-        /// not needed. In rare cases, when the language of the text in the
-        /// image is known, setting a hint will help get better results (although it
-        /// will be a significant hindrance if the hint is wrong).
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>language_hints: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    }
-}
-<span class="doccomment">/// Metadata about a property.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PropertyMetadata {
-    <span class="doccomment">/// Whether the property should be considered as &quot;inactive&quot;.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>inactive: bool,
-}
-<span class="doccomment">/// Metadata about an entity type.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>EntityTypeMetadata {
-    <span class="doccomment">/// Whether the entity type should be considered inactive.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>inactive: bool,
-}
-<span class="doccomment">/// The schema defines the output of the processed document by a processor.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DocumentSchema {
-    <span class="doccomment">/// Display name to show to users.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Description of the schema.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Entity types of the schema.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>entity_types: ::prost::alloc::vec::Vec&lt;document_schema::EntityType&gt;,
-    <span class="doccomment">/// Metadata of the schema.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;document_schema::Metadata&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `DocumentSchema`.
-</span><span class="kw">pub mod </span>document_schema {
-    <span class="doccomment">/// EntityType is the wrapper of a label of the corresponding model with
-    /// detailed attributes and limitations for entity-based processors. Multiple
-    /// types can also compose a dependency tree to represent nested types.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>EntityType {
-        <span class="doccomment">/// User defined name for the type.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
-        </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-        <span class="doccomment">/// Name of the type. It must be unique within the schema file and
-        /// cannot be a &quot;Common Type&quot;.  The following naming conventions are used:
-        ///
-        /// - Use `snake_casing`.
-        /// - Name matching is case-sensitive.
-        /// - Maximum 64 characters.
-        /// - Must start with a letter.
-        /// - Allowed characters: ASCII letters `\[a-z0-9_-\]`.  (For backward
-        ///    compatibility internal infrastructure and tooling can handle any ascii
-        ///    character.)
-        /// - The `/` is sometimes used to denote a property of a type.  For example
-        ///    `line_item/amount`.  This convention is deprecated, but will still be
-        ///    honored for backward compatibility.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-        <span class="doccomment">/// The entity type that this type is derived from.  For now, one and only
-        /// one should be set.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>base_types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-        <span class="doccomment">/// Description the nested structure, or composition of an entity.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
-        </span><span class="kw">pub </span>properties: ::prost::alloc::vec::Vec&lt;entity_type::Property&gt;,
-        <span class="doccomment">/// Metadata for the entity type.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
-        </span><span class="kw">pub </span>entity_type_metadata: ::core::option::Option&lt;<span class="kw">super</span>::EntityTypeMetadata&gt;,
-        <span class="attr">#[prost(oneof = <span class="string">&quot;entity_type::ValueSource&quot;</span>, tags = <span class="string">&quot;14&quot;</span>)]
-        </span><span class="kw">pub </span>value_source: ::core::option::Option&lt;entity_type::ValueSource&gt;,
-    }
-    <span class="doccomment">/// Nested message and enum types in `EntityType`.
-    </span><span class="kw">pub mod </span>entity_type {
-        <span class="doccomment">/// Defines the a list of enum values.
-        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        </span><span class="kw">pub struct </span>EnumValues {
-            <span class="doccomment">/// The individual values that this enum values type can include.
-            </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-            </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-        }
-        <span class="doccomment">/// Defines properties that can be part of the entity type.
-        </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        </span><span class="kw">pub struct </span>Property {
-            <span class="doccomment">/// The name of the property.  Follows the same guidelines as the
-            /// EntityType name.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-            </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-            <span class="doccomment">/// A reference to the value type of the property.  This type is subject
-            /// to the same conventions as the `Entity.base_types` field.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-            </span><span class="kw">pub </span>value_type: ::prost::alloc::string::String,
-            <span class="doccomment">/// Occurrence type limits the number of instances an entity type appears
-            /// in the document.
-            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;property::OccurrenceType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-            </span><span class="kw">pub </span>occurrence_type: i32,
-            <span class="doccomment">/// Any additional metadata about the property can be added here.
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-            </span><span class="kw">pub </span>property_metadata: ::core::option::Option&lt;
-                <span class="kw">super</span>::<span class="kw">super</span>::PropertyMetadata,
-            &gt;,
-        }
-        <span class="doccomment">/// Nested message and enum types in `Property`.
-        </span><span class="kw">pub mod </span>property {
-            <span class="doccomment">/// Types of occurrences of the entity type in the document.  This
-            /// represents the number of instances of instances of an entity, not
-            /// number of mentions of an entity.  For example, a bank statement may
-            /// only have one `account_number`, but this account number may be
-            /// mentioned in several places on the document.  In this case the
-            /// &#39;account_number&#39; would be considered a `REQUIRED_ONCE` entity type. If,
-            /// on the other hand, we expect a bank statement to contain the status of
-            /// multiple different accounts for the customers, the occurrence type will
-            /// be set to `REQUIRED_MULTIPLE`.
-            </span><span class="attr">#[derive(
-                Clone,
-                Copy,
-                Debug,
-                PartialEq,
-                Eq,
-                Hash,
-                PartialOrd,
-                Ord,
-                ::prost::Enumeration
-            )]
-            #[repr(i32)]
-            </span><span class="kw">pub enum </span>OccurrenceType {
-                <span class="doccomment">/// Unspecified occurrence type.
-                </span>Unspecified = <span class="number">0</span>,
-                <span class="doccomment">/// There will be zero or one instance of this entity type.  The same
-                /// entity instance may be mentioned multiple times.
-                </span>OptionalOnce = <span class="number">1</span>,
-                <span class="doccomment">/// The entity type will appear zero or multiple times.
-                </span>OptionalMultiple = <span class="number">2</span>,
-                <span class="doccomment">/// The entity type will only appear exactly once.  The same
-                /// entity instance may be mentioned multiple times.
-                </span>RequiredOnce = <span class="number">3</span>,
-                <span class="doccomment">/// The entity type will appear once or more times.
-                </span>RequiredMultiple = <span class="number">4</span>,
-            }
-            <span class="kw">impl </span>OccurrenceType {
-                <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-                ///
-                /// The values are not transformed in any way and thus are considered stable
-                /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-                </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-                    <span class="kw">match </span><span class="self">self </span>{
-                        OccurrenceType::Unspecified =&gt; <span class="string">&quot;OCCURRENCE_TYPE_UNSPECIFIED&quot;</span>,
-                        OccurrenceType::OptionalOnce =&gt; <span class="string">&quot;OPTIONAL_ONCE&quot;</span>,
-                        OccurrenceType::OptionalMultiple =&gt; <span class="string">&quot;OPTIONAL_MULTIPLE&quot;</span>,
-                        OccurrenceType::RequiredOnce =&gt; <span class="string">&quot;REQUIRED_ONCE&quot;</span>,
-                        OccurrenceType::RequiredMultiple =&gt; <span class="string">&quot;REQUIRED_MULTIPLE&quot;</span>,
-                    }
-                }
-                <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-                </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-                    <span class="kw">match </span>value {
-                        <span class="string">&quot;OCCURRENCE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                        <span class="string">&quot;OPTIONAL_ONCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OptionalOnce),
-                        <span class="string">&quot;OPTIONAL_MULTIPLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OptionalMultiple),
-                        <span class="string">&quot;REQUIRED_ONCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RequiredOnce),
-                        <span class="string">&quot;REQUIRED_MULTIPLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RequiredMultiple),
-                        <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-                    }
-                }
-            }
-        }
-        <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        </span><span class="kw">pub enum </span>ValueSource {
-            <span class="doccomment">/// If specified, lists all the possible values for this entity.  This
-            /// should not be more than a handful of values.  If the number of values
-            /// is &gt;10 or could change frequently use the `EntityType.value_ontology`
-            /// field and specify a list of all possible values in a value ontology
-            /// file.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;14&quot;</span>)]
-            </span>EnumValues(EnumValues),
-        }
-    }
-    <span class="doccomment">/// Metadata for global schema behavior.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>Metadata {
-        <span class="doccomment">/// If true, a `document` entity type can be applied to subdocument
-        /// (splitting). Otherwise, it can only be applied to the entire document
-        /// (classification).
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>document_splitter: bool,
-        <span class="doccomment">/// If true, on a given page, there can be multiple `document` annotations
-        /// covering it.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
-        </span><span class="kw">pub </span>document_allow_multiple_labels: bool,
-        <span class="doccomment">/// If set, all the nested entities must be prefixed with the parents.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
-        </span><span class="kw">pub </span>prefixed_naming_on_properties: bool,
-        <span class="doccomment">/// If set, we will skip the naming format validation in the schema. So the
-        /// string values in `DocumentSchema.EntityType.name` and
-        /// `DocumentSchema.EntityType.Property.name` will not be checked.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
-        </span><span class="kw">pub </span>skip_naming_validation: bool,
-    }
-}
-<span class="doccomment">/// The common metadata for long running operations.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CommonOperationMetadata {
-    <span class="doccomment">/// The state of the operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;common_operation_metadata::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// A message providing more details about the current state of processing.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>state_message: ::prost::alloc::string::String,
-    <span class="doccomment">/// A related resource to this operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
-    <span class="doccomment">/// The creation time of the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The last update time of the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `CommonOperationMetadata`.
-</span><span class="kw">pub mod </span>common_operation_metadata {
-    <span class="doccomment">/// State of the longrunning operation.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unspecified state.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Operation is still running.
-        </span>Running = <span class="number">1</span>,
-        <span class="doccomment">/// Operation is being cancelled.
-        </span>Cancelling = <span class="number">2</span>,
-        <span class="doccomment">/// Operation succeeded.
-        </span>Succeeded = <span class="number">3</span>,
-        <span class="doccomment">/// Operation failed.
-        </span>Failed = <span class="number">4</span>,
-        <span class="doccomment">/// Operation is cancelled.
-        </span>Cancelled = <span class="number">5</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
 <span class="doccomment">/// A processor version is an implementation of a processor. Each processor
 /// can have multiple versions, pretrained by Google internally or uptrained
 /// by the customer. A processor can only have one default version at a time.
@@ -7215,6 +7733,17 @@
         }
     }
 }
+<span class="doccomment">/// Contains the alias and the aliased resource name of processor version.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ProcessorVersionAlias {
+    <span class="doccomment">/// The alias in the form of `processor_version` resource name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>alias: ::prost::alloc::string::String,
+    <span class="doccomment">/// The resource name of aliased processor version.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>processor_version: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// The first-class citizen for Document AI. Each processor defines how to
 /// extract structural information from a document.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -7238,6 +7767,9 @@
     <span class="doccomment">/// The default processor version.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>default_processor_version: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The processor version aliases.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>processor_version_aliases: ::prost::alloc::vec::Vec&lt;ProcessorVersionAlias&gt;,
     <span class="doccomment">/// Output only. Immutable. The http endpoint that can be called to invoke
     /// processing.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
@@ -7373,6 +7905,54 @@
     /// processor types.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>ocr_config: ::core::option::Option&lt;OcrConfig&gt;,
+    <span class="doccomment">/// Optional. Override the schema of the
+    /// \[ProcessorVersion][google.cloud.documentai.v1beta3.ProcessorVersion\]. Will
+    /// return an Invalid Argument error if this field is set when the underlying
+    /// \[ProcessorVersion][google.cloud.documentai.v1beta3.ProcessorVersion\]
+    /// doesn&#39;t support schema override.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>schema_override: ::core::option::Option&lt;DocumentSchema&gt;,
+    <span class="doccomment">/// A subset of pages to process. If not specified, all pages are processed.
+    ///   If a page range is set, only the given pages are extracted and processed
+    ///   from the document. In the output document,
+    ///   \[Document.Page.page_number][google.cloud.documentai.v1beta3.Document.Page.page_number\]
+    ///   refers to the page number in the original document. This configuration
+    ///   only applies to sync requests. `page_range` can be only one of the
+    ///   following:
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;process_options::PageRange&quot;</span>, tags = <span class="string">&quot;5, 6, 7&quot;</span>)]
+    </span><span class="kw">pub </span>page_range: ::core::option::Option&lt;process_options::PageRange&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ProcessOptions`.
+</span><span class="kw">pub mod </span>process_options {
+    <span class="doccomment">/// A list of individual page numbers.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>IndividualPageSelector {
+        <span class="doccomment">/// Optional. Indices of the pages (starting from 1).
+        </span><span class="attr">#[prost(int32, repeated, packed = <span class="string">&quot;false&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>pages: ::prost::alloc::vec::Vec&lt;i32&gt;,
+    }
+    <span class="doccomment">/// A subset of pages to process. If not specified, all pages are processed.
+    ///   If a page range is set, only the given pages are extracted and processed
+    ///   from the document. In the output document,
+    ///   \[Document.Page.page_number][google.cloud.documentai.v1beta3.Document.Page.page_number\]
+    ///   refers to the page number in the original document. This configuration
+    ///   only applies to sync requests. `page_range` can be only one of the
+    ///   following:
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>PageRange {
+        <span class="doccomment">/// Which pages to process (1-indexed).
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span>IndividualPageSelector(IndividualPageSelector),
+        <span class="doccomment">/// Only process certain pages from the start. Process all if the document
+        /// has fewer pages.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+        </span>FromStart(i32),
+        <span class="doccomment">/// Only process certain pages from the end, same as above.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+        </span>FromEnd(i32),
+    }
 }
 <span class="doccomment">/// Request message for the
 /// \[ProcessDocument][google.cloud.documentai.v1beta3.DocumentProcessorService.ProcessDocument\]
@@ -8126,8 +8706,8 @@
     }
     <span class="doccomment">/// Nested message and enum types in `CustomDocumentExtractionOptions`.
     </span><span class="kw">pub mod </span>custom_document_extraction_options {
-        <span class="doccomment">/// Training Method for CDE. TRAINING_METHOD_UNSPECIFIED will fallback to
-        /// MODEL_BASED.
+        <span class="doccomment">/// Training Method for CDE. `TRAINING_METHOD_UNSPECIFIED` will fall back to
+        /// `MODEL_BASED`.
         </span><span class="attr">#[derive(
             Clone,
             Copy,
@@ -8540,9 +9120,9 @@
 }
 <span class="doccomment">/// The request message for the
 /// \[ImportProcessorVersion][google.cloud.documentai.v1beta3.DocumentProcessorService.ImportProcessorVersion\]
-/// method. Requirements:
+/// method.
 ///
-/// - The Document AI [Service
+/// The Document AI [Service
 /// Agent](&lt;https://cloud.google.com/iam/docs/service-agents&gt;) of the destination
 /// project must have [Document AI Editor
 /// role](&lt;https://cloud.google.com/document-ai/docs/access-control/iam-roles&gt;) on
@@ -8551,8 +9131,10 @@
 /// The destination project is specified as part of the
 /// \[parent][google.cloud.documentai.v1beta3.ImportProcessorVersionRequest.parent\]
 /// field. The source project is specified as part of the
-/// \[source\][ImportProcessorVersionRequest.processor_version_source or
-/// ImportProcessorVersionRequest.external_processor_version_source] field.
+/// \[source][google.cloud.documentai.v1beta3.ImportProcessorVersionRequest.processor_version_source\]
+/// or
+/// \[external_processor_version_source][google.cloud.documentai.v1beta3.ImportProcessorVersionRequest.external_processor_version_source\]
+/// field.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportProcessorVersionRequest {
@@ -8586,7 +9168,7 @@
         /// and destination processor need to be in the same environment and region.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span>ProcessorVersionSource(::prost::alloc::string::String),
-        <span class="doccomment">/// The source processor version to import from, and can be from different
+        <span class="doccomment">/// The source processor version to import from. It can be from a different
         /// environment and region than the destination processor.
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
         </span>ExternalProcessorVersionSource(ExternalProcessorVersionSource),
@@ -9638,7 +10220,7 @@
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateDatasetOperationMetadata {
-    <span class="doccomment">/// The basic metadata of the long running operation.
+    <span class="doccomment">/// The basic metadata of the long-running operation.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>common_metadata: ::core::option::Option&lt;CommonOperationMetadata&gt;,
 }
@@ -9703,7 +10285,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportDocumentsMetadata {
-    <span class="doccomment">/// The basic metadata of the long running operation.
+    <span class="doccomment">/// The basic metadata of the long-running operation.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>common_metadata: ::core::option::Option&lt;CommonOperationMetadata&gt;,
     <span class="doccomment">/// The list of response details of each document.
@@ -9737,9 +10319,9 @@
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
         </span><span class="kw">pub </span>output_document_id: ::core::option::Option&lt;<span class="kw">super</span>::DocumentId&gt;,
     }
-    <span class="doccomment">/// The validation status of each import config. Status is set to errors if
-    /// there is no documents to import in the import_config, or OK if the
-    /// operation will try to proceed at least one document.
+    <span class="doccomment">/// The validation status of each import config. Status is set to an error if
+    /// there are no documents to import in the `import_config`, or `OK` if the
+    /// operation will try to proceed with at least one document.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ImportConfigValidationResult {
@@ -9779,6 +10361,77 @@
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListDocumentsRequest {
+    <span class="doccomment">/// Required. The resource name of the dataset to be listed.
+    /// Format:
+    /// projects/{project}/locations/{location}/processors/{processor}/dataset
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>dataset: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of documents to return. The service may return
+    /// fewer than this value.
+    /// If unspecified, at most 20 documents will be returned.
+    /// The maximum value is 100; values above 100 will be coerced to 100.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// A page token, received from a previous `ListDocuments` call.
+    /// Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to `ListDocuments`
+    /// must match the call that provided the page token.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Query to filter the documents based on
+    /// &lt;https://google.aip.dev/160.&gt;
+    /// ## Currently support query strings are:
+    ///
+    /// `SplitType=DATASET_SPLIT_TEST|DATASET_SPLIT_TRAIN|DATASET_SPLIT_UNASSIGNED`
+    /// - `LabelingState=DOCUMENT_LABELED|DOCUMENT_UNLABELED|DOCUMENT_AUTO_LABELED`
+    /// - `DisplayName=\&quot;file_name.pdf\&quot;`
+    /// - `EntityType=abc/def`
+    /// - `TagName=\&quot;auto-labeling-running\&quot;|\&quot;sampled\&quot;`
+    ///
+    /// Note:
+    /// - Only `AND`, `=` and `!=` are supported.
+    ///      e.g. `DisplayName=file_name AND EntityType!=abc` IS supported.
+    /// - Wildcard `*` is supported only in `DisplayName` filter
+    /// - No duplicate filter keys are allowed,
+    ///      e.g. `EntityType=a AND EntityType=b` is NOT supported.
+    /// - String match is case sensitive (for filter `DisplayName` &amp; `EntityType`).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Controls if the ListDocuments request requires a total size
+    /// of matched documents. See ListDocumentsResponse.total_size.
+    ///
+    /// Enabling this flag may adversely impact performance.
+    ///
+    /// Defaults to false.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>return_total_size: bool,
+    <span class="doccomment">/// Optional. Number of results to skip beginning from the `page_token` if
+    /// provided. &lt;https://google.aip.dev/158#skipping-results.&gt; It must be a
+    /// non-negative integer. Negative values wil be rejected. Note that this is
+    /// not the number of pages to skip. If this value causes the cursor to move
+    /// past the end of results, `ListDocumentsResponse.document_metadata` and
+    /// `ListDocumentsResponse.next_page_token` will be empty.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>skip: i32,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListDocumentsResponse {
+    <span class="doccomment">/// Document metadata corresponding to the listed documents.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>document_metadata: ::prost::alloc::vec::Vec&lt;DocumentMetadata&gt;,
+    <span class="doccomment">/// A token, which can be sent as `page_token` to retrieve the next page.
+    /// If this field is omitted, there are no subsequent pages.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Total count of documents queried.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>total_size: i32,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchDeleteDocumentsRequest {
     <span class="doccomment">/// Required. The dataset resource name.
     /// Format:
@@ -9799,7 +10452,7 @@
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchDeleteDocumentsMetadata {
-    <span class="doccomment">/// The basic metadata of the long running operation.
+    <span class="doccomment">/// The basic metadata of the long-running operation.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>common_metadata: ::core::option::Option&lt;CommonOperationMetadata&gt;,
     <span class="doccomment">/// The list of response details of each document.
@@ -9864,13 +10517,32 @@
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>end: i32,
 }
+<span class="doccomment">/// Metadata about a document.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DocumentMetadata {
+    <span class="doccomment">/// Document identifier.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>document_id: ::core::option::Option&lt;DocumentId&gt;,
+    <span class="doccomment">/// Number of pages in the document.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_count: i32,
+    <span class="doccomment">/// Type of the dataset split to which the document belongs.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DatasetSplitType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>dataset_type: i32,
+    <span class="doccomment">/// Labelling state of the document.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DocumentLabelingState&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>labeling_state: i32,
+    <span class="doccomment">/// The display name of the document.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// Documents belonging to a dataset will be split into different groups
 /// referred to as splits: train, test.
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 </span><span class="kw">pub enum </span>DatasetSplitType {
     <span class="doccomment">/// Default value if the enum is not set.
-    /// go/protodosdonts#do-include-an-unspecified-value-in-an-enum
     </span>Unspecified = <span class="number">0</span>,
     <span class="doccomment">/// Identifies the train documents.
     </span>DatasetSplitTrain = <span class="number">1</span>,
@@ -9899,6 +10571,43 @@
             <span class="string">&quot;DATASET_SPLIT_TRAIN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DatasetSplitTrain),
             <span class="string">&quot;DATASET_SPLIT_TEST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DatasetSplitTest),
             <span class="string">&quot;DATASET_SPLIT_UNASSIGNED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DatasetSplitUnassigned),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// Describes the labelling status of a document.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>DocumentLabelingState {
+    <span class="doccomment">/// Default value if the enum is not set.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Document has been labelled.
+    </span>DocumentLabeled = <span class="number">1</span>,
+    <span class="doccomment">/// Document has not been labelled.
+    </span>DocumentUnlabeled = <span class="number">2</span>,
+    <span class="doccomment">/// Document has been auto-labelled.
+    </span>DocumentAutoLabeled = <span class="number">3</span>,
+}
+<span class="kw">impl </span>DocumentLabelingState {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            DocumentLabelingState::Unspecified =&gt; <span class="string">&quot;DOCUMENT_LABELING_STATE_UNSPECIFIED&quot;</span>,
+            DocumentLabelingState::DocumentLabeled =&gt; <span class="string">&quot;DOCUMENT_LABELED&quot;</span>,
+            DocumentLabelingState::DocumentUnlabeled =&gt; <span class="string">&quot;DOCUMENT_UNLABELED&quot;</span>,
+            DocumentLabelingState::DocumentAutoLabeled =&gt; <span class="string">&quot;DOCUMENT_AUTO_LABELED&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;DOCUMENT_LABELING_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;DOCUMENT_LABELED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DocumentLabeled),
+            <span class="string">&quot;DOCUMENT_UNLABELED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DocumentUnlabeled),
+            <span class="string">&quot;DOCUMENT_AUTO_LABELED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DocumentAutoLabeled),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -10067,6 +10776,37 @@
                     GrpcMethod::new(
                         <span class="string">&quot;google.cloud.documentai.v1beta3.DocumentService&quot;</span>,
                         <span class="string">&quot;GetDocument&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Returns a list of documents present in the dataset.
+        </span><span class="kw">pub async fn </span>list_documents(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListDocumentsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListDocumentsResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.documentai.v1beta3.DocumentService/ListDocuments&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.documentai.v1beta3.DocumentService&quot;</span>,
+                        <span class="string">&quot;ListDocuments&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

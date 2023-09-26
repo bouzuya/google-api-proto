@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Condition","EvaluationMissingData"],"mod":["trigger"],"struct":["LogMatch","MetricAbsence","MetricThreshold","MonitoringQueryLanguageCondition","Trigger"]};
+window.SIDEBAR_ITEMS = {"enum":["Condition","EvaluationMissingData"],"mod":["metric_threshold","trigger"],"struct":["LogMatch","MetricAbsence","MetricThreshold","MonitoringQueryLanguageCondition","PrometheusQueryLanguageCondition","Trigger"]};

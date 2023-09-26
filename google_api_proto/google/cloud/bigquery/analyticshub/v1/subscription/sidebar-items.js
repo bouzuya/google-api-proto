@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ResourceName","State"],"mod":["linked_resource"],"struct":["LinkedResource"]};

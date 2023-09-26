@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/channel/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/channel/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.1 (d5c2e9c34 2023-09-13)" data-channel="1.72.1" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -6838,223 +6838,197 @@
 <a href="#6838" id="6838">6838</a>
 <a href="#6839" id="6839">6839</a>
 <a href="#6840" id="6840">6840</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Configuration for how a reseller will reprice a Customer.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CustomerRepricingConfig {
-    <span class="doccomment">/// Output only. Resource name of the CustomerRepricingConfig.
-    /// Format:
-    /// accounts/{account_id}/customers/{customer_id}/customerRepricingConfigs/{id}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The configuration for bill modifications made by a reseller
-    /// before sending it to customers.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>repricing_config: ::core::option::Option&lt;RepricingConfig&gt;,
-    <span class="doccomment">/// Output only. Timestamp of an update to the repricing rule. If `update_time`
-    /// is after
-    /// \[RepricingConfig.effective_invoice_month][google.cloud.channel.v1.RepricingConfig.effective_invoice_month\]
-    /// then it indicates this was set mid-month.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Configuration for how a distributor will rebill a channel partner
-/// (also known as a distributor-authorized reseller).
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ChannelPartnerRepricingConfig {
-    <span class="doccomment">/// Output only. Resource name of the ChannelPartnerRepricingConfig.
-    /// Format:
-    /// accounts/{account_id}/channelPartnerLinks/{channel_partner_id}/channelPartnerRepricingConfigs/{id}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The configuration for bill modifications made by a reseller
-    /// before sending it to ChannelPartner.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>repricing_config: ::core::option::Option&lt;RepricingConfig&gt;,
-    <span class="doccomment">/// Output only. Timestamp of an update to the repricing rule. If `update_time`
-    /// is after
-    /// \[RepricingConfig.effective_invoice_month][google.cloud.channel.v1.RepricingConfig.effective_invoice_month\]
-    /// then it indicates this was set mid-month.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Configuration for repricing a Google bill over a period of time.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>RepricingConfig {
-    <span class="doccomment">/// Required. The YearMonth when these adjustments activate. The Day field
-    /// needs to be &quot;0&quot; since we only accept YearMonth repricing boundaries.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>effective_invoice_month: ::core::option::Option&lt;
-        <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date,
-    &gt;,
-    <span class="doccomment">/// Required. Information about the adjustment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>adjustment: ::core::option::Option&lt;RepricingAdjustment&gt;,
-    <span class="doccomment">/// Required. The \[RebillingBasis][google.cloud.channel.v1.RebillingBasis\] to
-    /// use for this bill. Specifies the relative cost based on repricing costs you
-    /// will apply.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;RebillingBasis&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>rebilling_basis: i32,
-    <span class="doccomment">/// The conditional overrides to apply for this configuration. If you list
-    /// multiple overrides, only the first valid override is used.  If you don&#39;t
-    /// list any overrides, the API uses the normal adjustment and rebilling basis.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>conditional_overrides: ::prost::alloc::vec::Vec&lt;ConditionalOverride&gt;,
-    <span class="doccomment">/// Required. Defines the granularity for repricing.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;repricing_config::Granularity&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
-    </span><span class="kw">pub </span>granularity: ::core::option::Option&lt;repricing_config::Granularity&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `RepricingConfig`.
-</span><span class="kw">pub mod </span>repricing_config {
-    <span class="doccomment">/// Applies the repricing configuration at the entitlement level.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>EntitlementGranularity {
-        <span class="doccomment">/// Resource name of the entitlement.
-        /// Format:
-        /// accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-        </span><span class="kw">pub </span>entitlement: ::prost::alloc::string::String,
-    }
-    <span class="doccomment">/// Applies the repricing configuration at the channel partner level.
-    /// The channel partner value is derived from the resource name. Takes an
-    /// empty json object.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>ChannelPartnerGranularity {}
-    <span class="doccomment">/// Required. Defines the granularity for repricing.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Granularity {
-        <span class="doccomment">/// Applies the repricing configuration at the entitlement level. This is
-        /// the only supported value for CustomerRepricingConfig.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
-        </span>EntitlementGranularity(EntitlementGranularity),
-        <span class="doccomment">/// Applies the repricing configuration at the channel partner level.
-        /// This is the only supported value for ChannelPartnerRepricingConfig.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
-        </span>ChannelPartnerGranularity(ChannelPartnerGranularity),
-    }
-}
-<span class="doccomment">/// A type that represents the various adjustments you can apply to a bill.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>RepricingAdjustment {
-    <span class="doccomment">/// A oneof that represents the different types for this adjustment.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;repricing_adjustment::Adjustment&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>adjustment: ::core::option::Option&lt;repricing_adjustment::Adjustment&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `RepricingAdjustment`.
-</span><span class="kw">pub mod </span>repricing_adjustment {
-    <span class="doccomment">/// A oneof that represents the different types for this adjustment.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Adjustment {
-        <span class="doccomment">/// Flat markup or markdown on an entire bill.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
-        </span>PercentageAdjustment(<span class="kw">super</span>::PercentageAdjustment),
-    }
-}
-<span class="doccomment">/// An adjustment that applies a flat markup or markdown to an entire bill.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>PercentageAdjustment {
-    <span class="doccomment">/// The percentage of the bill to adjust.
-    /// For example:
-    /// Mark down by 1% =&gt; &quot;-1.00&quot;
-    /// Mark up by 1%   =&gt; &quot;1.00&quot;
-    /// Pass-Through    =&gt; &quot;0.00&quot;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>percentage: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Decimal&gt;,
-}
-<span class="doccomment">/// Specifies the override to conditionally apply.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ConditionalOverride {
-    <span class="doccomment">/// Required. Information about the applied override&#39;s adjustment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>adjustment: ::core::option::Option&lt;RepricingAdjustment&gt;,
-    <span class="doccomment">/// Required. The \[RebillingBasis][google.cloud.channel.v1.RebillingBasis\] to
-    /// use for the applied override. Shows the relative cost based on your
-    /// repricing costs.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;RebillingBasis&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>rebilling_basis: i32,
-    <span class="doccomment">/// Required. Specifies the condition which, if met, will apply the override.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>repricing_condition: ::core::option::Option&lt;RepricingCondition&gt;,
-}
-<span class="doccomment">/// Represents the various repricing conditions you can use for a conditional
-/// override.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>RepricingCondition {
-    <span class="doccomment">/// Represents the types of existing conditional statements.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;repricing_condition::Condition&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>condition: ::core::option::Option&lt;repricing_condition::Condition&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `RepricingCondition`.
-</span><span class="kw">pub mod </span>repricing_condition {
-    <span class="doccomment">/// Represents the types of existing conditional statements.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Condition {
-        <span class="doccomment">/// SKU Group condition for override.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
-        </span>SkuGroupCondition(<span class="kw">super</span>::SkuGroupCondition),
-    }
-}
-<span class="doccomment">/// A condition that applies the override if a line item SKU is found in the SKU
-/// group.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SkuGroupCondition {
-    <span class="doccomment">/// Specifies a SKU group (&lt;https://cloud.google.com/skus/sku-groups&gt;).
-    /// Resource name of SKU group. Format:
-    /// accounts/{account}/skuGroups/{sku_group}.
-    /// Example:
-    /// &quot;accounts/C01234/skuGroups/3d50fd57-3157-4577-a5a9-a219b8490041&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>sku_group: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Specifies the different costs that the modified bill can be based on.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>RebillingBasis {
-    <span class="doccomment">/// Not used.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Use the list cost, also known as the MSRP.
-    </span>CostAtList = <span class="number">1</span>,
-    <span class="doccomment">/// Pass through all discounts except the Reseller Program Discount. If this is
-    /// the default cost base and no adjustments are specified, the output cost
-    /// will be exactly what the customer would see if they viewed the bill in the
-    /// Google Cloud Console.
-    </span>DirectCustomerCost = <span class="number">2</span>,
-}
-<span class="kw">impl </span>RebillingBasis {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            RebillingBasis::Unspecified =&gt; <span class="string">&quot;REBILLING_BASIS_UNSPECIFIED&quot;</span>,
-            RebillingBasis::CostAtList =&gt; <span class="string">&quot;COST_AT_LIST&quot;</span>,
-            RebillingBasis::DirectCustomerCost =&gt; <span class="string">&quot;DIRECT_CUSTOMER_COST&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;REBILLING_BASIS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;COST_AT_LIST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CostAtList),
-            <span class="string">&quot;DIRECT_CUSTOMER_COST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DirectCustomerCost),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// Required Edu Attributes
+<a href="#6841" id="6841">6841</a>
+<a href="#6842" id="6842">6842</a>
+<a href="#6843" id="6843">6843</a>
+<a href="#6844" id="6844">6844</a>
+<a href="#6845" id="6845">6845</a>
+<a href="#6846" id="6846">6846</a>
+<a href="#6847" id="6847">6847</a>
+<a href="#6848" id="6848">6848</a>
+<a href="#6849" id="6849">6849</a>
+<a href="#6850" id="6850">6850</a>
+<a href="#6851" id="6851">6851</a>
+<a href="#6852" id="6852">6852</a>
+<a href="#6853" id="6853">6853</a>
+<a href="#6854" id="6854">6854</a>
+<a href="#6855" id="6855">6855</a>
+<a href="#6856" id="6856">6856</a>
+<a href="#6857" id="6857">6857</a>
+<a href="#6858" id="6858">6858</a>
+<a href="#6859" id="6859">6859</a>
+<a href="#6860" id="6860">6860</a>
+<a href="#6861" id="6861">6861</a>
+<a href="#6862" id="6862">6862</a>
+<a href="#6863" id="6863">6863</a>
+<a href="#6864" id="6864">6864</a>
+<a href="#6865" id="6865">6865</a>
+<a href="#6866" id="6866">6866</a>
+<a href="#6867" id="6867">6867</a>
+<a href="#6868" id="6868">6868</a>
+<a href="#6869" id="6869">6869</a>
+<a href="#6870" id="6870">6870</a>
+<a href="#6871" id="6871">6871</a>
+<a href="#6872" id="6872">6872</a>
+<a href="#6873" id="6873">6873</a>
+<a href="#6874" id="6874">6874</a>
+<a href="#6875" id="6875">6875</a>
+<a href="#6876" id="6876">6876</a>
+<a href="#6877" id="6877">6877</a>
+<a href="#6878" id="6878">6878</a>
+<a href="#6879" id="6879">6879</a>
+<a href="#6880" id="6880">6880</a>
+<a href="#6881" id="6881">6881</a>
+<a href="#6882" id="6882">6882</a>
+<a href="#6883" id="6883">6883</a>
+<a href="#6884" id="6884">6884</a>
+<a href="#6885" id="6885">6885</a>
+<a href="#6886" id="6886">6886</a>
+<a href="#6887" id="6887">6887</a>
+<a href="#6888" id="6888">6888</a>
+<a href="#6889" id="6889">6889</a>
+<a href="#6890" id="6890">6890</a>
+<a href="#6891" id="6891">6891</a>
+<a href="#6892" id="6892">6892</a>
+<a href="#6893" id="6893">6893</a>
+<a href="#6894" id="6894">6894</a>
+<a href="#6895" id="6895">6895</a>
+<a href="#6896" id="6896">6896</a>
+<a href="#6897" id="6897">6897</a>
+<a href="#6898" id="6898">6898</a>
+<a href="#6899" id="6899">6899</a>
+<a href="#6900" id="6900">6900</a>
+<a href="#6901" id="6901">6901</a>
+<a href="#6902" id="6902">6902</a>
+<a href="#6903" id="6903">6903</a>
+<a href="#6904" id="6904">6904</a>
+<a href="#6905" id="6905">6905</a>
+<a href="#6906" id="6906">6906</a>
+<a href="#6907" id="6907">6907</a>
+<a href="#6908" id="6908">6908</a>
+<a href="#6909" id="6909">6909</a>
+<a href="#6910" id="6910">6910</a>
+<a href="#6911" id="6911">6911</a>
+<a href="#6912" id="6912">6912</a>
+<a href="#6913" id="6913">6913</a>
+<a href="#6914" id="6914">6914</a>
+<a href="#6915" id="6915">6915</a>
+<a href="#6916" id="6916">6916</a>
+<a href="#6917" id="6917">6917</a>
+<a href="#6918" id="6918">6918</a>
+<a href="#6919" id="6919">6919</a>
+<a href="#6920" id="6920">6920</a>
+<a href="#6921" id="6921">6921</a>
+<a href="#6922" id="6922">6922</a>
+<a href="#6923" id="6923">6923</a>
+<a href="#6924" id="6924">6924</a>
+<a href="#6925" id="6925">6925</a>
+<a href="#6926" id="6926">6926</a>
+<a href="#6927" id="6927">6927</a>
+<a href="#6928" id="6928">6928</a>
+<a href="#6929" id="6929">6929</a>
+<a href="#6930" id="6930">6930</a>
+<a href="#6931" id="6931">6931</a>
+<a href="#6932" id="6932">6932</a>
+<a href="#6933" id="6933">6933</a>
+<a href="#6934" id="6934">6934</a>
+<a href="#6935" id="6935">6935</a>
+<a href="#6936" id="6936">6936</a>
+<a href="#6937" id="6937">6937</a>
+<a href="#6938" id="6938">6938</a>
+<a href="#6939" id="6939">6939</a>
+<a href="#6940" id="6940">6940</a>
+<a href="#6941" id="6941">6941</a>
+<a href="#6942" id="6942">6942</a>
+<a href="#6943" id="6943">6943</a>
+<a href="#6944" id="6944">6944</a>
+<a href="#6945" id="6945">6945</a>
+<a href="#6946" id="6946">6946</a>
+<a href="#6947" id="6947">6947</a>
+<a href="#6948" id="6948">6948</a>
+<a href="#6949" id="6949">6949</a>
+<a href="#6950" id="6950">6950</a>
+<a href="#6951" id="6951">6951</a>
+<a href="#6952" id="6952">6952</a>
+<a href="#6953" id="6953">6953</a>
+<a href="#6954" id="6954">6954</a>
+<a href="#6955" id="6955">6955</a>
+<a href="#6956" id="6956">6956</a>
+<a href="#6957" id="6957">6957</a>
+<a href="#6958" id="6958">6958</a>
+<a href="#6959" id="6959">6959</a>
+<a href="#6960" id="6960">6960</a>
+<a href="#6961" id="6961">6961</a>
+<a href="#6962" id="6962">6962</a>
+<a href="#6963" id="6963">6963</a>
+<a href="#6964" id="6964">6964</a>
+<a href="#6965" id="6965">6965</a>
+<a href="#6966" id="6966">6966</a>
+<a href="#6967" id="6967">6967</a>
+<a href="#6968" id="6968">6968</a>
+<a href="#6969" id="6969">6969</a>
+<a href="#6970" id="6970">6970</a>
+<a href="#6971" id="6971">6971</a>
+<a href="#6972" id="6972">6972</a>
+<a href="#6973" id="6973">6973</a>
+<a href="#6974" id="6974">6974</a>
+<a href="#6975" id="6975">6975</a>
+<a href="#6976" id="6976">6976</a>
+<a href="#6977" id="6977">6977</a>
+<a href="#6978" id="6978">6978</a>
+<a href="#6979" id="6979">6979</a>
+<a href="#6980" id="6980">6980</a>
+<a href="#6981" id="6981">6981</a>
+<a href="#6982" id="6982">6982</a>
+<a href="#6983" id="6983">6983</a>
+<a href="#6984" id="6984">6984</a>
+<a href="#6985" id="6985">6985</a>
+<a href="#6986" id="6986">6986</a>
+<a href="#6987" id="6987">6987</a>
+<a href="#6988" id="6988">6988</a>
+<a href="#6989" id="6989">6989</a>
+<a href="#6990" id="6990">6990</a>
+<a href="#6991" id="6991">6991</a>
+<a href="#6992" id="6992">6992</a>
+<a href="#6993" id="6993">6993</a>
+<a href="#6994" id="6994">6994</a>
+<a href="#6995" id="6995">6995</a>
+<a href="#6996" id="6996">6996</a>
+<a href="#6997" id="6997">6997</a>
+<a href="#6998" id="6998">6998</a>
+<a href="#6999" id="6999">6999</a>
+<a href="#7000" id="7000">7000</a>
+<a href="#7001" id="7001">7001</a>
+<a href="#7002" id="7002">7002</a>
+<a href="#7003" id="7003">7003</a>
+<a href="#7004" id="7004">7004</a>
+<a href="#7005" id="7005">7005</a>
+<a href="#7006" id="7006">7006</a>
+<a href="#7007" id="7007">7007</a>
+<a href="#7008" id="7008">7008</a>
+<a href="#7009" id="7009">7009</a>
+<a href="#7010" id="7010">7010</a>
+<a href="#7011" id="7011">7011</a>
+<a href="#7012" id="7012">7012</a>
+<a href="#7013" id="7013">7013</a>
+<a href="#7014" id="7014">7014</a>
+<a href="#7015" id="7015">7015</a>
+<a href="#7016" id="7016">7016</a>
+<a href="#7017" id="7017">7017</a>
+<a href="#7018" id="7018">7018</a>
+<a href="#7019" id="7019">7019</a>
+<a href="#7020" id="7020">7020</a>
+<a href="#7021" id="7021">7021</a>
+<a href="#7022" id="7022">7022</a>
+<a href="#7023" id="7023">7023</a>
+<a href="#7024" id="7024">7024</a>
+<a href="#7025" id="7025">7025</a>
+<a href="#7026" id="7026">7026</a>
+<a href="#7027" id="7027">7027</a>
+<a href="#7028" id="7028">7028</a>
+<a href="#7029" id="7029">7029</a>
+<a href="#7030" id="7030">7030</a>
+</pre></div><pre class="rust"><code><span class="doccomment">/// Required Edu Attributes
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EduData {
@@ -7301,206 +7275,6 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>family_name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Entity representing a link between distributors and their indirect
-/// resellers in an n-tier resale channel.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ChannelPartnerLink {
-    <span class="doccomment">/// Output only. Resource name for the channel partner link, in the format
-    /// accounts/{account_id}/channelPartnerLinks/{id}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Cloud Identity ID of the linked reseller.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>reseller_cloud_identity_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. State of the channel partner link.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ChannelPartnerLinkState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>link_state: i32,
-    <span class="doccomment">/// Output only. URI of the web page where partner accepts the link invitation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>invite_link_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Timestamp of when the channel partner link is created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Timestamp of when the channel partner link is updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Public identifier that a customer must use to generate a
-    /// transfer token to move to this distributor-reseller combination.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>public_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Cloud Identity info of the channel partner (IR).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>channel_partner_cloud_identity_info: ::core::option::Option&lt;CloudIdentityInfo&gt;,
-}
-<span class="doccomment">/// The level of granularity the
-/// \[ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink\] will
-/// display.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>ChannelPartnerLinkView {
-    <span class="doccomment">/// The default / unset value.
-    /// The API will default to the BASIC view.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Includes all fields except the
-    /// \[ChannelPartnerLink.channel_partner_cloud_identity_info][google.cloud.channel.v1.ChannelPartnerLink.channel_partner_cloud_identity_info\].
-    </span>Basic = <span class="number">1</span>,
-    <span class="doccomment">/// Includes all fields.
-    </span>Full = <span class="number">2</span>,
-}
-<span class="kw">impl </span>ChannelPartnerLinkView {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            ChannelPartnerLinkView::Unspecified =&gt; <span class="string">&quot;UNSPECIFIED&quot;</span>,
-            ChannelPartnerLinkView::Basic =&gt; <span class="string">&quot;BASIC&quot;</span>,
-            ChannelPartnerLinkView::Full =&gt; <span class="string">&quot;FULL&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
-            <span class="string">&quot;FULL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// ChannelPartnerLinkState represents state of a channel partner link.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>ChannelPartnerLinkState {
-    <span class="doccomment">/// Not used.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// An invitation has been sent to the reseller to create a channel partner
-    /// link.
-    </span>Invited = <span class="number">1</span>,
-    <span class="doccomment">/// Status when the reseller is active.
-    </span>Active = <span class="number">2</span>,
-    <span class="doccomment">/// Status when the reseller has been revoked by the distributor.
-    </span>Revoked = <span class="number">3</span>,
-    <span class="doccomment">/// Status when the reseller is suspended by Google or distributor.
-    </span>Suspended = <span class="number">4</span>,
-}
-<span class="kw">impl </span>ChannelPartnerLinkState {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            ChannelPartnerLinkState::Unspecified =&gt; {
-                <span class="string">&quot;CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED&quot;
-            </span>}
-            ChannelPartnerLinkState::Invited =&gt; <span class="string">&quot;INVITED&quot;</span>,
-            ChannelPartnerLinkState::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-            ChannelPartnerLinkState::Revoked =&gt; <span class="string">&quot;REVOKED&quot;</span>,
-            ChannelPartnerLinkState::Suspended =&gt; <span class="string">&quot;SUSPENDED&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;INVITED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Invited),
-            <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-            <span class="string">&quot;REVOKED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Revoked),
-            <span class="string">&quot;SUSPENDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspended),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// Entity representing a customer of a reseller or distributor.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Customer {
-    <span class="doccomment">/// Output only. Resource name of the customer.
-    /// Format: accounts/{account_id}/customers/{customer_id}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Name of the organization that the customer entity represents.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>org_display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The organization address for the customer. To enforce US laws and
-    /// embargoes, we require a region and zip code. You must provide valid
-    /// addresses for every customer. To set the customer&#39;s language, use the
-    /// Customer-level language code.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>org_postal_address: ::core::option::Option&lt;
-        <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::PostalAddress,
-    &gt;,
-    <span class="doccomment">/// Primary contact info.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>primary_contact_info: ::core::option::Option&lt;ContactInfo&gt;,
-    <span class="doccomment">/// Secondary contact email. You need to provide an alternate email to create
-    /// different domains if a primary contact email already exists. Users will
-    /// receive a notification with credentials when you create an admin.google.com
-    /// account. Secondary emails are also recovery email addresses. Alternate
-    /// emails are optional when you create Team customers.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>alternate_email: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The customer&#39;s primary domain. Must match the primary contact
-    /// email&#39;s domain.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>domain: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Time when the customer was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Time when the customer was updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The customer&#39;s Cloud Identity ID if the customer has a Cloud
-    /// Identity resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>cloud_identity_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The BCP-47 language code, such as &quot;en-US&quot; or &quot;sr-Latn&quot;. For more
-    /// information, see
-    /// &lt;https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Cloud Identity information for the customer.
-    /// Populated only if a Cloud Identity account exists for this customer.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>cloud_identity_info: ::core::option::Option&lt;CloudIdentityInfo&gt;,
-    <span class="doccomment">/// Cloud Identity ID of the customer&#39;s channel partner.
-    /// Populated only if a channel partner exists for this customer.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>channel_partner_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. External CRM ID for the customer.
-    /// Populated only if a CRM ID exists for this customer.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>correlation_id: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Contact information for a customer account.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ContactInfo {
-    <span class="doccomment">/// The customer account contact&#39;s first name. Optional for Team customers.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>first_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The customer account contact&#39;s last name. Optional for Team customers.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>last_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The customer account contact&#39;s display name, formatted as a
-    /// combination of the customer&#39;s first and last name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The customer account&#39;s contact email. Required for entitlements that create
-    /// admin.google.com accounts, and serves as the customer&#39;s username for those
-    /// accounts. Use this email to invite Team customers.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>email: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The customer account contact&#39;s job title.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
-    <span class="doccomment">/// The customer account&#39;s contact phone number.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>phone: ::prost::alloc::string::String,
-}
 <span class="doccomment">/// A Product is the entity a customer uses when placing an order. For example,
 /// Google Workspace, Google Voice, etc.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -7682,6 +7456,8 @@
         </span>String = <span class="number">2</span>,
         <span class="doccomment">/// Double type.
         </span>Double = <span class="number">3</span>,
+        <span class="doccomment">/// Boolean type.
+        </span>Boolean = <span class="number">4</span>,
     }
     <span class="kw">impl </span>ParameterType {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -7694,6 +7470,7 @@
                 ParameterType::Int64 =&gt; <span class="string">&quot;INT64&quot;</span>,
                 ParameterType::String =&gt; <span class="string">&quot;STRING&quot;</span>,
                 ParameterType::Double =&gt; <span class="string">&quot;DOUBLE&quot;</span>,
+                ParameterType::Boolean =&gt; <span class="string">&quot;BOOLEAN&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -7703,6 +7480,7 @@
                 <span class="string">&quot;INT64&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Int64),
                 <span class="string">&quot;STRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::String),
                 <span class="string">&quot;DOUBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Double),
+                <span class="string">&quot;BOOLEAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Boolean),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -8266,7 +8044,7 @@
 </span><span class="kw">pub struct </span>ProvisionedService {
     <span class="doccomment">/// Output only. Provisioning ID of the entitlement. For Google Workspace, this
     /// is the underlying Subscription ID. For Google Cloud, this is the Billing
-    /// Account ID of the billing subaccount.&quot;
+    /// Account ID of the billing subaccount.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>provisioning_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The product pertaining to the provisioning resource as
@@ -8382,6 +8160,9 @@
         </span>SkuNotEligible = <span class="number">2</span>,
         <span class="doccomment">/// SKU subscription is suspended
         </span>SkuSuspended = <span class="number">3</span>,
+        <span class="doccomment">/// The reseller is not authorized to transact on this Product. See
+        /// &lt;https://support.google.com/channelservices/answer/9759265&gt;
+        </span>ChannelPartnerNotAuthorizedForSku = <span class="number">4</span>,
     }
     <span class="kw">impl </span>Reason {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -8394,6 +8175,9 @@
                 Reason::PendingTosAcceptance =&gt; <span class="string">&quot;PENDING_TOS_ACCEPTANCE&quot;</span>,
                 Reason::SkuNotEligible =&gt; <span class="string">&quot;SKU_NOT_ELIGIBLE&quot;</span>,
                 Reason::SkuSuspended =&gt; <span class="string">&quot;SKU_SUSPENDED&quot;</span>,
+                Reason::ChannelPartnerNotAuthorizedForSku =&gt; {
+                    <span class="string">&quot;CHANNEL_PARTNER_NOT_AUTHORIZED_FOR_SKU&quot;
+                </span>}
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -8403,6 +8187,9 @@
                 <span class="string">&quot;PENDING_TOS_ACCEPTANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PendingTosAcceptance),
                 <span class="string">&quot;SKU_NOT_ELIGIBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SkuNotEligible),
                 <span class="string">&quot;SKU_SUSPENDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SkuSuspended),
+                <span class="string">&quot;CHANNEL_PARTNER_NOT_AUTHORIZED_FOR_SKU&quot; </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChannelPartnerNotAuthorizedForSku)
+                }
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -8723,6 +8510,227 @@
         </span>OtherChangeReason(::prost::alloc::string::String),
     }
 }
+<span class="doccomment">/// Represents a billing account.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BillingAccount {
+    <span class="doccomment">/// Output only. Resource name of the billing account.
+    /// Format: accounts/{account_id}/billingAccounts/{billing_account_id}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Display name of the billing account.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The time when this billing account was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The 3-letter currency code defined in ISO 4217.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>currency_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The CLDR region code.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>region_code: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Entity representing a link between distributors and their indirect
+/// resellers in an n-tier resale channel.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ChannelPartnerLink {
+    <span class="doccomment">/// Output only. Resource name for the channel partner link, in the format
+    /// accounts/{account_id}/channelPartnerLinks/{id}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Cloud Identity ID of the linked reseller.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>reseller_cloud_identity_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. State of the channel partner link.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ChannelPartnerLinkState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>link_state: i32,
+    <span class="doccomment">/// Output only. URI of the web page where partner accepts the link invitation.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>invite_link_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Timestamp of when the channel partner link is created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Timestamp of when the channel partner link is updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Public identifier that a customer must use to generate a
+    /// transfer token to move to this distributor-reseller combination.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>public_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Cloud Identity info of the channel partner (IR).
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>channel_partner_cloud_identity_info: ::core::option::Option&lt;CloudIdentityInfo&gt;,
+}
+<span class="doccomment">/// The level of granularity the
+/// \[ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink\] will
+/// display.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>ChannelPartnerLinkView {
+    <span class="doccomment">/// The default / unset value.
+    /// The API will default to the BASIC view.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Includes all fields except the
+    /// \[ChannelPartnerLink.channel_partner_cloud_identity_info][google.cloud.channel.v1.ChannelPartnerLink.channel_partner_cloud_identity_info\].
+    </span>Basic = <span class="number">1</span>,
+    <span class="doccomment">/// Includes all fields.
+    </span>Full = <span class="number">2</span>,
+}
+<span class="kw">impl </span>ChannelPartnerLinkView {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            ChannelPartnerLinkView::Unspecified =&gt; <span class="string">&quot;UNSPECIFIED&quot;</span>,
+            ChannelPartnerLinkView::Basic =&gt; <span class="string">&quot;BASIC&quot;</span>,
+            ChannelPartnerLinkView::Full =&gt; <span class="string">&quot;FULL&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
+            <span class="string">&quot;FULL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// ChannelPartnerLinkState represents state of a channel partner link.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>ChannelPartnerLinkState {
+    <span class="doccomment">/// Not used.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// An invitation has been sent to the reseller to create a channel partner
+    /// link.
+    </span>Invited = <span class="number">1</span>,
+    <span class="doccomment">/// Status when the reseller is active.
+    </span>Active = <span class="number">2</span>,
+    <span class="doccomment">/// Status when the reseller has been revoked by the distributor.
+    </span>Revoked = <span class="number">3</span>,
+    <span class="doccomment">/// Status when the reseller is suspended by Google or distributor.
+    </span>Suspended = <span class="number">4</span>,
+}
+<span class="kw">impl </span>ChannelPartnerLinkState {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            ChannelPartnerLinkState::Unspecified =&gt; {
+                <span class="string">&quot;CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED&quot;
+            </span>}
+            ChannelPartnerLinkState::Invited =&gt; <span class="string">&quot;INVITED&quot;</span>,
+            ChannelPartnerLinkState::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
+            ChannelPartnerLinkState::Revoked =&gt; <span class="string">&quot;REVOKED&quot;</span>,
+            ChannelPartnerLinkState::Suspended =&gt; <span class="string">&quot;SUSPENDED&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;INVITED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Invited),
+            <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+            <span class="string">&quot;REVOKED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Revoked),
+            <span class="string">&quot;SUSPENDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspended),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// Entity representing a customer of a reseller or distributor.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Customer {
+    <span class="doccomment">/// Output only. Resource name of the customer.
+    /// Format: accounts/{account_id}/customers/{customer_id}
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Name of the organization that the customer entity represents.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>org_display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The organization address for the customer. To enforce US laws and
+    /// embargoes, we require a region, postal code, and address lines. You must
+    /// provide valid addresses for every customer. To set the customer&#39;s
+    /// language, use the Customer-level language code.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>org_postal_address: ::core::option::Option&lt;
+        <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::PostalAddress,
+    &gt;,
+    <span class="doccomment">/// Primary contact info.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>primary_contact_info: ::core::option::Option&lt;ContactInfo&gt;,
+    <span class="doccomment">/// Secondary contact email. You need to provide an alternate email to create
+    /// different domains if a primary contact email already exists. Users will
+    /// receive a notification with credentials when you create an admin.google.com
+    /// account. Secondary emails are also recovery email addresses. Alternate
+    /// emails are optional when you create Team customers.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>alternate_email: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The customer&#39;s primary domain. Must match the primary contact
+    /// email&#39;s domain.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>domain: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Time when the customer was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Time when the customer was updated.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The customer&#39;s Cloud Identity ID if the customer has a Cloud
+    /// Identity resource.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>cloud_identity_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The BCP-47 language code, such as &quot;en-US&quot; or &quot;sr-Latn&quot;. For more
+    /// information, see
+    /// &lt;https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Cloud Identity information for the customer.
+    /// Populated only if a Cloud Identity account exists for this customer.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>cloud_identity_info: ::core::option::Option&lt;CloudIdentityInfo&gt;,
+    <span class="doccomment">/// Cloud Identity ID of the customer&#39;s channel partner.
+    /// Populated only if a channel partner exists for this customer.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>channel_partner_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. External CRM ID for the customer.
+    /// Populated only if a CRM ID exists for this customer.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>correlation_id: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Contact information for a customer account.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ContactInfo {
+    <span class="doccomment">/// The customer account contact&#39;s first name. Optional for Team customers.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>first_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The customer account contact&#39;s last name. Optional for Team customers.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>last_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The customer account contact&#39;s display name, formatted as a
+    /// combination of the customer&#39;s first and last name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The customer account&#39;s contact email. Required for entitlements that create
+    /// admin.google.com accounts, and serves as the customer&#39;s username for those
+    /// accounts. Use this email to invite Team customers.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>email: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The customer account contact&#39;s job title.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
+    <span class="doccomment">/// The customer account&#39;s contact phone number.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>phone: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// Provides contextual information about a
 /// \[google.longrunning.Operation][google.longrunning.Operation\].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -8815,6 +8823,241 @@
                 <span class="string">&quot;PROVISION_CLOUD_IDENTITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProvisionCloudIdentity),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
+        }
+    }
+}
+<span class="doccomment">/// Configuration for how a reseller will reprice a Customer.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CustomerRepricingConfig {
+    <span class="doccomment">/// Output only. Resource name of the CustomerRepricingConfig.
+    /// Format:
+    /// accounts/{account_id}/customers/{customer_id}/customerRepricingConfigs/{id}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The configuration for bill modifications made by a reseller
+    /// before sending it to customers.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>repricing_config: ::core::option::Option&lt;RepricingConfig&gt;,
+    <span class="doccomment">/// Output only. Timestamp of an update to the repricing rule. If `update_time`
+    /// is after
+    /// \[RepricingConfig.effective_invoice_month][google.cloud.channel.v1.RepricingConfig.effective_invoice_month\]
+    /// then it indicates this was set mid-month.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Configuration for how a distributor will rebill a channel partner
+/// (also known as a distributor-authorized reseller).
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ChannelPartnerRepricingConfig {
+    <span class="doccomment">/// Output only. Resource name of the ChannelPartnerRepricingConfig.
+    /// Format:
+    /// accounts/{account_id}/channelPartnerLinks/{channel_partner_id}/channelPartnerRepricingConfigs/{id}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The configuration for bill modifications made by a reseller
+    /// before sending it to ChannelPartner.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>repricing_config: ::core::option::Option&lt;RepricingConfig&gt;,
+    <span class="doccomment">/// Output only. Timestamp of an update to the repricing rule. If `update_time`
+    /// is after
+    /// \[RepricingConfig.effective_invoice_month][google.cloud.channel.v1.RepricingConfig.effective_invoice_month\]
+    /// then it indicates this was set mid-month.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Configuration for repricing a Google bill over a period of time.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>RepricingConfig {
+    <span class="doccomment">/// Required. The YearMonth when these adjustments activate. The Day field
+    /// needs to be &quot;0&quot; since we only accept YearMonth repricing boundaries.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>effective_invoice_month: ::core::option::Option&lt;
+        <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date,
+    &gt;,
+    <span class="doccomment">/// Required. Information about the adjustment.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>adjustment: ::core::option::Option&lt;RepricingAdjustment&gt;,
+    <span class="doccomment">/// Required. The \[RebillingBasis][google.cloud.channel.v1.RebillingBasis\] to
+    /// use for this bill. Specifies the relative cost based on repricing costs you
+    /// will apply.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;RebillingBasis&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>rebilling_basis: i32,
+    <span class="doccomment">/// The conditional overrides to apply for this configuration. If you list
+    /// multiple overrides, only the first valid override is used.  If you don&#39;t
+    /// list any overrides, the API uses the normal adjustment and rebilling basis.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>conditional_overrides: ::prost::alloc::vec::Vec&lt;ConditionalOverride&gt;,
+    <span class="doccomment">/// Required. Defines the granularity for repricing.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;repricing_config::Granularity&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
+    </span><span class="kw">pub </span>granularity: ::core::option::Option&lt;repricing_config::Granularity&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `RepricingConfig`.
+</span><span class="kw">pub mod </span>repricing_config {
+    <span class="doccomment">/// Applies the repricing configuration at the entitlement level.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>EntitlementGranularity {
+        <span class="doccomment">/// Resource name of the entitlement.
+        /// Format:
+        /// accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>entitlement: ::prost::alloc::string::String,
+    }
+    <span class="doccomment">/// Applies the repricing configuration at the channel partner level.
+    /// The channel partner value is derived from the resource name. Takes an
+    /// empty json object.
+    /// Deprecated: This is no longer supported. Use
+    /// \[RepricingConfig.EntitlementGranularity][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity\]
+    /// instead.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ChannelPartnerGranularity {}
+    <span class="doccomment">/// Required. Defines the granularity for repricing.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Granularity {
+        <span class="doccomment">/// Applies the repricing configuration at the entitlement level.
+        ///
+        /// Note: If a
+        /// \[ChannelPartnerRepricingConfig][google.cloud.channel.v1.ChannelPartnerRepricingConfig\]
+        /// using
+        /// \[RepricingConfig.EntitlementGranularity][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity\]
+        /// becomes effective, then no existing or future
+        /// \[RepricingConfig.ChannelPartnerGranularity][google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity\]
+        /// will apply to the
+        /// \[RepricingConfig.EntitlementGranularity.entitlement][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.entitlement\].
+        /// This is the recommended value for both
+        /// \[CustomerRepricingConfig][google.cloud.channel.v1.CustomerRepricingConfig\]
+        /// and
+        /// \[ChannelPartnerRepricingConfig][google.cloud.channel.v1.ChannelPartnerRepricingConfig\].
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span>EntitlementGranularity(EntitlementGranularity),
+        <span class="doccomment">/// Applies the repricing configuration at the channel partner level.
+        /// Only
+        /// \[ChannelPartnerRepricingConfig][google.cloud.channel.v1.ChannelPartnerRepricingConfig\]
+        /// supports this value. Deprecated: This is no longer supported. Use
+        /// \[RepricingConfig.entitlement_granularity][google.cloud.channel.v1.RepricingConfig.entitlement_granularity\]
+        /// instead.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span>ChannelPartnerGranularity(ChannelPartnerGranularity),
+    }
+}
+<span class="doccomment">/// A type that represents the various adjustments you can apply to a bill.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>RepricingAdjustment {
+    <span class="doccomment">/// A oneof that represents the different types for this adjustment.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;repricing_adjustment::Adjustment&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>adjustment: ::core::option::Option&lt;repricing_adjustment::Adjustment&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `RepricingAdjustment`.
+</span><span class="kw">pub mod </span>repricing_adjustment {
+    <span class="doccomment">/// A oneof that represents the different types for this adjustment.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Adjustment {
+        <span class="doccomment">/// Flat markup or markdown on an entire bill.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span>PercentageAdjustment(<span class="kw">super</span>::PercentageAdjustment),
+    }
+}
+<span class="doccomment">/// An adjustment that applies a flat markup or markdown to an entire bill.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>PercentageAdjustment {
+    <span class="doccomment">/// The percentage of the bill to adjust.
+    /// For example:
+    /// Mark down by 1% =&gt; &quot;-1.00&quot;
+    /// Mark up by 1%   =&gt; &quot;1.00&quot;
+    /// Pass-Through    =&gt; &quot;0.00&quot;
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>percentage: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Decimal&gt;,
+}
+<span class="doccomment">/// Specifies the override to conditionally apply.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ConditionalOverride {
+    <span class="doccomment">/// Required. Information about the applied override&#39;s adjustment.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>adjustment: ::core::option::Option&lt;RepricingAdjustment&gt;,
+    <span class="doccomment">/// Required. The \[RebillingBasis][google.cloud.channel.v1.RebillingBasis\] to
+    /// use for the applied override. Shows the relative cost based on your
+    /// repricing costs.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;RebillingBasis&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>rebilling_basis: i32,
+    <span class="doccomment">/// Required. Specifies the condition which, if met, will apply the override.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>repricing_condition: ::core::option::Option&lt;RepricingCondition&gt;,
+}
+<span class="doccomment">/// Represents the various repricing conditions you can use for a conditional
+/// override.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>RepricingCondition {
+    <span class="doccomment">/// Represents the types of existing conditional statements.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;repricing_condition::Condition&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>condition: ::core::option::Option&lt;repricing_condition::Condition&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `RepricingCondition`.
+</span><span class="kw">pub mod </span>repricing_condition {
+    <span class="doccomment">/// Represents the types of existing conditional statements.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Condition {
+        <span class="doccomment">/// SKU Group condition for override.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span>SkuGroupCondition(<span class="kw">super</span>::SkuGroupCondition),
+    }
+}
+<span class="doccomment">/// A condition that applies the override if a line item SKU is found in the SKU
+/// group.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SkuGroupCondition {
+    <span class="doccomment">/// Specifies a SKU group (&lt;https://cloud.google.com/skus/sku-groups&gt;).
+    /// Resource name of SKU group. Format:
+    /// accounts/{account}/skuGroups/{sku_group}.
+    /// Example:
+    /// &quot;accounts/C01234/skuGroups/3d50fd57-3157-4577-a5a9-a219b8490041&quot;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>sku_group: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Specifies the different costs that the modified bill can be based on.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>RebillingBasis {
+    <span class="doccomment">/// Not used.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Use the list cost, also known as the MSRP.
+    </span>CostAtList = <span class="number">1</span>,
+    <span class="doccomment">/// Pass through all discounts except the Reseller Program Discount. If this is
+    /// the default cost base and no adjustments are specified, the output cost
+    /// will be exactly what the customer would see if they viewed the bill in the
+    /// Google Cloud Console.
+    </span>DirectCustomerCost = <span class="number">2</span>,
+}
+<span class="kw">impl </span>RebillingBasis {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            RebillingBasis::Unspecified =&gt; <span class="string">&quot;REBILLING_BASIS_UNSPECIFIED&quot;</span>,
+            RebillingBasis::CostAtList =&gt; <span class="string">&quot;COST_AT_LIST&quot;</span>,
+            RebillingBasis::DirectCustomerCost =&gt; <span class="string">&quot;DIRECT_CUSTOMER_COST&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;REBILLING_BASIS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;COST_AT_LIST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CostAtList),
+            <span class="string">&quot;DIRECT_CUSTOMER_COST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DirectCustomerCost),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
 }
@@ -9176,6 +9419,13 @@
     /// The default value is &quot;en-US&quot;.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The Billing Account to look up Offers for. Format:
+    /// accounts/{account_id}/billingAccounts/{billing_account_id}.
+    ///
+    /// This field is only relevant for multi-currency accounts. It should be left
+    /// empty for single currency accounts.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>billing_account: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the identity of transferred customer.
     /// Either a cloud_identity_id of the customer or the customer name is
     /// required to look up transferrable Offers.
@@ -9833,6 +10083,13 @@
     /// (`00000000-0000-0000-0000-000000000000`).
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. The billing account resource name that is used to pay for this
+    /// entitlement when setting up billing on a trial subscription.
+    ///
+    /// This field is only relevant for multi-currency accounts. It should be
+    /// left empty for single currency accounts.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>billing_account: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
 /// \[CloudChannelService.StartPaidService][google.cloud.channel.v1.CloudChannelService.StartPaidService\].
@@ -10232,6 +10489,10 @@
         /// Format: products/{product_id}/skus/{sku_id}.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>sku: ::prost::alloc::string::String,
+        <span class="doccomment">/// Optional. Billing account that the result should be restricted to.
+        /// Format: accounts/{account_id}/billingAccounts/{billing_account_id}.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>billing_account: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// List Offers for ChangeOffer purchase.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -10247,6 +10508,14 @@
         /// products/{product_id}/skus/{sku_id}
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>new_sku: ::prost::alloc::string::String,
+        <span class="doccomment">/// Optional. Resource name of the new target Billing Account. Provide this
+        /// Billing Account when setting up billing for a trial subscription. Format:
+        /// accounts/{account_id}/billingAccounts/{billing_account_id}.
+        ///
+        /// This field is only relevant for multi-currency accounts. It should be
+        /// left empty for single currency accounts.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>billing_account: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Defines the intended purchase.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -10279,6 +10548,53 @@
     <span class="doccomment">/// Offer.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>offer: ::core::option::Option&lt;Offer&gt;,
+}
+<span class="doccomment">/// Request message for QueryEligibleBillingAccounts.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>QueryEligibleBillingAccountsRequest {
+    <span class="doccomment">/// Required. The resource name of the customer to list eligible billing
+    /// accounts for. Format: accounts/{account_id}/customers/{customer_id}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>customer: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. List of SKUs to list eligible billing accounts for. At least one
+    /// SKU is required. Format: products/{product_id}/skus/{sku_id}.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>skus: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// Response message for QueryEligibleBillingAccounts.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>QueryEligibleBillingAccountsResponse {
+    <span class="doccomment">/// List of SKU purchase groups where each group represents a set of SKUs that
+    /// must be purchased using the same billing account. Each SKU from
+    /// \[QueryEligibleBillingAccountsRequest.skus\] will appear in exactly one SKU
+    /// group.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>sku_purchase_groups: ::prost::alloc::vec::Vec&lt;SkuPurchaseGroup&gt;,
+}
+<span class="doccomment">/// Represents a set of SKUs that must be purchased using the same billing
+/// account.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SkuPurchaseGroup {
+    <span class="doccomment">/// Resource names of the SKUs included in this group.
+    /// Format: products/{product_id}/skus/{sku_id}.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>skus: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// List of billing accounts that are eligible to purhcase these SKUs.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>billing_account_purchase_infos: ::prost::alloc::vec::Vec&lt;
+        BillingAccountPurchaseInfo,
+    &gt;,
+}
+<span class="doccomment">/// Represents a billing account that can be used to make a purchase.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BillingAccountPurchaseInfo {
+    <span class="doccomment">/// The billing account resource.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>billing_account: ::core::option::Option&lt;BillingAccount&gt;,
 }
 <span class="doccomment">/// Request Message for RegisterSubscriber.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -10631,8 +10947,11 @@
         ///
         /// Possible error codes:
         ///
-        /// * PERMISSION_DENIED: The reseller account making the request is different
-        /// from the reseller account in the API request.
+        /// * PERMISSION_DENIED:
+        ///     * The reseller account making the request is different from the
+        ///     reseller account in the API request.
+        ///     * You are not authorized to create a customer. See
+        ///     https://support.google.com/channelservices/answer/9759265
         /// * INVALID_ARGUMENT:
         ///     * Required request parameters are missing or invalid.
         ///     * Domain field value doesn&#39;t match the primary email domain.
@@ -10750,8 +11069,11 @@
         ///
         /// Possible error codes:
         ///
-        /// * PERMISSION_DENIED: The reseller account making the request is different
-        /// from the reseller account in the API request.
+        /// * PERMISSION_DENIED:
+        ///     * The reseller account making the request is different from the
+        ///     reseller account in the API request.
+        ///     * You are not authorized to import the customer. See
+        ///     https://support.google.com/channelservices/answer/9759265
         /// * NOT_FOUND: Cloud Identity doesn&#39;t exist or was deleted.
         /// * INVALID_ARGUMENT: Required parameters are missing, or the auth_token is
         /// expired or invalid.
@@ -10792,7 +11114,10 @@
         ///
         /// Possible error codes:
         ///
-        /// *  PERMISSION_DENIED: The customer doesn&#39;t belong to the reseller.
+        /// *  PERMISSION_DENIED:
+        ///      * The customer doesn&#39;t belong to the reseller.
+        ///      * You are not authorized to provision cloud identity id. See
+        ///      https://support.google.com/channelservices/answer/9759265
         /// *  INVALID_ARGUMENT: Required request parameters are missing or invalid.
         /// *  NOT_FOUND: The customer was not found.
         /// *  ALREADY_EXISTS: The customer&#39;s primary email already exists. Retry
@@ -10943,6 +11268,8 @@
         ///     auth token.
         ///     * The reseller account making the request is different
         ///     from the reseller account in the query.
+        ///     * The reseller is not authorized to transact on this Product. See
+        ///     https://support.google.com/channelservices/answer/9759265
         /// * INVALID_ARGUMENT: Required request parameters are missing or invalid.
         ///
         /// Return value:
@@ -11020,7 +11347,10 @@
         ///
         /// Possible error codes:
         ///
-        /// * PERMISSION_DENIED: The customer doesn&#39;t belong to the reseller.
+        /// * PERMISSION_DENIED:
+        ///     * The customer doesn&#39;t belong to the reseller.
+        ///     * The reseller is not authorized to transact on this Product. See
+        ///     https://support.google.com/channelservices/answer/9759265
         /// * INVALID_ARGUMENT:
         ///     * Required request parameters are missing or invalid.
         ///     * There is already a customer entitlement for a SKU from the same
@@ -11461,7 +11791,10 @@
         ///
         /// Possible error codes:
         ///
-        /// * PERMISSION_DENIED: The customer doesn&#39;t belong to the reseller.
+        /// * PERMISSION_DENIED:
+        ///     * The customer doesn&#39;t belong to the reseller.
+        ///     * The reseller is not authorized to transact on this Product. See
+        ///     https://support.google.com/channelservices/answer/9759265
         /// * INVALID_ARGUMENT: Required request parameters are missing or invalid.
         /// * NOT_FOUND: The customer or offer resource was not found.
         /// * ALREADY_EXISTS: The SKU was already transferred for the customer.
@@ -11886,12 +12219,12 @@
         /// * The new config will not modify exports used with other configs.
         /// Changes to the config may be immediate, but may take up to 24 hours.
         /// * There is a limit of ten configs for any
-        /// [RepricingConfig.EntitlementGranularity.entitlement][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.entitlement]
-        /// or
+        /// [RepricingConfig.EntitlementGranularity.entitlement][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.entitlement],
+        /// for any
         /// [RepricingConfig.effective_invoice_month][google.cloud.channel.v1.RepricingConfig.effective_invoice_month].
         /// * The contained
         /// [CustomerRepricingConfig.repricing_config][google.cloud.channel.v1.CustomerRepricingConfig.repricing_config]
-        /// vaule must be different from the value used in the current config for a
+        /// value must be different from the value used in the current config for a
         /// [RepricingConfig.EntitlementGranularity.entitlement][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.entitlement].
         ///
         /// Possible Error Codes:
@@ -12170,10 +12503,12 @@
         /// * The new config will not modify exports used with other configs.
         /// Changes to the config may be immediate, but may take up to 24 hours.
         /// * There is a limit of ten configs for any ChannelPartner or
+        /// [RepricingConfig.EntitlementGranularity.entitlement][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.entitlement],
+        /// for any
         /// [RepricingConfig.effective_invoice_month][google.cloud.channel.v1.RepricingConfig.effective_invoice_month].
         /// * The contained
         /// [ChannelPartnerRepricingConfig.repricing_config][google.cloud.channel.v1.ChannelPartnerRepricingConfig.repricing_config]
-        /// vaule must be different from the value used in the current config for a
+        /// value must be different from the value used in the current config for a
         /// ChannelPartner.
         ///
         /// Possible Error Codes:
@@ -12621,7 +12956,10 @@
         ///
         /// Possible error codes:
         ///
-        /// * PERMISSION_DENIED: The customer doesn&#39;t belong to the reseller
+        /// * PERMISSION_DENIED:
+        ///     * The customer doesn&#39;t belong to the reseller
+        ///     * The reseller is not authorized to transact on this Product. See
+        ///     https://support.google.com/channelservices/answer/9759265
         /// * INVALID_ARGUMENT: Required request parameters are missing or invalid.
         </span><span class="kw">pub async fn </span>list_purchasable_offers(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -12649,6 +12987,48 @@
                     GrpcMethod::new(
                         <span class="string">&quot;google.cloud.channel.v1.CloudChannelService&quot;</span>,
                         <span class="string">&quot;ListPurchasableOffers&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Lists the billing accounts that are eligible to purchase particular SKUs
+        /// for a given customer.
+        ///
+        /// Possible error codes:
+        ///
+        /// * PERMISSION_DENIED: The customer doesn&#39;t belong to the reseller.
+        /// * INVALID_ARGUMENT: Required request parameters are missing or invalid.
+        ///
+        /// Return value:
+        /// Based on the provided list of SKUs, returns a list of SKU groups that must
+        /// be purchased using the same billing account and the billing accounts
+        /// eligible to purchase each SKU group.
+        </span><span class="kw">pub async fn </span>query_eligible_billing_accounts(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::QueryEligibleBillingAccountsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::QueryEligibleBillingAccountsResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.channel.v1.CloudChannelService/QueryEligibleBillingAccounts&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.channel.v1.CloudChannelService&quot;</span>,
+                        <span class="string">&quot;QueryEligibleBillingAccounts&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Connectivity","Phase","State","Type"],"struct":["DumpFlag","DumpFlags"]};
+window.SIDEBAR_ITEMS = {"enum":["Connectivity","Phase","State","Type"],"mod":["performance_config"],"struct":["DumpFlag","DumpFlags","PerformanceConfig"]};

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/workstations/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/workstations/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.1 (d5c2e9c34 2023-09-13)" data-channel="1.72.1" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../source-files.js"></script><script defer src="../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1690,82 +1690,287 @@
 <a href="#1690" id="1690">1690</a>
 <a href="#1691" id="1691">1691</a>
 <a href="#1692" id="1692">1692</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// A grouping of workstation configurations and the associated workstations
-///   in that region.
+<a href="#1693" id="1693">1693</a>
+<a href="#1694" id="1694">1694</a>
+<a href="#1695" id="1695">1695</a>
+<a href="#1696" id="1696">1696</a>
+<a href="#1697" id="1697">1697</a>
+<a href="#1698" id="1698">1698</a>
+<a href="#1699" id="1699">1699</a>
+<a href="#1700" id="1700">1700</a>
+<a href="#1701" id="1701">1701</a>
+<a href="#1702" id="1702">1702</a>
+<a href="#1703" id="1703">1703</a>
+<a href="#1704" id="1704">1704</a>
+<a href="#1705" id="1705">1705</a>
+<a href="#1706" id="1706">1706</a>
+<a href="#1707" id="1707">1707</a>
+<a href="#1708" id="1708">1708</a>
+<a href="#1709" id="1709">1709</a>
+<a href="#1710" id="1710">1710</a>
+<a href="#1711" id="1711">1711</a>
+<a href="#1712" id="1712">1712</a>
+<a href="#1713" id="1713">1713</a>
+<a href="#1714" id="1714">1714</a>
+<a href="#1715" id="1715">1715</a>
+<a href="#1716" id="1716">1716</a>
+<a href="#1717" id="1717">1717</a>
+<a href="#1718" id="1718">1718</a>
+<a href="#1719" id="1719">1719</a>
+<a href="#1720" id="1720">1720</a>
+<a href="#1721" id="1721">1721</a>
+<a href="#1722" id="1722">1722</a>
+<a href="#1723" id="1723">1723</a>
+<a href="#1724" id="1724">1724</a>
+<a href="#1725" id="1725">1725</a>
+<a href="#1726" id="1726">1726</a>
+<a href="#1727" id="1727">1727</a>
+<a href="#1728" id="1728">1728</a>
+<a href="#1729" id="1729">1729</a>
+<a href="#1730" id="1730">1730</a>
+<a href="#1731" id="1731">1731</a>
+<a href="#1732" id="1732">1732</a>
+<a href="#1733" id="1733">1733</a>
+<a href="#1734" id="1734">1734</a>
+<a href="#1735" id="1735">1735</a>
+<a href="#1736" id="1736">1736</a>
+<a href="#1737" id="1737">1737</a>
+<a href="#1738" id="1738">1738</a>
+<a href="#1739" id="1739">1739</a>
+<a href="#1740" id="1740">1740</a>
+<a href="#1741" id="1741">1741</a>
+<a href="#1742" id="1742">1742</a>
+<a href="#1743" id="1743">1743</a>
+<a href="#1744" id="1744">1744</a>
+<a href="#1745" id="1745">1745</a>
+<a href="#1746" id="1746">1746</a>
+<a href="#1747" id="1747">1747</a>
+<a href="#1748" id="1748">1748</a>
+<a href="#1749" id="1749">1749</a>
+<a href="#1750" id="1750">1750</a>
+<a href="#1751" id="1751">1751</a>
+<a href="#1752" id="1752">1752</a>
+<a href="#1753" id="1753">1753</a>
+<a href="#1754" id="1754">1754</a>
+<a href="#1755" id="1755">1755</a>
+<a href="#1756" id="1756">1756</a>
+<a href="#1757" id="1757">1757</a>
+<a href="#1758" id="1758">1758</a>
+<a href="#1759" id="1759">1759</a>
+<a href="#1760" id="1760">1760</a>
+<a href="#1761" id="1761">1761</a>
+<a href="#1762" id="1762">1762</a>
+<a href="#1763" id="1763">1763</a>
+<a href="#1764" id="1764">1764</a>
+<a href="#1765" id="1765">1765</a>
+<a href="#1766" id="1766">1766</a>
+<a href="#1767" id="1767">1767</a>
+<a href="#1768" id="1768">1768</a>
+<a href="#1769" id="1769">1769</a>
+<a href="#1770" id="1770">1770</a>
+<a href="#1771" id="1771">1771</a>
+<a href="#1772" id="1772">1772</a>
+<a href="#1773" id="1773">1773</a>
+<a href="#1774" id="1774">1774</a>
+<a href="#1775" id="1775">1775</a>
+<a href="#1776" id="1776">1776</a>
+<a href="#1777" id="1777">1777</a>
+<a href="#1778" id="1778">1778</a>
+<a href="#1779" id="1779">1779</a>
+<a href="#1780" id="1780">1780</a>
+<a href="#1781" id="1781">1781</a>
+<a href="#1782" id="1782">1782</a>
+<a href="#1783" id="1783">1783</a>
+<a href="#1784" id="1784">1784</a>
+<a href="#1785" id="1785">1785</a>
+<a href="#1786" id="1786">1786</a>
+<a href="#1787" id="1787">1787</a>
+<a href="#1788" id="1788">1788</a>
+<a href="#1789" id="1789">1789</a>
+<a href="#1790" id="1790">1790</a>
+<a href="#1791" id="1791">1791</a>
+<a href="#1792" id="1792">1792</a>
+<a href="#1793" id="1793">1793</a>
+<a href="#1794" id="1794">1794</a>
+<a href="#1795" id="1795">1795</a>
+<a href="#1796" id="1796">1796</a>
+<a href="#1797" id="1797">1797</a>
+<a href="#1798" id="1798">1798</a>
+<a href="#1799" id="1799">1799</a>
+<a href="#1800" id="1800">1800</a>
+<a href="#1801" id="1801">1801</a>
+<a href="#1802" id="1802">1802</a>
+<a href="#1803" id="1803">1803</a>
+<a href="#1804" id="1804">1804</a>
+<a href="#1805" id="1805">1805</a>
+<a href="#1806" id="1806">1806</a>
+<a href="#1807" id="1807">1807</a>
+<a href="#1808" id="1808">1808</a>
+<a href="#1809" id="1809">1809</a>
+<a href="#1810" id="1810">1810</a>
+<a href="#1811" id="1811">1811</a>
+<a href="#1812" id="1812">1812</a>
+<a href="#1813" id="1813">1813</a>
+<a href="#1814" id="1814">1814</a>
+<a href="#1815" id="1815">1815</a>
+<a href="#1816" id="1816">1816</a>
+<a href="#1817" id="1817">1817</a>
+<a href="#1818" id="1818">1818</a>
+<a href="#1819" id="1819">1819</a>
+<a href="#1820" id="1820">1820</a>
+<a href="#1821" id="1821">1821</a>
+<a href="#1822" id="1822">1822</a>
+<a href="#1823" id="1823">1823</a>
+<a href="#1824" id="1824">1824</a>
+<a href="#1825" id="1825">1825</a>
+<a href="#1826" id="1826">1826</a>
+<a href="#1827" id="1827">1827</a>
+<a href="#1828" id="1828">1828</a>
+<a href="#1829" id="1829">1829</a>
+<a href="#1830" id="1830">1830</a>
+<a href="#1831" id="1831">1831</a>
+<a href="#1832" id="1832">1832</a>
+<a href="#1833" id="1833">1833</a>
+<a href="#1834" id="1834">1834</a>
+<a href="#1835" id="1835">1835</a>
+<a href="#1836" id="1836">1836</a>
+<a href="#1837" id="1837">1837</a>
+<a href="#1838" id="1838">1838</a>
+<a href="#1839" id="1839">1839</a>
+<a href="#1840" id="1840">1840</a>
+<a href="#1841" id="1841">1841</a>
+<a href="#1842" id="1842">1842</a>
+<a href="#1843" id="1843">1843</a>
+<a href="#1844" id="1844">1844</a>
+<a href="#1845" id="1845">1845</a>
+<a href="#1846" id="1846">1846</a>
+<a href="#1847" id="1847">1847</a>
+<a href="#1848" id="1848">1848</a>
+<a href="#1849" id="1849">1849</a>
+<a href="#1850" id="1850">1850</a>
+<a href="#1851" id="1851">1851</a>
+<a href="#1852" id="1852">1852</a>
+<a href="#1853" id="1853">1853</a>
+<a href="#1854" id="1854">1854</a>
+<a href="#1855" id="1855">1855</a>
+<a href="#1856" id="1856">1856</a>
+<a href="#1857" id="1857">1857</a>
+<a href="#1858" id="1858">1858</a>
+<a href="#1859" id="1859">1859</a>
+<a href="#1860" id="1860">1860</a>
+<a href="#1861" id="1861">1861</a>
+<a href="#1862" id="1862">1862</a>
+<a href="#1863" id="1863">1863</a>
+<a href="#1864" id="1864">1864</a>
+<a href="#1865" id="1865">1865</a>
+<a href="#1866" id="1866">1866</a>
+<a href="#1867" id="1867">1867</a>
+<a href="#1868" id="1868">1868</a>
+<a href="#1869" id="1869">1869</a>
+<a href="#1870" id="1870">1870</a>
+<a href="#1871" id="1871">1871</a>
+<a href="#1872" id="1872">1872</a>
+<a href="#1873" id="1873">1873</a>
+<a href="#1874" id="1874">1874</a>
+<a href="#1875" id="1875">1875</a>
+<a href="#1876" id="1876">1876</a>
+<a href="#1877" id="1877">1877</a>
+<a href="#1878" id="1878">1878</a>
+<a href="#1879" id="1879">1879</a>
+<a href="#1880" id="1880">1880</a>
+<a href="#1881" id="1881">1881</a>
+<a href="#1882" id="1882">1882</a>
+<a href="#1883" id="1883">1883</a>
+<a href="#1884" id="1884">1884</a>
+<a href="#1885" id="1885">1885</a>
+<a href="#1886" id="1886">1886</a>
+<a href="#1887" id="1887">1887</a>
+<a href="#1888" id="1888">1888</a>
+<a href="#1889" id="1889">1889</a>
+</pre></div><pre class="rust"><code><span class="doccomment">/// A workstation cluster resource in the Cloud Workstations API.
+///
+/// Defines a group of workstations in a particular region and the
+/// VPC network they&#39;re attached to.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>WorkstationCluster {
-    <span class="doccomment">/// Full name of this resource.
+    <span class="doccomment">/// Full name of this workstation cluster.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Human-readable name for this resource.
+    <span class="doccomment">/// Optional. Human-readable name for this workstation cluster.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. A system-assigned unique identified for this resource.
+    <span class="doccomment">/// Output only. A system-assigned unique identifier for this workstation
+    /// cluster.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Indicates whether this resource is currently being updated to
-    /// match its intended state.
+    <span class="doccomment">/// Output only. Indicates whether this workstation cluster is currently being
+    /// updated to match its intended state.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>reconciling: bool,
-    <span class="doccomment">/// Client-specified annotations.
+    <span class="doccomment">/// Optional. Client-specified annotations.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
-    <span class="doccomment">/// Client-specified labels that are applied to the resource and that are also
-    /// propagated to the underlying Compute Engine resources.
+    <span class="doccomment">/// Optional.
+    /// \[Labels\](&lt;https://cloud.google.com/workstations/docs/label-resources&gt;) that
+    /// are applied to the workstation cluster and that are also propagated to the
+    /// underlying Compute Engine resources.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;15&quot;</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
-    <span class="doccomment">/// Output only. Time when this resource was created.
+    <span class="doccomment">/// Output only. Time when this workstation cluster was created.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Time when this resource was most recently updated.
+    <span class="doccomment">/// Output only. Time when this workstation cluster was most recently updated.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Time when this resource was soft-deleted.
+    <span class="doccomment">/// Output only. Time when this workstation cluster was soft-deleted.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Checksum computed by the server. May be sent on update and delete requests
-    /// to make sure that the client has an up-to-date value before proceeding.
+    <span class="doccomment">/// Optional. Checksum computed by the server. May be sent on update and delete
+    /// requests to make sure that the client has an up-to-date value before
+    /// proceeding.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Immutable. Name of the Compute Engine network in which instances associated
-    /// with this cluster will be created.
+    /// with this workstation cluster will be created.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
     <span class="doccomment">/// Immutable. Name of the Compute Engine subnetwork in which instances
-    /// associated with this cluster will be created. Must be part of the
-    /// subnetwork specified for this cluster.
+    /// associated with this workstation cluster will be created. Must be part of
+    /// the subnetwork specified for this workstation cluster.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>subnetwork: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The private IP address of the control plane for this cluster.
-    /// Workstation VMs need access to this IP address to work with the service, so
-    /// make sure that your firewall rules allow egress from the workstation VMs to
-    /// this address.
+    <span class="doccomment">/// Output only. The private IP address of the control plane for this
+    /// workstation cluster. Workstation VMs need access to this IP address to work
+    /// with the service, so make sure that your firewall rules allow egress from
+    /// the workstation VMs to this address.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;16&quot;</span>)]
     </span><span class="kw">pub </span>control_plane_ip: ::prost::alloc::string::String,
-    <span class="doccomment">/// Configuration for private cluster.
+    <span class="doccomment">/// Optional. Configuration for private workstation cluster.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>private_cluster_config: ::core::option::Option&lt;
         workstation_cluster::PrivateClusterConfig,
     &gt;,
-    <span class="doccomment">/// Output only. Whether this resource is in degraded mode, in which case it
-    /// may require user action to restore full functionality. Details can be found
-    /// in the `conditions` field.
+    <span class="doccomment">/// Output only. Whether this workstation cluster is in degraded mode, in which
+    /// case it may require user action to restore full functionality. Details can
+    /// be found in
+    /// \[conditions][google.cloud.workstations.v1.WorkstationCluster.conditions\].
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>degraded: bool,
-    <span class="doccomment">/// Output only. Status conditions describing the current resource state.
+    <span class="doccomment">/// Output only. Status conditions describing the workstation cluster&#39;s current
+    /// state.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;14&quot;</span>)]
     </span><span class="kw">pub </span>conditions: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `WorkstationCluster`.
 </span><span class="kw">pub mod </span>workstation_cluster {
-    <span class="doccomment">/// Configuration options for private clusters.
+    <span class="doccomment">/// Configuration options for private workstation clusters.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>PrivateClusterConfig {
@@ -1774,95 +1979,130 @@
         </span><span class="kw">pub </span>enable_private_endpoint: bool,
         <span class="doccomment">/// Output only. Hostname for the workstation cluster. This field will be
         /// populated only when private endpoint is enabled. To access workstations
-        /// in the cluster, create a new DNS zone mapping this domain name to an
-        /// internal IP address and a forwarding rule mapping that address to the
-        /// service attachment.
+        /// in the workstation cluster, create a new DNS zone mapping this domain
+        /// name to an internal IP address and a forwarding rule mapping that address
+        /// to the service attachment.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>cluster_hostname: ::prost::alloc::string::String,
         <span class="doccomment">/// Output only. Service attachment URI for the workstation cluster. The
         /// service attachemnt is created when private endpoint is enabled. To access
-        /// workstations in the cluster, configure access to the managed service
-        /// using [Private Service
+        /// workstations in the workstation cluster, configure access to the managed
+        /// service using [Private Service
         /// Connect](&lt;https://cloud.google.com/vpc/docs/configure-private-service-connect-services&gt;).
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>service_attachment_uri: ::prost::alloc::string::String,
-        <span class="doccomment">/// Additional projects that are allowed to attach to the workstation
-        /// cluster&#39;s service attachment. By default, the workstation cluster&#39;s
-        /// project and the VPC host project (if different) are allowed.
+        <span class="doccomment">/// Optional. Additional projects that are allowed to attach to the
+        /// workstation cluster&#39;s service attachment. By default, the workstation
+        /// cluster&#39;s project and the VPC host project (if different) are allowed.
         </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
         </span><span class="kw">pub </span>allowed_projects: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
 }
-<span class="doccomment">/// A set of configuration options describing how a workstation will be run.
-/// Workstation configurations are intended to be shared across multiple
-/// workstations.
+<span class="doccomment">/// A workstation configuration resource in the Cloud Workstations API.
+///
+/// Workstation configurations act as templates for workstations. The workstation
+/// configuration defines details such as the workstation virtual machine (VM)
+/// instance type, persistent storage, container image defining environment,
+/// which IDE or Code Editor to use, and more. Administrators and platform teams
+/// can also use [Identity and Access Management
+/// (IAM)](&lt;https://cloud.google.com/iam/docs/overview&gt;) rules to grant access to
+/// teams or to individual developers.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>WorkstationConfig {
-    <span class="doccomment">/// Full name of this resource.
+    <span class="doccomment">/// Full name of this workstation configuration.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Human-readable name for this resource.
+    <span class="doccomment">/// Optional. Human-readable name for this workstation configuration.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. A system-assigned unique identified for this resource.
+    <span class="doccomment">/// Output only. A system-assigned unique identifier for this workstation
+    /// configuration.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Indicates whether this resource is currently being updated to
-    /// match its intended state.
+    <span class="doccomment">/// Output only. Indicates whether this workstation configuration is currently
+    /// being updated to match its intended state.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>reconciling: bool,
-    <span class="doccomment">/// Client-specified annotations.
+    <span class="doccomment">/// Optional. Client-specified annotations.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
-    <span class="doccomment">/// Client-specified labels that are applied to the resource and that are also
-    /// propagated to the underlying Compute Engine resources.
+    <span class="doccomment">/// Optional.
+    /// \[Labels\](&lt;https://cloud.google.com/workstations/docs/label-resources&gt;) that
+    /// are applied to the workstation configuration and that are also propagated
+    /// to the underlying Compute Engine resources.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;18&quot;</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
-    <span class="doccomment">/// Output only. Time when this resource was created.
+    <span class="doccomment">/// Output only. Time when this workstation configuration was created.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Time when this resource was most recently updated.
+    <span class="doccomment">/// Output only. Time when this workstation configuration was most recently
+    /// updated.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Time when this resource was soft-deleted.
+    <span class="doccomment">/// Output only. Time when this workstation configuration was soft-deleted.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Checksum computed by the server. May be sent on update and delete requests
-    /// to make sure that the client has an up-to-date value before proceeding.
+    <span class="doccomment">/// Optional. Checksum computed by the server. May be sent on update and delete
+    /// requests to make sure that the client has an up-to-date value before
+    /// proceeding.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
-    <span class="doccomment">/// How long to wait before automatically stopping an instance that hasn&#39;t
-    /// received any user traffic. A value of 0 indicates that this instance
-    /// should never time out due to idleness. Defaults to 20 minutes.
+    <span class="doccomment">/// Optional. Number of seconds to wait before automatically stopping a
+    /// workstation after it last received user traffic.
+    ///
+    /// A value of `&quot;0s&quot;` indicates that Cloud Workstations VMs created with this
+    /// configuration should never time out due to idleness.
+    /// Provide
+    /// \[duration\](&lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration&gt;)
+    /// terminated by `s` for seconds—for example, `&quot;7200s&quot;` (2 hours).
+    /// The default is `&quot;1200s&quot;` (20 minutes).
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
     </span><span class="kw">pub </span>idle_timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
-    <span class="doccomment">/// How long to wait before automatically stopping a workstation after it
-    /// started. A value of 0 indicates that workstations using this configuration
-    /// should never time out. Must be greater than 0 and less than 24 hours if
-    /// encryption_key is set. Defaults to 12 hours.
+    <span class="doccomment">/// Optional. Number of seconds that a workstation can run until it is
+    /// automatically shut down. We recommend that workstations be shut down daily
+    /// to reduce costs and so that security updates can be applied upon restart.
+    /// The
+    /// \[idle_timeout][google.cloud.workstations.v1.WorkstationConfig.idle_timeout\]
+    /// and
+    /// \[running_timeout][google.cloud.workstations.v1.WorkstationConfig.running_timeout\]
+    /// fields are independent of each other. Note that the
+    /// \[running_timeout][google.cloud.workstations.v1.WorkstationConfig.running_timeout\]
+    /// field shuts down VMs after the specified time, regardless of whether or not
+    /// the VMs are idle.
+    ///
+    /// Provide duration terminated by `s` for seconds—for example, `&quot;54000s&quot;`
+    /// (15 hours). Defaults to `&quot;43200s&quot;` (12 hours). A value of `&quot;0s&quot;` indicates
+    /// that workstations using this configuration should never time out. If
+    /// \[encryption_key][google.cloud.workstations.v1.WorkstationConfig.encryption_key\]
+    /// is set, it must be greater than `&quot;0s&quot;` and less than
+    /// `&quot;86400s&quot;` (24 hours).
+    ///
+    /// Warning: A value of `&quot;0s&quot;` indicates that Cloud Workstations VMs created
+    /// with this configuration have no maximum running time. This is strongly
+    /// discouraged because you incur costs and will not pick up security updates.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>running_timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
-    <span class="doccomment">/// Runtime host for the workstation.
+    <span class="doccomment">/// Optional. Runtime host for the workstation.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
     </span><span class="kw">pub </span>host: ::core::option::Option&lt;workstation_config::Host&gt;,
-    <span class="doccomment">/// Directories to persist across workstation sessions.
+    <span class="doccomment">/// Optional. Directories to persist across workstation sessions.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>persistent_directories: ::prost::alloc::vec::Vec&lt;
         workstation_config::PersistentDirectory,
     &gt;,
-    <span class="doccomment">/// Container that will be run for each workstation using this configuration
-    /// when that workstation is started.
+    <span class="doccomment">/// Optional. Container that runs upon startup for each workstation using this
+    /// workstation configuration.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
     </span><span class="kw">pub </span>container: ::core::option::Option&lt;workstation_config::Container&gt;,
     <span class="doccomment">/// Immutable. Encrypts resources of this workstation configuration using a
-    /// customer-managed encryption key.
+    /// customer-managed encryption key (CMEK).
     ///
     /// If specified, the boot disk of the Compute Engine instance and the
     /// persistent disk are encrypted using this encryption key. If
@@ -1873,19 +2113,34 @@
     /// instance is stopped, the system attempts to recreate the
     /// persistent disk with the new version of the key. Be sure to keep
     /// older versions of the key until the persistent disk is recreated.
-    /// Otherwise, data on the persistent disk will be lost.
+    /// Otherwise, data on the persistent disk might be lost.
     ///
-    /// If the encryption key is revoked, the workstation session will
-    /// automatically be stopped within 7 hours.
+    /// If the encryption key is revoked, the workstation session automatically
+    /// stops within 7 hours.
     ///
     /// Immutable after the workstation configuration is created.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
     </span><span class="kw">pub </span>encryption_key: ::core::option::Option&lt;
         workstation_config::CustomerEncryptionKey,
     &gt;,
+    <span class="doccomment">/// Optional. Readiness checks to perform when starting a workstation using
+    /// this workstation configuration. Mark a workstation as running only after
+    /// all specified readiness checks return 200 status codes.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="kw">pub </span>readiness_checks: ::prost::alloc::vec::Vec&lt;workstation_config::ReadinessCheck&gt;,
+    <span class="doccomment">/// Optional. Immutable. Specifies the zones used to replicate the VM and disk
+    /// resources within the region. If set, exactly two zones within the
+    /// workstation cluster&#39;s region must be specified—for example,
+    /// `[&#39;us-central1-a&#39;, &#39;us-central1-f&#39;]`. If this field is empty, two default
+    /// zones within the region are used.
+    ///
+    /// Immutable after the workstation configuration is created.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="kw">pub </span>replica_zones: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Output only. Whether this resource is degraded, in which case it may
     /// require user action to restore full functionality. See also the
-    /// `conditions` field.
+    /// \[conditions][google.cloud.workstations.v1.WorkstationConfig.conditions\]
+    /// field.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;15&quot;</span>)]
     </span><span class="kw">pub </span>degraded: bool,
     <span class="doccomment">/// Output only. Status conditions describing the current resource state.
@@ -1908,44 +2163,116 @@
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>GceInstance {
-            <span class="doccomment">/// The name of a Compute Engine machine type.
+            <span class="doccomment">/// Optional. The type of machine to use for VM instances—for example,
+            /// `&quot;e2-standard-4&quot;`. For more information about machine types that
+            /// Cloud Workstations supports, see the list of
+            /// [available machine
+            /// types](&lt;https://cloud.google.com/workstations/docs/available-machine-types&gt;).
             </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>machine_type: ::prost::alloc::string::String,
-            <span class="doccomment">/// Email address of the service account used on VM instances
-            /// used to support this configuration. If not set, VMs run with a
-            /// Google-managed service account. This service account must have
-            /// permission to pull the specified container image; otherwise, the image
-            /// must be publicly accessible.
+            <span class="doccomment">/// Optional. The email address of the service account for Cloud
+            /// Workstations VMs created with this configuration. When specified, be
+            /// sure that the service account has `logginglogEntries.create` permission
+            /// on the project so it can write logs out to Cloud Logging. If using a
+            /// custom container image, the service account must have permissions to
+            /// pull the specified image.
+            ///
+            /// If you as the administrator want to be able to `ssh` into the
+            /// underlying VM, you need to set this value to a service account
+            /// for which you have the `iam.serviceAccounts.actAs` permission.
+            /// Conversely, if you don&#39;t want anyone to be able to `ssh` into the
+            /// underlying VM, use a service account where no one has that
+            /// permission.
+            ///
+            /// If not set, VMs run with a service account provided by the
+            /// Cloud Workstations service, and the image must be publicly
+            /// accessible.
             </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
             </span><span class="kw">pub </span>service_account: ::prost::alloc::string::String,
-            <span class="doccomment">/// Network tags to add to the Compute Engine machines backing the
-            /// Workstations.
+            <span class="doccomment">/// Optional. Scopes to grant to the
+            /// \[service_account][google.cloud.workstations.v1.WorkstationConfig.Host.GceInstance.service_account\].
+            /// Various scopes are automatically added based on feature usage. When
+            /// specified, users of workstations under this configuration must have
+            /// `iam.serviceAccounts.actAs` on the service account.
+            </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="kw">pub </span>service_account_scopes: ::prost::alloc::vec::Vec&lt;
+                ::prost::alloc::string::String,
+            &gt;,
+            <span class="doccomment">/// Optional. Network tags to add to the Compute Engine VMs backing the
+            /// workstations. This option applies
+            /// [network
+            /// tags](&lt;https://cloud.google.com/vpc/docs/add-remove-network-tags&gt;) to VMs
+            /// created with this configuration. These network tags enable the creation
+            /// of [firewall
+            /// rules](&lt;https://cloud.google.com/workstations/docs/configure-firewall-rules&gt;).
             </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
             </span><span class="kw">pub </span>tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-            <span class="doccomment">/// Number of instances to pool for faster workstation startup.
+            <span class="doccomment">/// Optional. The number of VMs that the system should keep idle so that
+            /// new workstations can be started quickly for new users. Defaults to `0`
+            /// in the API.
             </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
             </span><span class="kw">pub </span>pool_size: i32,
             <span class="doccomment">/// Output only. Number of instances currently available in the pool for
             /// faster workstation startup.
             </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;12&quot;</span>)]
             </span><span class="kw">pub </span>pooled_instances: i32,
-            <span class="doccomment">/// Whether instances have no public IP address.
+            <span class="doccomment">/// Optional. When set to true, disables public IP addresses for VMs. If
+            /// you disable public IP addresses, you must set up Private Google Access
+            /// or Cloud NAT on your network. If you use Private Google Access and you
+            /// use `private.googleapis.com` or `restricted.googleapis.com` for
+            /// Container Registry and Artifact Registry, make sure that you set
+            /// up DNS records for domains `*.gcr.io` and `*.pkg.dev`.
+            /// Defaults to false (VMs have public IP addresses).
             </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
             </span><span class="kw">pub </span>disable_public_ip_addresses: bool,
-            <span class="doccomment">/// Whether to enable nested virtualization on instances.
+            <span class="doccomment">/// Optional. Whether to enable nested virtualization on Cloud Workstations
+            /// VMs created under this workstation configuration.
+            ///
+            /// Nested virtualization lets you run virtual machine (VM) instances
+            /// inside your workstation. Before enabling nested virtualization,
+            /// consider the following important considerations. Cloud Workstations
+            /// instances are subject to the [same restrictions as Compute Engine
+            /// instances](&lt;https://cloud.google.com/compute/docs/instances/nested-virtualization/overview#restrictions&gt;):
+            ///
+            /// * **Organization policy**: projects, folders, or
+            /// organizations may be restricted from creating nested VMs if the
+            /// **Disable VM nested virtualization** constraint is enforced in
+            /// the organization policy. For more information, see the
+            /// Compute Engine section,
+            /// [Checking whether nested virtualization is
+            /// allowed](&lt;https://cloud.google.com/compute/docs/instances/nested-virtualization/managing-constraint#checking_whether_nested_virtualization_is_allowed&gt;).
+            /// * **Performance**: nested VMs might experience a 10% or greater
+            /// decrease in performance for workloads that are CPU-bound and
+            /// possibly greater than a 10% decrease for workloads that are
+            /// input/output bound.
+            /// * **Machine Type**: nested virtualization can only be enabled on
+            /// workstation configurations that specify a
+            /// \[machine_type][google.cloud.workstations.v1.WorkstationConfig.Host.GceInstance.machine_type\]
+            /// in the N1 or N2 machine series.
+            /// * **GPUs**: nested virtualization may not be enabled on workstation
+            /// configurations with accelerators.
+            /// * **Operating System**: Because
+            /// [Container-Optimized
+            /// OS](&lt;https://cloud.google.com/compute/docs/images/os-details#container-optimized_os_cos&gt;)
+            /// does not support nested virtualization, when nested virtualization is
+            /// enabled, the underlying Compute Engine VM instances boot from an
+            /// [Ubuntu
+            /// LTS](&lt;https://cloud.google.com/compute/docs/images/os-details#ubuntu_lts&gt;)
+            /// image.
             </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
             </span><span class="kw">pub </span>enable_nested_virtualization: bool,
-            <span class="doccomment">/// A set of Compute Engine Shielded instance options.
+            <span class="doccomment">/// Optional. A set of Compute Engine Shielded instance options.
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
             </span><span class="kw">pub </span>shielded_instance_config: ::core::option::Option&lt;
                 gce_instance::GceShieldedInstanceConfig,
             &gt;,
-            <span class="doccomment">/// A set of Compute Engine Confidential VM instance options.
+            <span class="doccomment">/// Optional. A set of Compute Engine Confidential VM instance options.
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
             </span><span class="kw">pub </span>confidential_instance_config: ::core::option::Option&lt;
                 gce_instance::GceConfidentialInstanceConfig,
             &gt;,
-            <span class="doccomment">/// Size of the boot disk in GB. Defaults to 50.
+            <span class="doccomment">/// Optional. The size of the boot disk for the VM in gigabytes (GB).
+            /// The minimum boot disk size is `30` GB. Defaults to `50` GB.
             </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
             </span><span class="kw">pub </span>boot_disk_size_gb: i32,
         }
@@ -1955,13 +2282,13 @@
             </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>GceShieldedInstanceConfig {
-                <span class="doccomment">/// Whether the instance has Secure Boot enabled.
+                <span class="doccomment">/// Optional. Whether the instance has Secure Boot enabled.
                 </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
                 </span><span class="kw">pub </span>enable_secure_boot: bool,
-                <span class="doccomment">/// Whether the instance has the vTPM enabled.
+                <span class="doccomment">/// Optional. Whether the instance has the vTPM enabled.
                 </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
                 </span><span class="kw">pub </span>enable_vtpm: bool,
-                <span class="doccomment">/// Whether the instance has integrity monitoring enabled.
+                <span class="doccomment">/// Optional. Whether the instance has integrity monitoring enabled.
                 </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
                 </span><span class="kw">pub </span>enable_integrity_monitoring: bool,
             }
@@ -1969,7 +2296,7 @@
             </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>GceConfidentialInstanceConfig {
-                <span class="doccomment">/// Whether the instance has confidential compute enabled.
+                <span class="doccomment">/// Optional. Whether the instance has confidential compute enabled.
                 </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
                 </span><span class="kw">pub </span>enable_confidential_compute: bool,
             }
@@ -1987,7 +2314,7 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>PersistentDirectory {
-        <span class="doccomment">/// Location of this directory in the running workstation.
+        <span class="doccomment">/// Optional. Location of this directory in the running workstation.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>mount_path: ::prost::alloc::string::String,
         <span class="doccomment">/// How a persistent directory should be implemented.
@@ -1997,28 +2324,53 @@
     <span class="doccomment">/// Nested message and enum types in `PersistentDirectory`.
     </span><span class="kw">pub mod </span>persistent_directory {
         <span class="doccomment">/// A PersistentDirectory backed by a Compute Engine regional persistent
-        /// disk.
+        /// disk. The
+        /// \[persistent_directories][google.cloud.workstations.v1.WorkstationConfig.persistent_directories\]
+        /// field is repeated, but it may contain only one entry. It creates a
+        /// [persistent
+        /// disk](&lt;https://cloud.google.com/compute/docs/disks/persistent-disks&gt;) that
+        /// mounts to the workstation VM at `/home` when the session starts and
+        /// detaches when the session ends. If this field is empty, workstations
+        /// created with this configuration do not have a persistent home
+        /// directory.
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>GceRegionalPersistentDisk {
-            <span class="doccomment">/// Size of the disk in GB. Must be empty if source_snapshot is set.
-            /// Defaults to 200.
+            <span class="doccomment">/// Optional. The GB capacity of a persistent home directory for each
+            /// workstation created with this configuration. Must be empty if
+            /// \[source_snapshot][google.cloud.workstations.v1.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.source_snapshot\]
+            /// is set.
+            ///
+            /// Valid values are `10`, `50`, `100`, `200`, `500`, or `1000`.
+            /// Defaults to `200`. If less than `200` GB, the
+            /// \[disk_type][google.cloud.workstations.v1.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.disk_type\]
+            /// must be
+            /// `&quot;pd-balanced&quot;` or `&quot;pd-ssd&quot;`.
             </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
             </span><span class="kw">pub </span>size_gb: i32,
-            <span class="doccomment">/// Type of file system that the disk should be formatted with. The
-            /// workstation image must support this file system type. Must be empty
-            /// if source_snapshot is set. Defaults to ext4.
+            <span class="doccomment">/// Optional. Type of file system that the disk should be formatted with.
+            /// The workstation image must support this file system type. Must be empty
+            /// if
+            /// \[source_snapshot][google.cloud.workstations.v1.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.source_snapshot\]
+            /// is set. Defaults to `&quot;ext4&quot;`.
             </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
             </span><span class="kw">pub </span>fs_type: ::prost::alloc::string::String,
-            <span class="doccomment">/// Type of the disk to use. Defaults to pd-standard.
+            <span class="doccomment">/// Optional. The [type of the persistent
+            /// disk](&lt;https://cloud.google.com/compute/docs/disks#disk-types&gt;) for the
+            /// home directory. Defaults to `&quot;pd-standard&quot;`.
             </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
             </span><span class="kw">pub </span>disk_type: ::prost::alloc::string::String,
-            <span class="doccomment">/// Name of the snapshot to use as the source for the disk. If set,
-            /// size_gb and fs_type must be empty.
+            <span class="doccomment">/// Optional. Name of the snapshot to use as the source for the disk. If
+            /// set,
+            /// \[size_gb][google.cloud.workstations.v1.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.size_gb\]
+            /// and
+            /// \[fs_type][google.cloud.workstations.v1.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.fs_type\]
+            /// must be empty.
             </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
             </span><span class="kw">pub </span>source_snapshot: ::prost::alloc::string::String,
-            <span class="doccomment">/// What should happen to the disk after the workstation is deleted.
-            /// Defaults to DELETE.
+            <span class="doccomment">/// Optional. Whether the persistent disk should be deleted when the
+            /// workstation is deleted. Valid values are `DELETE` and `RETAIN`.
+            /// Defaults to `DELETE`.
             </span><span class="attr">#[prost(
                 enumeration = <span class="string">&quot;gce_regional_persistent_disk::ReclaimPolicy&quot;</span>,
                 tag = <span class="string">&quot;4&quot;
@@ -2044,10 +2396,10 @@
             </span><span class="kw">pub enum </span>ReclaimPolicy {
                 <span class="doccomment">/// Do not use.
                 </span>Unspecified = <span class="number">0</span>,
-                <span class="doccomment">/// The persistent disk will be deleted with the workstation.
+                <span class="doccomment">/// Delete the persistent disk when deleting the workstation.
                 </span>Delete = <span class="number">1</span>,
-                <span class="doccomment">/// The persistent disk will be remain after the workstation is deleted,
-                /// and the administrator must manually delete the disk.
+                <span class="doccomment">/// Keep the persistent disk when deleting the workstation.
+                /// An administrator must manually delete the disk.
                 </span>Retain = <span class="number">2</span>,
             }
             <span class="kw">impl </span>ReclaimPolicy {
@@ -2086,36 +2438,53 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Container {
-        <span class="doccomment">/// Docker image defining the container. This image must be accessible by the
-        /// service account specified in the workstation configuration.
+        <span class="doccomment">/// Optional. A Docker container image that defines a custom environment.
+        ///
+        /// Cloud Workstations provides a number of
+        /// [preconfigured
+        /// images](&lt;https://cloud.google.com/workstations/docs/preconfigured-base-images&gt;),
+        /// but you can create your own
+        /// [custom container
+        /// images](&lt;https://cloud.google.com/workstations/docs/custom-container-images&gt;).
+        /// If using a private image, the `host.gceInstance.serviceAccount` field
+        /// must be specified in the workstation configuration and must have
+        /// permission to pull the specified image. Otherwise, the image must be
+        /// publicly accessible.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>image: ::prost::alloc::string::String,
-        <span class="doccomment">/// If set, overrides the default ENTRYPOINT specified by the image.
+        <span class="doccomment">/// Optional. If set, overrides the default ENTRYPOINT specified by the
+        /// image.
         </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>command: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-        <span class="doccomment">/// Arguments passed to the entrypoint.
+        <span class="doccomment">/// Optional. Arguments passed to the entrypoint.
         </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>args: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-        <span class="doccomment">/// Environment variables passed to the container&#39;s entrypoint.
+        <span class="doccomment">/// Optional. Environment variables passed to the container&#39;s entrypoint.
         </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
         </span><span class="kw">pub </span>env: ::prost::alloc::collections::BTreeMap&lt;
             ::prost::alloc::string::String,
             ::prost::alloc::string::String,
         &gt;,
-        <span class="doccomment">/// If set, overrides the default DIR specified by the image.
+        <span class="doccomment">/// Optional. If set, overrides the default DIR specified by the image.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
         </span><span class="kw">pub </span>working_dir: ::prost::alloc::string::String,
-        <span class="doccomment">/// If set, overrides the USER specified in the image with the given uid.
+        <span class="doccomment">/// Optional. If set, overrides the USER specified in the image with the
+        /// given uid.
         </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
         </span><span class="kw">pub </span>run_as_user: i32,
     }
-    <span class="doccomment">/// A customer-managed encryption key for the Compute Engine resources
-    /// of this workstation configuration.
+    <span class="doccomment">/// A customer-managed encryption key (CMEK) for the Compute Engine
+    /// resources of the associated workstation configuration. Specify the name of
+    /// your Cloud KMS encryption key and the default service account.
+    /// We recommend that you use a separate service account and follow
+    /// [Cloud KMS best
+    /// practices](&lt;https://cloud.google.com/kms/docs/separation-of-duties&gt;).
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>CustomerEncryptionKey {
         <span class="doccomment">/// Immutable. The name of the Google Cloud KMS encryption key. For example,
-        /// `projects/PROJECT_ID/locations/REGION/keyRings/KEY_RING/cryptoKeys/KEY_NAME`.
+        /// `&quot;projects/PROJECT_ID/locations/REGION/keyRings/KEY_RING/cryptoKeys/KEY_NAME&quot;`.
+        /// The key must be in the same region as the workstation configuration.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>kms_key: ::prost::alloc::string::String,
         <span class="doccomment">/// Immutable. The service account to use with the specified
@@ -2128,48 +2497,66 @@
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>kms_key_service_account: ::prost::alloc::string::String,
     }
+    <span class="doccomment">/// A readiness check to be performed on a workstation.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ReadinessCheck {
+        <span class="doccomment">/// Optional. Path to which the request should be sent.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
+        <span class="doccomment">/// Optional. Port to which the request should be sent.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>port: i32,
+    }
 }
 <span class="doccomment">/// A single instance of a developer workstation with its own persistent storage.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Workstation {
-    <span class="doccomment">/// Full name of this resource.
+    <span class="doccomment">/// Full name of this workstation.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Human-readable name for this resource.
+    <span class="doccomment">/// Optional. Human-readable name for this workstation.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. A system-assigned unique identified for this resource.
+    <span class="doccomment">/// Output only. A system-assigned unique identifier for this workstation.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Indicates whether this resource is currently being updated to
-    /// match its intended state.
+    <span class="doccomment">/// Output only. Indicates whether this workstation is currently being updated
+    /// to match its intended state.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>reconciling: bool,
-    <span class="doccomment">/// Client-specified annotations.
+    <span class="doccomment">/// Optional. Client-specified annotations.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
-    <span class="doccomment">/// Client-specified labels that are applied to the resource and that are also
-    /// propagated to the underlying Compute Engine resources.
+    <span class="doccomment">/// Optional.
+    /// \[Labels\](&lt;https://cloud.google.com/workstations/docs/label-resources&gt;) that
+    /// are applied to the workstation and that are also propagated to the
+    /// underlying Compute Engine resources.
     </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
-    <span class="doccomment">/// Output only. Time when this resource was created.
+    <span class="doccomment">/// Output only. Time when this workstation was created.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Time when this resource was most recently updated.
+    <span class="doccomment">/// Output only. Time when this workstation was most recently updated.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. Time when this resource was soft-deleted.
+    <span class="doccomment">/// Output only. Time when this workstation was most recently successfully
+    /// started, regardless of the workstation&#39;s initial state.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. Time when this workstation was soft-deleted.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
     </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Checksum computed by the server. May be sent on update and delete requests
-    /// to make sure that the client has an up-to-date value before proceeding.
+    <span class="doccomment">/// Optional. Checksum computed by the server. May be sent on update and delete
+    /// requests to make sure that the client has an up-to-date value before
+    /// proceeding.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Current state of the workstation.
@@ -2254,10 +2641,11 @@
     <span class="doccomment">/// Required. Parent resource name.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Maximum number of items to return.
+    <span class="doccomment">/// Optional. Maximum number of items to return.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// next_page_token value returned from a previous List request, if any.
+    <span class="doccomment">/// Optional. next_page_token value returned from a previous List request, if
+    /// any.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
@@ -2289,8 +2677,8 @@
     <span class="doccomment">/// Required. Workstation cluster to create.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>workstation_cluster: ::core::option::Option&lt;WorkstationCluster&gt;,
-    <span class="doccomment">/// If set, validate the request and preview the review, but do not actually
-    /// apply it.
+    <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
+    /// actually apply it.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
@@ -2305,12 +2693,13 @@
     /// should be updated.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
-    <span class="doccomment">/// If set, validate the request and preview the review, but do not actually
-    /// apply it.
+    <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
+    /// actually apply it.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
-    <span class="doccomment">/// If set, and the workstation cluster is not found, a new workstation
-    /// cluster will be created. In this situation, update_mask is ignored.
+    <span class="doccomment">/// Optional. If set, and the workstation cluster is not found, a new
+    /// workstation cluster will be created. In this situation, update_mask is
+    /// ignored.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
 }
@@ -2321,14 +2710,15 @@
     <span class="doccomment">/// Required. Name of the workstation cluster to delete.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// If set, validate the request and preview the review, but do not apply it.
+    <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
+    /// apply it.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
-    <span class="doccomment">/// If set, the request will be rejected if the latest version of the
+    <span class="doccomment">/// Optional. If set, the request will be rejected if the latest version of the
     /// workstation cluster on the server does not have this ETag.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
-    <span class="doccomment">/// If set, any workstation configurations and workstations in the
+    <span class="doccomment">/// Optional. If set, any workstation configurations and workstations in the
     /// workstation cluster are also deleted. Otherwise, the request only
     /// works if the workstation cluster has no configurations or workstations.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
@@ -2349,10 +2739,11 @@
     <span class="doccomment">/// Required. Parent resource name.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Maximum number of items to return.
+    <span class="doccomment">/// Optional. Maximum number of items to return.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// next_page_token value returned from a previous List request, if any.
+    <span class="doccomment">/// Optional. next_page_token value returned from a previous List request, if
+    /// any.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
@@ -2378,10 +2769,11 @@
     <span class="doccomment">/// Required. Parent resource name.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Maximum number of items to return.
+    <span class="doccomment">/// Optional. Maximum number of items to return.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// next_page_token value returned from a previous List request, if any.
+    <span class="doccomment">/// Optional. next_page_token value returned from a previous List request, if
+    /// any.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
@@ -2413,8 +2805,8 @@
     <span class="doccomment">/// Required. Config to create.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>workstation_config: ::core::option::Option&lt;WorkstationConfig&gt;,
-    <span class="doccomment">/// If set, validate the request and preview the review, but do not actually
-    /// apply it.
+    <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
+    /// actually apply it.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
@@ -2429,11 +2821,11 @@
     /// should be updated.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
-    <span class="doccomment">/// If set, validate the request and preview the review, but do not actually
-    /// apply it.
+    <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
+    /// actually apply it.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
-    <span class="doccomment">/// If set and the workstation configuration is not found, a new
+    <span class="doccomment">/// Optional. If set and the workstation configuration is not found, a new
     /// workstation configuration will be created. In this situation,
     /// update_mask is ignored.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
@@ -2446,17 +2838,17 @@
     <span class="doccomment">/// Required. Name of the workstation configuration to delete.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// If set, validate the request and preview the review, but do not actually
-    /// apply it.
+    <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
+    /// actually apply it.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
-    <span class="doccomment">/// If set, the request is rejected if the latest version of the
+    <span class="doccomment">/// Optional. If set, the request is rejected if the latest version of the
     /// workstation configuration on the server does not have this ETag.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
-    <span class="doccomment">/// If set, any workstations in the workstation configuration are also deleted.
-    /// Otherwise, the request works only if the workstation configuration has
-    /// no workstations.
+    <span class="doccomment">/// Optional. If set, any workstations in the workstation configuration are
+    /// also deleted. Otherwise, the request works only if the workstation
+    /// configuration has no workstations.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>force: bool,
 }
@@ -2475,10 +2867,11 @@
     <span class="doccomment">/// Required. Parent resource name.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Maximum number of items to return.
+    <span class="doccomment">/// Optional. Maximum number of items to return.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// next_page_token value returned from a previous List request, if any.
+    <span class="doccomment">/// Optional. next_page_token value returned from a previous List request, if
+    /// any.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
@@ -2489,11 +2882,11 @@
     <span class="doccomment">/// The requested workstations.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>workstations: ::prost::alloc::vec::Vec&lt;Workstation&gt;,
-    <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more
-    /// results in the list.
+    <span class="doccomment">/// Optional. Token to retrieve the next page of results, or empty if there are
+    /// no more results in the list.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Unreachable resources.
+    <span class="doccomment">/// Optional. Unreachable resources.
     </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
@@ -2504,10 +2897,11 @@
     <span class="doccomment">/// Required. Parent resource name.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Maximum number of items to return.
+    <span class="doccomment">/// Optional. Maximum number of items to return.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// next_page_token value returned from a previous List request, if any.
+    <span class="doccomment">/// Optional. next_page_token value returned from a previous List request, if
+    /// any.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
@@ -2539,8 +2933,8 @@
     <span class="doccomment">/// Required. Workstation to create.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>workstation: ::core::option::Option&lt;Workstation&gt;,
-    <span class="doccomment">/// If set, validate the request and preview the review, but do not actually
-    /// apply it.
+    <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
+    /// actually apply it.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
@@ -2555,11 +2949,11 @@
     /// should be updated.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
-    <span class="doccomment">/// If set, validate the request and preview the review, but do not actually
-    /// apply it.
+    <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
+    /// actually apply it.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
-    <span class="doccomment">/// If set and the workstation configuration is not found, a new
+    <span class="doccomment">/// Optional. If set and the workstation configuration is not found, a new
     /// workstation configuration is created. In this situation, update_mask
     /// is ignored.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
@@ -2572,11 +2966,11 @@
     <span class="doccomment">/// Required. Name of the workstation to delete.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// If set, validate the request and preview the review, but do not actually
-    /// apply it.
+    <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
+    /// actually apply it.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
-    <span class="doccomment">/// If set, the request will be rejected if the latest version of the
+    <span class="doccomment">/// Optional. If set, the request will be rejected if the latest version of the
     /// workstation on the server does not have this ETag.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
@@ -2588,11 +2982,11 @@
     <span class="doccomment">/// Required. Name of the workstation to start.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// If set, validate the request and preview the review, but do not actually
-    /// apply it.
+    <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
+    /// actually apply it.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
-    <span class="doccomment">/// If set, the request will be rejected if the latest version of the
+    <span class="doccomment">/// Optional. If set, the request will be rejected if the latest version of the
     /// workstation on the server does not have this ETag.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
@@ -2604,11 +2998,11 @@
     <span class="doccomment">/// Required. Name of the workstation to stop.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// If set, validate the request and preview the review, but do not actually
-    /// apply it.
+    <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
+    /// actually apply it.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
-    <span class="doccomment">/// If set, the request will be rejected if the latest version of the
+    <span class="doccomment">/// Optional. If set, the request will be rejected if the latest version of the
     /// workstation on the server does not have this ETag.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/osconfig/agentendpoint/v1beta/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../../source-files.js"></script><script defer src="../../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/osconfig/agentendpoint/v1beta/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.1 (d5c2e9c34 2023-09-13)" data-channel="1.72.1" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../../../source-files.js"></script><script defer src="../../../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2473,6 +2473,367 @@
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>generation_number: i64,
 }
+<span class="doccomment">/// A unit of work to be performed by the agent.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Task {
+    <span class="doccomment">/// Unique task id.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>task_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The type of task to perform.
+    ///
+    /// Task details must include the appropriate message based on this enum as
+    /// specified below:
+    /// APPLY_PATCHES = ApplyPatchesTask
+    /// EXEC_STEP = ExecStepTask;
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TaskType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>task_type: i32,
+    <span class="doccomment">/// Current directive to the agent.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TaskDirective&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>task_directive: i32,
+    <span class="doccomment">/// Labels describing the task.  Used for logging by the agent.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>service_labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Specific details about the current task to perform.
+    </span><span class="attr">#[prost(oneof = <span class="string">&quot;task::TaskDetails&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
+    </span><span class="kw">pub </span>task_details: ::core::option::Option&lt;task::TaskDetails&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Task`.
+</span><span class="kw">pub mod </span>task {
+    <span class="doccomment">/// Specific details about the current task to perform.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>TaskDetails {
+        <span class="doccomment">/// Details about the apply patches task to perform.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span>ApplyPatchesTask(<span class="kw">super</span>::ApplyPatchesTask),
+        <span class="doccomment">/// Details about the exec step task to perform.
+        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span>ExecStepTask(<span class="kw">super</span>::ExecStepTask),
+    }
+}
+<span class="doccomment">/// Message which instructs agent to apply patches.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ApplyPatchesTask {
+    <span class="doccomment">/// Specific information about how patches should be applied.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>patch_config: ::core::option::Option&lt;PatchConfig&gt;,
+    <span class="doccomment">/// If true, the agent will report its status as it goes through the motions
+    /// but won&#39;t actually run any updates or perform any reboots.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>dry_run: bool,
+}
+<span class="doccomment">/// Information reported from the agent about applying patches execution.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ApplyPatchesTaskProgress {
+    <span class="doccomment">/// Required. The current state of this patch execution.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;apply_patches_task_progress::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `ApplyPatchesTaskProgress`.
+</span><span class="kw">pub mod </span>apply_patches_task_progress {
+    <span class="doccomment">/// The intermediate states of applying patches.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Unspecified is invalid.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The agent has started the patch task.
+        </span>Started = <span class="number">4</span>,
+        <span class="doccomment">/// The agent is currently downloading patches.
+        </span>DownloadingPatches = <span class="number">1</span>,
+        <span class="doccomment">/// The agent is currently applying patches.
+        </span>ApplyingPatches = <span class="number">2</span>,
+        <span class="doccomment">/// The agent is currently rebooting the VM instance.
+        </span>Rebooting = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Started =&gt; <span class="string">&quot;STARTED&quot;</span>,
+                State::DownloadingPatches =&gt; <span class="string">&quot;DOWNLOADING_PATCHES&quot;</span>,
+                State::ApplyingPatches =&gt; <span class="string">&quot;APPLYING_PATCHES&quot;</span>,
+                State::Rebooting =&gt; <span class="string">&quot;REBOOTING&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;STARTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
+                <span class="string">&quot;DOWNLOADING_PATCHES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DownloadingPatches),
+                <span class="string">&quot;APPLYING_PATCHES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApplyingPatches),
+                <span class="string">&quot;REBOOTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rebooting),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Information reported from the agent about applying patches execution.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ApplyPatchesTaskOutput {
+    <span class="doccomment">/// Required. The final state of this task.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;apply_patches_task_output::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `ApplyPatchesTaskOutput`.
+</span><span class="kw">pub mod </span>apply_patches_task_output {
+    <span class="doccomment">/// The final states of applying patches.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Unspecified is invalid.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Applying patches completed successfully.
+        </span>Succeeded = <span class="number">1</span>,
+        <span class="doccomment">/// Applying patches completed successfully, but a reboot is required.
+        </span>SucceededRebootRequired = <span class="number">2</span>,
+        <span class="doccomment">/// Applying patches failed.
+        </span>Failed = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
+                State::SucceededRebootRequired =&gt; <span class="string">&quot;SUCCEEDED_REBOOT_REQUIRED&quot;</span>,
+                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">&quot;SUCCEEDED_REBOOT_REQUIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SucceededRebootRequired),
+                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Message which instructs agent to execute the following command.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExecStepTask {
+    <span class="doccomment">/// Details of the exec step to run.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>exec_step: ::core::option::Option&lt;ExecStep&gt;,
+}
+<span class="doccomment">/// Information reported from the agent about the exec step execution.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExecStepTaskProgress {
+    <span class="doccomment">/// Required. The current state of this exec step.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;exec_step_task_progress::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `ExecStepTaskProgress`.
+</span><span class="kw">pub mod </span>exec_step_task_progress {
+    <span class="doccomment">/// The intermediate states of exec steps.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Unspecified is invalid.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The agent has started the exec step task.
+        </span>Started = <span class="number">1</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Started =&gt; <span class="string">&quot;STARTED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;STARTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Information reported from the agent about the exec step execution.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExecStepTaskOutput {
+    <span class="doccomment">/// Required. The final state of the exec step.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;exec_step_task_output::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Required. The exit code received from the script which ran as part of the exec step.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>exit_code: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `ExecStepTaskOutput`.
+</span><span class="kw">pub mod </span>exec_step_task_output {
+    <span class="doccomment">/// The final states of exec steps.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Unspecified is invalid.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// The exec step completed normally.
+        </span>Completed = <span class="number">1</span>,
+        <span class="doccomment">/// The exec step was terminated because it took too long.
+        </span>TimedOut = <span class="number">2</span>,
+        <span class="doccomment">/// The exec step task was cancelled before it started.
+        </span>Cancelled = <span class="number">3</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Completed =&gt; <span class="string">&quot;COMPLETED&quot;</span>,
+                State::TimedOut =&gt; <span class="string">&quot;TIMED_OUT&quot;</span>,
+                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;COMPLETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
+                <span class="string">&quot;TIMED_OUT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TimedOut),
+                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Specifies the current agent behavior.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>TaskDirective {
+    <span class="doccomment">/// Unspecified is invalid.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// The task should continue to progress.
+    </span>Continue = <span class="number">1</span>,
+    <span class="doccomment">/// Task should not be started, or if already in progress, should stop
+    /// at first safe stopping point.  Task should be considered done and will
+    /// never repeat.
+    </span>Stop = <span class="number">2</span>,
+}
+<span class="kw">impl </span>TaskDirective {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            TaskDirective::Unspecified =&gt; <span class="string">&quot;TASK_DIRECTIVE_UNSPECIFIED&quot;</span>,
+            TaskDirective::Continue =&gt; <span class="string">&quot;CONTINUE&quot;</span>,
+            TaskDirective::Stop =&gt; <span class="string">&quot;STOP&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;TASK_DIRECTIVE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;CONTINUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Continue),
+            <span class="string">&quot;STOP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stop),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// Specifies the type of task to perform.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>TaskType {
+    <span class="doccomment">/// Unspecified is invalid.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// The apply patches task.
+    </span>ApplyPatches = <span class="number">1</span>,
+    <span class="doccomment">/// The exec step task.
+    </span>ExecStepTask = <span class="number">2</span>,
+}
+<span class="kw">impl </span>TaskType {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            TaskType::Unspecified =&gt; <span class="string">&quot;TASK_TYPE_UNSPECIFIED&quot;</span>,
+            TaskType::ApplyPatches =&gt; <span class="string">&quot;APPLY_PATCHES&quot;</span>,
+            TaskType::ExecStepTask =&gt; <span class="string">&quot;EXEC_STEP_TASK&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;TASK_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;APPLY_PATCHES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApplyPatches),
+            <span class="string">&quot;EXEC_STEP_TASK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExecStepTask),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
 <span class="doccomment">/// Package is a reference to the software package to be installed or removed.
 /// The agent on the VM instance uses the system package manager to apply the
 /// config.
@@ -3260,367 +3621,6 @@
             <span class="string">&quot;INSTALLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Installed),
             <span class="string">&quot;UPDATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updated),
             <span class="string">&quot;REMOVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Removed),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// A unit of work to be performed by the agent.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Task {
-    <span class="doccomment">/// Unique task id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>task_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The type of task to perform.
-    ///
-    /// Task details must include the appropriate message based on this enum as
-    /// specified below:
-    /// APPLY_PATCHES = ApplyPatchesTask
-    /// EXEC_STEP = ExecStepTask;
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TaskType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>task_type: i32,
-    <span class="doccomment">/// Current directive to the agent.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TaskDirective&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>task_directive: i32,
-    <span class="doccomment">/// Labels describing the task.  Used for logging by the agent.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>service_labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Specific details about the current task to perform.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;task::TaskDetails&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
-    </span><span class="kw">pub </span>task_details: ::core::option::Option&lt;task::TaskDetails&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Task`.
-</span><span class="kw">pub mod </span>task {
-    <span class="doccomment">/// Specific details about the current task to perform.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>TaskDetails {
-        <span class="doccomment">/// Details about the apply patches task to perform.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
-        </span>ApplyPatchesTask(<span class="kw">super</span>::ApplyPatchesTask),
-        <span class="doccomment">/// Details about the exec step task to perform.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
-        </span>ExecStepTask(<span class="kw">super</span>::ExecStepTask),
-    }
-}
-<span class="doccomment">/// Message which instructs agent to apply patches.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ApplyPatchesTask {
-    <span class="doccomment">/// Specific information about how patches should be applied.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>patch_config: ::core::option::Option&lt;PatchConfig&gt;,
-    <span class="doccomment">/// If true, the agent will report its status as it goes through the motions
-    /// but won&#39;t actually run any updates or perform any reboots.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>dry_run: bool,
-}
-<span class="doccomment">/// Information reported from the agent about applying patches execution.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ApplyPatchesTaskProgress {
-    <span class="doccomment">/// Required. The current state of this patch execution.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;apply_patches_task_progress::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `ApplyPatchesTaskProgress`.
-</span><span class="kw">pub mod </span>apply_patches_task_progress {
-    <span class="doccomment">/// The intermediate states of applying patches.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unspecified is invalid.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The agent has started the patch task.
-        </span>Started = <span class="number">4</span>,
-        <span class="doccomment">/// The agent is currently downloading patches.
-        </span>DownloadingPatches = <span class="number">1</span>,
-        <span class="doccomment">/// The agent is currently applying patches.
-        </span>ApplyingPatches = <span class="number">2</span>,
-        <span class="doccomment">/// The agent is currently rebooting the VM instance.
-        </span>Rebooting = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Started =&gt; <span class="string">&quot;STARTED&quot;</span>,
-                State::DownloadingPatches =&gt; <span class="string">&quot;DOWNLOADING_PATCHES&quot;</span>,
-                State::ApplyingPatches =&gt; <span class="string">&quot;APPLYING_PATCHES&quot;</span>,
-                State::Rebooting =&gt; <span class="string">&quot;REBOOTING&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STARTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
-                <span class="string">&quot;DOWNLOADING_PATCHES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DownloadingPatches),
-                <span class="string">&quot;APPLYING_PATCHES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApplyingPatches),
-                <span class="string">&quot;REBOOTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rebooting),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Information reported from the agent about applying patches execution.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ApplyPatchesTaskOutput {
-    <span class="doccomment">/// Required. The final state of this task.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;apply_patches_task_output::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `ApplyPatchesTaskOutput`.
-</span><span class="kw">pub mod </span>apply_patches_task_output {
-    <span class="doccomment">/// The final states of applying patches.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unspecified is invalid.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Applying patches completed successfully.
-        </span>Succeeded = <span class="number">1</span>,
-        <span class="doccomment">/// Applying patches completed successfully, but a reboot is required.
-        </span>SucceededRebootRequired = <span class="number">2</span>,
-        <span class="doccomment">/// Applying patches failed.
-        </span>Failed = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::SucceededRebootRequired =&gt; <span class="string">&quot;SUCCEEDED_REBOOT_REQUIRED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;SUCCEEDED_REBOOT_REQUIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SucceededRebootRequired),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Message which instructs agent to execute the following command.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExecStepTask {
-    <span class="doccomment">/// Details of the exec step to run.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>exec_step: ::core::option::Option&lt;ExecStep&gt;,
-}
-<span class="doccomment">/// Information reported from the agent about the exec step execution.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExecStepTaskProgress {
-    <span class="doccomment">/// Required. The current state of this exec step.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;exec_step_task_progress::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `ExecStepTaskProgress`.
-</span><span class="kw">pub mod </span>exec_step_task_progress {
-    <span class="doccomment">/// The intermediate states of exec steps.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unspecified is invalid.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The agent has started the exec step task.
-        </span>Started = <span class="number">1</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Started =&gt; <span class="string">&quot;STARTED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STARTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Information reported from the agent about the exec step execution.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExecStepTaskOutput {
-    <span class="doccomment">/// Required. The final state of the exec step.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;exec_step_task_output::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Required. The exit code received from the script which ran as part of the exec step.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>exit_code: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `ExecStepTaskOutput`.
-</span><span class="kw">pub mod </span>exec_step_task_output {
-    <span class="doccomment">/// The final states of exec steps.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unspecified is invalid.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The exec step completed normally.
-        </span>Completed = <span class="number">1</span>,
-        <span class="doccomment">/// The exec step was terminated because it took too long.
-        </span>TimedOut = <span class="number">2</span>,
-        <span class="doccomment">/// The exec step task was cancelled before it started.
-        </span>Cancelled = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Completed =&gt; <span class="string">&quot;COMPLETED&quot;</span>,
-                State::TimedOut =&gt; <span class="string">&quot;TIMED_OUT&quot;</span>,
-                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;COMPLETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
-                <span class="string">&quot;TIMED_OUT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TimedOut),
-                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Specifies the current agent behavior.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>TaskDirective {
-    <span class="doccomment">/// Unspecified is invalid.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// The task should continue to progress.
-    </span>Continue = <span class="number">1</span>,
-    <span class="doccomment">/// Task should not be started, or if already in progress, should stop
-    /// at first safe stopping point.  Task should be considered done and will
-    /// never repeat.
-    </span>Stop = <span class="number">2</span>,
-}
-<span class="kw">impl </span>TaskDirective {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            TaskDirective::Unspecified =&gt; <span class="string">&quot;TASK_DIRECTIVE_UNSPECIFIED&quot;</span>,
-            TaskDirective::Continue =&gt; <span class="string">&quot;CONTINUE&quot;</span>,
-            TaskDirective::Stop =&gt; <span class="string">&quot;STOP&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;TASK_DIRECTIVE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;CONTINUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Continue),
-            <span class="string">&quot;STOP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stop),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// Specifies the type of task to perform.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>TaskType {
-    <span class="doccomment">/// Unspecified is invalid.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// The apply patches task.
-    </span>ApplyPatches = <span class="number">1</span>,
-    <span class="doccomment">/// The exec step task.
-    </span>ExecStepTask = <span class="number">2</span>,
-}
-<span class="kw">impl </span>TaskType {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            TaskType::Unspecified =&gt; <span class="string">&quot;TASK_TYPE_UNSPECIFIED&quot;</span>,
-            TaskType::ApplyPatches =&gt; <span class="string">&quot;APPLY_PATCHES&quot;</span>,
-            TaskType::ExecStepTask =&gt; <span class="string">&quot;EXEC_STEP_TASK&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;TASK_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;APPLY_PATCHES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApplyPatches),
-            <span class="string">&quot;EXEC_STEP_TASK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExecStepTask),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }

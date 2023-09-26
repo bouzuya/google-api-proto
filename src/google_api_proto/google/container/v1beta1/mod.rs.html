@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/container/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../source-files.js"></script><script defer src="../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/container/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.1 (d5c2e9c34 2023-09-13)" data-channel="1.72.1" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../../../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../../../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../../../../source-files.js"></script><script defer src="../../../../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../../google_api_proto/index.html"><img class="rust-logo" src="../../../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -8777,6 +8777,20 @@
 <a href="#8777" id="8777">8777</a>
 <a href="#8778" id="8778">8778</a>
 <a href="#8779" id="8779">8779</a>
+<a href="#8780" id="8780">8780</a>
+<a href="#8781" id="8781">8781</a>
+<a href="#8782" id="8782">8782</a>
+<a href="#8783" id="8783">8783</a>
+<a href="#8784" id="8784">8784</a>
+<a href="#8785" id="8785">8785</a>
+<a href="#8786" id="8786">8786</a>
+<a href="#8787" id="8787">8787</a>
+<a href="#8788" id="8788">8788</a>
+<a href="#8789" id="8789">8789</a>
+<a href="#8790" id="8790">8790</a>
+<a href="#8791" id="8791">8791</a>
+<a href="#8792" id="8792">8792</a>
+<a href="#8793" id="8793">8793</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Parameters that can be configured on Linux nodes.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -9193,6 +9207,11 @@
     /// Google Compute Engine hosts.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;44&quot;</span>)]
     </span><span class="kw">pub </span>host_maintenance_policy: ::core::option::Option&lt;HostMaintenancePolicy&gt;,
+    <span class="doccomment">/// Optional. Enable confidential storage on Hyperdisk.
+    /// boot_disk_kms_key is required when enable_confidential_storage is true.
+    /// This is only available for private preview.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;46&quot;</span>)]
+    </span><span class="kw">pub </span>enable_confidential_storage: bool,
 }
 <span class="doccomment">/// Specifies options for controlling advanced machine features.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -11124,8 +11143,10 @@
     /// in autopilot clusters and node auto-provisioning enabled clusters.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;136&quot;</span>)]
     </span><span class="kw">pub </span>node_pool_auto_config: ::core::option::Option&lt;NodePoolAutoConfig&gt;,
-    <span class="doccomment">/// Enable/Disable Protect API features for the cluster.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;137&quot;</span>)]
+    <span class="doccomment">/// Deprecated: Use SecurityPostureConfig instead.
+    /// Enable/Disable Protect API features for the cluster.
+    </span><span class="attr">#[deprecated]
+    #[prost(message, optional, tag = <span class="string">&quot;137&quot;</span>)]
     </span><span class="kw">pub </span>protect_config: ::core::option::Option&lt;ProtectConfig&gt;,
     <span class="doccomment">/// This checksum is computed by the server based on the value of cluster
     /// fields, and may be sent on update requests to ensure the client has an
@@ -11426,6 +11447,9 @@
         </span>VulnerabilityDisabled = <span class="number">1</span>,
         <span class="doccomment">/// Applies basic vulnerability scanning on the cluster.
         </span>VulnerabilityBasic = <span class="number">2</span>,
+        <span class="doccomment">/// Applies the Security Posture&#39;s vulnerability on cluster Enterprise level
+        /// features.
+        </span>VulnerabilityEnterprise = <span class="number">3</span>,
     }
     <span class="kw">impl </span>VulnerabilityMode {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -11437,6 +11461,7 @@
                 VulnerabilityMode::Unspecified =&gt; <span class="string">&quot;VULNERABILITY_MODE_UNSPECIFIED&quot;</span>,
                 VulnerabilityMode::VulnerabilityDisabled =&gt; <span class="string">&quot;VULNERABILITY_DISABLED&quot;</span>,
                 VulnerabilityMode::VulnerabilityBasic =&gt; <span class="string">&quot;VULNERABILITY_BASIC&quot;</span>,
+                VulnerabilityMode::VulnerabilityEnterprise =&gt; <span class="string">&quot;VULNERABILITY_ENTERPRISE&quot;</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -11445,6 +11470,7 @@
                 <span class="string">&quot;VULNERABILITY_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
                 <span class="string">&quot;VULNERABILITY_DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VulnerabilityDisabled),
                 <span class="string">&quot;VULNERABILITY_BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VulnerabilityBasic),
+                <span class="string">&quot;VULNERABILITY_ENTERPRISE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VulnerabilityEnterprise),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -11688,8 +11714,10 @@
     /// in autopilot clusters and node auto-provisioning enabled clusters.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;110&quot;</span>)]
     </span><span class="kw">pub </span>desired_node_pool_auto_config_network_tags: ::core::option::Option&lt;NetworkTags&gt;,
-    <span class="doccomment">/// Enable/Disable Protect API features for the cluster.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;112&quot;</span>)]
+    <span class="doccomment">/// Deprecated: Use DesiredSecurityPostureConfig instead.
+    /// Enable/Disable Protect API features for the cluster.
+    </span><span class="attr">#[deprecated]
+    #[prost(message, optional, tag = <span class="string">&quot;112&quot;</span>)]
     </span><span class="kw">pub </span>desired_protect_config: ::core::option::Option&lt;ProtectConfig&gt;,
     <span class="doccomment">/// The desired config of Gateway API on this cluster.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;114&quot;</span>)]

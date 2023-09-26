@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["VpcEgress"]};
+window.SIDEBAR_ITEMS = {"enum":["VpcEgress"],"struct":["NetworkInterface"]};

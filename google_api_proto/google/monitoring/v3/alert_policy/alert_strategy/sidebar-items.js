@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["NotificationRateLimit"]};
+window.SIDEBAR_ITEMS = {"struct":["NotificationChannelStrategy","NotificationRateLimit"]};
