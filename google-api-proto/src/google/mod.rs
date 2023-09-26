@@ -12,11 +12,6 @@ pub mod actions;
 #[cfg(
     any(
         feature = "google-ads-admob-v1",
-        feature = "google-ads-googleads-v12-common",
-        feature = "google-ads-googleads-v12-enums",
-        feature = "google-ads-googleads-v12-errors",
-        feature = "google-ads-googleads-v12-resources",
-        feature = "google-ads-googleads-v12-services",
         feature = "google-ads-googleads-v13-common",
         feature = "google-ads-googleads-v13-enums",
         feature = "google-ads-googleads-v13-errors",
@@ -377,6 +372,7 @@ pub mod chromeos;
         feature = "google-cloud-tasks-v2",
         feature = "google-cloud-tasks-v2beta2",
         feature = "google-cloud-tasks-v2beta3",
+        feature = "google-cloud-telcoautomation-v1alpha1",
         feature = "google-cloud-texttospeech-v1",
         feature = "google-cloud-texttospeech-v1beta1",
         feature = "google-cloud-timeseriesinsights-v1",

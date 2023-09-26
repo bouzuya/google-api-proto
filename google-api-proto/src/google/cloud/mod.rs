@@ -586,6 +586,8 @@ pub mod talent;
     )
 )]
 pub mod tasks;
+#[cfg(any(feature = "google-cloud-telcoautomation-v1alpha1"))]
+pub mod telcoautomation;
 #[cfg(
     any(
         feature = "google-cloud-texttospeech-v1",
