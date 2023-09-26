@@ -4029,6 +4029,10 @@ pub mod search_documents_response {
         /// Additional result info if the question-answering feature is enabled.
         #[prost(message, optional, tag = "3")]
         pub qa_result: ::core::option::Option<super::QaResult>,
+        /// Return the 1-based page indices where those pages have one or more
+        /// matched tokens.
+        #[prost(int64, repeated, tag = "4")]
+        pub matched_token_page_indices: ::prost::alloc::vec::Vec<i64>,
     }
 }
 /// Response message for DocumentService.FetchAcl.
