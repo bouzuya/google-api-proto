@@ -1,355 +1,3 @@
-/// Step performed by the OS Config agent for configuring an `OSPolicyResource`
-/// to its desired state.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OsPolicyResourceConfigStep {
-    /// Configuration step type.
-    #[prost(enumeration = "os_policy_resource_config_step::Type", tag = "1")]
-    pub r#type: i32,
-    /// Outcome of the configuration step.
-    #[prost(enumeration = "os_policy_resource_config_step::Outcome", tag = "2")]
-    pub outcome: i32,
-    /// An error message recorded during the execution of this step.
-    /// Only populated when outcome is FAILED.
-    #[prost(string, tag = "3")]
-    pub error_message: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `OSPolicyResourceConfigStep`.
-pub mod os_policy_resource_config_step {
-    /// Supported configuration step types
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Type {
-        /// Default value. This value is unused.
-        Unspecified = 0,
-        /// Validation to detect resource conflicts, schema errors, etc.
-        Validation = 1,
-        /// Check the current desired state status of the resource.
-        DesiredStateCheck = 2,
-        /// Enforce the desired state for a resource that is not in desired state.
-        DesiredStateEnforcement = 3,
-        /// Re-check desired state status for a resource after enforcement of all
-        /// resources in the current configuration run.
-        ///
-        /// This step is used to determine the final desired state status for the
-        /// resource. It accounts for any resources that might have drifted from
-        /// their desired state due to side effects from configuring other resources
-        /// during the current configuration run.
-        DesiredStateCheckPostEnforcement = 4,
-    }
-    impl Type {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Type::Unspecified => "TYPE_UNSPECIFIED",
-                Type::Validation => "VALIDATION",
-                Type::DesiredStateCheck => "DESIRED_STATE_CHECK",
-                Type::DesiredStateEnforcement => "DESIRED_STATE_ENFORCEMENT",
-                Type::DesiredStateCheckPostEnforcement => {
-                    "DESIRED_STATE_CHECK_POST_ENFORCEMENT"
-                }
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "VALIDATION" => Some(Self::Validation),
-                "DESIRED_STATE_CHECK" => Some(Self::DesiredStateCheck),
-                "DESIRED_STATE_ENFORCEMENT" => Some(Self::DesiredStateEnforcement),
-                "DESIRED_STATE_CHECK_POST_ENFORCEMENT" => {
-                    Some(Self::DesiredStateCheckPostEnforcement)
-                }
-                _ => None,
-            }
-        }
-    }
-    /// Supported outcomes for a configuration step.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Outcome {
-        /// Default value. This value is unused.
-        Unspecified = 0,
-        /// The step succeeded.
-        Succeeded = 1,
-        /// The step failed.
-        Failed = 2,
-    }
-    impl Outcome {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Outcome::Unspecified => "OUTCOME_UNSPECIFIED",
-                Outcome::Succeeded => "SUCCEEDED",
-                Outcome::Failed => "FAILED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "OUTCOME_UNSPECIFIED" => Some(Self::Unspecified),
-                "SUCCEEDED" => Some(Self::Succeeded),
-                "FAILED" => Some(Self::Failed),
-                _ => None,
-            }
-        }
-    }
-}
-/// Compliance data for an OS policy resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OsPolicyResourceCompliance {
-    /// The id of the OS policy resource.
-    #[prost(string, tag = "1")]
-    pub os_policy_resource_id: ::prost::alloc::string::String,
-    /// Ordered list of configuration steps taken by the agent for the OS policy
-    /// resource.
-    #[prost(message, repeated, tag = "2")]
-    pub config_steps: ::prost::alloc::vec::Vec<OsPolicyResourceConfigStep>,
-    /// Compliance state of the OS policy resource.
-    #[prost(enumeration = "OsPolicyComplianceState", tag = "3")]
-    pub state: i32,
-    /// Resource specific output.
-    #[prost(oneof = "os_policy_resource_compliance::Output", tags = "4")]
-    pub output: ::core::option::Option<os_policy_resource_compliance::Output>,
-}
-/// Nested message and enum types in `OSPolicyResourceCompliance`.
-pub mod os_policy_resource_compliance {
-    /// ExecResource specific output.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ExecResourceOutput {
-        /// Output from Enforcement phase output file (if run).
-        /// Output size is limited to 100K bytes.
-        #[prost(bytes = "bytes", tag = "2")]
-        pub enforcement_output: ::prost::bytes::Bytes,
-    }
-    /// Resource specific output.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Output {
-        /// ExecResource specific output.
-        #[prost(message, tag = "4")]
-        ExecResourceOutput(ExecResourceOutput),
-    }
-}
-/// Supported OSPolicy compliance states.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum OsPolicyComplianceState {
-    /// Default value. This value is unused.
-    Unspecified = 0,
-    /// Compliant state.
-    Compliant = 1,
-    /// Non-compliant state
-    NonCompliant = 2,
-    /// Unknown compliance state.
-    Unknown = 3,
-    /// No applicable OS policies were found for the instance.
-    /// This state is only applicable to the instance.
-    NoOsPoliciesApplicable = 4,
-}
-impl OsPolicyComplianceState {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            OsPolicyComplianceState::Unspecified => {
-                "OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED"
-            }
-            OsPolicyComplianceState::Compliant => "COMPLIANT",
-            OsPolicyComplianceState::NonCompliant => "NON_COMPLIANT",
-            OsPolicyComplianceState::Unknown => "UNKNOWN",
-            OsPolicyComplianceState::NoOsPoliciesApplicable => {
-                "NO_OS_POLICIES_APPLICABLE"
-            }
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-            "COMPLIANT" => Some(Self::Compliant),
-            "NON_COMPLIANT" => Some(Self::NonCompliant),
-            "UNKNOWN" => Some(Self::Unknown),
-            "NO_OS_POLICIES_APPLICABLE" => Some(Self::NoOsPoliciesApplicable),
-            _ => None,
-        }
-    }
-}
-/// This API resource represents the OS policies compliance data for a Compute
-/// Engine virtual machine (VM) instance at a given point in time.
-///
-/// A Compute Engine VM can have multiple OS policy assignments, and each
-/// assignment can have multiple OS policies. As a result, multiple OS policies
-/// could be applied to a single VM.
-///
-/// You can use this API resource to determine both the compliance state of your
-/// VM as well as the compliance state of an individual OS policy.
-///
-/// For more information, see [View
-/// compliance](<https://cloud.google.com/compute/docs/os-configuration-management/view-compliance>).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct InstanceOsPoliciesCompliance {
-    /// Output only. The `InstanceOSPoliciesCompliance` API resource name.
-    ///
-    /// Format:
-    /// `projects/{project_number}/locations/{location}/instanceOSPoliciesCompliances/{instance_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The Compute Engine VM instance name.
-    #[prost(string, tag = "2")]
-    pub instance: ::prost::alloc::string::String,
-    /// Output only. Compliance state of the VM.
-    #[prost(enumeration = "OsPolicyComplianceState", tag = "3")]
-    pub state: i32,
-    /// Output only. Detailed compliance state of the VM.
-    /// This field is populated only when compliance state is `UNKNOWN`.
-    ///
-    /// It may contain one of the following values:
-    ///
-    /// * `no-compliance-data`: Compliance data is not available for this VM.
-    /// * `no-agent-detected`: OS Config agent is not detected for this VM.
-    /// * `config-not-supported-by-agent`: The version of the OS Config agent
-    /// running on this VM does not support configuration management.
-    /// * `inactive`: VM is not running.
-    /// * `internal-service-errors`: There were internal service errors encountered
-    /// while enforcing compliance.
-    /// * `agent-errors`: OS config agent encountered errors while enforcing
-    /// compliance.
-    #[prost(string, tag = "4")]
-    pub detailed_state: ::prost::alloc::string::String,
-    /// Output only. The reason for the `detailed_state` of the VM (if any).
-    #[prost(string, tag = "5")]
-    pub detailed_state_reason: ::prost::alloc::string::String,
-    /// Output only. Compliance data for each `OSPolicy` that is applied to the VM.
-    #[prost(message, repeated, tag = "6")]
-    pub os_policy_compliances: ::prost::alloc::vec::Vec<
-        instance_os_policies_compliance::OsPolicyCompliance,
-    >,
-    /// Output only. Timestamp of the last compliance check for the VM.
-    #[prost(message, optional, tag = "7")]
-    pub last_compliance_check_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Unique identifier for the last compliance run.
-    /// This id will be logged by the OS config agent during a compliance run and
-    /// can be used for debugging and tracing purpose.
-    #[prost(string, tag = "8")]
-    pub last_compliance_run_id: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `InstanceOSPoliciesCompliance`.
-pub mod instance_os_policies_compliance {
-    /// Compliance data for an OS policy
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct OsPolicyCompliance {
-        /// The OS policy id
-        #[prost(string, tag = "1")]
-        pub os_policy_id: ::prost::alloc::string::String,
-        /// Reference to the `OSPolicyAssignment` API resource that the `OSPolicy`
-        /// belongs to.
-        ///
-        /// Format:
-        /// `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id@revision_id}`
-        #[prost(string, tag = "2")]
-        pub os_policy_assignment: ::prost::alloc::string::String,
-        /// Compliance state of the OS policy.
-        #[prost(enumeration = "super::OsPolicyComplianceState", tag = "4")]
-        pub state: i32,
-        /// Compliance data for each `OSPolicyResource` that is applied to the
-        /// VM.
-        #[prost(message, repeated, tag = "5")]
-        pub os_policy_resource_compliances: ::prost::alloc::vec::Vec<
-            super::OsPolicyResourceCompliance,
-        >,
-    }
-}
-/// A request message for getting OS policies compliance data for the given
-/// Compute Engine VM instance.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetInstanceOsPoliciesComplianceRequest {
-    /// Required. API resource name for instance OS policies compliance resource.
-    ///
-    /// Format:
-    /// `projects/{project}/locations/{location}/instanceOSPoliciesCompliances/{instance}`
-    ///
-    /// For `{project}`, either Compute Engine project-number or project-id can be
-    /// provided.
-    /// For `{instance}`, either Compute Engine VM instance-id or instance-name can
-    /// be provided.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// A request message for listing OS policies compliance data for all Compute
-/// Engine VMs in the given location.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListInstanceOsPoliciesCompliancesRequest {
-    /// Required. The parent resource name.
-    ///
-    /// Format: `projects/{project}/locations/{location}`
-    ///
-    /// For `{project}`, either Compute Engine project-number or project-id can be
-    /// provided.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The maximum number of results to return.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A pagination token returned from a previous call to
-    /// `ListInstanceOSPoliciesCompliances` that indicates where this listing
-    /// should continue from.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// If provided, this field specifies the criteria that must be met by a
-    /// `InstanceOSPoliciesCompliance` API resource to be included in the response.
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-}
-/// A response message for listing OS policies compliance data for all Compute
-/// Engine VMs in the given location.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListInstanceOsPoliciesCompliancesResponse {
-    /// List of instance OS policies compliance objects.
-    #[prost(message, repeated, tag = "1")]
-    pub instance_os_policies_compliances: ::prost::alloc::vec::Vec<
-        InstanceOsPoliciesCompliance,
-    >,
-    /// The pagination token to retrieve the next page of instance OS policies
-    /// compliance objects.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
 /// This API resource represents the available inventory data for a
 /// Compute Engine virtual machine (VM) instance at a given point in time.
 ///
@@ -824,6 +472,213 @@ impl InventoryView {
         }
     }
 }
+/// Step performed by the OS Config agent for configuring an `OSPolicyResource`
+/// to its desired state.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OsPolicyResourceConfigStep {
+    /// Configuration step type.
+    #[prost(enumeration = "os_policy_resource_config_step::Type", tag = "1")]
+    pub r#type: i32,
+    /// Outcome of the configuration step.
+    #[prost(enumeration = "os_policy_resource_config_step::Outcome", tag = "2")]
+    pub outcome: i32,
+    /// An error message recorded during the execution of this step.
+    /// Only populated when outcome is FAILED.
+    #[prost(string, tag = "3")]
+    pub error_message: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `OSPolicyResourceConfigStep`.
+pub mod os_policy_resource_config_step {
+    /// Supported configuration step types
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Type {
+        /// Default value. This value is unused.
+        Unspecified = 0,
+        /// Validation to detect resource conflicts, schema errors, etc.
+        Validation = 1,
+        /// Check the current desired state status of the resource.
+        DesiredStateCheck = 2,
+        /// Enforce the desired state for a resource that is not in desired state.
+        DesiredStateEnforcement = 3,
+        /// Re-check desired state status for a resource after enforcement of all
+        /// resources in the current configuration run.
+        ///
+        /// This step is used to determine the final desired state status for the
+        /// resource. It accounts for any resources that might have drifted from
+        /// their desired state due to side effects from configuring other resources
+        /// during the current configuration run.
+        DesiredStateCheckPostEnforcement = 4,
+    }
+    impl Type {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Type::Unspecified => "TYPE_UNSPECIFIED",
+                Type::Validation => "VALIDATION",
+                Type::DesiredStateCheck => "DESIRED_STATE_CHECK",
+                Type::DesiredStateEnforcement => "DESIRED_STATE_ENFORCEMENT",
+                Type::DesiredStateCheckPostEnforcement => {
+                    "DESIRED_STATE_CHECK_POST_ENFORCEMENT"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "VALIDATION" => Some(Self::Validation),
+                "DESIRED_STATE_CHECK" => Some(Self::DesiredStateCheck),
+                "DESIRED_STATE_ENFORCEMENT" => Some(Self::DesiredStateEnforcement),
+                "DESIRED_STATE_CHECK_POST_ENFORCEMENT" => {
+                    Some(Self::DesiredStateCheckPostEnforcement)
+                }
+                _ => None,
+            }
+        }
+    }
+    /// Supported outcomes for a configuration step.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Outcome {
+        /// Default value. This value is unused.
+        Unspecified = 0,
+        /// The step succeeded.
+        Succeeded = 1,
+        /// The step failed.
+        Failed = 2,
+    }
+    impl Outcome {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Outcome::Unspecified => "OUTCOME_UNSPECIFIED",
+                Outcome::Succeeded => "SUCCEEDED",
+                Outcome::Failed => "FAILED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "OUTCOME_UNSPECIFIED" => Some(Self::Unspecified),
+                "SUCCEEDED" => Some(Self::Succeeded),
+                "FAILED" => Some(Self::Failed),
+                _ => None,
+            }
+        }
+    }
+}
+/// Compliance data for an OS policy resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OsPolicyResourceCompliance {
+    /// The id of the OS policy resource.
+    #[prost(string, tag = "1")]
+    pub os_policy_resource_id: ::prost::alloc::string::String,
+    /// Ordered list of configuration steps taken by the agent for the OS policy
+    /// resource.
+    #[prost(message, repeated, tag = "2")]
+    pub config_steps: ::prost::alloc::vec::Vec<OsPolicyResourceConfigStep>,
+    /// Compliance state of the OS policy resource.
+    #[prost(enumeration = "OsPolicyComplianceState", tag = "3")]
+    pub state: i32,
+    /// Resource specific output.
+    #[prost(oneof = "os_policy_resource_compliance::Output", tags = "4")]
+    pub output: ::core::option::Option<os_policy_resource_compliance::Output>,
+}
+/// Nested message and enum types in `OSPolicyResourceCompliance`.
+pub mod os_policy_resource_compliance {
+    /// ExecResource specific output.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ExecResourceOutput {
+        /// Output from Enforcement phase output file (if run).
+        /// Output size is limited to 100K bytes.
+        #[prost(bytes = "bytes", tag = "2")]
+        pub enforcement_output: ::prost::bytes::Bytes,
+    }
+    /// Resource specific output.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Output {
+        /// ExecResource specific output.
+        #[prost(message, tag = "4")]
+        ExecResourceOutput(ExecResourceOutput),
+    }
+}
+/// Supported OSPolicy compliance states.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum OsPolicyComplianceState {
+    /// Default value. This value is unused.
+    Unspecified = 0,
+    /// Compliant state.
+    Compliant = 1,
+    /// Non-compliant state
+    NonCompliant = 2,
+    /// Unknown compliance state.
+    Unknown = 3,
+    /// No applicable OS policies were found for the instance.
+    /// This state is only applicable to the instance.
+    NoOsPoliciesApplicable = 4,
+}
+impl OsPolicyComplianceState {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            OsPolicyComplianceState::Unspecified => {
+                "OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED"
+            }
+            OsPolicyComplianceState::Compliant => "COMPLIANT",
+            OsPolicyComplianceState::NonCompliant => "NON_COMPLIANT",
+            OsPolicyComplianceState::Unknown => "UNKNOWN",
+            OsPolicyComplianceState::NoOsPoliciesApplicable => {
+                "NO_OS_POLICIES_APPLICABLE"
+            }
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+            "COMPLIANT" => Some(Self::Compliant),
+            "NON_COMPLIANT" => Some(Self::NonCompliant),
+            "UNKNOWN" => Some(Self::Unknown),
+            "NO_OS_POLICIES_APPLICABLE" => Some(Self::NoOsPoliciesApplicable),
+            _ => None,
+        }
+    }
+}
 /// Get a report of the OS policy assignment for a VM instance.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1212,6 +1067,151 @@ pub mod os_policy_assignment_report {
             }
         }
     }
+}
+/// This API resource represents the OS policies compliance data for a Compute
+/// Engine virtual machine (VM) instance at a given point in time.
+///
+/// A Compute Engine VM can have multiple OS policy assignments, and each
+/// assignment can have multiple OS policies. As a result, multiple OS policies
+/// could be applied to a single VM.
+///
+/// You can use this API resource to determine both the compliance state of your
+/// VM as well as the compliance state of an individual OS policy.
+///
+/// For more information, see [View
+/// compliance](<https://cloud.google.com/compute/docs/os-configuration-management/view-compliance>).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct InstanceOsPoliciesCompliance {
+    /// Output only. The `InstanceOSPoliciesCompliance` API resource name.
+    ///
+    /// Format:
+    /// `projects/{project_number}/locations/{location}/instanceOSPoliciesCompliances/{instance_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The Compute Engine VM instance name.
+    #[prost(string, tag = "2")]
+    pub instance: ::prost::alloc::string::String,
+    /// Output only. Compliance state of the VM.
+    #[prost(enumeration = "OsPolicyComplianceState", tag = "3")]
+    pub state: i32,
+    /// Output only. Detailed compliance state of the VM.
+    /// This field is populated only when compliance state is `UNKNOWN`.
+    ///
+    /// It may contain one of the following values:
+    ///
+    /// * `no-compliance-data`: Compliance data is not available for this VM.
+    /// * `no-agent-detected`: OS Config agent is not detected for this VM.
+    /// * `config-not-supported-by-agent`: The version of the OS Config agent
+    /// running on this VM does not support configuration management.
+    /// * `inactive`: VM is not running.
+    /// * `internal-service-errors`: There were internal service errors encountered
+    /// while enforcing compliance.
+    /// * `agent-errors`: OS config agent encountered errors while enforcing
+    /// compliance.
+    #[prost(string, tag = "4")]
+    pub detailed_state: ::prost::alloc::string::String,
+    /// Output only. The reason for the `detailed_state` of the VM (if any).
+    #[prost(string, tag = "5")]
+    pub detailed_state_reason: ::prost::alloc::string::String,
+    /// Output only. Compliance data for each `OSPolicy` that is applied to the VM.
+    #[prost(message, repeated, tag = "6")]
+    pub os_policy_compliances: ::prost::alloc::vec::Vec<
+        instance_os_policies_compliance::OsPolicyCompliance,
+    >,
+    /// Output only. Timestamp of the last compliance check for the VM.
+    #[prost(message, optional, tag = "7")]
+    pub last_compliance_check_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Unique identifier for the last compliance run.
+    /// This id will be logged by the OS config agent during a compliance run and
+    /// can be used for debugging and tracing purpose.
+    #[prost(string, tag = "8")]
+    pub last_compliance_run_id: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `InstanceOSPoliciesCompliance`.
+pub mod instance_os_policies_compliance {
+    /// Compliance data for an OS policy
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct OsPolicyCompliance {
+        /// The OS policy id
+        #[prost(string, tag = "1")]
+        pub os_policy_id: ::prost::alloc::string::String,
+        /// Reference to the `OSPolicyAssignment` API resource that the `OSPolicy`
+        /// belongs to.
+        ///
+        /// Format:
+        /// `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id@revision_id}`
+        #[prost(string, tag = "2")]
+        pub os_policy_assignment: ::prost::alloc::string::String,
+        /// Compliance state of the OS policy.
+        #[prost(enumeration = "super::OsPolicyComplianceState", tag = "4")]
+        pub state: i32,
+        /// Compliance data for each `OSPolicyResource` that is applied to the
+        /// VM.
+        #[prost(message, repeated, tag = "5")]
+        pub os_policy_resource_compliances: ::prost::alloc::vec::Vec<
+            super::OsPolicyResourceCompliance,
+        >,
+    }
+}
+/// A request message for getting OS policies compliance data for the given
+/// Compute Engine VM instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetInstanceOsPoliciesComplianceRequest {
+    /// Required. API resource name for instance OS policies compliance resource.
+    ///
+    /// Format:
+    /// `projects/{project}/locations/{location}/instanceOSPoliciesCompliances/{instance}`
+    ///
+    /// For `{project}`, either Compute Engine project-number or project-id can be
+    /// provided.
+    /// For `{instance}`, either Compute Engine VM instance-id or instance-name can
+    /// be provided.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// A request message for listing OS policies compliance data for all Compute
+/// Engine VMs in the given location.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListInstanceOsPoliciesCompliancesRequest {
+    /// Required. The parent resource name.
+    ///
+    /// Format: `projects/{project}/locations/{location}`
+    ///
+    /// For `{project}`, either Compute Engine project-number or project-id can be
+    /// provided.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The maximum number of results to return.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A pagination token returned from a previous call to
+    /// `ListInstanceOSPoliciesCompliances` that indicates where this listing
+    /// should continue from.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// If provided, this field specifies the criteria that must be met by a
+    /// `InstanceOSPoliciesCompliance` API resource to be included in the response.
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+}
+/// A response message for listing OS policies compliance data for all Compute
+/// Engine VMs in the given location.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListInstanceOsPoliciesCompliancesResponse {
+    /// List of instance OS policies compliance objects.
+    #[prost(message, repeated, tag = "1")]
+    pub instance_os_policies_compliances: ::prost::alloc::vec::Vec<
+        InstanceOsPoliciesCompliance,
+    >,
+    /// The pagination token to retrieve the next page of instance OS policies
+    /// compliance objects.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
 }
 /// An OS policy defines the desired state configuration for a VM.
 #[allow(clippy::derive_partial_eq_without_eq)]

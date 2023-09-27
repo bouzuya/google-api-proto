@@ -1,80 +1,3 @@
-/// A processor type is responsible for performing a certain document
-/// understanding task on a certain type of document.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ProcessorType {
-    /// The resource name of the processor type.
-    /// Format: `projects/{project}/processorTypes/{processor_type}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`.
-    #[prost(string, tag = "2")]
-    pub r#type: ::prost::alloc::string::String,
-    /// The processor category, used by UI to group processor types.
-    #[prost(string, tag = "3")]
-    pub category: ::prost::alloc::string::String,
-    /// The locations in which this processor is available.
-    #[prost(message, repeated, tag = "4")]
-    pub available_locations: ::prost::alloc::vec::Vec<processor_type::LocationInfo>,
-    /// Whether the processor type allows creation. If true, users can create a
-    /// processor of this processor type. Otherwise, users need to request access.
-    #[prost(bool, tag = "6")]
-    pub allow_creation: bool,
-    /// Launch stage of the processor type
-    #[prost(enumeration = "super::super::super::api::LaunchStage", tag = "8")]
-    pub launch_stage: i32,
-    /// A set of Cloud Storage URIs of sample documents for this processor.
-    #[prost(string, repeated, tag = "9")]
-    pub sample_document_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Nested message and enum types in `ProcessorType`.
-pub mod processor_type {
-    /// The location information about where the processor is available.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct LocationInfo {
-        /// The location ID. For supported locations, refer to [regional and
-        /// multi-regional support](/document-ai/docs/regions).
-        #[prost(string, tag = "1")]
-        pub location_id: ::prost::alloc::string::String,
-    }
-}
-/// A vertex represents a 2D point in the image.
-/// NOTE: the vertex coordinates are in the same scale as the original image.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Vertex {
-    /// X coordinate.
-    #[prost(int32, tag = "1")]
-    pub x: i32,
-    /// Y coordinate (starts from the top of the image).
-    #[prost(int32, tag = "2")]
-    pub y: i32,
-}
-/// A vertex represents a 2D point in the image.
-/// NOTE: the normalized vertex coordinates are relative to the original image
-/// and range from 0 to 1.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct NormalizedVertex {
-    /// X coordinate.
-    #[prost(float, tag = "1")]
-    pub x: f32,
-    /// Y coordinate (starts from the top of the image).
-    #[prost(float, tag = "2")]
-    pub y: f32,
-}
-/// A bounding polygon for the detected image annotation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BoundingPoly {
-    /// The bounding polygon vertices.
-    #[prost(message, repeated, tag = "1")]
-    pub vertices: ::prost::alloc::vec::Vec<Vertex>,
-    /// The bounding polygon normalized vertices.
-    #[prost(message, repeated, tag = "2")]
-    pub normalized_vertices: ::prost::alloc::vec::Vec<NormalizedVertex>,
-}
 /// The common metadata for long running operations.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -153,198 +76,6 @@ pub mod common_operation_metadata {
         }
     }
 }
-/// Payload message of raw document content (bytes).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RawDocument {
-    /// Inline document content.
-    #[prost(bytes = "bytes", tag = "1")]
-    pub content: ::prost::bytes::Bytes,
-    /// An IANA MIME type (RFC6838) indicating the nature and format of the
-    /// \[content][google.cloud.documentai.v1beta3.RawDocument.content\].
-    #[prost(string, tag = "2")]
-    pub mime_type: ::prost::alloc::string::String,
-    /// The display name of the document, it supports all Unicode characters except
-    /// the following:
-    /// `*`, `?`, `[`, `]`, `%`, `{`, `}`,`'`, `\"`, `,`
-    /// `~`, `=` and `:` are reserved.
-    /// If not specified, a default ID is generated.
-    #[prost(string, tag = "3")]
-    pub display_name: ::prost::alloc::string::String,
-}
-/// Specifies a document stored on Cloud Storage.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GcsDocument {
-    /// The Cloud Storage object uri.
-    #[prost(string, tag = "1")]
-    pub gcs_uri: ::prost::alloc::string::String,
-    /// An IANA MIME type (RFC6838) of the content.
-    #[prost(string, tag = "2")]
-    pub mime_type: ::prost::alloc::string::String,
-}
-/// Specifies a set of documents on Cloud Storage.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GcsDocuments {
-    /// The list of documents.
-    #[prost(message, repeated, tag = "1")]
-    pub documents: ::prost::alloc::vec::Vec<GcsDocument>,
-}
-/// Specifies all documents on Cloud Storage with a common prefix.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GcsPrefix {
-    /// The URI prefix.
-    #[prost(string, tag = "1")]
-    pub gcs_uri_prefix: ::prost::alloc::string::String,
-}
-/// The common config to specify a set of documents used as input.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BatchDocumentsInputConfig {
-    /// The source.
-    #[prost(oneof = "batch_documents_input_config::Source", tags = "1, 2")]
-    pub source: ::core::option::Option<batch_documents_input_config::Source>,
-}
-/// Nested message and enum types in `BatchDocumentsInputConfig`.
-pub mod batch_documents_input_config {
-    /// The source.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Source {
-        /// The set of documents that match the specified Cloud Storage `gcs_prefix`.
-        #[prost(message, tag = "1")]
-        GcsPrefix(super::GcsPrefix),
-        /// The set of documents individually specified on Cloud Storage.
-        #[prost(message, tag = "2")]
-        GcsDocuments(super::GcsDocuments),
-    }
-}
-/// Config that controls the output of documents. All documents will be written
-/// as a JSON file.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DocumentOutputConfig {
-    /// The destination of the results.
-    #[prost(oneof = "document_output_config::Destination", tags = "1")]
-    pub destination: ::core::option::Option<document_output_config::Destination>,
-}
-/// Nested message and enum types in `DocumentOutputConfig`.
-pub mod document_output_config {
-    /// The configuration used when outputting documents.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct GcsOutputConfig {
-        /// The Cloud Storage uri (a directory) of the output.
-        #[prost(string, tag = "1")]
-        pub gcs_uri: ::prost::alloc::string::String,
-        /// Specifies which fields to include in the output documents.
-        /// Only supports top level document and pages field so it must be in the
-        /// form of `{document_field_name}` or `pages.{page_field_name}`.
-        #[prost(message, optional, tag = "2")]
-        pub field_mask: ::core::option::Option<::prost_types::FieldMask>,
-        /// Specifies the sharding config for the output document.
-        #[prost(message, optional, tag = "3")]
-        pub sharding_config: ::core::option::Option<gcs_output_config::ShardingConfig>,
-    }
-    /// Nested message and enum types in `GcsOutputConfig`.
-    pub mod gcs_output_config {
-        /// The sharding config for the output document.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct ShardingConfig {
-            /// The number of pages per shard.
-            #[prost(int32, tag = "1")]
-            pub pages_per_shard: i32,
-            /// The number of overlapping pages between consecutive shards.
-            #[prost(int32, tag = "2")]
-            pub pages_overlap: i32,
-        }
-    }
-    /// The destination of the results.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Destination {
-        /// Output config to write the results to Cloud Storage.
-        #[prost(message, tag = "1")]
-        GcsOutputConfig(GcsOutputConfig),
-    }
-}
-/// Config for Document OCR.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OcrConfig {
-    /// Hints for the OCR model.
-    #[prost(message, optional, tag = "2")]
-    pub hints: ::core::option::Option<ocr_config::Hints>,
-    /// Enables special handling for PDFs with existing text information. Results
-    /// in better text extraction quality in such PDF inputs.
-    #[prost(bool, tag = "3")]
-    pub enable_native_pdf_parsing: bool,
-    /// Enables intelligent document quality scores after OCR. Can help with
-    /// diagnosing why OCR responses are of poor quality for a given input.
-    /// Adds additional latency comparable to regular OCR to the process call.
-    #[prost(bool, tag = "4")]
-    pub enable_image_quality_scores: bool,
-    /// A list of advanced OCR options to further fine-tune OCR behavior. Current
-    /// valid values are:
-    ///
-    /// - `legacy_layout`: a heuristics layout detection algorithm, which serves as
-    /// an alternative to the current ML-based layout detection algorithm.
-    /// Customers can choose the best suitable layout algorithm based on their
-    /// situation.
-    #[prost(string, repeated, tag = "5")]
-    pub advanced_ocr_options: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Includes symbol level OCR information if set to true.
-    #[prost(bool, tag = "6")]
-    pub enable_symbol: bool,
-    /// Turn on font identification model and return font style information.
-    /// Deprecated, use
-    /// \[PremiumFeatures.compute_style_info][google.cloud.documentai.v1beta3.OcrConfig.PremiumFeatures.compute_style_info\]
-    /// instead.
-    #[deprecated]
-    #[prost(bool, tag = "8")]
-    pub compute_style_info: bool,
-    /// Turn off character box detector in OCR engine. Character box detection is
-    /// enabled by default in OCR 2.0 (and later) processors.
-    #[prost(bool, tag = "10")]
-    pub disable_character_boxes_detection: bool,
-    /// Configurations for premium OCR features.
-    #[prost(message, optional, tag = "11")]
-    pub premium_features: ::core::option::Option<ocr_config::PremiumFeatures>,
-}
-/// Nested message and enum types in `OcrConfig`.
-pub mod ocr_config {
-    /// Hints for OCR Engine
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Hints {
-        /// List of BCP-47 language codes to use for OCR. In most cases, not
-        /// specifying it yields the best results since it enables automatic language
-        /// detection. For languages based on the Latin alphabet, setting hints is
-        /// not needed. In rare cases, when the language of the text in the
-        /// image is known, setting a hint will help get better results (although it
-        /// will be a significant hindrance if the hint is wrong).
-        #[prost(string, repeated, tag = "1")]
-        pub language_hints: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    }
-    /// Configurations for premium OCR features.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct PremiumFeatures {
-        /// Turn on selection mark detector in OCR engine. Only available in OCR 2.0
-        /// (and later) processors.
-        #[prost(bool, tag = "3")]
-        pub enable_selection_mark_detection: bool,
-        /// Turn on font identification model and return font style information.
-        #[prost(bool, tag = "4")]
-        pub compute_style_info: bool,
-        /// Turn on the model that can extract LaTeX math formulas.
-        #[prost(bool, tag = "5")]
-        pub enable_math_ocr: bool,
-    }
-}
 /// Encodes the detailed information of a barcode.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -390,6 +121,42 @@ pub struct Barcode {
     /// For example: `'MEBKM:TITLE:Google;URL:<https://www.google.com;;'`.>
     #[prost(string, tag = "3")]
     pub raw_value: ::prost::alloc::string::String,
+}
+/// A vertex represents a 2D point in the image.
+/// NOTE: the vertex coordinates are in the same scale as the original image.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Vertex {
+    /// X coordinate.
+    #[prost(int32, tag = "1")]
+    pub x: i32,
+    /// Y coordinate (starts from the top of the image).
+    #[prost(int32, tag = "2")]
+    pub y: i32,
+}
+/// A vertex represents a 2D point in the image.
+/// NOTE: the normalized vertex coordinates are relative to the original image
+/// and range from 0 to 1.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct NormalizedVertex {
+    /// X coordinate.
+    #[prost(float, tag = "1")]
+    pub x: f32,
+    /// Y coordinate (starts from the top of the image).
+    #[prost(float, tag = "2")]
+    pub y: f32,
+}
+/// A bounding polygon for the detected image annotation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BoundingPoly {
+    /// The bounding polygon vertices.
+    #[prost(message, repeated, tag = "1")]
+    pub vertices: ::prost::alloc::vec::Vec<Vertex>,
+    /// The bounding polygon normalized vertices.
+    #[prost(message, repeated, tag = "2")]
+    pub normalized_vertices: ::prost::alloc::vec::Vec<NormalizedVertex>,
 }
 /// Document represents the canonical document resource in Document AI. It is an
 /// interchange format that provides insights into documents and allows for
@@ -2003,218 +1770,196 @@ pub mod document_schema {
         pub skip_naming_validation: bool,
     }
 }
-/// A singleton resource under a
-/// \[Processor][google.cloud.documentai.v1beta3.Processor\] which configures a
-/// collection of documents.
+/// Payload message of raw document content (bytes).
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Dataset {
-    /// Dataset resource name.
-    /// Format:
-    /// `projects/{project}/locations/{location}/processors/{processor}/dataset`
+pub struct RawDocument {
+    /// Inline document content.
+    #[prost(bytes = "bytes", tag = "1")]
+    pub content: ::prost::bytes::Bytes,
+    /// An IANA MIME type (RFC6838) indicating the nature and format of the
+    /// \[content][google.cloud.documentai.v1beta3.RawDocument.content\].
+    #[prost(string, tag = "2")]
+    pub mime_type: ::prost::alloc::string::String,
+    /// The display name of the document, it supports all Unicode characters except
+    /// the following:
+    /// `*`, `?`, `[`, `]`, `%`, `{`, `}`,`'`, `\"`, `,`
+    /// `~`, `=` and `:` are reserved.
+    /// If not specified, a default ID is generated.
+    #[prost(string, tag = "3")]
+    pub display_name: ::prost::alloc::string::String,
+}
+/// Specifies a document stored on Cloud Storage.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcsDocument {
+    /// The Cloud Storage object uri.
     #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. State of the dataset. Ignored when updating dataset.
-    #[prost(enumeration = "dataset::State", tag = "2")]
-    pub state: i32,
-    #[prost(oneof = "dataset::StorageSource", tags = "3, 5, 6")]
-    pub storage_source: ::core::option::Option<dataset::StorageSource>,
-    #[prost(oneof = "dataset::IndexingSource", tags = "4")]
-    pub indexing_source: ::core::option::Option<dataset::IndexingSource>,
+    pub gcs_uri: ::prost::alloc::string::String,
+    /// An IANA MIME type (RFC6838) of the content.
+    #[prost(string, tag = "2")]
+    pub mime_type: ::prost::alloc::string::String,
 }
-/// Nested message and enum types in `Dataset`.
-pub mod dataset {
-    /// Configuration specific to the Cloud Storage-based implementation.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct GcsManagedConfig {
-        /// Required. The Cloud Storage URI (a directory) where the documents
-        /// belonging to the dataset must be stored.
-        #[prost(message, optional, tag = "1")]
-        pub gcs_prefix: ::core::option::Option<super::GcsPrefix>,
-    }
-    /// Configuration specific to the Document AI Warehouse-based implementation.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct DocumentWarehouseConfig {
-        /// Output only. The collection in Document AI Warehouse associated with the
-        /// dataset.
-        #[prost(string, tag = "1")]
-        pub collection: ::prost::alloc::string::String,
-        /// Output only. The schema in Document AI Warehouse associated with the
-        /// dataset.
-        #[prost(string, tag = "2")]
-        pub schema: ::prost::alloc::string::String,
-    }
-    /// Configuration specific to an unmanaged dataset.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct UnmanagedDatasetConfig {}
-    /// Configuration specific to spanner-based indexing.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct SpannerIndexingConfig {}
-    /// Different states of a dataset.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Default unspecified enum, should not be used.
-        Unspecified = 0,
-        /// Dataset has not been initialized.
-        Uninitialized = 1,
-        /// Dataset is being initialized.
-        Initializing = 2,
-        /// Dataset has been initialized.
-        Initialized = 3,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Uninitialized => "UNINITIALIZED",
-                State::Initializing => "INITIALIZING",
-                State::Initialized => "INITIALIZED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "UNINITIALIZED" => Some(Self::Uninitialized),
-                "INITIALIZING" => Some(Self::Initializing),
-                "INITIALIZED" => Some(Self::Initialized),
-                _ => None,
-            }
-        }
-    }
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum StorageSource {
-        /// Optional. User-managed Cloud Storage dataset configuration. Use this
-        /// configuration if the dataset documents are stored under a user-managed
-        /// Cloud Storage location.
-        #[prost(message, tag = "3")]
-        GcsManagedConfig(GcsManagedConfig),
-        /// Optional. Document AI Warehouse-based dataset configuration.
-        #[prost(message, tag = "5")]
-        DocumentWarehouseConfig(DocumentWarehouseConfig),
-        /// Optional. Unmanaged dataset configuration. Use this configuration if the
-        /// dataset documents are managed by the document service internally (not
-        /// user-managed).
-        #[prost(message, tag = "6")]
-        UnmanagedDatasetConfig(UnmanagedDatasetConfig),
-    }
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum IndexingSource {
-        /// Optional. A lightweight indexing source with low latency and high
-        /// reliability, but lacking advanced features like CMEK and content-based
-        /// search.
-        #[prost(message, tag = "4")]
-        SpannerIndexingConfig(SpannerIndexingConfig),
-    }
-}
-/// Document Identifier.
+/// Specifies a set of documents on Cloud Storage.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DocumentId {
-    /// Points to a specific revision of the document if set.
-    #[prost(message, optional, tag = "3")]
-    pub revision_ref: ::core::option::Option<RevisionRef>,
-    #[prost(oneof = "document_id::Type", tags = "1, 4")]
-    pub r#type: ::core::option::Option<document_id::Type>,
+pub struct GcsDocuments {
+    /// The list of documents.
+    #[prost(message, repeated, tag = "1")]
+    pub documents: ::prost::alloc::vec::Vec<GcsDocument>,
 }
-/// Nested message and enum types in `DocumentId`.
-pub mod document_id {
-    /// Identifies a document uniquely within the scope of a dataset in the
-    /// user-managed Cloud Storage option.
+/// Specifies all documents on Cloud Storage with a common prefix.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcsPrefix {
+    /// The URI prefix.
+    #[prost(string, tag = "1")]
+    pub gcs_uri_prefix: ::prost::alloc::string::String,
+}
+/// The common config to specify a set of documents used as input.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchDocumentsInputConfig {
+    /// The source.
+    #[prost(oneof = "batch_documents_input_config::Source", tags = "1, 2")]
+    pub source: ::core::option::Option<batch_documents_input_config::Source>,
+}
+/// Nested message and enum types in `BatchDocumentsInputConfig`.
+pub mod batch_documents_input_config {
+    /// The source.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Source {
+        /// The set of documents that match the specified Cloud Storage `gcs_prefix`.
+        #[prost(message, tag = "1")]
+        GcsPrefix(super::GcsPrefix),
+        /// The set of documents individually specified on Cloud Storage.
+        #[prost(message, tag = "2")]
+        GcsDocuments(super::GcsDocuments),
+    }
+}
+/// Config that controls the output of documents. All documents will be written
+/// as a JSON file.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DocumentOutputConfig {
+    /// The destination of the results.
+    #[prost(oneof = "document_output_config::Destination", tags = "1")]
+    pub destination: ::core::option::Option<document_output_config::Destination>,
+}
+/// Nested message and enum types in `DocumentOutputConfig`.
+pub mod document_output_config {
+    /// The configuration used when outputting documents.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct GcsManagedDocumentId {
-        /// Required. The Cloud Storage URI where the actual document is stored.
+    pub struct GcsOutputConfig {
+        /// The Cloud Storage uri (a directory) of the output.
         #[prost(string, tag = "1")]
         pub gcs_uri: ::prost::alloc::string::String,
-        /// Id of the document (indexed) managed by Content Warehouse.
-        #[deprecated]
-        #[prost(string, tag = "2")]
-        pub cw_doc_id: ::prost::alloc::string::String,
+        /// Specifies which fields to include in the output documents.
+        /// Only supports top level document and pages field so it must be in the
+        /// form of `{document_field_name}` or `pages.{page_field_name}`.
+        #[prost(message, optional, tag = "2")]
+        pub field_mask: ::core::option::Option<::prost_types::FieldMask>,
+        /// Specifies the sharding config for the output document.
+        #[prost(message, optional, tag = "3")]
+        pub sharding_config: ::core::option::Option<gcs_output_config::ShardingConfig>,
     }
-    /// Identifies a document uniquely within the scope of a dataset in unmanaged
-    /// option.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct UnmanagedDocumentId {
-        /// Required. The id of the document.
-        #[prost(string, tag = "1")]
-        pub doc_id: ::prost::alloc::string::String,
+    /// Nested message and enum types in `GcsOutputConfig`.
+    pub mod gcs_output_config {
+        /// The sharding config for the output document.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct ShardingConfig {
+            /// The number of pages per shard.
+            #[prost(int32, tag = "1")]
+            pub pages_per_shard: i32,
+            /// The number of overlapping pages between consecutive shards.
+            #[prost(int32, tag = "2")]
+            pub pages_overlap: i32,
+        }
     }
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Type {
-        /// A document id within user-managed Cloud Storage.
-        #[prost(message, tag = "1")]
-        GcsManagedDocId(GcsManagedDocumentId),
-        /// A document id within unmanaged dataset.
-        #[prost(message, tag = "4")]
-        UnmanagedDocId(UnmanagedDocumentId),
-    }
-}
-/// Dataset Schema.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DatasetSchema {
-    /// Dataset schema resource name.
-    /// Format:
-    /// `projects/{project}/locations/{location}/processors/{processor}/dataset/datasetSchema`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. Schema of the dataset.
-    #[prost(message, optional, tag = "3")]
-    pub document_schema: ::core::option::Option<DocumentSchema>,
-}
-/// Dataset documents that the batch operation will be applied to.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BatchDatasetDocuments {
-    #[prost(oneof = "batch_dataset_documents::Criteria", tags = "1, 2")]
-    pub criteria: ::core::option::Option<batch_dataset_documents::Criteria>,
-}
-/// Nested message and enum types in `BatchDatasetDocuments`.
-pub mod batch_dataset_documents {
-    /// List of individual DocumentIds.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct IndividualDocumentIds {
-        /// Required. List of Document IDs indicating where the actual documents are
-        /// stored.
-        #[prost(message, repeated, tag = "1")]
-        pub document_ids: ::prost::alloc::vec::Vec<super::DocumentId>,
-    }
+    /// The destination of the results.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Criteria {
-        /// Document identifiers.
+    pub enum Destination {
+        /// Output config to write the results to Cloud Storage.
         #[prost(message, tag = "1")]
-        IndividualDocumentIds(IndividualDocumentIds),
-        /// A filter matching the documents.
-        /// Follows the same format and restriction as
-        /// \[google.cloud.documentai.master.ListDocumentsRequest.filter\].
-        #[prost(string, tag = "2")]
-        Filter(::prost::alloc::string::String),
+        GcsOutputConfig(GcsOutputConfig),
+    }
+}
+/// Config for Document OCR.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OcrConfig {
+    /// Hints for the OCR model.
+    #[prost(message, optional, tag = "2")]
+    pub hints: ::core::option::Option<ocr_config::Hints>,
+    /// Enables special handling for PDFs with existing text information. Results
+    /// in better text extraction quality in such PDF inputs.
+    #[prost(bool, tag = "3")]
+    pub enable_native_pdf_parsing: bool,
+    /// Enables intelligent document quality scores after OCR. Can help with
+    /// diagnosing why OCR responses are of poor quality for a given input.
+    /// Adds additional latency comparable to regular OCR to the process call.
+    #[prost(bool, tag = "4")]
+    pub enable_image_quality_scores: bool,
+    /// A list of advanced OCR options to further fine-tune OCR behavior. Current
+    /// valid values are:
+    ///
+    /// - `legacy_layout`: a heuristics layout detection algorithm, which serves as
+    /// an alternative to the current ML-based layout detection algorithm.
+    /// Customers can choose the best suitable layout algorithm based on their
+    /// situation.
+    #[prost(string, repeated, tag = "5")]
+    pub advanced_ocr_options: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Includes symbol level OCR information if set to true.
+    #[prost(bool, tag = "6")]
+    pub enable_symbol: bool,
+    /// Turn on font identification model and return font style information.
+    /// Deprecated, use
+    /// \[PremiumFeatures.compute_style_info][google.cloud.documentai.v1beta3.OcrConfig.PremiumFeatures.compute_style_info\]
+    /// instead.
+    #[deprecated]
+    #[prost(bool, tag = "8")]
+    pub compute_style_info: bool,
+    /// Turn off character box detector in OCR engine. Character box detection is
+    /// enabled by default in OCR 2.0 (and later) processors.
+    #[prost(bool, tag = "10")]
+    pub disable_character_boxes_detection: bool,
+    /// Configurations for premium OCR features.
+    #[prost(message, optional, tag = "11")]
+    pub premium_features: ::core::option::Option<ocr_config::PremiumFeatures>,
+}
+/// Nested message and enum types in `OcrConfig`.
+pub mod ocr_config {
+    /// Hints for OCR Engine
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Hints {
+        /// List of BCP-47 language codes to use for OCR. In most cases, not
+        /// specifying it yields the best results since it enables automatic language
+        /// detection. For languages based on the Latin alphabet, setting hints is
+        /// not needed. In rare cases, when the language of the text in the
+        /// image is known, setting a hint will help get better results (although it
+        /// will be a significant hindrance if the hint is wrong).
+        #[prost(string, repeated, tag = "1")]
+        pub language_hints: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    /// Configurations for premium OCR features.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PremiumFeatures {
+        /// Turn on selection mark detector in OCR engine. Only available in OCR 2.0
+        /// (and later) processors.
+        #[prost(bool, tag = "3")]
+        pub enable_selection_mark_detection: bool,
+        /// Turn on font identification model and return font style information.
+        #[prost(bool, tag = "4")]
+        pub compute_style_info: bool,
+        /// Turn on the model that can extract LaTeX math formulas.
+        #[prost(bool, tag = "5")]
+        pub enable_math_ocr: bool,
     }
 }
 /// Gives a short summary of an evaluation, and links to the evaluation itself.
@@ -2658,6 +2403,47 @@ pub mod processor {
                 _ => None,
             }
         }
+    }
+}
+/// A processor type is responsible for performing a certain document
+/// understanding task on a certain type of document.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProcessorType {
+    /// The resource name of the processor type.
+    /// Format: `projects/{project}/processorTypes/{processor_type}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`.
+    #[prost(string, tag = "2")]
+    pub r#type: ::prost::alloc::string::String,
+    /// The processor category, used by UI to group processor types.
+    #[prost(string, tag = "3")]
+    pub category: ::prost::alloc::string::String,
+    /// The locations in which this processor is available.
+    #[prost(message, repeated, tag = "4")]
+    pub available_locations: ::prost::alloc::vec::Vec<processor_type::LocationInfo>,
+    /// Whether the processor type allows creation. If true, users can create a
+    /// processor of this processor type. Otherwise, users need to request access.
+    #[prost(bool, tag = "6")]
+    pub allow_creation: bool,
+    /// Launch stage of the processor type
+    #[prost(enumeration = "super::super::super::api::LaunchStage", tag = "8")]
+    pub launch_stage: i32,
+    /// A set of Cloud Storage URIs of sample documents for this processor.
+    #[prost(string, repeated, tag = "9")]
+    pub sample_document_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Nested message and enum types in `ProcessorType`.
+pub mod processor_type {
+    /// The location information about where the processor is available.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct LocationInfo {
+        /// The location ID. For supported locations, refer to [regional and
+        /// multi-regional support](/document-ai/docs/regions).
+        #[prost(string, tag = "1")]
+        pub location_id: ::prost::alloc::string::String,
     }
 }
 /// Options for Process API
@@ -4753,6 +4539,220 @@ pub mod document_processor_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
+    }
+}
+/// A singleton resource under a
+/// \[Processor][google.cloud.documentai.v1beta3.Processor\] which configures a
+/// collection of documents.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Dataset {
+    /// Dataset resource name.
+    /// Format:
+    /// `projects/{project}/locations/{location}/processors/{processor}/dataset`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. State of the dataset. Ignored when updating dataset.
+    #[prost(enumeration = "dataset::State", tag = "2")]
+    pub state: i32,
+    #[prost(oneof = "dataset::StorageSource", tags = "3, 5, 6")]
+    pub storage_source: ::core::option::Option<dataset::StorageSource>,
+    #[prost(oneof = "dataset::IndexingSource", tags = "4")]
+    pub indexing_source: ::core::option::Option<dataset::IndexingSource>,
+}
+/// Nested message and enum types in `Dataset`.
+pub mod dataset {
+    /// Configuration specific to the Cloud Storage-based implementation.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct GcsManagedConfig {
+        /// Required. The Cloud Storage URI (a directory) where the documents
+        /// belonging to the dataset must be stored.
+        #[prost(message, optional, tag = "1")]
+        pub gcs_prefix: ::core::option::Option<super::GcsPrefix>,
+    }
+    /// Configuration specific to the Document AI Warehouse-based implementation.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DocumentWarehouseConfig {
+        /// Output only. The collection in Document AI Warehouse associated with the
+        /// dataset.
+        #[prost(string, tag = "1")]
+        pub collection: ::prost::alloc::string::String,
+        /// Output only. The schema in Document AI Warehouse associated with the
+        /// dataset.
+        #[prost(string, tag = "2")]
+        pub schema: ::prost::alloc::string::String,
+    }
+    /// Configuration specific to an unmanaged dataset.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct UnmanagedDatasetConfig {}
+    /// Configuration specific to spanner-based indexing.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct SpannerIndexingConfig {}
+    /// Different states of a dataset.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Default unspecified enum, should not be used.
+        Unspecified = 0,
+        /// Dataset has not been initialized.
+        Uninitialized = 1,
+        /// Dataset is being initialized.
+        Initializing = 2,
+        /// Dataset has been initialized.
+        Initialized = 3,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Uninitialized => "UNINITIALIZED",
+                State::Initializing => "INITIALIZING",
+                State::Initialized => "INITIALIZED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "UNINITIALIZED" => Some(Self::Uninitialized),
+                "INITIALIZING" => Some(Self::Initializing),
+                "INITIALIZED" => Some(Self::Initialized),
+                _ => None,
+            }
+        }
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum StorageSource {
+        /// Optional. User-managed Cloud Storage dataset configuration. Use this
+        /// configuration if the dataset documents are stored under a user-managed
+        /// Cloud Storage location.
+        #[prost(message, tag = "3")]
+        GcsManagedConfig(GcsManagedConfig),
+        /// Optional. Document AI Warehouse-based dataset configuration.
+        #[prost(message, tag = "5")]
+        DocumentWarehouseConfig(DocumentWarehouseConfig),
+        /// Optional. Unmanaged dataset configuration. Use this configuration if the
+        /// dataset documents are managed by the document service internally (not
+        /// user-managed).
+        #[prost(message, tag = "6")]
+        UnmanagedDatasetConfig(UnmanagedDatasetConfig),
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum IndexingSource {
+        /// Optional. A lightweight indexing source with low latency and high
+        /// reliability, but lacking advanced features like CMEK and content-based
+        /// search.
+        #[prost(message, tag = "4")]
+        SpannerIndexingConfig(SpannerIndexingConfig),
+    }
+}
+/// Document Identifier.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DocumentId {
+    /// Points to a specific revision of the document if set.
+    #[prost(message, optional, tag = "3")]
+    pub revision_ref: ::core::option::Option<RevisionRef>,
+    #[prost(oneof = "document_id::Type", tags = "1, 4")]
+    pub r#type: ::core::option::Option<document_id::Type>,
+}
+/// Nested message and enum types in `DocumentId`.
+pub mod document_id {
+    /// Identifies a document uniquely within the scope of a dataset in the
+    /// user-managed Cloud Storage option.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct GcsManagedDocumentId {
+        /// Required. The Cloud Storage URI where the actual document is stored.
+        #[prost(string, tag = "1")]
+        pub gcs_uri: ::prost::alloc::string::String,
+        /// Id of the document (indexed) managed by Content Warehouse.
+        #[deprecated]
+        #[prost(string, tag = "2")]
+        pub cw_doc_id: ::prost::alloc::string::String,
+    }
+    /// Identifies a document uniquely within the scope of a dataset in unmanaged
+    /// option.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct UnmanagedDocumentId {
+        /// Required. The id of the document.
+        #[prost(string, tag = "1")]
+        pub doc_id: ::prost::alloc::string::String,
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Type {
+        /// A document id within user-managed Cloud Storage.
+        #[prost(message, tag = "1")]
+        GcsManagedDocId(GcsManagedDocumentId),
+        /// A document id within unmanaged dataset.
+        #[prost(message, tag = "4")]
+        UnmanagedDocId(UnmanagedDocumentId),
+    }
+}
+/// Dataset Schema.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DatasetSchema {
+    /// Dataset schema resource name.
+    /// Format:
+    /// `projects/{project}/locations/{location}/processors/{processor}/dataset/datasetSchema`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. Schema of the dataset.
+    #[prost(message, optional, tag = "3")]
+    pub document_schema: ::core::option::Option<DocumentSchema>,
+}
+/// Dataset documents that the batch operation will be applied to.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchDatasetDocuments {
+    #[prost(oneof = "batch_dataset_documents::Criteria", tags = "1, 2")]
+    pub criteria: ::core::option::Option<batch_dataset_documents::Criteria>,
+}
+/// Nested message and enum types in `BatchDatasetDocuments`.
+pub mod batch_dataset_documents {
+    /// List of individual DocumentIds.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct IndividualDocumentIds {
+        /// Required. List of Document IDs indicating where the actual documents are
+        /// stored.
+        #[prost(message, repeated, tag = "1")]
+        pub document_ids: ::prost::alloc::vec::Vec<super::DocumentId>,
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Criteria {
+        /// Document identifiers.
+        #[prost(message, tag = "1")]
+        IndividualDocumentIds(IndividualDocumentIds),
+        /// A filter matching the documents.
+        /// Follows the same format and restriction as
+        /// \[google.cloud.documentai.master.ListDocumentsRequest.filter\].
+        #[prost(string, tag = "2")]
+        Filter(::prost::alloc::string::String),
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]

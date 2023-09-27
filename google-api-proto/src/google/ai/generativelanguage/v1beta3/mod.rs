@@ -888,362 +888,6 @@ pub mod permission {
         }
     }
 }
-/// Request to create a `Permission`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreatePermissionRequest {
-    /// Required. The parent resource of the `Permission`.
-    /// Format: tunedModels/{tuned_model}
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The permission to create.
-    #[prost(message, optional, tag = "2")]
-    pub permission: ::core::option::Option<Permission>,
-}
-/// Request for getting information about a specific `Permission`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetPermissionRequest {
-    /// Required. The resource name of the permission.
-    ///
-    /// Format: `tunedModels/{tuned_model}permissions/{permission}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request for listing permissions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListPermissionsRequest {
-    /// Required. The parent resource of the permissions.
-    /// Format: tunedModels/{tuned_model}
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Optional. The maximum number of `Permission`s to return (per page).
-    /// The service may return fewer permissions.
-    ///
-    /// If unspecified, at most 10 permissions will be returned.
-    /// This method returns at most 1000 permissions per page, even if you pass
-    /// larger page_size.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// Optional. A page token, received from a previous `ListPermissions` call.
-    ///
-    /// Provide the `page_token` returned by one request as an argument to the
-    /// next request to retrieve the next page.
-    ///
-    /// When paginating, all other parameters provided to `ListPermissions`
-    /// must match the call that provided the page token.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// Response from `ListPermissions` containing a paginated list of
-/// permissions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListPermissionsResponse {
-    /// Returned permissions.
-    #[prost(message, repeated, tag = "1")]
-    pub permissions: ::prost::alloc::vec::Vec<Permission>,
-    /// A token, which can be sent as `page_token` to retrieve the next page.
-    ///
-    /// If this field is omitted, there are no more pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Request to update the `Permission`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdatePermissionRequest {
-    /// Required. The permission to update.
-    ///
-    /// The permission's `name` field is used to identify the permission to update.
-    #[prost(message, optional, tag = "1")]
-    pub permission: ::core::option::Option<Permission>,
-    /// Required. The list of fields to update. Accepted ones:
-    ///   - role (`Permission.role` field)
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-/// Request to delete the `Permission`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeletePermissionRequest {
-    /// Required. The resource name of the permission.
-    /// Format: `tunedModels/{tuned_model}/permissions/{permission}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request to transfer the ownership of the tuned model.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TransferOwnershipRequest {
-    /// Required. The resource name of the tuned model to transfer ownership .
-    ///
-    /// Format: `tunedModels/my-model-id`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The email address of the user to whom the tuned model is being
-    /// transferred to.
-    #[prost(string, tag = "2")]
-    pub email_address: ::prost::alloc::string::String,
-}
-/// Response from `TransferOwnership`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TransferOwnershipResponse {}
-/// Generated client implementations.
-pub mod permission_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Provides methods for managing permissions to PaLM API resources.
-    #[derive(Debug, Clone)]
-    pub struct PermissionServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> PermissionServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> PermissionServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            PermissionServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Create a permission to a specific resource.
-        pub async fn create_permission(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreatePermissionRequest>,
-        ) -> std::result::Result<tonic::Response<super::Permission>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.PermissionService/CreatePermission",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.PermissionService",
-                        "CreatePermission",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets information about a specific Permission.
-        pub async fn get_permission(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetPermissionRequest>,
-        ) -> std::result::Result<tonic::Response<super::Permission>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.PermissionService/GetPermission",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.PermissionService",
-                        "GetPermission",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists permissions for the specific resource.
-        pub async fn list_permissions(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListPermissionsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListPermissionsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.PermissionService/ListPermissions",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.PermissionService",
-                        "ListPermissions",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates the permission.
-        pub async fn update_permission(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdatePermissionRequest>,
-        ) -> std::result::Result<tonic::Response<super::Permission>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.PermissionService/UpdatePermission",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.PermissionService",
-                        "UpdatePermission",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes the permission.
-        pub async fn delete_permission(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeletePermissionRequest>,
-        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.PermissionService/DeletePermission",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.PermissionService",
-                        "DeletePermission",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Transfers ownership of the tuned model.
-        /// This is the only way to change ownership of the tuned model.
-        /// The current owner will be downgraded to writer role.
-        pub async fn transfer_ownership(
-            &mut self,
-            request: impl tonic::IntoRequest<super::TransferOwnershipRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::TransferOwnershipResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.PermissionService/TransferOwnership",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.PermissionService",
-                        "TransferOwnership",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
 /// A collection of source attributions for a piece of content.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1964,6 +1608,362 @@ pub mod text_service_client {
                     GrpcMethod::new(
                         "google.ai.generativelanguage.v1beta3.TextService",
                         "CountTextTokens",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Request to create a `Permission`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreatePermissionRequest {
+    /// Required. The parent resource of the `Permission`.
+    /// Format: tunedModels/{tuned_model}
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The permission to create.
+    #[prost(message, optional, tag = "2")]
+    pub permission: ::core::option::Option<Permission>,
+}
+/// Request for getting information about a specific `Permission`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetPermissionRequest {
+    /// Required. The resource name of the permission.
+    ///
+    /// Format: `tunedModels/{tuned_model}permissions/{permission}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request for listing permissions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListPermissionsRequest {
+    /// Required. The parent resource of the permissions.
+    /// Format: tunedModels/{tuned_model}
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. The maximum number of `Permission`s to return (per page).
+    /// The service may return fewer permissions.
+    ///
+    /// If unspecified, at most 10 permissions will be returned.
+    /// This method returns at most 1000 permissions per page, even if you pass
+    /// larger page_size.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// Optional. A page token, received from a previous `ListPermissions` call.
+    ///
+    /// Provide the `page_token` returned by one request as an argument to the
+    /// next request to retrieve the next page.
+    ///
+    /// When paginating, all other parameters provided to `ListPermissions`
+    /// must match the call that provided the page token.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// Response from `ListPermissions` containing a paginated list of
+/// permissions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListPermissionsResponse {
+    /// Returned permissions.
+    #[prost(message, repeated, tag = "1")]
+    pub permissions: ::prost::alloc::vec::Vec<Permission>,
+    /// A token, which can be sent as `page_token` to retrieve the next page.
+    ///
+    /// If this field is omitted, there are no more pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request to update the `Permission`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdatePermissionRequest {
+    /// Required. The permission to update.
+    ///
+    /// The permission's `name` field is used to identify the permission to update.
+    #[prost(message, optional, tag = "1")]
+    pub permission: ::core::option::Option<Permission>,
+    /// Required. The list of fields to update. Accepted ones:
+    ///   - role (`Permission.role` field)
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Request to delete the `Permission`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeletePermissionRequest {
+    /// Required. The resource name of the permission.
+    /// Format: `tunedModels/{tuned_model}/permissions/{permission}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request to transfer the ownership of the tuned model.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TransferOwnershipRequest {
+    /// Required. The resource name of the tuned model to transfer ownership .
+    ///
+    /// Format: `tunedModels/my-model-id`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The email address of the user to whom the tuned model is being
+    /// transferred to.
+    #[prost(string, tag = "2")]
+    pub email_address: ::prost::alloc::string::String,
+}
+/// Response from `TransferOwnership`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TransferOwnershipResponse {}
+/// Generated client implementations.
+pub mod permission_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Provides methods for managing permissions to PaLM API resources.
+    #[derive(Debug, Clone)]
+    pub struct PermissionServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> PermissionServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> PermissionServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            PermissionServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Create a permission to a specific resource.
+        pub async fn create_permission(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreatePermissionRequest>,
+        ) -> std::result::Result<tonic::Response<super::Permission>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.PermissionService/CreatePermission",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.PermissionService",
+                        "CreatePermission",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets information about a specific Permission.
+        pub async fn get_permission(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetPermissionRequest>,
+        ) -> std::result::Result<tonic::Response<super::Permission>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.PermissionService/GetPermission",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.PermissionService",
+                        "GetPermission",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists permissions for the specific resource.
+        pub async fn list_permissions(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListPermissionsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListPermissionsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.PermissionService/ListPermissions",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.PermissionService",
+                        "ListPermissions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates the permission.
+        pub async fn update_permission(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdatePermissionRequest>,
+        ) -> std::result::Result<tonic::Response<super::Permission>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.PermissionService/UpdatePermission",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.PermissionService",
+                        "UpdatePermission",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes the permission.
+        pub async fn delete_permission(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeletePermissionRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.PermissionService/DeletePermission",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.PermissionService",
+                        "DeletePermission",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Transfers ownership of the tuned model.
+        /// This is the only way to change ownership of the tuned model.
+        /// The current owner will be downgraded to writer role.
+        pub async fn transfer_ownership(
+            &mut self,
+            request: impl tonic::IntoRequest<super::TransferOwnershipRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::TransferOwnershipResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.PermissionService/TransferOwnership",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.PermissionService",
+                        "TransferOwnership",
                     ),
                 );
             self.inner.unary(req, path, codec).await
