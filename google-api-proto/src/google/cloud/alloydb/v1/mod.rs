@@ -1155,6 +1155,25 @@ pub mod instance {
         }
     }
 }
+/// ConnectionInfo singleton resource.
+/// <https://google.aip.dev/156>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ConnectionInfo {
+    /// The name of the ConnectionInfo singleton resource, e.g.:
+    /// projects/{project}/locations/{location}/clusters/*/instances/*/connectionInfo
+    /// This field currently has no semantic meaning.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The private network IP address for the Instance. This is the
+    /// default IP for the instance and is always created (even if enable_public_ip
+    /// is set). This is the connection endpoint for an end-user application.
+    #[prost(string, tag = "2")]
+    pub ip_address: ::prost::alloc::string::String,
+    /// Output only. The unique ID of the Instance.
+    #[prost(string, tag = "4")]
+    pub instance_uid: ::prost::alloc::string::String,
+}
 /// Message describing Backup object
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2639,6 +2658,77 @@ pub struct ListSupportedDatabaseFlagsResponse {
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
+/// Message for requests to generate a client certificate signed by the Cluster
+/// CA.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GenerateClientCertificateRequest {
+    /// Required. The name of the parent resource. The required format is:
+    ///   * projects/{project}/locations/{location}/clusters/{cluster}
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes after the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "2")]
+    pub request_id: ::prost::alloc::string::String,
+    /// Optional. An optional hint to the endpoint to generate the client
+    /// certificate with the requested duration. The duration can be from 1 hour to
+    /// 24 hours. The endpoint may or may not honor the hint. If the hint is left
+    /// unspecified or is not honored, then the endpoint will pick an appropriate
+    /// default duration.
+    #[prost(message, optional, tag = "4")]
+    pub cert_duration: ::core::option::Option<::prost_types::Duration>,
+    /// Optional. The public key from the client.
+    #[prost(string, tag = "5")]
+    pub public_key: ::prost::alloc::string::String,
+}
+/// Message returned by a GenerateClientCertificate operation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GenerateClientCertificateResponse {
+    /// Output only. The pem-encoded chain that may be used to verify the X.509
+    /// certificate. Expected to be in issuer-to-root order according to RFC 5246.
+    #[prost(string, repeated, tag = "2")]
+    pub pem_certificate_chain: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. The pem-encoded cluster ca X.509 certificate.
+    #[prost(string, tag = "3")]
+    pub ca_cert: ::prost::alloc::string::String,
+}
+/// Request message for GetConnectionInfo.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetConnectionInfoRequest {
+    /// Required. The name of the parent resource. The required format is:
+    /// projects/{project}/locations/{location}/clusters/{cluster}/instances/{instance}
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server will know to
+    /// ignore the request if it has already been completed. The server will
+    /// guarantee that for at least 60 minutes after the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and
+    /// the request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, will ignore the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "2")]
+    pub request_id: ::prost::alloc::string::String,
+}
 /// Represents the metadata of the long-running operation.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3644,6 +3734,69 @@ pub mod alloy_db_admin_client {
                     GrpcMethod::new(
                         "google.cloud.alloydb.v1.AlloyDBAdmin",
                         "ListSupportedDatabaseFlags",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Generate a client certificate signed by a Cluster CA.
+        /// The sole purpose of this endpoint is to support AlloyDB connectors and the
+        /// Auth Proxy client. The endpoint's behavior is subject to change without
+        /// notice, so do not rely on its behavior remaining constant. Future changes
+        /// will not break AlloyDB connectors or the Auth Proxy client.
+        pub async fn generate_client_certificate(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GenerateClientCertificateRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::GenerateClientCertificateResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.alloydb.v1.AlloyDBAdmin/GenerateClientCertificate",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.alloydb.v1.AlloyDBAdmin",
+                        "GenerateClientCertificate",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Get instance metadata used for a connection.
+        pub async fn get_connection_info(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetConnectionInfoRequest>,
+        ) -> std::result::Result<tonic::Response<super::ConnectionInfo>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.alloydb.v1.AlloyDBAdmin/GetConnectionInfo",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.alloydb.v1.AlloyDBAdmin",
+                        "GetConnectionInfo",
                     ),
                 );
             self.inner.unary(req, path, codec).await

@@ -663,6 +663,12 @@ pub struct ListObjectsRequest {
     /// lexicographic_end (exclusive).
     #[prost(string, tag = "11")]
     pub lexicographic_end: ::prost::alloc::string::String,
+    /// Optional. Filter results to objects and prefixes that match this glob
+    /// pattern. See [List Objects Using
+    /// Glob](<https://cloud.google.com/storage/docs/json_api/v1/objects/list#list-objects-and-prefixes-using-glob>)
+    /// for the full syntax.
+    #[prost(string, tag = "14")]
+    pub match_glob: ::prost::alloc::string::String,
 }
 /// Request object for `QueryWriteStatus`.
 #[allow(clippy::derive_partial_eq_without_eq)]
