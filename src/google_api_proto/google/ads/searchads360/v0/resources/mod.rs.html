@@ -2016,7 +2016,54 @@
 <a href="#2016" id="2016">2016</a>
 <a href="#2017" id="2017">2017</a>
 <a href="#2018" id="2018">2018</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// An ad group.
+</pre></div><pre class="rust"><code><span class="doccomment">/// A custom column.
+/// See Search Ads 360 custom column at
+/// &lt;https://support.google.com/sa360/answer/9633916&gt;
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CustomColumn {
+    <span class="doccomment">/// Immutable. The resource name of the custom column.
+    /// Custom column resource names have the form:
+    ///
+    /// `customers/{customer_id}/customColumns/{custom_column_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. ID of the custom column.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>id: i64,
+    <span class="doccomment">/// Output only. User-defined name of the custom column.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. User-defined description of the custom column.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The type of the result value of the custom column.
+    </span><span class="attr">#[prost(
+        enumeration = <span class="string">&quot;super::enums::custom_column_value_type_enum::CustomColumnValueType&quot;</span>,
+        tag = <span class="string">&quot;5&quot;
+    </span>)]
+    </span><span class="kw">pub </span>value_type: i32,
+    <span class="doccomment">/// Output only. True when the custom column is referring to one or more
+    /// attributes.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>references_attributes: bool,
+    <span class="doccomment">/// Output only. True when the custom column is referring to one or more
+    /// metrics.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>references_metrics: bool,
+    <span class="doccomment">/// Output only. True when the custom column is available to be used in the
+    /// query of SearchAds360Service.Search and SearchAds360Service.SearchStream.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>queryable: bool,
+    <span class="doccomment">/// Output only. The list of the referenced system columns of this custom
+    /// column. For example, A custom column &quot;sum of impressions and clicks&quot; has
+    /// referenced system columns of {&quot;metrics.clicks&quot;, &quot;metrics.impressions&quot;}.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>referenced_system_columns: ::prost::alloc::vec::Vec&lt;
+        ::prost::alloc::string::String,
+    &gt;,
+}
+<span class="doccomment">/// An ad group.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AdGroup {
@@ -3914,53 +3961,6 @@
     /// `customers/{customer_id}/webpageViews/{ad_group_id}~{criterion_id}`
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// A custom column.
-/// See Search Ads 360 custom column at
-/// &lt;https://support.google.com/sa360/answer/9633916&gt;
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CustomColumn {
-    <span class="doccomment">/// Immutable. The resource name of the custom column.
-    /// Custom column resource names have the form:
-    ///
-    /// `customers/{customer_id}/customColumns/{custom_column_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. ID of the custom column.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>id: i64,
-    <span class="doccomment">/// Output only. User-defined name of the custom column.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. User-defined description of the custom column.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The type of the result value of the custom column.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::enums::custom_column_value_type_enum::CustomColumnValueType&quot;</span>,
-        tag = <span class="string">&quot;5&quot;
-    </span>)]
-    </span><span class="kw">pub </span>value_type: i32,
-    <span class="doccomment">/// Output only. True when the custom column is referring to one or more
-    /// attributes.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>references_attributes: bool,
-    <span class="doccomment">/// Output only. True when the custom column is referring to one or more
-    /// metrics.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>references_metrics: bool,
-    <span class="doccomment">/// Output only. True when the custom column is available to be used in the
-    /// query of SearchAds360Service.Search and SearchAds360Service.SearchStream.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>queryable: bool,
-    <span class="doccomment">/// Output only. The list of the referenced system columns of this custom
-    /// column. For example, A custom column &quot;sum of impressions and clicks&quot; has
-    /// referenced system columns of {&quot;metrics.clicks&quot;, &quot;metrics.impressions&quot;}.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>referenced_system_columns: ::prost::alloc::vec::Vec&lt;
-        ::prost::alloc::string::String,
-    &gt;,
 }
 <span class="doccomment">/// A field or resource (artifact) used by SearchAds360Service.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

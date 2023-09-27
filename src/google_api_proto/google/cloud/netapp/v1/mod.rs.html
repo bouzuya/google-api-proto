@@ -3126,7 +3126,644 @@
 <a href="#3126" id="3126">3126</a>
 <a href="#3127" id="3127">3127</a>
 <a href="#3128" id="3128">3128</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// TransferStats reports all statistics related to replication transfer.
+</pre></div><pre class="rust"><code><span class="doccomment">/// ListSnapshotsRequest lists snapshots.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListSnapshotsRequest {
+    <span class="doccomment">/// Required. The volume for which to retrieve snapshot information,
+    /// in the format
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of items to return.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// The next_page_token value to use if there are additional
+    /// results to retrieve for this list request.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Sort results. Supported values are &quot;name&quot;, &quot;name desc&quot; or &quot;&quot; (unsorted).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
+    <span class="doccomment">/// List filter.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// ListSnapshotsResponse is the result of ListSnapshotsRequest.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListSnapshotsResponse {
+    <span class="doccomment">/// A list of snapshots in the project for the specified volume.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>snapshots: ::prost::alloc::vec::Vec&lt;Snapshot&gt;,
+    <span class="doccomment">/// The token you can use to retrieve the next page of results. Not returned
+    /// if there are no more results in the list.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Locations that could not be reached.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// GetSnapshotRequest gets the state of a snapshot.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetSnapshotRequest {
+    <span class="doccomment">/// Required. The snapshot resource name, in the format
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/snapshots/{snapshot_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// CreateSnapshotRequest creates a snapshot.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateSnapshotRequest {
+    <span class="doccomment">/// Required. The NetApp volume to create the snapshots of, in the format
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. A snapshot resource
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>snapshot: ::core::option::Option&lt;Snapshot&gt;,
+    <span class="doccomment">/// Required. ID of the snapshot to create.
+    /// This value must start with a lowercase letter followed by up to 62
+    /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>snapshot_id: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// DeleteSnapshotRequest deletes a snapshot.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteSnapshotRequest {
+    <span class="doccomment">/// Required. The snapshot resource name, in the format
+    /// `projects/*/locations/*/volumes/*/snapshots/{snapshot_id}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// UpdateSnapshotRequest updates description and/or labels for a snapshot.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdateSnapshotRequest {
+    <span class="doccomment">/// Required. Mask of fields to update.  At least one path must be supplied in
+    /// this field.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
+    <span class="doccomment">/// Required. A snapshot resource
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>snapshot: ::core::option::Option&lt;Snapshot&gt;,
+}
+<span class="doccomment">/// Snapshot is a point-in-time version of a Volume&#39;s content.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Snapshot {
+    <span class="doccomment">/// Output only. The resource name of the snapshot.
+    /// Format:
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/snapshots/{snapshot_id}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The snapshot state.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;snapshot::State&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Output only. State details of the storage pool
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>state_details: ::prost::alloc::string::String,
+    <span class="doccomment">/// A description of the snapshot with 2048 characters or less.
+    /// Requests with longer descriptions will be rejected.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Current storage usage for the snapshot in bytes.
+    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>used_bytes: f64,
+    <span class="doccomment">/// Output only. The time when the snapshot was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Resource labels to represent user provided metadata.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Snapshot`.
+</span><span class="kw">pub mod </span>snapshot {
+    <span class="doccomment">/// The Snapshot States
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Unspecified Snapshot State
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Snapshot State is Ready
+        </span>Ready = <span class="number">1</span>,
+        <span class="doccomment">/// Snapshot State is Creating
+        </span>Creating = <span class="number">2</span>,
+        <span class="doccomment">/// Snapshot State is Deleting
+        </span>Deleting = <span class="number">3</span>,
+        <span class="doccomment">/// Snapshot State is Updating
+        </span>Updating = <span class="number">4</span>,
+        <span class="doccomment">/// Snapshot State is Disabled
+        </span>Disabled = <span class="number">5</span>,
+        <span class="doccomment">/// Snapshot State is Error
+        </span>Error = <span class="number">6</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
+                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
+                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
+                State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
+                State::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
+                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// ListActiveDirectoriesRequest for requesting multiple active directories.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListActiveDirectoriesRequest {
+    <span class="doccomment">/// Required. Parent value for ListActiveDirectoriesRequest
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Requested page size. Server may return fewer items than requested.
+    /// If unspecified, the server will pick an appropriate default.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// A token identifying a page of results the server should return.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Filtering results
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
+    <span class="doccomment">/// Hint for how to order the results
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// ListActiveDirectoriesResponse contains all the active directories requested.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListActiveDirectoriesResponse {
+    <span class="doccomment">/// The list of active directories.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>active_directories: ::prost::alloc::vec::Vec&lt;ActiveDirectory&gt;,
+    <span class="doccomment">/// A token identifying a page of results the server should return.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Locations that could not be reached.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// GetActiveDirectory for getting a single active directory.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetActiveDirectoryRequest {
+    <span class="doccomment">/// Required. Name of the active directory.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// CreateActiveDirectoryRequest for creating an active directory.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateActiveDirectoryRequest {
+    <span class="doccomment">/// Required. Value for parent.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Fields of the to be created active directory.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>active_directory: ::core::option::Option&lt;ActiveDirectory&gt;,
+    <span class="doccomment">/// Required. ID of the active directory to create.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>active_directory_id: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// UpdateActiveDirectoryRequest for updating an active directory.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdateActiveDirectoryRequest {
+    <span class="doccomment">/// Required. Field mask is used to specify the fields to be overwritten in the
+    /// Active Directory resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
+    <span class="doccomment">/// Required. The volume being updated
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>active_directory: ::core::option::Option&lt;ActiveDirectory&gt;,
+}
+<span class="doccomment">/// DeleteActiveDirectoryRequest for deleting a single active directory.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteActiveDirectoryRequest {
+    <span class="doccomment">/// Required. Name of the active directory.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// ActiveDirectory is the public representation of the active directory config.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ActiveDirectory {
+    <span class="doccomment">/// Output only. The resource name of the active directory.
+    /// Format:
+    /// `projects/{project_number}/locations/{location_id}/activeDirectories/{active_directory_id}`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Create time of the active directory.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The state of the AD.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;active_directory::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Required. Name of the Active Directory domain
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>domain: ::prost::alloc::string::String,
+    <span class="doccomment">/// The Active Directory site the service will limit Domain Controller
+    /// discovery too.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>site: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Comma separated list of DNS server IP addresses for the Active
+    /// Directory domain.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>dns: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. NetBIOSPrefix is used as a prefix for SMB server name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>net_bios_prefix: ::prost::alloc::string::String,
+    <span class="doccomment">/// The Organizational Unit (OU) within the Windows Active Directory the user
+    /// belongs to.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>organizational_unit: ::prost::alloc::string::String,
+    <span class="doccomment">/// If enabled, AES encryption will be enabled for SMB communication.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>aes_encryption: bool,
+    <span class="doccomment">/// Required. Username of the Active Directory domain administrator.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>username: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Password of the Active Directory domain administrator.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>password: ::prost::alloc::string::String,
+    <span class="doccomment">/// Users to be added to the Built-in Backup Operator active directory group.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="kw">pub </span>backup_operators: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Domain users to be given the SeSecurityPrivilege.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="kw">pub </span>security_operators: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Name of the active directory machine. This optional parameter is used only
+    /// while creating kerberos volume
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>kdc_hostname: ::prost::alloc::string::String,
+    <span class="doccomment">/// KDC server IP address for the active directory machine.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="kw">pub </span>kdc_ip: ::prost::alloc::string::String,
+    <span class="doccomment">/// If enabled, will allow access to local users and LDAP users. If access is
+    /// needed for only LDAP users, it has to be disabled.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="kw">pub </span>nfs_users_with_ldap: bool,
+    <span class="doccomment">/// Description of the active directory.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Specifies whether or not the LDAP traffic needs to be signed.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="kw">pub </span>ldap_signing: bool,
+    <span class="doccomment">/// If enabled, traffic between the SMB server to Domain Controller (DC) will
+    /// be encrypted.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="kw">pub </span>encrypt_dc_connections: bool,
+    <span class="doccomment">/// Labels for the active directory.
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Output only. The state details of the Active Directory.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="kw">pub </span>state_details: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `ActiveDirectory`.
+</span><span class="kw">pub mod </span>active_directory {
+    <span class="doccomment">/// The Active Directory States
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Unspecified Active Directory State
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Active Directory State is Creating
+        </span>Creating = <span class="number">1</span>,
+        <span class="doccomment">/// Active Directory State is Ready
+        </span>Ready = <span class="number">2</span>,
+        <span class="doccomment">/// Active Directory State is Updating
+        </span>Updating = <span class="number">3</span>,
+        <span class="doccomment">/// Active Directory State is In use
+        </span>InUse = <span class="number">4</span>,
+        <span class="doccomment">/// Active Directory State is Deleting
+        </span>Deleting = <span class="number">5</span>,
+        <span class="doccomment">/// Active Directory State is Error
+        </span>Error = <span class="number">6</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
+                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
+                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
+                State::InUse =&gt; <span class="string">&quot;IN_USE&quot;</span>,
+                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+                State::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
+                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">&quot;IN_USE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InUse),
+                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// GetKmsConfigRequest gets a KMS Config.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetKmsConfigRequest {
+    <span class="doccomment">/// Required. Name of the KmsConfig
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// ListKmsConfigsRequest lists KMS Configs.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListKmsConfigsRequest {
+    <span class="doccomment">/// Required. Parent value
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of items to return.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+    <span class="doccomment">/// The next_page_token value to use if there are additional
+    /// results to retrieve for this list request.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Sort results. Supported values are &quot;name&quot;, &quot;name desc&quot; or &quot;&quot; (unsorted).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
+    <span class="doccomment">/// List filter.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// ListKmsConfigsResponse is the response to a ListKmsConfigsRequest.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListKmsConfigsResponse {
+    <span class="doccomment">/// The list of KmsConfigs
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>kms_configs: ::prost::alloc::vec::Vec&lt;KmsConfig&gt;,
+    <span class="doccomment">/// A token identifying a page of results the server should return.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// Locations that could not be reached.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// CreateKmsConfigRequest creates a KMS Config.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateKmsConfigRequest {
+    <span class="doccomment">/// Required. Value for parent.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Id of the requesting KmsConfig
+    /// If auto-generating Id server-side, remove this field and
+    /// id from the method_signature of Create RPC
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>kms_config_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The required parameters to create a new KmsConfig.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>kms_config: ::core::option::Option&lt;KmsConfig&gt;,
+}
+<span class="doccomment">/// UpdateKmsConfigRequest updates a KMS Config.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>UpdateKmsConfigRequest {
+    <span class="doccomment">/// Required. Field mask is used to specify the fields to be overwritten in the
+    /// KmsConfig resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
+    <span class="doccomment">/// Required. The KmsConfig being updated
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>kms_config: ::core::option::Option&lt;KmsConfig&gt;,
+}
+<span class="doccomment">/// DeleteKmsConfigRequest deletes a KMS Config.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DeleteKmsConfigRequest {
+    <span class="doccomment">/// Required. Name of the KmsConfig.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// EncryptVolumesRequest specifies the KMS config to encrypt existing volumes.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EncryptVolumesRequest {
+    <span class="doccomment">/// Required. Name of the KmsConfig.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// VerifyKmsConfigRequest specifies the KMS config to be validated.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VerifyKmsConfigRequest {
+    <span class="doccomment">/// Required. Name of the KMS Config to be verified.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// VerifyKmsConfigResponse contains the information if the config is correctly
+/// and error message.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VerifyKmsConfigResponse {
+    <span class="doccomment">/// Output only. If the customer key configured correctly to the encrypt
+    /// volume.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>healthy: bool,
+    <span class="doccomment">/// Output only. Error message if config is not healthy.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>health_error: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Instructions for the customers to provide the access to the
+    /// encryption key.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>instructions: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// KmsConfig is the customer managed encryption key(CMEK) configuration.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>KmsConfig {
+    <span class="doccomment">/// Output only. Name of the KmsConfig.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. Customer managed crypto key resource full name. Format:
+    /// projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key}.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>crypto_key_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. State of the KmsConfig.
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;kms_config::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Output only. State details of the KmsConfig.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>state_details: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. Create time of the KmsConfig.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Description of the KmsConfig.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Labels as key value pairs
+    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Output only. Instructions to provide the access to the customer provided
+    /// encryption key.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="kw">pub </span>instructions: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The Service account which will have access to the customer
+    /// provided encryption key.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="kw">pub </span>service_account: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Nested message and enum types in `KmsConfig`.
+</span><span class="kw">pub mod </span>kms_config {
+    <span class="doccomment">/// The KmsConfig States
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>State {
+        <span class="doccomment">/// Unspecified KmsConfig State
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// KmsConfig State is Ready
+        </span>Ready = <span class="number">1</span>,
+        <span class="doccomment">/// KmsConfig State is Creating
+        </span>Creating = <span class="number">2</span>,
+        <span class="doccomment">/// KmsConfig State is Deleting
+        </span>Deleting = <span class="number">3</span>,
+        <span class="doccomment">/// KmsConfig State is Updating
+        </span>Updating = <span class="number">4</span>,
+        <span class="doccomment">/// KmsConfig State is In Use.
+        </span>InUse = <span class="number">5</span>,
+        <span class="doccomment">/// KmsConfig State is Error
+        </span>Error = <span class="number">6</span>,
+        <span class="doccomment">/// KmsConfig State is Pending to verify crypto key access.
+        </span>KeyCheckPending = <span class="number">7</span>,
+        <span class="doccomment">/// KmsConfig State is Not accessbile by the SDE service account to the
+        /// crypto key.
+        </span>KeyNotReachable = <span class="number">8</span>,
+        <span class="doccomment">/// KmsConfig State is Disabling.
+        </span>Disabling = <span class="number">9</span>,
+        <span class="doccomment">/// KmsConfig State is Disabled.
+        </span>Disabled = <span class="number">10</span>,
+        <span class="doccomment">/// KmsConfig State is Migrating.
+        /// The existing volumes are migrating from SMEK to CMEK.
+        </span>Migrating = <span class="number">11</span>,
+    }
+    <span class="kw">impl </span>State {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
+                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
+                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
+                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
+                State::InUse =&gt; <span class="string">&quot;IN_USE&quot;</span>,
+                State::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+                State::KeyCheckPending =&gt; <span class="string">&quot;KEY_CHECK_PENDING&quot;</span>,
+                State::KeyNotReachable =&gt; <span class="string">&quot;KEY_NOT_REACHABLE&quot;</span>,
+                State::Disabling =&gt; <span class="string">&quot;DISABLING&quot;</span>,
+                State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
+                State::Migrating =&gt; <span class="string">&quot;MIGRATING&quot;</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
+                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">&quot;IN_USE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InUse),
+                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="string">&quot;KEY_CHECK_PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KeyCheckPending),
+                <span class="string">&quot;KEY_NOT_REACHABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KeyNotReachable),
+                <span class="string">&quot;DISABLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabling),
+                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">&quot;MIGRATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Migrating),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// TransferStats reports all statistics related to replication transfer.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TransferStats {
@@ -3844,227 +4481,6 @@
         }
     }
 }
-<span class="doccomment">/// ListActiveDirectoriesRequest for requesting multiple active directories.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListActiveDirectoriesRequest {
-    <span class="doccomment">/// Required. Parent value for ListActiveDirectoriesRequest
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Requested page size. Server may return fewer items than requested.
-    /// If unspecified, the server will pick an appropriate default.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// A token identifying a page of results the server should return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Filtering results
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// Hint for how to order the results
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// ListActiveDirectoriesResponse contains all the active directories requested.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListActiveDirectoriesResponse {
-    <span class="doccomment">/// The list of active directories.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>active_directories: ::prost::alloc::vec::Vec&lt;ActiveDirectory&gt;,
-    <span class="doccomment">/// A token identifying a page of results the server should return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// GetActiveDirectory for getting a single active directory.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetActiveDirectoryRequest {
-    <span class="doccomment">/// Required. Name of the active directory.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// CreateActiveDirectoryRequest for creating an active directory.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateActiveDirectoryRequest {
-    <span class="doccomment">/// Required. Value for parent.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Fields of the to be created active directory.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>active_directory: ::core::option::Option&lt;ActiveDirectory&gt;,
-    <span class="doccomment">/// Required. ID of the active directory to create.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>active_directory_id: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// UpdateActiveDirectoryRequest for updating an active directory.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpdateActiveDirectoryRequest {
-    <span class="doccomment">/// Required. Field mask is used to specify the fields to be overwritten in the
-    /// Active Directory resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
-    <span class="doccomment">/// Required. The volume being updated
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>active_directory: ::core::option::Option&lt;ActiveDirectory&gt;,
-}
-<span class="doccomment">/// DeleteActiveDirectoryRequest for deleting a single active directory.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteActiveDirectoryRequest {
-    <span class="doccomment">/// Required. Name of the active directory.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// ActiveDirectory is the public representation of the active directory config.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ActiveDirectory {
-    <span class="doccomment">/// Output only. The resource name of the active directory.
-    /// Format:
-    /// `projects/{project_number}/locations/{location_id}/activeDirectories/{active_directory_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Create time of the active directory.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The state of the AD.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;active_directory::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Required. Name of the Active Directory domain
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>domain: ::prost::alloc::string::String,
-    <span class="doccomment">/// The Active Directory site the service will limit Domain Controller
-    /// discovery too.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>site: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Comma separated list of DNS server IP addresses for the Active
-    /// Directory domain.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>dns: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. NetBIOSPrefix is used as a prefix for SMB server name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>net_bios_prefix: ::prost::alloc::string::String,
-    <span class="doccomment">/// The Organizational Unit (OU) within the Windows Active Directory the user
-    /// belongs to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>organizational_unit: ::prost::alloc::string::String,
-    <span class="doccomment">/// If enabled, AES encryption will be enabled for SMB communication.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>aes_encryption: bool,
-    <span class="doccomment">/// Required. Username of the Active Directory domain administrator.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
-    </span><span class="kw">pub </span>username: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Password of the Active Directory domain administrator.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
-    </span><span class="kw">pub </span>password: ::prost::alloc::string::String,
-    <span class="doccomment">/// Users to be added to the Built-in Backup Operator active directory group.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;12&quot;</span>)]
-    </span><span class="kw">pub </span>backup_operators: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Domain users to be given the SeSecurityPrivilege.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;13&quot;</span>)]
-    </span><span class="kw">pub </span>security_operators: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Name of the active directory machine. This optional parameter is used only
-    /// while creating kerberos volume
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
-    </span><span class="kw">pub </span>kdc_hostname: ::prost::alloc::string::String,
-    <span class="doccomment">/// KDC server IP address for the active directory machine.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
-    </span><span class="kw">pub </span>kdc_ip: ::prost::alloc::string::String,
-    <span class="doccomment">/// If enabled, will allow access to local users and LDAP users. If access is
-    /// needed for only LDAP users, it has to be disabled.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;16&quot;</span>)]
-    </span><span class="kw">pub </span>nfs_users_with_ldap: bool,
-    <span class="doccomment">/// Description of the active directory.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;17&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Specifies whether or not the LDAP traffic needs to be signed.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;18&quot;</span>)]
-    </span><span class="kw">pub </span>ldap_signing: bool,
-    <span class="doccomment">/// If enabled, traffic between the SMB server to Domain Controller (DC) will
-    /// be encrypted.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;19&quot;</span>)]
-    </span><span class="kw">pub </span>encrypt_dc_connections: bool,
-    <span class="doccomment">/// Labels for the active directory.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;20&quot;</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Output only. The state details of the Active Directory.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;21&quot;</span>)]
-    </span><span class="kw">pub </span>state_details: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `ActiveDirectory`.
-</span><span class="kw">pub mod </span>active_directory {
-    <span class="doccomment">/// The Active Directory States
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unspecified Active Directory State
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Active Directory State is Creating
-        </span>Creating = <span class="number">1</span>,
-        <span class="doccomment">/// Active Directory State is Ready
-        </span>Ready = <span class="number">2</span>,
-        <span class="doccomment">/// Active Directory State is Updating
-        </span>Updating = <span class="number">3</span>,
-        <span class="doccomment">/// Active Directory State is In use
-        </span>InUse = <span class="number">4</span>,
-        <span class="doccomment">/// Active Directory State is Deleting
-        </span>Deleting = <span class="number">5</span>,
-        <span class="doccomment">/// Active Directory State is Error
-        </span>Error = <span class="number">6</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::InUse =&gt; <span class="string">&quot;IN_USE&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;IN_USE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InUse),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
 <span class="doccomment">/// Message for requesting list of Volumes
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4718,422 +5134,6 @@
             <span class="string">&quot;RESTRICTED_ACTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
             <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// GetKmsConfigRequest gets a KMS Config.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetKmsConfigRequest {
-    <span class="doccomment">/// Required. Name of the KmsConfig
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// ListKmsConfigsRequest lists KMS Configs.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListKmsConfigsRequest {
-    <span class="doccomment">/// Required. Parent value
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// The next_page_token value to use if there are additional
-    /// results to retrieve for this list request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Sort results. Supported values are &quot;name&quot;, &quot;name desc&quot; or &quot;&quot; (unsorted).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
-    <span class="doccomment">/// List filter.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// ListKmsConfigsResponse is the response to a ListKmsConfigsRequest.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListKmsConfigsResponse {
-    <span class="doccomment">/// The list of KmsConfigs
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>kms_configs: ::prost::alloc::vec::Vec&lt;KmsConfig&gt;,
-    <span class="doccomment">/// A token identifying a page of results the server should return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// CreateKmsConfigRequest creates a KMS Config.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateKmsConfigRequest {
-    <span class="doccomment">/// Required. Value for parent.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Id of the requesting KmsConfig
-    /// If auto-generating Id server-side, remove this field and
-    /// id from the method_signature of Create RPC
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>kms_config_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The required parameters to create a new KmsConfig.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>kms_config: ::core::option::Option&lt;KmsConfig&gt;,
-}
-<span class="doccomment">/// UpdateKmsConfigRequest updates a KMS Config.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpdateKmsConfigRequest {
-    <span class="doccomment">/// Required. Field mask is used to specify the fields to be overwritten in the
-    /// KmsConfig resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
-    <span class="doccomment">/// Required. The KmsConfig being updated
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>kms_config: ::core::option::Option&lt;KmsConfig&gt;,
-}
-<span class="doccomment">/// DeleteKmsConfigRequest deletes a KMS Config.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteKmsConfigRequest {
-    <span class="doccomment">/// Required. Name of the KmsConfig.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// EncryptVolumesRequest specifies the KMS config to encrypt existing volumes.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>EncryptVolumesRequest {
-    <span class="doccomment">/// Required. Name of the KmsConfig.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// VerifyKmsConfigRequest specifies the KMS config to be validated.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VerifyKmsConfigRequest {
-    <span class="doccomment">/// Required. Name of the KMS Config to be verified.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// VerifyKmsConfigResponse contains the information if the config is correctly
-/// and error message.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VerifyKmsConfigResponse {
-    <span class="doccomment">/// Output only. If the customer key configured correctly to the encrypt
-    /// volume.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>healthy: bool,
-    <span class="doccomment">/// Output only. Error message if config is not healthy.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>health_error: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Instructions for the customers to provide the access to the
-    /// encryption key.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>instructions: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// KmsConfig is the customer managed encryption key(CMEK) configuration.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>KmsConfig {
-    <span class="doccomment">/// Output only. Name of the KmsConfig.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Customer managed crypto key resource full name. Format:
-    /// projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>crypto_key_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. State of the KmsConfig.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;kms_config::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Output only. State details of the KmsConfig.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>state_details: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Create time of the KmsConfig.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Description of the KmsConfig.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Labels as key value pairs
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Output only. Instructions to provide the access to the customer provided
-    /// encryption key.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
-    </span><span class="kw">pub </span>instructions: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The Service account which will have access to the customer
-    /// provided encryption key.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
-    </span><span class="kw">pub </span>service_account: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Nested message and enum types in `KmsConfig`.
-</span><span class="kw">pub mod </span>kms_config {
-    <span class="doccomment">/// The KmsConfig States
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unspecified KmsConfig State
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// KmsConfig State is Ready
-        </span>Ready = <span class="number">1</span>,
-        <span class="doccomment">/// KmsConfig State is Creating
-        </span>Creating = <span class="number">2</span>,
-        <span class="doccomment">/// KmsConfig State is Deleting
-        </span>Deleting = <span class="number">3</span>,
-        <span class="doccomment">/// KmsConfig State is Updating
-        </span>Updating = <span class="number">4</span>,
-        <span class="doccomment">/// KmsConfig State is In Use.
-        </span>InUse = <span class="number">5</span>,
-        <span class="doccomment">/// KmsConfig State is Error
-        </span>Error = <span class="number">6</span>,
-        <span class="doccomment">/// KmsConfig State is Pending to verify crypto key access.
-        </span>KeyCheckPending = <span class="number">7</span>,
-        <span class="doccomment">/// KmsConfig State is Not accessbile by the SDE service account to the
-        /// crypto key.
-        </span>KeyNotReachable = <span class="number">8</span>,
-        <span class="doccomment">/// KmsConfig State is Disabling.
-        </span>Disabling = <span class="number">9</span>,
-        <span class="doccomment">/// KmsConfig State is Disabled.
-        </span>Disabled = <span class="number">10</span>,
-        <span class="doccomment">/// KmsConfig State is Migrating.
-        /// The existing volumes are migrating from SMEK to CMEK.
-        </span>Migrating = <span class="number">11</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::InUse =&gt; <span class="string">&quot;IN_USE&quot;</span>,
-                State::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
-                State::KeyCheckPending =&gt; <span class="string">&quot;KEY_CHECK_PENDING&quot;</span>,
-                State::KeyNotReachable =&gt; <span class="string">&quot;KEY_NOT_REACHABLE&quot;</span>,
-                State::Disabling =&gt; <span class="string">&quot;DISABLING&quot;</span>,
-                State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
-                State::Migrating =&gt; <span class="string">&quot;MIGRATING&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;IN_USE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InUse),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
-                <span class="string">&quot;KEY_CHECK_PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KeyCheckPending),
-                <span class="string">&quot;KEY_NOT_REACHABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KeyNotReachable),
-                <span class="string">&quot;DISABLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabling),
-                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
-                <span class="string">&quot;MIGRATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Migrating),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// ListSnapshotsRequest lists snapshots.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListSnapshotsRequest {
-    <span class="doccomment">/// Required. The volume for which to retrieve snapshot information,
-    /// in the format
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// The next_page_token value to use if there are additional
-    /// results to retrieve for this list request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Sort results. Supported values are &quot;name&quot;, &quot;name desc&quot; or &quot;&quot; (unsorted).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
-    <span class="doccomment">/// List filter.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// ListSnapshotsResponse is the result of ListSnapshotsRequest.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListSnapshotsResponse {
-    <span class="doccomment">/// A list of snapshots in the project for the specified volume.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>snapshots: ::prost::alloc::vec::Vec&lt;Snapshot&gt;,
-    <span class="doccomment">/// The token you can use to retrieve the next page of results. Not returned
-    /// if there are no more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// GetSnapshotRequest gets the state of a snapshot.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetSnapshotRequest {
-    <span class="doccomment">/// Required. The snapshot resource name, in the format
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/snapshots/{snapshot_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// CreateSnapshotRequest creates a snapshot.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateSnapshotRequest {
-    <span class="doccomment">/// Required. The NetApp volume to create the snapshots of, in the format
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. A snapshot resource
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>snapshot: ::core::option::Option&lt;Snapshot&gt;,
-    <span class="doccomment">/// Required. ID of the snapshot to create.
-    /// This value must start with a lowercase letter followed by up to 62
-    /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>snapshot_id: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// DeleteSnapshotRequest deletes a snapshot.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DeleteSnapshotRequest {
-    <span class="doccomment">/// Required. The snapshot resource name, in the format
-    /// `projects/*/locations/*/volumes/*/snapshots/{snapshot_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// UpdateSnapshotRequest updates description and/or labels for a snapshot.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>UpdateSnapshotRequest {
-    <span class="doccomment">/// Required. Mask of fields to update.  At least one path must be supplied in
-    /// this field.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
-    <span class="doccomment">/// Required. A snapshot resource
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>snapshot: ::core::option::Option&lt;Snapshot&gt;,
-}
-<span class="doccomment">/// Snapshot is a point-in-time version of a Volume&#39;s content.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Snapshot {
-    <span class="doccomment">/// Output only. The resource name of the snapshot.
-    /// Format:
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/snapshots/{snapshot_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The snapshot state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;snapshot::State&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Output only. State details of the storage pool
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>state_details: ::prost::alloc::string::String,
-    <span class="doccomment">/// A description of the snapshot with 2048 characters or less.
-    /// Requests with longer descriptions will be rejected.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Current storage usage for the snapshot in bytes.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>used_bytes: f64,
-    <span class="doccomment">/// Output only. The time when the snapshot was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Resource labels to represent user provided metadata.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Snapshot`.
-</span><span class="kw">pub mod </span>snapshot {
-    <span class="doccomment">/// The Snapshot States
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Unspecified Snapshot State
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Snapshot State is Ready
-        </span>Ready = <span class="number">1</span>,
-        <span class="doccomment">/// Snapshot State is Creating
-        </span>Creating = <span class="number">2</span>,
-        <span class="doccomment">/// Snapshot State is Deleting
-        </span>Deleting = <span class="number">3</span>,
-        <span class="doccomment">/// Snapshot State is Updating
-        </span>Updating = <span class="number">4</span>,
-        <span class="doccomment">/// Snapshot State is Disabled
-        </span>Disabled = <span class="number">5</span>,
-        <span class="doccomment">/// Snapshot State is Error
-        </span>Error = <span class="number">6</span>,
-    }
-    <span class="kw">impl </span>State {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
-                State::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
         }
     }
 }
