@@ -1,331 +1,3 @@
-/// A top-level description of an API.
-/// Produced by producers and are commitments to provide services.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Api {
-    /// Resource name.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Human-meaningful name.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// A detailed description.
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-    /// Output only. Creation timestamp.
-    #[prost(message, optional, tag = "4")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Last update timestamp.
-    #[prost(message, optional, tag = "5")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// A user-definable description of the availability of this service.
-    /// Format: free-form, but we expect single words that describe availability,
-    /// e.g., "NONE", "TESTING", "PREVIEW", "GENERAL", "DEPRECATED", "SHUTDOWN".
-    #[prost(string, tag = "6")]
-    pub availability: ::prost::alloc::string::String,
-    /// The recommended version of the API.
-    /// Format: `apis/{api}/versions/{version}`
-    #[prost(string, tag = "7")]
-    pub recommended_version: ::prost::alloc::string::String,
-    /// The recommended deployment of the API.
-    /// Format: `apis/{api}/deployments/{deployment}`
-    #[prost(string, tag = "8")]
-    pub recommended_deployment: ::prost::alloc::string::String,
-    /// Labels attach identifying metadata to resources. Identifying metadata can
-    /// be used to filter list operations.
-    ///
-    /// Label keys and values can be no longer than 64 characters
-    /// (Unicode codepoints), can only contain lowercase letters, numeric
-    /// characters, underscores, and dashes. International characters are allowed.
-    /// No more than 64 user labels can be associated with one resource (System
-    /// labels are excluded).
-    ///
-    /// See <https://goo.gl/xmQnxf> for more information and examples of labels.
-    /// System reserved label keys are prefixed with
-    /// `apigeeregistry.googleapis.com/` and cannot be changed.
-    #[prost(btree_map = "string, string", tag = "9")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Annotations attach non-identifying metadata to resources.
-    ///
-    /// Annotation keys and values are less restricted than those of labels, but
-    /// should be generally used for small values of broad interest. Larger, topic-
-    /// specific metadata should be stored in Artifacts.
-    #[prost(btree_map = "string, string", tag = "10")]
-    pub annotations: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// Describes a particular version of an API.
-/// ApiVersions are what consumers actually use.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ApiVersion {
-    /// Resource name.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Human-meaningful name.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// A detailed description.
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-    /// Output only. Creation timestamp.
-    #[prost(message, optional, tag = "4")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Last update timestamp.
-    #[prost(message, optional, tag = "5")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// A user-definable description of the lifecycle phase of this API version.
-    /// Format: free-form, but we expect single words that describe API maturity,
-    /// e.g., "CONCEPT", "DESIGN", "DEVELOPMENT", "STAGING", "PRODUCTION",
-    /// "DEPRECATED", "RETIRED".
-    #[prost(string, tag = "6")]
-    pub state: ::prost::alloc::string::String,
-    /// Labels attach identifying metadata to resources. Identifying metadata can
-    /// be used to filter list operations.
-    ///
-    /// Label keys and values can be no longer than 64 characters
-    /// (Unicode codepoints), can only contain lowercase letters, numeric
-    /// characters, underscores and dashes. International characters are allowed.
-    /// No more than 64 user labels can be associated with one resource (System
-    /// labels are excluded).
-    ///
-    /// See <https://goo.gl/xmQnxf> for more information and examples of labels.
-    /// System reserved label keys are prefixed with
-    /// `apigeeregistry.googleapis.com/` and cannot be changed.
-    #[prost(btree_map = "string, string", tag = "7")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Annotations attach non-identifying metadata to resources.
-    ///
-    /// Annotation keys and values are less restricted than those of labels, but
-    /// should be generally used for small values of broad interest. Larger, topic-
-    /// specific metadata should be stored in Artifacts.
-    #[prost(btree_map = "string, string", tag = "8")]
-    pub annotations: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// Describes a version of an API in a structured way.
-/// ApiSpecs provide formal descriptions that consumers can use to use a version.
-/// ApiSpec resources are intended to be fully-resolved descriptions of an
-/// ApiVersion. When specs consist of multiple files, these should be bundled
-/// together (e.g., in a zip archive) and stored as a unit. Multiple specs can
-/// exist to provide representations in different API description formats.
-/// Synchronization of these representations would be provided by tooling and
-/// background services.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ApiSpec {
-    /// Resource name.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// A possibly-hierarchical name used to refer to the spec from other specs.
-    #[prost(string, tag = "2")]
-    pub filename: ::prost::alloc::string::String,
-    /// A detailed description.
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-    /// Output only. Immutable. The revision ID of the spec.
-    /// A new revision is committed whenever the spec contents are changed.
-    /// The format is an 8-character hexadecimal string.
-    #[prost(string, tag = "4")]
-    pub revision_id: ::prost::alloc::string::String,
-    /// Output only. Creation timestamp; when the spec resource was created.
-    #[prost(message, optional, tag = "5")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Revision creation timestamp; when the represented revision was created.
-    #[prost(message, optional, tag = "6")]
-    pub revision_create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Last update timestamp: when the represented revision was last modified.
-    #[prost(message, optional, tag = "7")]
-    pub revision_update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// A style (format) descriptor for this spec that is specified as a Media Type
-    /// (<https://en.wikipedia.org/wiki/Media_type>). Possible values include
-    /// `application/vnd.apigee.proto`, `application/vnd.apigee.openapi`, and
-    /// `application/vnd.apigee.graphql`, with possible suffixes representing
-    /// compression types. These hypothetical names are defined in the vendor tree
-    /// defined in RFC6838 (<https://tools.ietf.org/html/rfc6838>) and are not final.
-    /// Content types can specify compression. Currently only GZip compression is
-    /// supported (indicated with "+gzip").
-    #[prost(string, tag = "8")]
-    pub mime_type: ::prost::alloc::string::String,
-    /// Output only. The size of the spec file in bytes. If the spec is gzipped, this is the
-    /// size of the uncompressed spec.
-    #[prost(int32, tag = "9")]
-    pub size_bytes: i32,
-    /// Output only. A SHA-256 hash of the spec's contents. If the spec is gzipped, this is
-    /// the hash of the uncompressed spec.
-    #[prost(string, tag = "10")]
-    pub hash: ::prost::alloc::string::String,
-    /// The original source URI of the spec (if one exists).
-    /// This is an external location that can be used for reference purposes
-    /// but which may not be authoritative since this external resource may
-    /// change after the spec is retrieved.
-    #[prost(string, tag = "11")]
-    pub source_uri: ::prost::alloc::string::String,
-    /// Input only. The contents of the spec.
-    /// Provided by API callers when specs are created or updated.
-    /// To access the contents of a spec, use GetApiSpecContents.
-    #[prost(bytes = "bytes", tag = "12")]
-    pub contents: ::prost::bytes::Bytes,
-    /// Labels attach identifying metadata to resources. Identifying metadata can
-    /// be used to filter list operations.
-    ///
-    /// Label keys and values can be no longer than 64 characters
-    /// (Unicode codepoints), can only contain lowercase letters, numeric
-    /// characters, underscores and dashes. International characters are allowed.
-    /// No more than 64 user labels can be associated with one resource (System
-    /// labels are excluded).
-    ///
-    /// See <https://goo.gl/xmQnxf> for more information and examples of labels.
-    /// System reserved label keys are prefixed with
-    /// `apigeeregistry.googleapis.com/` and cannot be changed.
-    #[prost(btree_map = "string, string", tag = "14")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Annotations attach non-identifying metadata to resources.
-    ///
-    /// Annotation keys and values are less restricted than those of labels, but
-    /// should be generally used for small values of broad interest. Larger, topic-
-    /// specific metadata should be stored in Artifacts.
-    #[prost(btree_map = "string, string", tag = "15")]
-    pub annotations: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// Describes a service running at particular address that
-/// provides a particular version of an API. ApiDeployments have revisions which
-/// correspond to different configurations of a single deployment in time.
-/// Revision identifiers should be updated whenever the served API spec or
-/// endpoint address changes.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ApiDeployment {
-    /// Resource name.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Human-meaningful name.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// A detailed description.
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-    /// Output only. Immutable. The revision ID of the deployment.
-    /// A new revision is committed whenever the deployment contents are changed.
-    /// The format is an 8-character hexadecimal string.
-    #[prost(string, tag = "4")]
-    pub revision_id: ::prost::alloc::string::String,
-    /// Output only. Creation timestamp; when the deployment resource was created.
-    #[prost(message, optional, tag = "5")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Revision creation timestamp; when the represented revision was created.
-    #[prost(message, optional, tag = "6")]
-    pub revision_create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Last update timestamp: when the represented revision was last modified.
-    #[prost(message, optional, tag = "7")]
-    pub revision_update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The full resource name (including revision ID) of the spec of the API being
-    /// served by the deployment. Changes to this value will update the revision.
-    /// Format: `apis/{api}/deployments/{deployment}`
-    #[prost(string, tag = "8")]
-    pub api_spec_revision: ::prost::alloc::string::String,
-    /// The address where the deployment is serving. Changes to this value will
-    /// update the revision.
-    #[prost(string, tag = "9")]
-    pub endpoint_uri: ::prost::alloc::string::String,
-    /// The address of the external channel of the API (e.g., the Developer
-    /// Portal). Changes to this value will not affect the revision.
-    #[prost(string, tag = "10")]
-    pub external_channel_uri: ::prost::alloc::string::String,
-    /// Text briefly identifying the intended audience of the API. Changes to this
-    /// value will not affect the revision.
-    #[prost(string, tag = "11")]
-    pub intended_audience: ::prost::alloc::string::String,
-    /// Text briefly describing how to access the endpoint. Changes to this value
-    /// will not affect the revision.
-    #[prost(string, tag = "12")]
-    pub access_guidance: ::prost::alloc::string::String,
-    /// Labels attach identifying metadata to resources. Identifying metadata can
-    /// be used to filter list operations.
-    ///
-    /// Label keys and values can be no longer than 64 characters
-    /// (Unicode codepoints), can only contain lowercase letters, numeric
-    /// characters, underscores and dashes. International characters are allowed.
-    /// No more than 64 user labels can be associated with one resource (System
-    /// labels are excluded).
-    ///
-    /// See <https://goo.gl/xmQnxf> for more information and examples of labels.
-    /// System reserved label keys are prefixed with
-    /// `apigeeregistry.googleapis.com/` and cannot be changed.
-    #[prost(btree_map = "string, string", tag = "14")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Annotations attach non-identifying metadata to resources.
-    ///
-    /// Annotation keys and values are less restricted than those of labels, but
-    /// should be generally used for small values of broad interest. Larger, topic-
-    /// specific metadata should be stored in Artifacts.
-    #[prost(btree_map = "string, string", tag = "15")]
-    pub annotations: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// Artifacts of resources. Artifacts are unique (single-value) per resource
-/// and are used to store metadata that is too large or numerous to be stored
-/// directly on the resource. Since artifacts are stored separately from parent
-/// resources, they should generally be used for metadata that is needed
-/// infrequently, i.e., not for display in primary views of the resource but
-/// perhaps displayed or downloaded upon request. The `ListArtifacts` method
-/// allows artifacts to be quickly enumerated and checked for presence without
-/// downloading their (potentially-large) contents.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Artifact {
-    /// Resource name.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Creation timestamp.
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Last update timestamp.
-    #[prost(message, optional, tag = "3")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// A content type specifier for the artifact.
-    /// Content type specifiers are Media Types
-    /// (<https://en.wikipedia.org/wiki/Media_type>) with a possible "schema"
-    /// parameter that specifies a schema for the stored information.
-    /// Content types can specify compression. Currently only GZip compression is
-    /// supported (indicated with "+gzip").
-    #[prost(string, tag = "4")]
-    pub mime_type: ::prost::alloc::string::String,
-    /// Output only. The size of the artifact in bytes. If the artifact is gzipped, this is
-    /// the size of the uncompressed artifact.
-    #[prost(int32, tag = "5")]
-    pub size_bytes: i32,
-    /// Output only. A SHA-256 hash of the artifact's contents. If the artifact is gzipped,
-    /// this is the hash of the uncompressed artifact.
-    #[prost(string, tag = "6")]
-    pub hash: ::prost::alloc::string::String,
-    /// Input only. The contents of the artifact.
-    /// Provided by API callers when artifacts are created or replaced.
-    /// To access the contents of an artifact, use GetArtifactContents.
-    #[prost(bytes = "bytes", tag = "7")]
-    pub contents: ::prost::bytes::Bytes,
-}
 /// Request message for CreateInstance.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -656,6 +328,334 @@ pub mod provisioning_client {
             self.inner.unary(req, path, codec).await
         }
     }
+}
+/// A top-level description of an API.
+/// Produced by producers and are commitments to provide services.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Api {
+    /// Resource name.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Human-meaningful name.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// A detailed description.
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+    /// Output only. Creation timestamp.
+    #[prost(message, optional, tag = "4")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Last update timestamp.
+    #[prost(message, optional, tag = "5")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// A user-definable description of the availability of this service.
+    /// Format: free-form, but we expect single words that describe availability,
+    /// e.g., "NONE", "TESTING", "PREVIEW", "GENERAL", "DEPRECATED", "SHUTDOWN".
+    #[prost(string, tag = "6")]
+    pub availability: ::prost::alloc::string::String,
+    /// The recommended version of the API.
+    /// Format: `apis/{api}/versions/{version}`
+    #[prost(string, tag = "7")]
+    pub recommended_version: ::prost::alloc::string::String,
+    /// The recommended deployment of the API.
+    /// Format: `apis/{api}/deployments/{deployment}`
+    #[prost(string, tag = "8")]
+    pub recommended_deployment: ::prost::alloc::string::String,
+    /// Labels attach identifying metadata to resources. Identifying metadata can
+    /// be used to filter list operations.
+    ///
+    /// Label keys and values can be no longer than 64 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores, and dashes. International characters are allowed.
+    /// No more than 64 user labels can be associated with one resource (System
+    /// labels are excluded).
+    ///
+    /// See <https://goo.gl/xmQnxf> for more information and examples of labels.
+    /// System reserved label keys are prefixed with
+    /// `apigeeregistry.googleapis.com/` and cannot be changed.
+    #[prost(btree_map = "string, string", tag = "9")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Annotations attach non-identifying metadata to resources.
+    ///
+    /// Annotation keys and values are less restricted than those of labels, but
+    /// should be generally used for small values of broad interest. Larger, topic-
+    /// specific metadata should be stored in Artifacts.
+    #[prost(btree_map = "string, string", tag = "10")]
+    pub annotations: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
+/// Describes a particular version of an API.
+/// ApiVersions are what consumers actually use.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ApiVersion {
+    /// Resource name.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Human-meaningful name.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// A detailed description.
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+    /// Output only. Creation timestamp.
+    #[prost(message, optional, tag = "4")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Last update timestamp.
+    #[prost(message, optional, tag = "5")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// A user-definable description of the lifecycle phase of this API version.
+    /// Format: free-form, but we expect single words that describe API maturity,
+    /// e.g., "CONCEPT", "DESIGN", "DEVELOPMENT", "STAGING", "PRODUCTION",
+    /// "DEPRECATED", "RETIRED".
+    #[prost(string, tag = "6")]
+    pub state: ::prost::alloc::string::String,
+    /// Labels attach identifying metadata to resources. Identifying metadata can
+    /// be used to filter list operations.
+    ///
+    /// Label keys and values can be no longer than 64 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores and dashes. International characters are allowed.
+    /// No more than 64 user labels can be associated with one resource (System
+    /// labels are excluded).
+    ///
+    /// See <https://goo.gl/xmQnxf> for more information and examples of labels.
+    /// System reserved label keys are prefixed with
+    /// `apigeeregistry.googleapis.com/` and cannot be changed.
+    #[prost(btree_map = "string, string", tag = "7")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Annotations attach non-identifying metadata to resources.
+    ///
+    /// Annotation keys and values are less restricted than those of labels, but
+    /// should be generally used for small values of broad interest. Larger, topic-
+    /// specific metadata should be stored in Artifacts.
+    #[prost(btree_map = "string, string", tag = "8")]
+    pub annotations: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
+/// Describes a version of an API in a structured way.
+/// ApiSpecs provide formal descriptions that consumers can use to use a version.
+/// ApiSpec resources are intended to be fully-resolved descriptions of an
+/// ApiVersion. When specs consist of multiple files, these should be bundled
+/// together (e.g., in a zip archive) and stored as a unit. Multiple specs can
+/// exist to provide representations in different API description formats.
+/// Synchronization of these representations would be provided by tooling and
+/// background services.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ApiSpec {
+    /// Resource name.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// A possibly-hierarchical name used to refer to the spec from other specs.
+    #[prost(string, tag = "2")]
+    pub filename: ::prost::alloc::string::String,
+    /// A detailed description.
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+    /// Output only. Immutable. The revision ID of the spec.
+    /// A new revision is committed whenever the spec contents are changed.
+    /// The format is an 8-character hexadecimal string.
+    #[prost(string, tag = "4")]
+    pub revision_id: ::prost::alloc::string::String,
+    /// Output only. Creation timestamp; when the spec resource was created.
+    #[prost(message, optional, tag = "5")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Revision creation timestamp; when the represented revision was created.
+    #[prost(message, optional, tag = "6")]
+    pub revision_create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Last update timestamp: when the represented revision was last modified.
+    #[prost(message, optional, tag = "7")]
+    pub revision_update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// A style (format) descriptor for this spec that is specified as a Media Type
+    /// (<https://en.wikipedia.org/wiki/Media_type>). Possible values include
+    /// `application/vnd.apigee.proto`, `application/vnd.apigee.openapi`, and
+    /// `application/vnd.apigee.graphql`, with possible suffixes representing
+    /// compression types. These hypothetical names are defined in the vendor tree
+    /// defined in RFC6838 (<https://tools.ietf.org/html/rfc6838>) and are not final.
+    /// Content types can specify compression. Currently only GZip compression is
+    /// supported (indicated with "+gzip").
+    #[prost(string, tag = "8")]
+    pub mime_type: ::prost::alloc::string::String,
+    /// Output only. The size of the spec file in bytes. If the spec is gzipped, this is the
+    /// size of the uncompressed spec.
+    #[prost(int32, tag = "9")]
+    pub size_bytes: i32,
+    /// Output only. A SHA-256 hash of the spec's contents. If the spec is gzipped, this is
+    /// the hash of the uncompressed spec.
+    #[prost(string, tag = "10")]
+    pub hash: ::prost::alloc::string::String,
+    /// The original source URI of the spec (if one exists).
+    /// This is an external location that can be used for reference purposes
+    /// but which may not be authoritative since this external resource may
+    /// change after the spec is retrieved.
+    #[prost(string, tag = "11")]
+    pub source_uri: ::prost::alloc::string::String,
+    /// Input only. The contents of the spec.
+    /// Provided by API callers when specs are created or updated.
+    /// To access the contents of a spec, use GetApiSpecContents.
+    #[prost(bytes = "bytes", tag = "12")]
+    pub contents: ::prost::bytes::Bytes,
+    /// Labels attach identifying metadata to resources. Identifying metadata can
+    /// be used to filter list operations.
+    ///
+    /// Label keys and values can be no longer than 64 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores and dashes. International characters are allowed.
+    /// No more than 64 user labels can be associated with one resource (System
+    /// labels are excluded).
+    ///
+    /// See <https://goo.gl/xmQnxf> for more information and examples of labels.
+    /// System reserved label keys are prefixed with
+    /// `apigeeregistry.googleapis.com/` and cannot be changed.
+    #[prost(btree_map = "string, string", tag = "14")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Annotations attach non-identifying metadata to resources.
+    ///
+    /// Annotation keys and values are less restricted than those of labels, but
+    /// should be generally used for small values of broad interest. Larger, topic-
+    /// specific metadata should be stored in Artifacts.
+    #[prost(btree_map = "string, string", tag = "15")]
+    pub annotations: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
+/// Describes a service running at particular address that
+/// provides a particular version of an API. ApiDeployments have revisions which
+/// correspond to different configurations of a single deployment in time.
+/// Revision identifiers should be updated whenever the served API spec or
+/// endpoint address changes.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ApiDeployment {
+    /// Resource name.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Human-meaningful name.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// A detailed description.
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+    /// Output only. Immutable. The revision ID of the deployment.
+    /// A new revision is committed whenever the deployment contents are changed.
+    /// The format is an 8-character hexadecimal string.
+    #[prost(string, tag = "4")]
+    pub revision_id: ::prost::alloc::string::String,
+    /// Output only. Creation timestamp; when the deployment resource was created.
+    #[prost(message, optional, tag = "5")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Revision creation timestamp; when the represented revision was created.
+    #[prost(message, optional, tag = "6")]
+    pub revision_create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Last update timestamp: when the represented revision was last modified.
+    #[prost(message, optional, tag = "7")]
+    pub revision_update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The full resource name (including revision ID) of the spec of the API being
+    /// served by the deployment. Changes to this value will update the revision.
+    /// Format: `apis/{api}/deployments/{deployment}`
+    #[prost(string, tag = "8")]
+    pub api_spec_revision: ::prost::alloc::string::String,
+    /// The address where the deployment is serving. Changes to this value will
+    /// update the revision.
+    #[prost(string, tag = "9")]
+    pub endpoint_uri: ::prost::alloc::string::String,
+    /// The address of the external channel of the API (e.g., the Developer
+    /// Portal). Changes to this value will not affect the revision.
+    #[prost(string, tag = "10")]
+    pub external_channel_uri: ::prost::alloc::string::String,
+    /// Text briefly identifying the intended audience of the API. Changes to this
+    /// value will not affect the revision.
+    #[prost(string, tag = "11")]
+    pub intended_audience: ::prost::alloc::string::String,
+    /// Text briefly describing how to access the endpoint. Changes to this value
+    /// will not affect the revision.
+    #[prost(string, tag = "12")]
+    pub access_guidance: ::prost::alloc::string::String,
+    /// Labels attach identifying metadata to resources. Identifying metadata can
+    /// be used to filter list operations.
+    ///
+    /// Label keys and values can be no longer than 64 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores and dashes. International characters are allowed.
+    /// No more than 64 user labels can be associated with one resource (System
+    /// labels are excluded).
+    ///
+    /// See <https://goo.gl/xmQnxf> for more information and examples of labels.
+    /// System reserved label keys are prefixed with
+    /// `apigeeregistry.googleapis.com/` and cannot be changed.
+    #[prost(btree_map = "string, string", tag = "14")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Annotations attach non-identifying metadata to resources.
+    ///
+    /// Annotation keys and values are less restricted than those of labels, but
+    /// should be generally used for small values of broad interest. Larger, topic-
+    /// specific metadata should be stored in Artifacts.
+    #[prost(btree_map = "string, string", tag = "15")]
+    pub annotations: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
+/// Artifacts of resources. Artifacts are unique (single-value) per resource
+/// and are used to store metadata that is too large or numerous to be stored
+/// directly on the resource. Since artifacts are stored separately from parent
+/// resources, they should generally be used for metadata that is needed
+/// infrequently, i.e., not for display in primary views of the resource but
+/// perhaps displayed or downloaded upon request. The `ListArtifacts` method
+/// allows artifacts to be quickly enumerated and checked for presence without
+/// downloading their (potentially-large) contents.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Artifact {
+    /// Resource name.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Creation timestamp.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Last update timestamp.
+    #[prost(message, optional, tag = "3")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// A content type specifier for the artifact.
+    /// Content type specifiers are Media Types
+    /// (<https://en.wikipedia.org/wiki/Media_type>) with a possible "schema"
+    /// parameter that specifies a schema for the stored information.
+    /// Content types can specify compression. Currently only GZip compression is
+    /// supported (indicated with "+gzip").
+    #[prost(string, tag = "4")]
+    pub mime_type: ::prost::alloc::string::String,
+    /// Output only. The size of the artifact in bytes. If the artifact is gzipped, this is
+    /// the size of the uncompressed artifact.
+    #[prost(int32, tag = "5")]
+    pub size_bytes: i32,
+    /// Output only. A SHA-256 hash of the artifact's contents. If the artifact is gzipped,
+    /// this is the hash of the uncompressed artifact.
+    #[prost(string, tag = "6")]
+    pub hash: ::prost::alloc::string::String,
+    /// Input only. The contents of the artifact.
+    /// Provided by API callers when artifacts are created or replaced.
+    /// To access the contents of an artifact, use GetArtifactContents.
+    #[prost(bytes = "bytes", tag = "7")]
+    pub contents: ::prost::bytes::Bytes,
 }
 /// Request message for ListApis.
 #[allow(clippy::derive_partial_eq_without_eq)]
