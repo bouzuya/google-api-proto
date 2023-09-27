@@ -4041,57 +4041,7 @@
 <a href="#4041" id="4041">4041</a>
 <a href="#4042" id="4042">4042</a>
 <a href="#4043" id="4043">4043</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Encapsulates progress related information for a Cloud Bigtable long
-/// running operation.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>OperationProgress {
-    <span class="doccomment">/// Percent completion of the operation.
-    /// Values are between 0 and 100 inclusive.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>progress_percent: i32,
-    <span class="doccomment">/// Time the request was received.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// If set, the time at which this operation failed or was completed
-    /// successfully.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-}
-<span class="doccomment">/// Storage media types for persisting Bigtable data.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>StorageType {
-    <span class="doccomment">/// The user did not specify a storage type.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Flash (SSD) storage should be used.
-    </span>Ssd = <span class="number">1</span>,
-    <span class="doccomment">/// Magnetic drive (HDD) storage should be used.
-    </span>Hdd = <span class="number">2</span>,
-}
-<span class="kw">impl </span>StorageType {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            StorageType::Unspecified =&gt; <span class="string">&quot;STORAGE_TYPE_UNSPECIFIED&quot;</span>,
-            StorageType::Ssd =&gt; <span class="string">&quot;SSD&quot;</span>,
-            StorageType::Hdd =&gt; <span class="string">&quot;HDD&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;STORAGE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;SSD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ssd),
-            <span class="string">&quot;HDD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hdd),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// Information about a table restore.
+</pre></div><pre class="rust"><code><span class="doccomment">/// Information about a table restore.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RestoreInfo {
@@ -4732,6 +4682,56 @@
         <span class="kw">match </span>value {
             <span class="string">&quot;RESTORE_SOURCE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
             <span class="string">&quot;BACKUP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Backup),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// Encapsulates progress related information for a Cloud Bigtable long
+/// running operation.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>OperationProgress {
+    <span class="doccomment">/// Percent completion of the operation.
+    /// Values are between 0 and 100 inclusive.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>progress_percent: i32,
+    <span class="doccomment">/// Time the request was received.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// If set, the time at which this operation failed or was completed
+    /// successfully.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+}
+<span class="doccomment">/// Storage media types for persisting Bigtable data.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>StorageType {
+    <span class="doccomment">/// The user did not specify a storage type.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Flash (SSD) storage should be used.
+    </span>Ssd = <span class="number">1</span>,
+    <span class="doccomment">/// Magnetic drive (HDD) storage should be used.
+    </span>Hdd = <span class="number">2</span>,
+}
+<span class="kw">impl </span>StorageType {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            StorageType::Unspecified =&gt; <span class="string">&quot;STORAGE_TYPE_UNSPECIFIED&quot;</span>,
+            StorageType::Ssd =&gt; <span class="string">&quot;SSD&quot;</span>,
+            StorageType::Hdd =&gt; <span class="string">&quot;HDD&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;STORAGE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;SSD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ssd),
+            <span class="string">&quot;HDD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hdd),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
