@@ -3036,6 +3036,14 @@
 <a href="#3036" id="3036">3036</a>
 <a href="#3037" id="3037">3037</a>
 <a href="#3038" id="3038">3038</a>
+<a href="#3039" id="3039">3039</a>
+<a href="#3040" id="3040">3040</a>
+<a href="#3041" id="3041">3041</a>
+<a href="#3042" id="3042">3042</a>
+<a href="#3043" id="3043">3043</a>
+<a href="#3044" id="3044">3044</a>
+<a href="#3045" id="3045">3045</a>
+<a href="#3046" id="3046">3046</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A managed metastore service that serves metadata queries.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3514,6 +3522,8 @@
     </span><span class="kw">pub </span>network_config: ::core::option::Option&lt;NetworkConfig&gt;,
 }
 <span class="doccomment">/// Network configuration for the Dataproc Metastore service.
+///
+/// Next available ID: 4
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>NetworkConfig {
@@ -3525,6 +3535,8 @@
 <span class="doccomment">/// Nested message and enum types in `NetworkConfig`.
 </span><span class="kw">pub mod </span>network_config {
     <span class="doccomment">/// Contains information of the customer&#39;s network configurations.
+    ///
+    /// Next available ID: 5
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Consumer {
@@ -3532,6 +3544,10 @@
         /// service.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
         </span><span class="kw">pub </span>endpoint_uri: ::prost::alloc::string::String,
+        <span class="doccomment">/// Output only. The location of the endpoint URI. Format:
+        /// `projects/{project}/locations/{location}`.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>endpoint_location: ::prost::alloc::string::String,
         <span class="attr">#[prost(oneof = <span class="string">&quot;consumer::VpcResource&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
         </span><span class="kw">pub </span>vpc_resource: ::core::option::Option&lt;consumer::VpcResource&gt;,
     }
