@@ -31,6 +31,8 @@ pub enum IntegratedSystem {
     CloudSql = 8,
     /// Looker
     Looker = 9,
+    /// Vertex AI
+    VertexAi = 10,
 }
 impl IntegratedSystem {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -48,6 +50,7 @@ impl IntegratedSystem {
             IntegratedSystem::CloudBigtable => "CLOUD_BIGTABLE",
             IntegratedSystem::CloudSql => "CLOUD_SQL",
             IntegratedSystem::Looker => "LOOKER",
+            IntegratedSystem::VertexAi => "VERTEX_AI",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -62,6 +65,7 @@ impl IntegratedSystem {
             "CLOUD_BIGTABLE" => Some(Self::CloudBigtable),
             "CLOUD_SQL" => Some(Self::CloudSql),
             "LOOKER" => Some(Self::Looker),
+            "VERTEX_AI" => Some(Self::VertexAi),
             _ => None,
         }
     }
@@ -3042,7 +3046,7 @@ pub struct Entry {
     ///
     /// When extending the API with new types and systems, use this field instead
     /// of the legacy `type_spec`.
-    #[prost(oneof = "entry::Spec", tags = "24, 27, 28, 33, 42")]
+    #[prost(oneof = "entry::Spec", tags = "24, 27, 28, 32, 33, 42, 43")]
     pub spec: ::core::option::Option<entry::Spec>,
 }
 /// Nested message and enum types in `Entry`.
@@ -3152,6 +3156,9 @@ pub mod entry {
         /// only for entries with the `ROUTINE` type.
         #[prost(message, tag = "28")]
         RoutineSpec(super::RoutineSpec),
+        /// Specification that applies to a dataset.
+        #[prost(message, tag = "32")]
+        DatasetSpec(super::DatasetSpec),
         /// Specification that applies to a fileset resource. Valid only
         /// for entries with the `FILESET` type.
         #[prost(message, tag = "33")]
@@ -3159,6 +3166,9 @@ pub mod entry {
         /// Specification that applies to a Service resource.
         #[prost(message, tag = "42")]
         ServiceSpec(super::ServiceSpec),
+        /// Model specification.
+        #[prost(message, tag = "43")]
+        ModelSpec(super::ModelSpec),
     }
 }
 /// Specification that applies to a table resource. Valid only
@@ -3466,6 +3476,26 @@ pub mod routine_spec {
         BigqueryRoutineSpec(super::BigQueryRoutineSpec),
     }
 }
+/// Specification that applies to a dataset. Valid only for
+/// entries with the `DATASET` type.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DatasetSpec {
+    /// Fields specific to the source system.
+    #[prost(oneof = "dataset_spec::SystemSpec", tags = "2")]
+    pub system_spec: ::core::option::Option<dataset_spec::SystemSpec>,
+}
+/// Nested message and enum types in `DatasetSpec`.
+pub mod dataset_spec {
+    /// Fields specific to the source system.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum SystemSpec {
+        /// Vertex AI Dataset specific fields
+        #[prost(message, tag = "2")]
+        VertexDatasetSpec(super::VertexDatasetSpec),
+    }
+}
 /// Specification that applies to
 /// entries that are part `SQL_DATABASE` system
 /// (user_specified_type)
@@ -3585,6 +3615,217 @@ pub mod service_spec {
         /// system.
         #[prost(message, tag = "1")]
         CloudBigtableInstanceSpec(super::CloudBigtableInstanceSpec),
+    }
+}
+/// Detail description of the source information of a Vertex model.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VertexModelSourceInfo {
+    /// Type of the model source.
+    #[prost(enumeration = "vertex_model_source_info::ModelSourceType", tag = "1")]
+    pub source_type: i32,
+    /// If this Model is copy of another Model. If true then
+    /// \[source_type][google.cloud.datacatalog.v1.VertexModelSourceInfo.source_type\]
+    /// pertains to the original.
+    #[prost(bool, tag = "2")]
+    pub copy: bool,
+}
+/// Nested message and enum types in `VertexModelSourceInfo`.
+pub mod vertex_model_source_info {
+    /// Source of the model.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ModelSourceType {
+        /// Should not be used.
+        Unspecified = 0,
+        /// The Model is uploaded by automl training pipeline.
+        Automl = 1,
+        /// The Model is uploaded by user or custom training pipeline.
+        Custom = 2,
+        /// The Model is registered and sync'ed from BigQuery ML.
+        Bqml = 3,
+        /// The Model is saved or tuned from Model Garden.
+        ModelGarden = 4,
+    }
+    impl ModelSourceType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ModelSourceType::Unspecified => "MODEL_SOURCE_TYPE_UNSPECIFIED",
+                ModelSourceType::Automl => "AUTOML",
+                ModelSourceType::Custom => "CUSTOM",
+                ModelSourceType::Bqml => "BQML",
+                ModelSourceType::ModelGarden => "MODEL_GARDEN",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "MODEL_SOURCE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "AUTOML" => Some(Self::Automl),
+                "CUSTOM" => Some(Self::Custom),
+                "BQML" => Some(Self::Bqml),
+                "MODEL_GARDEN" => Some(Self::ModelGarden),
+                _ => None,
+            }
+        }
+    }
+}
+/// Specification for vertex model resources.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VertexModelSpec {
+    /// The version ID of the model.
+    #[prost(string, tag = "1")]
+    pub version_id: ::prost::alloc::string::String,
+    /// User provided version aliases so that a model version can be referenced via
+    /// alias
+    #[prost(string, repeated, tag = "2")]
+    pub version_aliases: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The description of this version.
+    #[prost(string, tag = "3")]
+    pub version_description: ::prost::alloc::string::String,
+    /// Source of a Vertex model.
+    #[prost(message, optional, tag = "4")]
+    pub vertex_model_source_info: ::core::option::Option<VertexModelSourceInfo>,
+    /// URI of the Docker image to be used as the custom container for serving
+    /// predictions.
+    #[prost(string, tag = "5")]
+    pub container_image_uri: ::prost::alloc::string::String,
+}
+/// Specification for vertex dataset resources.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VertexDatasetSpec {
+    /// The number of DataItems in this Dataset. Only apply for non-structured
+    /// Dataset.
+    #[prost(int64, tag = "1")]
+    pub data_item_count: i64,
+    /// Type of the dataset.
+    #[prost(enumeration = "vertex_dataset_spec::DataType", tag = "2")]
+    pub data_type: i32,
+}
+/// Nested message and enum types in `VertexDatasetSpec`.
+pub mod vertex_dataset_spec {
+    /// Type of data stored in the dataset.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum DataType {
+        /// Should not be used.
+        Unspecified = 0,
+        /// Structured data dataset.
+        Table = 1,
+        /// Image dataset which supports ImageClassification, ImageObjectDetection
+        /// and ImageSegmentation problems.
+        Image = 2,
+        /// Document dataset which supports TextClassification, TextExtraction and
+        /// TextSentiment problems.
+        Text = 3,
+        /// Video dataset which supports VideoClassification, VideoObjectTracking and
+        /// VideoActionRecognition problems.
+        Video = 4,
+        /// Conversation dataset which supports conversation problems.
+        Conversation = 5,
+        /// TimeSeries dataset.
+        TimeSeries = 6,
+        /// Document dataset which supports DocumentAnnotation problems.
+        Document = 7,
+        /// TextToSpeech dataset which supports TextToSpeech problems.
+        TextToSpeech = 8,
+        /// Translation dataset which supports Translation problems.
+        Translation = 9,
+        /// Store Vision dataset which is used for HITL integration.
+        StoreVision = 10,
+        /// Enterprise Knowledge Graph dataset which is used for HITL labeling
+        /// integration.
+        EnterpriseKnowledgeGraph = 11,
+        /// Text prompt dataset which supports Large Language Models.
+        TextPrompt = 12,
+    }
+    impl DataType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                DataType::Unspecified => "DATA_TYPE_UNSPECIFIED",
+                DataType::Table => "TABLE",
+                DataType::Image => "IMAGE",
+                DataType::Text => "TEXT",
+                DataType::Video => "VIDEO",
+                DataType::Conversation => "CONVERSATION",
+                DataType::TimeSeries => "TIME_SERIES",
+                DataType::Document => "DOCUMENT",
+                DataType::TextToSpeech => "TEXT_TO_SPEECH",
+                DataType::Translation => "TRANSLATION",
+                DataType::StoreVision => "STORE_VISION",
+                DataType::EnterpriseKnowledgeGraph => "ENTERPRISE_KNOWLEDGE_GRAPH",
+                DataType::TextPrompt => "TEXT_PROMPT",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "DATA_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "TABLE" => Some(Self::Table),
+                "IMAGE" => Some(Self::Image),
+                "TEXT" => Some(Self::Text),
+                "VIDEO" => Some(Self::Video),
+                "CONVERSATION" => Some(Self::Conversation),
+                "TIME_SERIES" => Some(Self::TimeSeries),
+                "DOCUMENT" => Some(Self::Document),
+                "TEXT_TO_SPEECH" => Some(Self::TextToSpeech),
+                "TRANSLATION" => Some(Self::Translation),
+                "STORE_VISION" => Some(Self::StoreVision),
+                "ENTERPRISE_KNOWLEDGE_GRAPH" => Some(Self::EnterpriseKnowledgeGraph),
+                "TEXT_PROMPT" => Some(Self::TextPrompt),
+                _ => None,
+            }
+        }
+    }
+}
+/// Specification that applies to a model. Valid only for
+/// entries with the `MODEL` type.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelSpec {
+    /// System spec
+    #[prost(oneof = "model_spec::SystemSpec", tags = "1")]
+    pub system_spec: ::core::option::Option<model_spec::SystemSpec>,
+}
+/// Nested message and enum types in `ModelSpec`.
+pub mod model_spec {
+    /// System spec
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum SystemSpec {
+        /// Specification for vertex model resources.
+        #[prost(message, tag = "1")]
+        VertexModelSpec(super::VertexModelSpec),
     }
 }
 /// Business Context of the entry.

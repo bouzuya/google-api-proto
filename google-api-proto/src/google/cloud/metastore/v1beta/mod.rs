@@ -525,6 +525,8 @@ pub struct AuxiliaryVersionConfig {
     pub network_config: ::core::option::Option<NetworkConfig>,
 }
 /// Network configuration for the Dataproc Metastore service.
+///
+/// Next available ID: 4
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct NetworkConfig {
@@ -540,6 +542,8 @@ pub struct NetworkConfig {
 /// Nested message and enum types in `NetworkConfig`.
 pub mod network_config {
     /// Contains information of the customer's network configurations.
+    ///
+    /// Next available ID: 5
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct Consumer {
@@ -547,6 +551,10 @@ pub mod network_config {
         /// service.
         #[prost(string, tag = "3")]
         pub endpoint_uri: ::prost::alloc::string::String,
+        /// Output only. The location of the endpoint URI. Format:
+        /// `projects/{project}/locations/{location}`.
+        #[prost(string, tag = "4")]
+        pub endpoint_location: ::prost::alloc::string::String,
         #[prost(oneof = "consumer::VpcResource", tags = "1")]
         pub vpc_resource: ::core::option::Option<consumer::VpcResource>,
     }

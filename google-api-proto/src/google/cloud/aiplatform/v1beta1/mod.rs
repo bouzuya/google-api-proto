@@ -7109,7 +7109,7 @@ pub struct Feature {
     /// Description of the Feature.
     #[prost(string, tag = "2")]
     pub description: ::prost::alloc::string::String,
-    /// Required. Immutable. Type of Feature value.
+    /// Immutable. Type of Feature value.
     #[prost(enumeration = "feature::ValueType", tag = "3")]
     pub value_type: i32,
     /// Output only. Timestamp when this EntityType was created.
@@ -7391,6 +7391,1041 @@ impl PipelineState {
             "PIPELINE_STATE_CANCELLED" => Some(Self::Cancelled),
             "PIPELINE_STATE_PAUSED" => Some(Self::Paused),
             _ => None,
+        }
+    }
+}
+/// FeatureViewSync is a representation of sync operation which copies data from
+/// data source to Feature View in Online Store.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeatureViewSync {
+    /// Output only. Name of the FeatureViewSync. Format:
+    /// `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}/featureViewSyncs/{feature_view_sync}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Time when this FeatureViewSync is created. Creation of a
+    /// FeatureViewSync means that the job is pending / waiting for sufficient
+    /// resources but may not have started the actual data transfer yet.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Time when this FeatureViewSync is finished.
+    #[prost(message, optional, tag = "5")]
+    pub run_time: ::core::option::Option<super::super::super::r#type::Interval>,
+    /// Output only. Final status of the FeatureViewSync.
+    #[prost(message, optional, tag = "4")]
+    pub final_status: ::core::option::Option<super::super::super::rpc::Status>,
+}
+/// Matcher for Features of an EntityType by Feature ID.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct IdMatcher {
+    /// Required. The following are accepted as `ids`:
+    ///
+    ///   * A single-element list containing only `*`, which selects all Features
+    ///   in the target EntityType, or
+    ///   * A list containing only Feature IDs, which selects only Features with
+    ///   those IDs in the target EntityType.
+    #[prost(string, repeated, tag = "1")]
+    pub ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Selector for Features of an EntityType.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeatureSelector {
+    /// Required. Matches Features based on ID.
+    #[prost(message, optional, tag = "1")]
+    pub id_matcher: ::core::option::Option<IdMatcher>,
+}
+/// A list of boolean values.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BoolArray {
+    /// A list of bool values.
+    #[prost(bool, repeated, tag = "1")]
+    pub values: ::prost::alloc::vec::Vec<bool>,
+}
+/// A list of double values.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DoubleArray {
+    /// A list of double values.
+    #[prost(double, repeated, tag = "1")]
+    pub values: ::prost::alloc::vec::Vec<f64>,
+}
+/// A list of int64 values.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Int64Array {
+    /// A list of int64 values.
+    #[prost(int64, repeated, tag = "1")]
+    pub values: ::prost::alloc::vec::Vec<i64>,
+}
+/// A list of string values.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StringArray {
+    /// A list of string values.
+    #[prost(string, repeated, tag = "1")]
+    pub values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// A tensor value type.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Tensor {
+    /// The data type of tensor.
+    #[prost(enumeration = "tensor::DataType", tag = "1")]
+    pub dtype: i32,
+    /// Shape of the tensor.
+    #[prost(int64, repeated, tag = "2")]
+    pub shape: ::prost::alloc::vec::Vec<i64>,
+    /// Type specific representations that make it easy to create tensor protos in
+    /// all languages.  Only the representation corresponding to "dtype" can
+    /// be set.  The values hold the flattened representation of the tensor in
+    /// row major order.
+    ///
+    /// \[BOOL][google.aiplatform.master.Tensor.DataType.BOOL\]
+    #[prost(bool, repeated, tag = "3")]
+    pub bool_val: ::prost::alloc::vec::Vec<bool>,
+    /// \[STRING][google.aiplatform.master.Tensor.DataType.STRING\]
+    #[prost(string, repeated, tag = "14")]
+    pub string_val: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// \[STRING][google.aiplatform.master.Tensor.DataType.STRING\]
+    #[prost(bytes = "bytes", repeated, tag = "15")]
+    pub bytes_val: ::prost::alloc::vec::Vec<::prost::bytes::Bytes>,
+    /// \[FLOAT][google.aiplatform.master.Tensor.DataType.FLOAT\]
+    #[prost(float, repeated, tag = "5")]
+    pub float_val: ::prost::alloc::vec::Vec<f32>,
+    /// \[DOUBLE][google.aiplatform.master.Tensor.DataType.DOUBLE\]
+    #[prost(double, repeated, tag = "6")]
+    pub double_val: ::prost::alloc::vec::Vec<f64>,
+    /// \[INT_8][google.aiplatform.master.Tensor.DataType.INT8\]
+    /// \[INT_16][google.aiplatform.master.Tensor.DataType.INT16\]
+    /// \[INT_32][google.aiplatform.master.Tensor.DataType.INT32\]
+    #[prost(int32, repeated, tag = "7")]
+    pub int_val: ::prost::alloc::vec::Vec<i32>,
+    /// \[INT64][google.aiplatform.master.Tensor.DataType.INT64\]
+    #[prost(int64, repeated, tag = "8")]
+    pub int64_val: ::prost::alloc::vec::Vec<i64>,
+    /// \[UINT8][google.aiplatform.master.Tensor.DataType.UINT8\]
+    /// \[UINT16][google.aiplatform.master.Tensor.DataType.UINT16\]
+    /// \[UINT32][google.aiplatform.master.Tensor.DataType.UINT32\]
+    #[prost(uint32, repeated, tag = "9")]
+    pub uint_val: ::prost::alloc::vec::Vec<u32>,
+    /// \[UINT64][google.aiplatform.master.Tensor.DataType.UINT64\]
+    #[prost(uint64, repeated, tag = "10")]
+    pub uint64_val: ::prost::alloc::vec::Vec<u64>,
+    /// A list of tensor values.
+    #[prost(message, repeated, tag = "11")]
+    pub list_val: ::prost::alloc::vec::Vec<Tensor>,
+    /// A map of string to tensor.
+    #[prost(btree_map = "string, message", tag = "12")]
+    pub struct_val: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        Tensor,
+    >,
+    /// Serialized raw tensor content.
+    #[prost(bytes = "bytes", tag = "13")]
+    pub tensor_val: ::prost::bytes::Bytes,
+}
+/// Nested message and enum types in `Tensor`.
+pub mod tensor {
+    /// Data type of the tensor.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum DataType {
+        /// Not a legal value for DataType. Used to indicate a DataType field has not
+        /// been set.
+        Unspecified = 0,
+        /// Data types that all computation devices are expected to be
+        /// capable to support.
+        Bool = 1,
+        String = 2,
+        Float = 3,
+        Double = 4,
+        Int8 = 5,
+        Int16 = 6,
+        Int32 = 7,
+        Int64 = 8,
+        Uint8 = 9,
+        Uint16 = 10,
+        Uint32 = 11,
+        Uint64 = 12,
+    }
+    impl DataType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                DataType::Unspecified => "DATA_TYPE_UNSPECIFIED",
+                DataType::Bool => "BOOL",
+                DataType::String => "STRING",
+                DataType::Float => "FLOAT",
+                DataType::Double => "DOUBLE",
+                DataType::Int8 => "INT8",
+                DataType::Int16 => "INT16",
+                DataType::Int32 => "INT32",
+                DataType::Int64 => "INT64",
+                DataType::Uint8 => "UINT8",
+                DataType::Uint16 => "UINT16",
+                DataType::Uint32 => "UINT32",
+                DataType::Uint64 => "UINT64",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "DATA_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "BOOL" => Some(Self::Bool),
+                "STRING" => Some(Self::String),
+                "FLOAT" => Some(Self::Float),
+                "DOUBLE" => Some(Self::Double),
+                "INT8" => Some(Self::Int8),
+                "INT16" => Some(Self::Int16),
+                "INT32" => Some(Self::Int32),
+                "INT64" => Some(Self::Int64),
+                "UINT8" => Some(Self::Uint8),
+                "UINT16" => Some(Self::Uint16),
+                "UINT32" => Some(Self::Uint32),
+                "UINT64" => Some(Self::Uint64),
+                _ => None,
+            }
+        }
+    }
+}
+/// Request message for
+/// \[FeaturestoreOnlineServingService.WriteFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService.WriteFeatureValues\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WriteFeatureValuesRequest {
+    /// Required. The resource name of the EntityType for the entities being
+    /// written. Value format:
+    /// `projects/{project}/locations/{location}/featurestores/
+    /// {featurestore}/entityTypes/{entityType}`. For example,
+    /// for a machine learning model predicting user clicks on a website, an
+    /// EntityType ID could be `user`.
+    #[prost(string, tag = "1")]
+    pub entity_type: ::prost::alloc::string::String,
+    /// Required. The entities to be written. Up to 100,000 feature values can be
+    /// written across all `payloads`.
+    #[prost(message, repeated, tag = "2")]
+    pub payloads: ::prost::alloc::vec::Vec<WriteFeatureValuesPayload>,
+}
+/// Contains Feature values to be written for a specific entity.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WriteFeatureValuesPayload {
+    /// Required. The ID of the entity.
+    #[prost(string, tag = "1")]
+    pub entity_id: ::prost::alloc::string::String,
+    /// Required. Feature values to be written, mapping from Feature ID to value.
+    /// Up to 100,000 `feature_values` entries may be written across all payloads.
+    /// The feature generation time, aligned by days, must be no older than five
+    /// years (1825 days) and no later than one year (366 days) in the future.
+    #[prost(btree_map = "string, message", tag = "2")]
+    pub feature_values: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        FeatureValue,
+    >,
+}
+/// Response message for
+/// \[FeaturestoreOnlineServingService.WriteFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService.WriteFeatureValues\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WriteFeatureValuesResponse {}
+/// Request message for
+/// \[FeaturestoreOnlineServingService.ReadFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService.ReadFeatureValues\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ReadFeatureValuesRequest {
+    /// Required. The resource name of the EntityType for the entity being read.
+    /// Value format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entityType}`.
+    /// For example, for a machine learning model predicting user clicks on a
+    /// website, an EntityType ID could be `user`.
+    #[prost(string, tag = "1")]
+    pub entity_type: ::prost::alloc::string::String,
+    /// Required. ID for a specific entity. For example,
+    /// for a machine learning model predicting user clicks on a website, an entity
+    /// ID could be `user_123`.
+    #[prost(string, tag = "2")]
+    pub entity_id: ::prost::alloc::string::String,
+    /// Required. Selector choosing Features of the target EntityType.
+    #[prost(message, optional, tag = "3")]
+    pub feature_selector: ::core::option::Option<FeatureSelector>,
+}
+/// Response message for
+/// \[FeaturestoreOnlineServingService.ReadFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService.ReadFeatureValues\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ReadFeatureValuesResponse {
+    /// Response header.
+    #[prost(message, optional, tag = "1")]
+    pub header: ::core::option::Option<read_feature_values_response::Header>,
+    /// Entity view with Feature values. This may be the entity in the
+    /// Featurestore if values for all Features were requested, or a projection
+    /// of the entity in the Featurestore if values for only some Features were
+    /// requested.
+    #[prost(message, optional, tag = "2")]
+    pub entity_view: ::core::option::Option<read_feature_values_response::EntityView>,
+}
+/// Nested message and enum types in `ReadFeatureValuesResponse`.
+pub mod read_feature_values_response {
+    /// Metadata for requested Features.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FeatureDescriptor {
+        /// Feature ID.
+        #[prost(string, tag = "1")]
+        pub id: ::prost::alloc::string::String,
+    }
+    /// Response header with metadata for the requested
+    /// \[ReadFeatureValuesRequest.entity_type][google.cloud.aiplatform.v1beta1.ReadFeatureValuesRequest.entity_type\]
+    /// and Features.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Header {
+        /// The resource name of the EntityType from the
+        /// \[ReadFeatureValuesRequest][google.cloud.aiplatform.v1beta1.ReadFeatureValuesRequest\].
+        /// Value format:
+        /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entityType}`.
+        #[prost(string, tag = "1")]
+        pub entity_type: ::prost::alloc::string::String,
+        /// List of Feature metadata corresponding to each piece of
+        /// \[ReadFeatureValuesResponse.EntityView.data][google.cloud.aiplatform.v1beta1.ReadFeatureValuesResponse.EntityView.data\].
+        #[prost(message, repeated, tag = "2")]
+        pub feature_descriptors: ::prost::alloc::vec::Vec<FeatureDescriptor>,
+    }
+    /// Entity view with Feature values.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct EntityView {
+        /// ID of the requested entity.
+        #[prost(string, tag = "1")]
+        pub entity_id: ::prost::alloc::string::String,
+        /// Each piece of data holds the k
+        /// requested values for one requested Feature. If no values
+        /// for the requested Feature exist, the corresponding cell will be empty.
+        /// This has the same size and is in the same order as the features from the
+        /// header
+        /// \[ReadFeatureValuesResponse.header][google.cloud.aiplatform.v1beta1.ReadFeatureValuesResponse.header\].
+        #[prost(message, repeated, tag = "2")]
+        pub data: ::prost::alloc::vec::Vec<entity_view::Data>,
+    }
+    /// Nested message and enum types in `EntityView`.
+    pub mod entity_view {
+        /// Container to hold value(s), successive in time, for one Feature from the
+        /// request.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct Data {
+            #[prost(oneof = "data::Data", tags = "1, 2")]
+            pub data: ::core::option::Option<data::Data>,
+        }
+        /// Nested message and enum types in `Data`.
+        pub mod data {
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            pub enum Data {
+                /// Feature value if a single value is requested.
+                #[prost(message, tag = "1")]
+                Value(super::super::super::FeatureValue),
+                /// Feature values list if values, successive in time, are requested.
+                /// If the requested number of values is greater than the number of
+                /// existing Feature values, nonexistent values are omitted instead of
+                /// being returned as empty.
+                #[prost(message, tag = "2")]
+                Values(super::super::super::FeatureValueList),
+            }
+        }
+    }
+}
+/// Request message for
+/// \[FeaturestoreOnlineServingService.StreamingFeatureValuesRead][\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StreamingReadFeatureValuesRequest {
+    /// Required. The resource name of the entities' type.
+    /// Value format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entityType}`.
+    /// For example,
+    /// for a machine learning model predicting user clicks on a website, an
+    /// EntityType ID could be `user`.
+    #[prost(string, tag = "1")]
+    pub entity_type: ::prost::alloc::string::String,
+    /// Required. IDs of entities to read Feature values of. The maximum number of
+    /// IDs is 100. For example, for a machine learning model predicting user
+    /// clicks on a website, an entity ID could be `user_123`.
+    #[prost(string, repeated, tag = "2")]
+    pub entity_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Required. Selector choosing Features of the target EntityType. Feature IDs
+    /// will be deduplicated.
+    #[prost(message, optional, tag = "3")]
+    pub feature_selector: ::core::option::Option<FeatureSelector>,
+}
+/// Value for a feature.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeatureValue {
+    /// Metadata of feature value.
+    #[prost(message, optional, tag = "14")]
+    pub metadata: ::core::option::Option<feature_value::Metadata>,
+    /// Value for the feature.
+    #[prost(oneof = "feature_value::Value", tags = "1, 2, 5, 6, 7, 8, 11, 12, 13")]
+    pub value: ::core::option::Option<feature_value::Value>,
+}
+/// Nested message and enum types in `FeatureValue`.
+pub mod feature_value {
+    /// Metadata of feature value.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Metadata {
+        /// Feature generation timestamp. Typically, it is provided by user at
+        /// feature ingestion time. If not, feature store
+        /// will use the system timestamp when the data is ingested into feature
+        /// store. For streaming ingestion, the time, aligned by days, must be no
+        /// older than five years (1825 days) and no later than one year (366 days)
+        /// in the future.
+        #[prost(message, optional, tag = "1")]
+        pub generate_time: ::core::option::Option<::prost_types::Timestamp>,
+    }
+    /// Value for the feature.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Value {
+        /// Bool type feature value.
+        #[prost(bool, tag = "1")]
+        BoolValue(bool),
+        /// Double type feature value.
+        #[prost(double, tag = "2")]
+        DoubleValue(f64),
+        /// Int64 feature value.
+        #[prost(int64, tag = "5")]
+        Int64Value(i64),
+        /// String feature value.
+        #[prost(string, tag = "6")]
+        StringValue(::prost::alloc::string::String),
+        /// A list of bool type feature value.
+        #[prost(message, tag = "7")]
+        BoolArrayValue(super::BoolArray),
+        /// A list of double type feature value.
+        #[prost(message, tag = "8")]
+        DoubleArrayValue(super::DoubleArray),
+        /// A list of int64 type feature value.
+        #[prost(message, tag = "11")]
+        Int64ArrayValue(super::Int64Array),
+        /// A list of string type feature value.
+        #[prost(message, tag = "12")]
+        StringArrayValue(super::StringArray),
+        /// Bytes feature value.
+        #[prost(bytes, tag = "13")]
+        BytesValue(::prost::bytes::Bytes),
+    }
+}
+/// Container for list of values.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeatureValueList {
+    /// A list of feature values. All of them should be the same data type.
+    #[prost(message, repeated, tag = "1")]
+    pub values: ::prost::alloc::vec::Vec<FeatureValue>,
+}
+/// Generated client implementations.
+pub mod featurestore_online_serving_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// A service for serving online feature values.
+    #[derive(Debug, Clone)]
+    pub struct FeaturestoreOnlineServingServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> FeaturestoreOnlineServingServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> FeaturestoreOnlineServingServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            FeaturestoreOnlineServingServiceClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Reads Feature values of a specific entity of an EntityType. For reading
+        /// feature values of multiple entities of an EntityType, please use
+        /// StreamingReadFeatureValues.
+        pub async fn read_feature_values(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ReadFeatureValuesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ReadFeatureValuesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService/ReadFeatureValues",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService",
+                        "ReadFeatureValues",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Reads Feature values for multiple entities. Depending on their size, data
+        /// for different entities may be broken
+        /// up across multiple responses.
+        pub async fn streaming_read_feature_values(
+            &mut self,
+            request: impl tonic::IntoRequest<super::StreamingReadFeatureValuesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<tonic::codec::Streaming<super::ReadFeatureValuesResponse>>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService/StreamingReadFeatureValues",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService",
+                        "StreamingReadFeatureValues",
+                    ),
+                );
+            self.inner.server_streaming(req, path, codec).await
+        }
+        /// Writes Feature values of one or more entities of an EntityType.
+        ///
+        /// The Feature values are merged into existing entities if any. The Feature
+        /// values to be written must have timestamp within the online storage
+        /// retention.
+        pub async fn write_feature_values(
+            &mut self,
+            request: impl tonic::IntoRequest<super::WriteFeatureValuesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::WriteFeatureValuesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService/WriteFeatureValues",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService",
+                        "WriteFeatureValues",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Request message for
+/// \[FeatureOnlineStoreService.FetchFeatureValues][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService.FetchFeatureValues\].
+/// All the features under the requested feature view will be returned.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FetchFeatureValuesRequest {
+    /// Required. FeatureView resource format
+    /// `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}/featureViews/{featureView}`
+    #[prost(string, tag = "1")]
+    pub feature_view: ::prost::alloc::string::String,
+    /// Specify response data format. If not set, KeyValue format will be used.
+    #[prost(enumeration = "fetch_feature_values_request::Format", tag = "5")]
+    pub format: i32,
+    /// Entity ID to fetch feature values for.
+    #[prost(oneof = "fetch_feature_values_request::EntityId", tags = "3")]
+    pub entity_id: ::core::option::Option<fetch_feature_values_request::EntityId>,
+}
+/// Nested message and enum types in `FetchFeatureValuesRequest`.
+pub mod fetch_feature_values_request {
+    /// Format of the response data.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Format {
+        /// Not set. Will be treated as the KeyValue format.
+        Unspecified = 0,
+        /// Return response data in key-value format.
+        KeyValue = 1,
+        /// Return response data in proto Struct format.
+        ProtoStruct = 2,
+    }
+    impl Format {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Format::Unspecified => "FORMAT_UNSPECIFIED",
+                Format::KeyValue => "KEY_VALUE",
+                Format::ProtoStruct => "PROTO_STRUCT",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "FORMAT_UNSPECIFIED" => Some(Self::Unspecified),
+                "KEY_VALUE" => Some(Self::KeyValue),
+                "PROTO_STRUCT" => Some(Self::ProtoStruct),
+                _ => None,
+            }
+        }
+    }
+    /// Entity ID to fetch feature values for.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum EntityId {
+        /// Simple ID. The whole string will be used as is to identify Entity to
+        /// fetch feature values for.
+        #[prost(string, tag = "3")]
+        Id(::prost::alloc::string::String),
+    }
+}
+/// Response message for
+/// \[FeatureOnlineStoreService.FetchFeatureValues][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService.FetchFeatureValues\]
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FetchFeatureValuesResponse {
+    #[prost(oneof = "fetch_feature_values_response::Format", tags = "3, 2")]
+    pub format: ::core::option::Option<fetch_feature_values_response::Format>,
+}
+/// Nested message and enum types in `FetchFeatureValuesResponse`.
+pub mod fetch_feature_values_response {
+    /// Response structure in the format of key (feature name) and (feature) value
+    /// pair.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FeatureNameValuePairList {
+        /// List of feature names and values.
+        #[prost(message, repeated, tag = "1")]
+        pub features: ::prost::alloc::vec::Vec<
+            feature_name_value_pair_list::FeatureNameValuePair,
+        >,
+    }
+    /// Nested message and enum types in `FeatureNameValuePairList`.
+    pub mod feature_name_value_pair_list {
+        /// Feature name & value pair.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct FeatureNameValuePair {
+            /// Feature short name.
+            #[prost(string, tag = "1")]
+            pub name: ::prost::alloc::string::String,
+            #[prost(oneof = "feature_name_value_pair::Data", tags = "2")]
+            pub data: ::core::option::Option<feature_name_value_pair::Data>,
+        }
+        /// Nested message and enum types in `FeatureNameValuePair`.
+        pub mod feature_name_value_pair {
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            pub enum Data {
+                /// Feature value.
+                #[prost(message, tag = "2")]
+                Value(super::super::super::FeatureValue),
+            }
+        }
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Format {
+        /// Feature values in KeyValue format.
+        #[prost(message, tag = "3")]
+        KeyValues(FeatureNameValuePairList),
+        /// Feature values in proto Struct format.
+        #[prost(message, tag = "2")]
+        ProtoStruct(::prost_types::Struct),
+    }
+}
+/// A query to find a number of similar entities.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct NearestNeighborQuery {
+    /// Optional. The number of similar entities to be retrieved from feature view
+    /// for each query.
+    #[prost(int32, tag = "3")]
+    pub neighbor_count: i32,
+    /// Optional. The list of string filters.
+    #[prost(message, repeated, tag = "4")]
+    pub string_filters: ::prost::alloc::vec::Vec<nearest_neighbor_query::StringFilter>,
+    /// Optional. Crowding is a constraint on a neighbor list produced by nearest
+    /// neighbor search requiring that no more than
+    /// sper_crowding_attribute_neighbor_count of the k neighbors returned have the
+    /// same value of crowding_attribute. It's used for improving result diversity.
+    #[prost(int32, tag = "5")]
+    pub per_crowding_attribute_neighbor_count: i32,
+    /// Optional. Parameters that can be set to tune query on the fly.
+    #[prost(message, optional, tag = "7")]
+    pub parameters: ::core::option::Option<nearest_neighbor_query::Parameters>,
+    #[prost(oneof = "nearest_neighbor_query::Instance", tags = "1, 2")]
+    pub instance: ::core::option::Option<nearest_neighbor_query::Instance>,
+}
+/// Nested message and enum types in `NearestNeighborQuery`.
+pub mod nearest_neighbor_query {
+    /// The embedding vector.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Embedding {
+        /// Optional. Individual value in the embedding.
+        #[prost(float, repeated, packed = "false", tag = "1")]
+        pub value: ::prost::alloc::vec::Vec<f32>,
+    }
+    /// String filter is used to search a subset of the entities by using boolean
+    /// rules. For example: if a query specifies string filter with 'name
+    /// = color, allow_tokens = {red, blue}, deny_tokens = {purple}','  then that
+    /// query will match entities that are red or blue, but if those points are
+    /// also purple, then they will be excluded even if they are red/blue. Only
+    /// string filter is supported for now, numeric filter will be supported in the
+    /// near future.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct StringFilter {
+        /// Required. Column names in BigQuery that used as filters.
+        #[prost(string, tag = "1")]
+        pub name: ::prost::alloc::string::String,
+        /// Optional. The allowed tokens.
+        #[prost(string, repeated, tag = "2")]
+        pub allow_tokens: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// Optional. The denied tokens.
+        #[prost(string, repeated, tag = "3")]
+        pub deny_tokens: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    /// Parameters that can be overrided in each query to tune query latency and
+    /// recall.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Parameters {
+        /// Optional. The number of neighbors to find via approximate search before
+        /// exact reordering is performed; if set, this value must be >
+        /// neighbor_count.
+        #[prost(int32, tag = "1")]
+        pub approximate_neighbor_candidates: i32,
+        /// Optional. The fraction of the number of leaves to search, set at query
+        /// time allows user to tune search performance. This value increase result
+        /// in both search accuracy and latency increase. The value should be between
+        /// 0.0 and 1.0.
+        #[prost(double, tag = "2")]
+        pub leaf_nodes_search_fraction: f64,
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Instance {
+        /// Optional. The entity id whose similar entities should be searched for.
+        /// If embedding is set, search will use embedding instead of
+        /// entity_id.
+        #[prost(string, tag = "1")]
+        EntityId(::prost::alloc::string::String),
+        /// Optional. The embedding vector that be used for similar search.
+        #[prost(message, tag = "2")]
+        Embedding(Embedding),
+    }
+}
+/// The request message for
+/// \[FeatureOnlineStoreService.SearchNearestEntities][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService.SearchNearestEntities\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchNearestEntitiesRequest {
+    /// Required. FeatureView resource format
+    /// `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}/featureViews/{featureView}`
+    #[prost(string, tag = "1")]
+    pub feature_view: ::prost::alloc::string::String,
+    /// Required. The query.
+    #[prost(message, optional, tag = "2")]
+    pub query: ::core::option::Option<NearestNeighborQuery>,
+    /// Optional. If set to true, the full entities (including all vector values
+    /// and metadata) of the nearest neighbors are returned; otherwise only entity
+    /// id of the nearest neighbors will be returned. Note that returning full
+    /// entities will significantly increase the latency and cost of the query.
+    #[prost(bool, tag = "3")]
+    pub return_full_entity: bool,
+}
+/// Nearest neighbors for one query.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct NearestNeighbors {
+    /// All its neighbors.
+    #[prost(message, repeated, tag = "1")]
+    pub neighbors: ::prost::alloc::vec::Vec<nearest_neighbors::Neighbor>,
+}
+/// Nested message and enum types in `NearestNeighbors`.
+pub mod nearest_neighbors {
+    /// A neighbor of the query vector.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Neighbor {
+        /// The id of the similar entity.
+        #[prost(string, tag = "1")]
+        pub entity_id: ::prost::alloc::string::String,
+        /// The distance between the neighbor and the query vector.
+        #[prost(double, tag = "2")]
+        pub distance: f64,
+        /// The attributes of the neighbor, e.g. filters, crowding and metadata
+        /// Note that full entities are returned only when "return_full_entity"
+        /// is set to true. Otherwise, only the "entity_id" and "distance" fields
+        /// are populated.
+        #[prost(message, optional, tag = "3")]
+        pub entity_key_values: ::core::option::Option<super::FetchFeatureValuesResponse>,
+    }
+}
+/// Response message for
+/// \[FeatureOnlineStoreService.SearchNearestEntities][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService.SearchNearestEntities\]
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchNearestEntitiesResponse {
+    /// The nearest neighbors of the query entity.
+    #[prost(message, optional, tag = "1")]
+    pub nearest_neighbors: ::core::option::Option<NearestNeighbors>,
+}
+/// Generated client implementations.
+pub mod feature_online_store_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    #[derive(Debug, Clone)]
+    pub struct FeatureOnlineStoreServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> FeatureOnlineStoreServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> FeatureOnlineStoreServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            FeatureOnlineStoreServiceClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Fetch feature values under a FeatureView.
+        pub async fn fetch_feature_values(
+            &mut self,
+            request: impl tonic::IntoRequest<super::FetchFeatureValuesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::FetchFeatureValuesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService/FetchFeatureValues",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService",
+                        "FetchFeatureValues",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Search the nearest entities under a FeatureView.
+        /// Search only works for indexable feature view; if a feature view isn't
+        /// indexable, returns Invalid argument response.
+        pub async fn search_nearest_entities(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SearchNearestEntitiesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::SearchNearestEntitiesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService/SearchNearestEntities",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService",
+                        "SearchNearestEntities",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -9210,6 +10245,72 @@ pub mod vizier_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
+    }
+}
+/// Vertex AI Feature Group.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeatureGroup {
+    /// Output only. Name of the FeatureGroup. Format:
+    /// `projects/{project}/locations/{location}/featureGroups/{featureGroup}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Timestamp when this FeatureGroup was created.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp when this FeatureGroup was last updated.
+    #[prost(message, optional, tag = "3")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional. Used to perform consistent read-modify-write updates. If not set,
+    /// a blind "overwrite" update happens.
+    #[prost(string, tag = "4")]
+    pub etag: ::prost::alloc::string::String,
+    /// Optional. The labels with user-defined metadata to organize your
+    /// FeatureGroup.
+    ///
+    /// Label keys and values can be no longer than 64 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores and dashes. International characters are allowed.
+    ///
+    /// See <https://goo.gl/xmQnxf> for more information on and examples of labels.
+    /// No more than 64 user labels can be associated with one
+    /// FeatureGroup(System labels are excluded)." System reserved label keys
+    /// are prefixed with "aiplatform.googleapis.com/" and are immutable.
+    #[prost(btree_map = "string, string", tag = "5")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Optional. Description of the FeatureGroup.
+    #[prost(string, tag = "6")]
+    pub description: ::prost::alloc::string::String,
+    #[prost(oneof = "feature_group::Source", tags = "7")]
+    pub source: ::core::option::Option<feature_group::Source>,
+}
+/// Nested message and enum types in `FeatureGroup`.
+pub mod feature_group {
+    /// Input source type for BigQuery Tables and Views.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct BigQuery {
+        /// Required. Immutable. The BigQuery source URI that points to either a
+        /// BigQuery Table or View.
+        #[prost(message, optional, tag = "1")]
+        pub big_query_source: ::core::option::Option<super::BigQuerySource>,
+        /// Optional. Columns to construct entity_id / row keys. Currently only
+        /// supports 1 entity_id_column. If not provided defaults to `entity_id`.
+        #[prost(string, repeated, tag = "2")]
+        pub entity_id_columns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Source {
+        /// Indicates that features for this group come from BigQuery Table/View.
+        /// By default treats the source as a sparse time series source, which is
+        /// required to have an entity_id and a feature_timestamp column in the
+        /// source.
+        #[prost(message, tag = "7")]
+        BigQuery(BigQuery),
     }
 }
 /// Instance of a general artifact.
@@ -17171,174 +18272,6 @@ pub mod job_service_client {
         }
     }
 }
-/// A list of boolean values.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BoolArray {
-    /// A list of bool values.
-    #[prost(bool, repeated, tag = "1")]
-    pub values: ::prost::alloc::vec::Vec<bool>,
-}
-/// A list of double values.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DoubleArray {
-    /// A list of double values.
-    #[prost(double, repeated, tag = "1")]
-    pub values: ::prost::alloc::vec::Vec<f64>,
-}
-/// A list of int64 values.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Int64Array {
-    /// A list of int64 values.
-    #[prost(int64, repeated, tag = "1")]
-    pub values: ::prost::alloc::vec::Vec<i64>,
-}
-/// A list of string values.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StringArray {
-    /// A list of string values.
-    #[prost(string, repeated, tag = "1")]
-    pub values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// A tensor value type.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Tensor {
-    /// The data type of tensor.
-    #[prost(enumeration = "tensor::DataType", tag = "1")]
-    pub dtype: i32,
-    /// Shape of the tensor.
-    #[prost(int64, repeated, tag = "2")]
-    pub shape: ::prost::alloc::vec::Vec<i64>,
-    /// Type specific representations that make it easy to create tensor protos in
-    /// all languages.  Only the representation corresponding to "dtype" can
-    /// be set.  The values hold the flattened representation of the tensor in
-    /// row major order.
-    ///
-    /// \[BOOL][google.aiplatform.master.Tensor.DataType.BOOL\]
-    #[prost(bool, repeated, tag = "3")]
-    pub bool_val: ::prost::alloc::vec::Vec<bool>,
-    /// \[STRING][google.aiplatform.master.Tensor.DataType.STRING\]
-    #[prost(string, repeated, tag = "14")]
-    pub string_val: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// \[STRING][google.aiplatform.master.Tensor.DataType.STRING\]
-    #[prost(bytes = "bytes", repeated, tag = "15")]
-    pub bytes_val: ::prost::alloc::vec::Vec<::prost::bytes::Bytes>,
-    /// \[FLOAT][google.aiplatform.master.Tensor.DataType.FLOAT\]
-    #[prost(float, repeated, tag = "5")]
-    pub float_val: ::prost::alloc::vec::Vec<f32>,
-    /// \[DOUBLE][google.aiplatform.master.Tensor.DataType.DOUBLE\]
-    #[prost(double, repeated, tag = "6")]
-    pub double_val: ::prost::alloc::vec::Vec<f64>,
-    /// \[INT_8][google.aiplatform.master.Tensor.DataType.INT8\]
-    /// \[INT_16][google.aiplatform.master.Tensor.DataType.INT16\]
-    /// \[INT_32][google.aiplatform.master.Tensor.DataType.INT32\]
-    #[prost(int32, repeated, tag = "7")]
-    pub int_val: ::prost::alloc::vec::Vec<i32>,
-    /// \[INT64][google.aiplatform.master.Tensor.DataType.INT64\]
-    #[prost(int64, repeated, tag = "8")]
-    pub int64_val: ::prost::alloc::vec::Vec<i64>,
-    /// \[UINT8][google.aiplatform.master.Tensor.DataType.UINT8\]
-    /// \[UINT16][google.aiplatform.master.Tensor.DataType.UINT16\]
-    /// \[UINT32][google.aiplatform.master.Tensor.DataType.UINT32\]
-    #[prost(uint32, repeated, tag = "9")]
-    pub uint_val: ::prost::alloc::vec::Vec<u32>,
-    /// \[UINT64][google.aiplatform.master.Tensor.DataType.UINT64\]
-    #[prost(uint64, repeated, tag = "10")]
-    pub uint64_val: ::prost::alloc::vec::Vec<u64>,
-    /// A list of tensor values.
-    #[prost(message, repeated, tag = "11")]
-    pub list_val: ::prost::alloc::vec::Vec<Tensor>,
-    /// A map of string to tensor.
-    #[prost(btree_map = "string, message", tag = "12")]
-    pub struct_val: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        Tensor,
-    >,
-    /// Serialized raw tensor content.
-    #[prost(bytes = "bytes", tag = "13")]
-    pub tensor_val: ::prost::bytes::Bytes,
-}
-/// Nested message and enum types in `Tensor`.
-pub mod tensor {
-    /// Data type of the tensor.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum DataType {
-        /// Not a legal value for DataType. Used to indicate a DataType field has not
-        /// been set.
-        Unspecified = 0,
-        /// Data types that all computation devices are expected to be
-        /// capable to support.
-        Bool = 1,
-        String = 2,
-        Float = 3,
-        Double = 4,
-        Int8 = 5,
-        Int16 = 6,
-        Int32 = 7,
-        Int64 = 8,
-        Uint8 = 9,
-        Uint16 = 10,
-        Uint32 = 11,
-        Uint64 = 12,
-    }
-    impl DataType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                DataType::Unspecified => "DATA_TYPE_UNSPECIFIED",
-                DataType::Bool => "BOOL",
-                DataType::String => "STRING",
-                DataType::Float => "FLOAT",
-                DataType::Double => "DOUBLE",
-                DataType::Int8 => "INT8",
-                DataType::Int16 => "INT16",
-                DataType::Int32 => "INT32",
-                DataType::Int64 => "INT64",
-                DataType::Uint8 => "UINT8",
-                DataType::Uint16 => "UINT16",
-                DataType::Uint32 => "UINT32",
-                DataType::Uint64 => "UINT64",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "DATA_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "BOOL" => Some(Self::Bool),
-                "STRING" => Some(Self::String),
-                "FLOAT" => Some(Self::Float),
-                "DOUBLE" => Some(Self::Double),
-                "INT8" => Some(Self::Int8),
-                "INT16" => Some(Self::Int16),
-                "INT32" => Some(Self::Int32),
-                "INT64" => Some(Self::Int64),
-                "UINT8" => Some(Self::Uint8),
-                "UINT16" => Some(Self::Uint16),
-                "UINT32" => Some(Self::Uint32),
-                "UINT64" => Some(Self::Uint64),
-                _ => None,
-            }
-        }
-    }
-}
 /// A SavedQuery is a view of the dataset. It references a subset of annotations
 /// by problem type and filters.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -19340,6 +20273,2682 @@ pub mod endpoint_service_client {
                     GrpcMethod::new(
                         "google.cloud.aiplatform.v1beta1.EndpointService",
                         "MutateDeployedModel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Vertex AI Feature Store provides a centralized repository for organizing,
+/// storing, and serving ML features. The Featurestore is a top-level container
+/// for your features and their values.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Featurestore {
+    /// Output only. Name of the Featurestore. Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Timestamp when this Featurestore was created.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp when this Featurestore was last updated.
+    #[prost(message, optional, tag = "4")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional. Used to perform consistent read-modify-write updates. If not set,
+    /// a blind "overwrite" update happens.
+    #[prost(string, tag = "5")]
+    pub etag: ::prost::alloc::string::String,
+    /// Optional. The labels with user-defined metadata to organize your
+    /// Featurestore.
+    ///
+    /// Label keys and values can be no longer than 64 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores and dashes. International characters are allowed.
+    ///
+    /// See <https://goo.gl/xmQnxf> for more information on and examples of labels.
+    /// No more than 64 user labels can be associated with one Featurestore(System
+    /// labels are excluded)."
+    /// System reserved label keys are prefixed with "aiplatform.googleapis.com/"
+    /// and are immutable.
+    #[prost(btree_map = "string, string", tag = "6")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Optional. Config for online storage resources. The field should not
+    /// co-exist with the field of `OnlineStoreReplicationConfig`. If both of it
+    /// and OnlineStoreReplicationConfig are unset, the feature store will not have
+    /// an online store and cannot be used for online serving.
+    #[prost(message, optional, tag = "7")]
+    pub online_serving_config: ::core::option::Option<featurestore::OnlineServingConfig>,
+    /// Output only. State of the featurestore.
+    #[prost(enumeration = "featurestore::State", tag = "8")]
+    pub state: i32,
+    /// Optional. TTL in days for feature values that will be stored in online
+    /// serving storage. The Feature Store online storage periodically removes
+    /// obsolete feature values older than `online_storage_ttl_days` since the
+    /// feature generation time. Note that `online_storage_ttl_days` should be less
+    /// than or equal to `offline_storage_ttl_days` for each EntityType under a
+    /// featurestore. If not set, default to 4000 days
+    #[prost(int32, tag = "13")]
+    pub online_storage_ttl_days: i32,
+    /// Optional. Customer-managed encryption key spec for data storage. If set,
+    /// both of the online and offline data storage will be secured by this key.
+    #[prost(message, optional, tag = "10")]
+    pub encryption_spec: ::core::option::Option<EncryptionSpec>,
+}
+/// Nested message and enum types in `Featurestore`.
+pub mod featurestore {
+    /// OnlineServingConfig specifies the details for provisioning online serving
+    /// resources.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct OnlineServingConfig {
+        /// The number of nodes for the online store. The number of nodes doesn't
+        /// scale automatically, but you can manually update the number of
+        /// nodes. If set to 0, the featurestore will not have an
+        /// online store and cannot be used for online serving.
+        #[prost(int32, tag = "2")]
+        pub fixed_node_count: i32,
+        /// Online serving scaling configuration.
+        /// Only one of `fixed_node_count` and `scaling` can be set. Setting one will
+        /// reset the other.
+        #[prost(message, optional, tag = "4")]
+        pub scaling: ::core::option::Option<online_serving_config::Scaling>,
+    }
+    /// Nested message and enum types in `OnlineServingConfig`.
+    pub mod online_serving_config {
+        /// Online serving scaling configuration. If min_node_count and
+        /// max_node_count are set to the same value, the cluster will be configured
+        /// with the fixed number of node (no auto-scaling).
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct Scaling {
+            /// Required. The minimum number of nodes to scale down to. Must be greater
+            /// than or equal to 1.
+            #[prost(int32, tag = "1")]
+            pub min_node_count: i32,
+            /// The maximum number of nodes to scale up to. Must be greater than
+            /// min_node_count, and less than or equal to 10 times of 'min_node_count'.
+            #[prost(int32, tag = "2")]
+            pub max_node_count: i32,
+            /// Optional. The cpu utilization that the Autoscaler should be trying to
+            /// achieve. This number is on a scale from 0 (no utilization) to 100
+            /// (total utilization), and is limited between 10 and 80. When a cluster's
+            /// CPU utilization exceeds the target that you have set, Bigtable
+            /// immediately adds nodes to the cluster. When CPU utilization is
+            /// substantially lower than the target, Bigtable removes nodes. If not set
+            /// or set to 0, default to 50.
+            #[prost(int32, tag = "3")]
+            pub cpu_utilization_target: i32,
+        }
+    }
+    /// Possible states a featurestore can have.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Default value. This value is unused.
+        Unspecified = 0,
+        /// State when the featurestore configuration is not being updated and the
+        /// fields reflect the current configuration of the featurestore. The
+        /// featurestore is usable in this state.
+        Stable = 1,
+        /// The state of the featurestore configuration when it is being updated.
+        /// During an update, the fields reflect either the original configuration
+        /// or the updated configuration of the featurestore. For example,
+        /// `online_serving_config.fixed_node_count` can take minutes to update.
+        /// While the update is in progress, the featurestore is in the UPDATING
+        /// state, and the value of `fixed_node_count` can be the original value or
+        /// the updated value, depending on the progress of the operation. Until the
+        /// update completes, the actual number of nodes can still be the original
+        /// value of `fixed_node_count`. The featurestore is still usable in this
+        /// state.
+        Updating = 2,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Stable => "STABLE",
+                State::Updating => "UPDATING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "STABLE" => Some(Self::Stable),
+                "UPDATING" => Some(Self::Updating),
+                _ => None,
+            }
+        }
+    }
+}
+/// Request message for
+/// \[FeaturestoreService.CreateFeaturestore][google.cloud.aiplatform.v1beta1.FeaturestoreService.CreateFeaturestore\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateFeaturestoreRequest {
+    /// Required. The resource name of the Location to create Featurestores.
+    /// Format:
+    /// `projects/{project}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The Featurestore to create.
+    #[prost(message, optional, tag = "2")]
+    pub featurestore: ::core::option::Option<Featurestore>,
+    /// Required. The ID to use for this Featurestore, which will become the final
+    /// component of the Featurestore's resource name.
+    ///
+    /// This value may be up to 60 characters, and valid characters are
+    /// `\[a-z0-9_\]`. The first character cannot be a number.
+    ///
+    /// The value must be unique within the project and location.
+    #[prost(string, tag = "3")]
+    pub featurestore_id: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeaturestoreService.GetFeaturestore][google.cloud.aiplatform.v1beta1.FeaturestoreService.GetFeaturestore\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetFeaturestoreRequest {
+    /// Required. The name of the Featurestore resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeaturestoreService.ListFeaturestores][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeaturestores\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListFeaturestoresRequest {
+    /// Required. The resource name of the Location to list Featurestores.
+    /// Format:
+    /// `projects/{project}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Lists the featurestores that match the filter expression. The following
+    /// fields are supported:
+    ///
+    /// * `create_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons.
+    /// Values must be
+    ///    in RFC 3339 format.
+    /// * `update_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons.
+    /// Values must be
+    ///    in RFC 3339 format.
+    /// * `online_serving_config.fixed_node_count`: Supports `=`, `!=`, `<`, `>`,
+    /// `<=`, and `>=` comparisons.
+    /// * `labels`: Supports key-value equality and key presence.
+    ///
+    /// Examples:
+    ///
+    /// * `create_time > "2020-01-01" OR update_time > "2020-01-01"`
+    ///     Featurestores created or updated after 2020-01-01.
+    /// * `labels.env = "prod"`
+    ///     Featurestores with label "env" set to "prod".
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// The maximum number of Featurestores to return. The service may return fewer
+    /// than this value. If unspecified, at most 100 Featurestores will be
+    /// returned. The maximum value is 100; any value greater than 100 will be
+    /// coerced to 100.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// A page token, received from a previous
+    /// \[FeaturestoreService.ListFeaturestores][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeaturestores\]
+    /// call. Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to
+    /// \[FeaturestoreService.ListFeaturestores][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeaturestores\]
+    /// must match the call that provided the page token.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+    /// A comma-separated list of fields to order by, sorted in ascending order.
+    /// Use "desc" after a field name for descending.
+    /// Supported Fields:
+    ///
+    ///    * `create_time`
+    ///    * `update_time`
+    ///    * `online_serving_config.fixed_node_count`
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+    /// Mask specifying which fields to read.
+    #[prost(message, optional, tag = "6")]
+    pub read_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Response message for
+/// \[FeaturestoreService.ListFeaturestores][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeaturestores\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListFeaturestoresResponse {
+    /// The Featurestores matching the request.
+    #[prost(message, repeated, tag = "1")]
+    pub featurestores: ::prost::alloc::vec::Vec<Featurestore>,
+    /// A token, which can be sent as
+    /// \[ListFeaturestoresRequest.page_token][google.cloud.aiplatform.v1beta1.ListFeaturestoresRequest.page_token\]
+    /// to retrieve the next page. If this field is omitted, there are no
+    /// subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeaturestoreService.UpdateFeaturestore][google.cloud.aiplatform.v1beta1.FeaturestoreService.UpdateFeaturestore\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateFeaturestoreRequest {
+    /// Required. The Featurestore's `name` field is used to identify the
+    /// Featurestore to be updated. Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}`
+    #[prost(message, optional, tag = "1")]
+    pub featurestore: ::core::option::Option<Featurestore>,
+    /// Field mask is used to specify the fields to be overwritten in the
+    /// Featurestore resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then only the non-empty fields present in the
+    /// request will be overwritten. Set the update_mask to `*` to override all
+    /// fields.
+    ///
+    /// Updatable fields:
+    ///
+    ///    * `labels`
+    ///    * `online_serving_config.fixed_node_count`
+    ///    * `online_serving_config.scaling`
+    ///    * `online_storage_ttl_days`
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Request message for
+/// \[FeaturestoreService.DeleteFeaturestore][google.cloud.aiplatform.v1beta1.FeaturestoreService.DeleteFeaturestore\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteFeaturestoreRequest {
+    /// Required. The name of the Featurestore to be deleted.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// If set to true, any EntityTypes and Features for this Featurestore will
+    /// also be deleted. (Otherwise, the request will only work if the Featurestore
+    /// has no EntityTypes.)
+    #[prost(bool, tag = "2")]
+    pub force: bool,
+}
+/// Request message for
+/// \[FeaturestoreService.ImportFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreService.ImportFeatureValues\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ImportFeatureValuesRequest {
+    /// Required. The resource name of the EntityType grouping the Features for
+    /// which values are being imported. Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entityType}`
+    #[prost(string, tag = "1")]
+    pub entity_type: ::prost::alloc::string::String,
+    /// Source column that holds entity IDs. If not provided, entity IDs are
+    /// extracted from the column named entity_id.
+    #[prost(string, tag = "5")]
+    pub entity_id_field: ::prost::alloc::string::String,
+    /// Required. Specifications defining which Feature values to import from the
+    /// entity. The request fails if no feature_specs are provided, and having
+    /// multiple feature_specs for one Feature is not allowed.
+    #[prost(message, repeated, tag = "8")]
+    pub feature_specs: ::prost::alloc::vec::Vec<
+        import_feature_values_request::FeatureSpec,
+    >,
+    /// If set, data will not be imported for online serving. This
+    /// is typically used for backfilling, where Feature generation timestamps are
+    /// not in the timestamp range needed for online serving.
+    #[prost(bool, tag = "9")]
+    pub disable_online_serving: bool,
+    /// Specifies the number of workers that are used to write data to the
+    /// Featurestore. Consider the online serving capacity that you require to
+    /// achieve the desired import throughput without interfering with online
+    /// serving. The value must be positive, and less than or equal to 100.
+    /// If not set, defaults to using 1 worker. The low count ensures minimal
+    /// impact on online serving performance.
+    #[prost(int32, tag = "11")]
+    pub worker_count: i32,
+    /// If true, API doesn't start ingestion analysis pipeline.
+    #[prost(bool, tag = "12")]
+    pub disable_ingestion_analysis: bool,
+    /// Details about the source data, including the location of the storage and
+    /// the format.
+    #[prost(oneof = "import_feature_values_request::Source", tags = "2, 3, 4")]
+    pub source: ::core::option::Option<import_feature_values_request::Source>,
+    /// Source of Feature timestamp for all Feature values of each entity.
+    /// Timestamps must be millisecond-aligned.
+    #[prost(oneof = "import_feature_values_request::FeatureTimeSource", tags = "6, 7")]
+    pub feature_time_source: ::core::option::Option<
+        import_feature_values_request::FeatureTimeSource,
+    >,
+}
+/// Nested message and enum types in `ImportFeatureValuesRequest`.
+pub mod import_feature_values_request {
+    /// Defines the Feature value(s) to import.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FeatureSpec {
+        /// Required. ID of the Feature to import values of. This Feature must exist
+        /// in the target EntityType, or the request will fail.
+        #[prost(string, tag = "1")]
+        pub id: ::prost::alloc::string::String,
+        /// Source column to get the Feature values from. If not set, uses the column
+        /// with the same name as the Feature ID.
+        #[prost(string, tag = "2")]
+        pub source_field: ::prost::alloc::string::String,
+    }
+    /// Details about the source data, including the location of the storage and
+    /// the format.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Source {
+        #[prost(message, tag = "2")]
+        AvroSource(super::AvroSource),
+        #[prost(message, tag = "3")]
+        BigquerySource(super::BigQuerySource),
+        #[prost(message, tag = "4")]
+        CsvSource(super::CsvSource),
+    }
+    /// Source of Feature timestamp for all Feature values of each entity.
+    /// Timestamps must be millisecond-aligned.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum FeatureTimeSource {
+        /// Source column that holds the Feature timestamp for all Feature
+        /// values in each entity.
+        #[prost(string, tag = "6")]
+        FeatureTimeField(::prost::alloc::string::String),
+        /// Single Feature timestamp for all entities being imported. The
+        /// timestamp must not have higher than millisecond precision.
+        #[prost(message, tag = "7")]
+        FeatureTime(::prost_types::Timestamp),
+    }
+}
+/// Response message for
+/// \[FeaturestoreService.ImportFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreService.ImportFeatureValues\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ImportFeatureValuesResponse {
+    /// Number of entities that have been imported by the operation.
+    #[prost(int64, tag = "1")]
+    pub imported_entity_count: i64,
+    /// Number of Feature values that have been imported by the operation.
+    #[prost(int64, tag = "2")]
+    pub imported_feature_value_count: i64,
+    /// The number of rows in input source that weren't imported due to either
+    /// * Not having any featureValues.
+    /// * Having a null entityId.
+    /// * Having a null timestamp.
+    /// * Not being parsable (applicable for CSV sources).
+    #[prost(int64, tag = "6")]
+    pub invalid_row_count: i64,
+    /// The number rows that weren't ingested due to having feature timestamps
+    /// outside the retention boundary.
+    #[prost(int64, tag = "4")]
+    pub timestamp_outside_retention_rows_count: i64,
+}
+/// Request message for
+/// \[FeaturestoreService.BatchReadFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreService.BatchReadFeatureValues\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchReadFeatureValuesRequest {
+    /// Required. The resource name of the Featurestore from which to query Feature
+    /// values. Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}`
+    #[prost(string, tag = "1")]
+    pub featurestore: ::prost::alloc::string::String,
+    /// Required. Specifies output location and format.
+    #[prost(message, optional, tag = "4")]
+    pub destination: ::core::option::Option<FeatureValueDestination>,
+    /// When not empty, the specified fields in the *_read_instances source will be
+    /// joined as-is in the output, in addition to those fields from the
+    /// Featurestore Entity.
+    ///
+    /// For BigQuery source, the type of the pass-through values will be
+    /// automatically inferred. For CSV source, the pass-through values will be
+    /// passed as opaque bytes.
+    #[prost(message, repeated, tag = "8")]
+    pub pass_through_fields: ::prost::alloc::vec::Vec<
+        batch_read_feature_values_request::PassThroughField,
+    >,
+    /// Required. Specifies EntityType grouping Features to read values of and
+    /// settings.
+    #[prost(message, repeated, tag = "7")]
+    pub entity_type_specs: ::prost::alloc::vec::Vec<
+        batch_read_feature_values_request::EntityTypeSpec,
+    >,
+    /// Optional. Excludes Feature values with feature generation timestamp before
+    /// this timestamp. If not set, retrieve oldest values kept in Feature Store.
+    /// Timestamp, if present, must not have higher than millisecond precision.
+    #[prost(message, optional, tag = "11")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    #[prost(oneof = "batch_read_feature_values_request::ReadOption", tags = "3, 5")]
+    pub read_option: ::core::option::Option<
+        batch_read_feature_values_request::ReadOption,
+    >,
+}
+/// Nested message and enum types in `BatchReadFeatureValuesRequest`.
+pub mod batch_read_feature_values_request {
+    /// Describe pass-through fields in read_instance source.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PassThroughField {
+        /// Required. The name of the field in the CSV header or the name of the
+        /// column in BigQuery table. The naming restriction is the same as
+        /// \[Feature.name][google.cloud.aiplatform.v1beta1.Feature.name\].
+        #[prost(string, tag = "1")]
+        pub field_name: ::prost::alloc::string::String,
+    }
+    /// Selects Features of an EntityType to read values of and specifies read
+    /// settings.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct EntityTypeSpec {
+        /// Required. ID of the EntityType to select Features. The EntityType id is
+        /// the
+        /// \[entity_type_id][google.cloud.aiplatform.v1beta1.CreateEntityTypeRequest.entity_type_id\]
+        /// specified during EntityType creation.
+        #[prost(string, tag = "1")]
+        pub entity_type_id: ::prost::alloc::string::String,
+        /// Required. Selectors choosing which Feature values to read from the
+        /// EntityType.
+        #[prost(message, optional, tag = "2")]
+        pub feature_selector: ::core::option::Option<super::FeatureSelector>,
+        /// Per-Feature settings for the batch read.
+        #[prost(message, repeated, tag = "3")]
+        pub settings: ::prost::alloc::vec::Vec<super::DestinationFeatureSetting>,
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum ReadOption {
+        /// Each read instance consists of exactly one read timestamp and one or more
+        /// entity IDs identifying entities of the corresponding EntityTypes whose
+        /// Features are requested.
+        ///
+        /// Each output instance contains Feature values of requested entities
+        /// concatenated together as of the read time.
+        ///
+        /// An example read instance may be `foo_entity_id, bar_entity_id,
+        /// 2020-01-01T10:00:00.123Z`.
+        ///
+        /// An example output instance may be `foo_entity_id, bar_entity_id,
+        /// 2020-01-01T10:00:00.123Z, foo_entity_feature1_value,
+        /// bar_entity_feature2_value`.
+        ///
+        /// Timestamp in each read instance must be millisecond-aligned.
+        ///
+        /// `csv_read_instances` are read instances stored in a plain-text CSV file.
+        /// The header should be:
+        ///      \[ENTITY_TYPE_ID1\], \[ENTITY_TYPE_ID2\], ..., timestamp
+        ///
+        /// The columns can be in any order.
+        ///
+        /// Values in the timestamp column must use the RFC 3339 format, e.g.
+        /// `2012-07-30T10:43:17.123Z`.
+        #[prost(message, tag = "3")]
+        CsvReadInstances(super::CsvSource),
+        /// Similar to csv_read_instances, but from BigQuery source.
+        #[prost(message, tag = "5")]
+        BigqueryReadInstances(super::BigQuerySource),
+    }
+}
+/// Request message for
+/// \[FeaturestoreService.ExportFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreService.ExportFeatureValues\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExportFeatureValuesRequest {
+    /// Required. The resource name of the EntityType from which to export Feature
+    /// values. Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+    #[prost(string, tag = "1")]
+    pub entity_type: ::prost::alloc::string::String,
+    /// Required. Specifies destination location and format.
+    #[prost(message, optional, tag = "4")]
+    pub destination: ::core::option::Option<FeatureValueDestination>,
+    /// Required. Selects Features to export values of.
+    #[prost(message, optional, tag = "5")]
+    pub feature_selector: ::core::option::Option<FeatureSelector>,
+    /// Per-Feature export settings.
+    #[prost(message, repeated, tag = "6")]
+    pub settings: ::prost::alloc::vec::Vec<DestinationFeatureSetting>,
+    /// Required. The mode in which Feature values are exported.
+    #[prost(oneof = "export_feature_values_request::Mode", tags = "3, 7")]
+    pub mode: ::core::option::Option<export_feature_values_request::Mode>,
+}
+/// Nested message and enum types in `ExportFeatureValuesRequest`.
+pub mod export_feature_values_request {
+    /// Describes exporting the latest Feature values of all entities of the
+    /// EntityType between [start_time, snapshot_time].
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct SnapshotExport {
+        /// Exports Feature values as of this timestamp. If not set,
+        /// retrieve values as of now. Timestamp, if present, must not have higher
+        /// than millisecond precision.
+        #[prost(message, optional, tag = "1")]
+        pub snapshot_time: ::core::option::Option<::prost_types::Timestamp>,
+        /// Excludes Feature values with feature generation timestamp before this
+        /// timestamp. If not set, retrieve oldest values kept in Feature Store.
+        /// Timestamp, if present, must not have higher than millisecond precision.
+        #[prost(message, optional, tag = "2")]
+        pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    }
+    /// Describes exporting all historical Feature values of all entities of the
+    /// EntityType between [start_time, end_time].
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FullExport {
+        /// Excludes Feature values with feature generation timestamp before this
+        /// timestamp. If not set, retrieve oldest values kept in Feature Store.
+        /// Timestamp, if present, must not have higher than millisecond precision.
+        #[prost(message, optional, tag = "2")]
+        pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+        /// Exports Feature values as of this timestamp. If not set,
+        /// retrieve values as of now. Timestamp, if present, must not have higher
+        /// than millisecond precision.
+        #[prost(message, optional, tag = "1")]
+        pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+    }
+    /// Required. The mode in which Feature values are exported.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Mode {
+        /// Exports the latest Feature values of all entities of the EntityType
+        /// within a time range.
+        #[prost(message, tag = "3")]
+        SnapshotExport(SnapshotExport),
+        /// Exports all historical values of all entities of the EntityType within a
+        /// time range
+        #[prost(message, tag = "7")]
+        FullExport(FullExport),
+    }
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DestinationFeatureSetting {
+    /// Required. The ID of the Feature to apply the setting to.
+    #[prost(string, tag = "1")]
+    pub feature_id: ::prost::alloc::string::String,
+    /// Specify the field name in the export destination. If not specified,
+    /// Feature ID is used.
+    #[prost(string, tag = "2")]
+    pub destination_field: ::prost::alloc::string::String,
+}
+/// A destination location for Feature values and format.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeatureValueDestination {
+    #[prost(oneof = "feature_value_destination::Destination", tags = "1, 2, 3")]
+    pub destination: ::core::option::Option<feature_value_destination::Destination>,
+}
+/// Nested message and enum types in `FeatureValueDestination`.
+pub mod feature_value_destination {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Destination {
+        /// Output in BigQuery format.
+        /// \[BigQueryDestination.output_uri][google.cloud.aiplatform.v1beta1.BigQueryDestination.output_uri\]
+        /// in
+        /// \[FeatureValueDestination.bigquery_destination][google.cloud.aiplatform.v1beta1.FeatureValueDestination.bigquery_destination\]
+        /// must refer to a table.
+        #[prost(message, tag = "1")]
+        BigqueryDestination(super::BigQueryDestination),
+        /// Output in TFRecord format.
+        ///
+        /// Below are the mapping from Feature value type
+        /// in Featurestore to Feature value type in TFRecord:
+        ///
+        ///      Value type in Featurestore                 | Value type in TFRecord
+        ///      DOUBLE, DOUBLE_ARRAY                       | FLOAT_LIST
+        ///      INT64, INT64_ARRAY                         | INT64_LIST
+        ///      STRING, STRING_ARRAY, BYTES                | BYTES_LIST
+        ///      true -> byte_string("true"), false -> byte_string("false")
+        ///      BOOL, BOOL_ARRAY (true, false)             | BYTES_LIST
+        #[prost(message, tag = "2")]
+        TfrecordDestination(super::TfRecordDestination),
+        /// Output in CSV format. Array Feature value types are not allowed in CSV
+        /// format.
+        #[prost(message, tag = "3")]
+        CsvDestination(super::CsvDestination),
+    }
+}
+/// Response message for
+/// \[FeaturestoreService.ExportFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreService.ExportFeatureValues\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExportFeatureValuesResponse {}
+/// Response message for
+/// \[FeaturestoreService.BatchReadFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreService.BatchReadFeatureValues\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchReadFeatureValuesResponse {}
+/// Request message for
+/// \[FeaturestoreService.CreateEntityType][google.cloud.aiplatform.v1beta1.FeaturestoreService.CreateEntityType\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateEntityTypeRequest {
+    /// Required. The resource name of the Featurestore to create EntityTypes.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The EntityType to create.
+    #[prost(message, optional, tag = "2")]
+    pub entity_type: ::core::option::Option<EntityType>,
+    /// Required. The ID to use for the EntityType, which will become the final
+    /// component of the EntityType's resource name.
+    ///
+    /// This value may be up to 60 characters, and valid characters are
+    /// `\[a-z0-9_\]`. The first character cannot be a number.
+    ///
+    /// The value must be unique within a featurestore.
+    #[prost(string, tag = "3")]
+    pub entity_type_id: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeaturestoreService.GetEntityType][google.cloud.aiplatform.v1beta1.FeaturestoreService.GetEntityType\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetEntityTypeRequest {
+    /// Required. The name of the EntityType resource.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeaturestoreService.ListEntityTypes][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListEntityTypes\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListEntityTypesRequest {
+    /// Required. The resource name of the Featurestore to list EntityTypes.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Lists the EntityTypes that match the filter expression. The following
+    /// filters are supported:
+    ///
+    /// * `create_time`: Supports `=`, `!=`, `<`, `>`, `>=`, and `<=` comparisons.
+    /// Values must be in RFC 3339 format.
+    /// * `update_time`: Supports `=`, `!=`, `<`, `>`, `>=`, and `<=` comparisons.
+    /// Values must be in RFC 3339 format.
+    /// * `labels`: Supports key-value equality as well as key presence.
+    ///
+    /// Examples:
+    ///
+    /// * `create_time > \"2020-01-31T15:30:00.000000Z\" OR
+    ///       update_time > \"2020-01-31T15:30:00.000000Z\"` --> EntityTypes created
+    ///       or updated after 2020-01-31T15:30:00.000000Z.
+    /// * `labels.active = yes AND labels.env = prod` --> EntityTypes having both
+    ///      (active: yes) and (env: prod) labels.
+    /// * `labels.env: *` --> Any EntityType which has a label with 'env' as the
+    ///    key.
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// The maximum number of EntityTypes to return. The service may return fewer
+    /// than this value. If unspecified, at most 1000 EntityTypes will be returned.
+    /// The maximum value is 1000; any value greater than 1000 will be coerced to
+    /// 1000.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// A page token, received from a previous
+    /// \[FeaturestoreService.ListEntityTypes][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListEntityTypes\]
+    /// call. Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to
+    /// \[FeaturestoreService.ListEntityTypes][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListEntityTypes\]
+    /// must match the call that provided the page token.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+    /// A comma-separated list of fields to order by, sorted in ascending order.
+    /// Use "desc" after a field name for descending.
+    ///
+    /// Supported fields:
+    ///
+    ///    * `entity_type_id`
+    ///    * `create_time`
+    ///    * `update_time`
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+    /// Mask specifying which fields to read.
+    #[prost(message, optional, tag = "6")]
+    pub read_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Response message for
+/// \[FeaturestoreService.ListEntityTypes][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListEntityTypes\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListEntityTypesResponse {
+    /// The EntityTypes matching the request.
+    #[prost(message, repeated, tag = "1")]
+    pub entity_types: ::prost::alloc::vec::Vec<EntityType>,
+    /// A token, which can be sent as
+    /// \[ListEntityTypesRequest.page_token][google.cloud.aiplatform.v1beta1.ListEntityTypesRequest.page_token\]
+    /// to retrieve the next page. If this field is omitted, there are no
+    /// subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeaturestoreService.UpdateEntityType][google.cloud.aiplatform.v1beta1.FeaturestoreService.UpdateEntityType\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateEntityTypeRequest {
+    /// Required. The EntityType's `name` field is used to identify the EntityType
+    /// to be updated. Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+    #[prost(message, optional, tag = "1")]
+    pub entity_type: ::core::option::Option<EntityType>,
+    /// Field mask is used to specify the fields to be overwritten in the
+    /// EntityType resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then only the non-empty fields present in the
+    /// request will be overwritten. Set the update_mask to `*` to override all
+    /// fields.
+    ///
+    /// Updatable fields:
+    ///
+    ///    * `description`
+    ///    * `labels`
+    ///    * `monitoring_config.snapshot_analysis.disabled`
+    ///    * `monitoring_config.snapshot_analysis.monitoring_interval_days`
+    ///    * `monitoring_config.snapshot_analysis.staleness_days`
+    ///    * `monitoring_config.import_features_analysis.state`
+    ///    * `monitoring_config.import_features_analysis.anomaly_detection_baseline`
+    ///    * `monitoring_config.numerical_threshold_config.value`
+    ///    * `monitoring_config.categorical_threshold_config.value`
+    ///    * `offline_storage_ttl_days`
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Request message for \[FeaturestoreService.DeleteEntityTypes][\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteEntityTypeRequest {
+    /// Required. The name of the EntityType to be deleted.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// If set to true, any Features for this EntityType will also be deleted.
+    /// (Otherwise, the request will only work if the EntityType has no Features.)
+    #[prost(bool, tag = "2")]
+    pub force: bool,
+}
+/// Request message for
+/// \[FeaturestoreService.CreateFeature][google.cloud.aiplatform.v1beta1.FeaturestoreService.CreateFeature\].
+/// Request message for
+/// \[FeatureRegistryService.CreateFeature][google.cloud.aiplatform.v1beta1.FeatureRegistryService.CreateFeature\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateFeatureRequest {
+    /// The resource name of the EntityType or FeatureGroup to create a Feature.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+    /// `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The Feature to create.
+    #[prost(message, optional, tag = "2")]
+    pub feature: ::core::option::Option<Feature>,
+    /// Required. The ID to use for the Feature, which will become the final
+    /// component of the Feature's resource name.
+    ///
+    /// This value may be up to 128 characters, and valid characters are
+    /// `\[a-z0-9_\]`. The first character cannot be a number.
+    ///
+    /// The value must be unique within an EntityType/FeatureGroup.
+    #[prost(string, tag = "3")]
+    pub feature_id: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeaturestoreService.BatchCreateFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.BatchCreateFeatures\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchCreateFeaturesRequest {
+    /// Required. The resource name of the EntityType to create the batch of
+    /// Features under. Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The request message specifying the Features to create. All
+    /// Features must be created under the same parent EntityType. The `parent`
+    /// field in each child request message can be omitted. If `parent` is set in a
+    /// child request, then the value must match the `parent` value in this request
+    /// message.
+    #[prost(message, repeated, tag = "2")]
+    pub requests: ::prost::alloc::vec::Vec<CreateFeatureRequest>,
+}
+/// Response message for
+/// \[FeaturestoreService.BatchCreateFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.BatchCreateFeatures\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchCreateFeaturesResponse {
+    /// The Features created.
+    #[prost(message, repeated, tag = "1")]
+    pub features: ::prost::alloc::vec::Vec<Feature>,
+}
+/// Request message for
+/// \[FeaturestoreService.GetFeature][google.cloud.aiplatform.v1beta1.FeaturestoreService.GetFeature\].
+/// Request message for
+/// \[FeatureRegistryService.GetFeature][google.cloud.aiplatform.v1beta1.FeatureRegistryService.GetFeature\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetFeatureRequest {
+    /// Required. The name of the Feature resource.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+    /// `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeaturestoreService.ListFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeatures\].
+/// Request message for
+/// \[FeatureRegistryService.ListFeatures][google.cloud.aiplatform.v1beta1.FeatureRegistryService.ListFeatures\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListFeaturesRequest {
+    /// Required. The resource name of the Location to list Features.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+    /// `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Lists the Features that match the filter expression. The following
+    /// filters are supported:
+    ///
+    /// * `value_type`: Supports = and != comparisons.
+    /// * `create_time`: Supports =, !=, <, >, >=, and <= comparisons. Values must
+    /// be in RFC 3339 format.
+    /// * `update_time`: Supports =, !=, <, >, >=, and <= comparisons. Values must
+    /// be in RFC 3339 format.
+    /// * `labels`: Supports key-value equality as well as key presence.
+    ///
+    /// Examples:
+    ///
+    /// * `value_type = DOUBLE` --> Features whose type is DOUBLE.
+    /// * `create_time > \"2020-01-31T15:30:00.000000Z\" OR
+    ///       update_time > \"2020-01-31T15:30:00.000000Z\"` --> EntityTypes created
+    ///       or updated after 2020-01-31T15:30:00.000000Z.
+    /// * `labels.active = yes AND labels.env = prod` --> Features having both
+    ///      (active: yes) and (env: prod) labels.
+    /// * `labels.env: *` --> Any Feature which has a label with 'env' as the
+    ///    key.
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// The maximum number of Features to return. The service may return fewer
+    /// than this value. If unspecified, at most 1000 Features will be returned.
+    /// The maximum value is 1000; any value greater than 1000 will be coerced to
+    /// 1000.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// A page token, received from a previous
+    /// \[FeaturestoreService.ListFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeatures\]
+    /// call. Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to
+    /// \[FeaturestoreService.ListFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeatures\]
+    /// must match the call that provided the page token.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+    /// A comma-separated list of fields to order by, sorted in ascending order.
+    /// Use "desc" after a field name for descending.
+    /// Supported fields:
+    ///
+    ///    * `feature_id`
+    ///    * `value_type` (Not supported for FeatureRegistry Feature)
+    ///    * `create_time`
+    ///    * `update_time`
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+    /// Mask specifying which fields to read.
+    #[prost(message, optional, tag = "6")]
+    pub read_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// If set, return the most recent
+    /// \[ListFeaturesRequest.latest_stats_count][google.cloud.aiplatform.v1beta1.ListFeaturesRequest.latest_stats_count\]
+    /// of stats for each Feature in response. Valid value is [0, 10]. If number of
+    /// stats exists <
+    /// \[ListFeaturesRequest.latest_stats_count][google.cloud.aiplatform.v1beta1.ListFeaturesRequest.latest_stats_count\],
+    /// return all existing stats.
+    #[prost(int32, tag = "7")]
+    pub latest_stats_count: i32,
+}
+/// Response message for
+/// \[FeaturestoreService.ListFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeatures\].
+/// Response message for
+/// \[FeatureRegistryService.ListFeatures][google.cloud.aiplatform.v1beta1.FeatureRegistryService.ListFeatures\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListFeaturesResponse {
+    /// The Features matching the request.
+    #[prost(message, repeated, tag = "1")]
+    pub features: ::prost::alloc::vec::Vec<Feature>,
+    /// A token, which can be sent as
+    /// \[ListFeaturesRequest.page_token][google.cloud.aiplatform.v1beta1.ListFeaturesRequest.page_token\]
+    /// to retrieve the next page. If this field is omitted, there are no
+    /// subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeaturestoreService.SearchFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.SearchFeatures\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchFeaturesRequest {
+    /// Required. The resource name of the Location to search Features.
+    /// Format:
+    /// `projects/{project}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub location: ::prost::alloc::string::String,
+    /// Query string that is a conjunction of field-restricted queries and/or
+    /// field-restricted filters.  Field-restricted queries and filters can be
+    /// combined using `AND` to form a conjunction.
+    ///
+    /// A field query is in the form FIELD:QUERY. This implicitly checks if QUERY
+    /// exists as a substring within Feature's FIELD. The QUERY
+    /// and the FIELD are converted to a sequence of words (i.e. tokens) for
+    /// comparison. This is done by:
+    ///
+    ///    * Removing leading/trailing whitespace and tokenizing the search value.
+    ///    Characters that are not one of alphanumeric `\[a-zA-Z0-9\]`, underscore
+    ///    `_`, or asterisk `*` are treated as delimiters for tokens. `*` is treated
+    ///    as a wildcard that matches characters within a token.
+    ///    * Ignoring case.
+    ///    * Prepending an asterisk to the first and appending an asterisk to the
+    ///    last token in QUERY.
+    ///
+    /// A QUERY must be either a singular token or a phrase. A phrase is one or
+    /// multiple words enclosed in double quotation marks ("). With phrases, the
+    /// order of the words is important. Words in the phrase must be matching in
+    /// order and consecutively.
+    ///
+    /// Supported FIELDs for field-restricted queries:
+    ///
+    /// * `feature_id`
+    /// * `description`
+    /// * `entity_type_id`
+    ///
+    /// Examples:
+    ///
+    /// * `feature_id: foo` --> Matches a Feature with ID containing the substring
+    /// `foo` (eg. `foo`, `foofeature`, `barfoo`).
+    /// * `feature_id: foo*feature` --> Matches a Feature with ID containing the
+    /// substring `foo*feature` (eg. `foobarfeature`).
+    /// * `feature_id: foo AND description: bar` --> Matches a Feature with ID
+    /// containing the substring `foo` and description containing the substring
+    /// `bar`.
+    ///
+    ///
+    /// Besides field queries, the following exact-match filters are
+    /// supported. The exact-match filters do not support wildcards. Unlike
+    /// field-restricted queries, exact-match filters are case-sensitive.
+    ///
+    /// * `feature_id`: Supports = comparisons.
+    /// * `description`: Supports = comparisons. Multi-token filters should be
+    /// enclosed in quotes.
+    /// * `entity_type_id`: Supports = comparisons.
+    /// * `value_type`: Supports = and != comparisons.
+    /// * `labels`: Supports key-value equality as well as key presence.
+    /// * `featurestore_id`: Supports = comparisons.
+    ///
+    /// Examples:
+    ///
+    /// * `description = "foo bar"` --> Any Feature with description exactly equal
+    /// to `foo bar`
+    /// * `value_type = DOUBLE` --> Features whose type is DOUBLE.
+    /// * `labels.active = yes AND labels.env = prod` --> Features having both
+    ///      (active: yes) and (env: prod) labels.
+    /// * `labels.env: *` --> Any Feature which has a label with `env` as the
+    ///    key.
+    #[prost(string, tag = "3")]
+    pub query: ::prost::alloc::string::String,
+    /// The maximum number of Features to return. The service may return fewer
+    /// than this value. If unspecified, at most 100 Features will be returned.
+    /// The maximum value is 100; any value greater than 100 will be coerced to
+    /// 100.
+    #[prost(int32, tag = "4")]
+    pub page_size: i32,
+    /// A page token, received from a previous
+    /// \[FeaturestoreService.SearchFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.SearchFeatures\]
+    /// call. Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to
+    /// \[FeaturestoreService.SearchFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.SearchFeatures\],
+    /// except `page_size`, must match the call that provided the page token.
+    #[prost(string, tag = "5")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// Response message for
+/// \[FeaturestoreService.SearchFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.SearchFeatures\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchFeaturesResponse {
+    /// The Features matching the request.
+    ///
+    /// Fields returned:
+    ///
+    ///   * `name`
+    ///   * `description`
+    ///   * `labels`
+    ///   * `create_time`
+    ///   * `update_time`
+    #[prost(message, repeated, tag = "1")]
+    pub features: ::prost::alloc::vec::Vec<Feature>,
+    /// A token, which can be sent as
+    /// \[SearchFeaturesRequest.page_token][google.cloud.aiplatform.v1beta1.SearchFeaturesRequest.page_token\]
+    /// to retrieve the next page. If this field is omitted, there are no
+    /// subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeaturestoreService.UpdateFeature][google.cloud.aiplatform.v1beta1.FeaturestoreService.UpdateFeature\].
+/// Request message for
+/// \[FeatureRegistryService.UpdateFeature][google.cloud.aiplatform.v1beta1.FeatureRegistryService.UpdateFeature\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateFeatureRequest {
+    /// Required. The Feature's `name` field is used to identify the Feature to be
+    /// updated.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}`
+    /// `projects/{project}/locations/{location}/featureGroups/{feature_group}/features/{feature}`
+    #[prost(message, optional, tag = "1")]
+    pub feature: ::core::option::Option<Feature>,
+    /// Field mask is used to specify the fields to be overwritten in the
+    /// Features resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then only the non-empty fields present in the
+    /// request will be overwritten. Set the update_mask to `*` to override all
+    /// fields.
+    ///
+    /// Updatable fields:
+    ///
+    ///    * `description`
+    ///    * `labels`
+    ///    * `disable_monitoring`
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Request message for
+/// \[FeaturestoreService.DeleteFeature][google.cloud.aiplatform.v1beta1.FeaturestoreService.DeleteFeature\].
+/// Request message for
+/// \[FeatureRegistryService.DeleteFeature][google.cloud.aiplatform.v1beta1.FeatureRegistryService.DeleteFeature\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteFeatureRequest {
+    /// Required. The name of the Features to be deleted.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}`
+    /// `projects/{project}/locations/{location}/featureGroups/{feature_group}/features/{feature}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Details of operations that perform create Featurestore.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateFeaturestoreOperationMetadata {
+    /// Operation metadata for Featurestore.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Details of operations that perform update Featurestore.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateFeaturestoreOperationMetadata {
+    /// Operation metadata for Featurestore.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Details of operations that perform import Feature values.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ImportFeatureValuesOperationMetadata {
+    /// Operation metadata for Featurestore import Feature values.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+    /// Number of entities that have been imported by the operation.
+    #[prost(int64, tag = "2")]
+    pub imported_entity_count: i64,
+    /// Number of Feature values that have been imported by the operation.
+    #[prost(int64, tag = "3")]
+    pub imported_feature_value_count: i64,
+    /// The source URI from where Feature values are imported.
+    #[prost(string, repeated, tag = "4")]
+    pub source_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The number of rows in input source that weren't imported due to either
+    /// * Not having any featureValues.
+    /// * Having a null entityId.
+    /// * Having a null timestamp.
+    /// * Not being parsable (applicable for CSV sources).
+    #[prost(int64, tag = "6")]
+    pub invalid_row_count: i64,
+    /// The number rows that weren't ingested due to having timestamps outside the
+    /// retention boundary.
+    #[prost(int64, tag = "7")]
+    pub timestamp_outside_retention_rows_count: i64,
+    /// List of ImportFeatureValues operations running under a single EntityType
+    /// that are blocking this operation.
+    #[prost(int64, repeated, tag = "8")]
+    pub blocking_operation_ids: ::prost::alloc::vec::Vec<i64>,
+}
+/// Details of operations that exports Features values.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExportFeatureValuesOperationMetadata {
+    /// Operation metadata for Featurestore export Feature values.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Details of operations that batch reads Feature values.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchReadFeatureValuesOperationMetadata {
+    /// Operation metadata for Featurestore batch read Features values.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Details of operations that delete Feature values.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteFeatureValuesOperationMetadata {
+    /// Operation metadata for Featurestore delete Features values.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Details of operations that perform create EntityType.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateEntityTypeOperationMetadata {
+    /// Operation metadata for EntityType.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Details of operations that perform create Feature.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateFeatureOperationMetadata {
+    /// Operation metadata for Feature.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Details of operations that perform batch create Features.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchCreateFeaturesOperationMetadata {
+    /// Operation metadata for Feature.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Request message for
+/// \[FeaturestoreService.DeleteFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreService.DeleteFeatureValues\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteFeatureValuesRequest {
+    /// Required. The resource name of the EntityType grouping the Features for
+    /// which values are being deleted from. Format:
+    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entityType}`
+    #[prost(string, tag = "1")]
+    pub entity_type: ::prost::alloc::string::String,
+    /// Defines options to select feature values to be deleted.
+    #[prost(oneof = "delete_feature_values_request::DeleteOption", tags = "2, 3")]
+    pub delete_option: ::core::option::Option<
+        delete_feature_values_request::DeleteOption,
+    >,
+}
+/// Nested message and enum types in `DeleteFeatureValuesRequest`.
+pub mod delete_feature_values_request {
+    /// Message to select entity.
+    /// If an entity id is selected, all the feature values corresponding to the
+    /// entity id will be deleted, including the entityId.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct SelectEntity {
+        /// Required. Selectors choosing feature values of which entity id to be
+        /// deleted from the EntityType.
+        #[prost(message, optional, tag = "1")]
+        pub entity_id_selector: ::core::option::Option<super::EntityIdSelector>,
+    }
+    /// Message to select time range and feature.
+    /// Values of the selected feature generated within an inclusive time range
+    /// will be deleted. Using this option permanently deletes the feature values
+    /// from the specified feature IDs within the specified time range.
+    /// This might include data from the online storage. If you want to retain
+    /// any deleted historical data in the online storage, you must re-ingest it.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct SelectTimeRangeAndFeature {
+        /// Required. Select feature generated within a half-inclusive time range.
+        /// The time range is lower inclusive and upper exclusive.
+        #[prost(message, optional, tag = "1")]
+        pub time_range: ::core::option::Option<
+            super::super::super::super::r#type::Interval,
+        >,
+        /// Required. Selectors choosing which feature values to be deleted from the
+        /// EntityType.
+        #[prost(message, optional, tag = "2")]
+        pub feature_selector: ::core::option::Option<super::FeatureSelector>,
+        /// If set, data will not be deleted from online storage.
+        /// When time range is older than the data in online storage, setting this to
+        /// be true will make the deletion have no impact on online serving.
+        #[prost(bool, tag = "3")]
+        pub skip_online_storage_delete: bool,
+    }
+    /// Defines options to select feature values to be deleted.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum DeleteOption {
+        /// Select feature values to be deleted by specifying entities.
+        #[prost(message, tag = "2")]
+        SelectEntity(SelectEntity),
+        /// Select feature values to be deleted by specifying time range and
+        /// features.
+        #[prost(message, tag = "3")]
+        SelectTimeRangeAndFeature(SelectTimeRangeAndFeature),
+    }
+}
+/// Response message for
+/// \[FeaturestoreService.DeleteFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreService.DeleteFeatureValues\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteFeatureValuesResponse {
+    /// Response based on which delete option is specified in the
+    /// request
+    #[prost(oneof = "delete_feature_values_response::Response", tags = "1, 2")]
+    pub response: ::core::option::Option<delete_feature_values_response::Response>,
+}
+/// Nested message and enum types in `DeleteFeatureValuesResponse`.
+pub mod delete_feature_values_response {
+    /// Response message if the request uses the SelectEntity option.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct SelectEntity {
+        /// The count of deleted entity rows in the offline storage.
+        /// Each row corresponds to the combination of an entity ID and a timestamp.
+        /// One entity ID can have multiple rows in the offline storage.
+        #[prost(int64, tag = "1")]
+        pub offline_storage_deleted_entity_row_count: i64,
+        /// The count of deleted entities in the online storage.
+        /// Each entity ID corresponds to one entity.
+        #[prost(int64, tag = "2")]
+        pub online_storage_deleted_entity_count: i64,
+    }
+    /// Response message if the request uses the SelectTimeRangeAndFeature option.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct SelectTimeRangeAndFeature {
+        /// The count of the features or columns impacted.
+        /// This is the same as the feature count in the request.
+        #[prost(int64, tag = "1")]
+        pub impacted_feature_count: i64,
+        /// The count of modified entity rows in the offline storage.
+        /// Each row corresponds to the combination of an entity ID and a timestamp.
+        /// One entity ID can have multiple rows in the offline storage.
+        /// Within each row, only the features specified in the request are
+        /// deleted.
+        #[prost(int64, tag = "2")]
+        pub offline_storage_modified_entity_row_count: i64,
+        /// The count of modified entities in the online storage.
+        /// Each entity ID corresponds to one entity.
+        /// Within each entity, only the features specified in the request are
+        /// deleted.
+        #[prost(int64, tag = "3")]
+        pub online_storage_modified_entity_count: i64,
+    }
+    /// Response based on which delete option is specified in the
+    /// request
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Response {
+        /// Response for request specifying the entities to delete
+        #[prost(message, tag = "1")]
+        SelectEntity(SelectEntity),
+        /// Response for request specifying time range and feature
+        #[prost(message, tag = "2")]
+        SelectTimeRangeAndFeature(SelectTimeRangeAndFeature),
+    }
+}
+/// Selector for entityId. Getting ids from the given source.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EntityIdSelector {
+    /// Source column that holds entity IDs. If not provided, entity IDs are
+    /// extracted from the column named entity_id.
+    #[prost(string, tag = "5")]
+    pub entity_id_field: ::prost::alloc::string::String,
+    /// Details about the source data, including the location of the storage and
+    /// the format.
+    #[prost(oneof = "entity_id_selector::EntityIdsSource", tags = "3")]
+    pub entity_ids_source: ::core::option::Option<entity_id_selector::EntityIdsSource>,
+}
+/// Nested message and enum types in `EntityIdSelector`.
+pub mod entity_id_selector {
+    /// Details about the source data, including the location of the storage and
+    /// the format.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum EntityIdsSource {
+        /// Source of Csv
+        #[prost(message, tag = "3")]
+        CsvSource(super::CsvSource),
+    }
+}
+/// Generated client implementations.
+pub mod featurestore_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// The service that handles CRUD and List for resources for Featurestore.
+    #[derive(Debug, Clone)]
+    pub struct FeaturestoreServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> FeaturestoreServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> FeaturestoreServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            FeaturestoreServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Creates a new Featurestore in a given project and location.
+        pub async fn create_featurestore(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateFeaturestoreRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/CreateFeaturestore",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "CreateFeaturestore",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets details of a single Featurestore.
+        pub async fn get_featurestore(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetFeaturestoreRequest>,
+        ) -> std::result::Result<tonic::Response<super::Featurestore>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/GetFeaturestore",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "GetFeaturestore",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists Featurestores in a given project and location.
+        pub async fn list_featurestores(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListFeaturestoresRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListFeaturestoresResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/ListFeaturestores",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "ListFeaturestores",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates the parameters of a single Featurestore.
+        pub async fn update_featurestore(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateFeaturestoreRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/UpdateFeaturestore",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "UpdateFeaturestore",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a single Featurestore. The Featurestore must not contain any
+        /// EntityTypes or `force` must be set to true for the request to succeed.
+        pub async fn delete_featurestore(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteFeaturestoreRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/DeleteFeaturestore",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "DeleteFeaturestore",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a new EntityType in a given Featurestore.
+        pub async fn create_entity_type(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateEntityTypeRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/CreateEntityType",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "CreateEntityType",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets details of a single EntityType.
+        pub async fn get_entity_type(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetEntityTypeRequest>,
+        ) -> std::result::Result<tonic::Response<super::EntityType>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/GetEntityType",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "GetEntityType",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists EntityTypes in a given Featurestore.
+        pub async fn list_entity_types(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListEntityTypesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListEntityTypesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/ListEntityTypes",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "ListEntityTypes",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates the parameters of a single EntityType.
+        pub async fn update_entity_type(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateEntityTypeRequest>,
+        ) -> std::result::Result<tonic::Response<super::EntityType>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/UpdateEntityType",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "UpdateEntityType",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a single EntityType. The EntityType must not have any Features
+        /// or `force` must be set to true for the request to succeed.
+        pub async fn delete_entity_type(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteEntityTypeRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/DeleteEntityType",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "DeleteEntityType",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a new Feature in a given EntityType.
+        pub async fn create_feature(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateFeatureRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/CreateFeature",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "CreateFeature",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a batch of Features in a given EntityType.
+        pub async fn batch_create_features(
+            &mut self,
+            request: impl tonic::IntoRequest<super::BatchCreateFeaturesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/BatchCreateFeatures",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "BatchCreateFeatures",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets details of a single Feature.
+        pub async fn get_feature(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetFeatureRequest>,
+        ) -> std::result::Result<tonic::Response<super::Feature>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/GetFeature",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "GetFeature",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists Features in a given EntityType.
+        pub async fn list_features(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListFeaturesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListFeaturesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/ListFeatures",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "ListFeatures",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates the parameters of a single Feature.
+        pub async fn update_feature(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateFeatureRequest>,
+        ) -> std::result::Result<tonic::Response<super::Feature>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/UpdateFeature",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "UpdateFeature",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a single Feature.
+        pub async fn delete_feature(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteFeatureRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/DeleteFeature",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "DeleteFeature",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Imports Feature values into the Featurestore from a source storage.
+        ///
+        /// The progress of the import is tracked by the returned operation. The
+        /// imported features are guaranteed to be visible to subsequent read
+        /// operations after the operation is marked as successfully done.
+        ///
+        /// If an import operation fails, the Feature values returned from
+        /// reads and exports may be inconsistent. If consistency is
+        /// required, the caller must retry the same import request again and wait till
+        /// the new operation returned is marked as successfully done.
+        ///
+        /// There are also scenarios where the caller can cause inconsistency.
+        ///
+        ///  - Source data for import contains multiple distinct Feature values for
+        ///    the same entity ID and timestamp.
+        ///  - Source is modified during an import. This includes adding, updating, or
+        ///  removing source data and/or metadata. Examples of updating metadata
+        ///  include but are not limited to changing storage location, storage class,
+        ///  or retention policy.
+        ///  - Online serving cluster is under-provisioned.
+        pub async fn import_feature_values(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ImportFeatureValuesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/ImportFeatureValues",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "ImportFeatureValues",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Batch reads Feature values from a Featurestore.
+        ///
+        /// This API enables batch reading Feature values, where each read
+        /// instance in the batch may read Feature values of entities from one or
+        /// more EntityTypes. Point-in-time correctness is guaranteed for Feature
+        /// values of each read instance as of each instance's read timestamp.
+        pub async fn batch_read_feature_values(
+            &mut self,
+            request: impl tonic::IntoRequest<super::BatchReadFeatureValuesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/BatchReadFeatureValues",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "BatchReadFeatureValues",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Exports Feature values from all the entities of a target EntityType.
+        pub async fn export_feature_values(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ExportFeatureValuesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/ExportFeatureValues",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "ExportFeatureValues",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Delete Feature values from Featurestore.
+        ///
+        /// The progress of the deletion is tracked by the returned operation. The
+        /// deleted feature values are guaranteed to be invisible to subsequent read
+        /// operations after the operation is marked as successfully done.
+        ///
+        /// If a delete feature values operation fails, the feature values
+        /// returned from reads and exports may be inconsistent. If consistency is
+        /// required, the caller must retry the same delete request again and wait till
+        /// the new operation returned is marked as successfully done.
+        pub async fn delete_feature_values(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteFeatureValuesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/DeleteFeatureValues",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "DeleteFeatureValues",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Searches Features matching a query in a given project.
+        pub async fn search_features(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SearchFeaturesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::SearchFeaturesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/SearchFeatures",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+                        "SearchFeatures",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Request message for
+/// \[FeatureRegistryService.CreateFeatureGroup][google.cloud.aiplatform.v1beta1.FeatureRegistryService.CreateFeatureGroup\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateFeatureGroupRequest {
+    /// Required. The resource name of the Location to create FeatureGroups.
+    /// Format:
+    /// `projects/{project}/locations/{location}'`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The FeatureGroup to create.
+    #[prost(message, optional, tag = "2")]
+    pub feature_group: ::core::option::Option<FeatureGroup>,
+    /// Required. The ID to use for this FeatureGroup, which will become the final
+    /// component of the FeatureGroup's resource name.
+    ///
+    /// This value may be up to 60 characters, and valid characters are
+    /// `\[a-z0-9_\]`. The first character cannot be a number.
+    ///
+    /// The value must be unique within the project and location.
+    #[prost(string, tag = "3")]
+    pub feature_group_id: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeatureRegistryService.GetFeatureGroup][google.cloud.aiplatform.v1beta1.FeatureRegistryService.GetFeatureGroup\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetFeatureGroupRequest {
+    /// Required. The name of the FeatureGroup resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeatureRegistryService.ListFeatureGroups][google.cloud.aiplatform.v1beta1.FeatureRegistryService.ListFeatureGroups\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListFeatureGroupsRequest {
+    /// Required. The resource name of the Location to list FeatureGroups.
+    /// Format:
+    /// `projects/{project}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Lists the FeatureGroups that match the filter expression. The
+    /// following fields are supported:
+    ///
+    /// * `create_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons.
+    /// Values must be
+    ///    in RFC 3339 format.
+    /// * `update_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons.
+    /// Values must be
+    ///    in RFC 3339 format.
+    /// * `labels`: Supports key-value equality and key presence.
+    ///
+    /// Examples:
+    ///
+    /// * `create_time > "2020-01-01" OR update_time > "2020-01-01"`
+    ///     FeatureGroups created or updated after 2020-01-01.
+    /// * `labels.env = "prod"`
+    ///     FeatureGroups with label "env" set to "prod".
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// The maximum number of FeatureGroups to return. The service may return
+    /// fewer than this value. If unspecified, at most 100 FeatureGroups will
+    /// be returned. The maximum value is 100; any value greater than 100 will be
+    /// coerced to 100.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// A page token, received from a previous
+    /// \[FeatureGroupAdminService.ListFeatureGroups][\] call.
+    /// Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to
+    /// \[FeatureGroupAdminService.ListFeatureGroups][\] must
+    /// match the call that provided the page token.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+    /// A comma-separated list of fields to order by, sorted in ascending order.
+    /// Use "desc" after a field name for descending.
+    /// Supported Fields:
+    ///
+    ///    * `create_time`
+    ///    * `update_time`
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// Response message for
+/// \[FeatureRegistryService.ListFeatureGroups][google.cloud.aiplatform.v1beta1.FeatureRegistryService.ListFeatureGroups\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListFeatureGroupsResponse {
+    /// The FeatureGroups matching the request.
+    #[prost(message, repeated, tag = "1")]
+    pub feature_groups: ::prost::alloc::vec::Vec<FeatureGroup>,
+    /// A token, which can be sent as
+    /// \[ListFeatureGroupsRequest.page_token][google.cloud.aiplatform.v1beta1.ListFeatureGroupsRequest.page_token\]
+    /// to retrieve the next page. If this field is omitted, there are no
+    /// subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeatureRegistryService.UpdateFeatureGroup][google.cloud.aiplatform.v1beta1.FeatureRegistryService.UpdateFeatureGroup\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateFeatureGroupRequest {
+    /// Required. The FeatureGroup's `name` field is used to identify the
+    /// FeatureGroup to be updated. Format:
+    /// `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+    #[prost(message, optional, tag = "1")]
+    pub feature_group: ::core::option::Option<FeatureGroup>,
+    /// Field mask is used to specify the fields to be overwritten in the
+    /// FeatureGroup resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then only the non-empty fields present in the
+    /// request will be overwritten. Set the update_mask to `*` to override all
+    /// fields.
+    ///
+    /// Updatable fields:
+    ///
+    ///    * `labels`
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Request message for
+/// \[FeatureRegistryService.DeleteFeatureGroup][google.cloud.aiplatform.v1beta1.FeatureRegistryService.DeleteFeatureGroup\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteFeatureGroupRequest {
+    /// Required. The name of the FeatureGroup to be deleted.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// If set to true, any Features under this FeatureGroup
+    /// will also be deleted. (Otherwise, the request will only work if the
+    /// FeatureGroup has no Features.)
+    #[prost(bool, tag = "2")]
+    pub force: bool,
+}
+/// Details of operations that perform create FeatureGroup.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateFeatureGroupOperationMetadata {
+    /// Operation metadata for FeatureGroup.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Details of operations that perform update FeatureGroup.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateFeatureGroupOperationMetadata {
+    /// Operation metadata for FeatureGroup.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Details of operations that perform create FeatureGroup.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateRegistryFeatureOperationMetadata {
+    /// Operation metadata for Feature.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Details of operations that perform update Feature.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateFeatureOperationMetadata {
+    /// Operation metadata for Feature Update.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Generated client implementations.
+pub mod feature_registry_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// The service that handles CRUD and List for resources for
+    /// FeatureRegistry.
+    #[derive(Debug, Clone)]
+    pub struct FeatureRegistryServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> FeatureRegistryServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> FeatureRegistryServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            FeatureRegistryServiceClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Creates a new FeatureGroup in a given project and location.
+        pub async fn create_feature_group(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateFeatureGroupRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureRegistryService/CreateFeatureGroup",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureRegistryService",
+                        "CreateFeatureGroup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets details of a single FeatureGroup.
+        pub async fn get_feature_group(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetFeatureGroupRequest>,
+        ) -> std::result::Result<tonic::Response<super::FeatureGroup>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureRegistryService/GetFeatureGroup",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureRegistryService",
+                        "GetFeatureGroup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists FeatureGroups in a given project and location.
+        pub async fn list_feature_groups(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListFeatureGroupsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListFeatureGroupsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureRegistryService/ListFeatureGroups",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureRegistryService",
+                        "ListFeatureGroups",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates the parameters of a single FeatureGroup.
+        pub async fn update_feature_group(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateFeatureGroupRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureRegistryService/UpdateFeatureGroup",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureRegistryService",
+                        "UpdateFeatureGroup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a single FeatureGroup.
+        pub async fn delete_feature_group(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteFeatureGroupRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureRegistryService/DeleteFeatureGroup",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureRegistryService",
+                        "DeleteFeatureGroup",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a new Feature in a given FeatureGroup.
+        pub async fn create_feature(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateFeatureRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureRegistryService/CreateFeature",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureRegistryService",
+                        "CreateFeature",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets details of a single Feature.
+        pub async fn get_feature(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetFeatureRequest>,
+        ) -> std::result::Result<tonic::Response<super::Feature>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureRegistryService/GetFeature",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureRegistryService",
+                        "GetFeature",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists Features in a given FeatureGroup.
+        pub async fn list_features(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListFeaturesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListFeaturesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureRegistryService/ListFeatures",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureRegistryService",
+                        "ListFeatures",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates the parameters of a single Feature.
+        pub async fn update_feature(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateFeatureRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureRegistryService/UpdateFeature",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureRegistryService",
+                        "UpdateFeature",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a single Feature.
+        pub async fn delete_feature(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteFeatureRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureRegistryService/DeleteFeature",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureRegistryService",
+                        "DeleteFeature",
                     ),
                 );
             self.inner.unary(req, path, codec).await
@@ -21958,444 +25567,6 @@ pub mod model_garden_service_client {
         }
     }
 }
-/// Matcher for Features of an EntityType by Feature ID.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct IdMatcher {
-    /// Required. The following are accepted as `ids`:
-    ///
-    ///   * A single-element list containing only `*`, which selects all Features
-    ///   in the target EntityType, or
-    ///   * A list containing only Feature IDs, which selects only Features with
-    ///   those IDs in the target EntityType.
-    #[prost(string, repeated, tag = "1")]
-    pub ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Selector for Features of an EntityType.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FeatureSelector {
-    /// Required. Matches Features based on ID.
-    #[prost(message, optional, tag = "1")]
-    pub id_matcher: ::core::option::Option<IdMatcher>,
-}
-/// Request message for
-/// \[FeaturestoreOnlineServingService.WriteFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService.WriteFeatureValues\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WriteFeatureValuesRequest {
-    /// Required. The resource name of the EntityType for the entities being
-    /// written. Value format:
-    /// `projects/{project}/locations/{location}/featurestores/
-    /// {featurestore}/entityTypes/{entityType}`. For example,
-    /// for a machine learning model predicting user clicks on a website, an
-    /// EntityType ID could be `user`.
-    #[prost(string, tag = "1")]
-    pub entity_type: ::prost::alloc::string::String,
-    /// Required. The entities to be written. Up to 100,000 feature values can be
-    /// written across all `payloads`.
-    #[prost(message, repeated, tag = "2")]
-    pub payloads: ::prost::alloc::vec::Vec<WriteFeatureValuesPayload>,
-}
-/// Contains Feature values to be written for a specific entity.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WriteFeatureValuesPayload {
-    /// Required. The ID of the entity.
-    #[prost(string, tag = "1")]
-    pub entity_id: ::prost::alloc::string::String,
-    /// Required. Feature values to be written, mapping from Feature ID to value.
-    /// Up to 100,000 `feature_values` entries may be written across all payloads.
-    /// The feature generation time, aligned by days, must be no older than five
-    /// years (1825 days) and no later than one year (366 days) in the future.
-    #[prost(btree_map = "string, message", tag = "2")]
-    pub feature_values: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        FeatureValue,
-    >,
-}
-/// Response message for
-/// \[FeaturestoreOnlineServingService.WriteFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService.WriteFeatureValues\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WriteFeatureValuesResponse {}
-/// Request message for
-/// \[FeaturestoreOnlineServingService.ReadFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService.ReadFeatureValues\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ReadFeatureValuesRequest {
-    /// Required. The resource name of the EntityType for the entity being read.
-    /// Value format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entityType}`.
-    /// For example, for a machine learning model predicting user clicks on a
-    /// website, an EntityType ID could be `user`.
-    #[prost(string, tag = "1")]
-    pub entity_type: ::prost::alloc::string::String,
-    /// Required. ID for a specific entity. For example,
-    /// for a machine learning model predicting user clicks on a website, an entity
-    /// ID could be `user_123`.
-    #[prost(string, tag = "2")]
-    pub entity_id: ::prost::alloc::string::String,
-    /// Required. Selector choosing Features of the target EntityType.
-    #[prost(message, optional, tag = "3")]
-    pub feature_selector: ::core::option::Option<FeatureSelector>,
-}
-/// Response message for
-/// \[FeaturestoreOnlineServingService.ReadFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService.ReadFeatureValues\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ReadFeatureValuesResponse {
-    /// Response header.
-    #[prost(message, optional, tag = "1")]
-    pub header: ::core::option::Option<read_feature_values_response::Header>,
-    /// Entity view with Feature values. This may be the entity in the
-    /// Featurestore if values for all Features were requested, or a projection
-    /// of the entity in the Featurestore if values for only some Features were
-    /// requested.
-    #[prost(message, optional, tag = "2")]
-    pub entity_view: ::core::option::Option<read_feature_values_response::EntityView>,
-}
-/// Nested message and enum types in `ReadFeatureValuesResponse`.
-pub mod read_feature_values_response {
-    /// Metadata for requested Features.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct FeatureDescriptor {
-        /// Feature ID.
-        #[prost(string, tag = "1")]
-        pub id: ::prost::alloc::string::String,
-    }
-    /// Response header with metadata for the requested
-    /// \[ReadFeatureValuesRequest.entity_type][google.cloud.aiplatform.v1beta1.ReadFeatureValuesRequest.entity_type\]
-    /// and Features.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Header {
-        /// The resource name of the EntityType from the
-        /// \[ReadFeatureValuesRequest][google.cloud.aiplatform.v1beta1.ReadFeatureValuesRequest\].
-        /// Value format:
-        /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entityType}`.
-        #[prost(string, tag = "1")]
-        pub entity_type: ::prost::alloc::string::String,
-        /// List of Feature metadata corresponding to each piece of
-        /// \[ReadFeatureValuesResponse.EntityView.data][google.cloud.aiplatform.v1beta1.ReadFeatureValuesResponse.EntityView.data\].
-        #[prost(message, repeated, tag = "2")]
-        pub feature_descriptors: ::prost::alloc::vec::Vec<FeatureDescriptor>,
-    }
-    /// Entity view with Feature values.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct EntityView {
-        /// ID of the requested entity.
-        #[prost(string, tag = "1")]
-        pub entity_id: ::prost::alloc::string::String,
-        /// Each piece of data holds the k
-        /// requested values for one requested Feature. If no values
-        /// for the requested Feature exist, the corresponding cell will be empty.
-        /// This has the same size and is in the same order as the features from the
-        /// header
-        /// \[ReadFeatureValuesResponse.header][google.cloud.aiplatform.v1beta1.ReadFeatureValuesResponse.header\].
-        #[prost(message, repeated, tag = "2")]
-        pub data: ::prost::alloc::vec::Vec<entity_view::Data>,
-    }
-    /// Nested message and enum types in `EntityView`.
-    pub mod entity_view {
-        /// Container to hold value(s), successive in time, for one Feature from the
-        /// request.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct Data {
-            #[prost(oneof = "data::Data", tags = "1, 2")]
-            pub data: ::core::option::Option<data::Data>,
-        }
-        /// Nested message and enum types in `Data`.
-        pub mod data {
-            #[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Oneof)]
-            pub enum Data {
-                /// Feature value if a single value is requested.
-                #[prost(message, tag = "1")]
-                Value(super::super::super::FeatureValue),
-                /// Feature values list if values, successive in time, are requested.
-                /// If the requested number of values is greater than the number of
-                /// existing Feature values, nonexistent values are omitted instead of
-                /// being returned as empty.
-                #[prost(message, tag = "2")]
-                Values(super::super::super::FeatureValueList),
-            }
-        }
-    }
-}
-/// Request message for
-/// \[FeaturestoreOnlineServingService.StreamingFeatureValuesRead][\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StreamingReadFeatureValuesRequest {
-    /// Required. The resource name of the entities' type.
-    /// Value format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entityType}`.
-    /// For example,
-    /// for a machine learning model predicting user clicks on a website, an
-    /// EntityType ID could be `user`.
-    #[prost(string, tag = "1")]
-    pub entity_type: ::prost::alloc::string::String,
-    /// Required. IDs of entities to read Feature values of. The maximum number of
-    /// IDs is 100. For example, for a machine learning model predicting user
-    /// clicks on a website, an entity ID could be `user_123`.
-    #[prost(string, repeated, tag = "2")]
-    pub entity_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Required. Selector choosing Features of the target EntityType. Feature IDs
-    /// will be deduplicated.
-    #[prost(message, optional, tag = "3")]
-    pub feature_selector: ::core::option::Option<FeatureSelector>,
-}
-/// Value for a feature.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FeatureValue {
-    /// Metadata of feature value.
-    #[prost(message, optional, tag = "14")]
-    pub metadata: ::core::option::Option<feature_value::Metadata>,
-    /// Value for the feature.
-    #[prost(oneof = "feature_value::Value", tags = "1, 2, 5, 6, 7, 8, 11, 12, 13")]
-    pub value: ::core::option::Option<feature_value::Value>,
-}
-/// Nested message and enum types in `FeatureValue`.
-pub mod feature_value {
-    /// Metadata of feature value.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Metadata {
-        /// Feature generation timestamp. Typically, it is provided by user at
-        /// feature ingestion time. If not, feature store
-        /// will use the system timestamp when the data is ingested into feature
-        /// store. For streaming ingestion, the time, aligned by days, must be no
-        /// older than five years (1825 days) and no later than one year (366 days)
-        /// in the future.
-        #[prost(message, optional, tag = "1")]
-        pub generate_time: ::core::option::Option<::prost_types::Timestamp>,
-    }
-    /// Value for the feature.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Value {
-        /// Bool type feature value.
-        #[prost(bool, tag = "1")]
-        BoolValue(bool),
-        /// Double type feature value.
-        #[prost(double, tag = "2")]
-        DoubleValue(f64),
-        /// Int64 feature value.
-        #[prost(int64, tag = "5")]
-        Int64Value(i64),
-        /// String feature value.
-        #[prost(string, tag = "6")]
-        StringValue(::prost::alloc::string::String),
-        /// A list of bool type feature value.
-        #[prost(message, tag = "7")]
-        BoolArrayValue(super::BoolArray),
-        /// A list of double type feature value.
-        #[prost(message, tag = "8")]
-        DoubleArrayValue(super::DoubleArray),
-        /// A list of int64 type feature value.
-        #[prost(message, tag = "11")]
-        Int64ArrayValue(super::Int64Array),
-        /// A list of string type feature value.
-        #[prost(message, tag = "12")]
-        StringArrayValue(super::StringArray),
-        /// Bytes feature value.
-        #[prost(bytes, tag = "13")]
-        BytesValue(::prost::bytes::Bytes),
-    }
-}
-/// Container for list of values.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FeatureValueList {
-    /// A list of feature values. All of them should be the same data type.
-    #[prost(message, repeated, tag = "1")]
-    pub values: ::prost::alloc::vec::Vec<FeatureValue>,
-}
-/// Generated client implementations.
-pub mod featurestore_online_serving_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// A service for serving online feature values.
-    #[derive(Debug, Clone)]
-    pub struct FeaturestoreOnlineServingServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> FeaturestoreOnlineServingServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> FeaturestoreOnlineServingServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            FeaturestoreOnlineServingServiceClient::new(
-                InterceptedService::new(inner, interceptor),
-            )
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Reads Feature values of a specific entity of an EntityType. For reading
-        /// feature values of multiple entities of an EntityType, please use
-        /// StreamingReadFeatureValues.
-        pub async fn read_feature_values(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ReadFeatureValuesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ReadFeatureValuesResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService/ReadFeatureValues",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService",
-                        "ReadFeatureValues",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Reads Feature values for multiple entities. Depending on their size, data
-        /// for different entities may be broken
-        /// up across multiple responses.
-        pub async fn streaming_read_feature_values(
-            &mut self,
-            request: impl tonic::IntoRequest<super::StreamingReadFeatureValuesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<tonic::codec::Streaming<super::ReadFeatureValuesResponse>>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService/StreamingReadFeatureValues",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService",
-                        "StreamingReadFeatureValues",
-                    ),
-                );
-            self.inner.server_streaming(req, path, codec).await
-        }
-        /// Writes Feature values of one or more entities of an EntityType.
-        ///
-        /// The Feature values are merged into existing entities if any. The Feature
-        /// values to be written must have timestamp within the online storage
-        /// retention.
-        pub async fn write_feature_values(
-            &mut self,
-            request: impl tonic::IntoRequest<super::WriteFeatureValuesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::WriteFeatureValuesResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService/WriteFeatureValues",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreOnlineServingService",
-                        "WriteFeatureValues",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
 /// Tensorboard is a physical database that stores users' training metrics.
 /// A default Tensorboard is provided in each region of a Google Cloud project.
 /// If needed users can also create extra Tensorboards in their projects.
@@ -23683,2109 +26854,6 @@ pub mod dataset_service_client {
         }
     }
 }
-/// Vertex AI Feature Store provides a centralized repository for organizing,
-/// storing, and serving ML features. The Featurestore is a top-level container
-/// for your features and their values.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Featurestore {
-    /// Output only. Name of the Featurestore. Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Timestamp when this Featurestore was created.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Timestamp when this Featurestore was last updated.
-    #[prost(message, optional, tag = "4")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Optional. Used to perform consistent read-modify-write updates. If not set,
-    /// a blind "overwrite" update happens.
-    #[prost(string, tag = "5")]
-    pub etag: ::prost::alloc::string::String,
-    /// Optional. The labels with user-defined metadata to organize your
-    /// Featurestore.
-    ///
-    /// Label keys and values can be no longer than 64 characters
-    /// (Unicode codepoints), can only contain lowercase letters, numeric
-    /// characters, underscores and dashes. International characters are allowed.
-    ///
-    /// See <https://goo.gl/xmQnxf> for more information on and examples of labels.
-    /// No more than 64 user labels can be associated with one Featurestore(System
-    /// labels are excluded)."
-    /// System reserved label keys are prefixed with "aiplatform.googleapis.com/"
-    /// and are immutable.
-    #[prost(btree_map = "string, string", tag = "6")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Optional. Config for online storage resources. The field should not
-    /// co-exist with the field of `OnlineStoreReplicationConfig`. If both of it
-    /// and OnlineStoreReplicationConfig are unset, the feature store will not have
-    /// an online store and cannot be used for online serving.
-    #[prost(message, optional, tag = "7")]
-    pub online_serving_config: ::core::option::Option<featurestore::OnlineServingConfig>,
-    /// Output only. State of the featurestore.
-    #[prost(enumeration = "featurestore::State", tag = "8")]
-    pub state: i32,
-    /// Optional. TTL in days for feature values that will be stored in online
-    /// serving storage. The Feature Store online storage periodically removes
-    /// obsolete feature values older than `online_storage_ttl_days` since the
-    /// feature generation time. Note that `online_storage_ttl_days` should be less
-    /// than or equal to `offline_storage_ttl_days` for each EntityType under a
-    /// featurestore. If not set, default to 4000 days
-    #[prost(int32, tag = "13")]
-    pub online_storage_ttl_days: i32,
-    /// Optional. Customer-managed encryption key spec for data storage. If set,
-    /// both of the online and offline data storage will be secured by this key.
-    #[prost(message, optional, tag = "10")]
-    pub encryption_spec: ::core::option::Option<EncryptionSpec>,
-}
-/// Nested message and enum types in `Featurestore`.
-pub mod featurestore {
-    /// OnlineServingConfig specifies the details for provisioning online serving
-    /// resources.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct OnlineServingConfig {
-        /// The number of nodes for the online store. The number of nodes doesn't
-        /// scale automatically, but you can manually update the number of
-        /// nodes. If set to 0, the featurestore will not have an
-        /// online store and cannot be used for online serving.
-        #[prost(int32, tag = "2")]
-        pub fixed_node_count: i32,
-        /// Online serving scaling configuration.
-        /// Only one of `fixed_node_count` and `scaling` can be set. Setting one will
-        /// reset the other.
-        #[prost(message, optional, tag = "4")]
-        pub scaling: ::core::option::Option<online_serving_config::Scaling>,
-    }
-    /// Nested message and enum types in `OnlineServingConfig`.
-    pub mod online_serving_config {
-        /// Online serving scaling configuration. If min_node_count and
-        /// max_node_count are set to the same value, the cluster will be configured
-        /// with the fixed number of node (no auto-scaling).
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct Scaling {
-            /// Required. The minimum number of nodes to scale down to. Must be greater
-            /// than or equal to 1.
-            #[prost(int32, tag = "1")]
-            pub min_node_count: i32,
-            /// The maximum number of nodes to scale up to. Must be greater than
-            /// min_node_count, and less than or equal to 10 times of 'min_node_count'.
-            #[prost(int32, tag = "2")]
-            pub max_node_count: i32,
-            /// Optional. The cpu utilization that the Autoscaler should be trying to
-            /// achieve. This number is on a scale from 0 (no utilization) to 100
-            /// (total utilization), and is limited between 10 and 80. When a cluster's
-            /// CPU utilization exceeds the target that you have set, Bigtable
-            /// immediately adds nodes to the cluster. When CPU utilization is
-            /// substantially lower than the target, Bigtable removes nodes. If not set
-            /// or set to 0, default to 50.
-            #[prost(int32, tag = "3")]
-            pub cpu_utilization_target: i32,
-        }
-    }
-    /// Possible states a featurestore can have.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Default value. This value is unused.
-        Unspecified = 0,
-        /// State when the featurestore configuration is not being updated and the
-        /// fields reflect the current configuration of the featurestore. The
-        /// featurestore is usable in this state.
-        Stable = 1,
-        /// The state of the featurestore configuration when it is being updated.
-        /// During an update, the fields reflect either the original configuration
-        /// or the updated configuration of the featurestore. For example,
-        /// `online_serving_config.fixed_node_count` can take minutes to update.
-        /// While the update is in progress, the featurestore is in the UPDATING
-        /// state, and the value of `fixed_node_count` can be the original value or
-        /// the updated value, depending on the progress of the operation. Until the
-        /// update completes, the actual number of nodes can still be the original
-        /// value of `fixed_node_count`. The featurestore is still usable in this
-        /// state.
-        Updating = 2,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Stable => "STABLE",
-                State::Updating => "UPDATING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "STABLE" => Some(Self::Stable),
-                "UPDATING" => Some(Self::Updating),
-                _ => None,
-            }
-        }
-    }
-}
-/// Request message for
-/// \[FeaturestoreService.CreateFeaturestore][google.cloud.aiplatform.v1beta1.FeaturestoreService.CreateFeaturestore\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateFeaturestoreRequest {
-    /// Required. The resource name of the Location to create Featurestores.
-    /// Format:
-    /// `projects/{project}/locations/{location}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The Featurestore to create.
-    #[prost(message, optional, tag = "2")]
-    pub featurestore: ::core::option::Option<Featurestore>,
-    /// Required. The ID to use for this Featurestore, which will become the final
-    /// component of the Featurestore's resource name.
-    ///
-    /// This value may be up to 60 characters, and valid characters are
-    /// `\[a-z0-9_\]`. The first character cannot be a number.
-    ///
-    /// The value must be unique within the project and location.
-    #[prost(string, tag = "3")]
-    pub featurestore_id: ::prost::alloc::string::String,
-}
-/// Request message for
-/// \[FeaturestoreService.GetFeaturestore][google.cloud.aiplatform.v1beta1.FeaturestoreService.GetFeaturestore\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetFeaturestoreRequest {
-    /// Required. The name of the Featurestore resource.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request message for
-/// \[FeaturestoreService.ListFeaturestores][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeaturestores\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListFeaturestoresRequest {
-    /// Required. The resource name of the Location to list Featurestores.
-    /// Format:
-    /// `projects/{project}/locations/{location}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Lists the featurestores that match the filter expression. The following
-    /// fields are supported:
-    ///
-    /// * `create_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons.
-    /// Values must be
-    ///    in RFC 3339 format.
-    /// * `update_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons.
-    /// Values must be
-    ///    in RFC 3339 format.
-    /// * `online_serving_config.fixed_node_count`: Supports `=`, `!=`, `<`, `>`,
-    /// `<=`, and `>=` comparisons.
-    /// * `labels`: Supports key-value equality and key presence.
-    ///
-    /// Examples:
-    ///
-    /// * `create_time > "2020-01-01" OR update_time > "2020-01-01"`
-    ///     Featurestores created or updated after 2020-01-01.
-    /// * `labels.env = "prod"`
-    ///     Featurestores with label "env" set to "prod".
-    #[prost(string, tag = "2")]
-    pub filter: ::prost::alloc::string::String,
-    /// The maximum number of Featurestores to return. The service may return fewer
-    /// than this value. If unspecified, at most 100 Featurestores will be
-    /// returned. The maximum value is 100; any value greater than 100 will be
-    /// coerced to 100.
-    #[prost(int32, tag = "3")]
-    pub page_size: i32,
-    /// A page token, received from a previous
-    /// \[FeaturestoreService.ListFeaturestores][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeaturestores\]
-    /// call. Provide this to retrieve the subsequent page.
-    ///
-    /// When paginating, all other parameters provided to
-    /// \[FeaturestoreService.ListFeaturestores][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeaturestores\]
-    /// must match the call that provided the page token.
-    #[prost(string, tag = "4")]
-    pub page_token: ::prost::alloc::string::String,
-    /// A comma-separated list of fields to order by, sorted in ascending order.
-    /// Use "desc" after a field name for descending.
-    /// Supported Fields:
-    ///
-    ///    * `create_time`
-    ///    * `update_time`
-    ///    * `online_serving_config.fixed_node_count`
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-    /// Mask specifying which fields to read.
-    #[prost(message, optional, tag = "6")]
-    pub read_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-/// Response message for
-/// \[FeaturestoreService.ListFeaturestores][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeaturestores\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListFeaturestoresResponse {
-    /// The Featurestores matching the request.
-    #[prost(message, repeated, tag = "1")]
-    pub featurestores: ::prost::alloc::vec::Vec<Featurestore>,
-    /// A token, which can be sent as
-    /// \[ListFeaturestoresRequest.page_token][google.cloud.aiplatform.v1beta1.ListFeaturestoresRequest.page_token\]
-    /// to retrieve the next page. If this field is omitted, there are no
-    /// subsequent pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Request message for
-/// \[FeaturestoreService.UpdateFeaturestore][google.cloud.aiplatform.v1beta1.FeaturestoreService.UpdateFeaturestore\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateFeaturestoreRequest {
-    /// Required. The Featurestore's `name` field is used to identify the
-    /// Featurestore to be updated. Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}`
-    #[prost(message, optional, tag = "1")]
-    pub featurestore: ::core::option::Option<Featurestore>,
-    /// Field mask is used to specify the fields to be overwritten in the
-    /// Featurestore resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then only the non-empty fields present in the
-    /// request will be overwritten. Set the update_mask to `*` to override all
-    /// fields.
-    ///
-    /// Updatable fields:
-    ///
-    ///    * `labels`
-    ///    * `online_serving_config.fixed_node_count`
-    ///    * `online_serving_config.scaling`
-    ///    * `online_storage_ttl_days`
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-/// Request message for
-/// \[FeaturestoreService.DeleteFeaturestore][google.cloud.aiplatform.v1beta1.FeaturestoreService.DeleteFeaturestore\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteFeaturestoreRequest {
-    /// Required. The name of the Featurestore to be deleted.
-    /// Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// If set to true, any EntityTypes and Features for this Featurestore will
-    /// also be deleted. (Otherwise, the request will only work if the Featurestore
-    /// has no EntityTypes.)
-    #[prost(bool, tag = "2")]
-    pub force: bool,
-}
-/// Request message for
-/// \[FeaturestoreService.ImportFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreService.ImportFeatureValues\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImportFeatureValuesRequest {
-    /// Required. The resource name of the EntityType grouping the Features for
-    /// which values are being imported. Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entityType}`
-    #[prost(string, tag = "1")]
-    pub entity_type: ::prost::alloc::string::String,
-    /// Source column that holds entity IDs. If not provided, entity IDs are
-    /// extracted from the column named entity_id.
-    #[prost(string, tag = "5")]
-    pub entity_id_field: ::prost::alloc::string::String,
-    /// Required. Specifications defining which Feature values to import from the
-    /// entity. The request fails if no feature_specs are provided, and having
-    /// multiple feature_specs for one Feature is not allowed.
-    #[prost(message, repeated, tag = "8")]
-    pub feature_specs: ::prost::alloc::vec::Vec<
-        import_feature_values_request::FeatureSpec,
-    >,
-    /// If set, data will not be imported for online serving. This
-    /// is typically used for backfilling, where Feature generation timestamps are
-    /// not in the timestamp range needed for online serving.
-    #[prost(bool, tag = "9")]
-    pub disable_online_serving: bool,
-    /// Specifies the number of workers that are used to write data to the
-    /// Featurestore. Consider the online serving capacity that you require to
-    /// achieve the desired import throughput without interfering with online
-    /// serving. The value must be positive, and less than or equal to 100.
-    /// If not set, defaults to using 1 worker. The low count ensures minimal
-    /// impact on online serving performance.
-    #[prost(int32, tag = "11")]
-    pub worker_count: i32,
-    /// If true, API doesn't start ingestion analysis pipeline.
-    #[prost(bool, tag = "12")]
-    pub disable_ingestion_analysis: bool,
-    /// Details about the source data, including the location of the storage and
-    /// the format.
-    #[prost(oneof = "import_feature_values_request::Source", tags = "2, 3, 4")]
-    pub source: ::core::option::Option<import_feature_values_request::Source>,
-    /// Source of Feature timestamp for all Feature values of each entity.
-    /// Timestamps must be millisecond-aligned.
-    #[prost(oneof = "import_feature_values_request::FeatureTimeSource", tags = "6, 7")]
-    pub feature_time_source: ::core::option::Option<
-        import_feature_values_request::FeatureTimeSource,
-    >,
-}
-/// Nested message and enum types in `ImportFeatureValuesRequest`.
-pub mod import_feature_values_request {
-    /// Defines the Feature value(s) to import.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct FeatureSpec {
-        /// Required. ID of the Feature to import values of. This Feature must exist
-        /// in the target EntityType, or the request will fail.
-        #[prost(string, tag = "1")]
-        pub id: ::prost::alloc::string::String,
-        /// Source column to get the Feature values from. If not set, uses the column
-        /// with the same name as the Feature ID.
-        #[prost(string, tag = "2")]
-        pub source_field: ::prost::alloc::string::String,
-    }
-    /// Details about the source data, including the location of the storage and
-    /// the format.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Source {
-        #[prost(message, tag = "2")]
-        AvroSource(super::AvroSource),
-        #[prost(message, tag = "3")]
-        BigquerySource(super::BigQuerySource),
-        #[prost(message, tag = "4")]
-        CsvSource(super::CsvSource),
-    }
-    /// Source of Feature timestamp for all Feature values of each entity.
-    /// Timestamps must be millisecond-aligned.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum FeatureTimeSource {
-        /// Source column that holds the Feature timestamp for all Feature
-        /// values in each entity.
-        #[prost(string, tag = "6")]
-        FeatureTimeField(::prost::alloc::string::String),
-        /// Single Feature timestamp for all entities being imported. The
-        /// timestamp must not have higher than millisecond precision.
-        #[prost(message, tag = "7")]
-        FeatureTime(::prost_types::Timestamp),
-    }
-}
-/// Response message for
-/// \[FeaturestoreService.ImportFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreService.ImportFeatureValues\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImportFeatureValuesResponse {
-    /// Number of entities that have been imported by the operation.
-    #[prost(int64, tag = "1")]
-    pub imported_entity_count: i64,
-    /// Number of Feature values that have been imported by the operation.
-    #[prost(int64, tag = "2")]
-    pub imported_feature_value_count: i64,
-    /// The number of rows in input source that weren't imported due to either
-    /// * Not having any featureValues.
-    /// * Having a null entityId.
-    /// * Having a null timestamp.
-    /// * Not being parsable (applicable for CSV sources).
-    #[prost(int64, tag = "6")]
-    pub invalid_row_count: i64,
-    /// The number rows that weren't ingested due to having feature timestamps
-    /// outside the retention boundary.
-    #[prost(int64, tag = "4")]
-    pub timestamp_outside_retention_rows_count: i64,
-}
-/// Request message for
-/// \[FeaturestoreService.BatchReadFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreService.BatchReadFeatureValues\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BatchReadFeatureValuesRequest {
-    /// Required. The resource name of the Featurestore from which to query Feature
-    /// values. Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}`
-    #[prost(string, tag = "1")]
-    pub featurestore: ::prost::alloc::string::String,
-    /// Required. Specifies output location and format.
-    #[prost(message, optional, tag = "4")]
-    pub destination: ::core::option::Option<FeatureValueDestination>,
-    /// When not empty, the specified fields in the *_read_instances source will be
-    /// joined as-is in the output, in addition to those fields from the
-    /// Featurestore Entity.
-    ///
-    /// For BigQuery source, the type of the pass-through values will be
-    /// automatically inferred. For CSV source, the pass-through values will be
-    /// passed as opaque bytes.
-    #[prost(message, repeated, tag = "8")]
-    pub pass_through_fields: ::prost::alloc::vec::Vec<
-        batch_read_feature_values_request::PassThroughField,
-    >,
-    /// Required. Specifies EntityType grouping Features to read values of and
-    /// settings.
-    #[prost(message, repeated, tag = "7")]
-    pub entity_type_specs: ::prost::alloc::vec::Vec<
-        batch_read_feature_values_request::EntityTypeSpec,
-    >,
-    /// Optional. Excludes Feature values with feature generation timestamp before
-    /// this timestamp. If not set, retrieve oldest values kept in Feature Store.
-    /// Timestamp, if present, must not have higher than millisecond precision.
-    #[prost(message, optional, tag = "11")]
-    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
-    #[prost(oneof = "batch_read_feature_values_request::ReadOption", tags = "3, 5")]
-    pub read_option: ::core::option::Option<
-        batch_read_feature_values_request::ReadOption,
-    >,
-}
-/// Nested message and enum types in `BatchReadFeatureValuesRequest`.
-pub mod batch_read_feature_values_request {
-    /// Describe pass-through fields in read_instance source.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct PassThroughField {
-        /// Required. The name of the field in the CSV header or the name of the
-        /// column in BigQuery table. The naming restriction is the same as
-        /// \[Feature.name][google.cloud.aiplatform.v1beta1.Feature.name\].
-        #[prost(string, tag = "1")]
-        pub field_name: ::prost::alloc::string::String,
-    }
-    /// Selects Features of an EntityType to read values of and specifies read
-    /// settings.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct EntityTypeSpec {
-        /// Required. ID of the EntityType to select Features. The EntityType id is
-        /// the
-        /// \[entity_type_id][google.cloud.aiplatform.v1beta1.CreateEntityTypeRequest.entity_type_id\]
-        /// specified during EntityType creation.
-        #[prost(string, tag = "1")]
-        pub entity_type_id: ::prost::alloc::string::String,
-        /// Required. Selectors choosing which Feature values to read from the
-        /// EntityType.
-        #[prost(message, optional, tag = "2")]
-        pub feature_selector: ::core::option::Option<super::FeatureSelector>,
-        /// Per-Feature settings for the batch read.
-        #[prost(message, repeated, tag = "3")]
-        pub settings: ::prost::alloc::vec::Vec<super::DestinationFeatureSetting>,
-    }
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum ReadOption {
-        /// Each read instance consists of exactly one read timestamp and one or more
-        /// entity IDs identifying entities of the corresponding EntityTypes whose
-        /// Features are requested.
-        ///
-        /// Each output instance contains Feature values of requested entities
-        /// concatenated together as of the read time.
-        ///
-        /// An example read instance may be `foo_entity_id, bar_entity_id,
-        /// 2020-01-01T10:00:00.123Z`.
-        ///
-        /// An example output instance may be `foo_entity_id, bar_entity_id,
-        /// 2020-01-01T10:00:00.123Z, foo_entity_feature1_value,
-        /// bar_entity_feature2_value`.
-        ///
-        /// Timestamp in each read instance must be millisecond-aligned.
-        ///
-        /// `csv_read_instances` are read instances stored in a plain-text CSV file.
-        /// The header should be:
-        ///      \[ENTITY_TYPE_ID1\], \[ENTITY_TYPE_ID2\], ..., timestamp
-        ///
-        /// The columns can be in any order.
-        ///
-        /// Values in the timestamp column must use the RFC 3339 format, e.g.
-        /// `2012-07-30T10:43:17.123Z`.
-        #[prost(message, tag = "3")]
-        CsvReadInstances(super::CsvSource),
-        /// Similar to csv_read_instances, but from BigQuery source.
-        #[prost(message, tag = "5")]
-        BigqueryReadInstances(super::BigQuerySource),
-    }
-}
-/// Request message for
-/// \[FeaturestoreService.ExportFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreService.ExportFeatureValues\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExportFeatureValuesRequest {
-    /// Required. The resource name of the EntityType from which to export Feature
-    /// values. Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
-    #[prost(string, tag = "1")]
-    pub entity_type: ::prost::alloc::string::String,
-    /// Required. Specifies destination location and format.
-    #[prost(message, optional, tag = "4")]
-    pub destination: ::core::option::Option<FeatureValueDestination>,
-    /// Required. Selects Features to export values of.
-    #[prost(message, optional, tag = "5")]
-    pub feature_selector: ::core::option::Option<FeatureSelector>,
-    /// Per-Feature export settings.
-    #[prost(message, repeated, tag = "6")]
-    pub settings: ::prost::alloc::vec::Vec<DestinationFeatureSetting>,
-    /// Required. The mode in which Feature values are exported.
-    #[prost(oneof = "export_feature_values_request::Mode", tags = "3, 7")]
-    pub mode: ::core::option::Option<export_feature_values_request::Mode>,
-}
-/// Nested message and enum types in `ExportFeatureValuesRequest`.
-pub mod export_feature_values_request {
-    /// Describes exporting the latest Feature values of all entities of the
-    /// EntityType between [start_time, snapshot_time].
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct SnapshotExport {
-        /// Exports Feature values as of this timestamp. If not set,
-        /// retrieve values as of now. Timestamp, if present, must not have higher
-        /// than millisecond precision.
-        #[prost(message, optional, tag = "1")]
-        pub snapshot_time: ::core::option::Option<::prost_types::Timestamp>,
-        /// Excludes Feature values with feature generation timestamp before this
-        /// timestamp. If not set, retrieve oldest values kept in Feature Store.
-        /// Timestamp, if present, must not have higher than millisecond precision.
-        #[prost(message, optional, tag = "2")]
-        pub start_time: ::core::option::Option<::prost_types::Timestamp>,
-    }
-    /// Describes exporting all historical Feature values of all entities of the
-    /// EntityType between [start_time, end_time].
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct FullExport {
-        /// Excludes Feature values with feature generation timestamp before this
-        /// timestamp. If not set, retrieve oldest values kept in Feature Store.
-        /// Timestamp, if present, must not have higher than millisecond precision.
-        #[prost(message, optional, tag = "2")]
-        pub start_time: ::core::option::Option<::prost_types::Timestamp>,
-        /// Exports Feature values as of this timestamp. If not set,
-        /// retrieve values as of now. Timestamp, if present, must not have higher
-        /// than millisecond precision.
-        #[prost(message, optional, tag = "1")]
-        pub end_time: ::core::option::Option<::prost_types::Timestamp>,
-    }
-    /// Required. The mode in which Feature values are exported.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Mode {
-        /// Exports the latest Feature values of all entities of the EntityType
-        /// within a time range.
-        #[prost(message, tag = "3")]
-        SnapshotExport(SnapshotExport),
-        /// Exports all historical values of all entities of the EntityType within a
-        /// time range
-        #[prost(message, tag = "7")]
-        FullExport(FullExport),
-    }
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DestinationFeatureSetting {
-    /// Required. The ID of the Feature to apply the setting to.
-    #[prost(string, tag = "1")]
-    pub feature_id: ::prost::alloc::string::String,
-    /// Specify the field name in the export destination. If not specified,
-    /// Feature ID is used.
-    #[prost(string, tag = "2")]
-    pub destination_field: ::prost::alloc::string::String,
-}
-/// A destination location for Feature values and format.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FeatureValueDestination {
-    #[prost(oneof = "feature_value_destination::Destination", tags = "1, 2, 3")]
-    pub destination: ::core::option::Option<feature_value_destination::Destination>,
-}
-/// Nested message and enum types in `FeatureValueDestination`.
-pub mod feature_value_destination {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Destination {
-        /// Output in BigQuery format.
-        /// \[BigQueryDestination.output_uri][google.cloud.aiplatform.v1beta1.BigQueryDestination.output_uri\]
-        /// in
-        /// \[FeatureValueDestination.bigquery_destination][google.cloud.aiplatform.v1beta1.FeatureValueDestination.bigquery_destination\]
-        /// must refer to a table.
-        #[prost(message, tag = "1")]
-        BigqueryDestination(super::BigQueryDestination),
-        /// Output in TFRecord format.
-        ///
-        /// Below are the mapping from Feature value type
-        /// in Featurestore to Feature value type in TFRecord:
-        ///
-        ///      Value type in Featurestore                 | Value type in TFRecord
-        ///      DOUBLE, DOUBLE_ARRAY                       | FLOAT_LIST
-        ///      INT64, INT64_ARRAY                         | INT64_LIST
-        ///      STRING, STRING_ARRAY, BYTES                | BYTES_LIST
-        ///      true -> byte_string("true"), false -> byte_string("false")
-        ///      BOOL, BOOL_ARRAY (true, false)             | BYTES_LIST
-        #[prost(message, tag = "2")]
-        TfrecordDestination(super::TfRecordDestination),
-        /// Output in CSV format. Array Feature value types are not allowed in CSV
-        /// format.
-        #[prost(message, tag = "3")]
-        CsvDestination(super::CsvDestination),
-    }
-}
-/// Response message for
-/// \[FeaturestoreService.ExportFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreService.ExportFeatureValues\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExportFeatureValuesResponse {}
-/// Response message for
-/// \[FeaturestoreService.BatchReadFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreService.BatchReadFeatureValues\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BatchReadFeatureValuesResponse {}
-/// Request message for
-/// \[FeaturestoreService.CreateEntityType][google.cloud.aiplatform.v1beta1.FeaturestoreService.CreateEntityType\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateEntityTypeRequest {
-    /// Required. The resource name of the Featurestore to create EntityTypes.
-    /// Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The EntityType to create.
-    #[prost(message, optional, tag = "2")]
-    pub entity_type: ::core::option::Option<EntityType>,
-    /// Required. The ID to use for the EntityType, which will become the final
-    /// component of the EntityType's resource name.
-    ///
-    /// This value may be up to 60 characters, and valid characters are
-    /// `\[a-z0-9_\]`. The first character cannot be a number.
-    ///
-    /// The value must be unique within a featurestore.
-    #[prost(string, tag = "3")]
-    pub entity_type_id: ::prost::alloc::string::String,
-}
-/// Request message for
-/// \[FeaturestoreService.GetEntityType][google.cloud.aiplatform.v1beta1.FeaturestoreService.GetEntityType\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetEntityTypeRequest {
-    /// Required. The name of the EntityType resource.
-    /// Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request message for
-/// \[FeaturestoreService.ListEntityTypes][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListEntityTypes\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListEntityTypesRequest {
-    /// Required. The resource name of the Featurestore to list EntityTypes.
-    /// Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Lists the EntityTypes that match the filter expression. The following
-    /// filters are supported:
-    ///
-    /// * `create_time`: Supports `=`, `!=`, `<`, `>`, `>=`, and `<=` comparisons.
-    /// Values must be in RFC 3339 format.
-    /// * `update_time`: Supports `=`, `!=`, `<`, `>`, `>=`, and `<=` comparisons.
-    /// Values must be in RFC 3339 format.
-    /// * `labels`: Supports key-value equality as well as key presence.
-    ///
-    /// Examples:
-    ///
-    /// * `create_time > \"2020-01-31T15:30:00.000000Z\" OR
-    ///       update_time > \"2020-01-31T15:30:00.000000Z\"` --> EntityTypes created
-    ///       or updated after 2020-01-31T15:30:00.000000Z.
-    /// * `labels.active = yes AND labels.env = prod` --> EntityTypes having both
-    ///      (active: yes) and (env: prod) labels.
-    /// * `labels.env: *` --> Any EntityType which has a label with 'env' as the
-    ///    key.
-    #[prost(string, tag = "2")]
-    pub filter: ::prost::alloc::string::String,
-    /// The maximum number of EntityTypes to return. The service may return fewer
-    /// than this value. If unspecified, at most 1000 EntityTypes will be returned.
-    /// The maximum value is 1000; any value greater than 1000 will be coerced to
-    /// 1000.
-    #[prost(int32, tag = "3")]
-    pub page_size: i32,
-    /// A page token, received from a previous
-    /// \[FeaturestoreService.ListEntityTypes][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListEntityTypes\]
-    /// call. Provide this to retrieve the subsequent page.
-    ///
-    /// When paginating, all other parameters provided to
-    /// \[FeaturestoreService.ListEntityTypes][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListEntityTypes\]
-    /// must match the call that provided the page token.
-    #[prost(string, tag = "4")]
-    pub page_token: ::prost::alloc::string::String,
-    /// A comma-separated list of fields to order by, sorted in ascending order.
-    /// Use "desc" after a field name for descending.
-    ///
-    /// Supported fields:
-    ///
-    ///    * `entity_type_id`
-    ///    * `create_time`
-    ///    * `update_time`
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-    /// Mask specifying which fields to read.
-    #[prost(message, optional, tag = "6")]
-    pub read_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-/// Response message for
-/// \[FeaturestoreService.ListEntityTypes][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListEntityTypes\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListEntityTypesResponse {
-    /// The EntityTypes matching the request.
-    #[prost(message, repeated, tag = "1")]
-    pub entity_types: ::prost::alloc::vec::Vec<EntityType>,
-    /// A token, which can be sent as
-    /// \[ListEntityTypesRequest.page_token][google.cloud.aiplatform.v1beta1.ListEntityTypesRequest.page_token\]
-    /// to retrieve the next page. If this field is omitted, there are no
-    /// subsequent pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Request message for
-/// \[FeaturestoreService.UpdateEntityType][google.cloud.aiplatform.v1beta1.FeaturestoreService.UpdateEntityType\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateEntityTypeRequest {
-    /// Required. The EntityType's `name` field is used to identify the EntityType
-    /// to be updated. Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
-    #[prost(message, optional, tag = "1")]
-    pub entity_type: ::core::option::Option<EntityType>,
-    /// Field mask is used to specify the fields to be overwritten in the
-    /// EntityType resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then only the non-empty fields present in the
-    /// request will be overwritten. Set the update_mask to `*` to override all
-    /// fields.
-    ///
-    /// Updatable fields:
-    ///
-    ///    * `description`
-    ///    * `labels`
-    ///    * `monitoring_config.snapshot_analysis.disabled`
-    ///    * `monitoring_config.snapshot_analysis.monitoring_interval_days`
-    ///    * `monitoring_config.snapshot_analysis.staleness_days`
-    ///    * `monitoring_config.import_features_analysis.state`
-    ///    * `monitoring_config.import_features_analysis.anomaly_detection_baseline`
-    ///    * `monitoring_config.numerical_threshold_config.value`
-    ///    * `monitoring_config.categorical_threshold_config.value`
-    ///    * `offline_storage_ttl_days`
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-/// Request message for \[FeaturestoreService.DeleteEntityTypes][\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteEntityTypeRequest {
-    /// Required. The name of the EntityType to be deleted.
-    /// Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// If set to true, any Features for this EntityType will also be deleted.
-    /// (Otherwise, the request will only work if the EntityType has no Features.)
-    #[prost(bool, tag = "2")]
-    pub force: bool,
-}
-/// Request message for
-/// \[FeaturestoreService.CreateFeature][google.cloud.aiplatform.v1beta1.FeaturestoreService.CreateFeature\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateFeatureRequest {
-    /// Required. The resource name of the EntityType to create a Feature.
-    /// Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The Feature to create.
-    #[prost(message, optional, tag = "2")]
-    pub feature: ::core::option::Option<Feature>,
-    /// Required. The ID to use for the Feature, which will become the final
-    /// component of the Feature's resource name.
-    ///
-    /// This value may be up to 128 characters, and valid characters are
-    /// `\[a-z0-9_\]`. The first character cannot be a number.
-    ///
-    /// The value must be unique within an EntityType.
-    #[prost(string, tag = "3")]
-    pub feature_id: ::prost::alloc::string::String,
-}
-/// Request message for
-/// \[FeaturestoreService.BatchCreateFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.BatchCreateFeatures\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BatchCreateFeaturesRequest {
-    /// Required. The resource name of the EntityType to create the batch of
-    /// Features under. Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The request message specifying the Features to create. All
-    /// Features must be created under the same parent EntityType. The `parent`
-    /// field in each child request message can be omitted. If `parent` is set in a
-    /// child request, then the value must match the `parent` value in this request
-    /// message.
-    #[prost(message, repeated, tag = "2")]
-    pub requests: ::prost::alloc::vec::Vec<CreateFeatureRequest>,
-}
-/// Response message for
-/// \[FeaturestoreService.BatchCreateFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.BatchCreateFeatures\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BatchCreateFeaturesResponse {
-    /// The Features created.
-    #[prost(message, repeated, tag = "1")]
-    pub features: ::prost::alloc::vec::Vec<Feature>,
-}
-/// Request message for
-/// \[FeaturestoreService.GetFeature][google.cloud.aiplatform.v1beta1.FeaturestoreService.GetFeature\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetFeatureRequest {
-    /// Required. The name of the Feature resource.
-    /// Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request message for
-/// \[FeaturestoreService.ListFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeatures\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListFeaturesRequest {
-    /// Required. The resource name of the Location to list Features.
-    /// Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Lists the Features that match the filter expression. The following
-    /// filters are supported:
-    ///
-    /// * `value_type`: Supports = and != comparisons.
-    /// * `create_time`: Supports =, !=, <, >, >=, and <= comparisons. Values must
-    /// be in RFC 3339 format.
-    /// * `update_time`: Supports =, !=, <, >, >=, and <= comparisons. Values must
-    /// be in RFC 3339 format.
-    /// * `labels`: Supports key-value equality as well as key presence.
-    ///
-    /// Examples:
-    ///
-    /// * `value_type = DOUBLE` --> Features whose type is DOUBLE.
-    /// * `create_time > \"2020-01-31T15:30:00.000000Z\" OR
-    ///       update_time > \"2020-01-31T15:30:00.000000Z\"` --> EntityTypes created
-    ///       or updated after 2020-01-31T15:30:00.000000Z.
-    /// * `labels.active = yes AND labels.env = prod` --> Features having both
-    ///      (active: yes) and (env: prod) labels.
-    /// * `labels.env: *` --> Any Feature which has a label with 'env' as the
-    ///    key.
-    #[prost(string, tag = "2")]
-    pub filter: ::prost::alloc::string::String,
-    /// The maximum number of Features to return. The service may return fewer
-    /// than this value. If unspecified, at most 1000 Features will be returned.
-    /// The maximum value is 1000; any value greater than 1000 will be coerced to
-    /// 1000.
-    #[prost(int32, tag = "3")]
-    pub page_size: i32,
-    /// A page token, received from a previous
-    /// \[FeaturestoreService.ListFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeatures\]
-    /// call. Provide this to retrieve the subsequent page.
-    ///
-    /// When paginating, all other parameters provided to
-    /// \[FeaturestoreService.ListFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeatures\]
-    /// must match the call that provided the page token.
-    #[prost(string, tag = "4")]
-    pub page_token: ::prost::alloc::string::String,
-    /// A comma-separated list of fields to order by, sorted in ascending order.
-    /// Use "desc" after a field name for descending.
-    /// Supported fields:
-    ///
-    ///    * `feature_id`
-    ///    * `value_type`
-    ///    * `create_time`
-    ///    * `update_time`
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-    /// Mask specifying which fields to read.
-    #[prost(message, optional, tag = "6")]
-    pub read_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// If set, return the most recent
-    /// \[ListFeaturesRequest.latest_stats_count][google.cloud.aiplatform.v1beta1.ListFeaturesRequest.latest_stats_count\]
-    /// of stats for each Feature in response. Valid value is [0, 10]. If number of
-    /// stats exists <
-    /// \[ListFeaturesRequest.latest_stats_count][google.cloud.aiplatform.v1beta1.ListFeaturesRequest.latest_stats_count\],
-    /// return all existing stats.
-    #[prost(int32, tag = "7")]
-    pub latest_stats_count: i32,
-}
-/// Response message for
-/// \[FeaturestoreService.ListFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.ListFeatures\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListFeaturesResponse {
-    /// The Features matching the request.
-    #[prost(message, repeated, tag = "1")]
-    pub features: ::prost::alloc::vec::Vec<Feature>,
-    /// A token, which can be sent as
-    /// \[ListFeaturesRequest.page_token][google.cloud.aiplatform.v1beta1.ListFeaturesRequest.page_token\]
-    /// to retrieve the next page. If this field is omitted, there are no
-    /// subsequent pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Request message for
-/// \[FeaturestoreService.SearchFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.SearchFeatures\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchFeaturesRequest {
-    /// Required. The resource name of the Location to search Features.
-    /// Format:
-    /// `projects/{project}/locations/{location}`
-    #[prost(string, tag = "1")]
-    pub location: ::prost::alloc::string::String,
-    /// Query string that is a conjunction of field-restricted queries and/or
-    /// field-restricted filters.  Field-restricted queries and filters can be
-    /// combined using `AND` to form a conjunction.
-    ///
-    /// A field query is in the form FIELD:QUERY. This implicitly checks if QUERY
-    /// exists as a substring within Feature's FIELD. The QUERY
-    /// and the FIELD are converted to a sequence of words (i.e. tokens) for
-    /// comparison. This is done by:
-    ///
-    ///    * Removing leading/trailing whitespace and tokenizing the search value.
-    ///    Characters that are not one of alphanumeric `\[a-zA-Z0-9\]`, underscore
-    ///    `_`, or asterisk `*` are treated as delimiters for tokens. `*` is treated
-    ///    as a wildcard that matches characters within a token.
-    ///    * Ignoring case.
-    ///    * Prepending an asterisk to the first and appending an asterisk to the
-    ///    last token in QUERY.
-    ///
-    /// A QUERY must be either a singular token or a phrase. A phrase is one or
-    /// multiple words enclosed in double quotation marks ("). With phrases, the
-    /// order of the words is important. Words in the phrase must be matching in
-    /// order and consecutively.
-    ///
-    /// Supported FIELDs for field-restricted queries:
-    ///
-    /// * `feature_id`
-    /// * `description`
-    /// * `entity_type_id`
-    ///
-    /// Examples:
-    ///
-    /// * `feature_id: foo` --> Matches a Feature with ID containing the substring
-    /// `foo` (eg. `foo`, `foofeature`, `barfoo`).
-    /// * `feature_id: foo*feature` --> Matches a Feature with ID containing the
-    /// substring `foo*feature` (eg. `foobarfeature`).
-    /// * `feature_id: foo AND description: bar` --> Matches a Feature with ID
-    /// containing the substring `foo` and description containing the substring
-    /// `bar`.
-    ///
-    ///
-    /// Besides field queries, the following exact-match filters are
-    /// supported. The exact-match filters do not support wildcards. Unlike
-    /// field-restricted queries, exact-match filters are case-sensitive.
-    ///
-    /// * `feature_id`: Supports = comparisons.
-    /// * `description`: Supports = comparisons. Multi-token filters should be
-    /// enclosed in quotes.
-    /// * `entity_type_id`: Supports = comparisons.
-    /// * `value_type`: Supports = and != comparisons.
-    /// * `labels`: Supports key-value equality as well as key presence.
-    /// * `featurestore_id`: Supports = comparisons.
-    ///
-    /// Examples:
-    ///
-    /// * `description = "foo bar"` --> Any Feature with description exactly equal
-    /// to `foo bar`
-    /// * `value_type = DOUBLE` --> Features whose type is DOUBLE.
-    /// * `labels.active = yes AND labels.env = prod` --> Features having both
-    ///      (active: yes) and (env: prod) labels.
-    /// * `labels.env: *` --> Any Feature which has a label with `env` as the
-    ///    key.
-    #[prost(string, tag = "3")]
-    pub query: ::prost::alloc::string::String,
-    /// The maximum number of Features to return. The service may return fewer
-    /// than this value. If unspecified, at most 100 Features will be returned.
-    /// The maximum value is 100; any value greater than 100 will be coerced to
-    /// 100.
-    #[prost(int32, tag = "4")]
-    pub page_size: i32,
-    /// A page token, received from a previous
-    /// \[FeaturestoreService.SearchFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.SearchFeatures\]
-    /// call. Provide this to retrieve the subsequent page.
-    ///
-    /// When paginating, all other parameters provided to
-    /// \[FeaturestoreService.SearchFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.SearchFeatures\],
-    /// except `page_size`, must match the call that provided the page token.
-    #[prost(string, tag = "5")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// Response message for
-/// \[FeaturestoreService.SearchFeatures][google.cloud.aiplatform.v1beta1.FeaturestoreService.SearchFeatures\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchFeaturesResponse {
-    /// The Features matching the request.
-    ///
-    /// Fields returned:
-    ///
-    ///   * `name`
-    ///   * `description`
-    ///   * `labels`
-    ///   * `create_time`
-    ///   * `update_time`
-    #[prost(message, repeated, tag = "1")]
-    pub features: ::prost::alloc::vec::Vec<Feature>,
-    /// A token, which can be sent as
-    /// \[SearchFeaturesRequest.page_token][google.cloud.aiplatform.v1beta1.SearchFeaturesRequest.page_token\]
-    /// to retrieve the next page. If this field is omitted, there are no
-    /// subsequent pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Request message for
-/// \[FeaturestoreService.UpdateFeature][google.cloud.aiplatform.v1beta1.FeaturestoreService.UpdateFeature\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateFeatureRequest {
-    /// Required. The Feature's `name` field is used to identify the Feature to be
-    /// updated.
-    /// Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}`
-    #[prost(message, optional, tag = "1")]
-    pub feature: ::core::option::Option<Feature>,
-    /// Field mask is used to specify the fields to be overwritten in the
-    /// Features resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then only the non-empty fields present in the
-    /// request will be overwritten. Set the update_mask to `*` to override all
-    /// fields.
-    ///
-    /// Updatable fields:
-    ///
-    ///    * `description`
-    ///    * `labels`
-    ///    * `disable_monitoring`
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-/// Request message for
-/// \[FeaturestoreService.DeleteFeature][google.cloud.aiplatform.v1beta1.FeaturestoreService.DeleteFeature\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteFeatureRequest {
-    /// Required. The name of the Features to be deleted.
-    /// Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Details of operations that perform create Featurestore.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateFeaturestoreOperationMetadata {
-    /// Operation metadata for Featurestore.
-    #[prost(message, optional, tag = "1")]
-    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
-}
-/// Details of operations that perform update Featurestore.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateFeaturestoreOperationMetadata {
-    /// Operation metadata for Featurestore.
-    #[prost(message, optional, tag = "1")]
-    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
-}
-/// Details of operations that perform import Feature values.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImportFeatureValuesOperationMetadata {
-    /// Operation metadata for Featurestore import Feature values.
-    #[prost(message, optional, tag = "1")]
-    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
-    /// Number of entities that have been imported by the operation.
-    #[prost(int64, tag = "2")]
-    pub imported_entity_count: i64,
-    /// Number of Feature values that have been imported by the operation.
-    #[prost(int64, tag = "3")]
-    pub imported_feature_value_count: i64,
-    /// The source URI from where Feature values are imported.
-    #[prost(string, repeated, tag = "4")]
-    pub source_uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The number of rows in input source that weren't imported due to either
-    /// * Not having any featureValues.
-    /// * Having a null entityId.
-    /// * Having a null timestamp.
-    /// * Not being parsable (applicable for CSV sources).
-    #[prost(int64, tag = "6")]
-    pub invalid_row_count: i64,
-    /// The number rows that weren't ingested due to having timestamps outside the
-    /// retention boundary.
-    #[prost(int64, tag = "7")]
-    pub timestamp_outside_retention_rows_count: i64,
-    /// List of ImportFeatureValues operations running under a single EntityType
-    /// that are blocking this operation.
-    #[prost(int64, repeated, tag = "8")]
-    pub blocking_operation_ids: ::prost::alloc::vec::Vec<i64>,
-}
-/// Details of operations that exports Features values.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExportFeatureValuesOperationMetadata {
-    /// Operation metadata for Featurestore export Feature values.
-    #[prost(message, optional, tag = "1")]
-    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
-}
-/// Details of operations that batch reads Feature values.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BatchReadFeatureValuesOperationMetadata {
-    /// Operation metadata for Featurestore batch read Features values.
-    #[prost(message, optional, tag = "1")]
-    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
-}
-/// Details of operations that delete Feature values.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteFeatureValuesOperationMetadata {
-    /// Operation metadata for Featurestore delete Features values.
-    #[prost(message, optional, tag = "1")]
-    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
-}
-/// Details of operations that perform create EntityType.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateEntityTypeOperationMetadata {
-    /// Operation metadata for EntityType.
-    #[prost(message, optional, tag = "1")]
-    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
-}
-/// Details of operations that perform create Feature.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateFeatureOperationMetadata {
-    /// Operation metadata for Feature.
-    #[prost(message, optional, tag = "1")]
-    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
-}
-/// Details of operations that perform batch create Features.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BatchCreateFeaturesOperationMetadata {
-    /// Operation metadata for Feature.
-    #[prost(message, optional, tag = "1")]
-    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
-}
-/// Request message for
-/// \[FeaturestoreService.DeleteFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreService.DeleteFeatureValues\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteFeatureValuesRequest {
-    /// Required. The resource name of the EntityType grouping the Features for
-    /// which values are being deleted from. Format:
-    /// `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entityType}`
-    #[prost(string, tag = "1")]
-    pub entity_type: ::prost::alloc::string::String,
-    /// Defines options to select feature values to be deleted.
-    #[prost(oneof = "delete_feature_values_request::DeleteOption", tags = "2, 3")]
-    pub delete_option: ::core::option::Option<
-        delete_feature_values_request::DeleteOption,
-    >,
-}
-/// Nested message and enum types in `DeleteFeatureValuesRequest`.
-pub mod delete_feature_values_request {
-    /// Message to select entity.
-    /// If an entity id is selected, all the feature values corresponding to the
-    /// entity id will be deleted, including the entityId.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct SelectEntity {
-        /// Required. Selectors choosing feature values of which entity id to be
-        /// deleted from the EntityType.
-        #[prost(message, optional, tag = "1")]
-        pub entity_id_selector: ::core::option::Option<super::EntityIdSelector>,
-    }
-    /// Message to select time range and feature.
-    /// Values of the selected feature generated within an inclusive time range
-    /// will be deleted. Using this option permanently deletes the feature values
-    /// from the specified feature IDs within the specified time range.
-    /// This might include data from the online storage. If you want to retain
-    /// any deleted historical data in the online storage, you must re-ingest it.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct SelectTimeRangeAndFeature {
-        /// Required. Select feature generated within a half-inclusive time range.
-        /// The time range is lower inclusive and upper exclusive.
-        #[prost(message, optional, tag = "1")]
-        pub time_range: ::core::option::Option<
-            super::super::super::super::r#type::Interval,
-        >,
-        /// Required. Selectors choosing which feature values to be deleted from the
-        /// EntityType.
-        #[prost(message, optional, tag = "2")]
-        pub feature_selector: ::core::option::Option<super::FeatureSelector>,
-        /// If set, data will not be deleted from online storage.
-        /// When time range is older than the data in online storage, setting this to
-        /// be true will make the deletion have no impact on online serving.
-        #[prost(bool, tag = "3")]
-        pub skip_online_storage_delete: bool,
-    }
-    /// Defines options to select feature values to be deleted.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum DeleteOption {
-        /// Select feature values to be deleted by specifying entities.
-        #[prost(message, tag = "2")]
-        SelectEntity(SelectEntity),
-        /// Select feature values to be deleted by specifying time range and
-        /// features.
-        #[prost(message, tag = "3")]
-        SelectTimeRangeAndFeature(SelectTimeRangeAndFeature),
-    }
-}
-/// Response message for
-/// \[FeaturestoreService.DeleteFeatureValues][google.cloud.aiplatform.v1beta1.FeaturestoreService.DeleteFeatureValues\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteFeatureValuesResponse {
-    /// Response based on which delete option is specified in the
-    /// request
-    #[prost(oneof = "delete_feature_values_response::Response", tags = "1, 2")]
-    pub response: ::core::option::Option<delete_feature_values_response::Response>,
-}
-/// Nested message and enum types in `DeleteFeatureValuesResponse`.
-pub mod delete_feature_values_response {
-    /// Response message if the request uses the SelectEntity option.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct SelectEntity {
-        /// The count of deleted entity rows in the offline storage.
-        /// Each row corresponds to the combination of an entity ID and a timestamp.
-        /// One entity ID can have multiple rows in the offline storage.
-        #[prost(int64, tag = "1")]
-        pub offline_storage_deleted_entity_row_count: i64,
-        /// The count of deleted entities in the online storage.
-        /// Each entity ID corresponds to one entity.
-        #[prost(int64, tag = "2")]
-        pub online_storage_deleted_entity_count: i64,
-    }
-    /// Response message if the request uses the SelectTimeRangeAndFeature option.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct SelectTimeRangeAndFeature {
-        /// The count of the features or columns impacted.
-        /// This is the same as the feature count in the request.
-        #[prost(int64, tag = "1")]
-        pub impacted_feature_count: i64,
-        /// The count of modified entity rows in the offline storage.
-        /// Each row corresponds to the combination of an entity ID and a timestamp.
-        /// One entity ID can have multiple rows in the offline storage.
-        /// Within each row, only the features specified in the request are
-        /// deleted.
-        #[prost(int64, tag = "2")]
-        pub offline_storage_modified_entity_row_count: i64,
-        /// The count of modified entities in the online storage.
-        /// Each entity ID corresponds to one entity.
-        /// Within each entity, only the features specified in the request are
-        /// deleted.
-        #[prost(int64, tag = "3")]
-        pub online_storage_modified_entity_count: i64,
-    }
-    /// Response based on which delete option is specified in the
-    /// request
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Response {
-        /// Response for request specifying the entities to delete
-        #[prost(message, tag = "1")]
-        SelectEntity(SelectEntity),
-        /// Response for request specifying time range and feature
-        #[prost(message, tag = "2")]
-        SelectTimeRangeAndFeature(SelectTimeRangeAndFeature),
-    }
-}
-/// Selector for entityId. Getting ids from the given source.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EntityIdSelector {
-    /// Source column that holds entity IDs. If not provided, entity IDs are
-    /// extracted from the column named entity_id.
-    #[prost(string, tag = "5")]
-    pub entity_id_field: ::prost::alloc::string::String,
-    /// Details about the source data, including the location of the storage and
-    /// the format.
-    #[prost(oneof = "entity_id_selector::EntityIdsSource", tags = "3")]
-    pub entity_ids_source: ::core::option::Option<entity_id_selector::EntityIdsSource>,
-}
-/// Nested message and enum types in `EntityIdSelector`.
-pub mod entity_id_selector {
-    /// Details about the source data, including the location of the storage and
-    /// the format.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum EntityIdsSource {
-        /// Source of Csv
-        #[prost(message, tag = "3")]
-        CsvSource(super::CsvSource),
-    }
-}
-/// Generated client implementations.
-pub mod featurestore_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// The service that handles CRUD and List for resources for Featurestore.
-    #[derive(Debug, Clone)]
-    pub struct FeaturestoreServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> FeaturestoreServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> FeaturestoreServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            FeaturestoreServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Creates a new Featurestore in a given project and location.
-        pub async fn create_featurestore(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateFeaturestoreRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/CreateFeaturestore",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "CreateFeaturestore",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets details of a single Featurestore.
-        pub async fn get_featurestore(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetFeaturestoreRequest>,
-        ) -> std::result::Result<tonic::Response<super::Featurestore>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/GetFeaturestore",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "GetFeaturestore",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists Featurestores in a given project and location.
-        pub async fn list_featurestores(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListFeaturestoresRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListFeaturestoresResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/ListFeaturestores",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "ListFeaturestores",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates the parameters of a single Featurestore.
-        pub async fn update_featurestore(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateFeaturestoreRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/UpdateFeaturestore",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "UpdateFeaturestore",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a single Featurestore. The Featurestore must not contain any
-        /// EntityTypes or `force` must be set to true for the request to succeed.
-        pub async fn delete_featurestore(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteFeaturestoreRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/DeleteFeaturestore",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "DeleteFeaturestore",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates a new EntityType in a given Featurestore.
-        pub async fn create_entity_type(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateEntityTypeRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/CreateEntityType",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "CreateEntityType",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets details of a single EntityType.
-        pub async fn get_entity_type(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetEntityTypeRequest>,
-        ) -> std::result::Result<tonic::Response<super::EntityType>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/GetEntityType",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "GetEntityType",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists EntityTypes in a given Featurestore.
-        pub async fn list_entity_types(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListEntityTypesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListEntityTypesResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/ListEntityTypes",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "ListEntityTypes",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates the parameters of a single EntityType.
-        pub async fn update_entity_type(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateEntityTypeRequest>,
-        ) -> std::result::Result<tonic::Response<super::EntityType>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/UpdateEntityType",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "UpdateEntityType",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a single EntityType. The EntityType must not have any Features
-        /// or `force` must be set to true for the request to succeed.
-        pub async fn delete_entity_type(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteEntityTypeRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/DeleteEntityType",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "DeleteEntityType",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates a new Feature in a given EntityType.
-        pub async fn create_feature(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateFeatureRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/CreateFeature",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "CreateFeature",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates a batch of Features in a given EntityType.
-        pub async fn batch_create_features(
-            &mut self,
-            request: impl tonic::IntoRequest<super::BatchCreateFeaturesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/BatchCreateFeatures",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "BatchCreateFeatures",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets details of a single Feature.
-        pub async fn get_feature(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetFeatureRequest>,
-        ) -> std::result::Result<tonic::Response<super::Feature>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/GetFeature",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "GetFeature",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists Features in a given EntityType.
-        pub async fn list_features(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListFeaturesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListFeaturesResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/ListFeatures",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "ListFeatures",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates the parameters of a single Feature.
-        pub async fn update_feature(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateFeatureRequest>,
-        ) -> std::result::Result<tonic::Response<super::Feature>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/UpdateFeature",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "UpdateFeature",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a single Feature.
-        pub async fn delete_feature(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteFeatureRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/DeleteFeature",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "DeleteFeature",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Imports Feature values into the Featurestore from a source storage.
-        ///
-        /// The progress of the import is tracked by the returned operation. The
-        /// imported features are guaranteed to be visible to subsequent read
-        /// operations after the operation is marked as successfully done.
-        ///
-        /// If an import operation fails, the Feature values returned from
-        /// reads and exports may be inconsistent. If consistency is
-        /// required, the caller must retry the same import request again and wait till
-        /// the new operation returned is marked as successfully done.
-        ///
-        /// There are also scenarios where the caller can cause inconsistency.
-        ///
-        ///  - Source data for import contains multiple distinct Feature values for
-        ///    the same entity ID and timestamp.
-        ///  - Source is modified during an import. This includes adding, updating, or
-        ///  removing source data and/or metadata. Examples of updating metadata
-        ///  include but are not limited to changing storage location, storage class,
-        ///  or retention policy.
-        ///  - Online serving cluster is under-provisioned.
-        pub async fn import_feature_values(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ImportFeatureValuesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/ImportFeatureValues",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "ImportFeatureValues",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Batch reads Feature values from a Featurestore.
-        ///
-        /// This API enables batch reading Feature values, where each read
-        /// instance in the batch may read Feature values of entities from one or
-        /// more EntityTypes. Point-in-time correctness is guaranteed for Feature
-        /// values of each read instance as of each instance's read timestamp.
-        pub async fn batch_read_feature_values(
-            &mut self,
-            request: impl tonic::IntoRequest<super::BatchReadFeatureValuesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/BatchReadFeatureValues",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "BatchReadFeatureValues",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Exports Feature values from all the entities of a target EntityType.
-        pub async fn export_feature_values(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ExportFeatureValuesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/ExportFeatureValues",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "ExportFeatureValues",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Delete Feature values from Featurestore.
-        ///
-        /// The progress of the deletion is tracked by the returned operation. The
-        /// deleted feature values are guaranteed to be invisible to subsequent read
-        /// operations after the operation is marked as successfully done.
-        ///
-        /// If a delete feature values operation fails, the feature values
-        /// returned from reads and exports may be inconsistent. If consistency is
-        /// required, the caller must retry the same delete request again and wait till
-        /// the new operation returned is marked as successfully done.
-        pub async fn delete_feature_values(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteFeatureValuesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/DeleteFeatureValues",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "DeleteFeatureValues",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Searches Features matching a query in a given project.
-        pub async fn search_features(
-            &mut self,
-            request: impl tonic::IntoRequest<super::SearchFeaturesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::SearchFeaturesResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.aiplatform.v1beta1.FeaturestoreService/SearchFeatures",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.aiplatform.v1beta1.FeaturestoreService",
-                        "SearchFeatures",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
 /// Request message for
 /// \[SpecialistPoolService.CreateSpecialistPool][google.cloud.aiplatform.v1beta1.SpecialistPoolService.CreateSpecialistPool\].
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -26124,6 +27192,1276 @@ pub mod specialist_pool_service_client {
                     GrpcMethod::new(
                         "google.cloud.aiplatform.v1beta1.SpecialistPoolService",
                         "UpdateSpecialistPool",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// FeatureView is representation of values that the FeatureOnlineStore will
+/// serve based on its syncConfig.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeatureView {
+    /// Output only. Name of the FeatureView. Format:
+    /// `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Timestamp when this FeatureView was created.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp when this FeatureView was last updated.
+    #[prost(message, optional, tag = "3")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional. Used to perform consistent read-modify-write updates. If not set,
+    /// a blind "overwrite" update happens.
+    #[prost(string, tag = "4")]
+    pub etag: ::prost::alloc::string::String,
+    /// Optional. The labels with user-defined metadata to organize your
+    /// FeatureViews.
+    ///
+    /// Label keys and values can be no longer than 64 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores and dashes. International characters are allowed.
+    ///
+    /// See <https://goo.gl/xmQnxf> for more information on and examples of labels.
+    /// No more than 64 user labels can be associated with one
+    /// FeatureOnlineStore(System labels are excluded)." System reserved label keys
+    /// are prefixed with "aiplatform.googleapis.com/" and are immutable.
+    #[prost(btree_map = "string, string", tag = "5")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Configures when data is to be synced/updated for this FeatureView. At the
+    /// end of the sync the latest featureValues for each entityId of this
+    /// FeatureView are made ready for online serving.
+    #[prost(message, optional, tag = "7")]
+    pub sync_config: ::core::option::Option<feature_view::SyncConfig>,
+    /// Optional. Configuration for vector search. It contains the required
+    /// configurations to create an index from source data, so that approximate
+    /// nearest neighbor (a.k.a ANN) algorithms search can be performed during
+    /// online serving.
+    #[prost(message, optional, tag = "8")]
+    pub vector_search_config: ::core::option::Option<feature_view::VectorSearchConfig>,
+    #[prost(oneof = "feature_view::Source", tags = "6, 9")]
+    pub source: ::core::option::Option<feature_view::Source>,
+}
+/// Nested message and enum types in `FeatureView`.
+pub mod feature_view {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct BigQuerySource {
+        /// Required. The BigQuery view URI that will be materialized on each sync
+        /// trigger based on FeatureView.SyncConfig.
+        #[prost(string, tag = "1")]
+        pub uri: ::prost::alloc::string::String,
+        /// Required. Columns to construct entity_id / row keys. Start by supporting
+        /// 1 only.
+        #[prost(string, repeated, tag = "2")]
+        pub entity_id_columns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct SyncConfig {
+        /// Cron schedule (<https://en.wikipedia.org/wiki/Cron>) to launch scheduled
+        /// runs. To explicitly set a timezone to the cron tab, apply a prefix in
+        /// the cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or "TZ=${IANA_TIME_ZONE}".
+        /// The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone
+        /// database. For example, "CRON_TZ=America/New_York 1 * * * *", or
+        /// "TZ=America/New_York 1 * * * *".
+        #[prost(string, tag = "1")]
+        pub cron: ::prost::alloc::string::String,
+    }
+    /// Configuration for vector search.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct VectorSearchConfig {
+        /// Optional. Column of embedding. This column contains the source data to
+        /// create index for vector search. embedding_column must be set when using
+        /// vector search.
+        #[prost(string, tag = "3")]
+        pub embedding_column: ::prost::alloc::string::String,
+        /// Optional. Columns of features that're used to filter vector search
+        /// results.
+        #[prost(string, repeated, tag = "4")]
+        pub filter_columns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// Optional. Column of crowding. This column contains crowding attribute
+        /// which is a constraint on a neighbor list produced by nearest neighbor
+        /// search requiring that no more than some value k' of the k neighbors
+        /// returned have the same value of crowding_attribute.
+        #[prost(string, tag = "5")]
+        pub crowding_column: ::prost::alloc::string::String,
+        /// Optional. The number of dimensions of the input embedding.
+        #[prost(int32, optional, tag = "6")]
+        pub embedding_dimension: ::core::option::Option<i32>,
+        /// Optional. The distance measure used in nearest neighbor search.
+        #[prost(enumeration = "vector_search_config::DistanceMeasureType", tag = "7")]
+        pub distance_measure_type: i32,
+        /// The configuration with regard to the algorithms used for efficient
+        /// search.
+        #[prost(oneof = "vector_search_config::AlgorithmConfig", tags = "8, 9")]
+        pub algorithm_config: ::core::option::Option<
+            vector_search_config::AlgorithmConfig,
+        >,
+    }
+    /// Nested message and enum types in `VectorSearchConfig`.
+    pub mod vector_search_config {
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct BruteForceConfig {}
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct TreeAhConfig {
+            /// Optional. Number of embeddings on each leaf node. The default value is
+            /// 1000 if not set.
+            #[prost(int64, optional, tag = "1")]
+            pub leaf_node_embedding_count: ::core::option::Option<i64>,
+        }
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum DistanceMeasureType {
+            /// Should not be set.
+            Unspecified = 0,
+            /// Euclidean (L_2) Distance.
+            SquaredL2Distance = 1,
+            /// Cosine Distance. Defined as 1 - cosine similarity.
+            ///
+            /// We strongly suggest using DOT_PRODUCT_DISTANCE + UNIT_L2_NORM instead
+            /// of COSINE distance. Our algorithms have been more optimized for
+            /// DOT_PRODUCT distance which, when combined with UNIT_L2_NORM, is
+            /// mathematically equivalent to COSINE distance and results in the same
+            /// ranking.
+            CosineDistance = 2,
+            /// Dot Product Distance. Defined as a negative of the dot product.
+            DotProductDistance = 3,
+        }
+        impl DistanceMeasureType {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    DistanceMeasureType::Unspecified => {
+                        "DISTANCE_MEASURE_TYPE_UNSPECIFIED"
+                    }
+                    DistanceMeasureType::SquaredL2Distance => "SQUARED_L2_DISTANCE",
+                    DistanceMeasureType::CosineDistance => "COSINE_DISTANCE",
+                    DistanceMeasureType::DotProductDistance => "DOT_PRODUCT_DISTANCE",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "DISTANCE_MEASURE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "SQUARED_L2_DISTANCE" => Some(Self::SquaredL2Distance),
+                    "COSINE_DISTANCE" => Some(Self::CosineDistance),
+                    "DOT_PRODUCT_DISTANCE" => Some(Self::DotProductDistance),
+                    _ => None,
+                }
+            }
+        }
+        /// The configuration with regard to the algorithms used for efficient
+        /// search.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum AlgorithmConfig {
+            /// Optional. Configuration options for the tree-AH algorithm (Shallow tree
+            /// + Asymmetric Hashing). Please refer to this paper for more details:
+            /// <https://arxiv.org/abs/1908.10396>
+            #[prost(message, tag = "8")]
+            TreeAhConfig(TreeAhConfig),
+            /// Optional. Configuration options for using brute force search, which
+            /// simply implements the standard linear search in the database for each
+            /// query. It is primarily meant for benchmarking and to generate the
+            /// ground truth for approximate search.
+            #[prost(message, tag = "9")]
+            BruteForceConfig(BruteForceConfig),
+        }
+    }
+    /// A Feature Registry source for features that need to be synced to Online
+    /// Store.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FeatureRegistrySource {
+        /// Required. List of features that need to be synced to Online Store.
+        #[prost(message, repeated, tag = "1")]
+        pub feature_groups: ::prost::alloc::vec::Vec<
+            feature_registry_source::FeatureGroup,
+        >,
+    }
+    /// Nested message and enum types in `FeatureRegistrySource`.
+    pub mod feature_registry_source {
+        /// Features belonging to a single feature group that will be
+        /// synced to Online Store.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct FeatureGroup {
+            /// Required. Identifier of the feature group.
+            #[prost(string, tag = "1")]
+            pub feature_group_id: ::prost::alloc::string::String,
+            /// Required. Identifiers of features under the feature group.
+            #[prost(string, repeated, tag = "2")]
+            pub feature_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        }
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Source {
+        /// Optional. Configures how data is supposed to be extracted from a BigQuery
+        /// source to be loaded onto the FeatureOnlineStore.
+        #[prost(message, tag = "6")]
+        BigQuerySource(BigQuerySource),
+        /// Optional. Configures the features from a Feature Registry source that
+        /// need to be loaded onto the FeatureOnlineStore.
+        #[prost(message, tag = "9")]
+        FeatureRegistrySource(FeatureRegistrySource),
+    }
+}
+/// Vertex AI Feature Online Store provides a centralized repository for serving
+/// ML features and embedding indexes at low latency. The Feature Online Store is
+/// a top-level container.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeatureOnlineStore {
+    /// Output only. Name of the FeatureOnlineStore. Format:
+    /// `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Timestamp when this FeatureOnlineStore was created.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp when this FeatureOnlineStore was last updated.
+    #[prost(message, optional, tag = "4")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional. Used to perform consistent read-modify-write updates. If not set,
+    /// a blind "overwrite" update happens.
+    #[prost(string, tag = "5")]
+    pub etag: ::prost::alloc::string::String,
+    /// Optional. The labels with user-defined metadata to organize your
+    /// FeatureOnlineStore.
+    ///
+    /// Label keys and values can be no longer than 64 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores and dashes. International characters are allowed.
+    ///
+    /// See <https://goo.gl/xmQnxf> for more information on and examples of labels.
+    /// No more than 64 user labels can be associated with one
+    /// FeatureOnlineStore(System labels are excluded)." System reserved label keys
+    /// are prefixed with "aiplatform.googleapis.com/" and are immutable.
+    #[prost(btree_map = "string, string", tag = "6")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. State of the featureOnlineStore.
+    #[prost(enumeration = "feature_online_store::State", tag = "7")]
+    pub state: i32,
+    /// Optional. The settings for embedding management in FeatureOnlineStore.
+    #[prost(message, optional, tag = "11")]
+    pub embedding_management: ::core::option::Option<
+        feature_online_store::EmbeddingManagement,
+    >,
+    #[prost(oneof = "feature_online_store::StorageType", tags = "8")]
+    pub storage_type: ::core::option::Option<feature_online_store::StorageType>,
+}
+/// Nested message and enum types in `FeatureOnlineStore`.
+pub mod feature_online_store {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Bigtable {
+        /// Required. Autoscaling config applied to Bigtable Instance.
+        #[prost(message, optional, tag = "1")]
+        pub auto_scaling: ::core::option::Option<bigtable::AutoScaling>,
+    }
+    /// Nested message and enum types in `Bigtable`.
+    pub mod bigtable {
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct AutoScaling {
+            /// Required. The minimum number of nodes to scale down to. Must be greater
+            /// than or equal to 1.
+            #[prost(int32, tag = "1")]
+            pub min_node_count: i32,
+            /// Required. The maximum number of nodes to scale up to. Must be greater
+            /// than or equal to min_node_count, and less than or equal to 10 times of
+            /// 'min_node_count'.
+            #[prost(int32, tag = "2")]
+            pub max_node_count: i32,
+            /// Optional. A percentage of the cluster's CPU capacity. Can be from 10%
+            /// to 80%. When a cluster's CPU utilization exceeds the target that you
+            /// have set, Bigtable immediately adds nodes to the cluster. When CPU
+            /// utilization is substantially lower than the target, Bigtable removes
+            /// nodes. If not set will default to 50%.
+            #[prost(int32, tag = "3")]
+            pub cpu_utilization_target: i32,
+        }
+    }
+    /// Contains settings for embedding management.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct EmbeddingManagement {
+        /// Optional. Immutable. Whether to enable embedding management in this
+        /// FeatureOnlineStore. It's immutable after creation to ensure the
+        /// FeatureOnlineStore availability.
+        #[prost(bool, tag = "1")]
+        pub enabled: bool,
+    }
+    /// Possible states a featureOnlineStore can have.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Default value. This value is unused.
+        Unspecified = 0,
+        /// State when the featureOnlineStore configuration is not being updated and
+        /// the fields reflect the current configuration of the featureOnlineStore.
+        /// The featureOnlineStore is usable in this state.
+        Stable = 1,
+        /// The state of the featureOnlineStore configuration when it is being
+        /// updated. During an update, the fields reflect either the original
+        /// configuration or the updated configuration of the featureOnlineStore. The
+        /// featureOnlineStore is still usable in this state.
+        Updating = 2,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Stable => "STABLE",
+                State::Updating => "UPDATING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "STABLE" => Some(Self::Stable),
+                "UPDATING" => Some(Self::Updating),
+                _ => None,
+            }
+        }
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum StorageType {
+        /// Contains settings for the Cloud Bigtable instance that will be created
+        /// to serve featureValues for all FeatureViews under this
+        /// FeatureOnlineStore.
+        #[prost(message, tag = "8")]
+        Bigtable(Bigtable),
+    }
+}
+/// Request message for
+/// \[FeatureOnlineStoreAdminService.CreateFeatureOnlineStore][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.CreateFeatureOnlineStore\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateFeatureOnlineStoreRequest {
+    /// Required. The resource name of the Location to create FeatureOnlineStores.
+    /// Format:
+    /// `projects/{project}/locations/{location}'`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The FeatureOnlineStore to create.
+    #[prost(message, optional, tag = "2")]
+    pub feature_online_store: ::core::option::Option<FeatureOnlineStore>,
+    /// Required. The ID to use for this FeatureOnlineStore, which will become the
+    /// final component of the FeatureOnlineStore's resource name.
+    ///
+    /// This value may be up to 60 characters, and valid characters are
+    /// `\[a-z0-9_\]`. The first character cannot be a number.
+    ///
+    /// The value must be unique within the project and location.
+    #[prost(string, tag = "3")]
+    pub feature_online_store_id: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeatureOnlineStoreAdminService.GetFeatureOnlineStore][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.GetFeatureOnlineStore\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetFeatureOnlineStoreRequest {
+    /// Required. The name of the FeatureOnlineStore resource.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeatureOnlineStoreAdminService.ListFeatureOnlineStores][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureOnlineStores\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListFeatureOnlineStoresRequest {
+    /// Required. The resource name of the Location to list FeatureOnlineStores.
+    /// Format:
+    /// `projects/{project}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Lists the FeatureOnlineStores that match the filter expression. The
+    /// following fields are supported:
+    ///
+    /// * `create_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons.
+    /// Values must be
+    ///    in RFC 3339 format.
+    /// * `update_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons.
+    /// Values must be
+    ///    in RFC 3339 format.
+    /// * `labels`: Supports key-value equality and key presence.
+    ///
+    /// Examples:
+    ///
+    /// * `create_time > "2020-01-01" OR update_time > "2020-01-01"`
+    ///     FeatureOnlineStores created or updated after 2020-01-01.
+    /// * `labels.env = "prod"`
+    ///     FeatureOnlineStores with label "env" set to "prod".
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// The maximum number of FeatureOnlineStores to return. The service may return
+    /// fewer than this value. If unspecified, at most 100 FeatureOnlineStores will
+    /// be returned. The maximum value is 100; any value greater than 100 will be
+    /// coerced to 100.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// A page token, received from a previous
+    /// \[FeatureOnlineStoreAdminService.ListFeatureOnlineStores][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureOnlineStores\]
+    /// call. Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to
+    /// \[FeatureOnlineStoreAdminService.ListFeatureOnlineStores][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureOnlineStores\]
+    /// must match the call that provided the page token.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+    /// A comma-separated list of fields to order by, sorted in ascending order.
+    /// Use "desc" after a field name for descending.
+    /// Supported Fields:
+    ///
+    ///    * `create_time`
+    ///    * `update_time`
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// Response message for
+/// \[FeatureOnlineStoreAdminService.ListFeatureOnlineStores][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureOnlineStores\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListFeatureOnlineStoresResponse {
+    /// The FeatureOnlineStores matching the request.
+    #[prost(message, repeated, tag = "1")]
+    pub feature_online_stores: ::prost::alloc::vec::Vec<FeatureOnlineStore>,
+    /// A token, which can be sent as
+    /// \[ListFeatureOnlineStoresRequest.page_token][google.cloud.aiplatform.v1beta1.ListFeatureOnlineStoresRequest.page_token\]
+    /// to retrieve the next page. If this field is omitted, there are no
+    /// subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeatureOnlineStoreAdminService.UpdateFeatureOnlineStore][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.UpdateFeatureOnlineStore\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateFeatureOnlineStoreRequest {
+    /// Required. The FeatureOnlineStore's `name` field is used to identify the
+    /// FeatureOnlineStore to be updated. Format:
+    /// `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}`
+    #[prost(message, optional, tag = "1")]
+    pub feature_online_store: ::core::option::Option<FeatureOnlineStore>,
+    /// Field mask is used to specify the fields to be overwritten in the
+    /// FeatureOnlineStore resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then only the non-empty fields present in the
+    /// request will be overwritten. Set the update_mask to `*` to override all
+    /// fields.
+    ///
+    /// Updatable fields:
+    ///
+    ///    * `big_query_source`
+    ///    * `labels`
+    ///    * `sync_config`
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Request message for
+/// \[FeatureOnlineStoreAdminService.DeleteFeatureOnlineStore][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.DeleteFeatureOnlineStore\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteFeatureOnlineStoreRequest {
+    /// Required. The name of the FeatureOnlineStore to be deleted.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// If set to true, any FeatureViews and Features for this FeatureOnlineStore
+    /// will also be deleted. (Otherwise, the request will only work if the
+    /// FeatureOnlineStore has no FeatureViews.)
+    #[prost(bool, tag = "2")]
+    pub force: bool,
+}
+/// Request message for
+/// \[FeatureOnlineStoreAdminService.CreateFeatureView][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.CreateFeatureView\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateFeatureViewRequest {
+    /// Required. The resource name of the FeatureOnlineStore to create
+    /// FeatureViews. Format:
+    /// `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The FeatureView to create.
+    #[prost(message, optional, tag = "2")]
+    pub feature_view: ::core::option::Option<FeatureView>,
+    /// Required. The ID to use for the FeatureView, which will become the final
+    /// component of the FeatureView's resource name.
+    ///
+    /// This value may be up to 60 characters, and valid characters are
+    /// `\[a-z0-9_\]`. The first character cannot be a number.
+    ///
+    /// The value must be unique within a FeatureOnlineStore.
+    #[prost(string, tag = "3")]
+    pub feature_view_id: ::prost::alloc::string::String,
+    /// Immutable. If set to true, one on demand sync will be run immediately,
+    /// regardless whether the
+    /// \[FeatureView.sync_config][google.cloud.aiplatform.v1beta1.FeatureView.sync_config\]
+    /// is configured or not.
+    #[prost(bool, tag = "4")]
+    pub run_sync_immediately: bool,
+}
+/// Request message for
+/// \[FeatureOnlineStoreAdminService.GetFeatureView][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.GetFeatureView\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetFeatureViewRequest {
+    /// Required. The name of the FeatureView resource.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeatureOnlineStoreAdminService.ListFeatureViews][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureViews\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListFeatureViewsRequest {
+    /// Required. The resource name of the FeatureOnlineStore to list FeatureViews.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Lists the FeatureViews that match the filter expression. The following
+    /// filters are supported:
+    ///
+    /// * `create_time`: Supports `=`, `!=`, `<`, `>`, `>=`, and `<=` comparisons.
+    /// Values must be in RFC 3339 format.
+    /// * `update_time`: Supports `=`, `!=`, `<`, `>`, `>=`, and `<=` comparisons.
+    /// Values must be in RFC 3339 format.
+    /// * `labels`: Supports key-value equality as well as key presence.
+    ///
+    /// Examples:
+    ///
+    /// * `create_time > \"2020-01-31T15:30:00.000000Z\" OR
+    ///       update_time > \"2020-01-31T15:30:00.000000Z\"` --> FeatureViews
+    ///       created or updated after 2020-01-31T15:30:00.000000Z.
+    /// * `labels.active = yes AND labels.env = prod` --> FeatureViews having both
+    ///      (active: yes) and (env: prod) labels.
+    /// * `labels.env: *` --> Any FeatureView which has a label with 'env' as the
+    ///    key.
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// The maximum number of FeatureViews to return. The service may return fewer
+    /// than this value. If unspecified, at most 1000 FeatureViews will be
+    /// returned. The maximum value is 1000; any value greater than 1000 will be
+    /// coerced to 1000.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// A page token, received from a previous
+    /// \[FeatureOnlineStoreAdminService.ListFeatureViews][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureViews\]
+    /// call. Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to
+    /// \[FeatureOnlineStoreAdminService.ListFeatureViews][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureViews\]
+    /// must match the call that provided the page token.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+    /// A comma-separated list of fields to order by, sorted in ascending order.
+    /// Use "desc" after a field name for descending.
+    ///
+    /// Supported fields:
+    ///
+    ///    * `feature_view_id`
+    ///    * `create_time`
+    ///    * `update_time`
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// Response message for
+/// \[FeatureOnlineStoreAdminService.ListFeatureViews][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureViews\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListFeatureViewsResponse {
+    /// The FeatureViews matching the request.
+    #[prost(message, repeated, tag = "1")]
+    pub feature_views: ::prost::alloc::vec::Vec<FeatureView>,
+    /// A token, which can be sent as
+    /// \[ListFeatureViewsRequest.page_token][google.cloud.aiplatform.v1beta1.ListFeatureViewsRequest.page_token\]
+    /// to retrieve the next page. If this field is omitted, there are no
+    /// subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeatureOnlineStoreAdminService.UpdateFeatureView][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.UpdateFeatureView\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateFeatureViewRequest {
+    /// Required. The FeatureView's `name` field is used to identify the
+    /// FeatureView to be updated. Format:
+    /// `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+    #[prost(message, optional, tag = "1")]
+    pub feature_view: ::core::option::Option<FeatureView>,
+    /// Field mask is used to specify the fields to be overwritten in the
+    /// FeatureView resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then only the non-empty fields present in the
+    /// request will be overwritten. Set the update_mask to `*` to override all
+    /// fields.
+    ///
+    /// Updatable fields:
+    ///
+    ///    * `labels`
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Request message for \[FeatureOnlineStoreAdminService.DeleteFeatureViews][\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteFeatureViewRequest {
+    /// Required. The name of the FeatureView to be deleted.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Details of operations that perform create FeatureOnlineStore.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateFeatureOnlineStoreOperationMetadata {
+    /// Operation metadata for FeatureOnlineStore.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Details of operations that perform update FeatureOnlineStore.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateFeatureOnlineStoreOperationMetadata {
+    /// Operation metadata for FeatureOnlineStore.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Details of operations that perform create FeatureView.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateFeatureViewOperationMetadata {
+    /// Operation metadata for FeatureView Create.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Details of operations that perform update FeatureView.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateFeatureViewOperationMetadata {
+    /// Operation metadata for FeatureView Update.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Request message for
+/// \[FeatureOnlineStoreAdminService.SyncFeatureView][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.SyncFeatureView\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SyncFeatureViewRequest {
+    /// Required. Format:
+    /// `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+    #[prost(string, tag = "1")]
+    pub feature_view: ::prost::alloc::string::String,
+}
+/// Respose message for
+/// \[FeatureOnlineStoreAdminService.SyncFeatureView][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.SyncFeatureView\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SyncFeatureViewResponse {
+    /// Format:
+    /// `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}/featureViewSyncs/{feature_view_sync}`
+    #[prost(string, tag = "1")]
+    pub feature_view_sync: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeatureOnlineStoreAdminService.GetFeatureViewSync][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.GetFeatureViewSync\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetFeatureViewSyncRequest {
+    /// Required. The name of the FeatureViewSync resource.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}/featureViewSyncs/{feature_view_sync}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for
+/// \[FeatureOnlineStoreAdminService.ListFeatureViewSyncs][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureViewSyncs\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListFeatureViewSyncsRequest {
+    /// Required. The resource name of the FeatureView to list FeatureViewSyncs.
+    /// Format:
+    /// `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Lists the FeatureViewSyncs that match the filter expression. The following
+    /// filters are supported:
+    ///
+    /// * `create_time`: Supports `=`, `!=`, `<`, `>`, `>=`, and `<=` comparisons.
+    /// Values must be in RFC 3339 format.
+    ///
+    /// Examples:
+    ///
+    /// * `create_time > \"2020-01-31T15:30:00.000000Z\"` --> FeatureViewSyncs
+    ///       created after 2020-01-31T15:30:00.000000Z.
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// The maximum number of FeatureViewSyncs to return. The service may return
+    /// fewer than this value. If unspecified, at most 1000 FeatureViewSyncs will
+    /// be returned. The maximum value is 1000; any value greater than 1000 will be
+    /// coerced to 1000.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// A page token, received from a previous
+    /// \[FeatureOnlineStoreAdminService.ListFeatureViewSyncs][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureViewSyncs\]
+    /// call. Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to
+    /// \[FeatureOnlineStoreAdminService.ListFeatureViewSyncs][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureViewSyncs\]
+    /// must match the call that provided the page token.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+    /// A comma-separated list of fields to order by, sorted in ascending order.
+    /// Use "desc" after a field name for descending.
+    ///
+    /// Supported fields:
+    ///
+    ///    * `create_time`
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// Response message for
+/// \[FeatureOnlineStoreAdminService.ListFeatureViewSyncs][google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService.ListFeatureViewSyncs\].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListFeatureViewSyncsResponse {
+    /// The FeatureViewSyncs matching the request.
+    #[prost(message, repeated, tag = "1")]
+    pub feature_view_syncs: ::prost::alloc::vec::Vec<FeatureViewSync>,
+    /// A token, which can be sent as
+    /// \[ListFeatureViewSyncsRequest.page_token][google.cloud.aiplatform.v1beta1.ListFeatureViewSyncsRequest.page_token\]
+    /// to retrieve the next page. If this field is omitted, there are no
+    /// subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Generated client implementations.
+pub mod feature_online_store_admin_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// The service that handles CRUD and List for resources for
+    /// FeatureOnlineStore.
+    #[derive(Debug, Clone)]
+    pub struct FeatureOnlineStoreAdminServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> FeatureOnlineStoreAdminServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> FeatureOnlineStoreAdminServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            FeatureOnlineStoreAdminServiceClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Creates a new FeatureOnlineStore in a given project and location.
+        pub async fn create_feature_online_store(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateFeatureOnlineStoreRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService/CreateFeatureOnlineStore",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService",
+                        "CreateFeatureOnlineStore",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets details of a single FeatureOnlineStore.
+        pub async fn get_feature_online_store(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetFeatureOnlineStoreRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::FeatureOnlineStore>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService/GetFeatureOnlineStore",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService",
+                        "GetFeatureOnlineStore",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists FeatureOnlineStores in a given project and location.
+        pub async fn list_feature_online_stores(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListFeatureOnlineStoresRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListFeatureOnlineStoresResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService/ListFeatureOnlineStores",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService",
+                        "ListFeatureOnlineStores",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates the parameters of a single FeatureOnlineStore.
+        pub async fn update_feature_online_store(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateFeatureOnlineStoreRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService/UpdateFeatureOnlineStore",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService",
+                        "UpdateFeatureOnlineStore",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a single FeatureOnlineStore. The FeatureOnlineStore must not
+        /// contain any FeatureViews.
+        pub async fn delete_feature_online_store(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteFeatureOnlineStoreRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService/DeleteFeatureOnlineStore",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService",
+                        "DeleteFeatureOnlineStore",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a new FeatureView in a given FeatureOnlineStore.
+        pub async fn create_feature_view(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateFeatureViewRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService/CreateFeatureView",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService",
+                        "CreateFeatureView",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets details of a single FeatureView.
+        pub async fn get_feature_view(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetFeatureViewRequest>,
+        ) -> std::result::Result<tonic::Response<super::FeatureView>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService/GetFeatureView",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService",
+                        "GetFeatureView",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists FeatureViews in a given FeatureOnlineStore.
+        pub async fn list_feature_views(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListFeatureViewsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListFeatureViewsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService/ListFeatureViews",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService",
+                        "ListFeatureViews",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates the parameters of a single FeatureView.
+        pub async fn update_feature_view(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateFeatureViewRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService/UpdateFeatureView",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService",
+                        "UpdateFeatureView",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a single FeatureView.
+        pub async fn delete_feature_view(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteFeatureViewRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService/DeleteFeatureView",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService",
+                        "DeleteFeatureView",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Triggers on-demand sync for the FeatureView.
+        pub async fn sync_feature_view(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SyncFeatureViewRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::SyncFeatureViewResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService/SyncFeatureView",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService",
+                        "SyncFeatureView",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets details of a single FeatureViewSync.
+        pub async fn get_feature_view_sync(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetFeatureViewSyncRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::FeatureViewSync>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService/GetFeatureViewSync",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService",
+                        "GetFeatureViewSync",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists FeatureViewSyncs in a given FeatureView.
+        pub async fn list_feature_view_syncs(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListFeatureViewSyncsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListFeatureViewSyncsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService/ListFeatureViewSyncs",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.FeatureOnlineStoreAdminService",
+                        "ListFeatureViewSyncs",
                     ),
                 );
             self.inner.unary(req, path, codec).await
