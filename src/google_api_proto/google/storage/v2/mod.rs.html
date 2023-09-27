@@ -3067,6 +3067,12 @@
 <a href="#3067" id="3067">3067</a>
 <a href="#3068" id="3068">3068</a>
 <a href="#3069" id="3069">3069</a>
+<a href="#3070" id="3070">3070</a>
+<a href="#3071" id="3071">3071</a>
+<a href="#3072" id="3072">3072</a>
+<a href="#3073" id="3073">3073</a>
+<a href="#3074" id="3074">3074</a>
+<a href="#3075" id="3075">3075</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Request message for DeleteBucket.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3732,6 +3738,12 @@
     /// lexicographic_end (exclusive).
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>lexicographic_end: ::prost::alloc::string::String,
+    <span class="doccomment">/// Optional. Filter results to objects and prefixes that match this glob
+    /// pattern. See [List Objects Using
+    /// Glob](&lt;https://cloud.google.com/storage/docs/json_api/v1/objects/list#list-objects-and-prefixes-using-glob&gt;)
+    /// for the full syntax.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="kw">pub </span>match_glob: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request object for `QueryWriteStatus`.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

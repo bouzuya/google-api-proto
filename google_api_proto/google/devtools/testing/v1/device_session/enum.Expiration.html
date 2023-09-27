@@ -3,7 +3,7 @@
     ExpireTime(<a class="struct" href="https://docs.rs/prost-types/0.11.9/prost_types/protobuf/struct.Timestamp.html" title="struct prost_types::protobuf::Timestamp">Timestamp</a>),
 }</code></pre><h2 id="variants" class="variants small-section-header">Variants<a href="#variants" class="anchor">§</a></h2><div class="variants"><section id="variant.Ttl" class="variant"><a href="#variant.Ttl" class="anchor">§</a><h3 class="code-header">Ttl(<a class="struct" href="https://docs.rs/prost-types/0.11.9/prost_types/protobuf/struct.Duration.html" title="struct prost_types::protobuf::Duration">Duration</a>)</h3></section><div class="docblock"><p>Optional. The amount of time that a device will be initially allocated
 for. This can eventually be extended with the ExtendDeviceSession RPC.
-Default: 3 hours.</p>
+Default: 30 minutes.</p>
 </div><section id="variant.ExpireTime" class="variant"><a href="#variant.ExpireTime" class="anchor">§</a><h3 class="code-header">ExpireTime(<a class="struct" href="https://docs.rs/prost-types/0.11.9/prost_types/protobuf/struct.Timestamp.html" title="struct prost_types::protobuf::Timestamp">Timestamp</a>)</h3></section><div class="docblock"><p>Optional. If the device is still in use at this time, any connections
 will be ended and the SessionState will transition from ACTIVE to
 FINISHED.</p>
