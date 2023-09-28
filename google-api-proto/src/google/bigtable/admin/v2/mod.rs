@@ -1,53 +1,3 @@
-/// Encapsulates progress related information for a Cloud Bigtable long
-/// running operation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OperationProgress {
-    /// Percent completion of the operation.
-    /// Values are between 0 and 100 inclusive.
-    #[prost(int32, tag = "1")]
-    pub progress_percent: i32,
-    /// Time the request was received.
-    #[prost(message, optional, tag = "2")]
-    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// If set, the time at which this operation failed or was completed
-    /// successfully.
-    #[prost(message, optional, tag = "3")]
-    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Storage media types for persisting Bigtable data.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum StorageType {
-    /// The user did not specify a storage type.
-    Unspecified = 0,
-    /// Flash (SSD) storage should be used.
-    Ssd = 1,
-    /// Magnetic drive (HDD) storage should be used.
-    Hdd = 2,
-}
-impl StorageType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            StorageType::Unspecified => "STORAGE_TYPE_UNSPECIFIED",
-            StorageType::Ssd => "SSD",
-            StorageType::Hdd => "HDD",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "STORAGE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "SSD" => Some(Self::Ssd),
-            "HDD" => Some(Self::Hdd),
-            _ => None,
-        }
-    }
-}
 /// Information about a table restore.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -689,6 +639,56 @@ impl RestoreSourceType {
         match value {
             "RESTORE_SOURCE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
             "BACKUP" => Some(Self::Backup),
+            _ => None,
+        }
+    }
+}
+/// Encapsulates progress related information for a Cloud Bigtable long
+/// running operation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OperationProgress {
+    /// Percent completion of the operation.
+    /// Values are between 0 and 100 inclusive.
+    #[prost(int32, tag = "1")]
+    pub progress_percent: i32,
+    /// Time the request was received.
+    #[prost(message, optional, tag = "2")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// If set, the time at which this operation failed or was completed
+    /// successfully.
+    #[prost(message, optional, tag = "3")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Storage media types for persisting Bigtable data.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum StorageType {
+    /// The user did not specify a storage type.
+    Unspecified = 0,
+    /// Flash (SSD) storage should be used.
+    Ssd = 1,
+    /// Magnetic drive (HDD) storage should be used.
+    Hdd = 2,
+}
+impl StorageType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            StorageType::Unspecified => "STORAGE_TYPE_UNSPECIFIED",
+            StorageType::Ssd => "SSD",
+            StorageType::Hdd => "HDD",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "STORAGE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "SSD" => Some(Self::Ssd),
+            "HDD" => Some(Self::Hdd),
             _ => None,
         }
     }

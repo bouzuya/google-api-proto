@@ -923,6 +923,123 @@ pub mod label_permission {
         }
     }
 }
+/// Request to get a label by resource name.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetLabelRequest {
+    /// Required. Label resource name.
+    ///
+    /// May be any of:
+    ///
+    /// * `labels/{id}` (equivalent to labels/{id}@latest)
+    /// * `labels/{id}@latest`
+    /// * `labels/{id}@published`
+    /// * `labels/{id}@{revision_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Set to `true` in order to use the user's admin credentials. The server
+    /// verifies that the user is an admin for the label before allowing access.
+    #[prost(bool, tag = "2")]
+    pub use_admin_access: bool,
+    /// The BCP-47 language code to use for evaluating localized field labels.
+    /// When not specified, values in the default configured language are used.
+    #[prost(string, tag = "3")]
+    pub language_code: ::prost::alloc::string::String,
+    /// When specified, only certain fields belonging to the indicated view are
+    /// returned.
+    #[prost(enumeration = "LabelView", tag = "4")]
+    pub view: i32,
+}
+/// Request to list labels available to the current user.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListLabelsRequest {
+    /// Whether to include only published labels in the results.
+    ///
+    /// * When `true`, only the current published label revisions are returned.
+    ///    Disabled labels are included. Returned label resource names
+    ///    reference the published revision (`labels/{id}/{revision_id}`).
+    /// * When `false`, the current label revisions are returned, which might not
+    ///    be published. Returned label resource names don't reference a specific
+    ///    revision (`labels/{id}`).
+    #[prost(bool, tag = "1")]
+    pub published_only: bool,
+    /// The BCP-47 language code to use for evaluating localized field labels.
+    /// When not specified, values in the default configured language are used.
+    #[prost(string, tag = "5")]
+    pub language_code: ::prost::alloc::string::String,
+    /// Maximum number of labels to return per page. Default: 50. Max: 200.
+    #[prost(int32, tag = "6")]
+    pub page_size: i32,
+    /// The token of the page to return.
+    #[prost(string, tag = "7")]
+    pub page_token: ::prost::alloc::string::String,
+    /// When specified, only certain fields belonging to the indicated view are
+    /// returned.
+    #[prost(enumeration = "LabelView", tag = "8")]
+    pub view: i32,
+    #[prost(oneof = "list_labels_request::Access", tags = "3, 4")]
+    pub access: ::core::option::Option<list_labels_request::Access>,
+}
+/// Nested message and enum types in `ListLabelsRequest`.
+pub mod list_labels_request {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Access {
+        /// Set to `true` in order to use the user's admin credentials. This will
+        /// return all Labels within the customer.
+        #[prost(bool, tag = "3")]
+        UseAdminAccess(bool),
+        /// Specifies the level of access the user must have on the returned Labels.
+        /// The minimum role a user must have on a label.
+        /// Defaults to `READER`.
+        #[prost(enumeration = "super::label_permission::LabelRole", tag = "4")]
+        MinimumRole(i32),
+    }
+}
+/// Response for listing Labels.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListLabelsResponse {
+    /// Labels.
+    #[prost(message, repeated, tag = "1")]
+    pub labels: ::prost::alloc::vec::Vec<Label>,
+    /// The token of the next page in the response.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Resource view that can be applied to label responses. The default value
+/// `LABEL_VIEW_BASIC` implies the field mask:
+/// `name,id,revision_id,label_type,properties.*`\
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum LabelView {
+    /// Implies the field mask:
+    /// `name,id,revision_id,label_type,properties.*`
+    Basic = 0,
+    /// All possible fields.
+    Full = 1,
+}
+impl LabelView {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            LabelView::Basic => "LABEL_VIEW_BASIC",
+            LabelView::Full => "LABEL_VIEW_FULL",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "LABEL_VIEW_BASIC" => Some(Self::Basic),
+            "LABEL_VIEW_FULL" => Some(Self::Full),
+            _ => None,
+        }
+    }
+}
 /// Describes violations in a request to create or update a Label or its
 /// Fields.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1144,6 +1261,151 @@ pub mod precondition_failure {
         }
     }
 }
+/// Generated client implementations.
+pub mod label_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Manage metadata taxonomies based on Labels and Fields that may be used within
+    /// Google Drive to organize and find files using custom metadata.
+    #[derive(Debug, Clone)]
+    pub struct LabelServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> LabelServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> LabelServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            LabelServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// List labels.
+        pub async fn list_labels(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListLabelsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListLabelsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.apps.drive.labels.v2.LabelService/ListLabels",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2.LabelService",
+                        "ListLabels",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Get a label by its resource name.
+        /// Resource name may be any of:
+        ///
+        /// * `labels/{id}` - See `labels/{id}@latest`
+        /// * `labels/{id}@latest` - Gets the latest revision of the label.
+        /// * `labels/{id}@published` - Gets the current published revision of the
+        ///   label.
+        /// * `labels/{id}@{revision_id}` - Gets the label at the specified revision
+        ///   ID.
+        pub async fn get_label(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetLabelRequest>,
+        ) -> std::result::Result<tonic::Response<super::Label>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.apps.drive.labels.v2.LabelService/GetLabel",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.apps.drive.labels.v2.LabelService",
+                        "GetLabel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
 /// Normalized internal-only message that identifies the exact exception that
 /// caused the error on the server.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1316,268 +1578,6 @@ impl ExceptionType {
             "INVALID_CHOICE_SET_STATE" => Some(Self::InvalidChoiceSetState),
             "INTERNAL_SERVER_ERROR" => Some(Self::InternalServerError),
             _ => None,
-        }
-    }
-}
-/// Request to get a label by resource name.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetLabelRequest {
-    /// Required. Label resource name.
-    ///
-    /// May be any of:
-    ///
-    /// * `labels/{id}` (equivalent to labels/{id}@latest)
-    /// * `labels/{id}@latest`
-    /// * `labels/{id}@published`
-    /// * `labels/{id}@{revision_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Set to `true` in order to use the user's admin credentials. The server
-    /// verifies that the user is an admin for the label before allowing access.
-    #[prost(bool, tag = "2")]
-    pub use_admin_access: bool,
-    /// The BCP-47 language code to use for evaluating localized field labels.
-    /// When not specified, values in the default configured language are used.
-    #[prost(string, tag = "3")]
-    pub language_code: ::prost::alloc::string::String,
-    /// When specified, only certain fields belonging to the indicated view are
-    /// returned.
-    #[prost(enumeration = "LabelView", tag = "4")]
-    pub view: i32,
-}
-/// Request to list labels available to the current user.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListLabelsRequest {
-    /// Whether to include only published labels in the results.
-    ///
-    /// * When `true`, only the current published label revisions are returned.
-    ///    Disabled labels are included. Returned label resource names
-    ///    reference the published revision (`labels/{id}/{revision_id}`).
-    /// * When `false`, the current label revisions are returned, which might not
-    ///    be published. Returned label resource names don't reference a specific
-    ///    revision (`labels/{id}`).
-    #[prost(bool, tag = "1")]
-    pub published_only: bool,
-    /// The BCP-47 language code to use for evaluating localized field labels.
-    /// When not specified, values in the default configured language are used.
-    #[prost(string, tag = "5")]
-    pub language_code: ::prost::alloc::string::String,
-    /// Maximum number of labels to return per page. Default: 50. Max: 200.
-    #[prost(int32, tag = "6")]
-    pub page_size: i32,
-    /// The token of the page to return.
-    #[prost(string, tag = "7")]
-    pub page_token: ::prost::alloc::string::String,
-    /// When specified, only certain fields belonging to the indicated view are
-    /// returned.
-    #[prost(enumeration = "LabelView", tag = "8")]
-    pub view: i32,
-    #[prost(oneof = "list_labels_request::Access", tags = "3, 4")]
-    pub access: ::core::option::Option<list_labels_request::Access>,
-}
-/// Nested message and enum types in `ListLabelsRequest`.
-pub mod list_labels_request {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Access {
-        /// Set to `true` in order to use the user's admin credentials. This will
-        /// return all Labels within the customer.
-        #[prost(bool, tag = "3")]
-        UseAdminAccess(bool),
-        /// Specifies the level of access the user must have on the returned Labels.
-        /// The minimum role a user must have on a label.
-        /// Defaults to `READER`.
-        #[prost(enumeration = "super::label_permission::LabelRole", tag = "4")]
-        MinimumRole(i32),
-    }
-}
-/// Response for listing Labels.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListLabelsResponse {
-    /// Labels.
-    #[prost(message, repeated, tag = "1")]
-    pub labels: ::prost::alloc::vec::Vec<Label>,
-    /// The token of the next page in the response.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Resource view that can be applied to label responses. The default value
-/// `LABEL_VIEW_BASIC` implies the field mask:
-/// `name,id,revision_id,label_type,properties.*`\
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum LabelView {
-    /// Implies the field mask:
-    /// `name,id,revision_id,label_type,properties.*`
-    Basic = 0,
-    /// All possible fields.
-    Full = 1,
-}
-impl LabelView {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            LabelView::Basic => "LABEL_VIEW_BASIC",
-            LabelView::Full => "LABEL_VIEW_FULL",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "LABEL_VIEW_BASIC" => Some(Self::Basic),
-            "LABEL_VIEW_FULL" => Some(Self::Full),
-            _ => None,
-        }
-    }
-}
-/// Generated client implementations.
-pub mod label_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Manage metadata taxonomies based on Labels and Fields that may be used within
-    /// Google Drive to organize and find files using custom metadata.
-    #[derive(Debug, Clone)]
-    pub struct LabelServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> LabelServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> LabelServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            LabelServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// List labels.
-        pub async fn list_labels(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListLabelsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListLabelsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.apps.drive.labels.v2.LabelService/ListLabels",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.apps.drive.labels.v2.LabelService",
-                        "ListLabels",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Get a label by its resource name.
-        /// Resource name may be any of:
-        ///
-        /// * `labels/{id}` - See `labels/{id}@latest`
-        /// * `labels/{id}@latest` - Gets the latest revision of the label.
-        /// * `labels/{id}@published` - Gets the current published revision of the
-        ///   label.
-        /// * `labels/{id}@{revision_id}` - Gets the label at the specified revision
-        ///   ID.
-        pub async fn get_label(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetLabelRequest>,
-        ) -> std::result::Result<tonic::Response<super::Label>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.apps.drive.labels.v2.LabelService/GetLabel",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.apps.drive.labels.v2.LabelService",
-                        "GetLabel",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
         }
     }
 }

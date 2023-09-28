@@ -74,17 +74,17 @@ pub mod certificate_provider {
         CertificateProviderInstance(super::CertificateProviderInstance),
     }
 }
-/// ServerTlsPolicy is a resource that specifies how a server should authenticate
-/// incoming requests. This resource itself does not affect configuration unless
-/// it is attached to a target https proxy or endpoint config selector resource.
+/// ClientTlsPolicy is a resource that specifies how a client should authenticate
+/// connections to backends of a service. This resource itself does not affect
+/// configuration unless it is attached to a backend service resource.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ServerTlsPolicy {
-    /// Required. Name of the ServerTlsPolicy resource. It matches the pattern
-    /// `projects/*/locations/{location}/serverTlsPolicies/{server_tls_policy}`
+pub struct ClientTlsPolicy {
+    /// Required. Name of the ClientTlsPolicy resource. It matches the pattern
+    /// `projects/*/locations/{location}/clientTlsPolicies/{client_tls_policy}`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Free-text description of the resource.
+    /// Optional. Free-text description of the resource.
     #[prost(string, tag = "2")]
     pub description: ::prost::alloc::string::String,
     /// Output only. The timestamp when the resource was created.
@@ -93,131 +93,105 @@ pub struct ServerTlsPolicy {
     /// Output only. The timestamp when the resource was updated.
     #[prost(message, optional, tag = "4")]
     pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Set of label tags associated with the resource.
+    /// Optional. Set of label tags associated with the resource.
     #[prost(btree_map = "string, string", tag = "5")]
     pub labels: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
-    ///
-    /// Determines if server allows plaintext connections. If set to true, server
-    /// allows plain text connections. By default, it is set to false. This setting
-    /// is not exclusive of other encryption modes. For example, if `allow_open`
-    /// and `mtls_policy` are set, server allows both plain text and mTLS
-    /// connections. See documentation of other encryption modes to confirm
-    /// compatibility.
-    ///
-    /// Consider using it if you wish to upgrade in place your deployment to TLS
-    /// while having mixed TLS and non-TLS traffic reaching port :80.
-    #[prost(bool, tag = "6")]
-    pub allow_open: bool,
-    ///
-    /// Defines a mechanism to provision server identity (public and private keys).
-    /// Cannot be combined with `allow_open` as a permissive mode that allows both
-    /// plain text and TLS is not supported.
+    /// Optional. Server Name Indication string to present to the server during TLS
+    /// handshake. E.g: "secure.example.com".
+    #[prost(string, tag = "6")]
+    pub sni: ::prost::alloc::string::String,
+    /// Optional. Defines a mechanism to provision client identity (public and private keys)
+    /// for peer to peer authentication. The presence of this dictates mTLS.
     #[prost(message, optional, tag = "7")]
-    pub server_certificate: ::core::option::Option<CertificateProvider>,
-    ///
-    /// Defines a mechanism to provision peer validation certificates for peer to
-    /// peer authentication (Mutual TLS - mTLS). If not specified, client
-    /// certificate will not be requested. The connection is treated as TLS and not
-    /// mTLS. If `allow_open` and `mtls_policy` are set, server allows both plain
-    /// text and mTLS connections.
-    #[prost(message, optional, tag = "8")]
-    pub mtls_policy: ::core::option::Option<server_tls_policy::MtlsPolicy>,
+    pub client_certificate: ::core::option::Option<CertificateProvider>,
+    /// Optional. Defines the mechanism to obtain the Certificate Authority certificate to
+    /// validate the server certificate. If empty, client does not validate the
+    /// server certificate.
+    #[prost(message, repeated, tag = "8")]
+    pub server_validation_ca: ::prost::alloc::vec::Vec<ValidationCa>,
 }
-/// Nested message and enum types in `ServerTlsPolicy`.
-pub mod server_tls_policy {
-    /// Specification of the MTLSPolicy.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct MtlsPolicy {
-        ///
-        /// Defines the mechanism to obtain the Certificate Authority certificate to
-        /// validate the client certificate.
-        #[prost(message, repeated, tag = "1")]
-        pub client_validation_ca: ::prost::alloc::vec::Vec<super::ValidationCa>,
-    }
-}
-/// Request used by the ListServerTlsPolicies method.
+/// Request used by the ListClientTlsPolicies method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListServerTlsPoliciesRequest {
-    /// Required. The project and location from which the ServerTlsPolicies should
+pub struct ListClientTlsPoliciesRequest {
+    /// Required. The project and location from which the ClientTlsPolicies should
     /// be listed, specified in the format `projects/*/locations/{location}`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Maximum number of ServerTlsPolicies to return per call.
+    /// Maximum number of ClientTlsPolicies to return per call.
     #[prost(int32, tag = "2")]
     pub page_size: i32,
-    /// The value returned by the last `ListServerTlsPoliciesResponse`
+    /// The value returned by the last `ListClientTlsPoliciesResponse`
     /// Indicates that this is a continuation of a prior
-    /// `ListServerTlsPolicies` call, and that the system
+    /// `ListClientTlsPolicies` call, and that the system
     /// should return the next page of data.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
 }
-/// Response returned by the ListServerTlsPolicies method.
+/// Response returned by the ListClientTlsPolicies method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListServerTlsPoliciesResponse {
-    /// List of ServerTlsPolicy resources.
+pub struct ListClientTlsPoliciesResponse {
+    /// List of ClientTlsPolicy resources.
     #[prost(message, repeated, tag = "1")]
-    pub server_tls_policies: ::prost::alloc::vec::Vec<ServerTlsPolicy>,
+    pub client_tls_policies: ::prost::alloc::vec::Vec<ClientTlsPolicy>,
     /// If there might be more results than those appearing in this response, then
     /// `next_page_token` is included. To get the next set of results, call this
     /// method again using the value of `next_page_token` as `page_token`.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
-/// Request used by the GetServerTlsPolicy method.
+/// Request used by the GetClientTlsPolicy method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetServerTlsPolicyRequest {
-    /// Required. A name of the ServerTlsPolicy to get. Must be in the format
-    /// `projects/*/locations/{location}/serverTlsPolicies/*`.
+pub struct GetClientTlsPolicyRequest {
+    /// Required. A name of the ClientTlsPolicy to get. Must be in the format
+    /// `projects/*/locations/{location}/clientTlsPolicies/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Request used by the CreateServerTlsPolicy method.
+/// Request used by the CreateClientTlsPolicy method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateServerTlsPolicyRequest {
-    /// Required. The parent resource of the ServerTlsPolicy. Must be in
+pub struct CreateClientTlsPolicyRequest {
+    /// Required. The parent resource of the ClientTlsPolicy. Must be in
     /// the format `projects/*/locations/{location}`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Required. Short name of the ServerTlsPolicy resource to be created. This value should
+    /// Required. Short name of the ClientTlsPolicy resource to be created. This value should
     /// be 1-63 characters long, containing only letters, numbers, hyphens, and
-    /// underscores, and should not start with a number. E.g. "server_mtls_policy".
+    /// underscores, and should not start with a number. E.g. "client_mtls_policy".
     #[prost(string, tag = "2")]
-    pub server_tls_policy_id: ::prost::alloc::string::String,
-    /// Required. ServerTlsPolicy resource to be created.
+    pub client_tls_policy_id: ::prost::alloc::string::String,
+    /// Required. ClientTlsPolicy resource to be created.
     #[prost(message, optional, tag = "3")]
-    pub server_tls_policy: ::core::option::Option<ServerTlsPolicy>,
+    pub client_tls_policy: ::core::option::Option<ClientTlsPolicy>,
 }
-/// Request used by UpdateServerTlsPolicy method.
+/// Request used by UpdateClientTlsPolicy method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateServerTlsPolicyRequest {
+pub struct UpdateClientTlsPolicyRequest {
     /// Optional. Field mask is used to specify the fields to be overwritten in the
-    /// ServerTlsPolicy resource by the update.  The fields
+    /// ClientTlsPolicy resource by the update.  The fields
     /// specified in the update_mask are relative to the resource, not
     /// the full request. A field will be overwritten if it is in the
     /// mask. If the user does not provide a mask then all fields will be
     /// overwritten.
     #[prost(message, optional, tag = "1")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. Updated ServerTlsPolicy resource.
+    /// Required. Updated ClientTlsPolicy resource.
     #[prost(message, optional, tag = "2")]
-    pub server_tls_policy: ::core::option::Option<ServerTlsPolicy>,
+    pub client_tls_policy: ::core::option::Option<ClientTlsPolicy>,
 }
-/// Request used by the DeleteServerTlsPolicy method.
+/// Request used by the DeleteClientTlsPolicy method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteServerTlsPolicyRequest {
-    /// Required. A name of the ServerTlsPolicy to delete. Must be in
-    /// the format `projects/*/locations/{location}/serverTlsPolicies/*`.
+pub struct DeleteClientTlsPolicyRequest {
+    /// Required. A name of the ClientTlsPolicy to delete. Must be in
+    /// the format `projects/*/locations/{location}/clientTlsPolicies/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -487,17 +461,17 @@ pub struct DeleteAuthorizationPolicyRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// ClientTlsPolicy is a resource that specifies how a client should authenticate
-/// connections to backends of a service. This resource itself does not affect
-/// configuration unless it is attached to a backend service resource.
+/// ServerTlsPolicy is a resource that specifies how a server should authenticate
+/// incoming requests. This resource itself does not affect configuration unless
+/// it is attached to a target https proxy or endpoint config selector resource.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ClientTlsPolicy {
-    /// Required. Name of the ClientTlsPolicy resource. It matches the pattern
-    /// `projects/*/locations/{location}/clientTlsPolicies/{client_tls_policy}`
+pub struct ServerTlsPolicy {
+    /// Required. Name of the ServerTlsPolicy resource. It matches the pattern
+    /// `projects/*/locations/{location}/serverTlsPolicies/{server_tls_policy}`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Optional. Free-text description of the resource.
+    /// Free-text description of the resource.
     #[prost(string, tag = "2")]
     pub description: ::prost::alloc::string::String,
     /// Output only. The timestamp when the resource was created.
@@ -506,105 +480,131 @@ pub struct ClientTlsPolicy {
     /// Output only. The timestamp when the resource was updated.
     #[prost(message, optional, tag = "4")]
     pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Optional. Set of label tags associated with the resource.
+    /// Set of label tags associated with the resource.
     #[prost(btree_map = "string, string", tag = "5")]
     pub labels: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
-    /// Optional. Server Name Indication string to present to the server during TLS
-    /// handshake. E.g: "secure.example.com".
-    #[prost(string, tag = "6")]
-    pub sni: ::prost::alloc::string::String,
-    /// Optional. Defines a mechanism to provision client identity (public and private keys)
-    /// for peer to peer authentication. The presence of this dictates mTLS.
+    ///
+    /// Determines if server allows plaintext connections. If set to true, server
+    /// allows plain text connections. By default, it is set to false. This setting
+    /// is not exclusive of other encryption modes. For example, if `allow_open`
+    /// and `mtls_policy` are set, server allows both plain text and mTLS
+    /// connections. See documentation of other encryption modes to confirm
+    /// compatibility.
+    ///
+    /// Consider using it if you wish to upgrade in place your deployment to TLS
+    /// while having mixed TLS and non-TLS traffic reaching port :80.
+    #[prost(bool, tag = "6")]
+    pub allow_open: bool,
+    ///
+    /// Defines a mechanism to provision server identity (public and private keys).
+    /// Cannot be combined with `allow_open` as a permissive mode that allows both
+    /// plain text and TLS is not supported.
     #[prost(message, optional, tag = "7")]
-    pub client_certificate: ::core::option::Option<CertificateProvider>,
-    /// Optional. Defines the mechanism to obtain the Certificate Authority certificate to
-    /// validate the server certificate. If empty, client does not validate the
-    /// server certificate.
-    #[prost(message, repeated, tag = "8")]
-    pub server_validation_ca: ::prost::alloc::vec::Vec<ValidationCa>,
+    pub server_certificate: ::core::option::Option<CertificateProvider>,
+    ///
+    /// Defines a mechanism to provision peer validation certificates for peer to
+    /// peer authentication (Mutual TLS - mTLS). If not specified, client
+    /// certificate will not be requested. The connection is treated as TLS and not
+    /// mTLS. If `allow_open` and `mtls_policy` are set, server allows both plain
+    /// text and mTLS connections.
+    #[prost(message, optional, tag = "8")]
+    pub mtls_policy: ::core::option::Option<server_tls_policy::MtlsPolicy>,
 }
-/// Request used by the ListClientTlsPolicies method.
+/// Nested message and enum types in `ServerTlsPolicy`.
+pub mod server_tls_policy {
+    /// Specification of the MTLSPolicy.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct MtlsPolicy {
+        ///
+        /// Defines the mechanism to obtain the Certificate Authority certificate to
+        /// validate the client certificate.
+        #[prost(message, repeated, tag = "1")]
+        pub client_validation_ca: ::prost::alloc::vec::Vec<super::ValidationCa>,
+    }
+}
+/// Request used by the ListServerTlsPolicies method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListClientTlsPoliciesRequest {
-    /// Required. The project and location from which the ClientTlsPolicies should
+pub struct ListServerTlsPoliciesRequest {
+    /// Required. The project and location from which the ServerTlsPolicies should
     /// be listed, specified in the format `projects/*/locations/{location}`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Maximum number of ClientTlsPolicies to return per call.
+    /// Maximum number of ServerTlsPolicies to return per call.
     #[prost(int32, tag = "2")]
     pub page_size: i32,
-    /// The value returned by the last `ListClientTlsPoliciesResponse`
+    /// The value returned by the last `ListServerTlsPoliciesResponse`
     /// Indicates that this is a continuation of a prior
-    /// `ListClientTlsPolicies` call, and that the system
+    /// `ListServerTlsPolicies` call, and that the system
     /// should return the next page of data.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
 }
-/// Response returned by the ListClientTlsPolicies method.
+/// Response returned by the ListServerTlsPolicies method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListClientTlsPoliciesResponse {
-    /// List of ClientTlsPolicy resources.
+pub struct ListServerTlsPoliciesResponse {
+    /// List of ServerTlsPolicy resources.
     #[prost(message, repeated, tag = "1")]
-    pub client_tls_policies: ::prost::alloc::vec::Vec<ClientTlsPolicy>,
+    pub server_tls_policies: ::prost::alloc::vec::Vec<ServerTlsPolicy>,
     /// If there might be more results than those appearing in this response, then
     /// `next_page_token` is included. To get the next set of results, call this
     /// method again using the value of `next_page_token` as `page_token`.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
-/// Request used by the GetClientTlsPolicy method.
+/// Request used by the GetServerTlsPolicy method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetClientTlsPolicyRequest {
-    /// Required. A name of the ClientTlsPolicy to get. Must be in the format
-    /// `projects/*/locations/{location}/clientTlsPolicies/*`.
+pub struct GetServerTlsPolicyRequest {
+    /// Required. A name of the ServerTlsPolicy to get. Must be in the format
+    /// `projects/*/locations/{location}/serverTlsPolicies/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Request used by the CreateClientTlsPolicy method.
+/// Request used by the CreateServerTlsPolicy method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateClientTlsPolicyRequest {
-    /// Required. The parent resource of the ClientTlsPolicy. Must be in
+pub struct CreateServerTlsPolicyRequest {
+    /// Required. The parent resource of the ServerTlsPolicy. Must be in
     /// the format `projects/*/locations/{location}`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Required. Short name of the ClientTlsPolicy resource to be created. This value should
+    /// Required. Short name of the ServerTlsPolicy resource to be created. This value should
     /// be 1-63 characters long, containing only letters, numbers, hyphens, and
-    /// underscores, and should not start with a number. E.g. "client_mtls_policy".
+    /// underscores, and should not start with a number. E.g. "server_mtls_policy".
     #[prost(string, tag = "2")]
-    pub client_tls_policy_id: ::prost::alloc::string::String,
-    /// Required. ClientTlsPolicy resource to be created.
+    pub server_tls_policy_id: ::prost::alloc::string::String,
+    /// Required. ServerTlsPolicy resource to be created.
     #[prost(message, optional, tag = "3")]
-    pub client_tls_policy: ::core::option::Option<ClientTlsPolicy>,
+    pub server_tls_policy: ::core::option::Option<ServerTlsPolicy>,
 }
-/// Request used by UpdateClientTlsPolicy method.
+/// Request used by UpdateServerTlsPolicy method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateClientTlsPolicyRequest {
+pub struct UpdateServerTlsPolicyRequest {
     /// Optional. Field mask is used to specify the fields to be overwritten in the
-    /// ClientTlsPolicy resource by the update.  The fields
+    /// ServerTlsPolicy resource by the update.  The fields
     /// specified in the update_mask are relative to the resource, not
     /// the full request. A field will be overwritten if it is in the
     /// mask. If the user does not provide a mask then all fields will be
     /// overwritten.
     #[prost(message, optional, tag = "1")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. Updated ClientTlsPolicy resource.
+    /// Required. Updated ServerTlsPolicy resource.
     #[prost(message, optional, tag = "2")]
-    pub client_tls_policy: ::core::option::Option<ClientTlsPolicy>,
+    pub server_tls_policy: ::core::option::Option<ServerTlsPolicy>,
 }
-/// Request used by the DeleteClientTlsPolicy method.
+/// Request used by the DeleteServerTlsPolicy method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteClientTlsPolicyRequest {
-    /// Required. A name of the ClientTlsPolicy to delete. Must be in
-    /// the format `projects/*/locations/{location}/clientTlsPolicies/*`.
+pub struct DeleteServerTlsPolicyRequest {
+    /// Required. A name of the ServerTlsPolicy to delete. Must be in
+    /// the format `projects/*/locations/{location}/serverTlsPolicies/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
