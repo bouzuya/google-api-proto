@@ -3680,11 +3680,6 @@
 <a href="#3680" id="3680">3680</a>
 <a href="#3681" id="3681">3681</a>
 <a href="#3682" id="3682">3682</a>
-<a href="#3683" id="3683">3683</a>
-<a href="#3684" id="3684">3684</a>
-<a href="#3685" id="3685">3685</a>
-<a href="#3686" id="3686">3686</a>
-<a href="#3687" id="3687">3687</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Defines a status condition for a resource.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4182,8 +4177,8 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EnvVar {
-    <span class="doccomment">/// Required. Name of the environment variable. Must be a C_IDENTIFIER, and
-    /// must not exceed 32768 characters.
+    <span class="doccomment">/// Required. Name of the environment variable. Must not exceed 32768
+    /// characters.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="attr">#[prost(oneof = <span class="string">&quot;env_var::Values&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
@@ -5196,11 +5191,6 @@
     <span class="doccomment">/// Output only. Reserved for future use.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;38&quot;</span>)]
     </span><span class="kw">pub </span>satisfies_pzs: bool,
-    <span class="doccomment">/// Optional. Override the traffic tag threshold limit. Garbage collection will
-    /// start cleaning up non-serving tagged traffic targets based on creation
-    /// item. The default value is 2000.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;39&quot;</span>)]
-    </span><span class="kw">pub </span>traffic_tags_cleanup_threshold: i64,
     <span class="doccomment">/// Output only. Returns true if the Service is currently being acted upon by
     /// the system to bring it into the desired state.
     ///
@@ -6165,7 +6155,7 @@
 }
 <span class="doccomment">/// Nested message and enum types in `RunJobRequest`.
 </span><span class="kw">pub mod </span>run_job_request {
-    <span class="doccomment">/// RunJob Overrides that contains Execution fields to be overridden on the go.
+    <span class="doccomment">/// RunJob Overrides that contains Execution fields to be overridden.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Overrides {
@@ -6184,7 +6174,7 @@
     }
     <span class="doccomment">/// Nested message and enum types in `Overrides`.
     </span><span class="kw">pub mod </span>overrides {
-        <span class="doccomment">/// Per container override specification.
+        <span class="doccomment">/// Per-container override specification.
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>ContainerOverride {
