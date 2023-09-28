@@ -495,8 +495,8 @@ pub struct ResourceRequirements {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct EnvVar {
-    /// Required. Name of the environment variable. Must be a C_IDENTIFIER, and
-    /// must not exceed 32768 characters.
+    /// Required. Name of the environment variable. Must not exceed 32768
+    /// characters.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     #[prost(oneof = "env_var::Values", tags = "2, 3")]
@@ -1509,11 +1509,6 @@ pub struct Service {
     /// Output only. Reserved for future use.
     #[prost(bool, tag = "38")]
     pub satisfies_pzs: bool,
-    /// Optional. Override the traffic tag threshold limit. Garbage collection will
-    /// start cleaning up non-serving tagged traffic targets based on creation
-    /// item. The default value is 2000.
-    #[prost(int64, tag = "39")]
-    pub traffic_tags_cleanup_threshold: i64,
     /// Output only. Returns true if the Service is currently being acted upon by
     /// the system to bring it into the desired state.
     ///
@@ -2478,7 +2473,7 @@ pub struct RunJobRequest {
 }
 /// Nested message and enum types in `RunJobRequest`.
 pub mod run_job_request {
-    /// RunJob Overrides that contains Execution fields to be overridden on the go.
+    /// RunJob Overrides that contains Execution fields to be overridden.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct Overrides {
@@ -2497,7 +2492,7 @@ pub mod run_job_request {
     }
     /// Nested message and enum types in `Overrides`.
     pub mod overrides {
-        /// Per container override specification.
+        /// Per-container override specification.
         #[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         pub struct ContainerOverride {
