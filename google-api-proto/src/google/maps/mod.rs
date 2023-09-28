@@ -26,5 +26,7 @@ pub mod roads;
 pub mod routes;
 #[cfg(any(feature = "google-maps-routing-v2"))]
 pub mod routing;
+#[cfg(any(feature = "google-maps-solar-v1"))]
+pub mod solar;
 #[cfg(any(feature = "google-maps-unity"))]
 pub mod unity;
