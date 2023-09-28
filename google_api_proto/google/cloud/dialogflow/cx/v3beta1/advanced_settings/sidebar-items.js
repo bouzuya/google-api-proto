@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["LoggingSettings"]};
+window.SIDEBAR_ITEMS = {"struct":["DtmfSettings","LoggingSettings"]};
