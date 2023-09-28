@@ -1199,79 +1199,48 @@
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>size_bytes: i64,
 }
-<span class="doccomment">/// A comment associated with a support case.
+<span class="doccomment">/// The request message for the ListAttachments endpoint.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Comment {
-    <span class="doccomment">/// Output only. The resource name for the comment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The time when this comment was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Output only. The user or Google Support agent created this comment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>creator: ::core::option::Option&lt;Actor&gt;,
-    <span class="doccomment">/// The full comment body. Maximum of 12800 characters. This can contain rich
-    /// text syntax.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>body: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. DEPRECATED. An automatically generated plain text version of
-    /// body with all rich text syntax stripped.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
-    </span><span class="kw">pub </span>plain_text_body: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// The request message for the ListComments endpoint.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListCommentsRequest {
-    <span class="doccomment">/// Required. The resource name of Case object for which comments should be
+</span><span class="kw">pub struct </span>ListAttachmentsRequest {
+    <span class="doccomment">/// Required. The resource name of Case object for which attachments should be
     /// listed.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of comments fetched with each request. Defaults to 10.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    <span class="doccomment">/// The maximum number of attachments fetched with each request. If not
+    /// provided, the default is 10. The maximum page size that will be returned is
+    /// 100.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A token identifying the page of results to return. If unspecified, the
     /// first page is retrieved.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The response message for the ListComments endpoint.
+<span class="doccomment">/// The response message for the ListAttachments endpoint.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListCommentsResponse {
-    <span class="doccomment">/// The list of Comments associated with the given Case.
+</span><span class="kw">pub struct </span>ListAttachmentsResponse {
+    <span class="doccomment">/// The list of attachments associated with the given case.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>comments: ::prost::alloc::vec::Vec&lt;Comment&gt;,
+    </span><span class="kw">pub </span>attachments: ::prost::alloc::vec::Vec&lt;Attachment&gt;,
     <span class="doccomment">/// A token to retrieve the next page of results. This should be set in the
-    /// `page_token` field of subsequent `ListCommentsRequest` message that is
-    /// issued. If unspecified, there are no more results to retrieve.
+    /// `page_token` field of subsequent `cases.attachments.list` requests. If
+    /// unspecified, there are no more results to retrieve.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The request message for CreateComment endpoint.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>CreateCommentRequest {
-    <span class="doccomment">/// Required. The resource name of Case to which this comment should be added.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The Comment object to be added to this Case.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>comment: ::core::option::Option&lt;Comment&gt;,
-}
 <span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>comment_service_client {
+</span><span class="kw">pub mod </span>case_attachment_service_client {
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
     <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// A service to manage comments on cases.
+    <span class="doccomment">/// A service to manage file attachment for Google Cloud support cases.
     </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>CommentServiceClient&lt;T&gt; {
+    </span><span class="kw">pub struct </span>CaseAttachmentServiceClient&lt;T&gt; {
         inner: tonic::client::Grpc&lt;T&gt;,
     }
-    <span class="kw">impl</span>&lt;T&gt; CommentServiceClient&lt;T&gt;
+    <span class="kw">impl</span>&lt;T&gt; CaseAttachmentServiceClient&lt;T&gt;
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
@@ -1289,7 +1258,7 @@
         <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
             inner: T,
             interceptor: F,
-        ) -&gt; CommentServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        ) -&gt; CaseAttachmentServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
         <span class="kw">where
             </span>F: tonic::service::Interceptor,
             T::ResponseBody: Default,
@@ -1303,7 +1272,7 @@
                 http::Request&lt;tonic::body::BoxBody&gt;,
             &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
         {
-            CommentServiceClient::new(InterceptedService::new(inner, interceptor))
+            CaseAttachmentServiceClient::new(InterceptedService::new(inner, interceptor))
         }
         <span class="doccomment">/// Compress requests with the given encoding.
         ///
@@ -1336,12 +1305,12 @@
             <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
             <span class="self">self
         </span>}
-        <span class="doccomment">/// Retrieve all Comments associated with the Case object.
-        </span><span class="kw">pub async fn </span>list_comments(
+        <span class="doccomment">/// Retrieve all attachments associated with a support case.
+        </span><span class="kw">pub async fn </span>list_attachments(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListCommentsRequest&gt;,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListAttachmentsRequest&gt;,
         ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListCommentsResponse&gt;,
+            tonic::Response&lt;<span class="kw">super</span>::ListAttachmentsResponse&gt;,
             tonic::Status,
         &gt; {
             <span class="self">self</span>.inner
@@ -1355,43 +1324,14 @@
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.support.v2.CommentService/ListComments&quot;</span>,
+                <span class="string">&quot;/google.cloud.support.v2.CaseAttachmentService/ListAttachments&quot;</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.support.v2.CommentService&quot;</span>,
-                        <span class="string">&quot;ListComments&quot;</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Add a new comment to the specified Case.
-        /// The comment object must have the following fields set: body.
-        </span><span class="kw">pub async fn </span>create_comment(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateCommentRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Comment&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.support.v2.CommentService/CreateComment&quot;</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.support.v2.CommentService&quot;</span>,
-                        <span class="string">&quot;CreateComment&quot;</span>,
+                        <span class="string">&quot;google.cloud.support.v2.CaseAttachmentService&quot;</span>,
+                        <span class="string">&quot;ListAttachments&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1460,6 +1400,28 @@
             }
         }
     }
+}
+<span class="doccomment">/// A comment associated with a support case.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Comment {
+    <span class="doccomment">/// Output only. The resource name for the comment.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The time when this comment was created.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Output only. The user or Google Support agent created this comment.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>creator: ::core::option::Option&lt;Actor&gt;,
+    <span class="doccomment">/// The full comment body. Maximum of 12800 characters. This can contain rich
+    /// text syntax.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>body: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. DEPRECATED. An automatically generated plain text version of
+    /// body with all rich text syntax stripped.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>plain_text_body: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A support case.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2169,48 +2131,57 @@
         </span>}
     }
 }
-<span class="doccomment">/// The request message for the ListAttachments endpoint.
+<span class="doccomment">/// The request message for the ListComments endpoint.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListAttachmentsRequest {
-    <span class="doccomment">/// Required. The resource name of Case object for which attachments should be
+</span><span class="kw">pub struct </span>ListCommentsRequest {
+    <span class="doccomment">/// Required. The resource name of Case object for which comments should be
     /// listed.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of attachments fetched with each request. If not
-    /// provided, the default is 10. The maximum page size that will be returned is
-    /// 100.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// The maximum number of comments fetched with each request. Defaults to 10.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A token identifying the page of results to return. If unspecified, the
     /// first page is retrieved.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The response message for the ListAttachments endpoint.
+<span class="doccomment">/// The response message for the ListComments endpoint.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListAttachmentsResponse {
-    <span class="doccomment">/// The list of attachments associated with the given case.
+</span><span class="kw">pub struct </span>ListCommentsResponse {
+    <span class="doccomment">/// The list of Comments associated with the given Case.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>attachments: ::prost::alloc::vec::Vec&lt;Attachment&gt;,
+    </span><span class="kw">pub </span>comments: ::prost::alloc::vec::Vec&lt;Comment&gt;,
     <span class="doccomment">/// A token to retrieve the next page of results. This should be set in the
-    /// `page_token` field of subsequent `cases.attachments.list` requests. If
-    /// unspecified, there are no more results to retrieve.
+    /// `page_token` field of subsequent `ListCommentsRequest` message that is
+    /// issued. If unspecified, there are no more results to retrieve.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
+<span class="doccomment">/// The request message for CreateComment endpoint.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>CreateCommentRequest {
+    <span class="doccomment">/// Required. The resource name of Case to which this comment should be added.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
+    <span class="doccomment">/// Required. The Comment object to be added to this Case.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>comment: ::core::option::Option&lt;Comment&gt;,
+}
 <span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>case_attachment_service_client {
+</span><span class="kw">pub mod </span>comment_service_client {
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
     <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// A service to manage file attachment for Google Cloud support cases.
+    <span class="doccomment">/// A service to manage comments on cases.
     </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>CaseAttachmentServiceClient&lt;T&gt; {
+    </span><span class="kw">pub struct </span>CommentServiceClient&lt;T&gt; {
         inner: tonic::client::Grpc&lt;T&gt;,
     }
-    <span class="kw">impl</span>&lt;T&gt; CaseAttachmentServiceClient&lt;T&gt;
+    <span class="kw">impl</span>&lt;T&gt; CommentServiceClient&lt;T&gt;
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
@@ -2228,7 +2199,7 @@
         <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
             inner: T,
             interceptor: F,
-        ) -&gt; CaseAttachmentServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        ) -&gt; CommentServiceClient&lt;InterceptedService&lt;T, F&gt;&gt;
         <span class="kw">where
             </span>F: tonic::service::Interceptor,
             T::ResponseBody: Default,
@@ -2242,7 +2213,7 @@
                 http::Request&lt;tonic::body::BoxBody&gt;,
             &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
         {
-            CaseAttachmentServiceClient::new(InterceptedService::new(inner, interceptor))
+            CommentServiceClient::new(InterceptedService::new(inner, interceptor))
         }
         <span class="doccomment">/// Compress requests with the given encoding.
         ///
@@ -2275,12 +2246,12 @@
             <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
             <span class="self">self
         </span>}
-        <span class="doccomment">/// Retrieve all attachments associated with a support case.
-        </span><span class="kw">pub async fn </span>list_attachments(
+        <span class="doccomment">/// Retrieve all Comments associated with the Case object.
+        </span><span class="kw">pub async fn </span>list_comments(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListAttachmentsRequest&gt;,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListCommentsRequest&gt;,
         ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListAttachmentsResponse&gt;,
+            tonic::Response&lt;<span class="kw">super</span>::ListCommentsResponse&gt;,
             tonic::Status,
         &gt; {
             <span class="self">self</span>.inner
@@ -2294,14 +2265,43 @@
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.support.v2.CaseAttachmentService/ListAttachments&quot;</span>,
+                <span class="string">&quot;/google.cloud.support.v2.CommentService/ListComments&quot;</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.support.v2.CaseAttachmentService&quot;</span>,
-                        <span class="string">&quot;ListAttachments&quot;</span>,
+                        <span class="string">&quot;google.cloud.support.v2.CommentService&quot;</span>,
+                        <span class="string">&quot;ListComments&quot;</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Add a new comment to the specified Case.
+        /// The comment object must have the following fields set: body.
+        </span><span class="kw">pub async fn </span>create_comment(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateCommentRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Comment&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">&quot;/google.cloud.support.v2.CommentService/CreateComment&quot;</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">&quot;google.cloud.support.v2.CommentService&quot;</span>,
+                        <span class="string">&quot;CreateComment&quot;</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
