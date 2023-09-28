@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["addressvalidation","aerialview","mapsplatformdatasets","places","playablelocations","regionlookup","roads","routes","routing","unity"]};
+window.SIDEBAR_ITEMS = {"mod":["addressvalidation","aerialview","mapsplatformdatasets","places","playablelocations","regionlookup","roads","routes","routing","solar","unity"]};
