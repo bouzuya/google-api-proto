@@ -14234,6 +14234,27 @@
 <a href="#14234" id="14234">14234</a>
 <a href="#14235" id="14235">14235</a>
 <a href="#14236" id="14236">14236</a>
+<a href="#14237" id="14237">14237</a>
+<a href="#14238" id="14238">14238</a>
+<a href="#14239" id="14239">14239</a>
+<a href="#14240" id="14240">14240</a>
+<a href="#14241" id="14241">14241</a>
+<a href="#14242" id="14242">14242</a>
+<a href="#14243" id="14243">14243</a>
+<a href="#14244" id="14244">14244</a>
+<a href="#14245" id="14245">14245</a>
+<a href="#14246" id="14246">14246</a>
+<a href="#14247" id="14247">14247</a>
+<a href="#14248" id="14248">14248</a>
+<a href="#14249" id="14249">14249</a>
+<a href="#14250" id="14250">14250</a>
+<a href="#14251" id="14251">14251</a>
+<a href="#14252" id="14252">14252</a>
+<a href="#14253" id="14253">14253</a>
+<a href="#14254" id="14254">14254</a>
+<a href="#14255" id="14255">14255</a>
+<a href="#14256" id="14256">14256</a>
+<a href="#14257" id="14257">14257</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Dialogflow contexts are similar to natural language context. If a person says
 /// to you &quot;they are orange&quot;, you need context in order to understand what &quot;they&quot;
 /// is referring to. Similarly, for Dialogflow to handle an end-user expression
@@ -19678,6 +19699,27 @@
     /// CX agent.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
     </span><span class="kw">pub </span>cx_parameters: ::core::option::Option&lt;::prost_types::Struct&gt;,
+    <span class="doccomment">/// Optional. Enable full bidirectional streaming. You can keep streaming the
+    /// audio until timeout, and there&#39;s no need to half close the stream to get
+    /// the response.
+    ///
+    /// Restrictions:
+    ///
+    /// - Timeout: 3 mins.
+    /// - Audio Encoding: only supports
+    /// \[AudioEncoding.AUDIO_ENCODING_LINEAR_16][google.cloud.dialogflow.v2.AudioEncoding.AUDIO_ENCODING_LINEAR_16\]
+    /// and
+    /// \[AudioEncoding.AUDIO_ENCODING_MULAW][google.cloud.dialogflow.v2.AudioEncoding.AUDIO_ENCODING_MULAW\]
+    /// - Lifecycle: conversation should be in `Assist Stage`, go to
+    ///    \[Conversation.CreateConversation][\] for more information.
+    ///
+    /// InvalidArgument Error will be returned if the one of restriction checks
+    /// failed.
+    ///
+    /// You can find more details in
+    /// &lt;https://cloud.google.com/agent-assist/docs/extended-streaming&gt;
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="kw">pub </span>enable_extended_streaming: bool,
     <span class="doccomment">/// Enable partial virtual agent responses. If this flag is not enabled,
     /// response stream still contains only one final response even if some
     /// `Fulfillment`s in Dialogflow virtual agent have been configured to return

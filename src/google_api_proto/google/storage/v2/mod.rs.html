@@ -3073,6 +3073,18 @@
 <a href="#3073" id="3073">3073</a>
 <a href="#3074" id="3074">3074</a>
 <a href="#3075" id="3075">3075</a>
+<a href="#3076" id="3076">3076</a>
+<a href="#3077" id="3077">3077</a>
+<a href="#3078" id="3078">3078</a>
+<a href="#3079" id="3079">3079</a>
+<a href="#3080" id="3080">3080</a>
+<a href="#3081" id="3081">3081</a>
+<a href="#3082" id="3082">3082</a>
+<a href="#3083" id="3083">3083</a>
+<a href="#3084" id="3084">3084</a>
+<a href="#3085" id="3085">3085</a>
+<a href="#3086" id="3086">3086</a>
+<a href="#3087" id="3087">3087</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Request message for DeleteBucket.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4722,6 +4734,18 @@
         /// to the bucket creation time.
         </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>toggle_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+        <span class="doccomment">/// An object in an Autoclass bucket will eventually cool down to the
+        /// terminal storage class if there is no access to the object.
+        /// The only valid values are NEARLINE and ARCHIVE.
+        </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="kw">pub </span>terminal_storage_class: ::core::option::Option&lt;
+            ::prost::alloc::string::String,
+        &gt;,
+        <span class="doccomment">/// Latest instant at which the autoclass terminal storage class was updated.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="kw">pub </span>terminal_storage_class_update_time: ::core::option::Option&lt;
+            ::prost_types::Timestamp,
+        &gt;,
     }
 }
 <span class="doccomment">/// An access-control entry.

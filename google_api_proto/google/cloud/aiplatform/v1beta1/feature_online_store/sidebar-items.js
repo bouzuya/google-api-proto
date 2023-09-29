@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["State","StorageType"],"mod":["bigtable"],"struct":["Bigtable","EmbeddingManagement"]};
+window.SIDEBAR_ITEMS = {"enum":["State","StorageType"],"mod":["bigtable"],"struct":["Bigtable","DedicatedServingEndpoint","EmbeddingManagement"]};

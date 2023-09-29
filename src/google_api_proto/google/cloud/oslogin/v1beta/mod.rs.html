@@ -542,6 +542,9 @@
 <a href="#542" id="542">542</a>
 <a href="#543" id="543">543</a>
 <a href="#544" id="544">544</a>
+<a href="#545" id="545">545</a>
+<a href="#546" id="546">546</a>
+<a href="#547" id="547">547</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// The user profile information used for logging in to a virtual machine on
 /// Google Compute Engine.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -676,6 +679,9 @@
     <span class="doccomment">/// Hardware-backed private key text in SSH format.
     </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
     </span><span class="kw">pub </span>private_key: ::prost::alloc::string::String,
+    <span class="doccomment">/// The security key nickname explicitly set by the user.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>device_nickname: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The FIDO protocol type used to register this credential.
     </span><span class="attr">#[prost(oneof = <span class="string">&quot;security_key::ProtocolType&quot;</span>, tags = <span class="string">&quot;3, 4&quot;</span>)]
     </span><span class="kw">pub </span>protocol_type: ::core::option::Option&lt;security_key::ProtocolType&gt;,

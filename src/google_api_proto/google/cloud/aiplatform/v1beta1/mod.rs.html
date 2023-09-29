@@ -30287,6 +30287,21 @@
 <a href="#30287" id="30287">30287</a>
 <a href="#30288" id="30288">30288</a>
 <a href="#30289" id="30289">30289</a>
+<a href="#30290" id="30290">30290</a>
+<a href="#30291" id="30291">30291</a>
+<a href="#30292" id="30292">30292</a>
+<a href="#30293" id="30293">30293</a>
+<a href="#30294" id="30294">30294</a>
+<a href="#30295" id="30295">30295</a>
+<a href="#30296" id="30296">30296</a>
+<a href="#30297" id="30297">30297</a>
+<a href="#30298" id="30298">30298</a>
+<a href="#30299" id="30299">30299</a>
+<a href="#30300" id="30300">30300</a>
+<a href="#30301" id="30301">30301</a>
+<a href="#30302" id="30302">30302</a>
+<a href="#30303" id="30303">30303</a>
+<a href="#30304" id="30304">30304</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(
     any(
         feature = <span class="string">&quot;google-cloud-aiplatform-v1beta1-schema&quot;</span>,
@@ -52074,6 +52089,12 @@
     <span class="doccomment">/// Output only. State of the featureOnlineStore.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;feature_online_store::State&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>state: i32,
+    <span class="doccomment">/// Optional. The dedicated serving endpoint for this FeatureOnlineStore, which
+    /// is different from common Vertex service endpoint.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="kw">pub </span>dedicated_serving_endpoint: ::core::option::Option&lt;
+        feature_online_store::DedicatedServingEndpoint,
+    &gt;,
     <span class="doccomment">/// Optional. The settings for embedding management in FeatureOnlineStore.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
     </span><span class="kw">pub </span>embedding_management: ::core::option::Option&lt;
@@ -52113,6 +52134,15 @@
             </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
             </span><span class="kw">pub </span>cpu_utilization_target: i32,
         }
+    }
+    <span class="doccomment">/// The dedicated serving endpoint for this FeatureOnlineStore.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>DedicatedServingEndpoint {
+        <span class="doccomment">/// Output only. This field will be populated with the domain name to use for
+        /// this FeatureOnlineStore
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="kw">pub </span>public_endpoint_domain_name: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Contains settings for embedding management.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
