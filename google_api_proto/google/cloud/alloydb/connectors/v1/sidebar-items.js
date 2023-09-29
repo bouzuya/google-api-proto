@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["metadata_exchange_request","metadata_exchange_response"],"struct":["MetadataExchangeRequest","MetadataExchangeResponse"]};
