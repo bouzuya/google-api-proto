@@ -21785,6 +21785,12 @@ pub struct FeatureOnlineStore {
     /// Output only. State of the featureOnlineStore.
     #[prost(enumeration = "feature_online_store::State", tag = "7")]
     pub state: i32,
+    /// Optional. The dedicated serving endpoint for this FeatureOnlineStore, which
+    /// is different from common Vertex service endpoint.
+    #[prost(message, optional, tag = "10")]
+    pub dedicated_serving_endpoint: ::core::option::Option<
+        feature_online_store::DedicatedServingEndpoint,
+    >,
     /// Optional. The settings for embedding management in FeatureOnlineStore.
     #[prost(message, optional, tag = "11")]
     pub embedding_management: ::core::option::Option<
@@ -21824,6 +21830,15 @@ pub mod feature_online_store {
             #[prost(int32, tag = "3")]
             pub cpu_utilization_target: i32,
         }
+    }
+    /// The dedicated serving endpoint for this FeatureOnlineStore.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DedicatedServingEndpoint {
+        /// Output only. This field will be populated with the domain name to use for
+        /// this FeatureOnlineStore
+        #[prost(string, tag = "2")]
+        pub public_endpoint_domain_name: ::prost::alloc::string::String,
     }
     /// Contains settings for embedding management.
     #[allow(clippy::derive_partial_eq_without_eq)]

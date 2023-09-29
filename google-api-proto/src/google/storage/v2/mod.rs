@@ -1647,6 +1647,18 @@ pub mod bucket {
         /// to the bucket creation time.
         #[prost(message, optional, tag = "2")]
         pub toggle_time: ::core::option::Option<::prost_types::Timestamp>,
+        /// An object in an Autoclass bucket will eventually cool down to the
+        /// terminal storage class if there is no access to the object.
+        /// The only valid values are NEARLINE and ARCHIVE.
+        #[prost(string, optional, tag = "3")]
+        pub terminal_storage_class: ::core::option::Option<
+            ::prost::alloc::string::String,
+        >,
+        /// Latest instant at which the autoclass terminal storage class was updated.
+        #[prost(message, optional, tag = "4")]
+        pub terminal_storage_class_update_time: ::core::option::Option<
+            ::prost_types::Timestamp,
+        >,
     }
 }
 /// An access-control entry.
