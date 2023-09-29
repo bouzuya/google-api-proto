@@ -102,6 +102,7 @@ google-cloud-aiplatform-v1beta1-schema-predict-instance = ["google-cloud", "goog
 google-cloud-aiplatform-v1beta1-schema-predict-params = ["google-cloud", "google-cloud-aiplatform-v1beta1", "google-cloud-aiplatform-v1beta1-schema"]
 google-cloud-aiplatform-v1beta1-schema-predict-prediction = ["google-cloud", "google-cloud-aiplatform-v1beta1", "google-cloud-aiplatform-v1beta1-schema"]
 google-cloud-aiplatform-v1beta1-schema-trainingjob-definition = ["google-cloud", "google-cloud-aiplatform-v1beta1", "google-cloud-aiplatform-v1beta1-schema"]
+google-cloud-alloydb-connectors-v1 = ["google-api", "google-cloud"]
 google-cloud-alloydb-connectors-v1alpha = ["google-api", "google-cloud"]
 google-cloud-alloydb-connectors-v1beta = ["google-api", "google-cloud"]
 google-cloud-alloydb-v1 = ["google-api", "google-cloud", "google-longrunning", "google-rpc", "google-type"]

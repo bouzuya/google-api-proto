@@ -124,6 +124,7 @@ pub mod chromeos;
         feature = "google-cloud-aiplatform-v1beta1-schema-predict-params",
         feature = "google-cloud-aiplatform-v1beta1-schema-predict-prediction",
         feature = "google-cloud-aiplatform-v1beta1-schema-trainingjob-definition",
+        feature = "google-cloud-alloydb-connectors-v1",
         feature = "google-cloud-alloydb-connectors-v1alpha",
         feature = "google-cloud-alloydb-connectors-v1beta",
         feature = "google-cloud-alloydb-v1",
