@@ -7472,19 +7472,6 @@
 <a href="#7472" id="7472">7472</a>
 <a href="#7473" id="7473">7473</a>
 <a href="#7474" id="7474">7474</a>
-<a href="#7475" id="7475">7475</a>
-<a href="#7476" id="7476">7476</a>
-<a href="#7477" id="7477">7477</a>
-<a href="#7478" id="7478">7478</a>
-<a href="#7479" id="7479">7479</a>
-<a href="#7480" id="7480">7480</a>
-<a href="#7481" id="7481">7481</a>
-<a href="#7482" id="7482">7482</a>
-<a href="#7483" id="7483">7483</a>
-<a href="#7484" id="7484">7484</a>
-<a href="#7485" id="7485">7485</a>
-<a href="#7486" id="7486">7486</a>
-<a href="#7487" id="7487">7487</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// An entry for an Access Control list.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -11367,10 +11354,7 @@
     </span><span class="kw">pub </span>skip_verification: bool,
     <span class="doccomment">/// Optional. Parallel level for initial data sync. Currently only applicable
     /// for MySQL.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;sql_instances_start_external_sync_request::ExternalSyncParallelLevel&quot;</span>,
-        tag = <span class="string">&quot;7&quot;
-    </span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ExternalSyncParallelLevel&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
     </span><span class="kw">pub </span>sync_parallel_level: i32,
     <span class="attr">#[prost(oneof = <span class="string">&quot;sql_instances_start_external_sync_request::SyncConfig&quot;</span>, tags = <span class="string">&quot;6&quot;</span>)]
     </span><span class="kw">pub </span>sync_config: ::core::option::Option&lt;
@@ -11379,55 +11363,6 @@
 }
 <span class="doccomment">/// Nested message and enum types in `SqlInstancesStartExternalSyncRequest`.
 </span><span class="kw">pub mod </span>sql_instances_start_external_sync_request {
-    <span class="doccomment">/// External Sync parallel level.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>ExternalSyncParallelLevel {
-        <span class="doccomment">/// Unknown sync parallel level. Will be defaulted to OPTIMAL.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Minimal parallel level.
-        </span>Min = <span class="number">1</span>,
-        <span class="doccomment">/// Optimal parallel level.
-        </span>Optimal = <span class="number">2</span>,
-        <span class="doccomment">/// Maximum parallel level.
-        </span>Max = <span class="number">3</span>,
-    }
-    <span class="kw">impl </span>ExternalSyncParallelLevel {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                ExternalSyncParallelLevel::Unspecified =&gt; {
-                    <span class="string">&quot;EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED&quot;
-                </span>}
-                ExternalSyncParallelLevel::Min =&gt; <span class="string">&quot;MIN&quot;</span>,
-                ExternalSyncParallelLevel::Optimal =&gt; <span class="string">&quot;OPTIMAL&quot;</span>,
-                ExternalSyncParallelLevel::Max =&gt; <span class="string">&quot;MAX&quot;</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">&quot;EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;MIN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Min),
-                <span class="string">&quot;OPTIMAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Optimal),
-                <span class="string">&quot;MAX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Max),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
     <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>SyncConfig {
@@ -12493,6 +12428,45 @@
     /// the replica has to be in different zone with the primary instance.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>failover_target: ::core::option::Option&lt;bool&gt;,
+}
+<span class="doccomment">/// External Sync parallel level.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>ExternalSyncParallelLevel {
+    <span class="doccomment">/// Unknown sync parallel level. Will be defaulted to OPTIMAL.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Minimal parallel level.
+    </span>Min = <span class="number">1</span>,
+    <span class="doccomment">/// Optimal parallel level.
+    </span>Optimal = <span class="number">2</span>,
+    <span class="doccomment">/// Maximum parallel level.
+    </span>Max = <span class="number">3</span>,
+}
+<span class="kw">impl </span>ExternalSyncParallelLevel {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            ExternalSyncParallelLevel::Unspecified =&gt; {
+                <span class="string">&quot;EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED&quot;
+            </span>}
+            ExternalSyncParallelLevel::Min =&gt; <span class="string">&quot;MIN&quot;</span>,
+            ExternalSyncParallelLevel::Optimal =&gt; <span class="string">&quot;OPTIMAL&quot;</span>,
+            ExternalSyncParallelLevel::Max =&gt; <span class="string">&quot;MAX&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;MIN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Min),
+            <span class="string">&quot;OPTIMAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Optimal),
+            <span class="string">&quot;MAX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Max),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
 }
 <span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]

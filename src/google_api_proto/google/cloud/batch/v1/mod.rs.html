@@ -1748,6 +1748,19 @@
 <a href="#1748" id="1748">1748</a>
 <a href="#1749" id="1749">1749</a>
 <a href="#1750" id="1750">1750</a>
+<a href="#1751" id="1751">1751</a>
+<a href="#1752" id="1752">1752</a>
+<a href="#1753" id="1753">1753</a>
+<a href="#1754" id="1754">1754</a>
+<a href="#1755" id="1755">1755</a>
+<a href="#1756" id="1756">1756</a>
+<a href="#1757" id="1757">1757</a>
+<a href="#1758" id="1758">1758</a>
+<a href="#1759" id="1759">1759</a>
+<a href="#1760" id="1760">1760</a>
+<a href="#1761" id="1761">1761</a>
+<a href="#1762" id="1762">1762</a>
+<a href="#1763" id="1763">1763</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Volume describes a volume and parameters for it to be mounted to a VM.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2028,6 +2041,14 @@
         <span class="doccomment">/// Volumes to mount (bind mount) from the host machine files or directories
         /// into the container, formatted to match docker run&#39;s --volume option,
         /// e.g. /foo:/bar, or /foo:/bar:ro
+        ///
+        /// If the `TaskSpec.Volumes` field is specified but this field is not, Batch
+        /// will mount each volume from the host machine to the container with the
+        /// same mount path by default. In this case, the default mount option for
+        /// containers will be read-only (ro) for existing persistent disks and
+        /// read-write (rw) for other volume types, regardless of the original mount
+        /// options specified in `TaskSpec.Volumes`. If you need different mount
+        /// settings, you can explicitly configure them in this field.
         </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;7&quot;</span>)]
         </span><span class="kw">pub </span>volumes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// Arbitrary additional options to include in the &quot;docker run&quot; command when
@@ -2722,6 +2743,7 @@
             /// * `batch-centos`: use Batch CentOS images.
             /// * `batch-cos`: use Batch Container-Optimized images.
             /// * `batch-hpc-centos`: use Batch HPC CentOS images.
+            /// * `batch-hpc-rocky`: use Batch HPC Rocky Linux images.
             </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
             </span>Image(::prost::alloc::string::String),
             <span class="doccomment">/// Name of a snapshot used as the data source.
@@ -2812,6 +2834,10 @@
         /// storage and accessing.
         </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
         </span><span class="kw">pub </span>disks: ::prost::alloc::vec::Vec&lt;AttachedDisk&gt;,
+        <span class="doccomment">/// Optional. If specified, VMs will consume only the specified reservation.
+        /// If not specified (default), VMs will consume any applicable reservation.
+        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="kw">pub </span>reservation: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// InstancePolicyOrTemplate lets you define the type of resources to use for
     /// this job either with an InstancePolicy or an instance template.
