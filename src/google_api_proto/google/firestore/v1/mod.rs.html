@@ -2966,6 +2966,22 @@
 <a href="#2966" id="2966">2966</a>
 <a href="#2967" id="2967">2967</a>
 <a href="#2968" id="2968">2968</a>
+<a href="#2969" id="2969">2969</a>
+<a href="#2970" id="2970">2970</a>
+<a href="#2971" id="2971">2971</a>
+<a href="#2972" id="2972">2972</a>
+<a href="#2973" id="2973">2973</a>
+<a href="#2974" id="2974">2974</a>
+<a href="#2975" id="2975">2975</a>
+<a href="#2976" id="2976">2976</a>
+<a href="#2977" id="2977">2977</a>
+<a href="#2978" id="2978">2978</a>
+<a href="#2979" id="2979">2979</a>
+<a href="#2980" id="2980">2980</a>
+<a href="#2981" id="2981">2981</a>
+<a href="#2982" id="2982">2982</a>
+<a href="#2983" id="2983">2983</a>
+<a href="#2984" id="2984">2984</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A Firestore document.
 ///
 /// Must not exceed 1 MiB - 4 bytes.
@@ -3544,11 +3560,12 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>FieldReference {
-        <span class="doccomment">/// The relative path of the document being referenced.
+        <span class="doccomment">/// A reference to a field in a document.
         ///
         /// Requires:
         ///
-        /// * Conform to [document field name]\[google.firestore.v1.Document.fields\]
+        /// * MUST be a dot-delimited (`.`) string of segments, where each segment
+        /// conforms to [document field name]\[google.firestore.v1.Document.fields\]
         /// limitations.
         </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
         </span><span class="kw">pub </span>field_path: ::prost::alloc::string::String,
@@ -4950,7 +4967,7 @@
     ///   * query, start_at B
     ///
     /// An empty result may indicate that the query has too few results to be
-    /// partitioned.
+    /// partitioned, or that the query is not yet supported for partitioning.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>partitions: ::prost::alloc::vec::Vec&lt;Cursor&gt;,
     <span class="doccomment">/// A page token that may be used to request an additional set of results, up
@@ -5112,6 +5129,21 @@
 </span><span class="kw">pub struct </span>Target {
     <span class="doccomment">/// The target ID that identifies the target on the stream. Must be a positive
     /// number and non-zero.
+    ///
+    /// If `target_id` is 0 (or unspecified), the server will assign an ID for this
+    /// target and return that in a `TargetChange::ADD` event. Once a target with
+    /// `target_id=0` is added, all subsequent targets must also have
+    /// `target_id=0`. If an `AddTarget` request with `target_id != 0` is
+    /// sent to the server after a target with `target_id=0` is added, the server
+    /// will immediately send a response with a `TargetChange::Remove` event.
+    ///
+    /// Note that if the client sends multiple `AddTarget` requests
+    /// without an ID, the order of IDs returned in `TargetChage.target_ids` are
+    /// undefined. Therefore, clients should provide a target ID instead of relying
+    /// on the server to assign one.
+    ///
+    /// If `target_id` is non-zero, there must not be an existing active target on
+    /// this stream with the same ID.
     </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
     </span><span class="kw">pub </span>target_id: i32,
     <span class="doccomment">/// If the target should be removed once it is current and consistent.
