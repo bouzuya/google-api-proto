@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["FirewallActionOneof"],"struct":["AllowAction","BlockAction","RedirectAction","SetHeaderAction","SubstituteAction"]};

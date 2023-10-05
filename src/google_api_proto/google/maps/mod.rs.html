@@ -30,6 +30,8 @@
 <a href="#30" id="30">30</a>
 <a href="#31" id="31">31</a>
 <a href="#32" id="32">32</a>
+<a href="#33" id="33">33</a>
+<a href="#34" id="34">34</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-maps-addressvalidation-v1&quot;</span>))]
 </span><span class="kw">pub mod </span>addressvalidation;
 <span class="attr">#[cfg(any(feature = <span class="string">&quot;google-maps-aerialview-v1&quot;</span>))]
@@ -41,6 +43,8 @@
     )
 )]
 </span><span class="kw">pub mod </span>mapsplatformdatasets;
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-maps-mobilitybilling-logs-v1&quot;</span>))]
+</span><span class="kw">pub mod </span>mobilitybilling;
 <span class="attr">#[cfg(any(feature = <span class="string">&quot;google-maps-places-v1&quot;</span>))]
 </span><span class="kw">pub mod </span>places;
 <span class="attr">#[cfg(
