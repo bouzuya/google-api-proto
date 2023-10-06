@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["RoutingPolicy"],"struct":["MultiClusterRoutingUseAny","SingleClusterRouting"]};
+window.SIDEBAR_ITEMS = {"enum":["Isolation","Priority","RoutingPolicy"],"struct":["MultiClusterRoutingUseAny","SingleClusterRouting","StandardIsolation"]};
