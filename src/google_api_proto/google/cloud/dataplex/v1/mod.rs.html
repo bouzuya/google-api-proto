@@ -9893,6 +9893,20 @@
 <a href="#9893" id="9893">9893</a>
 <a href="#9894" id="9894">9894</a>
 <a href="#9895" id="9895">9895</a>
+<a href="#9896" id="9896">9896</a>
+<a href="#9897" id="9897">9897</a>
+<a href="#9898" id="9898">9898</a>
+<a href="#9899" id="9899">9899</a>
+<a href="#9900" id="9900">9900</a>
+<a href="#9901" id="9901">9901</a>
+<a href="#9902" id="9902">9902</a>
+<a href="#9903" id="9903">9903</a>
+<a href="#9904" id="9904">9904</a>
+<a href="#9905" id="9905">9905</a>
+<a href="#9906" id="9906">9906</a>
+<a href="#9907" id="9907">9907</a>
+<a href="#9908" id="9908">9908</a>
+<a href="#9909" id="9909">9909</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A lake is a centralized repository for managing enterprise data across the
 /// organization distributed across many cloud projects, and stored in a variety
 /// of storage services such as Google Cloud Storage and BigQuery. The resources
@@ -17253,9 +17267,23 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DataQualityDimensionResult {
+    <span class="doccomment">/// Output only. The dimension config specified in the DataQualitySpec, as is.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>dimension: ::core::option::Option&lt;DataQualityDimension&gt;,
     <span class="doccomment">/// Whether the dimension passed or failed.
     </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>passed: bool,
+}
+<span class="doccomment">/// A dimension captures data quality intent about a defined subset of the rules
+/// specified.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DataQualityDimension {
+    <span class="doccomment">/// The dimension name a rule belongs to. Supported dimensions are
+    /// [&quot;COMPLETENESS&quot;, &quot;ACCURACY&quot;, &quot;CONSISTENCY&quot;, &quot;VALIDITY&quot;, &quot;UNIQUENESS&quot;,
+    /// &quot;INTEGRITY&quot;]
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A rule captures data quality intent about a data source.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
