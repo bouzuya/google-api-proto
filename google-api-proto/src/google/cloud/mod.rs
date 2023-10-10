@@ -212,7 +212,9 @@ pub mod deploy;
 pub mod dialogflow;
 #[cfg(
     any(
+        feature = "google-cloud-discoveryengine-logging",
         feature = "google-cloud-discoveryengine-v1",
+        feature = "google-cloud-discoveryengine-v1alpha",
         feature = "google-cloud-discoveryengine-v1beta",
     )
 )]
