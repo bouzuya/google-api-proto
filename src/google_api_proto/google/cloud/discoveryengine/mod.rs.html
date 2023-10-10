@@ -2,8 +2,16 @@
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
-</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-discoveryengine-v1&quot;</span>))]
+<a href="#5" id="5">5</a>
+<a href="#6" id="6">6</a>
+<a href="#7" id="7">7</a>
+<a href="#8" id="8">8</a>
+</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-discoveryengine-logging&quot;</span>))]
+</span><span class="kw">pub mod </span>logging;
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-discoveryengine-v1&quot;</span>))]
 </span><span class="kw">pub mod </span>v1;
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-discoveryengine-v1alpha&quot;</span>))]
+</span><span class="kw">pub mod </span>v1alpha;
 <span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-discoveryengine-v1beta&quot;</span>))]
 </span><span class="kw">pub mod </span>v1beta;
 </code></pre></div></section></main></body></html>

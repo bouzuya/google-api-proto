@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["CompletableOption","DynamicFacetableOption","FieldType","FilterableOption","IndexableOption","RetrievableOption","SearchableOption"]};
