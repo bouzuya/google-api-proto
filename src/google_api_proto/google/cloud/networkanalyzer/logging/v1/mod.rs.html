@@ -518,6 +518,27 @@
 <a href="#518" id="518">518</a>
 <a href="#519" id="519">519</a>
 <a href="#520" id="520">520</a>
+<a href="#521" id="521">521</a>
+<a href="#522" id="522">522</a>
+<a href="#523" id="523">523</a>
+<a href="#524" id="524">524</a>
+<a href="#525" id="525">525</a>
+<a href="#526" id="526">526</a>
+<a href="#527" id="527">527</a>
+<a href="#528" id="528">528</a>
+<a href="#529" id="529">529</a>
+<a href="#530" id="530">530</a>
+<a href="#531" id="531">531</a>
+<a href="#532" id="532">532</a>
+<a href="#533" id="533">533</a>
+<a href="#534" id="534">534</a>
+<a href="#535" id="535">535</a>
+<a href="#536" id="536">536</a>
+<a href="#537" id="537">537</a>
+<a href="#538" id="538">538</a>
+<a href="#539" id="539">539</a>
+<a href="#540" id="540">540</a>
+<a href="#541" id="541">541</a>
 </pre></div><pre class="rust"><code><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>IpUtilizationInfo {
@@ -799,6 +820,9 @@
     GkeControlPlaneToNodeBlockedByIngressFirewallOnNode = <span class="number">212</span>,
     GkeIpUtilizationPodRangesAllocationHigh = <span class="number">221</span>,
     GkeIpUtilizationPodRangesAllocationLimitesAutoscaling = <span class="number">222</span>,
+    GkeNodeServiceAccountServiceAccountDisabled = <span class="number">243</span>,
+    GkeNodeServiceAccountDefaultServiceAccountUsed = <span class="number">244</span>,
+    GkeNodeServiceAccountBadOauthScopes = <span class="number">245</span>,
     <span class="doccomment">/// Managed Services
     </span>CloudSqlPrivateIpBlockedByEgressFirewall = <span class="number">601</span>,
     CloudSqlPrivateIpBlockedByRoutingIssue = <span class="number">602</span>,
@@ -872,6 +896,15 @@
             </span>}
             ReportCauseCode::GkeIpUtilizationPodRangesAllocationLimitesAutoscaling =&gt; {
                 <span class="string">&quot;GKE_IP_UTILIZATION_POD_RANGES_ALLOCATION_LIMITES_AUTOSCALING&quot;
+            </span>}
+            ReportCauseCode::GkeNodeServiceAccountServiceAccountDisabled =&gt; {
+                <span class="string">&quot;GKE_NODE_SERVICE_ACCOUNT_SERVICE_ACCOUNT_DISABLED&quot;
+            </span>}
+            ReportCauseCode::GkeNodeServiceAccountDefaultServiceAccountUsed =&gt; {
+                <span class="string">&quot;GKE_NODE_SERVICE_ACCOUNT_DEFAULT_SERVICE_ACCOUNT_USED&quot;
+            </span>}
+            ReportCauseCode::GkeNodeServiceAccountBadOauthScopes =&gt; {
+                <span class="string">&quot;GKE_NODE_SERVICE_ACCOUNT_BAD_OAUTH_SCOPES&quot;
             </span>}
             ReportCauseCode::CloudSqlPrivateIpBlockedByEgressFirewall =&gt; {
                 <span class="string">&quot;CLOUD_SQL_PRIVATE_IP_BLOCKED_BY_EGRESS_FIREWALL&quot;
@@ -974,6 +1007,15 @@
             }
             <span class="string">&quot;GKE_IP_UTILIZATION_POD_RANGES_ALLOCATION_LIMITES_AUTOSCALING&quot; </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::GkeIpUtilizationPodRangesAllocationLimitesAutoscaling)
+            }
+            <span class="string">&quot;GKE_NODE_SERVICE_ACCOUNT_SERVICE_ACCOUNT_DISABLED&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::GkeNodeServiceAccountServiceAccountDisabled)
+            }
+            <span class="string">&quot;GKE_NODE_SERVICE_ACCOUNT_DEFAULT_SERVICE_ACCOUNT_USED&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::GkeNodeServiceAccountDefaultServiceAccountUsed)
+            }
+            <span class="string">&quot;GKE_NODE_SERVICE_ACCOUNT_BAD_OAUTH_SCOPES&quot; </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">Self</span>::GkeNodeServiceAccountBadOauthScopes)
             }
             <span class="string">&quot;CLOUD_SQL_PRIVATE_IP_BLOCKED_BY_EGRESS_FIREWALL&quot; </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudSqlPrivateIpBlockedByEgressFirewall)
