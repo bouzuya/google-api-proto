@@ -4066,10 +4066,6 @@
 <a href="#4066" id="4066">4066</a>
 <a href="#4067" id="4067">4067</a>
 <a href="#4068" id="4068">4068</a>
-<a href="#4069" id="4069">4069</a>
-<a href="#4070" id="4070">4070</a>
-<a href="#4071" id="4071">4071</a>
-<a href="#4072" id="4072">4072</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Encodes the detailed information of a barcode.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -6310,9 +6306,7 @@
     <span class="doccomment">/// A subset of pages to process. If not specified, all pages will be
     /// processed. NOTICE: If any of the page range is set, we will extract and
     /// process only the given pages from the document. In the output document,
-    /// \[Document.Page.page_number][google.cloud.documentai.v1.Document.Page.page_number\]
-    /// is referring to the page number in the original document. This
-    /// configuration only applies to sync requests.
+    /// the page_number is referring to the page number in the original document.
     </span><span class="attr">#[prost(oneof = <span class="string">&quot;process_options::PageRange&quot;</span>, tags = <span class="string">&quot;5, 6, 7&quot;</span>)]
     </span><span class="kw">pub </span>page_range: ::core::option::Option&lt;process_options::PageRange&gt;,
 }
@@ -6329,17 +6323,15 @@
     <span class="doccomment">/// A subset of pages to process. If not specified, all pages will be
     /// processed. NOTICE: If any of the page range is set, we will extract and
     /// process only the given pages from the document. In the output document,
-    /// \[Document.Page.page_number][google.cloud.documentai.v1.Document.Page.page_number\]
-    /// is referring to the page number in the original document. This
-    /// configuration only applies to sync requests.
+    /// the page_number is referring to the page number in the original document.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>PageRange {
         <span class="doccomment">/// Which pages to process (1-indexed).
         </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
         </span>IndividualPageSelector(IndividualPageSelector),
-        <span class="doccomment">/// Only process certain pages from the start. Process all if the document
-        /// has fewer pages.
+        <span class="doccomment">/// Only process certain pages from the start, process all if the document
+        /// has less pages.
         </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
         </span>FromStart(i32),
         <span class="doccomment">/// Only process certain pages from the end, same as above.
