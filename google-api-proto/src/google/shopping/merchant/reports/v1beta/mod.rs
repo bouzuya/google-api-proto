@@ -106,12 +106,8 @@ pub struct ProductPerformanceView {
     ///
     /// Product performance data is not available for the LOCAL_INVENTORY_ADS
     /// destination.
-    #[prost(
-        enumeration = "super::super::super::r#type::Destination",
-        optional,
-        tag = "1"
-    )]
-    pub destination: ::core::option::Option<i32>,
+    #[prost(message, optional, tag = "1")]
+    pub destination: ::core::option::Option<super::super::super::r#type::Destination>,
     /// Date in the merchant timezone to which metrics apply. Segment.
     ///
     /// Condition on `date` is required in the `WHERE` clause.
@@ -439,12 +435,10 @@ pub mod product_view {
             #[derive(Clone, PartialEq, ::prost::Message)]
             pub struct IssueSeverityPerDestination {
                 /// Destination the issue applies to.
-                #[prost(
-                    enumeration = "super::super::super::super::super::super::r#type::Destination",
-                    optional,
-                    tag = "1"
-                )]
-                pub destination: ::core::option::Option<i32>,
+                #[prost(message, optional, tag = "1")]
+                pub destination: ::core::option::Option<
+                    super::super::super::super::super::super::r#type::Destination,
+                >,
                 /// List of disapproved countries in the destination, represented in ISO
                 /// 3166 format.
                 #[prost(string, repeated, tag = "2")]
