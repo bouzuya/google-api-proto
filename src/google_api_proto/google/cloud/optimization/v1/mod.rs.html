@@ -3538,6 +3538,45 @@
 <a href="#3538" id="3538">3538</a>
 <a href="#3539" id="3539">3539</a>
 <a href="#3540" id="3540">3540</a>
+<a href="#3541" id="3541">3541</a>
+<a href="#3542" id="3542">3542</a>
+<a href="#3543" id="3543">3543</a>
+<a href="#3544" id="3544">3544</a>
+<a href="#3545" id="3545">3545</a>
+<a href="#3546" id="3546">3546</a>
+<a href="#3547" id="3547">3547</a>
+<a href="#3548" id="3548">3548</a>
+<a href="#3549" id="3549">3549</a>
+<a href="#3550" id="3550">3550</a>
+<a href="#3551" id="3551">3551</a>
+<a href="#3552" id="3552">3552</a>
+<a href="#3553" id="3553">3553</a>
+<a href="#3554" id="3554">3554</a>
+<a href="#3555" id="3555">3555</a>
+<a href="#3556" id="3556">3556</a>
+<a href="#3557" id="3557">3557</a>
+<a href="#3558" id="3558">3558</a>
+<a href="#3559" id="3559">3559</a>
+<a href="#3560" id="3560">3560</a>
+<a href="#3561" id="3561">3561</a>
+<a href="#3562" id="3562">3562</a>
+<a href="#3563" id="3563">3563</a>
+<a href="#3564" id="3564">3564</a>
+<a href="#3565" id="3565">3565</a>
+<a href="#3566" id="3566">3566</a>
+<a href="#3567" id="3567">3567</a>
+<a href="#3568" id="3568">3568</a>
+<a href="#3569" id="3569">3569</a>
+<a href="#3570" id="3570">3570</a>
+<a href="#3571" id="3571">3571</a>
+<a href="#3572" id="3572">3572</a>
+<a href="#3573" id="3573">3573</a>
+<a href="#3574" id="3574">3574</a>
+<a href="#3575" id="3575">3575</a>
+<a href="#3576" id="3576">3576</a>
+<a href="#3577" id="3577">3577</a>
+<a href="#3578" id="3578">3578</a>
+<a href="#3579" id="3579">3579</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// The desired input location information.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4966,6 +5005,34 @@
         }
     }
 }
+<span class="doccomment">/// Encapsulates a set of optional conditions to satisfy when calculating
+/// vehicle routes. This is similar to `RouteModifiers` in the Google Maps
+/// Platform API; see:
+/// &lt;https://developers.google.com/maps/documentation/routes/reference/rest/v2/RouteModifiers.&gt;
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>RouteModifiers {
+    <span class="doccomment">/// Specifies whether to avoid toll roads where reasonable. Preference will be
+    /// given to routes not containing toll roads. Applies only to motorized travel
+    /// modes.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>avoid_tolls: bool,
+    <span class="doccomment">/// Specifies whether to avoid highways where reasonable. Preference will be
+    /// given to routes not containing highways. Applies only to motorized travel
+    /// modes.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>avoid_highways: bool,
+    <span class="doccomment">/// Specifies whether to avoid ferries where reasonable. Preference will be
+    /// given to routes not containing travel by ferries. Applies only to motorized
+    /// travel modes.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>avoid_ferries: bool,
+    <span class="doccomment">/// Optional. Specifies whether to avoid navigating indoors where reasonable.
+    /// Preference will be given to routes not containing indoor navigation.
+    /// Applies only to the `WALKING` travel mode.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="kw">pub </span>avoid_indoor: bool,
+}
 <span class="doccomment">/// Models a vehicle in a shipment problem. Solving a shipment problem will
 /// build a route starting from `start_location` and ending at `end_location`
 /// for this vehicle. A route is a sequence of visits (see `ShipmentRoute`).
@@ -4976,6 +5043,10 @@
     /// speed. See also `travel_duration_multiple`.
     </span><span class="attr">#[prost(enumeration = <span class="string">&quot;vehicle::TravelMode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>travel_mode: i32,
+    <span class="doccomment">/// Optional. A set of conditions to satisfy that affect the way routes are
+    /// calculated for the given vehicle.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>route_modifiers: ::core::option::Option&lt;RouteModifiers&gt;,
     <span class="doccomment">/// Geographic location where the vehicle starts before picking up any
     /// shipments. If not specified, the vehicle starts at its first pickup.
     /// If the shipment model has duration and distance matrices, `start_location`
@@ -6785,6 +6856,13 @@
     ///      * VISIT_REQUEST_DURATION_NEGATIVE_OR_NAN = 4404;
     ///      * VISIT_REQUEST_DURATION_EXCEEDS_GLOBAL_DURATION = 4405;
     /// * PRECEDENCE_ERROR = 46;
+    ///      * PRECEDENCE_RULE_MISSING_FIRST_INDEX = 4600;
+    ///      * PRECEDENCE_RULE_MISSING_SECOND_INDEX = 4601;
+    ///      * PRECEDENCE_RULE_FIRST_INDEX_OUT_OF_BOUNDS = 4602;
+    ///      * PRECEDENCE_RULE_SECOND_INDEX_OUT_OF_BOUNDS = 4603;
+    ///      * PRECEDENCE_RULE_DUPLICATE_INDEX = 4604;
+    ///      * PRECEDENCE_RULE_INEXISTENT_FIRST_VISIT_REQUEST = 4605;
+    ///      * PRECEDENCE_RULE_INEXISTENT_SECOND_VISIT_REQUEST = 4606;
     /// * BREAK_ERROR = 48;
     ///      * BREAK_RULE_EMPTY = 4800;
     ///      * BREAK_REQUEST_UNSPECIFIED_DURATION = 4801;

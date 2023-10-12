@@ -1568,12 +1568,6 @@
 <a href="#1568" id="1568">1568</a>
 <a href="#1569" id="1569">1569</a>
 <a href="#1570" id="1570">1570</a>
-<a href="#1571" id="1571">1571</a>
-<a href="#1572" id="1572">1572</a>
-<a href="#1573" id="1573">1573</a>
-<a href="#1574" id="1574">1574</a>
-<a href="#1575" id="1575">1575</a>
-<a href="#1576" id="1576">1576</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Request message for the `ReportService.Search` method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1682,12 +1676,8 @@
     ///
     /// Product performance data is not available for the LOCAL_INVENTORY_ADS
     /// destination.
-    </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::super::super::r#type::Destination&quot;</span>,
-        optional,
-        tag = <span class="string">&quot;1&quot;
-    </span>)]
-    </span><span class="kw">pub </span>destination: ::core::option::Option&lt;i32&gt;,
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>destination: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Destination&gt;,
     <span class="doccomment">/// Date in the merchant timezone to which metrics apply. Segment.
     ///
     /// Condition on `date` is required in the `WHERE` clause.
@@ -2015,12 +2005,10 @@
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>IssueSeverityPerDestination {
                 <span class="doccomment">/// Destination the issue applies to.
-                </span><span class="attr">#[prost(
-                    enumeration = <span class="string">&quot;super::super::super::super::super::super::r#type::Destination&quot;</span>,
-                    optional,
-                    tag = <span class="string">&quot;1&quot;
-                </span>)]
-                </span><span class="kw">pub </span>destination: ::core::option::Option&lt;i32&gt;,
+                </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="kw">pub </span>destination: ::core::option::Option&lt;
+                    <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Destination,
+                &gt;,
                 <span class="doccomment">/// List of disapproved countries in the destination, represented in ISO
                 /// 3166 format.
                 </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]

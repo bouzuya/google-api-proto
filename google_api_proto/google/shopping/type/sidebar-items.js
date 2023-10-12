@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Destination"],"struct":["CustomAttribute","Price"]};
+window.SIDEBAR_ITEMS = {"mod":["channel","destination","reporting_context"],"struct":["Channel","CustomAttribute","Destination","Price","ReportingContext"]};
