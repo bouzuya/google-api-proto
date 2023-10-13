@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["autoscaling_limits"],"struct":["AutoscalingLimits","AutoscalingTargets"]};
