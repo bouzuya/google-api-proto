@@ -8,7 +8,7 @@
 </div></details><h2 id="fields" class="fields small-section-header">Fields<a href="#fields" class="anchor">§</a></h2><span id="structfield.parent" class="structfield small-section-header"><a href="#structfield.parent" class="anchor field">§</a><code>parent: <a class="struct" href="https://doc.rust-lang.org/1.73.0/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><div class="docblock"><p>Required. The project to which this bucket will belong.</p>
 </div><span id="structfield.bucket" class="structfield small-section-header"><a href="#structfield.bucket" class="anchor field">§</a><code>bucket: <a class="enum" href="https://doc.rust-lang.org/1.73.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="struct.Bucket.html" title="struct google_api_proto::google::storage::v2::Bucket">Bucket</a>&gt;</code></span><div class="docblock"><p>Properties of the new bucket being inserted.
 The name of the bucket is specified in the <code>bucket_id</code> field. Populating
-<code>bucket.name</code> field will be ignored.
+<code>bucket.name</code> field will result in an error.
 The project of the bucket must be specified in the <code>bucket.project</code> field.
 This field must be in <code>projects/{projectIdentifier}</code> format,
 {projectIdentifier} can be the project ID or project number. The <code>parent</code>
