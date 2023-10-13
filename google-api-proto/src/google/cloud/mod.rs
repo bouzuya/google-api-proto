@@ -533,6 +533,8 @@ pub mod scheduler;
 pub mod secretmanager;
 #[cfg(any(feature = "google-cloud-secrets-v1beta1"))]
 pub mod secrets;
+#[cfg(any(feature = "google-cloud-securesourcemanager-v1"))]
+pub mod securesourcemanager;
 #[cfg(
     any(
         feature = "google-cloud-security-privateca-v1",

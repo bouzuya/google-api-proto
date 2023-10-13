@@ -306,6 +306,7 @@ pub mod cloud;
         feature = "google-cloud-secretmanager-logging-v1",
         feature = "google-cloud-secretmanager-v1",
         feature = "google-cloud-secrets-v1beta1",
+        feature = "google-cloud-securesourcemanager-v1",
         feature = "google-cloud-security-privateca-v1",
         feature = "google-cloud-security-privateca-v1beta1",
         feature = "google-cloud-security-publicca-v1beta1",
