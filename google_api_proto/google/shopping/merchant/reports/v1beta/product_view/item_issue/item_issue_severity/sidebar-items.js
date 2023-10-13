@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["AggregatedIssueSeverity"],"struct":["IssueSeverityPerDestination"]};
+window.SIDEBAR_ITEMS = {"enum":["AggregatedIssueSeverity"],"struct":["IssueSeverityPerReportingContext"]};

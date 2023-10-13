@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["AggregatedDestinationStatus"],"mod":["item_issue"],"struct":["ItemIssue"]};
+window.SIDEBAR_ITEMS = {"enum":["AggregatedReportingContextStatus"],"mod":["item_issue"],"struct":["ItemIssue"]};
