@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["model_serving_client"],"struct":["Content","ContentChunk","DoPingRequest","DoPingResponse","ExtraInputs","GeneratePlanRequest","GeneratePlanResponse","Plan","Prompt","Tensor"]};
