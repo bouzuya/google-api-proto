@@ -2,7 +2,11 @@
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
-</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-redis-v1&quot;</span>))]
+<a href="#5" id="5">5</a>
+<a href="#6" id="6">6</a>
+</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-redis-cluster-v1beta1&quot;</span>))]
+</span><span class="kw">pub mod </span>cluster;
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-redis-v1&quot;</span>))]
 </span><span class="kw">pub mod </span>v1;
 <span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-redis-v1beta1&quot;</span>))]
 </span><span class="kw">pub mod </span>v1beta1;

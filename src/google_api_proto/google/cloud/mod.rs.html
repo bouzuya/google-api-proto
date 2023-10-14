@@ -738,6 +738,12 @@
 <a href="#738" id="738">738</a>
 <a href="#739" id="739">739</a>
 <a href="#740" id="740">740</a>
+<a href="#741" id="741">741</a>
+<a href="#742" id="742">742</a>
+<a href="#743" id="743">743</a>
+<a href="#744" id="744">744</a>
+<a href="#745" id="745">745</a>
+<a href="#746" id="746">746</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-accessapproval-v1&quot;</span>))]
 </span><span class="kw">pub mod </span>accessapproval;
 <span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-advisorynotifications-v1&quot;</span>))]
@@ -1231,7 +1237,13 @@
     )
 )]
 </span><span class="kw">pub mod </span>recommender;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-redis-v1&quot;</span>, feature = <span class="string">&quot;google-cloud-redis-v1beta1&quot;</span>))]
+<span class="attr">#[cfg(
+    any(
+        feature = <span class="string">&quot;google-cloud-redis-cluster-v1beta1&quot;</span>,
+        feature = <span class="string">&quot;google-cloud-redis-v1&quot;</span>,
+        feature = <span class="string">&quot;google-cloud-redis-v1beta1&quot;</span>,
+    )
+)]
 </span><span class="kw">pub mod </span>redis;
 <span class="attr">#[cfg(
     any(
