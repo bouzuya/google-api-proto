@@ -450,6 +450,7 @@ pub mod cloud;
         feature = "google-privacy-dlp-v2",
         feature = "google-pubsub-v1",
         feature = "google-pubsub-v1beta2",
+        feature = "google-robotics-developer-modelserving-v1",
         feature = "google-rpc",
         feature = "google-rpc-context",
         feature = "google-search-partnerdataingestion-logging-v1",

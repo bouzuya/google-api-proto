@@ -557,6 +557,8 @@ pub mod privacy;
 pub mod pubsub;
 #[cfg(any(feature = "google-type"))]
 pub mod r#type;
+#[cfg(any(feature = "google-robotics-developer-modelserving-v1"))]
+pub mod robotics;
 #[cfg(any(feature = "google-rpc", feature = "google-rpc-context"))]
 pub mod rpc;
 #[cfg(any(feature = "google-search-partnerdataingestion-logging-v1"))]
