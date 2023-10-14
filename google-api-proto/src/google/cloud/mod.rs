@@ -491,7 +491,13 @@ pub mod recommendationengine;
     )
 )]
 pub mod recommender;
-#[cfg(any(feature = "google-cloud-redis-v1", feature = "google-cloud-redis-v1beta1"))]
+#[cfg(
+    any(
+        feature = "google-cloud-redis-cluster-v1beta1",
+        feature = "google-cloud-redis-v1",
+        feature = "google-cloud-redis-v1beta1",
+    )
+)]
 pub mod redis;
 #[cfg(
     any(

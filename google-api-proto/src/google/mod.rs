@@ -333,6 +333,7 @@ pub mod chromeos;
         feature = "google-cloud-recommender-logging-v1beta1",
         feature = "google-cloud-recommender-v1",
         feature = "google-cloud-recommender-v1beta1",
+        feature = "google-cloud-redis-cluster-v1beta1",
         feature = "google-cloud-redis-v1",
         feature = "google-cloud-redis-v1beta1",
         feature = "google-cloud-resourcemanager-v2",
