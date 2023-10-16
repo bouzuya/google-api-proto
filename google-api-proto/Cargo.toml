@@ -311,6 +311,7 @@ google-cloud-recommender-logging-v1 = ["google-api", "google-cloud", "google-clo
 google-cloud-recommender-logging-v1beta1 = ["google-api", "google-cloud", "google-cloud-recommender-v1beta1"]
 google-cloud-recommender-v1 = ["google-api", "google-cloud", "google-type"]
 google-cloud-recommender-v1beta1 = ["google-api", "google-cloud", "google-type"]
+google-cloud-redis-cluster-v1 = ["google-api", "google-cloud", "google-longrunning"]
 google-cloud-redis-cluster-v1beta1 = ["google-api", "google-cloud", "google-longrunning"]
 google-cloud-redis-v1 = ["google-api", "google-cloud", "google-longrunning", "google-type"]
 google-cloud-redis-v1beta1 = ["google-api", "google-cloud", "google-longrunning", "google-type"]
