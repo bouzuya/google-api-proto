@@ -51,13 +51,13 @@ In addition, multiple features can be specified.<br>
 The list of available features can be found [here](./google-api-proto/Cargo.toml).
 
 ## Version matrices
-| google-api-proto | tonic | tonic-build |
-|------------------|-------|-------------|
-| 1.0.0 <=         | 0.6.x |       0.6.x |
-| 1.59.0 <=        | 0.7.x |       0.7.x |
-| 1.243.0 <=       | 0.8.x |       0.8.x |
-| 1.280.0 <=       | 0.9.x |       0.9.x |
-| 1.371.0 <=       | 0.10.x |       0.10.x |
+| google-api-proto | tonic  | tonic-build |
+|------------------|--------|-------------|
+| 1.0.0 <=         | 0.6.x  | 0.6.x       |
+| 1.59.0 <=        | 0.7.x  | 0.7.x       |
+| 1.243.0 <=       | 0.8.x  | 0.8.x       |
+| 1.280.0 <=       | 0.9.x  | 0.9.x       |
+| 1.415.0 <=       | 0.10.x | 0.10.x      |
 
 ## Example
 The complete code can be found [here](./examples/src/spanner.rs).
