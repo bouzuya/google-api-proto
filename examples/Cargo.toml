@@ -6,7 +6,7 @@ edition = "2021"
 
 [dependencies]
 tracing-subscriber = { version = "0.3.17", features = ["env-filter"] }
-tokio = { version = "1.29.1", features = ["macros", "rt-multi-thread"] }
+tokio = { version = "1.33.0", features = ["macros", "rt-multi-thread"] }
 google-authz = { version = "1.0.0-alpha.5", features = ["tonic"] }
 # grpc + gcp
 tonic = { version = "0.10.0", features = ["tls", "tls-webpki-roots"] }

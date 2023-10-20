@@ -66,7 +66,7 @@ Cargo.toml:
 ```toml
 [dependencies]
 # For runtime
-tokio = { version = "1.29.1", features = ["macros", "rt-multi-thread"] }
+tokio = { version = "1.33.0", features = ["macros", "rt-multi-thread"] }
 # For google authentication
 google-authz = { version = "1.0.0-alpha.5", features = ["tonic"] }
 # For gRPC
