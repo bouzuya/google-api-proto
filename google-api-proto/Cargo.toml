@@ -2,7 +2,7 @@
 name = "google-api-proto"
 version = "1.414.0"
 authors = ["mechiru <u9053u6d41@gmail.com>"]
-edition = "2018"
+edition = "2021"
 license = "MIT OR Apache-2.0"
 description = "This library generated from googleapis/googleapis using tonic-build."
 repository = "https://github.com/mechiru/google-api-proto"
