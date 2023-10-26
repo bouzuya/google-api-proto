@@ -139,7 +139,7 @@ pub mod repo_source {
 }
 /// Location of the source manifest in Cloud Storage.
 /// This feature is in Preview; see description
-/// \[here\](<https://github.com/GoogleCloudPlatform/cloud-builders/tree/master/gcs-fetcher>).
+/// [here](<https://github.com/GoogleCloudPlatform/cloud-builders/tree/master/gcs-fetcher>).
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct StorageSourceManifest {
@@ -184,7 +184,7 @@ pub mod source {
         GitSource(super::GitSource),
         /// If provided, get the source from this manifest in Cloud Storage.
         /// This feature is in Preview; see description
-        /// \[here\](<https://github.com/GoogleCloudPlatform/cloud-builders/tree/master/gcs-fetcher>).
+        /// [here](<https://github.com/GoogleCloudPlatform/cloud-builders/tree/master/gcs-fetcher>).
         #[prost(message, tag = "8")]
         StorageSourceManifest(super::StorageSourceManifest),
     }
@@ -260,7 +260,7 @@ pub struct BuildStep {
     ///
     /// The Docker daemon's cache will already have the latest versions of all of
     /// the officially supported build steps
-    /// (\[<https://github.com/GoogleCloudPlatform/cloud-builders\](https://github.com/GoogleCloudPlatform/cloud-builders>)).
+    /// ([<https://github.com/GoogleCloudPlatform/cloud-builders](https://github.com/GoogleCloudPlatform/cloud-builders>)).
     /// The Docker daemon will also have cached many of the layers for some popular
     /// images, like "ubuntu", "debian", but they will be refreshed at the time you
     /// attempt to use them.
@@ -2912,7 +2912,7 @@ pub struct CreateWorkerPoolRequest {
     /// the final component of the resource name.
     ///
     /// This value should be 1-63 characters, and valid characters
-    /// are /\[a-z][0-9\]-/.
+    /// are /[a-z][0-9]-/.
     #[prost(string, tag = "3")]
     pub worker_pool_id: ::prost::alloc::string::String,
     /// If set, validate the request and preview the response, but do not actually

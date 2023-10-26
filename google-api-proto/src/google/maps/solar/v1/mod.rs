@@ -133,7 +133,7 @@ pub struct SolarPotential {
     /// Size and sunlight quantiles for each roof segment.
     #[prost(message, repeated, tag = "6")]
     pub roof_segment_stats: ::prost::alloc::vec::Vec<RoofSegmentSizeAndSunshineStats>,
-    /// Each \[SolarPanel\] \[google.maps.solar.v1.SolarPanel\]
+    /// Each \[SolarPanel\] [google.maps.solar.v1.SolarPanel]
     /// describes a single solar panel. They are listed in the order that
     /// the panel layout algorithm placed this. This is usually, though
     /// not always, in decreasing order of annual energy production.
@@ -595,9 +595,9 @@ pub struct DataLayers {
     /// and `hour` (0-23), the shade/sun for that month/day/hour at a
     /// position `(x, y)` is the bit
     /// ```
-    /// (hourly_shade[month - 1])(x, y)\[hour\] & (1 << (day - 1))
+    /// (hourly_shade\[month - 1\])(x, y)\[hour\] & (1 << (day - 1))
     /// ```
-    /// where `(x, y)` is spatial indexing, `[month - 1]` refers to
+    /// where `(x, y)` is spatial indexing, `\[month - 1\]` refers to
     /// fetching the `month - 1`st URL (indexing from zero), `\[hour\]` is
     /// indexing into the channels, and a final non-zero result means
     /// "sunny". There are no leap days, and DST doesn't exist (all days

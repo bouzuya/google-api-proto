@@ -9,7 +9,7 @@ pub struct Instance {
     /// Note: Memcached instances are managed and addressed at the regional level
     /// so `location_id` here refers to a Google Cloud region; however, users may
     /// choose which zones Memcached nodes should be provisioned in within an
-    /// instance. Refer to \[zones][google.cloud.memcache.v1beta2.Instance.zones\] field for more details.
+    /// instance. Refer to [zones][google.cloud.memcache.v1beta2.Instance.zones] field for more details.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// User provided name for the instance, which is only used for display
@@ -25,7 +25,7 @@ pub struct Instance {
         ::prost::alloc::string::String,
     >,
     /// The full name of the Google Compute Engine
-    /// \[network\](<https://cloud.google.com/vpc/docs/vpc>) to which the
+    /// [network](<https://cloud.google.com/vpc/docs/vpc>) to which the
     /// instance is connected. If left unspecified, the `default` network
     /// will be used.
     #[prost(string, tag = "4")]
@@ -54,7 +54,7 @@ pub struct Instance {
     #[prost(message, optional, tag = "11")]
     pub parameters: ::core::option::Option<MemcacheParameters>,
     /// Output only. List of Memcached nodes.
-    /// Refer to \[Node][google.cloud.memcache.v1beta2.Instance.Node\] message for more details.
+    /// Refer to [Node][google.cloud.memcache.v1beta2.Instance.Node] message for more details.
     #[prost(message, repeated, tag = "12")]
     pub memcache_nodes: ::prost::alloc::vec::Vec<instance::Node>,
     /// Output only. The time the instance was created.
@@ -343,7 +343,7 @@ pub struct MaintenanceSchedule {
     #[prost(message, optional, tag = "4")]
     pub schedule_deadline_time: ::core::option::Option<::prost_types::Timestamp>,
 }
-/// Request for \[ListInstances][google.cloud.memcache.v1beta2.CloudMemcache.ListInstances\].
+/// Request for [ListInstances][google.cloud.memcache.v1beta2.CloudMemcache.ListInstances].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListInstancesRequest {
@@ -357,7 +357,7 @@ pub struct ListInstancesRequest {
     /// If not specified, a default value of 1000 will be used by the service.
     /// Regardless of the `page_size` value, the response may include a partial
     /// list and a caller should only rely on response's
-    /// \[`next_page_token`][google.cloud.memcache.v1beta2.ListInstancesResponse.next_page_token\]
+    /// [`next_page_token`][google.cloud.memcache.v1beta2.ListInstancesResponse.next_page_token]
     /// to determine if there are more instances left to be queried.
     #[prost(int32, tag = "2")]
     pub page_size: i32,
@@ -372,7 +372,7 @@ pub struct ListInstancesRequest {
     #[prost(string, tag = "5")]
     pub order_by: ::prost::alloc::string::String,
 }
-/// Response for \[ListInstances][google.cloud.memcache.v1beta2.CloudMemcache.ListInstances\].
+/// Response for [ListInstances][google.cloud.memcache.v1beta2.CloudMemcache.ListInstances].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListInstancesResponse {
@@ -391,7 +391,7 @@ pub struct ListInstancesResponse {
     #[prost(string, repeated, tag = "3")]
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-/// Request for \[GetInstance][google.cloud.memcache.v1beta2.CloudMemcache.GetInstance\].
+/// Request for [GetInstance][google.cloud.memcache.v1beta2.CloudMemcache.GetInstance].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetInstanceRequest {
@@ -401,7 +401,7 @@ pub struct GetInstanceRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Request for \[CreateInstance][google.cloud.memcache.v1beta2.CloudMemcache.CreateInstance\].
+/// Request for [CreateInstance][google.cloud.memcache.v1beta2.CloudMemcache.CreateInstance].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateInstanceRequest {
@@ -426,7 +426,7 @@ pub struct CreateInstanceRequest {
     #[prost(message, optional, tag = "3")]
     pub resource: ::core::option::Option<Instance>,
 }
-/// Request for \[UpdateInstance][google.cloud.memcache.v1beta2.CloudMemcache.UpdateInstance\].
+/// Request for [UpdateInstance][google.cloud.memcache.v1beta2.CloudMemcache.UpdateInstance].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateInstanceRequest {
@@ -440,7 +440,7 @@ pub struct UpdateInstanceRequest {
     #[prost(message, optional, tag = "2")]
     pub resource: ::core::option::Option<Instance>,
 }
-/// Request for \[DeleteInstance][google.cloud.memcache.v1beta2.CloudMemcache.DeleteInstance\].
+/// Request for [DeleteInstance][google.cloud.memcache.v1beta2.CloudMemcache.DeleteInstance].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteInstanceRequest {
@@ -450,7 +450,7 @@ pub struct DeleteInstanceRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Request for \[RescheduleMaintenance][google.cloud.memcache.v1beta2.CloudMemcache.RescheduleMaintenance\].
+/// Request for [RescheduleMaintenance][google.cloud.memcache.v1beta2.CloudMemcache.RescheduleMaintenance].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct RescheduleMaintenanceRequest {
@@ -519,7 +519,7 @@ pub mod reschedule_maintenance_request {
         }
     }
 }
-/// Request for \[ApplyParameters][google.cloud.memcache.v1beta2.CloudMemcache.ApplyParameters\].
+/// Request for [ApplyParameters][google.cloud.memcache.v1beta2.CloudMemcache.ApplyParameters].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ApplyParametersRequest {
@@ -536,7 +536,7 @@ pub struct ApplyParametersRequest {
     #[prost(bool, tag = "3")]
     pub apply_all: bool,
 }
-/// Request for \[UpdateParameters][google.cloud.memcache.v1beta2.CloudMemcache.UpdateParameters\].
+/// Request for [UpdateParameters][google.cloud.memcache.v1beta2.CloudMemcache.UpdateParameters].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateParametersRequest {
@@ -551,7 +551,7 @@ pub struct UpdateParametersRequest {
     #[prost(message, optional, tag = "3")]
     pub parameters: ::core::option::Option<MemcacheParameters>,
 }
-/// Request for \[ApplySoftwareUpdate][google.cloud.memcache.v1beta2.CloudMemcache.ApplySoftwareUpdate\].
+/// Request for [ApplySoftwareUpdate][google.cloud.memcache.v1beta2.CloudMemcache.ApplySoftwareUpdate].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ApplySoftwareUpdateRequest {
@@ -607,7 +607,7 @@ pub struct OperationMetadata {
     pub status_detail: ::prost::alloc::string::String,
     /// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a \[google.rpc.Status.code][google.rpc.Status.code\] of 1,
+    /// have [Operation.error][] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
     /// corresponding to `Code.CANCELLED`.
     #[prost(bool, tag = "6")]
     pub cancel_requested: bool,
@@ -615,7 +615,7 @@ pub struct OperationMetadata {
     #[prost(string, tag = "7")]
     pub api_version: ::prost::alloc::string::String,
 }
-/// Metadata for the given \[google.cloud.location.Location][google.cloud.location.Location\].
+/// Metadata for the given [google.cloud.location.Location][google.cloud.location.Location].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct LocationMetadata {

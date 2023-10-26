@@ -1,5 +1,5 @@
 /// The request for
-/// \[ConnectionService.CreateConnection][google.cloud.bigquery.connection.v1.ConnectionService.CreateConnection\].
+/// [ConnectionService.CreateConnection][google.cloud.bigquery.connection.v1.ConnectionService.CreateConnection].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateConnectionRequest {
@@ -15,7 +15,7 @@ pub struct CreateConnectionRequest {
     pub connection: ::core::option::Option<Connection>,
 }
 /// The request for
-/// \[ConnectionService.GetConnection][google.cloud.bigquery.connection.v1.ConnectionService.GetConnection\].
+/// [ConnectionService.GetConnection][google.cloud.bigquery.connection.v1.ConnectionService.GetConnection].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetConnectionRequest {
@@ -25,7 +25,7 @@ pub struct GetConnectionRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// The request for
-/// \[ConnectionService.ListConnections][google.cloud.bigquery.connection.v1.ConnectionService.ListConnections\].
+/// [ConnectionService.ListConnections][google.cloud.bigquery.connection.v1.ConnectionService.ListConnections].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListConnectionsRequest {
@@ -41,7 +41,7 @@ pub struct ListConnectionsRequest {
     pub page_token: ::prost::alloc::string::String,
 }
 /// The response for
-/// \[ConnectionService.ListConnections][google.cloud.bigquery.connection.v1.ConnectionService.ListConnections\].
+/// [ConnectionService.ListConnections][google.cloud.bigquery.connection.v1.ConnectionService.ListConnections].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListConnectionsResponse {
@@ -53,7 +53,7 @@ pub struct ListConnectionsResponse {
     pub connections: ::prost::alloc::vec::Vec<Connection>,
 }
 /// The request for
-/// \[ConnectionService.UpdateConnection][google.cloud.bigquery.connection.v1.ConnectionService.UpdateConnection\].
+/// [ConnectionService.UpdateConnection][google.cloud.bigquery.connection.v1.ConnectionService.UpdateConnection].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateConnectionRequest {
@@ -68,7 +68,7 @@ pub struct UpdateConnectionRequest {
     #[prost(message, optional, tag = "3")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
-/// The request for \[ConnectionService.DeleteConnectionRequest][\].
+/// The request for [ConnectionService.DeleteConnectionRequest][].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteConnectionRequest {
@@ -256,7 +256,7 @@ pub struct CloudSpannerProperties {
     /// appropriate permissions, such as `SELECT` and `INSERT`. Other users should
     /// only use roles provided by their Cloud Spanner admins.
     ///
-    /// For more details, see [About fine-grained access control]
+    /// For more details, see \[About fine-grained access control\]
     /// (<https://cloud.google.com/spanner/docs/fgac-about>).
     ///
     /// REQUIRES: The database role name must start with a letter, and can only
@@ -381,7 +381,7 @@ pub struct MetastoreServiceConfig {
     ///
     /// Example:
     ///
-    /// * `projects/\[project_id]/locations/[region]/services/[service_id\]`
+    /// * `projects/\[project_id\]/locations/\[region\]/services/\[service_id\]`
     #[prost(string, tag = "1")]
     pub metastore_service: ::prost::alloc::string::String,
 }
@@ -394,7 +394,7 @@ pub struct SparkHistoryServerConfig {
     ///
     /// Example:
     ///
-    /// * `projects/\[project_id]/regions/[region]/clusters/[cluster_name\]`
+    /// * `projects/\[project_id\]/regions/\[region\]/clusters/\[cluster_name\]`
     #[prost(string, tag = "1")]
     pub dataproc_cluster: ::prost::alloc::string::String,
 }

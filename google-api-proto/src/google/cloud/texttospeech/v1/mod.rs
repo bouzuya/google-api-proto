@@ -3,7 +3,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListVoicesRequest {
     /// Optional. Recommended.
-    /// \[BCP-47\](<https://www.rfc-editor.org/rfc/bcp/bcp47.txt>) language tag.
+    /// [BCP-47](<https://www.rfc-editor.org/rfc/bcp/bcp47.txt>) language tag.
     /// If not specified, the API will return all supported voices.
     /// If specified, the ListVoices call will only return voices that can be used
     /// to synthesize this language_code. For example, if you specify `"en-NZ"`,
@@ -26,7 +26,7 @@ pub struct ListVoicesResponse {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Voice {
     /// The languages that this voice supports, expressed as
-    /// \[BCP-47\](<https://www.rfc-editor.org/rfc/bcp/bcp47.txt>) language tags (e.g.
+    /// [BCP-47](<https://www.rfc-editor.org/rfc/bcp/bcp47.txt>) language tags (e.g.
     /// "en-US", "es-419", "cmn-tw").
     #[prost(string, repeated, tag = "1")]
     pub language_codes: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
@@ -56,7 +56,7 @@ pub struct SynthesizeSpeechRequest {
 }
 /// Contains text input to be synthesized. Either `text` or `ssml` must be
 /// supplied. Supplying both or neither returns
-/// \[google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\]. The
+/// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT]. The
 /// input size is limited to 5000 bytes.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -76,9 +76,9 @@ pub mod synthesis_input {
         Text(::prost::alloc::string::String),
         /// The SSML document to be synthesized. The SSML document must be valid
         /// and well-formed. Otherwise the RPC will fail and return
-        /// \[google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\]. For
+        /// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT]. For
         /// more information, see
-        /// \[SSML\](<https://cloud.google.com/text-to-speech/docs/ssml>).
+        /// [SSML](<https://cloud.google.com/text-to-speech/docs/ssml>).
         #[prost(string, tag = "2")]
         Ssml(::prost::alloc::string::String),
     }
@@ -88,7 +88,7 @@ pub mod synthesis_input {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct VoiceSelectionParams {
     /// Required. The language (and potentially also the region) of the voice
-    /// expressed as a \[BCP-47\](<https://www.rfc-editor.org/rfc/bcp/bcp47.txt>)
+    /// expressed as a [BCP-47](<https://www.rfc-editor.org/rfc/bcp/bcp47.txt>)
     /// language tag, e.g. "en-US". This should not include a script tag (e.g. use
     /// "cmn-cn" rather than "cmn-Hant-cn"), because the script will be inferred
     /// from the input provided in the SynthesisInput.  The TTS service
@@ -124,19 +124,19 @@ pub struct AudioConfig {
     /// Required. The format of the audio byte stream.
     #[prost(enumeration = "AudioEncoding", tag = "1")]
     pub audio_encoding: i32,
-    /// Optional. Input only. Speaking rate/speed, in the range [0.25, 4.0]. 1.0 is
+    /// Optional. Input only. Speaking rate/speed, in the range \[0.25, 4.0\]. 1.0 is
     /// the normal native speed supported by the specific voice. 2.0 is twice as
     /// fast, and 0.5 is half as fast. If unset(0.0), defaults to the native 1.0
     /// speed. Any other values < 0.25 or > 4.0 will return an error.
     #[prost(double, tag = "2")]
     pub speaking_rate: f64,
-    /// Optional. Input only. Speaking pitch, in the range [-20.0, 20.0]. 20 means
+    /// Optional. Input only. Speaking pitch, in the range \[-20.0, 20.0\]. 20 means
     /// increase 20 semitones from the original pitch. -20 means decrease 20
     /// semitones from the original pitch.
     #[prost(double, tag = "3")]
     pub pitch: f64,
     /// Optional. Input only. Volume gain (in dB) of the normal native volume
-    /// supported by the specific voice, in the range [-96.0, 16.0]. If unset, or
+    /// supported by the specific voice, in the range \[-96.0, 16.0\]. If unset, or
     /// set to a value of 0.0 (dB), will play at normal native signal amplitude. A
     /// value of -6.0 (dB) will play at approximately half the amplitude of the
     /// normal native signal amplitude. A value of +6.0 (dB) will play at
@@ -151,7 +151,7 @@ pub struct AudioConfig {
     /// converting to the desired sample rate (which might result in worse audio
     /// quality), unless the specified sample rate is not supported for the
     /// encoding chosen, in which case it will fail the request and return
-    /// \[google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\].
+    /// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
     #[prost(int32, tag = "5")]
     pub sample_rate_hertz: i32,
     /// Optional. Input only. An identifier which selects 'audio effects' profiles
@@ -285,7 +285,7 @@ impl SsmlVoiceGender {
 #[repr(i32)]
 pub enum AudioEncoding {
     /// Not specified. Will return result
-    /// \[google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\].
+    /// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
     Unspecified = 0,
     /// Uncompressed 16-bit signed little-endian samples (Linear PCM).
     /// Audio content returned as LINEAR16 also contains a WAV header.

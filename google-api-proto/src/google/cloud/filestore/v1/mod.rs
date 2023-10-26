@@ -542,7 +542,7 @@ pub struct CreateInstanceRequest {
     /// The name must be unique for the specified project and location.
     #[prost(string, tag = "2")]
     pub instance_id: ::prost::alloc::string::String,
-    /// Required. An [instance resource]\[google.cloud.filestore.v1.Instance\]
+    /// Required. An [instance resource][google.cloud.filestore.v1.Instance]
     #[prost(message, optional, tag = "3")]
     pub instance: ::core::option::Option<Instance>,
 }
@@ -941,7 +941,7 @@ pub struct CreateBackupRequest {
     /// backup locations map to Google Cloud regions, for example **us-west1**.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Required. A [backup resource]\[google.cloud.filestore.v1.Backup\]
+    /// Required. A [backup resource][google.cloud.filestore.v1.Backup]
     #[prost(message, optional, tag = "2")]
     pub backup: ::core::option::Option<Backup>,
     /// Required. The ID to use for the backup.
@@ -967,7 +967,7 @@ pub struct DeleteBackupRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateBackupRequest {
-    /// Required. A [backup resource]\[google.cloud.filestore.v1.Backup\]
+    /// Required. A [backup resource][google.cloud.filestore.v1.Backup]
     #[prost(message, optional, tag = "1")]
     pub backup: ::core::option::Option<Backup>,
     /// Required. Mask of fields to update.  At least one path must be supplied in

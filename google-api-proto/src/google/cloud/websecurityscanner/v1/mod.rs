@@ -373,6 +373,97 @@ pub mod scan_run_error_trace {
         }
     }
 }
+/// Output only.
+/// Defines a warning trace message for ScanRun. Warning traces provide customers
+/// with useful information that helps make the scanning process more effective.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ScanRunWarningTrace {
+    /// Output only. Indicates the warning code.
+    #[prost(enumeration = "scan_run_warning_trace::Code", tag = "1")]
+    pub code: i32,
+}
+/// Nested message and enum types in `ScanRunWarningTrace`.
+pub mod scan_run_warning_trace {
+    /// Output only.
+    /// Defines a warning message code.
+    /// Next id: 6
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Code {
+        /// Default value is never used.
+        Unspecified = 0,
+        /// Indicates that a scan discovered an unexpectedly low number of URLs. This
+        /// is sometimes caused by complex navigation features or by using a single
+        /// URL for numerous pages.
+        InsufficientCrawlResults = 1,
+        /// Indicates that a scan discovered too many URLs to test, or excessive
+        /// redundant URLs.
+        TooManyCrawlResults = 2,
+        /// Indicates that too many tests have been generated for the scan. Customer
+        /// should try reducing the number of starting URLs, increasing the QPS rate,
+        /// or narrowing down the scope of the scan using the excluded patterns.
+        TooManyFuzzTasks = 3,
+        /// Indicates that a scan is blocked by IAP.
+        BlockedByIap = 4,
+        /// Indicates that no seeds is found for a scan
+        NoStartingUrlFoundForManagedScan = 5,
+    }
+    impl Code {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Code::Unspecified => "CODE_UNSPECIFIED",
+                Code::InsufficientCrawlResults => "INSUFFICIENT_CRAWL_RESULTS",
+                Code::TooManyCrawlResults => "TOO_MANY_CRAWL_RESULTS",
+                Code::TooManyFuzzTasks => "TOO_MANY_FUZZ_TASKS",
+                Code::BlockedByIap => "BLOCKED_BY_IAP",
+                Code::NoStartingUrlFoundForManagedScan => {
+                    "NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "CODE_UNSPECIFIED" => Some(Self::Unspecified),
+                "INSUFFICIENT_CRAWL_RESULTS" => Some(Self::InsufficientCrawlResults),
+                "TOO_MANY_CRAWL_RESULTS" => Some(Self::TooManyCrawlResults),
+                "TOO_MANY_FUZZ_TASKS" => Some(Self::TooManyFuzzTasks),
+                "BLOCKED_BY_IAP" => Some(Self::BlockedByIap),
+                "NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN" => {
+                    Some(Self::NoStartingUrlFoundForManagedScan)
+                }
+                _ => None,
+            }
+        }
+    }
+}
+/// A FindingTypeStats resource represents stats regarding a specific FindingType
+/// of Findings under a given ScanRun.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FindingTypeStats {
+    /// Output only. The finding type associated with the stats.
+    #[prost(string, tag = "1")]
+    pub finding_type: ::prost::alloc::string::String,
+    /// Output only. The count of findings belonging to this finding type.
+    #[prost(int32, tag = "2")]
+    pub finding_count: i32,
+}
 /// A ScanConfig resource contains the configurations to launch a scan.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -387,7 +478,7 @@ pub struct ScanConfig {
     pub display_name: ::prost::alloc::string::String,
     /// The maximum QPS during scanning. A valid value ranges from 5 to 20
     /// inclusively. If the field is unspecified or its value is set 0, server will
-    /// default to 15. Other values outside of [5, 20] range will be rejected with
+    /// default to 15. Other values outside of \[5, 20\] range will be rejected with
     /// INVALID_ARGUMENT error.
     #[prost(int32, tag = "3")]
     pub max_qps: i32,
@@ -667,6 +758,23 @@ pub mod scan_config {
             }
         }
     }
+}
+/// A CrawledUrl resource represents a URL that was crawled during a ScanRun. Web
+/// Security Scanner Service crawls the web applications, following all links
+/// within the scope of sites, to find the URLs to test against.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CrawledUrl {
+    /// Output only. The http method of the request that was used to visit the URL, in
+    /// uppercase.
+    #[prost(string, tag = "1")]
+    pub http_method: ::prost::alloc::string::String,
+    /// Output only. The URL that was crawled.
+    #[prost(string, tag = "2")]
+    pub url: ::prost::alloc::string::String,
+    /// Output only. The body of the request that was used to visit the URL.
+    #[prost(string, tag = "3")]
+    pub body: ::prost::alloc::string::String,
 }
 /// ! Information about a vulnerability with an HTML.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1034,102 +1142,6 @@ pub mod finding {
         }
     }
 }
-/// A CrawledUrl resource represents a URL that was crawled during a ScanRun. Web
-/// Security Scanner Service crawls the web applications, following all links
-/// within the scope of sites, to find the URLs to test against.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CrawledUrl {
-    /// Output only. The http method of the request that was used to visit the URL, in
-    /// uppercase.
-    #[prost(string, tag = "1")]
-    pub http_method: ::prost::alloc::string::String,
-    /// Output only. The URL that was crawled.
-    #[prost(string, tag = "2")]
-    pub url: ::prost::alloc::string::String,
-    /// Output only. The body of the request that was used to visit the URL.
-    #[prost(string, tag = "3")]
-    pub body: ::prost::alloc::string::String,
-}
-/// Output only.
-/// Defines a warning trace message for ScanRun. Warning traces provide customers
-/// with useful information that helps make the scanning process more effective.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ScanRunWarningTrace {
-    /// Output only. Indicates the warning code.
-    #[prost(enumeration = "scan_run_warning_trace::Code", tag = "1")]
-    pub code: i32,
-}
-/// Nested message and enum types in `ScanRunWarningTrace`.
-pub mod scan_run_warning_trace {
-    /// Output only.
-    /// Defines a warning message code.
-    /// Next id: 6
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Code {
-        /// Default value is never used.
-        Unspecified = 0,
-        /// Indicates that a scan discovered an unexpectedly low number of URLs. This
-        /// is sometimes caused by complex navigation features or by using a single
-        /// URL for numerous pages.
-        InsufficientCrawlResults = 1,
-        /// Indicates that a scan discovered too many URLs to test, or excessive
-        /// redundant URLs.
-        TooManyCrawlResults = 2,
-        /// Indicates that too many tests have been generated for the scan. Customer
-        /// should try reducing the number of starting URLs, increasing the QPS rate,
-        /// or narrowing down the scope of the scan using the excluded patterns.
-        TooManyFuzzTasks = 3,
-        /// Indicates that a scan is blocked by IAP.
-        BlockedByIap = 4,
-        /// Indicates that no seeds is found for a scan
-        NoStartingUrlFoundForManagedScan = 5,
-    }
-    impl Code {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Code::Unspecified => "CODE_UNSPECIFIED",
-                Code::InsufficientCrawlResults => "INSUFFICIENT_CRAWL_RESULTS",
-                Code::TooManyCrawlResults => "TOO_MANY_CRAWL_RESULTS",
-                Code::TooManyFuzzTasks => "TOO_MANY_FUZZ_TASKS",
-                Code::BlockedByIap => "BLOCKED_BY_IAP",
-                Code::NoStartingUrlFoundForManagedScan => {
-                    "NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN"
-                }
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "CODE_UNSPECIFIED" => Some(Self::Unspecified),
-                "INSUFFICIENT_CRAWL_RESULTS" => Some(Self::InsufficientCrawlResults),
-                "TOO_MANY_CRAWL_RESULTS" => Some(Self::TooManyCrawlResults),
-                "TOO_MANY_FUZZ_TASKS" => Some(Self::TooManyFuzzTasks),
-                "BLOCKED_BY_IAP" => Some(Self::BlockedByIap),
-                "NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN" => {
-                    Some(Self::NoStartingUrlFoundForManagedScan)
-                }
-                _ => None,
-            }
-        }
-    }
-}
 /// A ScanRun is a output-only resource representing an actual run of the scan.
 /// Next id: 12
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1279,47 +1291,6 @@ pub mod scan_run {
             }
         }
     }
-}
-/// A FindingTypeStats resource represents stats regarding a specific FindingType
-/// of Findings under a given ScanRun.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FindingTypeStats {
-    /// Output only. The finding type associated with the stats.
-    #[prost(string, tag = "1")]
-    pub finding_type: ::prost::alloc::string::String,
-    /// Output only. The count of findings belonging to this finding type.
-    #[prost(int32, tag = "2")]
-    pub finding_count: i32,
-}
-/// A ScanRunLog is an output-only proto used for Stackdriver customer logging.
-/// It is used for logs covering the start and end of scan pipelines.
-/// Other than an added summary, this is a subset of the ScanRun.
-/// Representation in logs is either a proto Struct, or converted to JSON.
-/// Next id: 9
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ScanRunLog {
-    /// Human friendly message about the event.
-    #[prost(string, tag = "1")]
-    pub summary: ::prost::alloc::string::String,
-    /// The resource name of the ScanRun being logged.
-    #[prost(string, tag = "2")]
-    pub name: ::prost::alloc::string::String,
-    /// The execution state of the ScanRun.
-    #[prost(enumeration = "scan_run::ExecutionState", tag = "3")]
-    pub execution_state: i32,
-    /// The result state of the ScanRun.
-    #[prost(enumeration = "scan_run::ResultState", tag = "4")]
-    pub result_state: i32,
-    #[prost(int64, tag = "5")]
-    pub urls_crawled_count: i64,
-    #[prost(int64, tag = "6")]
-    pub urls_tested_count: i64,
-    #[prost(bool, tag = "7")]
-    pub has_findings: bool,
-    #[prost(message, optional, tag = "8")]
-    pub error_trace: ::core::option::Option<ScanRunErrorTrace>,
 }
 /// Request for the `CreateScanConfig` method.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2013,4 +1984,33 @@ pub mod web_security_scanner_client {
             self.inner.unary(req, path, codec).await
         }
     }
+}
+/// A ScanRunLog is an output-only proto used for Stackdriver customer logging.
+/// It is used for logs covering the start and end of scan pipelines.
+/// Other than an added summary, this is a subset of the ScanRun.
+/// Representation in logs is either a proto Struct, or converted to JSON.
+/// Next id: 9
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ScanRunLog {
+    /// Human friendly message about the event.
+    #[prost(string, tag = "1")]
+    pub summary: ::prost::alloc::string::String,
+    /// The resource name of the ScanRun being logged.
+    #[prost(string, tag = "2")]
+    pub name: ::prost::alloc::string::String,
+    /// The execution state of the ScanRun.
+    #[prost(enumeration = "scan_run::ExecutionState", tag = "3")]
+    pub execution_state: i32,
+    /// The result state of the ScanRun.
+    #[prost(enumeration = "scan_run::ResultState", tag = "4")]
+    pub result_state: i32,
+    #[prost(int64, tag = "5")]
+    pub urls_crawled_count: i64,
+    #[prost(int64, tag = "6")]
+    pub urls_tested_count: i64,
+    #[prost(bool, tag = "7")]
+    pub has_findings: bool,
+    #[prost(message, optional, tag = "8")]
+    pub error_trace: ::core::option::Option<ScanRunErrorTrace>,
 }

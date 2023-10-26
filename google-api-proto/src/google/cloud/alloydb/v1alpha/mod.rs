@@ -76,7 +76,7 @@ pub mod migration_source {
 pub struct EncryptionConfig {
     /// The fully-qualified resource name of the KMS key.
     /// Each Cloud KMS key is regionalized and has the following format:
-    /// projects/\[PROJECT]/locations/[REGION]/keyRings/[RING]/cryptoKeys/[KEY_NAME\]
+    /// projects/\[PROJECT\]/locations/\[REGION\]/keyRings/\[RING\]/cryptoKeys/\[KEY_NAME\]
     #[prost(string, tag = "1")]
     pub kms_key_name: ::prost::alloc::string::String,
 }
@@ -619,7 +619,7 @@ pub mod cluster {
         /// instance IPs for this cluster will be created in the allocated range. The
         /// range name must comply with RFC 1035. Specifically, the name must be 1-63
         /// characters long and match the regular expression
-        /// \[a-z]([-a-z0-9]*[a-z0-9\])?.
+        /// [a-z](\[-a-z0-9\]*[a-z0-9])?.
         /// Field name is intended to be consistent with CloudSQL.
         #[prost(string, tag = "2")]
         pub allocated_ip_range: ::prost::alloc::string::String,
@@ -791,7 +791,7 @@ pub struct Instance {
     /// Output only. The name of the instance resource with the format:
     ///   * projects/{project}/locations/{region}/clusters/{cluster_id}/instances/{instance_id}
     /// where the cluster and instance ID segments should satisfy the regex
-    /// expression `\[a-z]([a-z0-9-]{0,61}[a-z0-9\])?`, e.g. 1-63 characters of
+    /// expression `[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?`, e.g. 1-63 characters of
     /// lowercase letters, numbers, and dashes, starting with a letter, and ending
     /// with a letter or number. For more details see <https://google.aip.dev/122.>
     /// The prefix of the instance resource name is the name of the parent
@@ -1253,7 +1253,7 @@ pub struct Backup {
     /// Output only. The name of the backup resource with the format:
     ///   * projects/{project}/locations/{region}/backups/{backup_id}
     /// where the cluster and backup ID segments should satisfy the regex
-    /// expression `\[a-z]([a-z0-9-]{0,61}[a-z0-9\])?`, e.g. 1-63 characters of
+    /// expression `[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?`, e.g. 1-63 characters of
     /// lowercase letters, numbers, and dashes, starting with a letter, and ending
     /// with a letter or number. For more details see <https://google.aip.dev/122.>
     /// The prefix of the backup resource name is the name of the parent
@@ -2841,8 +2841,8 @@ pub struct OperationMetadata {
     pub status_message: ::prost::alloc::string::String,
     /// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     #[prost(bool, tag = "6")]
     pub requested_cancellation: bool,

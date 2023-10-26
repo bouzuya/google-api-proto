@@ -90,8 +90,8 @@ pub struct Sentence {
     /// The sentence text.
     #[prost(message, optional, tag = "1")]
     pub text: ::core::option::Option<TextSpan>,
-    /// For calls to \[AnalyzeSentiment][\] or if
-    /// \[AnnotateTextRequest.Features.extract_document_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_document_sentiment\]
+    /// For calls to [AnalyzeSentiment][] or if
+    /// [AnnotateTextRequest.Features.extract_document_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_document_sentiment]
     /// is set to true, this field will contain the sentiment for the sentence.
     #[prost(message, optional, tag = "2")]
     pub sentiment: ::core::option::Option<Sentiment>,
@@ -122,8 +122,8 @@ pub struct Entity {
     /// supports proper noun mentions.
     #[prost(message, repeated, tag = "5")]
     pub mentions: ::prost::alloc::vec::Vec<EntityMention>,
-    /// For calls to \[AnalyzeEntitySentiment][\] or if
-    /// \[AnnotateTextRequest.Features.extract_entity_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_entity_sentiment\]
+    /// For calls to [AnalyzeEntitySentiment][] or if
+    /// [AnnotateTextRequest.Features.extract_entity_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_entity_sentiment]
     /// is set to true, this field will contain the aggregate sentiment expressed
     /// for this entity in the provided document.
     #[prost(message, optional, tag = "6")]
@@ -278,8 +278,8 @@ pub struct EntityMention {
     /// The type of the entity mention.
     #[prost(enumeration = "entity_mention::Type", tag = "2")]
     pub r#type: i32,
-    /// For calls to \[AnalyzeEntitySentiment][\] or if
-    /// \[AnnotateTextRequest.Features.extract_entity_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_entity_sentiment\]
+    /// For calls to [AnalyzeEntitySentiment][] or if
+    /// [AnnotateTextRequest.Features.extract_entity_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_entity_sentiment]
     /// is set to true, this field will contain the sentiment expressed for this
     /// mention of the entity in the provided document.
     #[prost(message, optional, tag = "3")]
@@ -346,7 +346,7 @@ pub struct TextSpan {
     pub content: ::prost::alloc::string::String,
     /// The API calculates the beginning offset of the content in the original
     /// document according to the
-    /// \[EncodingType][google.cloud.language.v2.EncodingType\] specified in the API
+    /// [EncodingType][google.cloud.language.v2.EncodingType] specified in the API
     /// request.
     #[prost(int32, tag = "2")]
     pub begin_offset: i32,
@@ -383,7 +383,7 @@ pub struct AnalyzeSentimentResponse {
     pub document_sentiment: ::core::option::Option<Sentiment>,
     /// The language of the text, which will be the same as the language specified
     /// in the request or, if not specified, the automatically-detected language.
-    /// See \[Document.language][\] field for more details.
+    /// See [Document.language][] field for more details.
     #[prost(string, tag = "2")]
     pub language_code: ::prost::alloc::string::String,
     /// The sentiment for all the sentences in the document.
@@ -415,7 +415,7 @@ pub struct AnalyzeEntitiesResponse {
     pub entities: ::prost::alloc::vec::Vec<Entity>,
     /// The language of the text, which will be the same as the language specified
     /// in the request or, if not specified, the automatically-detected language.
-    /// See \[Document.language][\] field for more details.
+    /// See [Document.language][] field for more details.
     #[prost(string, tag = "2")]
     pub language_code: ::prost::alloc::string::String,
     /// Whether the language is officially supported. The API may still return a
@@ -441,7 +441,7 @@ pub struct ClassifyTextResponse {
     pub categories: ::prost::alloc::vec::Vec<ClassificationCategory>,
     /// The language of the text, which will be the same as the language specified
     /// in the request or, if not specified, the automatically-detected language.
-    /// See \[Document.language][\] field for more details.
+    /// See [Document.language][] field for more details.
     #[prost(string, tag = "2")]
     pub language_code: ::prost::alloc::string::String,
     /// Whether the language is officially supported. The API may still return a
@@ -467,7 +467,7 @@ pub struct ModerateTextResponse {
     pub moderation_categories: ::prost::alloc::vec::Vec<ClassificationCategory>,
     /// The language of the text, which will be the same as the language specified
     /// in the request or, if not specified, the automatically-detected language.
-    /// See \[Document.language][\] field for more details.
+    /// See [Document.language][] field for more details.
     #[prost(string, tag = "2")]
     pub language_code: ::prost::alloc::string::String,
     /// Whether the language is officially supported. The API may still return a
@@ -517,23 +517,23 @@ pub mod annotate_text_request {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AnnotateTextResponse {
     /// Sentences in the input document. Populated if the user enables
-    /// \[AnnotateTextRequest.Features.extract_document_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_document_sentiment\].
+    /// [AnnotateTextRequest.Features.extract_document_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_document_sentiment].
     #[prost(message, repeated, tag = "1")]
     pub sentences: ::prost::alloc::vec::Vec<Sentence>,
     /// Entities, along with their semantic information, in the input document.
     /// Populated if the user enables
-    /// \[AnnotateTextRequest.Features.extract_entities][google.cloud.language.v2.AnnotateTextRequest.Features.extract_entities\]
+    /// [AnnotateTextRequest.Features.extract_entities][google.cloud.language.v2.AnnotateTextRequest.Features.extract_entities]
     /// or
-    /// \[AnnotateTextRequest.Features.extract_entity_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_entity_sentiment\].
+    /// [AnnotateTextRequest.Features.extract_entity_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_entity_sentiment].
     #[prost(message, repeated, tag = "2")]
     pub entities: ::prost::alloc::vec::Vec<Entity>,
     /// The overall sentiment for the document. Populated if the user enables
-    /// \[AnnotateTextRequest.Features.extract_document_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_document_sentiment\].
+    /// [AnnotateTextRequest.Features.extract_document_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_document_sentiment].
     #[prost(message, optional, tag = "3")]
     pub document_sentiment: ::core::option::Option<Sentiment>,
     /// The language of the text, which will be the same as the language specified
     /// in the request or, if not specified, the automatically-detected language.
-    /// See \[Document.language][\] field for more details.
+    /// See [Document.language][] field for more details.
     #[prost(string, tag = "4")]
     pub language_code: ::prost::alloc::string::String,
     /// Categories identified in the input document.

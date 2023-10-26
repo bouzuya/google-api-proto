@@ -1854,7 +1854,7 @@ pub struct RunAccessReportRequest {
     /// method will return the first page of results with `limit` entries.
     ///
     /// To learn more about this pagination parameter, see
-    /// \[Pagination\](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
+    /// [Pagination](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
     #[prost(int64, tag = "7")]
     pub offset: i64,
     /// The number of rows to return. If unspecified, 10,000 rows are returned. The
@@ -1868,7 +1868,7 @@ pub struct RunAccessReportRequest {
     /// higher value.
     ///
     /// To learn more about this pagination parameter, see
-    /// \[Pagination\](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
+    /// [Pagination](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
     #[prost(int64, tag = "8")]
     pub limit: i64,
     /// This request's time zone if specified. If unspecified, the property's time
@@ -1884,7 +1884,7 @@ pub struct RunAccessReportRequest {
     #[prost(message, repeated, tag = "10")]
     pub order_bys: ::prost::alloc::vec::Vec<AccessOrderBy>,
     /// Toggles whether to return the current state of this Analytics Property's
-    /// quota. Quota is returned in \[AccessQuota\](#AccessQuota). For account-level
+    /// quota. Quota is returned in [AccessQuota](#AccessQuota). For account-level
     /// requests, this field must be false.
     #[prost(bool, tag = "11")]
     pub return_entity_quota: bool,
@@ -1913,7 +1913,7 @@ pub struct RunAccessReportResponse {
     /// response will contain `rowCount` of 175 but only 50 rows.
     ///
     /// To learn more about this pagination parameter, see
-    /// \[Pagination\](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
+    /// [Pagination](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
     #[prost(int32, tag = "4")]
     pub row_count: i32,
     /// The quota state for this Analytics property including this request. This

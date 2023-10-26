@@ -1,5 +1,5 @@
 /// Request for
-/// \[TroubleshootIamPolicy][google.cloud.policytroubleshooter.iam.v3beta.PolicyTroubleshooter.TroubleshootIamPolicy\].
+/// [TroubleshootIamPolicy][google.cloud.policytroubleshooter.iam.v3beta.PolicyTroubleshooter.TroubleshootIamPolicy].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct TroubleshootIamPolicyRequest {
@@ -9,7 +9,7 @@ pub struct TroubleshootIamPolicyRequest {
     pub access_tuple: ::core::option::Option<AccessTuple>,
 }
 /// Response for
-/// \[TroubleshootIamPolicy][google.cloud.policytroubleshooter.iam.v3beta.PolicyTroubleshooter.TroubleshootIamPolicy\].
+/// [TroubleshootIamPolicy][google.cloud.policytroubleshooter.iam.v3beta.PolicyTroubleshooter.TroubleshootIamPolicy].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct TroubleshootIamPolicyResponse {
@@ -290,7 +290,7 @@ pub struct ExplainedAllowPolicy {
     /// permission for the resource. There might be another policy that overrides
     /// this policy. To determine whether the principal actually has the
     /// permission, use the `overall_access_state` field in the
-    /// \[TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse].
     #[prost(enumeration = "AllowAccessState", tag = "1")]
     pub allow_access_state: i32,
     /// The full resource name that identifies the resource. For example,
@@ -312,7 +312,7 @@ pub struct ExplainedAllowPolicy {
     #[prost(message, repeated, tag = "3")]
     pub binding_explanations: ::prost::alloc::vec::Vec<AllowBindingExplanation>,
     /// The relevance of this policy to the overall access state in the
-    /// \[TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse].
     ///
     /// If the sender of the request does not have access to the policy, this field
     /// is omitted.
@@ -337,7 +337,7 @@ pub struct AllowBindingExplanation {
     /// permission on the resource. There might be another role binding that
     /// overrides this role binding. To determine whether the principal actually
     /// has the permission, use the `overall_access_state` field in the
-    /// \[TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse].
     #[prost(enumeration = "AllowAccessState", tag = "1")]
     pub allow_access_state: i32,
     /// The role that this role binding grants. For example,
@@ -460,7 +460,7 @@ pub struct ExplainedDenyResource {
     /// permission for the resource. There might be another policy that overrides
     /// this policy. To determine whether the principal actually has the
     /// permission, use the `overall_access_state` field in the
-    /// \[TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse].
     #[prost(enumeration = "DenyAccessState", tag = "1")]
     pub deny_access_state: i32,
     /// The full resource name that identifies the resource. For example,
@@ -479,14 +479,14 @@ pub struct ExplainedDenyResource {
     #[prost(message, repeated, tag = "3")]
     pub explained_policies: ::prost::alloc::vec::Vec<ExplainedDenyPolicy>,
     /// The relevance of this policy to the overall access state in the
-    /// \[TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse].
     ///
     /// If the sender of the request does not have access to the policy, this field
     /// is omitted.
     #[prost(enumeration = "HeuristicRelevance", tag = "4")]
     pub relevance: i32,
 }
-/// Details about how a specific IAM deny policy \[Policy][google.iam.v2.Policy\]
+/// Details about how a specific IAM deny policy [Policy][google.iam.v2.Policy]
 /// contributed to the access check.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -498,7 +498,7 @@ pub struct ExplainedDenyPolicy {
     /// permission for the resource. There might be another policy that overrides
     /// this policy. To determine whether the principal actually has the
     /// permission, use the `overall_access_state` field in the
-    /// \[TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse].
     #[prost(enumeration = "DenyAccessState", tag = "1")]
     pub deny_access_state: i32,
     /// The IAM deny policy attached to the resource.
@@ -516,7 +516,7 @@ pub struct ExplainedDenyPolicy {
     #[prost(message, repeated, tag = "3")]
     pub rule_explanations: ::prost::alloc::vec::Vec<DenyRuleExplanation>,
     /// The relevance of this policy to the overall access state in the
-    /// \[TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse].
     ///
     /// If the sender of the request does not have access to the policy, this field
     /// is omitted.
@@ -535,7 +535,7 @@ pub struct DenyRuleExplanation {
     /// the permission for the resource. There might be another rule that overrides
     /// this rule. To determine whether the principal actually has the permission,
     /// use the `overall_access_state` field in the
-    /// \[TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse].
     #[prost(enumeration = "DenyAccessState", tag = "1")]
     pub deny_access_state: i32,
     /// Indicates whether the permission in the request is listed as a denied

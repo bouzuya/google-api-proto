@@ -6,7 +6,7 @@ pub struct CheckRequest {
     /// `"pubsub.googleapis.com"`.
     ///
     /// See
-    /// \[google.api.Service\](<https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service>)
+    /// [google.api.Service](<https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service>)
     /// for the definition of a service name.
     #[prost(string, tag = "1")]
     pub service_name: ::prost::alloc::string::String,
@@ -62,7 +62,7 @@ pub struct ResourceInfo {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CheckResponse {
     /// Operation is allowed when this field is not set. Any non-'OK' status
-    /// indicates a denial; \[google.rpc.Status.details][google.rpc.Status.details\]
+    /// indicates a denial; [google.rpc.Status.details][google.rpc.Status.details]
     /// would contain additional details about the denial.
     #[prost(message, optional, tag = "1")]
     pub status: ::core::option::Option<super::super::super::rpc::Status>,
@@ -81,7 +81,7 @@ pub struct ReportRequest {
     /// `"pubsub.googleapis.com"`.
     ///
     /// See
-    /// \[google.api.Service\](<https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service>)
+    /// [google.api.Service](<https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service>)
     /// for the definition of a service name.
     #[prost(string, tag = "1")]
     pub service_name: ::prost::alloc::string::String,

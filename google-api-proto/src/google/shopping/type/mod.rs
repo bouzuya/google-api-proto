@@ -209,7 +209,7 @@ pub mod reporting_context {
         }
     }
 }
-/// \[Channel\](<https://support.google.com/merchants/answer/7361332>) of a product.
+/// [Channel](<https://support.google.com/merchants/answer/7361332>) of a product.
 ///
 /// Channel is used to distinguish between online and local products.
 #[allow(clippy::derive_partial_eq_without_eq)]

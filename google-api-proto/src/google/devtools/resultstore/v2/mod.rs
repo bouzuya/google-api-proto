@@ -1,3 +1,22 @@
+/// The upload metadata for an invocation
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UploadMetadata {
+    /// The name of the upload metadata.  Its format will be:
+    /// invocations/${INVOCATION_ID}/uploadMetadata
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The resume token of the last batch that was committed in the most recent
+    /// batch upload.
+    /// More information with resume_token could be found in
+    /// resultstore_upload.proto
+    #[prost(string, tag = "2")]
+    pub resume_token: ::prost::alloc::string::String,
+    /// Client-specific data used to resume batch upload if an error occurs and
+    /// retry action is needed.
+    #[prost(bytes = "bytes", tag = "3")]
+    pub uploader_state: ::prost::bytes::Bytes,
+}
 /// Describes the status of a resource in both enum and string form.
 /// Only use description when conveying additional info not captured in the enum
 /// name.
@@ -329,6 +348,104 @@ impl UploadStatus {
         }
     }
 }
+/// Describes line coverage for a file
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LineCoverage {
+    /// Which source lines in the file represent the start of a statement that was
+    /// instrumented to detect whether it was executed by the test.
+    ///
+    /// This is a bitfield where i-th bit corresponds to the i-th line. Divide line
+    /// number by 8 to get index into byte array. Mod line number by 8 to get bit
+    /// number (0 = LSB, 7 = MSB).
+    ///
+    /// A 1 denotes the line was instrumented.
+    /// A 0 denotes the line was not instrumented.
+    #[prost(bytes = "bytes", tag = "1")]
+    pub instrumented_lines: ::prost::bytes::Bytes,
+    /// Which of the instrumented source lines were executed by the test. Should
+    /// include lines that were not instrumented.
+    ///
+    /// This is a bitfield where i-th bit corresponds to the i-th line. Divide line
+    /// number by 8 to get index into byte array. Mod line number by 8 to get bit
+    /// number (0 = LSB, 7 = MSB).
+    ///
+    /// A 1 denotes the line was executed.
+    /// A 0 denotes the line was not executed.
+    #[prost(bytes = "bytes", tag = "2")]
+    pub executed_lines: ::prost::bytes::Bytes,
+}
+/// Describes branch coverage for a file
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BranchCoverage {
+    /// The field branch_present denotes the lines containing at least one branch.
+    ///
+    /// This is a bitfield where i-th bit corresponds to the i-th line. Divide line
+    /// number by 8 to get index into byte array. Mod line number by 8 to get bit
+    /// number (0 = LSB, 7 = MSB).
+    ///
+    /// A 1 denotes the line contains at least one branch.
+    /// A 0 denotes the line contains no branches.
+    #[prost(bytes = "bytes", tag = "1")]
+    pub branch_present: ::prost::bytes::Bytes,
+    /// Contains the number of branches present, only for the lines which have the
+    /// corresponding bit set in branch_present, in a relative order ignoring
+    /// lines which do not have any branches.
+    #[prost(int32, repeated, tag = "2")]
+    pub branches_in_line: ::prost::alloc::vec::Vec<i32>,
+    /// As each branch can have any one of the following three states: not
+    /// executed, executed but not taken, executed and taken.
+    ///
+    /// This is a bitfield where i-th bit corresponds to the i-th branch. Divide
+    /// branch number by 8 to get index into byte array. Mod branch number by 8 to
+    /// get bit number (0 = LSB, 7 = MSB).
+    ///
+    /// i-th bit of the following two byte arrays are used to denote the above
+    /// mentioned states.
+    ///
+    /// not executed: i-th bit of executed == 0 && i-th bit of taken == 0
+    /// executed but not taken: i-th bit of executed == 1 && i-th bit of taken == 0
+    /// executed and taken: i-th bit of executed == 1 && i-th bit of taken == 1
+    #[prost(bytes = "bytes", tag = "3")]
+    pub executed: ::prost::bytes::Bytes,
+    /// Described above.
+    #[prost(bytes = "bytes", tag = "4")]
+    pub taken: ::prost::bytes::Bytes,
+}
+/// Describes code coverage for a particular file under test.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FileCoverage {
+    /// Path of source file within the SourceContext of this Invocation.
+    #[prost(string, tag = "1")]
+    pub path: ::prost::alloc::string::String,
+    /// Details of lines in a file for calculating line coverage.
+    #[prost(message, optional, tag = "2")]
+    pub line_coverage: ::core::option::Option<LineCoverage>,
+    /// Details of branches in a file for calculating branch coverage.
+    #[prost(message, optional, tag = "3")]
+    pub branch_coverage: ::core::option::Option<BranchCoverage>,
+}
+/// Describes code coverage for a build or test Action. This is used to store
+/// baseline coverage for build Actions and test coverage for test Actions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ActionCoverage {
+    /// List of coverage info for all source files that the TestResult covers.
+    #[prost(message, repeated, tag = "2")]
+    pub file_coverages: ::prost::alloc::vec::Vec<FileCoverage>,
+}
+/// Describes aggregate code coverage for a collection of build or test Actions.
+/// A line or branch is covered if and only if it is covered in any of the build
+/// or test actions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AggregateCoverage {
+    /// Aggregated coverage info for all source files that the actions cover.
+    #[prost(message, repeated, tag = "1")]
+    pub file_coverages: ::prost::alloc::vec::Vec<FileCoverage>,
+}
 /// The metadata for a file or an archive file entry.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -447,6 +564,87 @@ pub struct ArchiveEntry {
     /// how to handle the entry.
     #[prost(string, tag = "3")]
     pub content_type: ::prost::alloc::string::String,
+}
+/// Stores errors reading or parsing a file during post-processing.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FileProcessingErrors {
+    /// The uid of the File being read or parsed.
+    #[prost(string, tag = "1")]
+    pub file_uid: ::prost::alloc::string::String,
+    /// What went wrong.
+    #[prost(message, repeated, tag = "3")]
+    pub file_processing_errors: ::prost::alloc::vec::Vec<FileProcessingError>,
+}
+/// Stores an error reading or parsing a file during post-processing.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FileProcessingError {
+    /// The type of error that occurred.
+    #[prost(enumeration = "FileProcessingErrorType", tag = "1")]
+    pub r#type: i32,
+    /// Error message describing the problem.
+    #[prost(string, tag = "2")]
+    pub message: ::prost::alloc::string::String,
+}
+/// Errors in file post-processing are categorized using this enum.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum FileProcessingErrorType {
+    /// Type unspecified or not listed here.
+    Unspecified = 0,
+    /// A read error occurred trying to read the file.
+    GenericReadError = 1,
+    /// There was an error trying to parse the file.
+    GenericParseError = 2,
+    /// File is exceeds size limit.
+    FileTooLarge = 3,
+    /// The result of parsing the file exceeded size limit.
+    OutputTooLarge = 4,
+    /// Read access to the file was denied by file system.
+    AccessDenied = 5,
+    /// Deadline exceeded trying to read the file.
+    DeadlineExceeded = 6,
+    /// File not found.
+    NotFound = 7,
+    /// File is empty but was expected to have content.
+    FileEmpty = 8,
+}
+impl FileProcessingErrorType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            FileProcessingErrorType::Unspecified => {
+                "FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED"
+            }
+            FileProcessingErrorType::GenericReadError => "GENERIC_READ_ERROR",
+            FileProcessingErrorType::GenericParseError => "GENERIC_PARSE_ERROR",
+            FileProcessingErrorType::FileTooLarge => "FILE_TOO_LARGE",
+            FileProcessingErrorType::OutputTooLarge => "OUTPUT_TOO_LARGE",
+            FileProcessingErrorType::AccessDenied => "ACCESS_DENIED",
+            FileProcessingErrorType::DeadlineExceeded => "DEADLINE_EXCEEDED",
+            FileProcessingErrorType::NotFound => "NOT_FOUND",
+            FileProcessingErrorType::FileEmpty => "FILE_EMPTY",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "GENERIC_READ_ERROR" => Some(Self::GenericReadError),
+            "GENERIC_PARSE_ERROR" => Some(Self::GenericParseError),
+            "FILE_TOO_LARGE" => Some(Self::FileTooLarge),
+            "OUTPUT_TOO_LARGE" => Some(Self::OutputTooLarge),
+            "ACCESS_DENIED" => Some(Self::AccessDenied),
+            "DEADLINE_EXCEEDED" => Some(Self::DeadlineExceeded),
+            "NOT_FOUND" => Some(Self::NotFound),
+            "FILE_EMPTY" => Some(Self::FileEmpty),
+            _ => None,
+        }
+    }
 }
 /// The result of running a test suite, as reported in a <testsuite> element of
 /// an XML log.
@@ -686,185 +884,6 @@ pub struct TestError {
     /// exception_type and message.
     #[prost(string, tag = "3")]
     pub stack_trace: ::prost::alloc::string::String,
-}
-/// Describes line coverage for a file
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LineCoverage {
-    /// Which source lines in the file represent the start of a statement that was
-    /// instrumented to detect whether it was executed by the test.
-    ///
-    /// This is a bitfield where i-th bit corresponds to the i-th line. Divide line
-    /// number by 8 to get index into byte array. Mod line number by 8 to get bit
-    /// number (0 = LSB, 7 = MSB).
-    ///
-    /// A 1 denotes the line was instrumented.
-    /// A 0 denotes the line was not instrumented.
-    #[prost(bytes = "bytes", tag = "1")]
-    pub instrumented_lines: ::prost::bytes::Bytes,
-    /// Which of the instrumented source lines were executed by the test. Should
-    /// include lines that were not instrumented.
-    ///
-    /// This is a bitfield where i-th bit corresponds to the i-th line. Divide line
-    /// number by 8 to get index into byte array. Mod line number by 8 to get bit
-    /// number (0 = LSB, 7 = MSB).
-    ///
-    /// A 1 denotes the line was executed.
-    /// A 0 denotes the line was not executed.
-    #[prost(bytes = "bytes", tag = "2")]
-    pub executed_lines: ::prost::bytes::Bytes,
-}
-/// Describes branch coverage for a file
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BranchCoverage {
-    /// The field branch_present denotes the lines containing at least one branch.
-    ///
-    /// This is a bitfield where i-th bit corresponds to the i-th line. Divide line
-    /// number by 8 to get index into byte array. Mod line number by 8 to get bit
-    /// number (0 = LSB, 7 = MSB).
-    ///
-    /// A 1 denotes the line contains at least one branch.
-    /// A 0 denotes the line contains no branches.
-    #[prost(bytes = "bytes", tag = "1")]
-    pub branch_present: ::prost::bytes::Bytes,
-    /// Contains the number of branches present, only for the lines which have the
-    /// corresponding bit set in branch_present, in a relative order ignoring
-    /// lines which do not have any branches.
-    #[prost(int32, repeated, tag = "2")]
-    pub branches_in_line: ::prost::alloc::vec::Vec<i32>,
-    /// As each branch can have any one of the following three states: not
-    /// executed, executed but not taken, executed and taken.
-    ///
-    /// This is a bitfield where i-th bit corresponds to the i-th branch. Divide
-    /// branch number by 8 to get index into byte array. Mod branch number by 8 to
-    /// get bit number (0 = LSB, 7 = MSB).
-    ///
-    /// i-th bit of the following two byte arrays are used to denote the above
-    /// mentioned states.
-    ///
-    /// not executed: i-th bit of executed == 0 && i-th bit of taken == 0
-    /// executed but not taken: i-th bit of executed == 1 && i-th bit of taken == 0
-    /// executed and taken: i-th bit of executed == 1 && i-th bit of taken == 1
-    #[prost(bytes = "bytes", tag = "3")]
-    pub executed: ::prost::bytes::Bytes,
-    /// Described above.
-    #[prost(bytes = "bytes", tag = "4")]
-    pub taken: ::prost::bytes::Bytes,
-}
-/// Describes code coverage for a particular file under test.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FileCoverage {
-    /// Path of source file within the SourceContext of this Invocation.
-    #[prost(string, tag = "1")]
-    pub path: ::prost::alloc::string::String,
-    /// Details of lines in a file for calculating line coverage.
-    #[prost(message, optional, tag = "2")]
-    pub line_coverage: ::core::option::Option<LineCoverage>,
-    /// Details of branches in a file for calculating branch coverage.
-    #[prost(message, optional, tag = "3")]
-    pub branch_coverage: ::core::option::Option<BranchCoverage>,
-}
-/// Describes code coverage for a build or test Action. This is used to store
-/// baseline coverage for build Actions and test coverage for test Actions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ActionCoverage {
-    /// List of coverage info for all source files that the TestResult covers.
-    #[prost(message, repeated, tag = "2")]
-    pub file_coverages: ::prost::alloc::vec::Vec<FileCoverage>,
-}
-/// Describes aggregate code coverage for a collection of build or test Actions.
-/// A line or branch is covered if and only if it is covered in any of the build
-/// or test actions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AggregateCoverage {
-    /// Aggregated coverage info for all source files that the actions cover.
-    #[prost(message, repeated, tag = "1")]
-    pub file_coverages: ::prost::alloc::vec::Vec<FileCoverage>,
-}
-/// Stores errors reading or parsing a file during post-processing.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FileProcessingErrors {
-    /// The uid of the File being read or parsed.
-    #[prost(string, tag = "1")]
-    pub file_uid: ::prost::alloc::string::String,
-    /// What went wrong.
-    #[prost(message, repeated, tag = "3")]
-    pub file_processing_errors: ::prost::alloc::vec::Vec<FileProcessingError>,
-}
-/// Stores an error reading or parsing a file during post-processing.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FileProcessingError {
-    /// The type of error that occurred.
-    #[prost(enumeration = "FileProcessingErrorType", tag = "1")]
-    pub r#type: i32,
-    /// Error message describing the problem.
-    #[prost(string, tag = "2")]
-    pub message: ::prost::alloc::string::String,
-}
-/// Errors in file post-processing are categorized using this enum.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum FileProcessingErrorType {
-    /// Type unspecified or not listed here.
-    Unspecified = 0,
-    /// A read error occurred trying to read the file.
-    GenericReadError = 1,
-    /// There was an error trying to parse the file.
-    GenericParseError = 2,
-    /// File is exceeds size limit.
-    FileTooLarge = 3,
-    /// The result of parsing the file exceeded size limit.
-    OutputTooLarge = 4,
-    /// Read access to the file was denied by file system.
-    AccessDenied = 5,
-    /// Deadline exceeded trying to read the file.
-    DeadlineExceeded = 6,
-    /// File not found.
-    NotFound = 7,
-    /// File is empty but was expected to have content.
-    FileEmpty = 8,
-}
-impl FileProcessingErrorType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            FileProcessingErrorType::Unspecified => {
-                "FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED"
-            }
-            FileProcessingErrorType::GenericReadError => "GENERIC_READ_ERROR",
-            FileProcessingErrorType::GenericParseError => "GENERIC_PARSE_ERROR",
-            FileProcessingErrorType::FileTooLarge => "FILE_TOO_LARGE",
-            FileProcessingErrorType::OutputTooLarge => "OUTPUT_TOO_LARGE",
-            FileProcessingErrorType::AccessDenied => "ACCESS_DENIED",
-            FileProcessingErrorType::DeadlineExceeded => "DEADLINE_EXCEEDED",
-            FileProcessingErrorType::NotFound => "NOT_FOUND",
-            FileProcessingErrorType::FileEmpty => "FILE_EMPTY",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "GENERIC_READ_ERROR" => Some(Self::GenericReadError),
-            "GENERIC_PARSE_ERROR" => Some(Self::GenericParseError),
-            "FILE_TOO_LARGE" => Some(Self::FileTooLarge),
-            "OUTPUT_TOO_LARGE" => Some(Self::OutputTooLarge),
-            "ACCESS_DENIED" => Some(Self::AccessDenied),
-            "DEADLINE_EXCEEDED" => Some(Self::DeadlineExceeded),
-            "NOT_FOUND" => Some(Self::NotFound),
-            "FILE_EMPTY" => Some(Self::FileEmpty),
-            _ => None,
-        }
-    }
 }
 /// An action that happened as part of a configured target. This action could be
 /// a build, a test, or another type of action, as specified in action_type
@@ -1400,34 +1419,6 @@ pub struct ConfiguredTestAttributes {
     #[prost(message, optional, tag = "5")]
     pub timeout_duration: ::core::option::Option<::prost_types::Duration>,
 }
-/// The download metadata for an invocation
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DownloadMetadata {
-    /// The name of the download metadata.  Its format will be:
-    /// invocations/${INVOCATION_ID}/downloadMetadata
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Indicates the upload status of the invocation, whether it is
-    /// post-processing, or immutable, etc.
-    #[prost(enumeration = "UploadStatus", tag = "2")]
-    pub upload_status: i32,
-    /// If populated, the time when CreateInvocation is called.
-    /// This does not necessarily line up with the start time of the invocation.
-    /// Please use invocation.timing.start_time for that purpose.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// If populated, the time when FinalizeInvocation is called or when invocation
-    /// is automatically finalized. This field is populated when upload_status
-    /// becomes POST_PROCESSING.
-    #[prost(message, optional, tag = "4")]
-    pub finalize_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// If populated, the time when all post processing is done and the invocation
-    /// is marked as immutable. This field is populated when upload_status becomes
-    /// IMMUTABLE.
-    #[prost(message, optional, tag = "5")]
-    pub immutable_time: ::core::option::Option<::prost_types::Timestamp>,
-}
 /// This resource represents a set of Files and other (nested) FileSets.
 /// A FileSet is a node in the graph, and the file_sets field represents the
 /// outgoing edges. A resource may reference various nodes in the graph to
@@ -1637,7 +1628,7 @@ pub struct CommandLine {
     /// The command-line tool that is run: argv\[0\].
     #[prost(string, tag = "2")]
     pub tool: ::prost::alloc::string::String,
-    /// The arguments to the above tool: argv\[1]...argv[N\].
+    /// The arguments to the above tool: argv\[1\]...argv\[N\].
     #[prost(string, repeated, tag = "3")]
     pub args: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     /// The subcommand that was run with the tool, usually "build" or "test".
@@ -1875,6 +1866,1887 @@ impl TestSize {
             _ => None,
         }
     }
+}
+/// Request passed into CreateInvocation
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateInvocationRequest {
+    /// A unique identifier for this request. Must be set to a different value for
+    /// each request that affects a given resource (eg. a random UUID). Required
+    /// for the operation to be idempotent. This is achieved by ignoring this
+    /// request if the last successful operation on the resource had the same
+    /// request ID. If set, invocation_id must also be provided.
+    /// Restricted to 36 Unicode characters.
+    #[prost(string, tag = "1")]
+    pub request_id: ::prost::alloc::string::String,
+    /// The invocation ID. It is optional, but strongly recommended.
+    ///
+    /// If left empty then a new unique ID will be assigned by the server. If
+    /// populated, a RFC 4122-compliant v4 UUID is preferred, but v3 or v5 UUIDs
+    /// are allowed too.
+    #[prost(string, tag = "2")]
+    pub invocation_id: ::prost::alloc::string::String,
+    /// Required. The invocation to create.  Its name field will be ignored, since
+    /// the name will be derived from the id field above and assigned by the
+    /// server.
+    #[prost(message, optional, tag = "3")]
+    pub invocation: ::core::option::Option<Invocation>,
+    /// This is a token to authorize upload access to this invocation. It must be
+    /// set to a RFC 4122-compliant v3, v4, or v5 UUID. Once this is set in
+    /// CreateInvocation, all other upload RPCs for that Invocation and any of its
+    /// child resources must also include the exact same token, or they will be
+    /// rejected. The generated token should be unique to this invocation, and it
+    /// should be kept secret.
+    ///
+    /// The purpose of this field is to prevent other users and tools from
+    /// clobbering your upload intentionally or accidentally. The standard way of
+    /// using this token is to create a second v4 UUID when the invocation_id is
+    /// created, and storing them together during the upload. Essentially, this is
+    /// a "password" to the invocation.
+    #[prost(string, tag = "4")]
+    pub authorization_token: ::prost::alloc::string::String,
+    /// By default, Invocations are auto-finalized if they are not modified for 24
+    /// hours. If you need auto-finalize to happen sooner, set this field to the
+    /// time you'd like auto-finalize to occur.
+    #[prost(message, optional, tag = "6")]
+    pub auto_finalize_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Client provided unique token for batch upload to ensure data integrity and
+    /// to provide a way to resume batch upload in case of a distributed failure on
+    /// the client side. The standard uploading client is presumed to have many
+    /// machines uploading to ResultStore, and that any given machine could process
+    /// any given Invocation at any time. This field is used to coordinate between
+    /// the client's machines, resolve concurrency issues, and enforce "exactly
+    /// once" semantics on each batch within the upload.
+    ///
+    /// The typical usage of the resume_token is that it should contain a "key"
+    /// indicating to the client where it is in the upload process, so that the
+    /// client can use it to resume the upload by reconstructing the state of
+    /// upload from the point where it was interrupted.
+    ///
+    /// If this matches the previously uploaded resume_token, then this request
+    /// will silently do nothing, making CreateInvocation idempotent.
+    /// If this token is provided, all further upload RPCs must be done through
+    /// UploadBatch. This token must not be combined with request_id.
+    /// Must be web safe Base64 encoded bytes.
+    #[prost(string, tag = "7")]
+    pub initial_resume_token: ::prost::alloc::string::String,
+    /// Client-specific data used to resume batch upload if an error occurs and
+    /// retry is needed. This serves a role closely related to resume_token, as
+    /// both fields may be used to provide state required to restore a Batch
+    /// Upload, but they differ in two important aspects:
+    ///   - it is not compared to previous values, and as such does not provide
+    ///     concurrency control;
+    ///   - it allows for a larger payload, since the contents are never
+    ///     inspected/compared;
+    /// The size of the message must be within 1 MiB. Too large requests will be
+    /// rejected.
+    #[prost(bytes = "bytes", tag = "8")]
+    pub uploader_state: ::prost::bytes::Bytes,
+}
+/// Request passed into UpdateInvocation
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateInvocationRequest {
+    /// Contains the name and the fields of the invocation to be updated.  The
+    /// name format must be: invocations/${INVOCATION_ID}
+    #[prost(message, optional, tag = "3")]
+    pub invocation: ::core::option::Option<Invocation>,
+    /// Indicates which fields to update.
+    #[prost(message, optional, tag = "4")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "5")]
+    pub authorization_token: ::prost::alloc::string::String,
+}
+/// Request passed into MergeInvocation
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MergeInvocationRequest {
+    /// A unique identifier for this request. Must be set to a different value for
+    /// each request that affects a given resource (eg. a random UUID). Required
+    /// for the operation to be idempotent. This is achieved by ignoring this
+    /// request if the last successful operation on the resource had the same
+    /// request ID.  Restricted to 36 Unicode characters.
+    #[prost(string, tag = "1")]
+    pub request_id: ::prost::alloc::string::String,
+    /// Contains the name and the fields of the invocation to be merged.  The
+    /// name format must be: invocations/${INVOCATION_ID}
+    #[prost(message, optional, tag = "3")]
+    pub invocation: ::core::option::Option<Invocation>,
+    /// Indicates which fields to merge.
+    #[prost(message, optional, tag = "4")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "5")]
+    pub authorization_token: ::prost::alloc::string::String,
+}
+/// Request passed into TouchInvocation
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TouchInvocationRequest {
+    /// Required. The name of the invocation.  Its format must be:
+    /// invocations/${INVOCATION_ID}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "2")]
+    pub authorization_token: ::prost::alloc::string::String,
+}
+/// Response returned from TouchInvocation
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TouchInvocationResponse {
+    /// The name of the invocation.  Its format will be:
+    /// invocations/${INVOCATION_ID}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The resource ID components that identify the Invocation.
+    #[prost(message, optional, tag = "2")]
+    pub id: ::core::option::Option<invocation::Id>,
+}
+/// Request passed into DeleteInvocation
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteInvocationRequest {
+    /// Required. The name of the invocation.  Its format must be:
+    /// invocations/${INVOCATION_ID}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request passed into FinalizeInvocation
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FinalizeInvocationRequest {
+    /// Required. The name of the invocation.  Its format must be:
+    /// invocations/${INVOCATION_ID}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "3")]
+    pub authorization_token: ::prost::alloc::string::String,
+}
+/// Response returned from FinalizeInvocation
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FinalizeInvocationResponse {
+    /// The name of the invocation.  Its format will be:
+    /// invocations/${INVOCATION_ID}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The resource ID components that identify the Invocation.
+    #[prost(message, optional, tag = "2")]
+    pub id: ::core::option::Option<invocation::Id>,
+}
+/// Request passed into CreateTarget
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateTargetRequest {
+    /// A unique identifier for this request. Must be set to a different value for
+    /// each request that affects a given resource (eg. a random UUID). Required
+    /// for the operation to be idempotent. This is achieved by ignoring this
+    /// request if the last successful operation on the resource had the same
+    /// request ID.  Restricted to 36 Unicode characters.
+    #[prost(string, tag = "1")]
+    pub request_id: ::prost::alloc::string::String,
+    /// Required. The name of the parent invocation in which the target is created.
+    /// Its format must be invocations/${INVOCATION_ID}
+    #[prost(string, tag = "2")]
+    pub parent: ::prost::alloc::string::String,
+    /// The target identifier.  It can be any string up to 1024 Unicode characters
+    /// long except for the reserved id '-'.
+    #[prost(string, tag = "3")]
+    pub target_id: ::prost::alloc::string::String,
+    /// Required. The target to create.  Its name field will be ignored, since the
+    /// name will be derived from the id field above and assigned by the server.
+    #[prost(message, optional, tag = "4")]
+    pub target: ::core::option::Option<Target>,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "5")]
+    pub authorization_token: ::prost::alloc::string::String,
+}
+/// Request passed into UpdateTarget
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateTargetRequest {
+    /// Contains the name and the fields of the target to be updated.  The name
+    /// format must be:
+    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}
+    #[prost(message, optional, tag = "3")]
+    pub target: ::core::option::Option<Target>,
+    /// Indicates which fields to update.
+    #[prost(message, optional, tag = "4")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "5")]
+    pub authorization_token: ::prost::alloc::string::String,
+    /// If true then the Update operation will become a Create operation if the
+    /// Target is NOT_FOUND.
+    #[prost(bool, tag = "6")]
+    pub create_if_not_found: bool,
+}
+/// Request passed into MergeTarget
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MergeTargetRequest {
+    /// A unique identifier for this request. Must be set to a different value for
+    /// each request that affects a given resource (eg. a random UUID). Required
+    /// for the operation to be idempotent. This is achieved by ignoring this
+    /// request if the last successful operation on the resource had the same
+    /// request ID.  Restricted to 36 Unicode characters.
+    #[prost(string, tag = "1")]
+    pub request_id: ::prost::alloc::string::String,
+    /// Contains the name and the fields of the target to be merged.  The name
+    /// format must be:
+    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}
+    #[prost(message, optional, tag = "3")]
+    pub target: ::core::option::Option<Target>,
+    /// Indicates which fields to merge.
+    #[prost(message, optional, tag = "4")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "5")]
+    pub authorization_token: ::prost::alloc::string::String,
+    /// If true then the Merge operation will become a Create operation if the
+    /// Target is NOT_FOUND.
+    #[prost(bool, tag = "6")]
+    pub create_if_not_found: bool,
+}
+/// Request passed into FinalizeTarget
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FinalizeTargetRequest {
+    /// Required. The name of the target.  Its format must be:
+    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "3")]
+    pub authorization_token: ::prost::alloc::string::String,
+}
+/// Response returned from FinalizeTarget
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FinalizeTargetResponse {
+    /// The name of the target.  Its format will be:
+    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The resource ID components that identify the Target.
+    #[prost(message, optional, tag = "2")]
+    pub id: ::core::option::Option<target::Id>,
+}
+/// Request passed into CreateConfiguredTarget
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateConfiguredTargetRequest {
+    /// A unique identifier for this request. Must be set to a different value for
+    /// each request that affects a given resource (eg. a random UUID). Required
+    /// for the operation to be idempotent. This is achieved by ignoring this
+    /// request if the last successful operation on the resource had the same
+    /// request ID.  Restricted to 36 Unicode characters.
+    #[prost(string, tag = "1")]
+    pub request_id: ::prost::alloc::string::String,
+    /// Required. The name of the parent target in which the configured target is
+    /// created. Its format must be:
+    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}
+    #[prost(string, tag = "2")]
+    pub parent: ::prost::alloc::string::String,
+    /// The configuration identifier. This must match the ID of an existing
+    /// Configuration under this Invocation. Cannot be the reserved id '-'.
+    #[prost(string, tag = "3")]
+    pub config_id: ::prost::alloc::string::String,
+    /// Required. The configured target to create. Its name field will be ignored,
+    /// since the name will be derived from the id field above and assigned by the
+    /// server.
+    #[prost(message, optional, tag = "4")]
+    pub configured_target: ::core::option::Option<ConfiguredTarget>,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "5")]
+    pub authorization_token: ::prost::alloc::string::String,
+}
+/// Request passed into UpdateConfiguredTarget
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateConfiguredTargetRequest {
+    /// Contains the name and the fields of the configured target to be updated.
+    /// The name format must be:
+    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${CONFIG_ID}
+    #[prost(message, optional, tag = "3")]
+    pub configured_target: ::core::option::Option<ConfiguredTarget>,
+    /// Indicates which fields to update.
+    #[prost(message, optional, tag = "4")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "5")]
+    pub authorization_token: ::prost::alloc::string::String,
+    /// If true then the Update operation will become a Create operation if the
+    /// ConfiguredTarget is NOT_FOUND.
+    #[prost(bool, tag = "6")]
+    pub create_if_not_found: bool,
+}
+/// Request passed into MergeConfiguredTarget
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MergeConfiguredTargetRequest {
+    /// A unique identifier for this request. Must be set to a different value for
+    /// each request that affects a given resource (eg. a random UUID). Required
+    /// for the operation to be idempotent. This is achieved by ignoring this
+    /// request if the last successful operation on the resource had the same
+    /// request ID.  Restricted to 36 Unicode characters.
+    #[prost(string, tag = "1")]
+    pub request_id: ::prost::alloc::string::String,
+    /// Contains the name and the fields of the configured target to be merged.
+    /// The name format must be:
+    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${CONFIG_ID}
+    #[prost(message, optional, tag = "3")]
+    pub configured_target: ::core::option::Option<ConfiguredTarget>,
+    /// Indicates which fields to merge.
+    #[prost(message, optional, tag = "4")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "5")]
+    pub authorization_token: ::prost::alloc::string::String,
+    /// If true then the Merge operation will become a Create operation if the
+    /// ConfiguredTarget is NOT_FOUND.
+    #[prost(bool, tag = "6")]
+    pub create_if_not_found: bool,
+}
+/// Request passed into FinalizeConfiguredTarget
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FinalizeConfiguredTargetRequest {
+    /// Required. The name of the configured target. Its format must be:
+    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${CONFIG_ID}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "3")]
+    pub authorization_token: ::prost::alloc::string::String,
+}
+/// Response returned from FinalizeConfiguredTarget
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FinalizeConfiguredTargetResponse {
+    /// The name of the configured target. Its format must be:
+    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${CONFIG_ID}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The resource ID components that identify the ConfiguredTarget.
+    #[prost(message, optional, tag = "2")]
+    pub id: ::core::option::Option<configured_target::Id>,
+}
+/// Request passed into CreateAction
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateActionRequest {
+    /// A unique identifier for this request. Must be set to a different value for
+    /// each request that affects a given resource (eg. a random UUID). Required
+    /// for the operation to be idempotent. This is achieved by ignoring this
+    /// request if the last successful operation on the resource had the same
+    /// request ID.  Restricted to 36 Unicode characters.
+    #[prost(string, tag = "1")]
+    pub request_id: ::prost::alloc::string::String,
+    /// Required. The name of the parent configured target in which the action is
+    /// created. Its format must be:
+    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${CONFIG_ID}
+    #[prost(string, tag = "2")]
+    pub parent: ::prost::alloc::string::String,
+    /// The action identifier. It can be any string of up to 512 alphanumeric
+    /// characters \[a-zA-Z_-\], except for the reserved id '-'.
+    ///
+    /// Recommended IDs for Test Actions:
+    /// "test": For a single test action.
+    /// "test_shard0_run0_attempt0" ... "test_shard9_run9_attempt9": For tests with
+    ///   shard/run/attempts.
+    ///
+    /// Recommended IDs for Build Actions:
+    /// "build": If you only have a single build action.
+    #[prost(string, tag = "3")]
+    pub action_id: ::prost::alloc::string::String,
+    /// Required. The action to create.  Its name field will be ignored, since the
+    /// name will be derived from the id field above and assigned by the server.
+    #[prost(message, optional, tag = "4")]
+    pub action: ::core::option::Option<Action>,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "5")]
+    pub authorization_token: ::prost::alloc::string::String,
+}
+/// Request passed into UpdateAction
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateActionRequest {
+    /// Contains the name and the fields of the action to be updated.  The
+    /// name format must be:
+    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${CONFIG_ID}/actions/${ACTION_ID}
+    #[prost(message, optional, tag = "3")]
+    pub action: ::core::option::Option<Action>,
+    /// Indicates which fields to update.
+    #[prost(message, optional, tag = "4")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "5")]
+    pub authorization_token: ::prost::alloc::string::String,
+    /// If true then the Update operation will become a Create operation if the
+    /// Action is NOT_FOUND.
+    #[prost(bool, tag = "6")]
+    pub create_if_not_found: bool,
+}
+/// Request passed into MergeAction
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MergeActionRequest {
+    /// A unique identifier for this request. Must be set to a different value for
+    /// each request that affects a given resource (eg. a random UUID). Required
+    /// for the operation to be idempotent. This is achieved by ignoring this
+    /// request if the last successful operation on the resource had the same
+    /// request ID.  Restricted to 36 Unicode characters.
+    #[prost(string, tag = "1")]
+    pub request_id: ::prost::alloc::string::String,
+    /// Contains the name and the fields of the action to be merged.  The
+    /// name format must be:
+    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${CONFIG_ID}/actions/${ACTION_ID}
+    #[prost(message, optional, tag = "3")]
+    pub action: ::core::option::Option<Action>,
+    /// Indicates which fields to merge.
+    #[prost(message, optional, tag = "4")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "5")]
+    pub authorization_token: ::prost::alloc::string::String,
+    /// If true then the Merge operation will become a Create operation if the
+    /// Action is NOT_FOUND.
+    #[prost(bool, tag = "6")]
+    pub create_if_not_found: bool,
+}
+/// Request passed into CreateConfiguration
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateConfigurationRequest {
+    /// A unique identifier for this request. Must be set to a different value for
+    /// each request that affects a given resource (eg. a random UUID). Required
+    /// for the operation to be idempotent. This is achieved by ignoring this
+    /// request if the last successful operation on the resource had the same
+    /// request ID.  Restricted to 36 Unicode characters.
+    #[prost(string, tag = "1")]
+    pub request_id: ::prost::alloc::string::String,
+    /// Required. The name of the parent invocation in which the configuration is
+    /// created. Its format must be invocations/${INVOCATION_ID}
+    #[prost(string, tag = "2")]
+    pub parent: ::prost::alloc::string::String,
+    /// The configuration identifier.  It can be any string of up to 512
+    /// alphanumeric characters \[a-zA-Z_-\], except for the reserved id '-'. The
+    /// configuration ID of "default" should be preferred for the default
+    /// configuration in a single-config invocation.
+    #[prost(string, tag = "3")]
+    pub config_id: ::prost::alloc::string::String,
+    /// Required. The configuration to create. Its name field will be ignored,
+    /// since the name will be derived from the id field above and assigned by the
+    /// server.
+    #[prost(message, optional, tag = "4")]
+    pub configuration: ::core::option::Option<Configuration>,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "5")]
+    pub authorization_token: ::prost::alloc::string::String,
+}
+/// Request passed into UpdateConfiguration
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateConfigurationRequest {
+    /// Contains the name and fields of the configuration to be updated. The name
+    /// format must be:
+    /// invocations/${INVOCATION_ID}/configs/${CONFIG_ID}
+    #[prost(message, optional, tag = "3")]
+    pub configuration: ::core::option::Option<Configuration>,
+    /// Indicates which fields to update.
+    #[prost(message, optional, tag = "4")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "5")]
+    pub authorization_token: ::prost::alloc::string::String,
+    /// If true then the Update operation will become a Create operation if the
+    /// Configuration is NOT_FOUND.
+    #[prost(bool, tag = "6")]
+    pub create_if_not_found: bool,
+}
+/// Request passed into CreateFileSet
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateFileSetRequest {
+    /// A unique identifier for this request. Must be set to a different value for
+    /// each request that affects a given resource (eg. a random UUID). Required
+    /// for the operation to be idempotent. This is achieved by ignoring this
+    /// request if the last successful operation on the resource had the same
+    /// request ID.  Restricted to 36 Unicode characters.
+    #[prost(string, tag = "1")]
+    pub request_id: ::prost::alloc::string::String,
+    /// Required. The name of the parent invocation in which the file set is
+    /// created. Its format must be invocations/${INVOCATION_ID}
+    #[prost(string, tag = "2")]
+    pub parent: ::prost::alloc::string::String,
+    /// The file set identifier.  It can be any string of up to 512 alphanumeric
+    /// characters \[a-zA-Z_-\], except for the reserved id '-'.
+    #[prost(string, tag = "3")]
+    pub file_set_id: ::prost::alloc::string::String,
+    /// Required. The file set to create. Its name field will be ignored, since the
+    /// name will be derived from the id field above and assigned by the server.
+    #[prost(message, optional, tag = "4")]
+    pub file_set: ::core::option::Option<FileSet>,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "5")]
+    pub authorization_token: ::prost::alloc::string::String,
+}
+/// Request passed into UpdateFileSet
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateFileSetRequest {
+    /// Contains the name and fields of the file set to be updated. The name format
+    /// must be: invocations/${INVOCATION_ID}/fileSets/${FILE_SET_ID}
+    #[prost(message, optional, tag = "1")]
+    pub file_set: ::core::option::Option<FileSet>,
+    /// Indicates which fields to update.
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "3")]
+    pub authorization_token: ::prost::alloc::string::String,
+    /// If true then the Update operation will become a Create operation if the
+    /// FileSet is NOT_FOUND.
+    #[prost(bool, tag = "4")]
+    pub create_if_not_found: bool,
+}
+/// Request passed into MergeFileSet
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MergeFileSetRequest {
+    /// A unique identifier for this request. Must be set to a different value for
+    /// each request that affects a given resource (eg. a random UUID). Required
+    /// for the operation to be idempotent. This is achieved by ignoring this
+    /// request if the last successful operation on the resource had the same
+    /// request ID.  Restricted to 36 Unicode characters.
+    #[prost(string, tag = "1")]
+    pub request_id: ::prost::alloc::string::String,
+    /// Contains the name and fields of the file set to be merged. The name
+    /// format must be:
+    /// invocations/${INVOCATION_ID}/fileSets/${FILE_SET_ID}
+    #[prost(message, optional, tag = "2")]
+    pub file_set: ::core::option::Option<FileSet>,
+    /// Indicates which fields to merge.
+    #[prost(message, optional, tag = "3")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// This is a token to authorize access to this invocation. It must be set to
+    /// the same value that was provided in the CreateInvocationRequest.
+    #[prost(string, tag = "4")]
+    pub authorization_token: ::prost::alloc::string::String,
+    /// If true then the Merge operation will become a Create operation if the
+    /// FileSet is NOT_FOUND.
+    #[prost(bool, tag = "5")]
+    pub create_if_not_found: bool,
+}
+/// Request passed into UploadBatch
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UploadBatchRequest {
+    /// Required. The name of the invocation being modified.
+    /// The name format must be: invocations/${INVOCATION_ID}
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. A UUID that must match the value provided in
+    /// CreateInvocationRequest.
+    #[prost(string, tag = "2")]
+    pub authorization_token: ::prost::alloc::string::String,
+    /// Required. The token of this batch, that will be committed in this
+    /// UploadBatchRequest. If this matches the previously uploaded resume_token,
+    /// then this request will silently do nothing. See
+    /// CreateInvocationRequest.initial_resume_token for more information. Must be
+    /// web safe Base64 encoded bytes.
+    #[prost(string, tag = "3")]
+    pub next_resume_token: ::prost::alloc::string::String,
+    /// Required. The token of the previous batch that was committed in a
+    /// UploadBatchRequest. This will be checked after next_resume_token match is
+    /// checked. If this does not match the previously uploaded resume_token, a 409
+    /// Conflict (HTTPS) or ABORTED (gRPC ) error code indicating a concurrency
+    /// failure will be returned, and that the user should call
+    /// GetInvocationUploadMetadata to fetch the current resume_token to
+    /// reconstruct the state of the upload to resume it.
+    /// See CreateInvocationRequest.initial_resume_token for more information.
+    /// Must be web safe Base64 encoded bytes.
+    #[prost(string, tag = "4")]
+    pub resume_token: ::prost::alloc::string::String,
+    /// Client-specific data used to resume batch upload if an error occurs and
+    /// retry is needed. This serves a role closely related to resume_token, as
+    /// both fields may be used to provide state required to restore a Batch
+    /// Upload, but they differ in two important aspects:
+    ///   - it is not compared to previous values, and as such does not provide
+    ///     concurrency control;
+    ///   - it allows for a larger payload, since the contents are never
+    ///     inspected/compared;
+    /// The size of the message must be within 1 MiB. Too large requests will be
+    /// rejected.
+    #[prost(bytes = "bytes", tag = "6")]
+    pub uploader_state: ::prost::bytes::Bytes,
+    /// The individual upload requests for this batch.
+    /// This field may be empty, allowing this RPC to be used like TouchInvocation.
+    #[prost(message, repeated, tag = "5")]
+    pub upload_requests: ::prost::alloc::vec::Vec<UploadRequest>,
+}
+/// Response for UploadBatch
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UploadBatchResponse {}
+/// The individual upload requests for this batch.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UploadRequest {
+    /// The resource ID components that identify the resource being uploaded.
+    #[prost(message, optional, tag = "1")]
+    pub id: ::core::option::Option<upload_request::Id>,
+    /// The operation for the request (e.g. Create(), Update(), etc.)
+    #[prost(enumeration = "upload_request::UploadOperation", tag = "2")]
+    pub upload_operation: i32,
+    /// Required for Update and Merge operations.
+    /// Ignored for Create and Finalize operations.
+    /// Masks the fields of the resource being uploaded. Provides support for a
+    /// more granular upload. FieldMasks are limited to certain fields and must
+    /// match one of the follow patterns, where * means any single field name.
+    ///
+    /// For Update Operations:
+    ///
+    /// Invocation: [*, status_attributes.*, timing.*, invocation_attributes.*,
+    /// workspace_info.*].
+    /// Target: \[*, status_attributes.*, timing.*\].
+    /// Configuration: \[*, status_attributes.*\].
+    /// ConfiguredTarget: \[*, status_attributes.*\].
+    /// Action: [*, status_attributes.*, timing.*, test_action.test_suite,
+    /// test_action.infrastructure_failure_info].
+    /// FileSet: \[*\].
+    ///
+    /// For Merge Operations:
+    ///
+    /// Invocation: [invocation_attributes.labels, workspace_info.command_lines,
+    /// properties, files, file_processing_errors].
+    /// Target: \[files\].
+    /// ConfiguredTarget: \[files\].
+    /// Action: \[files, file_processing_errors\].
+    #[prost(message, optional, tag = "3")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// If true then the Update, Merge operation will become a Create operation if
+    /// the resource is NOT_FOUND. Not supported for Invocation resource.
+    #[prost(bool, tag = "10")]
+    pub create_if_not_found: bool,
+    /// The proto of the resource being uploaded.
+    #[prost(oneof = "upload_request::Resource", tags = "4, 5, 6, 7, 8, 9")]
+    pub resource: ::core::option::Option<upload_request::Resource>,
+}
+/// Nested message and enum types in `UploadRequest`.
+pub mod upload_request {
+    /// The resource ID components that identify the resource being uploaded.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Id {
+        /// Required for Target, ConfiguredTarget, or Action.
+        /// The Target ID.
+        #[prost(string, tag = "1")]
+        pub target_id: ::prost::alloc::string::String,
+        /// Required for Configuration, ConfiguredTarget, or Action.
+        /// The Configuration ID.
+        #[prost(string, tag = "2")]
+        pub configuration_id: ::prost::alloc::string::String,
+        /// Required for Action.
+        /// The Action ID.
+        #[prost(string, tag = "3")]
+        pub action_id: ::prost::alloc::string::String,
+        /// Required for FileSet.
+        /// The FileSet ID.
+        #[prost(string, tag = "4")]
+        pub file_set_id: ::prost::alloc::string::String,
+    }
+    /// The operation for the request (e.g. Create(), Update(), etc.)
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum UploadOperation {
+        /// Unspecified
+        Unspecified = 0,
+        /// Create the given resources except Invocation.
+        /// For more information, check the Create APIs.
+        Create = 1,
+        /// Applies a standard update to the resource identified by the given
+        /// proto's name. For more information, see the Update APIs.
+        /// UploadBatch does not support arbitrary field masks. The list of allowed
+        /// field masks can be found below.
+        Update = 2,
+        /// Applies an merge update to the resource identified by the given
+        /// proto's name. For more information, see the Merge APIs.
+        /// UploadBatch does not support arbitrary field masks. The list of allowed
+        /// field masks can be found below.
+        Merge = 3,
+        /// Declares the resource with the given name as finalized and immutable by
+        /// the uploader. Only supported for Invocation, Target, ConfiguredTarget.
+        /// There must be no operation on child resources after parent resource is
+        /// Finalized. If there is a Finalize of Invocation, it must be the final
+        /// UploadRequest. For more information, see the Finalize APIs.
+        /// An empty resource should be provided below.
+        Finalize = 4,
+    }
+    impl UploadOperation {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                UploadOperation::Unspecified => "UPLOAD_OPERATION_UNSPECIFIED",
+                UploadOperation::Create => "CREATE",
+                UploadOperation::Update => "UPDATE",
+                UploadOperation::Merge => "MERGE",
+                UploadOperation::Finalize => "FINALIZE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UPLOAD_OPERATION_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATE" => Some(Self::Create),
+                "UPDATE" => Some(Self::Update),
+                "MERGE" => Some(Self::Merge),
+                "FINALIZE" => Some(Self::Finalize),
+                _ => None,
+            }
+        }
+    }
+    /// The proto of the resource being uploaded.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Resource {
+        /// The Invocation Resource
+        #[prost(message, tag = "4")]
+        Invocation(super::Invocation),
+        /// The Target Resource
+        #[prost(message, tag = "5")]
+        Target(super::Target),
+        /// The Configuration Resource
+        #[prost(message, tag = "6")]
+        Configuration(super::Configuration),
+        /// The ConfiguredTarget Resource
+        #[prost(message, tag = "7")]
+        ConfiguredTarget(super::ConfiguredTarget),
+        /// The Action Resource
+        #[prost(message, tag = "8")]
+        Action(super::Action),
+        /// The FileSet Resource
+        #[prost(message, tag = "9")]
+        FileSet(super::FileSet),
+    }
+}
+/// Request passed into GetInvocationUploadMetadata
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetInvocationUploadMetadataRequest {
+    /// Required. The name of the UploadMetadata being requested.
+    /// The name format must be: invocations/${INVOCATION_ID}/uploadMetadata
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. A UUID that must match the value provided in
+    /// CreateInvocationRequest.
+    #[prost(string, tag = "2")]
+    pub authorization_token: ::prost::alloc::string::String,
+}
+/// Generated client implementations.
+pub mod result_store_upload_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// This is the interface used to upload information to the ResultStore database,
+    /// to update that information as necessary, and to make it immutable at the end.
+    ///
+    /// This interface intentionally does not support user read-modify-write
+    /// operations. They may corrupt data, and are too expensive. For the same
+    /// reason, all upload RPCs will return no resource fields except name and ID. An
+    /// uploader should hold as little state as possible in memory to avoid running
+    /// out of memory.
+    #[derive(Debug, Clone)]
+    pub struct ResultStoreUploadClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> ResultStoreUploadClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> ResultStoreUploadClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            ResultStoreUploadClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Creates the given invocation.
+        ///
+        /// This is not an implicitly idempotent API, so a request id is required to
+        /// make it idempotent.
+        ///
+        /// Returns an empty Invocation proto with only the name and ID fields
+        /// populated.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If an invocation with the same ID already exists.
+        pub async fn create_invocation(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateInvocationRequest>,
+        ) -> std::result::Result<tonic::Response<super::Invocation>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/CreateInvocation",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "CreateInvocation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Applies a standard update to the invocation identified by the given proto's
+        /// name.  For all types of fields (primitive, message, or repeated), replaces
+        /// them with the given proto fields if they are under the given field mask
+        /// paths.  Fields that match the mask but aren't populated in the given
+        /// invocation are cleared. This is an implicitly idempotent API.
+        ///
+        /// Returns an empty Invocation proto with only the name and ID fields
+        /// populated.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the invocation does not exist.
+        /// - If the invocation is finalized.
+        /// - If no field mask was given.
+        pub async fn update_invocation(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateInvocationRequest>,
+        ) -> std::result::Result<tonic::Response<super::Invocation>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/UpdateInvocation",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "UpdateInvocation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Applies a merge update to the invocation identified by the given proto's
+        /// name.  For primitive and message fields, replaces them with the ones in
+        /// the given proto if they are covered under the field mask paths.  For
+        /// repeated fields, merges to them with the given ones if they are covered
+        /// under the field mask paths. This is not an implicitly idempotent API, so a
+        /// request id is required to make it idempotent.
+        ///
+        /// Returns an empty Invocation proto with only the name and ID fields
+        /// populated.
+        ///
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the invocation does not exist.
+        /// - If the invocation is finalized.
+        /// - If no field mask was given.
+        pub async fn merge_invocation(
+            &mut self,
+            request: impl tonic::IntoRequest<super::MergeInvocationRequest>,
+        ) -> std::result::Result<tonic::Response<super::Invocation>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/MergeInvocation",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "MergeInvocation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Touches the invocation identified by the given proto's name.
+        ///
+        /// This is useful when you need to notify ResultStore that you haven't
+        /// abandoned the upload, since abandoned uploads will be automatically
+        /// finalized after a set period.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the invocation does not exist.
+        /// - If the invocation is finalized.
+        pub async fn touch_invocation(
+            &mut self,
+            request: impl tonic::IntoRequest<super::TouchInvocationRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::TouchInvocationResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/TouchInvocation",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "TouchInvocation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Declares the invocation with the given name as finalized and immutable by
+        /// the user. It may still be mutated by post-processing. This is an implicitly
+        /// idempotent API.
+        ///
+        /// If an Invocation is not updated for 24 hours, some time after that
+        /// this will be called automatically.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the invocation does not exist.
+        pub async fn finalize_invocation(
+            &mut self,
+            request: impl tonic::IntoRequest<super::FinalizeInvocationRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::FinalizeInvocationResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/FinalizeInvocation",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "FinalizeInvocation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes an immutable invocation (permanently)
+        /// Note: this does not delete indirect data, e.g. files stored in other
+        /// services.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the invocation does not exist.
+        /// - If the invocation is not finalized.  This can be retried until it is.
+        pub async fn delete_invocation(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteInvocationRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/DeleteInvocation",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "DeleteInvocation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates the given target under the given parent invocation. The given
+        /// target ID is URL encoded, converted to the full resource name, and assigned
+        /// to the target's name field. This is not an implicitly idempotent API, so a
+        /// request id is required to make it idempotent.
+        ///
+        /// Returns an empty Target proto with only the name and ID fields populated.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If no target ID is provided.
+        /// - If the parent invocation does not exist.
+        /// - If the parent invocation is finalized.
+        /// - If a target with the same name already exists.
+        pub async fn create_target(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateTargetRequest>,
+        ) -> std::result::Result<tonic::Response<super::Target>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/CreateTarget",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "CreateTarget",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Applies a standard update to the target identified by the given proto's
+        /// name. For all types of fields (primitive, message, or repeated), replaces
+        /// them with the given proto fields if they are under the given field mask
+        /// paths. Fields that match the mask but aren't populated in the given
+        /// target are cleared. This is an implicitly idempotent API.
+        ///
+        /// Returns an empty Target proto with only the name and ID fields populated.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the target does not exist.
+        /// - If the target or parent invocation is finalized.
+        /// - If no field mask was given.
+        pub async fn update_target(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateTargetRequest>,
+        ) -> std::result::Result<tonic::Response<super::Target>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/UpdateTarget",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "UpdateTarget",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Applies a merge update to the target identified by the given proto's
+        /// name. For primitive and message fields, replaces them with the ones in the
+        /// given proto if they are covered under the field mask paths.  For repeated
+        /// fields, merges to them with the given ones if they are covered under the
+        /// field mask paths. This is not an implicitly idempotent API, so a request
+        /// id is required to make it idempotent.
+        ///
+        /// Returns an empty Target proto with only the name and ID fields populated.
+        ///
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the target does not exist.
+        /// - If the target or parent invocation is finalized.
+        /// - If no field mask was given.
+        pub async fn merge_target(
+            &mut self,
+            request: impl tonic::IntoRequest<super::MergeTargetRequest>,
+        ) -> std::result::Result<tonic::Response<super::Target>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/MergeTarget",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "MergeTarget",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Declares the target with the given name as finalized and immutable by the
+        /// user. It may still be mutated by post-processing. This is an implicitly
+        /// idempotent API.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the target does not exist.
+        pub async fn finalize_target(
+            &mut self,
+            request: impl tonic::IntoRequest<super::FinalizeTargetRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::FinalizeTargetResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/FinalizeTarget",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "FinalizeTarget",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates the given configured target under the given parent target.
+        /// The given configured target ID is URL encoded, converted to the full
+        /// resource name, and assigned to the configured target's name field.
+        /// This is not an implicitly idempotent API, so a request id is required
+        /// to make it idempotent.
+        ///
+        /// Returns an empty ConfiguredTarget proto with only the name and ID fields
+        /// populated.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If no config ID is provided.
+        /// - If a configured target with the same ID already exists.
+        /// - If the parent target does not exist.
+        /// - If the parent target or invocation is finalized.
+        pub async fn create_configured_target(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateConfiguredTargetRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ConfiguredTarget>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/CreateConfiguredTarget",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "CreateConfiguredTarget",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Applies a standard update to the configured target identified by the given
+        /// proto's name. For all types of fields (primitive, message, or repeated),
+        /// replaces them with the given proto fields if they are under the given
+        /// field mask paths. Fields that match the mask but aren't populated in the
+        /// given configured target are cleared. This is an implicitly idempotent API.
+        ///
+        /// Returns an empty ConfiguredTarget proto with only the name and ID fields
+        /// populated.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the configured target does not exist.
+        /// - If the parent target or invocation is finalized.
+        /// - If no field mask was given.
+        pub async fn update_configured_target(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateConfiguredTargetRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ConfiguredTarget>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/UpdateConfiguredTarget",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "UpdateConfiguredTarget",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Applies a merge update to the configured target identified by the given
+        /// proto's name. For primitive and message fields, replaces them with the
+        /// ones in the given proto if they are covered under the field mask paths.
+        /// For repeated fields, merges to them with the given ones if they are
+        /// covered under the field mask paths. This is not an implicitly idempotent
+        /// API, so a request id is required to make it idempotent.
+        ///
+        /// Returns an empty ConfiguredTarget proto with only the name and ID fields
+        /// populated.
+        ///
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the configured target does not exist.
+        /// - If the parent target or invocation is finalized.
+        /// - If no field mask was given.
+        pub async fn merge_configured_target(
+            &mut self,
+            request: impl tonic::IntoRequest<super::MergeConfiguredTargetRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ConfiguredTarget>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/MergeConfiguredTarget",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "MergeConfiguredTarget",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Declares the configured target with the given name as finalized and
+        /// immutable by the user. It may still be mutated by post-processing. This is
+        /// an implicitly idempotent API.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the configured target does not exist.
+        pub async fn finalize_configured_target(
+            &mut self,
+            request: impl tonic::IntoRequest<super::FinalizeConfiguredTargetRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::FinalizeConfiguredTargetResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/FinalizeConfiguredTarget",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "FinalizeConfiguredTarget",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates the given action under the given configured target. The given
+        /// action ID is URL encoded, converted to the full resource name, and
+        /// assigned to the action's name field. This is not an implicitly
+        /// idempotent API, so a request id is required to make it idempotent.
+        ///
+        /// Returns an empty Action proto with only the name and ID fields populated.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If no action ID provided.
+        /// - If the parent configured target does not exist.
+        /// - If the parent target or invocation is finalized.
+        /// - If an action  with the same name already exists.
+        pub async fn create_action(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateActionRequest>,
+        ) -> std::result::Result<tonic::Response<super::Action>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/CreateAction",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "CreateAction",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Applies a standard update to the action identified by the given
+        /// proto's name.  For all types of fields (primitive, message, or repeated),
+        /// replaces them with the given proto fields if they are under the given
+        /// field mask paths.  Fields that match the mask but aren't populated in the
+        /// given action are cleared.  This is an implicitly idempotent API.
+        ///
+        /// Returns an empty Action proto with only the name and ID fields populated.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the action does not exist.
+        /// - If the parent target or invocation is finalized.
+        /// - If no field mask was given.
+        pub async fn update_action(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateActionRequest>,
+        ) -> std::result::Result<tonic::Response<super::Action>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/UpdateAction",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "UpdateAction",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Applies a merge update to the action identified by the given
+        /// proto's name.  For primitive and message fields, replaces them with the
+        /// ones in the given proto if they are covered under the field mask paths.
+        /// For repeated fields, merges to them with the given ones if they are
+        /// covered under the field mask paths. This is not an implicitly idempotent
+        /// API, so a request id is required to make it idempotent.
+        ///
+        /// Returns an empty Action proto with only the name and ID fields populated.
+        ///
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the action does not exist.
+        /// - If the parent target or invocation is finalized.
+        /// - If no field mask was given.
+        pub async fn merge_action(
+            &mut self,
+            request: impl tonic::IntoRequest<super::MergeActionRequest>,
+        ) -> std::result::Result<tonic::Response<super::Action>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/MergeAction",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "MergeAction",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates the given configuration under the given parent invocation. The
+        /// given configuration ID is URL encoded, converted to the full resource name,
+        /// and assigned to the configuration's name field. The configuration ID of
+        /// "default" should be preferred for the default configuration in a
+        /// single-config invocation. This is not an implicitly idempotent API, so a
+        /// request id is required to make it idempotent.
+        ///
+        /// Returns an empty Configuration proto with only the name and ID fields
+        /// populated.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If no configuration ID is provided.
+        /// - If the parent invocation does not exist.
+        /// - If the parent invocation is finalized.
+        /// - If a configuration with the same name already exists.
+        pub async fn create_configuration(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateConfigurationRequest>,
+        ) -> std::result::Result<tonic::Response<super::Configuration>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/CreateConfiguration",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "CreateConfiguration",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Applies a standard update to the configuration identified by the given
+        /// proto's name. For all types of fields (primitive, message, or repeated),
+        /// replaces them with the given proto fields if they are under the given field
+        /// mask paths. Fields that match the mask but aren't populated in the given
+        /// configuration are cleared. This is an implicitly idempotent API.
+        ///
+        /// Returns an empty Configuration proto with only the name and ID fields
+        /// populated.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the configuration does not exist.
+        /// - If the parent invocation is finalized.
+        /// - If no field mask was given.
+        /// - If a given field mask path is not valid.
+        pub async fn update_configuration(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateConfigurationRequest>,
+        ) -> std::result::Result<tonic::Response<super::Configuration>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/UpdateConfiguration",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "UpdateConfiguration",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates the given file set under the given parent invocation. The given
+        /// file set ID is URL encoded, converted to the full resource name, and
+        /// assigned to the file set's name field. This is not an implicitly idempotent
+        /// API, so a request id is required to make it idempotent.
+        ///
+        /// Returns an empty FileSet proto with only the name and ID fields populated.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If no file set ID is provided.
+        /// - If a file set with the same name already exists.
+        /// - If the parent invocation does not exist.
+        /// - If the parent invocation is finalized.
+        pub async fn create_file_set(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateFileSetRequest>,
+        ) -> std::result::Result<tonic::Response<super::FileSet>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/CreateFileSet",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "CreateFileSet",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Applies a standard update to the file set identified by the given proto's
+        /// name. For all types of fields (primitive, message, or repeated), replaces
+        /// them with the given proto fields if they are under the given field mask
+        /// paths. Fields that match the mask but aren't populated in the given
+        /// configuration are cleared. This is an implicitly idempotent API.
+        ///
+        /// Returns an empty FileSet proto with only the name and ID fields populated.
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the file set does not exist.
+        /// - If the parent invocation is finalized.
+        /// - If no field mask was given.
+        /// - If a given field mask path is not valid.
+        pub async fn update_file_set(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateFileSetRequest>,
+        ) -> std::result::Result<tonic::Response<super::FileSet>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/UpdateFileSet",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "UpdateFileSet",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Applies a merge update to the file set identified by the given proto's
+        /// name. For primitive and message fields, updates them with the ones in the
+        /// given proto if they are covered under the field mask paths. For repeated
+        /// fields, merges to them with the given ones if they are covered under the
+        /// field mask paths. This is not an implicitly idempotent API, so a request
+        /// id is required to make it idempotent.
+        ///
+        /// Returns an empty FileSet proto with only the name and ID fields populated.
+        ///
+        ///
+        /// An error will be reported in the following cases:
+        /// - If the file set does not exist.
+        /// - If the parent invocation is finalized.
+        /// - If a given field mask path is not valid.
+        /// - If no field mask was given.
+        pub async fn merge_file_set(
+            &mut self,
+            request: impl tonic::IntoRequest<super::MergeFileSetRequest>,
+        ) -> std::result::Result<tonic::Response<super::FileSet>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/MergeFileSet",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "MergeFileSet",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// This is the RPC used for batch upload. It supports uploading multiple
+        /// resources for an invocation in a transaction safe manner.
+        ///
+        /// To use this RPC, the CreateInvocationRequest must have been provided a
+        /// resume_token.
+        ///
+        /// Combining batch upload with normal upload on a single Invocation is not
+        /// supported. If an Invocation is created with a resume_token, all further
+        /// calls must be through UploadBatch. If an Invocation is created without
+        /// resume_token normal upload, all further upload calls must be through normal
+        /// upload RPCs.
+        ///
+        /// The recommend total size of UploadBatchRequest is 10 MiB. If
+        /// it is too large, it may be rejected.
+        pub async fn upload_batch(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UploadBatchRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::UploadBatchResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/UploadBatch",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "UploadBatch",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Provides a way to read the metadata for an invocation.
+        /// The UploadMetadata could still be retrieved by this RPC even the Invocation
+        /// has been finalized.
+        /// This API requires setting a response FieldMask via 'fields' URL query
+        /// parameter or X-Goog-FieldMask HTTP/gRPC header.
+        ///
+        /// An error will be reported in the following case:
+        /// - If the invocation does not exist.
+        /// - If no field mask was given.
+        pub async fn get_invocation_upload_metadata(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetInvocationUploadMetadataRequest>,
+        ) -> std::result::Result<tonic::Response<super::UploadMetadata>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.devtools.resultstore.v2.ResultStoreUpload/GetInvocationUploadMetadata",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.devtools.resultstore.v2.ResultStoreUpload",
+                        "GetInvocationUploadMetadata",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// The download metadata for an invocation
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DownloadMetadata {
+    /// The name of the download metadata.  Its format will be:
+    /// invocations/${INVOCATION_ID}/downloadMetadata
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Indicates the upload status of the invocation, whether it is
+    /// post-processing, or immutable, etc.
+    #[prost(enumeration = "UploadStatus", tag = "2")]
+    pub upload_status: i32,
+    /// If populated, the time when CreateInvocation is called.
+    /// This does not necessarily line up with the start time of the invocation.
+    /// Please use invocation.timing.start_time for that purpose.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// If populated, the time when FinalizeInvocation is called or when invocation
+    /// is automatically finalized. This field is populated when upload_status
+    /// becomes POST_PROCESSING.
+    #[prost(message, optional, tag = "4")]
+    pub finalize_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// If populated, the time when all post processing is done and the invocation
+    /// is marked as immutable. This field is populated when upload_status becomes
+    /// IMMUTABLE.
+    #[prost(message, optional, tag = "5")]
+    pub immutable_time: ::core::option::Option<::prost_types::Timestamp>,
 }
 /// Request passed into GetInvocation
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -3285,1878 +5157,6 @@ pub mod result_store_download_client {
                     GrpcMethod::new(
                         "google.devtools.resultstore.v2.ResultStoreDownload",
                         "TraverseFileSets",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// The upload metadata for an invocation
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UploadMetadata {
-    /// The name of the upload metadata.  Its format will be:
-    /// invocations/${INVOCATION_ID}/uploadMetadata
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The resume token of the last batch that was committed in the most recent
-    /// batch upload.
-    /// More information with resume_token could be found in
-    /// resultstore_upload.proto
-    #[prost(string, tag = "2")]
-    pub resume_token: ::prost::alloc::string::String,
-    /// Client-specific data used to resume batch upload if an error occurs and
-    /// retry action is needed.
-    #[prost(bytes = "bytes", tag = "3")]
-    pub uploader_state: ::prost::bytes::Bytes,
-}
-/// Request passed into CreateInvocation
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateInvocationRequest {
-    /// A unique identifier for this request. Must be set to a different value for
-    /// each request that affects a given resource (eg. a random UUID). Required
-    /// for the operation to be idempotent. This is achieved by ignoring this
-    /// request if the last successful operation on the resource had the same
-    /// request ID. If set, invocation_id must also be provided.
-    /// Restricted to 36 Unicode characters.
-    #[prost(string, tag = "1")]
-    pub request_id: ::prost::alloc::string::String,
-    /// The invocation ID. It is optional, but strongly recommended.
-    ///
-    /// If left empty then a new unique ID will be assigned by the server. If
-    /// populated, a RFC 4122-compliant v4 UUID is preferred, but v3 or v5 UUIDs
-    /// are allowed too.
-    #[prost(string, tag = "2")]
-    pub invocation_id: ::prost::alloc::string::String,
-    /// Required. The invocation to create.  Its name field will be ignored, since
-    /// the name will be derived from the id field above and assigned by the
-    /// server.
-    #[prost(message, optional, tag = "3")]
-    pub invocation: ::core::option::Option<Invocation>,
-    /// This is a token to authorize upload access to this invocation. It must be
-    /// set to a RFC 4122-compliant v3, v4, or v5 UUID. Once this is set in
-    /// CreateInvocation, all other upload RPCs for that Invocation and any of its
-    /// child resources must also include the exact same token, or they will be
-    /// rejected. The generated token should be unique to this invocation, and it
-    /// should be kept secret.
-    ///
-    /// The purpose of this field is to prevent other users and tools from
-    /// clobbering your upload intentionally or accidentally. The standard way of
-    /// using this token is to create a second v4 UUID when the invocation_id is
-    /// created, and storing them together during the upload. Essentially, this is
-    /// a "password" to the invocation.
-    #[prost(string, tag = "4")]
-    pub authorization_token: ::prost::alloc::string::String,
-    /// By default, Invocations are auto-finalized if they are not modified for 24
-    /// hours. If you need auto-finalize to happen sooner, set this field to the
-    /// time you'd like auto-finalize to occur.
-    #[prost(message, optional, tag = "6")]
-    pub auto_finalize_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Client provided unique token for batch upload to ensure data integrity and
-    /// to provide a way to resume batch upload in case of a distributed failure on
-    /// the client side. The standard uploading client is presumed to have many
-    /// machines uploading to ResultStore, and that any given machine could process
-    /// any given Invocation at any time. This field is used to coordinate between
-    /// the client's machines, resolve concurrency issues, and enforce "exactly
-    /// once" semantics on each batch within the upload.
-    ///
-    /// The typical usage of the resume_token is that it should contain a "key"
-    /// indicating to the client where it is in the upload process, so that the
-    /// client can use it to resume the upload by reconstructing the state of
-    /// upload from the point where it was interrupted.
-    ///
-    /// If this matches the previously uploaded resume_token, then this request
-    /// will silently do nothing, making CreateInvocation idempotent.
-    /// If this token is provided, all further upload RPCs must be done through
-    /// UploadBatch. This token must not be combined with request_id.
-    /// Must be web safe Base64 encoded bytes.
-    #[prost(string, tag = "7")]
-    pub initial_resume_token: ::prost::alloc::string::String,
-    /// Client-specific data used to resume batch upload if an error occurs and
-    /// retry is needed. This serves a role closely related to resume_token, as
-    /// both fields may be used to provide state required to restore a Batch
-    /// Upload, but they differ in two important aspects:
-    ///   - it is not compared to previous values, and as such does not provide
-    ///     concurrency control;
-    ///   - it allows for a larger payload, since the contents are never
-    ///     inspected/compared;
-    /// The size of the message must be within 1 MiB. Too large requests will be
-    /// rejected.
-    #[prost(bytes = "bytes", tag = "8")]
-    pub uploader_state: ::prost::bytes::Bytes,
-}
-/// Request passed into UpdateInvocation
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateInvocationRequest {
-    /// Contains the name and the fields of the invocation to be updated.  The
-    /// name format must be: invocations/${INVOCATION_ID}
-    #[prost(message, optional, tag = "3")]
-    pub invocation: ::core::option::Option<Invocation>,
-    /// Indicates which fields to update.
-    #[prost(message, optional, tag = "4")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "5")]
-    pub authorization_token: ::prost::alloc::string::String,
-}
-/// Request passed into MergeInvocation
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MergeInvocationRequest {
-    /// A unique identifier for this request. Must be set to a different value for
-    /// each request that affects a given resource (eg. a random UUID). Required
-    /// for the operation to be idempotent. This is achieved by ignoring this
-    /// request if the last successful operation on the resource had the same
-    /// request ID.  Restricted to 36 Unicode characters.
-    #[prost(string, tag = "1")]
-    pub request_id: ::prost::alloc::string::String,
-    /// Contains the name and the fields of the invocation to be merged.  The
-    /// name format must be: invocations/${INVOCATION_ID}
-    #[prost(message, optional, tag = "3")]
-    pub invocation: ::core::option::Option<Invocation>,
-    /// Indicates which fields to merge.
-    #[prost(message, optional, tag = "4")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "5")]
-    pub authorization_token: ::prost::alloc::string::String,
-}
-/// Request passed into TouchInvocation
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TouchInvocationRequest {
-    /// Required. The name of the invocation.  Its format must be:
-    /// invocations/${INVOCATION_ID}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "2")]
-    pub authorization_token: ::prost::alloc::string::String,
-}
-/// Response returned from TouchInvocation
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TouchInvocationResponse {
-    /// The name of the invocation.  Its format will be:
-    /// invocations/${INVOCATION_ID}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The resource ID components that identify the Invocation.
-    #[prost(message, optional, tag = "2")]
-    pub id: ::core::option::Option<invocation::Id>,
-}
-/// Request passed into DeleteInvocation
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteInvocationRequest {
-    /// Required. The name of the invocation.  Its format must be:
-    /// invocations/${INVOCATION_ID}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request passed into FinalizeInvocation
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FinalizeInvocationRequest {
-    /// Required. The name of the invocation.  Its format must be:
-    /// invocations/${INVOCATION_ID}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "3")]
-    pub authorization_token: ::prost::alloc::string::String,
-}
-/// Response returned from FinalizeInvocation
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FinalizeInvocationResponse {
-    /// The name of the invocation.  Its format will be:
-    /// invocations/${INVOCATION_ID}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The resource ID components that identify the Invocation.
-    #[prost(message, optional, tag = "2")]
-    pub id: ::core::option::Option<invocation::Id>,
-}
-/// Request passed into CreateTarget
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateTargetRequest {
-    /// A unique identifier for this request. Must be set to a different value for
-    /// each request that affects a given resource (eg. a random UUID). Required
-    /// for the operation to be idempotent. This is achieved by ignoring this
-    /// request if the last successful operation on the resource had the same
-    /// request ID.  Restricted to 36 Unicode characters.
-    #[prost(string, tag = "1")]
-    pub request_id: ::prost::alloc::string::String,
-    /// Required. The name of the parent invocation in which the target is created.
-    /// Its format must be invocations/${INVOCATION_ID}
-    #[prost(string, tag = "2")]
-    pub parent: ::prost::alloc::string::String,
-    /// The target identifier.  It can be any string up to 1024 Unicode characters
-    /// long except for the reserved id '-'.
-    #[prost(string, tag = "3")]
-    pub target_id: ::prost::alloc::string::String,
-    /// Required. The target to create.  Its name field will be ignored, since the
-    /// name will be derived from the id field above and assigned by the server.
-    #[prost(message, optional, tag = "4")]
-    pub target: ::core::option::Option<Target>,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "5")]
-    pub authorization_token: ::prost::alloc::string::String,
-}
-/// Request passed into UpdateTarget
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateTargetRequest {
-    /// Contains the name and the fields of the target to be updated.  The name
-    /// format must be:
-    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}
-    #[prost(message, optional, tag = "3")]
-    pub target: ::core::option::Option<Target>,
-    /// Indicates which fields to update.
-    #[prost(message, optional, tag = "4")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "5")]
-    pub authorization_token: ::prost::alloc::string::String,
-    /// If true then the Update operation will become a Create operation if the
-    /// Target is NOT_FOUND.
-    #[prost(bool, tag = "6")]
-    pub create_if_not_found: bool,
-}
-/// Request passed into MergeTarget
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MergeTargetRequest {
-    /// A unique identifier for this request. Must be set to a different value for
-    /// each request that affects a given resource (eg. a random UUID). Required
-    /// for the operation to be idempotent. This is achieved by ignoring this
-    /// request if the last successful operation on the resource had the same
-    /// request ID.  Restricted to 36 Unicode characters.
-    #[prost(string, tag = "1")]
-    pub request_id: ::prost::alloc::string::String,
-    /// Contains the name and the fields of the target to be merged.  The name
-    /// format must be:
-    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}
-    #[prost(message, optional, tag = "3")]
-    pub target: ::core::option::Option<Target>,
-    /// Indicates which fields to merge.
-    #[prost(message, optional, tag = "4")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "5")]
-    pub authorization_token: ::prost::alloc::string::String,
-    /// If true then the Merge operation will become a Create operation if the
-    /// Target is NOT_FOUND.
-    #[prost(bool, tag = "6")]
-    pub create_if_not_found: bool,
-}
-/// Request passed into FinalizeTarget
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FinalizeTargetRequest {
-    /// Required. The name of the target.  Its format must be:
-    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "3")]
-    pub authorization_token: ::prost::alloc::string::String,
-}
-/// Response returned from FinalizeTarget
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FinalizeTargetResponse {
-    /// The name of the target.  Its format will be:
-    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The resource ID components that identify the Target.
-    #[prost(message, optional, tag = "2")]
-    pub id: ::core::option::Option<target::Id>,
-}
-/// Request passed into CreateConfiguredTarget
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateConfiguredTargetRequest {
-    /// A unique identifier for this request. Must be set to a different value for
-    /// each request that affects a given resource (eg. a random UUID). Required
-    /// for the operation to be idempotent. This is achieved by ignoring this
-    /// request if the last successful operation on the resource had the same
-    /// request ID.  Restricted to 36 Unicode characters.
-    #[prost(string, tag = "1")]
-    pub request_id: ::prost::alloc::string::String,
-    /// Required. The name of the parent target in which the configured target is
-    /// created. Its format must be:
-    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}
-    #[prost(string, tag = "2")]
-    pub parent: ::prost::alloc::string::String,
-    /// The configuration identifier. This must match the ID of an existing
-    /// Configuration under this Invocation. Cannot be the reserved id '-'.
-    #[prost(string, tag = "3")]
-    pub config_id: ::prost::alloc::string::String,
-    /// Required. The configured target to create. Its name field will be ignored,
-    /// since the name will be derived from the id field above and assigned by the
-    /// server.
-    #[prost(message, optional, tag = "4")]
-    pub configured_target: ::core::option::Option<ConfiguredTarget>,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "5")]
-    pub authorization_token: ::prost::alloc::string::String,
-}
-/// Request passed into UpdateConfiguredTarget
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateConfiguredTargetRequest {
-    /// Contains the name and the fields of the configured target to be updated.
-    /// The name format must be:
-    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${CONFIG_ID}
-    #[prost(message, optional, tag = "3")]
-    pub configured_target: ::core::option::Option<ConfiguredTarget>,
-    /// Indicates which fields to update.
-    #[prost(message, optional, tag = "4")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "5")]
-    pub authorization_token: ::prost::alloc::string::String,
-    /// If true then the Update operation will become a Create operation if the
-    /// ConfiguredTarget is NOT_FOUND.
-    #[prost(bool, tag = "6")]
-    pub create_if_not_found: bool,
-}
-/// Request passed into MergeConfiguredTarget
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MergeConfiguredTargetRequest {
-    /// A unique identifier for this request. Must be set to a different value for
-    /// each request that affects a given resource (eg. a random UUID). Required
-    /// for the operation to be idempotent. This is achieved by ignoring this
-    /// request if the last successful operation on the resource had the same
-    /// request ID.  Restricted to 36 Unicode characters.
-    #[prost(string, tag = "1")]
-    pub request_id: ::prost::alloc::string::String,
-    /// Contains the name and the fields of the configured target to be merged.
-    /// The name format must be:
-    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${CONFIG_ID}
-    #[prost(message, optional, tag = "3")]
-    pub configured_target: ::core::option::Option<ConfiguredTarget>,
-    /// Indicates which fields to merge.
-    #[prost(message, optional, tag = "4")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "5")]
-    pub authorization_token: ::prost::alloc::string::String,
-    /// If true then the Merge operation will become a Create operation if the
-    /// ConfiguredTarget is NOT_FOUND.
-    #[prost(bool, tag = "6")]
-    pub create_if_not_found: bool,
-}
-/// Request passed into FinalizeConfiguredTarget
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FinalizeConfiguredTargetRequest {
-    /// Required. The name of the configured target. Its format must be:
-    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${CONFIG_ID}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "3")]
-    pub authorization_token: ::prost::alloc::string::String,
-}
-/// Response returned from FinalizeConfiguredTarget
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FinalizeConfiguredTargetResponse {
-    /// The name of the configured target. Its format must be:
-    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${CONFIG_ID}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The resource ID components that identify the ConfiguredTarget.
-    #[prost(message, optional, tag = "2")]
-    pub id: ::core::option::Option<configured_target::Id>,
-}
-/// Request passed into CreateAction
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateActionRequest {
-    /// A unique identifier for this request. Must be set to a different value for
-    /// each request that affects a given resource (eg. a random UUID). Required
-    /// for the operation to be idempotent. This is achieved by ignoring this
-    /// request if the last successful operation on the resource had the same
-    /// request ID.  Restricted to 36 Unicode characters.
-    #[prost(string, tag = "1")]
-    pub request_id: ::prost::alloc::string::String,
-    /// Required. The name of the parent configured target in which the action is
-    /// created. Its format must be:
-    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${CONFIG_ID}
-    #[prost(string, tag = "2")]
-    pub parent: ::prost::alloc::string::String,
-    /// The action identifier. It can be any string of up to 512 alphanumeric
-    /// characters \[a-zA-Z_-\], except for the reserved id '-'.
-    ///
-    /// Recommended IDs for Test Actions:
-    /// "test": For a single test action.
-    /// "test_shard0_run0_attempt0" ... "test_shard9_run9_attempt9": For tests with
-    ///   shard/run/attempts.
-    ///
-    /// Recommended IDs for Build Actions:
-    /// "build": If you only have a single build action.
-    #[prost(string, tag = "3")]
-    pub action_id: ::prost::alloc::string::String,
-    /// Required. The action to create.  Its name field will be ignored, since the
-    /// name will be derived from the id field above and assigned by the server.
-    #[prost(message, optional, tag = "4")]
-    pub action: ::core::option::Option<Action>,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "5")]
-    pub authorization_token: ::prost::alloc::string::String,
-}
-/// Request passed into UpdateAction
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateActionRequest {
-    /// Contains the name and the fields of the action to be updated.  The
-    /// name format must be:
-    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${CONFIG_ID}/actions/${ACTION_ID}
-    #[prost(message, optional, tag = "3")]
-    pub action: ::core::option::Option<Action>,
-    /// Indicates which fields to update.
-    #[prost(message, optional, tag = "4")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "5")]
-    pub authorization_token: ::prost::alloc::string::String,
-    /// If true then the Update operation will become a Create operation if the
-    /// Action is NOT_FOUND.
-    #[prost(bool, tag = "6")]
-    pub create_if_not_found: bool,
-}
-/// Request passed into MergeAction
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MergeActionRequest {
-    /// A unique identifier for this request. Must be set to a different value for
-    /// each request that affects a given resource (eg. a random UUID). Required
-    /// for the operation to be idempotent. This is achieved by ignoring this
-    /// request if the last successful operation on the resource had the same
-    /// request ID.  Restricted to 36 Unicode characters.
-    #[prost(string, tag = "1")]
-    pub request_id: ::prost::alloc::string::String,
-    /// Contains the name and the fields of the action to be merged.  The
-    /// name format must be:
-    /// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${CONFIG_ID}/actions/${ACTION_ID}
-    #[prost(message, optional, tag = "3")]
-    pub action: ::core::option::Option<Action>,
-    /// Indicates which fields to merge.
-    #[prost(message, optional, tag = "4")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "5")]
-    pub authorization_token: ::prost::alloc::string::String,
-    /// If true then the Merge operation will become a Create operation if the
-    /// Action is NOT_FOUND.
-    #[prost(bool, tag = "6")]
-    pub create_if_not_found: bool,
-}
-/// Request passed into CreateConfiguration
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateConfigurationRequest {
-    /// A unique identifier for this request. Must be set to a different value for
-    /// each request that affects a given resource (eg. a random UUID). Required
-    /// for the operation to be idempotent. This is achieved by ignoring this
-    /// request if the last successful operation on the resource had the same
-    /// request ID.  Restricted to 36 Unicode characters.
-    #[prost(string, tag = "1")]
-    pub request_id: ::prost::alloc::string::String,
-    /// Required. The name of the parent invocation in which the configuration is
-    /// created. Its format must be invocations/${INVOCATION_ID}
-    #[prost(string, tag = "2")]
-    pub parent: ::prost::alloc::string::String,
-    /// The configuration identifier.  It can be any string of up to 512
-    /// alphanumeric characters \[a-zA-Z_-\], except for the reserved id '-'. The
-    /// configuration ID of "default" should be preferred for the default
-    /// configuration in a single-config invocation.
-    #[prost(string, tag = "3")]
-    pub config_id: ::prost::alloc::string::String,
-    /// Required. The configuration to create. Its name field will be ignored,
-    /// since the name will be derived from the id field above and assigned by the
-    /// server.
-    #[prost(message, optional, tag = "4")]
-    pub configuration: ::core::option::Option<Configuration>,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "5")]
-    pub authorization_token: ::prost::alloc::string::String,
-}
-/// Request passed into UpdateConfiguration
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateConfigurationRequest {
-    /// Contains the name and fields of the configuration to be updated. The name
-    /// format must be:
-    /// invocations/${INVOCATION_ID}/configs/${CONFIG_ID}
-    #[prost(message, optional, tag = "3")]
-    pub configuration: ::core::option::Option<Configuration>,
-    /// Indicates which fields to update.
-    #[prost(message, optional, tag = "4")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "5")]
-    pub authorization_token: ::prost::alloc::string::String,
-    /// If true then the Update operation will become a Create operation if the
-    /// Configuration is NOT_FOUND.
-    #[prost(bool, tag = "6")]
-    pub create_if_not_found: bool,
-}
-/// Request passed into CreateFileSet
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateFileSetRequest {
-    /// A unique identifier for this request. Must be set to a different value for
-    /// each request that affects a given resource (eg. a random UUID). Required
-    /// for the operation to be idempotent. This is achieved by ignoring this
-    /// request if the last successful operation on the resource had the same
-    /// request ID.  Restricted to 36 Unicode characters.
-    #[prost(string, tag = "1")]
-    pub request_id: ::prost::alloc::string::String,
-    /// Required. The name of the parent invocation in which the file set is
-    /// created. Its format must be invocations/${INVOCATION_ID}
-    #[prost(string, tag = "2")]
-    pub parent: ::prost::alloc::string::String,
-    /// The file set identifier.  It can be any string of up to 512 alphanumeric
-    /// characters \[a-zA-Z_-\], except for the reserved id '-'.
-    #[prost(string, tag = "3")]
-    pub file_set_id: ::prost::alloc::string::String,
-    /// Required. The file set to create. Its name field will be ignored, since the
-    /// name will be derived from the id field above and assigned by the server.
-    #[prost(message, optional, tag = "4")]
-    pub file_set: ::core::option::Option<FileSet>,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "5")]
-    pub authorization_token: ::prost::alloc::string::String,
-}
-/// Request passed into UpdateFileSet
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateFileSetRequest {
-    /// Contains the name and fields of the file set to be updated. The name format
-    /// must be: invocations/${INVOCATION_ID}/fileSets/${FILE_SET_ID}
-    #[prost(message, optional, tag = "1")]
-    pub file_set: ::core::option::Option<FileSet>,
-    /// Indicates which fields to update.
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "3")]
-    pub authorization_token: ::prost::alloc::string::String,
-    /// If true then the Update operation will become a Create operation if the
-    /// FileSet is NOT_FOUND.
-    #[prost(bool, tag = "4")]
-    pub create_if_not_found: bool,
-}
-/// Request passed into MergeFileSet
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MergeFileSetRequest {
-    /// A unique identifier for this request. Must be set to a different value for
-    /// each request that affects a given resource (eg. a random UUID). Required
-    /// for the operation to be idempotent. This is achieved by ignoring this
-    /// request if the last successful operation on the resource had the same
-    /// request ID.  Restricted to 36 Unicode characters.
-    #[prost(string, tag = "1")]
-    pub request_id: ::prost::alloc::string::String,
-    /// Contains the name and fields of the file set to be merged. The name
-    /// format must be:
-    /// invocations/${INVOCATION_ID}/fileSets/${FILE_SET_ID}
-    #[prost(message, optional, tag = "2")]
-    pub file_set: ::core::option::Option<FileSet>,
-    /// Indicates which fields to merge.
-    #[prost(message, optional, tag = "3")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// This is a token to authorize access to this invocation. It must be set to
-    /// the same value that was provided in the CreateInvocationRequest.
-    #[prost(string, tag = "4")]
-    pub authorization_token: ::prost::alloc::string::String,
-    /// If true then the Merge operation will become a Create operation if the
-    /// FileSet is NOT_FOUND.
-    #[prost(bool, tag = "5")]
-    pub create_if_not_found: bool,
-}
-/// Request passed into UploadBatch
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UploadBatchRequest {
-    /// Required. The name of the invocation being modified.
-    /// The name format must be: invocations/${INVOCATION_ID}
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. A UUID that must match the value provided in
-    /// CreateInvocationRequest.
-    #[prost(string, tag = "2")]
-    pub authorization_token: ::prost::alloc::string::String,
-    /// Required. The token of this batch, that will be committed in this
-    /// UploadBatchRequest. If this matches the previously uploaded resume_token,
-    /// then this request will silently do nothing. See
-    /// CreateInvocationRequest.initial_resume_token for more information. Must be
-    /// web safe Base64 encoded bytes.
-    #[prost(string, tag = "3")]
-    pub next_resume_token: ::prost::alloc::string::String,
-    /// Required. The token of the previous batch that was committed in a
-    /// UploadBatchRequest. This will be checked after next_resume_token match is
-    /// checked. If this does not match the previously uploaded resume_token, a 409
-    /// Conflict (HTTPS) or ABORTED (gRPC ) error code indicating a concurrency
-    /// failure will be returned, and that the user should call
-    /// GetInvocationUploadMetadata to fetch the current resume_token to
-    /// reconstruct the state of the upload to resume it.
-    /// See CreateInvocationRequest.initial_resume_token for more information.
-    /// Must be web safe Base64 encoded bytes.
-    #[prost(string, tag = "4")]
-    pub resume_token: ::prost::alloc::string::String,
-    /// Client-specific data used to resume batch upload if an error occurs and
-    /// retry is needed. This serves a role closely related to resume_token, as
-    /// both fields may be used to provide state required to restore a Batch
-    /// Upload, but they differ in two important aspects:
-    ///   - it is not compared to previous values, and as such does not provide
-    ///     concurrency control;
-    ///   - it allows for a larger payload, since the contents are never
-    ///     inspected/compared;
-    /// The size of the message must be within 1 MiB. Too large requests will be
-    /// rejected.
-    #[prost(bytes = "bytes", tag = "6")]
-    pub uploader_state: ::prost::bytes::Bytes,
-    /// The individual upload requests for this batch.
-    /// This field may be empty, allowing this RPC to be used like TouchInvocation.
-    #[prost(message, repeated, tag = "5")]
-    pub upload_requests: ::prost::alloc::vec::Vec<UploadRequest>,
-}
-/// Response for UploadBatch
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UploadBatchResponse {}
-/// The individual upload requests for this batch.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UploadRequest {
-    /// The resource ID components that identify the resource being uploaded.
-    #[prost(message, optional, tag = "1")]
-    pub id: ::core::option::Option<upload_request::Id>,
-    /// The operation for the request (e.g. Create(), Update(), etc.)
-    #[prost(enumeration = "upload_request::UploadOperation", tag = "2")]
-    pub upload_operation: i32,
-    /// Required for Update and Merge operations.
-    /// Ignored for Create and Finalize operations.
-    /// Masks the fields of the resource being uploaded. Provides support for a
-    /// more granular upload. FieldMasks are limited to certain fields and must
-    /// match one of the follow patterns, where * means any single field name.
-    ///
-    /// For Update Operations:
-    ///
-    /// Invocation: [*, status_attributes.*, timing.*, invocation_attributes.*,
-    /// workspace_info.*].
-    /// Target: [*, status_attributes.*, timing.*].
-    /// Configuration: [*, status_attributes.*].
-    /// ConfiguredTarget: [*, status_attributes.*].
-    /// Action: [*, status_attributes.*, timing.*, test_action.test_suite,
-    /// test_action.infrastructure_failure_info].
-    /// FileSet: \[*\].
-    ///
-    /// For Merge Operations:
-    ///
-    /// Invocation: [invocation_attributes.labels, workspace_info.command_lines,
-    /// properties, files, file_processing_errors].
-    /// Target: \[files\].
-    /// ConfiguredTarget: \[files\].
-    /// Action: [files, file_processing_errors].
-    #[prost(message, optional, tag = "3")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// If true then the Update, Merge operation will become a Create operation if
-    /// the resource is NOT_FOUND. Not supported for Invocation resource.
-    #[prost(bool, tag = "10")]
-    pub create_if_not_found: bool,
-    /// The proto of the resource being uploaded.
-    #[prost(oneof = "upload_request::Resource", tags = "4, 5, 6, 7, 8, 9")]
-    pub resource: ::core::option::Option<upload_request::Resource>,
-}
-/// Nested message and enum types in `UploadRequest`.
-pub mod upload_request {
-    /// The resource ID components that identify the resource being uploaded.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Id {
-        /// Required for Target, ConfiguredTarget, or Action.
-        /// The Target ID.
-        #[prost(string, tag = "1")]
-        pub target_id: ::prost::alloc::string::String,
-        /// Required for Configuration, ConfiguredTarget, or Action.
-        /// The Configuration ID.
-        #[prost(string, tag = "2")]
-        pub configuration_id: ::prost::alloc::string::String,
-        /// Required for Action.
-        /// The Action ID.
-        #[prost(string, tag = "3")]
-        pub action_id: ::prost::alloc::string::String,
-        /// Required for FileSet.
-        /// The FileSet ID.
-        #[prost(string, tag = "4")]
-        pub file_set_id: ::prost::alloc::string::String,
-    }
-    /// The operation for the request (e.g. Create(), Update(), etc.)
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum UploadOperation {
-        /// Unspecified
-        Unspecified = 0,
-        /// Create the given resources except Invocation.
-        /// For more information, check the Create APIs.
-        Create = 1,
-        /// Applies a standard update to the resource identified by the given
-        /// proto's name. For more information, see the Update APIs.
-        /// UploadBatch does not support arbitrary field masks. The list of allowed
-        /// field masks can be found below.
-        Update = 2,
-        /// Applies an merge update to the resource identified by the given
-        /// proto's name. For more information, see the Merge APIs.
-        /// UploadBatch does not support arbitrary field masks. The list of allowed
-        /// field masks can be found below.
-        Merge = 3,
-        /// Declares the resource with the given name as finalized and immutable by
-        /// the uploader. Only supported for Invocation, Target, ConfiguredTarget.
-        /// There must be no operation on child resources after parent resource is
-        /// Finalized. If there is a Finalize of Invocation, it must be the final
-        /// UploadRequest. For more information, see the Finalize APIs.
-        /// An empty resource should be provided below.
-        Finalize = 4,
-    }
-    impl UploadOperation {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                UploadOperation::Unspecified => "UPLOAD_OPERATION_UNSPECIFIED",
-                UploadOperation::Create => "CREATE",
-                UploadOperation::Update => "UPDATE",
-                UploadOperation::Merge => "MERGE",
-                UploadOperation::Finalize => "FINALIZE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UPLOAD_OPERATION_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATE" => Some(Self::Create),
-                "UPDATE" => Some(Self::Update),
-                "MERGE" => Some(Self::Merge),
-                "FINALIZE" => Some(Self::Finalize),
-                _ => None,
-            }
-        }
-    }
-    /// The proto of the resource being uploaded.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Resource {
-        /// The Invocation Resource
-        #[prost(message, tag = "4")]
-        Invocation(super::Invocation),
-        /// The Target Resource
-        #[prost(message, tag = "5")]
-        Target(super::Target),
-        /// The Configuration Resource
-        #[prost(message, tag = "6")]
-        Configuration(super::Configuration),
-        /// The ConfiguredTarget Resource
-        #[prost(message, tag = "7")]
-        ConfiguredTarget(super::ConfiguredTarget),
-        /// The Action Resource
-        #[prost(message, tag = "8")]
-        Action(super::Action),
-        /// The FileSet Resource
-        #[prost(message, tag = "9")]
-        FileSet(super::FileSet),
-    }
-}
-/// Request passed into GetInvocationUploadMetadata
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetInvocationUploadMetadataRequest {
-    /// Required. The name of the UploadMetadata being requested.
-    /// The name format must be: invocations/${INVOCATION_ID}/uploadMetadata
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. A UUID that must match the value provided in
-    /// CreateInvocationRequest.
-    #[prost(string, tag = "2")]
-    pub authorization_token: ::prost::alloc::string::String,
-}
-/// Generated client implementations.
-pub mod result_store_upload_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// This is the interface used to upload information to the ResultStore database,
-    /// to update that information as necessary, and to make it immutable at the end.
-    ///
-    /// This interface intentionally does not support user read-modify-write
-    /// operations. They may corrupt data, and are too expensive. For the same
-    /// reason, all upload RPCs will return no resource fields except name and ID. An
-    /// uploader should hold as little state as possible in memory to avoid running
-    /// out of memory.
-    #[derive(Debug, Clone)]
-    pub struct ResultStoreUploadClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> ResultStoreUploadClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> ResultStoreUploadClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            ResultStoreUploadClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Creates the given invocation.
-        ///
-        /// This is not an implicitly idempotent API, so a request id is required to
-        /// make it idempotent.
-        ///
-        /// Returns an empty Invocation proto with only the name and ID fields
-        /// populated.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If an invocation with the same ID already exists.
-        pub async fn create_invocation(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateInvocationRequest>,
-        ) -> std::result::Result<tonic::Response<super::Invocation>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/CreateInvocation",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "CreateInvocation",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Applies a standard update to the invocation identified by the given proto's
-        /// name.  For all types of fields (primitive, message, or repeated), replaces
-        /// them with the given proto fields if they are under the given field mask
-        /// paths.  Fields that match the mask but aren't populated in the given
-        /// invocation are cleared. This is an implicitly idempotent API.
-        ///
-        /// Returns an empty Invocation proto with only the name and ID fields
-        /// populated.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the invocation does not exist.
-        /// - If the invocation is finalized.
-        /// - If no field mask was given.
-        pub async fn update_invocation(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateInvocationRequest>,
-        ) -> std::result::Result<tonic::Response<super::Invocation>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/UpdateInvocation",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "UpdateInvocation",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Applies a merge update to the invocation identified by the given proto's
-        /// name.  For primitive and message fields, replaces them with the ones in
-        /// the given proto if they are covered under the field mask paths.  For
-        /// repeated fields, merges to them with the given ones if they are covered
-        /// under the field mask paths. This is not an implicitly idempotent API, so a
-        /// request id is required to make it idempotent.
-        ///
-        /// Returns an empty Invocation proto with only the name and ID fields
-        /// populated.
-        ///
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the invocation does not exist.
-        /// - If the invocation is finalized.
-        /// - If no field mask was given.
-        pub async fn merge_invocation(
-            &mut self,
-            request: impl tonic::IntoRequest<super::MergeInvocationRequest>,
-        ) -> std::result::Result<tonic::Response<super::Invocation>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/MergeInvocation",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "MergeInvocation",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Touches the invocation identified by the given proto's name.
-        ///
-        /// This is useful when you need to notify ResultStore that you haven't
-        /// abandoned the upload, since abandoned uploads will be automatically
-        /// finalized after a set period.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the invocation does not exist.
-        /// - If the invocation is finalized.
-        pub async fn touch_invocation(
-            &mut self,
-            request: impl tonic::IntoRequest<super::TouchInvocationRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::TouchInvocationResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/TouchInvocation",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "TouchInvocation",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Declares the invocation with the given name as finalized and immutable by
-        /// the user. It may still be mutated by post-processing. This is an implicitly
-        /// idempotent API.
-        ///
-        /// If an Invocation is not updated for 24 hours, some time after that
-        /// this will be called automatically.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the invocation does not exist.
-        pub async fn finalize_invocation(
-            &mut self,
-            request: impl tonic::IntoRequest<super::FinalizeInvocationRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::FinalizeInvocationResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/FinalizeInvocation",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "FinalizeInvocation",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes an immutable invocation (permanently)
-        /// Note: this does not delete indirect data, e.g. files stored in other
-        /// services.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the invocation does not exist.
-        /// - If the invocation is not finalized.  This can be retried until it is.
-        pub async fn delete_invocation(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteInvocationRequest>,
-        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/DeleteInvocation",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "DeleteInvocation",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates the given target under the given parent invocation. The given
-        /// target ID is URL encoded, converted to the full resource name, and assigned
-        /// to the target's name field. This is not an implicitly idempotent API, so a
-        /// request id is required to make it idempotent.
-        ///
-        /// Returns an empty Target proto with only the name and ID fields populated.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If no target ID is provided.
-        /// - If the parent invocation does not exist.
-        /// - If the parent invocation is finalized.
-        /// - If a target with the same name already exists.
-        pub async fn create_target(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateTargetRequest>,
-        ) -> std::result::Result<tonic::Response<super::Target>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/CreateTarget",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "CreateTarget",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Applies a standard update to the target identified by the given proto's
-        /// name. For all types of fields (primitive, message, or repeated), replaces
-        /// them with the given proto fields if they are under the given field mask
-        /// paths. Fields that match the mask but aren't populated in the given
-        /// target are cleared. This is an implicitly idempotent API.
-        ///
-        /// Returns an empty Target proto with only the name and ID fields populated.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the target does not exist.
-        /// - If the target or parent invocation is finalized.
-        /// - If no field mask was given.
-        pub async fn update_target(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateTargetRequest>,
-        ) -> std::result::Result<tonic::Response<super::Target>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/UpdateTarget",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "UpdateTarget",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Applies a merge update to the target identified by the given proto's
-        /// name. For primitive and message fields, replaces them with the ones in the
-        /// given proto if they are covered under the field mask paths.  For repeated
-        /// fields, merges to them with the given ones if they are covered under the
-        /// field mask paths. This is not an implicitly idempotent API, so a request
-        /// id is required to make it idempotent.
-        ///
-        /// Returns an empty Target proto with only the name and ID fields populated.
-        ///
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the target does not exist.
-        /// - If the target or parent invocation is finalized.
-        /// - If no field mask was given.
-        pub async fn merge_target(
-            &mut self,
-            request: impl tonic::IntoRequest<super::MergeTargetRequest>,
-        ) -> std::result::Result<tonic::Response<super::Target>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/MergeTarget",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "MergeTarget",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Declares the target with the given name as finalized and immutable by the
-        /// user. It may still be mutated by post-processing. This is an implicitly
-        /// idempotent API.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the target does not exist.
-        pub async fn finalize_target(
-            &mut self,
-            request: impl tonic::IntoRequest<super::FinalizeTargetRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::FinalizeTargetResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/FinalizeTarget",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "FinalizeTarget",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates the given configured target under the given parent target.
-        /// The given configured target ID is URL encoded, converted to the full
-        /// resource name, and assigned to the configured target's name field.
-        /// This is not an implicitly idempotent API, so a request id is required
-        /// to make it idempotent.
-        ///
-        /// Returns an empty ConfiguredTarget proto with only the name and ID fields
-        /// populated.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If no config ID is provided.
-        /// - If a configured target with the same ID already exists.
-        /// - If the parent target does not exist.
-        /// - If the parent target or invocation is finalized.
-        pub async fn create_configured_target(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateConfiguredTargetRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ConfiguredTarget>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/CreateConfiguredTarget",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "CreateConfiguredTarget",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Applies a standard update to the configured target identified by the given
-        /// proto's name. For all types of fields (primitive, message, or repeated),
-        /// replaces them with the given proto fields if they are under the given
-        /// field mask paths. Fields that match the mask but aren't populated in the
-        /// given configured target are cleared. This is an implicitly idempotent API.
-        ///
-        /// Returns an empty ConfiguredTarget proto with only the name and ID fields
-        /// populated.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the configured target does not exist.
-        /// - If the parent target or invocation is finalized.
-        /// - If no field mask was given.
-        pub async fn update_configured_target(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateConfiguredTargetRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ConfiguredTarget>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/UpdateConfiguredTarget",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "UpdateConfiguredTarget",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Applies a merge update to the configured target identified by the given
-        /// proto's name. For primitive and message fields, replaces them with the
-        /// ones in the given proto if they are covered under the field mask paths.
-        /// For repeated fields, merges to them with the given ones if they are
-        /// covered under the field mask paths. This is not an implicitly idempotent
-        /// API, so a request id is required to make it idempotent.
-        ///
-        /// Returns an empty ConfiguredTarget proto with only the name and ID fields
-        /// populated.
-        ///
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the configured target does not exist.
-        /// - If the parent target or invocation is finalized.
-        /// - If no field mask was given.
-        pub async fn merge_configured_target(
-            &mut self,
-            request: impl tonic::IntoRequest<super::MergeConfiguredTargetRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ConfiguredTarget>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/MergeConfiguredTarget",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "MergeConfiguredTarget",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Declares the configured target with the given name as finalized and
-        /// immutable by the user. It may still be mutated by post-processing. This is
-        /// an implicitly idempotent API.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the configured target does not exist.
-        pub async fn finalize_configured_target(
-            &mut self,
-            request: impl tonic::IntoRequest<super::FinalizeConfiguredTargetRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::FinalizeConfiguredTargetResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/FinalizeConfiguredTarget",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "FinalizeConfiguredTarget",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates the given action under the given configured target. The given
-        /// action ID is URL encoded, converted to the full resource name, and
-        /// assigned to the action's name field. This is not an implicitly
-        /// idempotent API, so a request id is required to make it idempotent.
-        ///
-        /// Returns an empty Action proto with only the name and ID fields populated.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If no action ID provided.
-        /// - If the parent configured target does not exist.
-        /// - If the parent target or invocation is finalized.
-        /// - If an action  with the same name already exists.
-        pub async fn create_action(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateActionRequest>,
-        ) -> std::result::Result<tonic::Response<super::Action>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/CreateAction",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "CreateAction",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Applies a standard update to the action identified by the given
-        /// proto's name.  For all types of fields (primitive, message, or repeated),
-        /// replaces them with the given proto fields if they are under the given
-        /// field mask paths.  Fields that match the mask but aren't populated in the
-        /// given action are cleared.  This is an implicitly idempotent API.
-        ///
-        /// Returns an empty Action proto with only the name and ID fields populated.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the action does not exist.
-        /// - If the parent target or invocation is finalized.
-        /// - If no field mask was given.
-        pub async fn update_action(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateActionRequest>,
-        ) -> std::result::Result<tonic::Response<super::Action>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/UpdateAction",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "UpdateAction",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Applies a merge update to the action identified by the given
-        /// proto's name.  For primitive and message fields, replaces them with the
-        /// ones in the given proto if they are covered under the field mask paths.
-        /// For repeated fields, merges to them with the given ones if they are
-        /// covered under the field mask paths. This is not an implicitly idempotent
-        /// API, so a request id is required to make it idempotent.
-        ///
-        /// Returns an empty Action proto with only the name and ID fields populated.
-        ///
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the action does not exist.
-        /// - If the parent target or invocation is finalized.
-        /// - If no field mask was given.
-        pub async fn merge_action(
-            &mut self,
-            request: impl tonic::IntoRequest<super::MergeActionRequest>,
-        ) -> std::result::Result<tonic::Response<super::Action>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/MergeAction",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "MergeAction",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates the given configuration under the given parent invocation. The
-        /// given configuration ID is URL encoded, converted to the full resource name,
-        /// and assigned to the configuration's name field. The configuration ID of
-        /// "default" should be preferred for the default configuration in a
-        /// single-config invocation. This is not an implicitly idempotent API, so a
-        /// request id is required to make it idempotent.
-        ///
-        /// Returns an empty Configuration proto with only the name and ID fields
-        /// populated.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If no configuration ID is provided.
-        /// - If the parent invocation does not exist.
-        /// - If the parent invocation is finalized.
-        /// - If a configuration with the same name already exists.
-        pub async fn create_configuration(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateConfigurationRequest>,
-        ) -> std::result::Result<tonic::Response<super::Configuration>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/CreateConfiguration",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "CreateConfiguration",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Applies a standard update to the configuration identified by the given
-        /// proto's name. For all types of fields (primitive, message, or repeated),
-        /// replaces them with the given proto fields if they are under the given field
-        /// mask paths. Fields that match the mask but aren't populated in the given
-        /// configuration are cleared. This is an implicitly idempotent API.
-        ///
-        /// Returns an empty Configuration proto with only the name and ID fields
-        /// populated.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the configuration does not exist.
-        /// - If the parent invocation is finalized.
-        /// - If no field mask was given.
-        /// - If a given field mask path is not valid.
-        pub async fn update_configuration(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateConfigurationRequest>,
-        ) -> std::result::Result<tonic::Response<super::Configuration>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/UpdateConfiguration",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "UpdateConfiguration",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates the given file set under the given parent invocation. The given
-        /// file set ID is URL encoded, converted to the full resource name, and
-        /// assigned to the file set's name field. This is not an implicitly idempotent
-        /// API, so a request id is required to make it idempotent.
-        ///
-        /// Returns an empty FileSet proto with only the name and ID fields populated.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If no file set ID is provided.
-        /// - If a file set with the same name already exists.
-        /// - If the parent invocation does not exist.
-        /// - If the parent invocation is finalized.
-        pub async fn create_file_set(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateFileSetRequest>,
-        ) -> std::result::Result<tonic::Response<super::FileSet>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/CreateFileSet",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "CreateFileSet",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Applies a standard update to the file set identified by the given proto's
-        /// name. For all types of fields (primitive, message, or repeated), replaces
-        /// them with the given proto fields if they are under the given field mask
-        /// paths. Fields that match the mask but aren't populated in the given
-        /// configuration are cleared. This is an implicitly idempotent API.
-        ///
-        /// Returns an empty FileSet proto with only the name and ID fields populated.
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the file set does not exist.
-        /// - If the parent invocation is finalized.
-        /// - If no field mask was given.
-        /// - If a given field mask path is not valid.
-        pub async fn update_file_set(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateFileSetRequest>,
-        ) -> std::result::Result<tonic::Response<super::FileSet>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/UpdateFileSet",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "UpdateFileSet",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Applies a merge update to the file set identified by the given proto's
-        /// name. For primitive and message fields, updates them with the ones in the
-        /// given proto if they are covered under the field mask paths. For repeated
-        /// fields, merges to them with the given ones if they are covered under the
-        /// field mask paths. This is not an implicitly idempotent API, so a request
-        /// id is required to make it idempotent.
-        ///
-        /// Returns an empty FileSet proto with only the name and ID fields populated.
-        ///
-        ///
-        /// An error will be reported in the following cases:
-        /// - If the file set does not exist.
-        /// - If the parent invocation is finalized.
-        /// - If a given field mask path is not valid.
-        /// - If no field mask was given.
-        pub async fn merge_file_set(
-            &mut self,
-            request: impl tonic::IntoRequest<super::MergeFileSetRequest>,
-        ) -> std::result::Result<tonic::Response<super::FileSet>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/MergeFileSet",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "MergeFileSet",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// This is the RPC used for batch upload. It supports uploading multiple
-        /// resources for an invocation in a transaction safe manner.
-        ///
-        /// To use this RPC, the CreateInvocationRequest must have been provided a
-        /// resume_token.
-        ///
-        /// Combining batch upload with normal upload on a single Invocation is not
-        /// supported. If an Invocation is created with a resume_token, all further
-        /// calls must be through UploadBatch. If an Invocation is created without
-        /// resume_token normal upload, all further upload calls must be through normal
-        /// upload RPCs.
-        ///
-        /// The recommend total size of UploadBatchRequest is 10 MiB. If
-        /// it is too large, it may be rejected.
-        pub async fn upload_batch(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UploadBatchRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::UploadBatchResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/UploadBatch",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "UploadBatch",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Provides a way to read the metadata for an invocation.
-        /// The UploadMetadata could still be retrieved by this RPC even the Invocation
-        /// has been finalized.
-        /// This API requires setting a response FieldMask via 'fields' URL query
-        /// parameter or X-Goog-FieldMask HTTP/gRPC header.
-        ///
-        /// An error will be reported in the following case:
-        /// - If the invocation does not exist.
-        /// - If no field mask was given.
-        pub async fn get_invocation_upload_metadata(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetInvocationUploadMetadataRequest>,
-        ) -> std::result::Result<tonic::Response<super::UploadMetadata>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.devtools.resultstore.v2.ResultStoreUpload/GetInvocationUploadMetadata",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.devtools.resultstore.v2.ResultStoreUpload",
-                        "GetInvocationUploadMetadata",
                     ),
                 );
             self.inner.unary(req, path, codec).await

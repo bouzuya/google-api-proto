@@ -8,7 +8,7 @@ pub struct ParseRequest {
     /// Tag for version of CEL syntax, for future use.
     #[prost(string, tag = "2")]
     pub syntax_version: ::prost::alloc::string::String,
-    /// File or resource for source text, used in \[SourceInfo][google.api.SourceInfo\].
+    /// File or resource for source text, used in [SourceInfo][google.api.SourceInfo].
     #[prost(string, tag = "3")]
     pub source_location: ::prost::alloc::string::String,
     /// Prevent macro expansion.  See "Macros" in Language Defiinition.
@@ -22,7 +22,7 @@ pub struct ParseResponse {
     /// The parsed representation, or unset if parsing failed.
     #[prost(message, optional, tag = "1")]
     pub parsed_expr: ::core::option::Option<super::super::v1alpha1::ParsedExpr>,
-    /// Any number of issues with \[StatusDetails][\] as the details.
+    /// Any number of issues with [StatusDetails][] as the details.
     #[prost(message, repeated, tag = "2")]
     pub issues: ::prost::alloc::vec::Vec<super::super::super::super::rpc::Status>,
 }
@@ -42,7 +42,7 @@ pub struct CheckRequest {
     /// Language Definition.
     #[prost(string, tag = "3")]
     pub container: ::prost::alloc::string::String,
-    /// If true, use only the declarations in \[type_env][google.api.expr.conformance.v1alpha1.CheckRequest.type_env\].  If false (default),
+    /// If true, use only the declarations in [type_env][google.api.expr.conformance.v1alpha1.CheckRequest.type_env].  If false (default),
     /// add declarations for the standard definitions to the type environment.  See
     /// "Standard Definitions" in the Language Definition.
     #[prost(bool, tag = "4")]
@@ -55,7 +55,7 @@ pub struct CheckResponse {
     /// The annotated representation, or unset if checking failed.
     #[prost(message, optional, tag = "1")]
     pub checked_expr: ::core::option::Option<super::super::v1alpha1::CheckedExpr>,
-    /// Any number of issues with \[StatusDetails][\] as the details.
+    /// Any number of issues with [StatusDetails][] as the details.
     #[prost(message, repeated, tag = "2")]
     pub issues: ::prost::alloc::vec::Vec<super::super::super::super::rpc::Status>,
 }
@@ -64,13 +64,13 @@ pub struct CheckResponse {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct EvalRequest {
     /// Bindings for the external variables.  The types SHOULD be compatible
-    /// with the type environment in \[CheckRequest][google.api.expr.conformance.v1alpha1.CheckRequest\], if checked.
+    /// with the type environment in [CheckRequest][google.api.expr.conformance.v1alpha1.CheckRequest], if checked.
     #[prost(btree_map = "string, message", tag = "3")]
     pub bindings: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
         super::super::v1alpha1::ExprValue,
     >,
-    /// SHOULD be the same container as used in \[CheckRequest][google.api.expr.conformance.v1alpha1.CheckRequest\], if checked.
+    /// SHOULD be the same container as used in [CheckRequest][google.api.expr.conformance.v1alpha1.CheckRequest], if checked.
     #[prost(string, tag = "4")]
     pub container: ::prost::alloc::string::String,
     /// Required. Either the parsed or annotated representation of the CEL program.
@@ -98,8 +98,8 @@ pub struct EvalResponse {
     /// The execution result, or unset if execution couldn't start.
     #[prost(message, optional, tag = "1")]
     pub result: ::core::option::Option<super::super::v1alpha1::ExprValue>,
-    /// Any number of issues with \[StatusDetails][\] as the details.
-    /// Note that CEL execution errors are reified into \[ExprValue][\].
+    /// Any number of issues with [StatusDetails][] as the details.
+    /// Note that CEL execution errors are reified into [ExprValue][].
     /// Nevertheless, we'll allow out-of-band issues to be raised,
     /// which also makes the replies more regular.
     #[prost(message, repeated, tag = "2")]
@@ -125,7 +125,7 @@ pub struct SourcePosition {
     pub column: i32,
 }
 /// Warnings or errors in service execution are represented by
-/// \[google.rpc.Status][google.rpc.Status\] messages, with the following message
+/// [google.rpc.Status][google.rpc.Status] messages, with the following message
 /// in the details field.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -136,7 +136,7 @@ pub struct IssueDetails {
     /// Position in the source, if known.
     #[prost(message, optional, tag = "2")]
     pub position: ::core::option::Option<SourcePosition>,
-    /// Expression ID from \[Expr][\], 0 if unknown.
+    /// Expression ID from [Expr][], 0 if unknown.
     #[prost(int64, tag = "3")]
     pub id: i64,
 }

@@ -380,7 +380,7 @@ pub struct DeliveryVehicle {
     /// The Driver app typically provides this field, but there are some
     /// circumstances in which Fleet Engine will override the value sent by the
     /// app. For more information, see
-    /// \[DeliveryVehicle.current_route_segment][maps.fleetengine.delivery.v1.DeliveryVehicle.current_route_segment\].
+    /// [DeliveryVehicle.current_route_segment][maps.fleetengine.delivery.v1.DeliveryVehicle.current_route_segment].
     /// This field is returned in
     /// `Task.remaining_vehicle_journey_segments\[0\].driving_distance_meters` (gRPC)
     /// or `Task.remainingVehicleJourneySegments\[0\].drivingDistanceMeters` (REST)
@@ -394,7 +394,7 @@ pub struct DeliveryVehicle {
     /// The Driver app typically provides this field, but there are some
     /// circumstances in which Fleet Engine will override the value sent by the
     /// app.  For more information, see
-    /// \[DeliveryVehicle.current_route_segment][maps.fleetengine.delivery.v1.DeliveryVehicle.current_route_segment\].
+    /// [DeliveryVehicle.current_route_segment][maps.fleetengine.delivery.v1.DeliveryVehicle.current_route_segment].
     /// This field is returned in
     /// `Task.remaining_vehicle_journey_segments\[0\].driving_duration` (gRPC) or
     /// `Task.remainingVehicleJourneySegments\[0\].drivingDuration` (REST) for all
@@ -567,7 +567,7 @@ pub mod vehicle_stop {
         ///
         /// * Must be a valid Unicode string.
         /// * Limited to a maximum length of 64 characters.
-        /// * Normalized according to [Unicode Normalization Form C]
+        /// * Normalized according to \[Unicode Normalization Form C\]
         /// (<http://www.unicode.org/reports/tr15/>).
         /// * May not contain any of the following ASCII characters: '/', ':', '?',
         /// ',', or '#'.
@@ -826,7 +826,7 @@ pub struct Task {
     ///
     /// * Must be a valid Unicode string.
     /// * Limited to a maximum length of 64 characters.
-    /// * Normalized according to [Unicode Normalization Form C]
+    /// * Normalized according to \[Unicode Normalization Form C\]
     /// (<http://www.unicode.org/reports/tr15/>).
     /// * May not contain any of the following ASCII characters: '/', ':', '?',
     /// ',', or '#'.
@@ -837,7 +837,7 @@ pub struct Task {
     ///
     /// * Must be a valid Unicode string.
     /// * Limited to a maximum length of 64 characters.
-    /// * Normalized according to [Unicode Normalization Form C]
+    /// * Normalized according to \[Unicode Normalization Form C\]
     /// (<http://www.unicode.org/reports/tr15/>).
     /// * May not contain any of the following ASCII characters: '/', ':', '?',
     /// ',', or '#'.
@@ -881,7 +881,7 @@ pub mod task {
         /// contains route information from the driver's last known location to the
         /// upcoming `VehicleStop`. Current route information usually comes from the
         /// driver app, except for some cases noted in the documentation for
-        /// \[DeliveryVehicle.current_route_segment][maps.fleetengine.delivery.v1.DeliveryVehicle.current_route_segment\].
+        /// [DeliveryVehicle.current_route_segment][maps.fleetengine.delivery.v1.DeliveryVehicle.current_route_segment].
         /// The other segments in
         /// `Task.journey_sharing_info.remaining_vehicle_journey_segments` (gRPC) or
         /// `Task.journeySharingInfo.remainingVehicleJourneySegments` (REST) are
@@ -1201,7 +1201,7 @@ pub struct TaskTrackingInfo {
     /// Immutable. The tracking ID of a Task.
     /// * Must be a valid Unicode string.
     /// * Limited to a maximum length of 64 characters.
-    /// * Normalized according to [Unicode Normalization Form C]
+    /// * Normalized according to \[Unicode Normalization Form C\]
     /// (<http://www.unicode.org/reports/tr15/>).
     /// * May not contain any of the following ASCII characters: '/', ':', '?',
     /// ',', or '#'.
@@ -1267,7 +1267,7 @@ pub struct CreateDeliveryVehicleRequest {
     ///
     /// * Must be a valid Unicode string.
     /// * Limited to a maximum length of 64 characters.
-    /// * Normalized according to [Unicode Normalization Form C]
+    /// * Normalized according to \[Unicode Normalization Form C\]
     /// (<http://www.unicode.org/reports/tr15/>).
     /// * May not contain any of the following ASCII characters: '/', ':', '?',
     /// ',', or '#'.
@@ -1436,7 +1436,7 @@ pub struct CreateTaskRequest {
     ///
     /// * Must be a valid Unicode string.
     /// * Limited to a maximum length of 64 characters.
-    /// * Normalized according to [Unicode Normalization Form C]
+    /// * Normalized according to \[Unicode Normalization Form C\]
     /// (<http://www.unicode.org/reports/tr15/>).
     /// * May not contain any of the following ASCII characters: '/', ':', '?',
     /// ',', or '#'.
@@ -1488,7 +1488,7 @@ pub struct SearchTasksRequest {
     ///
     /// * Must be a valid Unicode string.
     /// * Limited to a maximum length of 64 characters.
-    /// * Normalized according to [Unicode Normalization Form C]
+    /// * Normalized according to \[Unicode Normalization Form C\]
     /// (<http://www.unicode.org/reports/tr15/>).
     /// * May not contain any of the following ASCII characters: '/', ':', '?',
     /// ',', or '#'.

@@ -4,7 +4,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ManagedService {
     /// The name of the service. See the
-    /// \[overview\](<https://cloud.google.com/service-infrastructure/docs/overview>)
+    /// [overview](<https://cloud.google.com/service-infrastructure/docs/overview>)
     /// for naming requirements.
     #[prost(string, tag = "2")]
     pub service_name: ::prost::alloc::string::String,
@@ -496,7 +496,7 @@ pub struct CreateServiceRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteServiceRequest {
     /// Required. The name of the service.  See the
-    /// \[overview\](<https://cloud.google.com/service-management/overview>) for naming
+    /// [overview](<https://cloud.google.com/service-management/overview>) for naming
     /// requirements.  For example: `example.googleapis.com`.
     #[prost(string, tag = "1")]
     pub service_name: ::prost::alloc::string::String,
@@ -506,7 +506,7 @@ pub struct DeleteServiceRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UndeleteServiceRequest {
     /// Required. The name of the service. See the
-    /// \[overview\](<https://cloud.google.com/service-management/overview>) for naming
+    /// [overview](<https://cloud.google.com/service-management/overview>) for naming
     /// requirements. For example: `example.googleapis.com`.
     #[prost(string, tag = "1")]
     pub service_name: ::prost::alloc::string::String,
@@ -524,7 +524,7 @@ pub struct UndeleteServiceResponse {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetServiceConfigRequest {
     /// Required. The name of the service.  See the
-    /// \[overview\](<https://cloud.google.com/service-management/overview>) for naming
+    /// [overview](<https://cloud.google.com/service-management/overview>) for naming
     /// requirements.  For example: `example.googleapis.com`.
     #[prost(string, tag = "1")]
     pub service_name: ::prost::alloc::string::String,
@@ -588,7 +588,7 @@ pub mod get_service_config_request {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListServiceConfigsRequest {
     /// Required. The name of the service.  See the
-    /// \[overview\](<https://cloud.google.com/service-management/overview>) for naming
+    /// [overview](<https://cloud.google.com/service-management/overview>) for naming
     /// requirements.  For example: `example.googleapis.com`.
     #[prost(string, tag = "1")]
     pub service_name: ::prost::alloc::string::String,
@@ -616,7 +616,7 @@ pub struct ListServiceConfigsResponse {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateServiceConfigRequest {
     /// Required. The name of the service.  See the
-    /// \[overview\](<https://cloud.google.com/service-management/overview>) for naming
+    /// [overview](<https://cloud.google.com/service-management/overview>) for naming
     /// requirements.  For example: `example.googleapis.com`.
     #[prost(string, tag = "1")]
     pub service_name: ::prost::alloc::string::String,
@@ -629,7 +629,7 @@ pub struct CreateServiceConfigRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SubmitConfigSourceRequest {
     /// Required. The name of the service.  See the
-    /// \[overview\](<https://cloud.google.com/service-management/overview>) for naming
+    /// [overview](<https://cloud.google.com/service-management/overview>) for naming
     /// requirements.  For example: `example.googleapis.com`.
     #[prost(string, tag = "1")]
     pub service_name: ::prost::alloc::string::String,
@@ -656,7 +656,7 @@ pub struct SubmitConfigSourceResponse {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateServiceRolloutRequest {
     /// Required. The name of the service.  See the
-    /// \[overview\](<https://cloud.google.com/service-management/overview>) for naming
+    /// [overview](<https://cloud.google.com/service-management/overview>) for naming
     /// requirements.  For example: `example.googleapis.com`.
     #[prost(string, tag = "1")]
     pub service_name: ::prost::alloc::string::String,
@@ -669,7 +669,7 @@ pub struct CreateServiceRolloutRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListServiceRolloutsRequest {
     /// Required. The name of the service.  See the
-    /// \[overview\](<https://cloud.google.com/service-management/overview>) for naming
+    /// [overview](<https://cloud.google.com/service-management/overview>) for naming
     /// requirements.  For example: `example.googleapis.com`.
     #[prost(string, tag = "1")]
     pub service_name: ::prost::alloc::string::String,
@@ -709,7 +709,7 @@ pub struct ListServiceRolloutsResponse {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetServiceRolloutRequest {
     /// Required. The name of the service.  See the
-    /// \[overview\](<https://cloud.google.com/service-management/overview>) for naming
+    /// [overview](<https://cloud.google.com/service-management/overview>) for naming
     /// requirements.  For example: `example.googleapis.com`.
     #[prost(string, tag = "1")]
     pub service_name: ::prost::alloc::string::String,
@@ -727,16 +727,16 @@ pub struct EnableServiceResponse {}
 pub struct GenerateConfigReportRequest {
     /// Required. Service configuration for which we want to generate the report.
     /// For this version of API, the supported types are
-    /// \[google.api.servicemanagement.v1.ConfigRef][google.api.servicemanagement.v1.ConfigRef\],
-    /// \[google.api.servicemanagement.v1.ConfigSource][google.api.servicemanagement.v1.ConfigSource\],
-    /// and \[google.api.Service][google.api.Service\]
+    /// [google.api.servicemanagement.v1.ConfigRef][google.api.servicemanagement.v1.ConfigRef],
+    /// [google.api.servicemanagement.v1.ConfigSource][google.api.servicemanagement.v1.ConfigSource],
+    /// and [google.api.Service][google.api.Service]
     #[prost(message, optional, tag = "1")]
     pub new_config: ::core::option::Option<::prost_types::Any>,
     /// Optional. Service configuration against which the comparison will be done.
     /// For this version of API, the supported types are
-    /// \[google.api.servicemanagement.v1.ConfigRef][google.api.servicemanagement.v1.ConfigRef\],
-    /// \[google.api.servicemanagement.v1.ConfigSource][google.api.servicemanagement.v1.ConfigSource\],
-    /// and \[google.api.Service][google.api.Service\]
+    /// [google.api.servicemanagement.v1.ConfigRef][google.api.servicemanagement.v1.ConfigRef],
+    /// [google.api.servicemanagement.v1.ConfigSource][google.api.servicemanagement.v1.ConfigSource],
+    /// and [google.api.Service][google.api.Service]
     #[prost(message, optional, tag = "2")]
     pub old_config: ::core::option::Option<::prost_types::Any>,
 }

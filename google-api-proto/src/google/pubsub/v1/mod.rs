@@ -690,11 +690,12 @@ pub mod schema_service_client {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MessageStoragePolicy {
-    /// A list of IDs of GCP regions where messages that are published to the topic
-    /// may be persisted in storage. Messages published by publishers running in
-    /// non-allowed GCP regions (or running outside of GCP altogether) will be
-    /// routed for storage in one of the allowed regions. An empty list means that
-    /// no regions are allowed, and is not a valid configuration.
+    /// A list of IDs of Google Cloud regions where messages that are published
+    /// to the topic may be persisted in storage. Messages published by publishers
+    /// running in non-allowed Google Cloud regions (or running outside of Google
+    /// Cloud altogether) are routed for storage in one of the allowed regions.
+    /// An empty list means that no regions are allowed, and is not a valid
+    /// configuration.
     #[prost(string, repeated, tag = "1")]
     pub allowed_persistence_regions: ::prost::alloc::vec::Vec<
         ::prost::alloc::string::String,
@@ -736,7 +737,7 @@ pub struct Topic {
     /// must not start with `"goog"`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// See [Creating and managing labels]
+    /// See \[Creating and managing labels\]
     /// (<https://cloud.google.com/pubsub/docs/labels>).
     #[prost(btree_map = "string, string", tag = "2")]
     pub labels: ::prost::alloc::collections::BTreeMap<
@@ -777,7 +778,7 @@ pub struct Topic {
 /// Note that client libraries represent this object differently
 /// depending on the language. See the corresponding [client library
 /// documentation](<https://cloud.google.com/pubsub/docs/reference/libraries>) for
-/// more information. See [quotas and limits]
+/// more information. See \[quotas and limits\]
 /// (<https://cloud.google.com/pubsub/quotas>) for more information about message
 /// limits.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1031,7 +1032,7 @@ pub struct Subscription {
     /// Indicates whether to retain acknowledged messages. If true, then
     /// messages are not expunged from the subscription's backlog, even if they are
     /// acknowledged, until they fall out of the `message_retention_duration`
-    /// window. This must be true if you would like to [`Seek` to a timestamp]
+    /// window. This must be true if you would like to \[`Seek` to a timestamp\]
     /// (<https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time>) in
     /// the past to replay previously-acknowledged messages.
     #[prost(bool, tag = "7")]
@@ -1417,7 +1418,7 @@ pub mod big_query_config {
         /// - Pub/Sub SA has not been granted the [appropriate BigQuery IAM
         /// permissions](<https://cloud.google.com/pubsub/docs/create-subscription#assign_bigquery_service_account>)
         /// - bigquery.googleapis.com API is not enabled for the project
-        /// (\[instructions\](<https://cloud.google.com/service-usage/docs/enable-disable>))
+        /// ([instructions](<https://cloud.google.com/service-usage/docs/enable-disable>))
         PermissionDenied = 2,
         /// Cannot write to the BigQuery table because it does not exist.
         NotFound = 3,
@@ -1913,8 +1914,8 @@ pub struct CreateSnapshotRequest {
     /// in the request, the server will assign a random name for this snapshot on
     /// the same project as the subscription. Note that for REST API requests, you
     /// must specify a name.  See the [resource name
-    /// rules](<https://cloud.google.com/pubsub/docs/admin#resource_names>). Format
-    /// is `projects/{project}/snapshots/{snap}`.
+    /// rules](<https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names>).
+    /// Format is `projects/{project}/snapshots/{snap}`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Required. The subscription whose backlog the snapshot retains.
@@ -1949,7 +1950,7 @@ pub struct UpdateSnapshotRequest {
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
 /// A snapshot resource. Snapshots are used in
-/// \[Seek\](<https://cloud.google.com/pubsub/docs/replay-overview>)
+/// [Seek](<https://cloud.google.com/pubsub/docs/replay-overview>)
 /// operations, which allow you to manage message acknowledgments in bulk. That
 /// is, you can set the acknowledgment state of messages in an existing
 /// subscription to the state captured by a snapshot.
@@ -1974,7 +1975,7 @@ pub struct Snapshot {
     /// snapshot that would expire in less than 1 hour after creation.
     #[prost(message, optional, tag = "3")]
     pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// See [Creating and managing labels]
+    /// See \[Creating and managing labels\]
     /// (<https://cloud.google.com/pubsub/docs/labels>).
     #[prost(btree_map = "string, string", tag = "4")]
     pub labels: ::prost::alloc::collections::BTreeMap<
@@ -2145,7 +2146,7 @@ pub mod publisher_client {
             self
         }
         /// Creates the given topic with the given name. See the [resource name rules]
-        /// (https://cloud.google.com/pubsub/docs/admin#resource_names).
+        /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
         pub async fn create_topic(
             &mut self,
             request: impl tonic::IntoRequest<super::Topic>,
@@ -2469,16 +2470,16 @@ pub mod subscriber_client {
             self
         }
         /// Creates a subscription to a given topic. See the [resource name rules]
-        /// (https://cloud.google.com/pubsub/docs/admin#resource_names).
+        /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
         /// If the subscription already exists, returns `ALREADY_EXISTS`.
         /// If the corresponding topic doesn't exist, returns `NOT_FOUND`.
         ///
         /// If the name is not provided in the request, the server will assign a random
         /// name for this subscription on the same project as the topic, conforming
         /// to the [resource name format]
-        /// (https://cloud.google.com/pubsub/docs/admin#resource_names). The generated
-        /// name is populated in the returned Subscription object. Note that for REST
-        /// API requests, you must specify a name in the request.
+        /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+        /// generated name is populated in the returned Subscription object. Note that
+        /// for REST API requests, you must specify a name in the request.
         pub async fn create_subscription(
             &mut self,
             request: impl tonic::IntoRequest<super::Subscription>,
@@ -2826,7 +2827,7 @@ pub mod subscriber_client {
         /// the request, the server will assign a random
         /// name for this snapshot on the same project as the subscription, conforming
         /// to the [resource name format]
-        /// (https://cloud.google.com/pubsub/docs/admin#resource_names). The
+        /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
         /// generated name is populated in the returned Snapshot object. Note that for
         /// REST API requests, you must specify a name in the request.
         pub async fn create_snapshot(

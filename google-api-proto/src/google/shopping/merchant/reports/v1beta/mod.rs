@@ -47,9 +47,6 @@ pub struct ReportRow {
     /// Fields available for query in `product_performance_view` table.
     #[prost(message, optional, tag = "1")]
     pub product_performance_view: ::core::option::Option<ProductPerformanceView>,
-    /// Fields available for query in `non_product_performance_view` table.
-    #[prost(message, optional, tag = "7")]
-    pub non_product_performance_view: ::core::option::Option<NonProductPerformanceView>,
     /// Fields available for query in `product_view` table.
     #[prost(message, optional, tag = "2")]
     pub product_view: ::core::option::Option<ProductView>,
@@ -122,25 +119,6 @@ pub struct ProductPerformanceView {
     /// returned.
     #[prost(string, optional, tag = "4")]
     pub customer_country_code: ::core::option::Option<::prost::alloc::string::String>,
-    /// Merchant Center account id of the seller of the offer. Segment.
-    ///
-    /// Available only for multi-client accounts.
-    #[prost(int64, optional, tag = "29")]
-    pub account_id: ::core::option::Option<i64>,
-    /// Merchant Center account name of the seller of the offer. Segment.
-    ///
-    /// Available only for multi-client accounts.
-    #[prost(string, optional, tag = "30")]
-    pub account_display_name: ::core::option::Option<::prost::alloc::string::String>,
-    /// [External account
-    /// id](<https://support.google.com/merchants/answer/11537846?hl=en>) submitted
-    /// in an offer feed by a multi-seller account to identify the seller of the
-    /// offer. Segment.
-    ///
-    /// Available only for multi-client accounts. This field is non-empty only for
-    /// auto-seller accounts.
-    #[prost(string, optional, tag = "31")]
-    pub external_account_id: ::core::option::Option<::prost::alloc::string::String>,
     /// Merchant-provided id of the product. Segment.
     #[prost(string, optional, tag = "5")]
     pub offer_id: ::core::option::Option<::prost::alloc::string::String>,
@@ -335,11 +313,11 @@ pub struct ProductView {
     /// not available.
     #[prost(message, optional, tag = "17")]
     pub price: ::core::option::Option<super::super::super::r#type::Price>,
-    /// \[Condition\](<https://support.google.com/merchants/answer/6324469>) of the
+    /// [Condition](<https://support.google.com/merchants/answer/6324469>) of the
     /// product.
     #[prost(string, optional, tag = "18")]
     pub condition: ::core::option::Option<::prost::alloc::string::String>,
-    /// \[Availability\](<https://support.google.com/merchants/answer/6324448>) of the
+    /// [Availability](<https://support.google.com/merchants/answer/6324448>) of the
     /// product.
     #[prost(string, optional, tag = "19")]
     pub availability: ::core::option::Option<::prost::alloc::string::String>,
@@ -846,9 +824,6 @@ pub struct BestSellersProductClusterView {
     /// top-level categories are returned.
     #[prost(int64, optional, tag = "4")]
     pub report_category_id: ::core::option::Option<i64>,
-    /// Google-assigned id of the product cluster.
-    #[prost(string, optional, tag = "5")]
-    pub id: ::core::option::Option<::prost::alloc::string::String>,
     /// Title of the product cluster.
     #[prost(string, optional, tag = "6")]
     pub title: ::core::option::Option<::prost::alloc::string::String>,
@@ -1028,9 +1003,6 @@ pub struct BestSellersBrandView {
     /// top-level categories are returned.
     #[prost(int64, optional, tag = "4")]
     pub report_category_id: ::core::option::Option<i64>,
-    /// Google-assigned id of the brand.
-    #[prost(string, optional, tag = "5")]
-    pub id: ::core::option::Option<::prost::alloc::string::String>,
     /// Name of the brand.
     #[prost(string, optional, tag = "6")]
     pub brand: ::core::option::Option<::prost::alloc::string::String>,
@@ -1056,44 +1028,6 @@ pub struct BestSellersBrandView {
         tag = "11"
     )]
     pub relative_demand_change: ::core::option::Option<i32>,
-}
-/// Fields available for query in `non_product_performance_view` table.
-///
-/// Performance data on images and website links leading to your non-product
-/// website pages. This includes performance metrics (for example, `clicks`)
-/// and dimensions according to which performance metrics are segmented (for
-/// example, `date`).
-///
-/// Segment fields cannot be selected in queries without also selecting at least
-/// one metric field.
-///
-/// Values are only set for fields requested explicitly in the request's search
-/// query.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct NonProductPerformanceView {
-    /// Date in the merchant timezone to which metrics apply. Segment.
-    ///
-    /// Condition on `date` is required in the `WHERE` clause.
-    #[prost(message, optional, tag = "1")]
-    pub date: ::core::option::Option<super::super::super::super::r#type::Date>,
-    /// First day of the week (Monday) of the metrics date in the merchant
-    /// timezone. Segment.
-    #[prost(message, optional, tag = "2")]
-    pub week: ::core::option::Option<super::super::super::super::r#type::Date>,
-    /// Number of clicks on images and website links leading to your non-product
-    /// website pages. Metric.
-    #[prost(int64, optional, tag = "3")]
-    pub clicks: ::core::option::Option<i64>,
-    /// Number of times images and website links leading to your non-product
-    /// website pages were shown. Metric.
-    #[prost(int64, optional, tag = "4")]
-    pub impressions: ::core::option::Option<i64>,
-    /// Click-through rate - the number of clicks (`clicks`) divided by the number
-    /// of impressions (`impressions`) of images and website links leading to your
-    /// non-product website pages. Metric.
-    #[prost(double, optional, tag = "5")]
-    pub click_through_rate: ::core::option::Option<f64>,
 }
 /// Fields available for query in `competitive_visibility_competitor_view` table.
 ///
@@ -1148,7 +1082,7 @@ pub struct CompetitiveVisibilityCompetitorView {
     /// Cannot be filtered on in the 'WHERE' clause.
     #[prost(int64, optional, tag = "7")]
     pub rank: ::core::option::Option<i64>,
-    /// [Ads / organic ratio]
+    /// \[Ads / organic ratio\]
     /// (<https://support.google.com/merchants/answer/11366442#zippy=%2Cads-free-ratio>)
     /// shows how often the domain receives impressions from Shopping ads compared
     /// to organic traffic. The number is rounded and bucketed.
@@ -1156,7 +1090,7 @@ pub struct CompetitiveVisibilityCompetitorView {
     /// Cannot be filtered on in the 'WHERE' clause.
     #[prost(double, optional, tag = "8")]
     pub ads_organic_ratio: ::core::option::Option<f64>,
-    /// [Page overlap rate]
+    /// \[Page overlap rate\]
     /// (<https://support.google.com/merchants/answer/11366442#zippy=%2Cpage-overlap-rate>)
     /// shows how frequently competing retailers’ offers are shown together with
     /// your offers on the same page.
@@ -1164,7 +1098,7 @@ pub struct CompetitiveVisibilityCompetitorView {
     /// Cannot be filtered on in the 'WHERE' clause.
     #[prost(double, optional, tag = "9")]
     pub page_overlap_rate: ::core::option::Option<f64>,
-    /// [Higher position rate]
+    /// \[Higher position rate\]
     /// (<https://support.google.com/merchants/answer/11366442#zippy=%2Chigher-position-rate>)
     /// shows how often a competitor’s offer got placed in a higher position on the
     /// page than your offer.
@@ -1172,7 +1106,7 @@ pub struct CompetitiveVisibilityCompetitorView {
     /// Cannot be filtered on in the 'WHERE' clause.
     #[prost(double, optional, tag = "10")]
     pub higher_position_rate: ::core::option::Option<f64>,
-    /// [Relative visibility]
+    /// \[Relative visibility\]
     /// (<https://support.google.com/merchants/answer/11366442#zippy=%2Crelative-visibility>)
     /// shows how often your competitors’ offers are shown compared to your offers.
     /// In other words, this is the number of displayed impressions of a competitor
@@ -1238,7 +1172,7 @@ pub struct CompetitiveVisibilityTopMerchantView {
     /// Cannot be filtered on in the 'WHERE' clause.
     #[prost(int64, optional, tag = "7")]
     pub rank: ::core::option::Option<i64>,
-    /// [Ads / organic ratio]
+    /// \[Ads / organic ratio\]
     /// (<https://support.google.com/merchants/answer/11366442#zippy=%2Cads-free-ratio>)
     /// shows how often the domain receives impressions from Shopping ads compared
     /// to organic traffic. The number is rounded and bucketed.
@@ -1246,7 +1180,7 @@ pub struct CompetitiveVisibilityTopMerchantView {
     /// Cannot be filtered on in the 'WHERE' clause.
     #[prost(double, optional, tag = "8")]
     pub ads_organic_ratio: ::core::option::Option<f64>,
-    /// [Page overlap rate]
+    /// \[Page overlap rate\]
     /// (<https://support.google.com/merchants/answer/11366442#zippy=%2Cpage-overlap-rate>)
     /// shows how frequently competing retailers’ offers are shown together with
     /// your offers on the same page.
@@ -1254,7 +1188,7 @@ pub struct CompetitiveVisibilityTopMerchantView {
     /// Cannot be filtered on in the 'WHERE' clause.
     #[prost(double, optional, tag = "9")]
     pub page_overlap_rate: ::core::option::Option<f64>,
-    /// [Higher position rate]
+    /// \[Higher position rate\]
     /// (<https://support.google.com/merchants/answer/11366442#zippy=%2Chigher-position-rate>)
     /// shows how often a competitor’s offer got placed in a higher position on the
     /// page than your offer.

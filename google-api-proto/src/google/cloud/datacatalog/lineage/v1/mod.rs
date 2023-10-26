@@ -179,7 +179,7 @@ pub struct OperationMetadata {
     /// Output only. The type of the operation being performed.
     #[prost(enumeration = "operation_metadata::Type", tag = "2")]
     pub operation_type: i32,
-    /// Output only. The [relative name]
+    /// Output only. The \[relative name\]
     /// (<https://cloud.google.com//apis/design/resource_names#relative_resource_name>)
     /// of the resource being operated on.
     #[prost(string, tag = "3")]
@@ -289,7 +289,7 @@ pub mod operation_metadata {
     }
 }
 /// Request message for
-/// \[CreateProcess][google.cloud.datacatalog.lineage.v1.CreateProcess\].
+/// [CreateProcess][google.cloud.datacatalog.lineage.v1.CreateProcess].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateProcessRequest {
@@ -307,7 +307,7 @@ pub struct CreateProcessRequest {
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[UpdateProcess][google.cloud.datacatalog.lineage.v1.UpdateProcess\].
+/// [UpdateProcess][google.cloud.datacatalog.lineage.v1.UpdateProcess].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateProcessRequest {
@@ -325,7 +325,7 @@ pub struct UpdateProcessRequest {
     pub allow_missing: bool,
 }
 /// Request message for
-/// \[GetProcess][google.cloud.datacatalog.lineage.v1.GetProcess\].
+/// [GetProcess][google.cloud.datacatalog.lineage.v1.GetProcess].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetProcessRequest {
@@ -334,7 +334,7 @@ pub struct GetProcessRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[ListProcesses][google.cloud.datacatalog.lineage.v1.ListProcesses\].
+/// [ListProcesses][google.cloud.datacatalog.lineage.v1.ListProcesses].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListProcessesRequest {
@@ -357,7 +357,7 @@ pub struct ListProcessesRequest {
     pub page_token: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[ListProcesses][google.cloud.datacatalog.lineage.v1.ListProcesses\].
+/// [ListProcesses][google.cloud.datacatalog.lineage.v1.ListProcesses].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListProcessesResponse {
@@ -370,7 +370,7 @@ pub struct ListProcessesResponse {
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[DeleteProcess][google.cloud.datacatalog.lineage.v1.DeleteProcess\].
+/// [DeleteProcess][google.cloud.datacatalog.lineage.v1.DeleteProcess].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteProcessRequest {
@@ -383,7 +383,7 @@ pub struct DeleteProcessRequest {
     pub allow_missing: bool,
 }
 /// Request message for
-/// \[CreateRun][google.cloud.datacatalog.lineage.v1.CreateRun\].
+/// [CreateRun][google.cloud.datacatalog.lineage.v1.CreateRun].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateRunRequest {
@@ -400,7 +400,7 @@ pub struct CreateRunRequest {
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[UpdateRun][google.cloud.datacatalog.lineage.v1.UpdateRun\].
+/// [UpdateRun][google.cloud.datacatalog.lineage.v1.UpdateRun].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateRunRequest {
@@ -418,7 +418,7 @@ pub struct UpdateRunRequest {
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
 /// Request message for
-/// \[GetRun][google.cloud.datacatalog.lineage.v1.GetRun\].
+/// [GetRun][google.cloud.datacatalog.lineage.v1.GetRun].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetRunRequest {
@@ -427,7 +427,7 @@ pub struct GetRunRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[ListRuns][google.cloud.datacatalog.lineage.v1.ListRuns\].
+/// [ListRuns][google.cloud.datacatalog.lineage.v1.ListRuns].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListRunsRequest {
@@ -449,7 +449,7 @@ pub struct ListRunsRequest {
     pub page_token: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[ListRuns][google.cloud.datacatalog.lineage.v1.ListRuns\].
+/// [ListRuns][google.cloud.datacatalog.lineage.v1.ListRuns].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListRunsResponse {
@@ -462,7 +462,7 @@ pub struct ListRunsResponse {
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[DeleteRun][google.cloud.datacatalog.lineage.v1.DeleteRun\].
+/// [DeleteRun][google.cloud.datacatalog.lineage.v1.DeleteRun].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteRunRequest {
@@ -475,7 +475,7 @@ pub struct DeleteRunRequest {
     pub allow_missing: bool,
 }
 /// Request message for
-/// \[CreateLineageEvent][google.cloud.datacatalog.lineage.v1.CreateLineageEvent\].
+/// [CreateLineageEvent][google.cloud.datacatalog.lineage.v1.CreateLineageEvent].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateLineageEventRequest {
@@ -492,7 +492,7 @@ pub struct CreateLineageEventRequest {
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[GetLineageEvent][google.cloud.datacatalog.lineage.v1.GetLineageEvent\].
+/// [GetLineageEvent][google.cloud.datacatalog.lineage.v1.GetLineageEvent].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetLineageEventRequest {
@@ -501,7 +501,7 @@ pub struct GetLineageEventRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[ListLineageEvents][google.cloud.datacatalog.lineage.v1.ListLineageEvents\].
+/// [ListLineageEvents][google.cloud.datacatalog.lineage.v1.ListLineageEvents].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListLineageEventsRequest {
@@ -525,7 +525,7 @@ pub struct ListLineageEventsRequest {
     pub page_token: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[ListLineageEvents][google.cloud.datacatalog.lineage.v1.ListLineageEvents\].
+/// [ListLineageEvents][google.cloud.datacatalog.lineage.v1.ListLineageEvents].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListLineageEventsResponse {
@@ -538,7 +538,7 @@ pub struct ListLineageEventsResponse {
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[DeleteLineageEvent][google.cloud.datacatalog.lineage.v1.DeleteLineageEvent\].
+/// [DeleteLineageEvent][google.cloud.datacatalog.lineage.v1.DeleteLineageEvent].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteLineageEventRequest {
@@ -551,7 +551,7 @@ pub struct DeleteLineageEventRequest {
     pub allow_missing: bool,
 }
 /// Request message for
-/// \[SearchLinks][google.cloud.datacatalog.lineage.v1.Lineage.SearchLinks\].
+/// [SearchLinks][google.cloud.datacatalog.lineage.v1.Lineage.SearchLinks].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SearchLinksRequest {
@@ -594,7 +594,7 @@ pub mod search_links_request {
     }
 }
 /// Response message for
-/// \[SearchLinks][google.cloud.datacatalog.lineage.v1.Lineage.SearchLinks\].
+/// [SearchLinks][google.cloud.datacatalog.lineage.v1.Lineage.SearchLinks].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SearchLinksResponse {
@@ -633,7 +633,7 @@ pub struct Link {
     pub end_time: ::core::option::Option<::prost_types::Timestamp>,
 }
 /// Request message for
-/// \[BatchSearchLinkProcesses][google.cloud.datacatalog.lineage.v1.Lineage.BatchSearchLinkProcesses\].
+/// [BatchSearchLinkProcesses][google.cloud.datacatalog.lineage.v1.Lineage.BatchSearchLinkProcesses].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BatchSearchLinkProcessesRequest {
@@ -663,7 +663,7 @@ pub struct BatchSearchLinkProcessesRequest {
     pub page_token: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[BatchSearchLinkProcesses][google.cloud.datacatalog.lineage.v1.Lineage.BatchSearchLinkProcesses\].
+/// [BatchSearchLinkProcesses][google.cloud.datacatalog.lineage.v1.Lineage.BatchSearchLinkProcesses].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BatchSearchLinkProcessesResponse {

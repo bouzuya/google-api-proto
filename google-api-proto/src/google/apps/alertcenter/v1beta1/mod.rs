@@ -312,7 +312,7 @@ pub struct ListAlertsRequest {
     /// Optional. A token identifying a page of results the server should return.
     /// If empty, a new iteration is started. To continue an iteration, pass in
     /// the value from the previous ListAlertsResponse's
-    /// \[next_page_token][google.apps.alertcenter.v1beta1.ListAlertsResponse.next_page_token\]
+    /// [next_page_token][google.apps.alertcenter.v1beta1.ListAlertsResponse.next_page_token]
     /// field.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
@@ -342,7 +342,7 @@ pub struct ListAlertsResponse {
     /// The token for the next page. If not empty, indicates that there may be more
     /// alerts that match the listing request; this value can be used in a
     /// subsequent
-    /// \[ListAlertsRequest][google.apps.alertcenter.v1beta1.ListAlertsRequest\] to
+    /// [ListAlertsRequest][google.apps.alertcenter.v1beta1.ListAlertsRequest] to
     /// get alerts continuing from last result of the current list call.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,

@@ -119,7 +119,7 @@ pub struct CustomIconDetectionRequest {
     /// Set match_count to -1 to not limit the number of matches.
     #[prost(int32, tag = "2")]
     pub match_count: i32,
-    /// Confidence threshold in the range [0.0, 1.0] below which the matches will
+    /// Confidence threshold in the range \[0.0, 1.0\] below which the matches will
     /// be considered as non-existent.
     #[prost(double, tag = "3")]
     pub min_confidence_threshold: f64,
@@ -141,8 +141,8 @@ pub struct UiDetectionResponse {
     pub resizing_scale_factor: f32,
 }
 /// The location of a UI element.
-/// A bounding box is reprensented by its top-left point [left, top]
-/// and its bottom-right point [right, bottom].
+/// A bounding box is reprensented by its top-left point \[left, top\]
+/// and its bottom-right point \[right, bottom\].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BoundingBox {

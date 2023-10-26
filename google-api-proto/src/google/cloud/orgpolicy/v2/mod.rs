@@ -7,7 +7,7 @@
 /// locations in the organization's resource hierarchy. Policies are inherited
 /// down the resource hierarchy from higher levels, but can also be overridden.
 /// For details about the inheritance rules please read about
-/// \[`policies`][google.cloud.OrgPolicy.v2.Policy\].
+/// [`policies`][google.cloud.OrgPolicy.v2.Policy].
 ///
 /// `Constraints` have a default behavior determined by the `constraint_default`
 /// field, which is the enforcement behavior that is used in the absence of a

@@ -267,7 +267,7 @@ pub struct StreamingRecognitionConfig {
     /// `true`.
     ///
     /// The `single_utterance` field can only be used with specified models,
-    /// otherwise an error is thrown. The `model` field in \[`RecognitionConfig`][\]
+    /// otherwise an error is thrown. The `model` field in [`RecognitionConfig`][]
     /// must be set to:
     ///
     /// * `command_and_search`
@@ -317,7 +317,7 @@ pub struct RecognitionConfig {
     /// Encoding of audio data sent in all `RecognitionAudio` messages.
     /// This field is optional for `FLAC` and `WAV` audio files and required
     /// for all other audio formats. For details, see
-    /// \[AudioEncoding][google.cloud.speech.v1p1beta1.RecognitionConfig.AudioEncoding\].
+    /// [AudioEncoding][google.cloud.speech.v1p1beta1.RecognitionConfig.AudioEncoding].
     #[prost(enumeration = "recognition_config::AudioEncoding", tag = "1")]
     pub encoding: i32,
     /// Sample rate in Hertz of the audio data sent in all
@@ -327,7 +327,7 @@ pub struct RecognitionConfig {
     /// the audio source (instead of re-sampling).
     /// This field is optional for FLAC and WAV audio files, but is
     /// required for all other audio formats. For details, see
-    /// \[AudioEncoding][google.cloud.speech.v1p1beta1.RecognitionConfig.AudioEncoding\].
+    /// [AudioEncoding][google.cloud.speech.v1p1beta1.RecognitionConfig.AudioEncoding].
     #[prost(int32, tag = "2")]
     pub sample_rate_hertz: i32,
     /// The number of channels in the input audio data.
@@ -349,7 +349,7 @@ pub struct RecognitionConfig {
     #[prost(bool, tag = "12")]
     pub enable_separate_recognition_per_channel: bool,
     /// Required. The language of the supplied audio as a
-    /// \[BCP-47\](<https://www.rfc-editor.org/rfc/bcp/bcp47.txt>) language tag.
+    /// [BCP-47](<https://www.rfc-editor.org/rfc/bcp/bcp47.txt>) language tag.
     /// Example: "en-US".
     /// See [Language
     /// Support](<https://cloud.google.com/speech-to-text/docs/languages>) for a list
@@ -357,7 +357,7 @@ pub struct RecognitionConfig {
     #[prost(string, tag = "3")]
     pub language_code: ::prost::alloc::string::String,
     /// A list of up to 3 additional
-    /// \[BCP-47\](<https://www.rfc-editor.org/rfc/bcp/bcp47.txt>) language tags,
+    /// [BCP-47](<https://www.rfc-editor.org/rfc/bcp/bcp47.txt>) language tags,
     /// listing possible alternative languages of the supplied audio.
     /// See [Language
     /// Support](<https://cloud.google.com/speech-to-text/docs/languages>) for a list
@@ -399,7 +399,7 @@ pub struct RecognitionConfig {
     /// and final transcripts.
     #[prost(message, optional, tag = "24")]
     pub transcript_normalization: ::core::option::Option<TranscriptNormalization>,
-    /// Array of \[SpeechContext][google.cloud.speech.v1p1beta1.SpeechContext\].
+    /// Array of [SpeechContext][google.cloud.speech.v1p1beta1.SpeechContext].
     /// A means to provide context to assist the speech recognition. For more
     /// information, see
     /// [speech
@@ -553,7 +553,7 @@ pub mod recognition_config {
     /// an `AudioEncoding` when you send  send `FLAC` or `WAV` audio, the
     /// encoding configuration must match the encoding described in the audio
     /// header; otherwise the request returns an
-    /// \[google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\] error
+    /// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT] error
     /// code.
     #[derive(
         Clone,
@@ -586,12 +586,12 @@ pub mod recognition_config {
         /// Adaptive Multi-Rate Wideband codec. `sample_rate_hertz` must be 16000.
         AmrWb = 5,
         /// Opus encoded audio frames in Ogg container
-        /// (\[OggOpus\](<https://wiki.xiph.org/OggOpus>)).
+        /// ([OggOpus](<https://wiki.xiph.org/OggOpus>)).
         /// `sample_rate_hertz` must be one of 8000, 12000, 16000, 24000, or 48000.
         OggOpus = 6,
         /// Although the use of lossy encodings is not recommended, if a very low
         /// bitrate encoding is required, `OGG_OPUS` is highly preferred over
-        /// Speex encoding. The \[Speex\](<https://speex.org/>)  encoding supported by
+        /// Speex encoding. The [Speex](<https://speex.org/>)  encoding supported by
         /// Cloud Speech API has a header byte in each block, as in MIME type
         /// `audio/x-speex-with-header-byte`.
         /// It is a variant of the RTP Speex encoding defined in
@@ -609,7 +609,7 @@ pub mod recognition_config {
         /// sample rate of the file being used.
         Mp3 = 8,
         /// Opus encoded audio frames in WebM container
-        /// (\[OggOpus\](<https://wiki.xiph.org/OggOpus>)). `sample_rate_hertz` must be
+        /// ([OggOpus](<https://wiki.xiph.org/OggOpus>)). `sample_rate_hertz` must be
         /// one of 8000, 12000, 16000, 24000, or 48000.
         WebmOpus = 9,
     }
@@ -978,7 +978,7 @@ pub struct SpeechContext {
 }
 /// Contains audio data in the encoding specified in the `RecognitionConfig`.
 /// Either `content` or `uri` must be supplied. Supplying both or neither
-/// returns \[google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\].
+/// returns [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
 /// See [content limits](<https://cloud.google.com/speech-to-text/quotas#content>).
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1005,7 +1005,7 @@ pub mod recognition_audio {
         /// Currently, only Google Cloud Storage URIs are
         /// supported, which must be specified in the following format:
         /// `gs://bucket_name/object_name` (other URI formats return
-        /// \[google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT\]).
+        /// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT]).
         /// For more information, see [Request
         /// URIs](<https://cloud.google.com/storage/docs/reference-uris>).
         #[prost(string, tag = "2")]
@@ -1139,7 +1139,7 @@ pub struct LongRunningRecognizeMetadata {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct StreamingRecognizeResponse {
-    /// If set, returns a \[google.rpc.Status][google.rpc.Status\] message that
+    /// If set, returns a [google.rpc.Status][google.rpc.Status] message that
     /// specifies the error for the operation.
     #[prost(message, optional, tag = "1")]
     pub error: ::core::option::Option<super::super::super::rpc::Status>,
@@ -1269,7 +1269,7 @@ pub struct StreamingRecognitionResult {
     /// For audio_channel_count = N, its output values can range from '1' to 'N'.
     #[prost(int32, tag = "5")]
     pub channel_tag: i32,
-    /// Output only. The \[BCP-47\](<https://www.rfc-editor.org/rfc/bcp/bcp47.txt>)
+    /// Output only. The [BCP-47](<https://www.rfc-editor.org/rfc/bcp/bcp47.txt>)
     /// language tag of the language in this result. This language code was
     /// detected to have the most likelihood of being spoken in the audio.
     #[prost(string, tag = "6")]
@@ -1294,7 +1294,7 @@ pub struct SpeechRecognitionResult {
     /// beginning of the audio.
     #[prost(message, optional, tag = "4")]
     pub result_end_time: ::core::option::Option<::prost_types::Duration>,
-    /// Output only. The \[BCP-47\](<https://www.rfc-editor.org/rfc/bcp/bcp47.txt>)
+    /// Output only. The [BCP-47](<https://www.rfc-editor.org/rfc/bcp/bcp47.txt>)
     /// language tag of the language in this result. This language code was
     /// detected to have the most likelihood of being spoken in the audio.
     #[prost(string, tag = "5")]

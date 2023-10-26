@@ -29,7 +29,7 @@
 pub struct Aggregation {
     /// The `alignment_period` specifies a time interval, in seconds, that is used
     /// to divide the data in all the
-    /// [time series]\[google.monitoring.v3.TimeSeries\] into consistent blocks of
+    /// [time series][google.monitoring.v3.TimeSeries] into consistent blocks of
     /// time. This will be done before the per-series aligner can be applied to
     /// the data.
     ///
@@ -124,11 +124,11 @@ pub mod aggregation {
         /// `value_type` of the input.
         AlignNone = 0,
         /// Align and convert to
-        /// \[DELTA][google.api.MetricDescriptor.MetricKind.DELTA\].
+        /// [DELTA][google.api.MetricDescriptor.MetricKind.DELTA].
         /// The output is `delta = y1 - y0`.
         ///
         /// This alignment is valid for
-        /// \[CUMULATIVE][google.api.MetricDescriptor.MetricKind.CUMULATIVE\] and
+        /// [CUMULATIVE][google.api.MetricDescriptor.MetricKind.CUMULATIVE] and
         /// `DELTA` metrics. If the selected alignment period results in periods
         /// with no data, then the aligned value for such a period is created by
         /// interpolation. The `value_type`  of the aligned result is the same as
@@ -198,7 +198,7 @@ pub mod aggregation {
         /// Align the time series by returning the ratio of the number of `True`
         /// values to the total number of values in each alignment period. This
         /// aligner is valid for `GAUGE` metrics with Boolean values. The output
-        /// value is in the range [0.0, 1.0] and has `value_type` `DOUBLE`.
+        /// value is in the range \[0.0, 1.0\] and has `value_type` `DOUBLE`.
         AlignFractionTrue = 17,
         /// Align the time series by using [percentile
         /// aggregation](<https://en.wikipedia.org/wiki/Percentile>). The resulting
@@ -322,10 +322,10 @@ pub mod aggregation {
         ReduceNone = 0,
         /// Reduce by computing the mean value across time series for each
         /// alignment period. This reducer is valid for
-        /// \[DELTA][google.api.MetricDescriptor.MetricKind.DELTA\] and
-        /// \[GAUGE][google.api.MetricDescriptor.MetricKind.GAUGE\] metrics with
+        /// [DELTA][google.api.MetricDescriptor.MetricKind.DELTA] and
+        /// [GAUGE][google.api.MetricDescriptor.MetricKind.GAUGE] metrics with
         /// numeric or distribution values. The `value_type` of the output is
-        /// \[DOUBLE][google.api.MetricDescriptor.ValueType.DOUBLE\].
+        /// [DOUBLE][google.api.MetricDescriptor.ValueType.DOUBLE].
         ReduceMean = 1,
         /// Reduce by computing the minimum value across time series for each
         /// alignment period. This reducer is valid for `DELTA` and `GAUGE` metrics
@@ -365,7 +365,7 @@ pub mod aggregation {
         /// Reduce by computing the ratio of the number of `True`-valued data points
         /// to the total number of data points for each alignment period. This
         /// reducer is valid for `DELTA` and `GAUGE` metrics of Boolean `value_type`.
-        /// The output value is in the range [0.0, 1.0] and has `value_type`
+        /// The output value is in the range \[0.0, 1.0\] and has `value_type`
         /// `DOUBLE`.
         ReduceFractionTrue = 8,
         /// Reduce by computing the [99th
@@ -630,7 +630,7 @@ pub struct TimeSeriesQuery {
     /// The unit of data contained in fetched time series. If non-empty, this
     /// unit will override any unit that accompanies fetched data. The format is
     /// the same as the
-    /// \[`unit`\](<https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors>)
+    /// [`unit`](<https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors>)
     /// field in `MetricDescriptor`.
     #[prost(string, tag = "5")]
     pub unit_override: ::prost::alloc::string::String,
@@ -660,7 +660,7 @@ pub mod time_series_query {
 }
 /// A filter that defines a subset of time series data that is displayed in a
 /// widget. Time series data is fetched using the
-/// \[`ListTimeSeries`\](<https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list>)
+/// [`ListTimeSeries`](<https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list>)
 /// method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -942,6 +942,31 @@ impl SparkChartType {
         }
     }
 }
+/// A widget that displays a stream of log.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LogsPanel {
+    /// A filter that chooses which log entries to return.  See [Advanced Logs
+    /// Queries](<https://cloud.google.com/logging/docs/view/advanced-queries>).
+    /// Only log entries that match the filter are returned.  An empty filter
+    /// matches all log entries.
+    #[prost(string, tag = "1")]
+    pub filter: ::prost::alloc::string::String,
+    /// The names of logging resources to collect logs for. Currently only projects
+    /// are supported. If empty, the widget will default to the host project.
+    #[prost(string, repeated, tag = "2")]
+    pub resource_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// A chart that displays alert policy data.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AlertChart {
+    /// Required. The resource name of the alert policy. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/alertPolicies/\[ALERT_POLICY_ID\]
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
 /// Table display options that can be reused.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1049,16 +1074,6 @@ pub mod time_series_table {
         }
     }
 }
-/// A chart that displays alert policy data.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AlertChart {
-    /// Required. The resource name of the alert policy. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID\]
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
 /// A widget that groups the other widgets. All widgets that are within
 /// the area spanned by the grouping widget are considered member widgets.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1067,21 +1082,6 @@ pub struct CollapsibleGroup {
     /// The collapsed state of the widget on first page load.
     #[prost(bool, tag = "1")]
     pub collapsed: bool,
-}
-/// A widget that displays a stream of log.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LogsPanel {
-    /// A filter that chooses which log entries to return.  See [Advanced Logs
-    /// Queries](<https://cloud.google.com/logging/docs/view/advanced-queries>).
-    /// Only log entries that match the filter are returned.  An empty filter
-    /// matches all log entries.
-    #[prost(string, tag = "1")]
-    pub filter: ::prost::alloc::string::String,
-    /// The names of logging resources to collect logs for. Currently only projects
-    /// are supported. If empty, the widget will default to the host project.
-    #[prost(string, repeated, tag = "2")]
-    pub resource_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// A widget showing the latest value of a metric, and how this value relates to
 /// one or more thresholds.
@@ -1879,7 +1879,7 @@ pub struct GetDashboardRequest {
     /// Required. The resource name of the Dashboard. The format is one of:
     ///
     ///   -  `dashboards/\[DASHBOARD_ID\]` (for system dashboards)
-    ///   -  `projects/\[PROJECT_ID_OR_NUMBER]/dashboards/[DASHBOARD_ID\]`
+    ///   -  `projects/\[PROJECT_ID_OR_NUMBER\]/dashboards/\[DASHBOARD_ID\]`
     ///        (for custom dashboards).
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
@@ -1890,7 +1890,7 @@ pub struct GetDashboardRequest {
 pub struct DeleteDashboardRequest {
     /// Required. The resource name of the Dashboard. The format is:
     ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER]/dashboards/[DASHBOARD_ID\]
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/dashboards/\[DASHBOARD_ID\]
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }

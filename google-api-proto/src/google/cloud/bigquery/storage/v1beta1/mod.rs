@@ -247,7 +247,7 @@ pub struct StreamStatus {
     /// or slow.
     #[prost(int64, tag = "1")]
     pub estimated_row_count: i64,
-    /// A value in the range [0.0, 1.0] that represents the fraction of rows
+    /// A value in the range \[0.0, 1.0\] that represents the fraction of rows
     /// assigned to this stream that have been processed by the server. In the
     /// presence of read filters, the server may process more rows than it returns,
     /// so this value reflects progress through the pre-filtering rows.

@@ -631,8 +631,8 @@ pub struct OperationMetadata {
     pub status_message: ::prost::alloc::string::String,
     /// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have been cancelled successfully
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     #[prost(bool, tag = "6")]
     pub requested_cancellation: bool,
@@ -1164,7 +1164,7 @@ pub struct CreateGroupRequest {
     /// component of the group name. The ID must be unique within the project, must
     /// conform with RFC-1034, is restricted to lower-cased letters, and has a
     /// maximum length of 63 characters. The ID must match the regular expression:
-    /// `\[a-z]([a-z0-9-]{0,61}[a-z0-9\])?`.
+    /// `[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?`.
     #[prost(string, tag = "2")]
     pub group_id: ::prost::alloc::string::String,
     /// Required. The group resource being created.
@@ -1410,7 +1410,7 @@ pub struct CreateSourceRequest {
     /// component of the source name. The ID must be unique within the project,
     /// must conform with RFC-1034, is restricted to lower-cased letters, and has a
     /// maximum length of 63 characters. The ID must match the regular expression:
-    /// `\[a-z]([a-z0-9-]{0,61}[a-z0-9\])?`.
+    /// `[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?`.
     #[prost(string, tag = "2")]
     pub source_id: ::prost::alloc::string::String,
     /// Required. The resource being created.
@@ -1539,7 +1539,7 @@ pub struct CreatePreferenceSetRequest {
     /// project, must conform with RFC-1034, is restricted to lower-cased letters,
     /// and has a maximum length of 63 characters. The ID must match the regular
     /// expression
-    /// `\[a-z]([a-z0-9-]{0,61}[a-z0-9\])?`.
+    /// `[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?`.
     #[prost(string, tag = "2")]
     pub preference_set_id: ::prost::alloc::string::String,
     /// Required. The preference set resource being created.
@@ -1665,7 +1665,7 @@ pub struct CreateReportConfigRequest {
     /// component of the report config name. The ID must be unique within the
     /// project, must conform with RFC-1034, is restricted to lower-cased letters,
     /// and has a maximum length of 63 characters. The ID must match the regular
-    /// expression: \[a-z]([a-z0-9-]{0,61}[a-z0-9\])?.
+    /// expression: [a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?.
     #[prost(string, tag = "2")]
     pub report_config_id: ::prost::alloc::string::String,
     /// Required. The report config set resource being created.
@@ -1841,7 +1841,7 @@ pub struct CreateReportRequest {
     /// component of the report name. The id must be unique within the project,
     /// must conform with RFC-1034, is restricted to lower-cased letters, and has a
     /// maximum length of 63 characters. The id must match the regular expression:
-    /// \[a-z]([a-z0-9-]{0,61}[a-z0-9\])?.
+    /// [a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?.
     #[prost(string, tag = "2")]
     pub report_id: ::prost::alloc::string::String,
     /// Required. The report resource being created.
@@ -3226,7 +3226,7 @@ pub struct PhysicalPlatformDetails {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MemoryUsageSample {
-    /// Percentage of system memory utilized. Must be in the interval [0, 100].
+    /// Percentage of system memory utilized. Must be in the interval \[0, 100\].
     #[prost(float, tag = "1")]
     pub utilized_percentage: f32,
 }
@@ -4548,15 +4548,15 @@ pub enum ImportJobFormat {
     RvtoolsCsv = 2,
     /// CSV format exported from AWS using the
     /// [AWS collection
-    /// script]\[<https://github.com/GoogleCloudPlatform/aws-to-stratozone-export\].>
+    /// script][<https://github.com/GoogleCloudPlatform/aws-to-stratozone-export].>
     ExportedAwsCsv = 4,
     /// CSV format exported from Azure using the
     /// [Azure collection
-    /// script]\[<https://github.com/GoogleCloudPlatform/azure-to-stratozone-export\].>
+    /// script][<https://github.com/GoogleCloudPlatform/azure-to-stratozone-export].>
     ExportedAzureCsv = 5,
     /// CSV format created manually and following the StratoZone format. For more
     /// information, see [Manually create and upload data
-    /// tables]\[<https://cloud.google.com/migrate/stratozone/docs/import-data-portal\].>
+    /// tables][<https://cloud.google.com/migrate/stratozone/docs/import-data-portal].>
     StratozoneCsv = 6,
 }
 impl ImportJobFormat {

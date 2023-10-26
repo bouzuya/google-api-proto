@@ -35,7 +35,7 @@ pub struct LoggedMigrationJob {
     /// Required. The migration job type.
     #[prost(enumeration = "logged_migration_job::Type", tag = "6")]
     pub r#type: i32,
-    /// Optional. An optional dump path (gs://\[BUCKET_NAME]/[OBJECT_NAME\]).
+    /// Optional. An optional dump path (gs://\[BUCKET_NAME\]/[OBJECT_NAME]).
     #[prost(string, tag = "7")]
     pub dump_path: ::prost::alloc::string::String,
     /// Required. The migration job source connection profile name.

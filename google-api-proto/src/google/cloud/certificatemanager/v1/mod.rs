@@ -565,8 +565,8 @@ pub struct OperationMetadata {
     pub status_message: ::prost::alloc::string::String,
     /// Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     #[prost(bool, tag = "6")]
     pub requested_cancellation: bool,
@@ -647,7 +647,7 @@ pub mod certificate {
         #[prost(string, repeated, tag = "2")]
         pub dns_authorizations: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
         /// Immutable. The resource name for a
-        /// \[CertificateIssuanceConfig][google.cloud.certificatemanager.v1.CertificateIssuanceConfig\]
+        /// [CertificateIssuanceConfig][google.cloud.certificatemanager.v1.CertificateIssuanceConfig]
         /// used to configure private PKI certificates in the format
         /// `projects/*/locations/*/certificateIssuanceConfigs/*`.
         /// If this field is not set, the certificates will instead be publicly

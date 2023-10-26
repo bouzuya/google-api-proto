@@ -17,9 +17,9 @@ pub struct Workflow {
     /// A new revision of a workflow is created as a result of updating the
     /// following properties of a workflow:
     ///
-    /// - [Service account]\[google.cloud.workflows.v1.Workflow.service_account\]
+    /// - [Service account][google.cloud.workflows.v1.Workflow.service_account]
     /// - [Workflow code to be
-    /// executed]\[google.cloud.workflows.v1.Workflow.source_contents\]
+    /// executed][google.cloud.workflows.v1.Workflow.source_contents]
     ///
     /// The format is "000001-a4d", where the first six characters define
     /// the zero-padded revision ordinal number. They are followed by a hyphen and
@@ -258,7 +258,7 @@ pub mod workflow {
     }
 }
 /// Request for the
-/// \[ListWorkflows][google.cloud.workflows.v1.Workflows.ListWorkflows\]
+/// [ListWorkflows][google.cloud.workflows.v1.Workflows.ListWorkflows]
 /// method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -291,7 +291,7 @@ pub struct ListWorkflowsRequest {
     pub order_by: ::prost::alloc::string::String,
 }
 /// Response for the
-/// \[ListWorkflows][google.cloud.workflows.v1.Workflows.ListWorkflows\]
+/// [ListWorkflows][google.cloud.workflows.v1.Workflows.ListWorkflows]
 /// method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -308,7 +308,7 @@ pub struct ListWorkflowsResponse {
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// Request for the
-/// \[GetWorkflow][google.cloud.workflows.v1.Workflows.GetWorkflow\] method.
+/// [GetWorkflow][google.cloud.workflows.v1.Workflows.GetWorkflow] method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetWorkflowRequest {
@@ -325,7 +325,7 @@ pub struct GetWorkflowRequest {
     pub revision_id: ::prost::alloc::string::String,
 }
 /// Request for the
-/// \[CreateWorkflow][google.cloud.workflows.v1.Workflows.CreateWorkflow\]
+/// [CreateWorkflow][google.cloud.workflows.v1.Workflows.CreateWorkflow]
 /// method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -349,7 +349,7 @@ pub struct CreateWorkflowRequest {
     pub workflow_id: ::prost::alloc::string::String,
 }
 /// Request for the
-/// \[DeleteWorkflow][google.cloud.workflows.v1.Workflows.DeleteWorkflow\]
+/// [DeleteWorkflow][google.cloud.workflows.v1.Workflows.DeleteWorkflow]
 /// method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -360,7 +360,7 @@ pub struct DeleteWorkflowRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request for the
-/// \[UpdateWorkflow][google.cloud.workflows.v1.Workflows.UpdateWorkflow\]
+/// [UpdateWorkflow][google.cloud.workflows.v1.Workflows.UpdateWorkflow]
 /// method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]

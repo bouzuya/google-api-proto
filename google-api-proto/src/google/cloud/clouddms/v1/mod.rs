@@ -354,7 +354,7 @@ pub struct CloudSqlSettings {
     /// The IPv4 address cannot be disabled.
     #[prost(message, optional, tag = "6")]
     pub ip_config: ::core::option::Option<SqlIpConfig>,
-    /// [default: ON] If you enable this setting, Cloud SQL checks your available
+    /// \[default: ON\] If you enable this setting, Cloud SQL checks your available
     /// storage every 30 seconds. If the available storage falls below a threshold
     /// size, Cloud SQL automatically adds additional storage capacity. If the
     /// available storage repeatedly falls below the threshold size, Cloud SQL
@@ -767,7 +767,7 @@ pub mod alloy_db_settings {
     pub struct EncryptionConfig {
         /// The fully-qualified resource name of the KMS key.
         /// Each Cloud KMS key is regionalized and has the following format:
-        /// projects/\[PROJECT]/locations/[REGION]/keyRings/[RING]/cryptoKeys/[KEY_NAME\]
+        /// projects/\[PROJECT\]/locations/\[REGION\]/keyRings/\[RING\]/cryptoKeys/\[KEY_NAME\]
         #[prost(string, tag = "1")]
         pub kms_key_name: ::prost::alloc::string::String,
     }
@@ -923,7 +923,7 @@ pub struct MigrationJob {
     #[prost(enumeration = "migration_job::Type", tag = "8")]
     pub r#type: i32,
     /// The path to the dump file in Google Cloud Storage,
-    /// in the format: (gs://\[BUCKET_NAME]/[OBJECT_NAME\]).
+    /// in the format: (gs://\[BUCKET_NAME\]/[OBJECT_NAME]).
     /// This field and the "dump_flags" field are mutually exclusive.
     #[prost(string, tag = "9")]
     pub dump_path: ::prost::alloc::string::String,
@@ -975,7 +975,7 @@ pub struct MigrationJob {
     /// * PostgreSQL to AlloyDB (use the kms_key_name field in the alloydb
     /// connection profile instead).
     /// Each Cloud CMEK key has the following format:
-    /// projects/\[PROJECT]/locations/[REGION]/keyRings/[RING]/cryptoKeys/[KEY_NAME\]
+    /// projects/\[PROJECT\]/locations/\[REGION\]/keyRings/\[RING\]/cryptoKeys/\[KEY_NAME\]
     #[prost(string, tag = "21")]
     pub cmek_key_name: ::prost::alloc::string::String,
     /// Optional. Data dump parallelism settings used by the migration.
@@ -4228,8 +4228,8 @@ pub struct OperationMetadata {
     pub status_message: ::prost::alloc::string::String,
     /// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     #[prost(bool, tag = "6")]
     pub requested_cancellation: bool,
@@ -4720,7 +4720,7 @@ pub struct CreateMappingRuleRequest {
     /// Required. The ID of the rule to create.
     #[prost(string, tag = "2")]
     pub mapping_rule_id: ::prost::alloc::string::String,
-    /// Required. Represents a [mapping rule]
+    /// Required. Represents a \[mapping rule\]
     /// (<https://cloud.google.com/database-migration/reference/rest/v1/projects.locations.mappingRules>)
     /// object.
     #[prost(message, optional, tag = "3")]

@@ -127,7 +127,7 @@ pub mod attribute_context {
         /// the following pieces of information:
         ///
         /// *  The services intended to receive the credential. For example,
-        ///     ["<https://pubsub.googleapis.com/",> "<https://storage.googleapis.com/"].>
+        ///     \["<https://pubsub.googleapis.com/",> "<https://storage.googleapis.com/"\].>
         /// *  A set of service-based scopes. For example,
         ///     \["<https://www.googleapis.com/auth/cloud-platform"\].>
         /// *  The client id of an app, such as the Firebase project id for JWTs
@@ -150,7 +150,7 @@ pub mod attribute_context {
         ///
         ///     {'iss': 'accounts.google.com',
         ///      'sub': '113289723416554971153',
-        ///      'aud': ['123456789012', 'pubsub.googleapis.com'],
+        ///      'aud': \['123456789012', 'pubsub.googleapis.com'\],
         ///      'azp': '123456789012.apps.googleusercontent.com',
         ///      'email': 'jsmith@example.com',
         ///      'iat': 1353601026,

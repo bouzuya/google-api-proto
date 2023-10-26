@@ -1,150 +1,3 @@
-/// Type indicates the type of the log entry and can be used as a filter.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum Type {
-    /// Type is unspecified.
-    Unspecified = 0,
-    /// A Pub/Sub notification failed to be sent.
-    PubsubNotificationFailure = 1,
-    /// Resource state changed.
-    ResourceStateChange = 3,
-    /// A process aborted.
-    ProcessAborted = 4,
-    /// Restriction check failed.
-    RestrictionViolated = 5,
-    /// Resource deleted.
-    ResourceDeleted = 6,
-    /// Deprecated: This field is never used. Use release_render log type instead.
-    RenderStatuesChange = 2,
-}
-impl Type {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            Type::Unspecified => "TYPE_UNSPECIFIED",
-            Type::PubsubNotificationFailure => "TYPE_PUBSUB_NOTIFICATION_FAILURE",
-            Type::ResourceStateChange => "TYPE_RESOURCE_STATE_CHANGE",
-            Type::ProcessAborted => "TYPE_PROCESS_ABORTED",
-            Type::RestrictionViolated => "TYPE_RESTRICTION_VIOLATED",
-            Type::ResourceDeleted => "TYPE_RESOURCE_DELETED",
-            Type::RenderStatuesChange => "TYPE_RENDER_STATUES_CHANGE",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "TYPE_PUBSUB_NOTIFICATION_FAILURE" => Some(Self::PubsubNotificationFailure),
-            "TYPE_RESOURCE_STATE_CHANGE" => Some(Self::ResourceStateChange),
-            "TYPE_PROCESS_ABORTED" => Some(Self::ProcessAborted),
-            "TYPE_RESTRICTION_VIOLATED" => Some(Self::RestrictionViolated),
-            "TYPE_RESOURCE_DELETED" => Some(Self::ResourceDeleted),
-            "TYPE_RENDER_STATUES_CHANGE" => Some(Self::RenderStatuesChange),
-            _ => None,
-        }
-    }
-}
-/// Payload proto for "clouddeploy.googleapis.com/release_notification"
-/// Platform Log event that describes the failure to send release status change
-/// Pub/Sub notification.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ReleaseNotificationEvent {
-    /// Debug message for when a notification fails to send.
-    #[prost(string, tag = "1")]
-    pub message: ::prost::alloc::string::String,
-    /// The name of the `Release`.
-    #[prost(string, tag = "2")]
-    pub release: ::prost::alloc::string::String,
-    /// Type of this notification, e.g. for a Pub/Sub failure.
-    #[prost(enumeration = "Type", tag = "3")]
-    pub r#type: i32,
-}
-/// Payload proto for "clouddeploy.googleapis.com/jobrun_notification"
-/// Platform Log event that describes the failure to send JobRun resource update
-/// Pub/Sub notification.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct JobRunNotificationEvent {
-    /// Debug message for when a notification fails to send.
-    #[prost(string, tag = "1")]
-    pub message: ::prost::alloc::string::String,
-    /// The name of the `JobRun`.
-    #[prost(string, tag = "2")]
-    pub job_run: ::prost::alloc::string::String,
-    /// Unique identifier of the `DeliveryPipeline`.
-    #[prost(string, tag = "3")]
-    pub pipeline_uid: ::prost::alloc::string::String,
-    /// Unique identifier of the `Release`.
-    #[prost(string, tag = "4")]
-    pub release_uid: ::prost::alloc::string::String,
-    /// Unique identifier of the `Rollout`.
-    #[prost(string, tag = "5")]
-    pub rollout_uid: ::prost::alloc::string::String,
-    /// ID of the `Target`.
-    #[prost(string, tag = "6")]
-    pub target_id: ::prost::alloc::string::String,
-    /// Type of this notification, e.g. for a Pub/Sub failure.
-    #[prost(enumeration = "Type", tag = "7")]
-    pub r#type: i32,
-}
-/// Payload proto for "clouddeploy.googleapis.com/target_notification"
-/// Platform Log event that describes the failure to send target status change
-/// Pub/Sub notification.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TargetNotificationEvent {
-    /// Debug message for when a notification fails to send.
-    #[prost(string, tag = "1")]
-    pub message: ::prost::alloc::string::String,
-    /// The name of the `Target`.
-    #[prost(string, tag = "2")]
-    pub target: ::prost::alloc::string::String,
-    /// Type of this notification, e.g. for a Pub/Sub failure.
-    #[prost(enumeration = "Type", tag = "3")]
-    pub r#type: i32,
-}
-/// Payload proto for "clouddeploy.googleapis.com/release_render"
-/// Platform Log event that describes the render status change.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ReleaseRenderEvent {
-    /// Debug message for when a render transition occurs. Provides further
-    /// details as rendering progresses through render states.
-    #[prost(string, tag = "1")]
-    pub message: ::prost::alloc::string::String,
-    /// The name of the `Release`.
-    #[prost(string, tag = "2")]
-    pub release: ::prost::alloc::string::String,
-}
-/// Payload proto for "clouddeploy.googleapis.com/rollout_notification"
-/// Platform Log event that describes the failure to send rollout status change
-/// Pub/Sub notification.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RolloutNotificationEvent {
-    /// Debug message for when a notification fails to send.
-    #[prost(string, tag = "1")]
-    pub message: ::prost::alloc::string::String,
-    /// Unique identifier of the `DeliveryPipeline`.
-    #[prost(string, tag = "2")]
-    pub pipeline_uid: ::prost::alloc::string::String,
-    /// Unique identifier of the `Release`.
-    #[prost(string, tag = "3")]
-    pub release_uid: ::prost::alloc::string::String,
-    /// The name of the `Rollout`.
-    #[prost(string, tag = "4")]
-    pub rollout: ::prost::alloc::string::String,
-    /// Type of this notification, e.g. for a Pub/Sub failure.
-    #[prost(enumeration = "Type", tag = "5")]
-    pub r#type: i32,
-    /// ID of the `Target` that the rollout is deployed to.
-    #[prost(string, tag = "6")]
-    pub target_id: ::prost::alloc::string::String,
-}
 /// A `DeliveryPipeline` resource in the Cloud Deploy API.
 ///
 /// A `DeliveryPipeline` defines a pipeline through which a Skaffold
@@ -153,7 +6,7 @@ pub struct RolloutNotificationEvent {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeliveryPipeline {
     /// Optional. Name of the `DeliveryPipeline`. Format is projects/{project}/
-    /// locations/{location}/deliveryPipelines/\[a-z][a-z0-9\-\]{0,62}.
+    /// locations/{location}/deliveryPipelines/[a-z][a-z0-9\-]{0,62}.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Output only. Unique identifier of the `DeliveryPipeline`.
@@ -399,7 +252,7 @@ pub mod custom_canary_deployment {
         /// This value must consist of lower-case letters, numbers, and hyphens,
         /// start with a letter and end with a letter or a number, and have a max
         /// length of 63 characters. In other words, it must match the following
-        /// regex: `^\[a-z]([a-z0-9-]{0,61}[a-z0-9\])?$`.
+        /// regex: `^[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?$`.
         #[prost(string, tag = "1")]
         pub phase_id: ::prost::alloc::string::String,
         /// Required. Percentage deployment for the phase.
@@ -752,7 +605,7 @@ pub struct DeleteDeliveryPipelineRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Target {
     /// Optional. Name of the `Target`. Format is
-    /// projects/{project}/locations/{location}/targets/\[a-z][a-z0-9\-\]{0,62}.
+    /// projects/{project}/locations/{location}/targets/[a-z][a-z0-9\-]{0,62}.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Output only. Resource id of the `Target`.
@@ -1210,7 +1063,7 @@ pub struct DeleteTargetRequest {
 pub struct Release {
     /// Optional. Name of the `Release`. Format is projects/{project}/
     /// locations/{location}/deliveryPipelines/{deliveryPipeline}/
-    /// releases/\[a-z][a-z0-9\-\]{0,62}.
+    /// releases/[a-z][a-z0-9\-]{0,62}.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Output only. Unique identifier of the `Release`.
@@ -1727,7 +1580,7 @@ pub struct CreateReleaseRequest {
 pub struct Rollout {
     /// Optional. Name of the `Rollout`. Format is projects/{project}/
     /// locations/{location}/deliveryPipelines/{deliveryPipeline}/
-    /// releases/{release}/rollouts/\[a-z][a-z0-9\-\]{0,62}.
+    /// releases/{release}/rollouts/[a-z][a-z0-9\-]{0,62}.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Output only. Unique identifier of the `Rollout`.
@@ -1811,7 +1664,7 @@ pub struct Rollout {
     pub metadata: ::core::option::Option<Metadata>,
     /// Output only. Name of the `ControllerRollout`. Format is projects/{project}/
     /// locations/{location}/deliveryPipelines/{deliveryPipeline}/
-    /// releases/{release}/rollouts/\[a-z][a-z0-9\-\]{0,62}.
+    /// releases/{release}/rollouts/[a-z][a-z0-9\-]{0,62}.
     #[prost(string, tag = "25")]
     pub controller_rollout: ::prost::alloc::string::String,
 }
@@ -2432,8 +2285,8 @@ pub struct OperationMetadata {
     pub status_message: ::prost::alloc::string::String,
     /// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     #[prost(bool, tag = "6")]
     pub requested_cancellation: bool,
@@ -3000,7 +2853,7 @@ pub mod postdeploy_job_run {
 pub struct CreateChildRolloutJobRun {
     /// Output only. Name of the `ChildRollout`. Format is projects/{project}/
     /// locations/{location}/deliveryPipelines/{deliveryPipeline}/
-    /// releases/{release}/rollouts/\[a-z][a-z0-9\-\]{0,62}.
+    /// releases/{release}/rollouts/[a-z][a-z0-9\-]{0,62}.
     #[prost(string, tag = "1")]
     pub rollout: ::prost::alloc::string::String,
     /// Output only. The ID of the childRollout Phase initiated by this JobRun.
@@ -3014,7 +2867,7 @@ pub struct CreateChildRolloutJobRun {
 pub struct AdvanceChildRolloutJobRun {
     /// Output only. Name of the `ChildRollout`. Format is projects/{project}/
     /// locations/{location}/deliveryPipelines/{deliveryPipeline}/
-    /// releases/{release}/rollouts/\[a-z][a-z0-9\-\]{0,62}.
+    /// releases/{release}/rollouts/[a-z][a-z0-9\-]{0,62}.
     #[prost(string, tag = "1")]
     pub rollout: ::prost::alloc::string::String,
     /// Output only. the ID of the ChildRollout's Phase.
@@ -3993,6 +3846,274 @@ pub mod cloud_deploy_client {
             self.inner.unary(req, path, codec).await
         }
     }
+}
+/// Type indicates the type of the log entry and can be used as a filter.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum Type {
+    /// Type is unspecified.
+    Unspecified = 0,
+    /// A Pub/Sub notification failed to be sent.
+    PubsubNotificationFailure = 1,
+    /// Resource state changed.
+    ResourceStateChange = 3,
+    /// A process aborted.
+    ProcessAborted = 4,
+    /// Restriction check failed.
+    RestrictionViolated = 5,
+    /// Resource deleted.
+    ResourceDeleted = 6,
+    /// Rollout updated.
+    RolloutUpdate = 7,
+    /// Deprecated: This field is never used. Use release_render log type instead.
+    RenderStatuesChange = 2,
+}
+impl Type {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            Type::Unspecified => "TYPE_UNSPECIFIED",
+            Type::PubsubNotificationFailure => "TYPE_PUBSUB_NOTIFICATION_FAILURE",
+            Type::ResourceStateChange => "TYPE_RESOURCE_STATE_CHANGE",
+            Type::ProcessAborted => "TYPE_PROCESS_ABORTED",
+            Type::RestrictionViolated => "TYPE_RESTRICTION_VIOLATED",
+            Type::ResourceDeleted => "TYPE_RESOURCE_DELETED",
+            Type::RolloutUpdate => "TYPE_ROLLOUT_UPDATE",
+            Type::RenderStatuesChange => "TYPE_RENDER_STATUES_CHANGE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "TYPE_PUBSUB_NOTIFICATION_FAILURE" => Some(Self::PubsubNotificationFailure),
+            "TYPE_RESOURCE_STATE_CHANGE" => Some(Self::ResourceStateChange),
+            "TYPE_PROCESS_ABORTED" => Some(Self::ProcessAborted),
+            "TYPE_RESTRICTION_VIOLATED" => Some(Self::RestrictionViolated),
+            "TYPE_RESOURCE_DELETED" => Some(Self::ResourceDeleted),
+            "TYPE_ROLLOUT_UPDATE" => Some(Self::RolloutUpdate),
+            "TYPE_RENDER_STATUES_CHANGE" => Some(Self::RenderStatuesChange),
+            _ => None,
+        }
+    }
+}
+/// Payload proto for "clouddeploy.googleapis.com/target_notification"
+/// Platform Log event that describes the failure to send target status change
+/// Pub/Sub notification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TargetNotificationEvent {
+    /// Debug message for when a notification fails to send.
+    #[prost(string, tag = "1")]
+    pub message: ::prost::alloc::string::String,
+    /// The name of the `Target`.
+    #[prost(string, tag = "2")]
+    pub target: ::prost::alloc::string::String,
+    /// Type of this notification, e.g. for a Pub/Sub failure.
+    #[prost(enumeration = "Type", tag = "3")]
+    pub r#type: i32,
+}
+/// Payload proto for "clouddeploy.googleapis.com/rollout_update"
+/// Platform Log event that describes the rollout update event.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RolloutUpdateEvent {
+    /// Unique identifier of the pipeline.
+    #[prost(string, tag = "1")]
+    pub pipeline_uid: ::prost::alloc::string::String,
+    /// Unique identifier of the release.
+    #[prost(string, tag = "2")]
+    pub release_uid: ::prost::alloc::string::String,
+    /// The name of the rollout.
+    #[prost(string, tag = "3")]
+    pub rollout: ::prost::alloc::string::String,
+    /// ID of the target.
+    #[prost(string, tag = "4")]
+    pub target_id: ::prost::alloc::string::String,
+    /// Output only. The type of the rollout update.
+    #[prost(enumeration = "rollout_update_event::RolloutUpdateType", tag = "5")]
+    pub rollout_update_type: i32,
+    /// Debug message for when a rollout update event occurs.
+    #[prost(string, tag = "6")]
+    pub message: ::prost::alloc::string::String,
+    /// Type of this notification, e.g. for a rollout update event.
+    #[prost(enumeration = "Type", tag = "7")]
+    pub r#type: i32,
+}
+/// Nested message and enum types in `RolloutUpdateEvent`.
+pub mod rollout_update_event {
+    /// RolloutUpdateType indicates the type of the rollout update.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum RolloutUpdateType {
+        /// Rollout update type unspecified.
+        Unspecified = 0,
+        /// rollout state updated to pending.
+        Pending = 1,
+        /// Rollout state updated to pending release.
+        PendingRelease = 2,
+        /// Rollout state updated to in progress.
+        InProgress = 3,
+        /// Rollout state updated to cancelling.
+        Cancelling = 4,
+        /// Rollout state updated to cancelled.
+        Cancelled = 5,
+        /// Rollout state updated to halted.
+        Halted = 6,
+        /// Rollout state updated to succeeded.
+        Succeeded = 7,
+        /// Rollout state updated to failed.
+        Failed = 8,
+        /// Rollout requires approval.
+        ApprovalRequired = 9,
+        /// Rollout has been approved.
+        Approved = 10,
+        /// Rollout has been rejected.
+        Rejected = 11,
+        /// Rollout requires advance to the next phase.
+        AdvanceRequired = 12,
+        /// Rollout has been advanced.
+        Advanced = 13,
+    }
+    impl RolloutUpdateType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                RolloutUpdateType::Unspecified => "ROLLOUT_UPDATE_TYPE_UNSPECIFIED",
+                RolloutUpdateType::Pending => "PENDING",
+                RolloutUpdateType::PendingRelease => "PENDING_RELEASE",
+                RolloutUpdateType::InProgress => "IN_PROGRESS",
+                RolloutUpdateType::Cancelling => "CANCELLING",
+                RolloutUpdateType::Cancelled => "CANCELLED",
+                RolloutUpdateType::Halted => "HALTED",
+                RolloutUpdateType::Succeeded => "SUCCEEDED",
+                RolloutUpdateType::Failed => "FAILED",
+                RolloutUpdateType::ApprovalRequired => "APPROVAL_REQUIRED",
+                RolloutUpdateType::Approved => "APPROVED",
+                RolloutUpdateType::Rejected => "REJECTED",
+                RolloutUpdateType::AdvanceRequired => "ADVANCE_REQUIRED",
+                RolloutUpdateType::Advanced => "ADVANCED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ROLLOUT_UPDATE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "PENDING" => Some(Self::Pending),
+                "PENDING_RELEASE" => Some(Self::PendingRelease),
+                "IN_PROGRESS" => Some(Self::InProgress),
+                "CANCELLING" => Some(Self::Cancelling),
+                "CANCELLED" => Some(Self::Cancelled),
+                "HALTED" => Some(Self::Halted),
+                "SUCCEEDED" => Some(Self::Succeeded),
+                "FAILED" => Some(Self::Failed),
+                "APPROVAL_REQUIRED" => Some(Self::ApprovalRequired),
+                "APPROVED" => Some(Self::Approved),
+                "REJECTED" => Some(Self::Rejected),
+                "ADVANCE_REQUIRED" => Some(Self::AdvanceRequired),
+                "ADVANCED" => Some(Self::Advanced),
+                _ => None,
+            }
+        }
+    }
+}
+/// Payload proto for "clouddeploy.googleapis.com/jobrun_notification"
+/// Platform Log event that describes the failure to send JobRun resource update
+/// Pub/Sub notification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct JobRunNotificationEvent {
+    /// Debug message for when a notification fails to send.
+    #[prost(string, tag = "1")]
+    pub message: ::prost::alloc::string::String,
+    /// The name of the `JobRun`.
+    #[prost(string, tag = "2")]
+    pub job_run: ::prost::alloc::string::String,
+    /// Unique identifier of the `DeliveryPipeline`.
+    #[prost(string, tag = "3")]
+    pub pipeline_uid: ::prost::alloc::string::String,
+    /// Unique identifier of the `Release`.
+    #[prost(string, tag = "4")]
+    pub release_uid: ::prost::alloc::string::String,
+    /// Unique identifier of the `Rollout`.
+    #[prost(string, tag = "5")]
+    pub rollout_uid: ::prost::alloc::string::String,
+    /// ID of the `Target`.
+    #[prost(string, tag = "6")]
+    pub target_id: ::prost::alloc::string::String,
+    /// Type of this notification, e.g. for a Pub/Sub failure.
+    #[prost(enumeration = "Type", tag = "7")]
+    pub r#type: i32,
+}
+/// Payload proto for "clouddeploy.googleapis.com/rollout_notification"
+/// Platform Log event that describes the failure to send rollout status change
+/// Pub/Sub notification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RolloutNotificationEvent {
+    /// Debug message for when a notification fails to send.
+    #[prost(string, tag = "1")]
+    pub message: ::prost::alloc::string::String,
+    /// Unique identifier of the `DeliveryPipeline`.
+    #[prost(string, tag = "2")]
+    pub pipeline_uid: ::prost::alloc::string::String,
+    /// Unique identifier of the `Release`.
+    #[prost(string, tag = "3")]
+    pub release_uid: ::prost::alloc::string::String,
+    /// The name of the `Rollout`.
+    #[prost(string, tag = "4")]
+    pub rollout: ::prost::alloc::string::String,
+    /// Type of this notification, e.g. for a Pub/Sub failure.
+    #[prost(enumeration = "Type", tag = "5")]
+    pub r#type: i32,
+    /// ID of the `Target` that the rollout is deployed to.
+    #[prost(string, tag = "6")]
+    pub target_id: ::prost::alloc::string::String,
+}
+/// Payload proto for "clouddeploy.googleapis.com/release_notification"
+/// Platform Log event that describes the failure to send release status change
+/// Pub/Sub notification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ReleaseNotificationEvent {
+    /// Debug message for when a notification fails to send.
+    #[prost(string, tag = "1")]
+    pub message: ::prost::alloc::string::String,
+    /// The name of the `Release`.
+    #[prost(string, tag = "2")]
+    pub release: ::prost::alloc::string::String,
+    /// Type of this notification, e.g. for a Pub/Sub failure.
+    #[prost(enumeration = "Type", tag = "3")]
+    pub r#type: i32,
+}
+/// Payload proto for "clouddeploy.googleapis.com/release_render"
+/// Platform Log event that describes the render status change.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ReleaseRenderEvent {
+    /// Debug message for when a render transition occurs. Provides further
+    /// details as rendering progresses through render states.
+    #[prost(string, tag = "1")]
+    pub message: ::prost::alloc::string::String,
+    /// The name of the `Release`.
+    #[prost(string, tag = "2")]
+    pub release: ::prost::alloc::string::String,
 }
 /// Payload proto for "clouddeploy.googleapis.com/deliverypipeline_notification"
 /// Platform Log event that describes the failure to send delivery pipeline

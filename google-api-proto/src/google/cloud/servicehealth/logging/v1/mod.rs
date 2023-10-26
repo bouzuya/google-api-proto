@@ -21,14 +21,14 @@ pub struct EventLog {
     /// format. List of all supported [Google Cloud
     /// products](../resources/products-locations.md).
     ///
-    /// Example: "`['Google Cloud SQL', 'Cloud Compute Engine']`".
+    /// Example: "`\['Google Cloud SQL', 'Cloud Compute Engine'\]`".
     #[prost(string, tag = "15")]
     pub impacted_products: ::prost::alloc::string::String,
     /// Locations known to be impacted by the event, in JSON serialized format. See
-    /// possible \[values\](products-locations.md), which are subject to where the
+    /// possible [values](products-locations.md), which are subject to where the
     /// service is running.
     ///
-    /// Example: "`['us-central1', 'us-west1']`".
+    /// Example: "`\['us-central1', 'us-west1'\]`".
     #[prost(string, tag = "6")]
     pub impacted_locations: ::prost::alloc::string::String,
     /// Communicates why a given event is deemed relevant in the context of a given

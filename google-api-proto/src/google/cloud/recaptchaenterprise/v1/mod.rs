@@ -1445,7 +1445,7 @@ pub struct Key {
     /// Human-readable display name of this key. Modifiable by user.
     #[prost(string, tag = "2")]
     pub display_name: ::prost::alloc::string::String,
-    /// See [Creating and managing labels]
+    /// See \[Creating and managing labels\]
     /// (<https://cloud.google.com/recaptcha-enterprise/docs/labels>).
     #[prost(btree_map = "string, string", tag = "6")]
     pub labels: ::prost::alloc::collections::BTreeMap<
@@ -1736,7 +1736,7 @@ pub struct AppleDeveloperId {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ScoreDistribution {
     /// Map key is score value multiplied by 100. The scores are discrete values
-    /// between [0, 1]. The maximum number of buckets is on order of a few dozen,
+    /// between \[0, 1\]. The maximum number of buckets is on order of a few dozen,
     /// but typically much lower (ie. 10).
     #[prost(btree_map = "int32, int64", tag = "1")]
     pub score_buckets: ::prost::alloc::collections::BTreeMap<i32, i64>,

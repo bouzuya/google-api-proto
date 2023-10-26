@@ -92,7 +92,7 @@ pub struct Action {
     /// If the specified image is not public, the service account specified for
     /// the Virtual Machine must have access to pull the images from GCR, or
     /// appropriate credentials must be specified in the
-    /// \[google.cloud.lifesciences.v2beta.Action.credentials][google.cloud.lifesciences.v2beta.Action.credentials\]
+    /// [google.cloud.lifesciences.v2beta.Action.credentials][google.cloud.lifesciences.v2beta.Action.credentials]
     /// field.
     #[prost(string, tag = "2")]
     pub image_uri: ::prost::alloc::string::String,
@@ -107,7 +107,7 @@ pub struct Action {
     pub entrypoint: ::prost::alloc::string::String,
     /// The environment to pass into the container. This environment is merged
     /// with values specified in the
-    /// \[google.cloud.lifesciences.v2beta.Pipeline][google.cloud.lifesciences.v2beta.Pipeline\]
+    /// [google.cloud.lifesciences.v2beta.Pipeline][google.cloud.lifesciences.v2beta.Pipeline]
     /// message, overwriting any duplicate values.
     ///
     /// In addition to the values passed here, a few other values are
@@ -129,7 +129,7 @@ pub struct Action {
     >,
     /// The encrypted environment to pass into the container. This environment is
     /// merged with values specified in the
-    /// \[google.cloud.lifesciences.v2beta.Pipeline][google.cloud.lifesciences.v2beta.Pipeline\]
+    /// [google.cloud.lifesciences.v2beta.Pipeline][google.cloud.lifesciences.v2beta.Pipeline]
     /// message, overwriting any duplicate values.
     ///
     /// The secret must decrypt to a JSON-encoded dictionary where key-value pairs
@@ -320,7 +320,7 @@ pub struct VirtualMachine {
     >,
     /// The list of disks to create and attach to the VM.
     ///
-    /// Specify either the `volumes[]` field or the `disks[]` field, but not both.
+    /// Specify either the `volumes\[\]` field or the `disks\[\]` field, but not both.
     #[prost(message, repeated, tag = "4")]
     pub disks: ::prost::alloc::vec::Vec<Disk>,
     /// The VM network configuration.
@@ -387,7 +387,7 @@ pub struct VirtualMachine {
     pub docker_cache_images: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     /// The list of disks and other storage to create or attach to the VM.
     ///
-    /// Specify either the `volumes[]` field or the `disks[]` field, but not both.
+    /// Specify either the `volumes\[\]` field or the `disks\[\]` field, but not both.
     #[prost(message, repeated, tag = "14")]
     pub volumes: ::prost::alloc::vec::Vec<Volume>,
     /// If specified, the VM will only be allocated inside the matching
@@ -462,8 +462,8 @@ pub struct Network {
 /// See <https://cloud.google.com/compute/docs/disks/performance> for more
 /// information about disk type, size, and performance considerations.
 ///
-/// Specify either \[`Volume`][google.cloud.lifesciences.v2beta.Volume\] or
-/// \[`Disk`][google.cloud.lifesciences.v2beta.Disk\], but not both.
+/// Specify either [`Volume`][google.cloud.lifesciences.v2beta.Volume] or
+/// [`Disk`][google.cloud.lifesciences.v2beta.Disk], but not both.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Disk {
@@ -490,13 +490,13 @@ pub struct Disk {
 }
 /// Carries information about storage that can be attached to a VM.
 ///
-/// Specify either \[`Volume`][google.cloud.lifesciences.v2beta.Volume\] or
-/// \[`Disk`][google.cloud.lifesciences.v2beta.Disk\], but not both.
+/// Specify either [`Volume`][google.cloud.lifesciences.v2beta.Volume] or
+/// [`Disk`][google.cloud.lifesciences.v2beta.Disk], but not both.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Volume {
     /// A user-supplied name for the volume. Used when mounting the volume into
-    /// \[`Actions`][google.cloud.lifesciences.v2beta.Action\]. The name must contain
+    /// [`Actions`][google.cloud.lifesciences.v2beta.Action]. The name must contain
     /// only upper and lowercase alphanumeric characters and hyphens and cannot
     /// start with a hyphen.
     #[prost(string, tag = "1")]
@@ -623,43 +623,43 @@ pub mod event {
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Details {
         /// See
-        /// \[google.cloud.lifesciences.v2beta.DelayedEvent][google.cloud.lifesciences.v2beta.DelayedEvent\].
+        /// [google.cloud.lifesciences.v2beta.DelayedEvent][google.cloud.lifesciences.v2beta.DelayedEvent].
         #[prost(message, tag = "17")]
         Delayed(super::DelayedEvent),
         /// See
-        /// \[google.cloud.lifesciences.v2beta.WorkerAssignedEvent][google.cloud.lifesciences.v2beta.WorkerAssignedEvent\].
+        /// [google.cloud.lifesciences.v2beta.WorkerAssignedEvent][google.cloud.lifesciences.v2beta.WorkerAssignedEvent].
         #[prost(message, tag = "18")]
         WorkerAssigned(super::WorkerAssignedEvent),
         /// See
-        /// \[google.cloud.lifesciences.v2beta.WorkerReleasedEvent][google.cloud.lifesciences.v2beta.WorkerReleasedEvent\].
+        /// [google.cloud.lifesciences.v2beta.WorkerReleasedEvent][google.cloud.lifesciences.v2beta.WorkerReleasedEvent].
         #[prost(message, tag = "19")]
         WorkerReleased(super::WorkerReleasedEvent),
         /// See
-        /// \[google.cloud.lifesciences.v2beta.PullStartedEvent][google.cloud.lifesciences.v2beta.PullStartedEvent\].
+        /// [google.cloud.lifesciences.v2beta.PullStartedEvent][google.cloud.lifesciences.v2beta.PullStartedEvent].
         #[prost(message, tag = "20")]
         PullStarted(super::PullStartedEvent),
         /// See
-        /// \[google.cloud.lifesciences.v2beta.PullStoppedEvent][google.cloud.lifesciences.v2beta.PullStoppedEvent\].
+        /// [google.cloud.lifesciences.v2beta.PullStoppedEvent][google.cloud.lifesciences.v2beta.PullStoppedEvent].
         #[prost(message, tag = "21")]
         PullStopped(super::PullStoppedEvent),
         /// See
-        /// \[google.cloud.lifesciences.v2beta.ContainerStartedEvent][google.cloud.lifesciences.v2beta.ContainerStartedEvent\].
+        /// [google.cloud.lifesciences.v2beta.ContainerStartedEvent][google.cloud.lifesciences.v2beta.ContainerStartedEvent].
         #[prost(message, tag = "22")]
         ContainerStarted(super::ContainerStartedEvent),
         /// See
-        /// \[google.cloud.lifesciences.v2beta.ContainerStoppedEvent][google.cloud.lifesciences.v2beta.ContainerStoppedEvent\].
+        /// [google.cloud.lifesciences.v2beta.ContainerStoppedEvent][google.cloud.lifesciences.v2beta.ContainerStoppedEvent].
         #[prost(message, tag = "23")]
         ContainerStopped(super::ContainerStoppedEvent),
         /// See
-        /// \[google.cloud.lifesciences.v2beta.ContainerKilledEvent][google.cloud.lifesciences.v2beta.ContainerKilledEvent\].
+        /// [google.cloud.lifesciences.v2beta.ContainerKilledEvent][google.cloud.lifesciences.v2beta.ContainerKilledEvent].
         #[prost(message, tag = "24")]
         ContainerKilled(super::ContainerKilledEvent),
         /// See
-        /// \[google.cloud.lifesciences.v2beta.UnexpectedExitStatusEvent][google.cloud.lifesciences.v2beta.UnexpectedExitStatusEvent\].
+        /// [google.cloud.lifesciences.v2beta.UnexpectedExitStatusEvent][google.cloud.lifesciences.v2beta.UnexpectedExitStatusEvent].
         #[prost(message, tag = "25")]
         UnexpectedExitStatus(super::UnexpectedExitStatusEvent),
         /// See
-        /// \[google.cloud.lifesciences.v2beta.FailedEvent][google.cloud.lifesciences.v2beta.FailedEvent\].
+        /// [google.cloud.lifesciences.v2beta.FailedEvent][google.cloud.lifesciences.v2beta.FailedEvent].
         #[prost(message, tag = "26")]
         Failed(super::FailedEvent),
     }

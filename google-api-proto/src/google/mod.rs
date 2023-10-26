@@ -22,6 +22,11 @@ pub mod actions;
         feature = "google-ads-googleads-v14-errors",
         feature = "google-ads-googleads-v14-resources",
         feature = "google-ads-googleads-v14-services",
+        feature = "google-ads-googleads-v15-common",
+        feature = "google-ads-googleads-v15-enums",
+        feature = "google-ads-googleads-v15-errors",
+        feature = "google-ads-googleads-v15-resources",
+        feature = "google-ads-googleads-v15-services",
         feature = "google-ads-searchads360-v0-common",
         feature = "google-ads-searchads360-v0-enums",
         feature = "google-ads-searchads360-v0-resources",
@@ -49,6 +54,7 @@ pub mod analytics;
     any(
         feature = "google-api",
         feature = "google-api-apikeys-v2",
+        feature = "google-api-cloudquotas-v1",
         feature = "google-api-expr-conformance-v1alpha1",
         feature = "google-api-expr-v1alpha1",
         feature = "google-api-expr-v1beta1",
@@ -559,8 +565,6 @@ pub mod privacy;
 pub mod pubsub;
 #[cfg(any(feature = "google-type"))]
 pub mod r#type;
-#[cfg(any(feature = "google-robotics-developer-modelserving-v1"))]
-pub mod robotics;
 #[cfg(any(feature = "google-rpc", feature = "google-rpc-context"))]
 pub mod rpc;
 #[cfg(any(feature = "google-search-partnerdataingestion-logging-v1"))]

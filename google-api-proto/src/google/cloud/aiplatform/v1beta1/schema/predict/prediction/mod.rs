@@ -1,37 +1,3 @@
-/// Prediction output format for Image Segmentation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImageSegmentationPredictionResult {
-    /// A PNG image where each pixel in the mask represents the category in which
-    /// the pixel in the original image was predicted to belong to. The size of
-    /// this image will be the same as the original image. The mapping between the
-    /// AnntoationSpec and the color can be found in model's metadata. The model
-    /// will choose the most likely category and if none of the categories reach
-    /// the confidence threshold, the pixel will be marked as background.
-    #[prost(string, tag = "1")]
-    pub category_mask: ::prost::alloc::string::String,
-    /// A one channel image which is encoded as an 8bit lossless PNG. The size of
-    /// the image will be the same as the original image. For a specific pixel,
-    /// darker color means less confidence in correctness of the cateogry in the
-    /// categoryMask for the corresponding pixel. Black means no confidence and
-    /// white means complete confidence.
-    #[prost(string, tag = "2")]
-    pub confidence_mask: ::prost::alloc::string::String,
-}
-/// Prediction output format for Tabular Regression.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TabularRegressionPredictionResult {
-    /// The regression value.
-    #[prost(float, tag = "1")]
-    pub value: f32,
-    /// The lower bound of the prediction interval.
-    #[prost(float, tag = "2")]
-    pub lower_bound: f32,
-    /// The upper bound of the prediction interval.
-    #[prost(float, tag = "3")]
-    pub upper_bound: f32,
-}
 /// Prediction output format for Video Action Recognition.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -59,13 +25,58 @@ pub struct VideoActionRecognitionPredictionResult {
     #[prost(message, optional, tag = "6")]
     pub confidence: ::core::option::Option<f32>,
 }
-/// Prediction output format for Time Series Forecasting.
+/// Prediction output format for Tabular Regression.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TimeSeriesForecastingPredictionResult {
+pub struct TabularRegressionPredictionResult {
     /// The regression value.
     #[prost(float, tag = "1")]
     pub value: f32,
+    /// The lower bound of the prediction interval.
+    #[prost(float, tag = "2")]
+    pub lower_bound: f32,
+    /// The upper bound of the prediction interval.
+    #[prost(float, tag = "3")]
+    pub upper_bound: f32,
+}
+/// Prediction output format for Text Extraction.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TextExtractionPredictionResult {
+    /// The resource IDs of the AnnotationSpecs that had been identified,
+    /// ordered by the confidence score descendingly.
+    #[prost(int64, repeated, tag = "1")]
+    pub ids: ::prost::alloc::vec::Vec<i64>,
+    /// The display names of the AnnotationSpecs that had been identified,
+    /// order matches the IDs.
+    #[prost(string, repeated, tag = "2")]
+    pub display_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The start offsets, inclusive, of the text segment in which the
+    /// AnnotationSpec has been identified. Expressed as a zero-based number
+    /// of characters as measured from the start of the text snippet.
+    #[prost(int64, repeated, tag = "3")]
+    pub text_segment_start_offsets: ::prost::alloc::vec::Vec<i64>,
+    /// The end offsets, inclusive, of the text segment in which the
+    /// AnnotationSpec has been identified. Expressed as a zero-based number
+    /// of characters as measured from the start of the text snippet.
+    #[prost(int64, repeated, tag = "4")]
+    pub text_segment_end_offsets: ::prost::alloc::vec::Vec<i64>,
+    /// The Model's confidences in correctness of the predicted IDs, higher
+    /// value means higher confidence. Order matches the Ids.
+    #[prost(float, repeated, tag = "5")]
+    pub confidences: ::prost::alloc::vec::Vec<f32>,
+}
+/// Prediction output format for Text Sentiment
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TextSentimentPredictionResult {
+    /// The integer sentiment labels between 0 (inclusive) and sentimentMax label
+    /// (inclusive), while 0 maps to the least positive sentiment and
+    /// sentimentMax maps to the most positive one. The higher the score is, the
+    /// more positive the sentiment in the text snippet is. Note: sentimentMax is
+    /// an integer value between 1 (inclusive) and 10 (inclusive).
+    #[prost(int32, tag = "1")]
+    pub sentiment: i32,
 }
 /// Prediction output format for Video Classification.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -107,44 +118,63 @@ pub struct VideoClassificationPredictionResult {
     #[prost(message, optional, tag = "6")]
     pub confidence: ::core::option::Option<f32>,
 }
-/// Prediction output format for Text Extraction.
+/// Prediction output format for Image Segmentation.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TextExtractionPredictionResult {
-    /// The resource IDs of the AnnotationSpecs that had been identified,
-    /// ordered by the confidence score descendingly.
+pub struct ImageSegmentationPredictionResult {
+    /// A PNG image where each pixel in the mask represents the category in which
+    /// the pixel in the original image was predicted to belong to. The size of
+    /// this image will be the same as the original image. The mapping between the
+    /// AnntoationSpec and the color can be found in model's metadata. The model
+    /// will choose the most likely category and if none of the categories reach
+    /// the confidence threshold, the pixel will be marked as background.
+    #[prost(string, tag = "1")]
+    pub category_mask: ::prost::alloc::string::String,
+    /// A one channel image which is encoded as an 8bit lossless PNG. The size of
+    /// the image will be the same as the original image. For a specific pixel,
+    /// darker color means less confidence in correctness of the cateogry in the
+    /// categoryMask for the corresponding pixel. Black means no confidence and
+    /// white means complete confidence.
+    #[prost(string, tag = "2")]
+    pub confidence_mask: ::prost::alloc::string::String,
+}
+/// Prediction output format for Tabular Classification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TabularClassificationPredictionResult {
+    /// The name of the classes being classified, contains all possible values of
+    /// the target column.
+    #[prost(string, repeated, tag = "1")]
+    pub classes: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The model's confidence in each class being correct, higher
+    /// value means higher confidence. The N-th score corresponds to
+    /// the N-th class in classes.
+    #[prost(float, repeated, tag = "2")]
+    pub scores: ::prost::alloc::vec::Vec<f32>,
+}
+/// Prediction output format for Time Series Forecasting.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TimeSeriesForecastingPredictionResult {
+    /// The regression value.
+    #[prost(float, tag = "1")]
+    pub value: f32,
+}
+/// Prediction output format for Image and Text Classification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ClassificationPredictionResult {
+    /// The resource IDs of the AnnotationSpecs that had been identified.
     #[prost(int64, repeated, tag = "1")]
     pub ids: ::prost::alloc::vec::Vec<i64>,
-    /// The display names of the AnnotationSpecs that had been identified,
-    /// order matches the IDs.
+    /// The display names of the AnnotationSpecs that had been identified, order
+    /// matches the IDs.
     #[prost(string, repeated, tag = "2")]
     pub display_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The start offsets, inclusive, of the text segment in which the
-    /// AnnotationSpec has been identified. Expressed as a zero-based number
-    /// of characters as measured from the start of the text snippet.
-    #[prost(int64, repeated, tag = "3")]
-    pub text_segment_start_offsets: ::prost::alloc::vec::Vec<i64>,
-    /// The end offsets, inclusive, of the text segment in which the
-    /// AnnotationSpec has been identified. Expressed as a zero-based number
-    /// of characters as measured from the start of the text snippet.
-    #[prost(int64, repeated, tag = "4")]
-    pub text_segment_end_offsets: ::prost::alloc::vec::Vec<i64>,
-    /// The Model's confidences in correctness of the predicted IDs, higher
-    /// value means higher confidence. Order matches the Ids.
-    #[prost(float, repeated, tag = "5")]
+    /// The Model's confidences in correctness of the predicted IDs, higher value
+    /// means higher confidence. Order matches the Ids.
+    #[prost(float, repeated, tag = "3")]
     pub confidences: ::prost::alloc::vec::Vec<f32>,
-}
-/// Prediction output format for Text Sentiment
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TextSentimentPredictionResult {
-    /// The integer sentiment labels between 0 (inclusive) and sentimentMax label
-    /// (inclusive), while 0 maps to the least positive sentiment and
-    /// sentimentMax maps to the most positive one. The higher the score is, the
-    /// more positive the sentiment in the text snippet is. Note: sentimentMax is
-    /// an integer value between 1 (inclusive) and 10 (inclusive).
-    #[prost(int32, tag = "1")]
-    pub sentiment: i32,
 }
 /// Prediction output format for Image Object Detection.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -170,36 +200,6 @@ pub struct ImageObjectDetectionPredictionResult {
     /// of the image.
     #[prost(message, repeated, tag = "4")]
     pub bboxes: ::prost::alloc::vec::Vec<::prost_types::ListValue>,
-}
-/// Prediction output format for Tabular Classification.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TabularClassificationPredictionResult {
-    /// The name of the classes being classified, contains all possible values of
-    /// the target column.
-    #[prost(string, repeated, tag = "1")]
-    pub classes: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The model's confidence in each class being correct, higher
-    /// value means higher confidence. The N-th score corresponds to
-    /// the N-th class in classes.
-    #[prost(float, repeated, tag = "2")]
-    pub scores: ::prost::alloc::vec::Vec<f32>,
-}
-/// Prediction output format for Image and Text Classification.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ClassificationPredictionResult {
-    /// The resource IDs of the AnnotationSpecs that had been identified.
-    #[prost(int64, repeated, tag = "1")]
-    pub ids: ::prost::alloc::vec::Vec<i64>,
-    /// The display names of the AnnotationSpecs that had been identified, order
-    /// matches the IDs.
-    #[prost(string, repeated, tag = "2")]
-    pub display_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The Model's confidences in correctness of the predicted IDs, higher value
-    /// means higher confidence. Order matches the Ids.
-    #[prost(float, repeated, tag = "3")]
-    pub confidences: ::prost::alloc::vec::Vec<f32>,
 }
 /// Prediction output format for Video Object Tracking.
 #[allow(clippy::derive_partial_eq_without_eq)]

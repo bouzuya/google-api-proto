@@ -2140,7 +2140,7 @@ pub struct Endpoint {
     #[prost(message, optional, tag = "11")]
     pub app_engine_version: ::core::option::Option<endpoint::AppEngineVersionEndpoint>,
     /// A [Cloud Run](<https://cloud.google.com/run>)
-    /// \[revision\](<https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions/get>)
+    /// [revision](<https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions/get>)
     #[prost(message, optional, tag = "12")]
     pub cloud_run_revision: ::core::option::Option<endpoint::CloudRunRevisionEndpoint>,
     /// A Compute Engine network URI.
@@ -2188,7 +2188,7 @@ pub mod endpoint {
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct CloudRunRevisionEndpoint {
         /// A [Cloud Run](<https://cloud.google.com/run>)
-        /// \[revision\](<https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions/get>)
+        /// [revision](<https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions/get>)
         /// URI. The format is:
         /// projects/{project}/locations/{location}/revisions/{revision}
         #[prost(string, tag = "1")]
@@ -2670,7 +2670,7 @@ pub struct RerunConnectivityTestRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Metadata describing an \[Operation][google.longrunning.Operation\]
+/// Metadata describing an [Operation][google.longrunning.Operation]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct OperationMetadata {

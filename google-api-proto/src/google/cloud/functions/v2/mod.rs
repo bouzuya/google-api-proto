@@ -929,7 +929,7 @@ pub struct CreateFunctionRequest {
     /// the function's resource name.
     ///
     /// This value should be 4-63 characters, and valid characters
-    /// are /\[a-z][0-9\]-/.
+    /// are /[a-z][0-9]-/.
     #[prost(string, tag = "3")]
     pub function_id: ::prost::alloc::string::String,
 }
@@ -1143,8 +1143,8 @@ pub struct OperationMetadata {
     pub status_detail: ::prost::alloc::string::String,
     /// Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     #[prost(bool, tag = "6")]
     pub cancel_requested: bool,

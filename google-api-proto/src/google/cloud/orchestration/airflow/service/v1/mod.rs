@@ -863,7 +863,7 @@ pub struct MaintenanceWindow {
     #[prost(message, optional, tag = "2")]
     pub end_time: ::core::option::Option<::prost_types::Timestamp>,
     /// Required. Maintenance window recurrence. Format is a subset of
-    /// \[RFC-5545\](<https://tools.ietf.org/html/rfc5545>) `RRULE`. The only allowed
+    /// [RFC-5545](<https://tools.ietf.org/html/rfc5545>) `RRULE`. The only allowed
     /// values for `FREQ` field are `FREQ=DAILY` and `FREQ=WEEKLY;BYDAY=...`
     /// Example values: `FREQ=WEEKLY;BYDAY=TU,WE`, `FREQ=DAILY`.
     #[prost(string, tag = "3")]
@@ -876,7 +876,7 @@ pub struct SoftwareConfig {
     /// The version of the software running in the environment.
     /// This encapsulates both the version of Cloud Composer functionality and the
     /// version of Apache Airflow. It must match the regular expression
-    /// `composer-(\[0-9]+(\.[0-9]+\.[0-9]+(-preview\.[0-9]+)?)?|latest)-airflow-([0-9]+(\.[0-9]+(\.[0-9\]+)?)?)`.
+    /// `composer-(\[0-9\]+(\.\[0-9\]+\.\[0-9\]+(-preview\.\[0-9\]+)?)?|latest)-airflow-(\[0-9\]+(\.\[0-9\]+(\.\[0-9\]+)?)?)`.
     /// When used as input, the server also checks if the provided version is
     /// supported and denies the request for an unsupported version.
     ///
@@ -908,11 +908,11 @@ pub struct SoftwareConfig {
     /// contain an equals sign ("=") or semicolon (";"). Section and property names
     /// must not contain a period ("."). Apache Airflow configuration property
     /// names must be written in
-    /// \[snake_case\](<https://en.wikipedia.org/wiki/Snake_case>). Property values can
+    /// [snake_case](<https://en.wikipedia.org/wiki/Snake_case>). Property values can
     /// contain any character, and can be written in any lower/upper case format.
     ///
     /// Certain Apache Airflow configuration property values are
-    /// \[blocked\](/composer/docs/concepts/airflow-configurations),
+    /// [blocked](/composer/docs/concepts/airflow-configurations),
     /// and cannot be overridden.
     #[prost(btree_map = "string, string", tag = "2")]
     pub airflow_config_overrides: ::prost::alloc::collections::BTreeMap<
@@ -936,9 +936,9 @@ pub struct SoftwareConfig {
     /// scheduler, worker, and webserver processes.
     ///
     /// Environment variable names must match the regular expression
-    /// `\[a-zA-Z_][a-zA-Z0-9_\]*`. They cannot specify Apache Airflow
+    /// `[a-zA-Z_][a-zA-Z0-9_]*`. They cannot specify Apache Airflow
     /// software configuration overrides (they cannot match the regular expression
-    /// `AIRFLOW__\[A-Z0-9_]+__[A-Z0-9_\]+`), and they cannot match any of the
+    /// `AIRFLOW__\[A-Z0-9_\]+__\[A-Z0-9_\]+`), and they cannot match any of the
     /// following reserved names:
     ///
     /// * `AIRFLOW_HOME`
@@ -1026,7 +1026,7 @@ pub mod ip_allocation_policy {
         /// netmask.
         ///
         /// Set to a
-        /// \[CIDR\](<https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>)
+        /// [CIDR](<https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>)
         /// notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
         /// `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
         /// to use.
@@ -1056,7 +1056,7 @@ pub mod ip_allocation_policy {
         /// netmask.
         ///
         /// Set to a
-        /// \[CIDR\](<https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>)
+        /// [CIDR](<https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>)
         /// notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
         /// `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
         /// to use.
@@ -1069,7 +1069,7 @@ pub mod ip_allocation_policy {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct NodeConfig {
-    /// Optional. The Compute Engine \[zone\](/compute/docs/regions-zones) in which
+    /// Optional. The Compute Engine [zone](/compute/docs/regions-zones) in which
     /// to deploy the VMs used to run the Apache Airflow software, specified as a
     /// [relative resource
     /// name](/apis/design/resource_names#relative_resource_name). For example:
@@ -1160,7 +1160,7 @@ pub struct NodeConfig {
     pub service_account: ::prost::alloc::string::String,
     /// Optional. The list of instance tags applied to all node VMs. Tags are used
     /// to identify valid sources or targets for network firewalls. Each tag within
-    /// the list must comply with \[RFC1035\](<https://www.ietf.org/rfc/rfc1035.txt>).
+    /// the list must comply with [RFC1035](<https://www.ietf.org/rfc/rfc1035.txt>).
     /// Cannot be updated.
     #[prost(string, repeated, tag = "8")]
     pub tags: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
@@ -1492,7 +1492,7 @@ pub struct Environment {
     /// The labels map can contain no more than 64 entries. Entries of the labels
     /// map are UTF8 strings that comply with the following restrictions:
     ///
-    /// * Keys must conform to regexp: \[\p{Ll}\p{Lo}][\p{Ll}\p{Lo}\p{N}_-\]{0,62}
+    /// * Keys must conform to regexp: [\p{Ll}\p{Lo}][\p{Ll}\p{Lo}\p{N}_-]{0,62}
     /// * Values must conform to regexp:  \[\p{Ll}\p{Lo}\p{N}_-\]{0,63}
     /// * Both keys and values are additionally constrained to be <= 128 bytes in
     /// size.

@@ -444,6 +444,18 @@ pub mod scan_run_warning_trace {
         }
     }
 }
+/// A FindingTypeStats resource represents stats regarding a specific FindingType
+/// of Findings under a given ScanRun.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FindingTypeStats {
+    /// The finding type associated with the stats.
+    #[prost(string, tag = "1")]
+    pub finding_type: ::prost::alloc::string::String,
+    /// The count of findings belonging to this finding type.
+    #[prost(int32, tag = "2")]
+    pub finding_count: i32,
+}
 /// A ScanRun is a output-only resource representing an actual run of the scan.
 /// Next id: 12
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -608,7 +620,7 @@ pub struct ScanConfig {
     pub display_name: ::prost::alloc::string::String,
     /// The maximum QPS during scanning. A valid value ranges from 5 to 20
     /// inclusively. If the field is unspecified or its value is set 0, server will
-    /// default to 15. Other values outside of [5, 20] range will be rejected with
+    /// default to 15. Other values outside of \[5, 20\] range will be rejected with
     /// INVALID_ARGUMENT error.
     #[prost(int32, tag = "3")]
     pub max_qps: i32,
@@ -896,6 +908,23 @@ pub mod scan_config {
         }
     }
 }
+/// A CrawledUrl resource represents a URL that was crawled during a ScanRun. Web
+/// Security Scanner Service crawls the web applications, following all links
+/// within the scope of sites, to find the URLs to test against.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CrawledUrl {
+    /// The http method of the request that was used to visit the URL, in
+    /// uppercase.
+    #[prost(string, tag = "1")]
+    pub http_method: ::prost::alloc::string::String,
+    /// The URL that was crawled.
+    #[prost(string, tag = "2")]
+    pub url: ::prost::alloc::string::String,
+    /// The body of the request that was used to visit the URL.
+    #[prost(string, tag = "3")]
+    pub body: ::prost::alloc::string::String,
+}
 /// ! Information about a vulnerability with an HTML.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1042,35 +1071,6 @@ pub struct Finding {
     /// An addon containing information reported for an XSS, if any.
     #[prost(message, optional, tag = "14")]
     pub xss: ::core::option::Option<Xss>,
-}
-/// A CrawledUrl resource represents a URL that was crawled during a ScanRun. Web
-/// Security Scanner Service crawls the web applications, following all links
-/// within the scope of sites, to find the URLs to test against.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CrawledUrl {
-    /// The http method of the request that was used to visit the URL, in
-    /// uppercase.
-    #[prost(string, tag = "1")]
-    pub http_method: ::prost::alloc::string::String,
-    /// The URL that was crawled.
-    #[prost(string, tag = "2")]
-    pub url: ::prost::alloc::string::String,
-    /// The body of the request that was used to visit the URL.
-    #[prost(string, tag = "3")]
-    pub body: ::prost::alloc::string::String,
-}
-/// A FindingTypeStats resource represents stats regarding a specific FindingType
-/// of Findings under a given ScanRun.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FindingTypeStats {
-    /// The finding type associated with the stats.
-    #[prost(string, tag = "1")]
-    pub finding_type: ::prost::alloc::string::String,
-    /// The count of findings belonging to this finding type.
-    #[prost(int32, tag = "2")]
-    pub finding_count: i32,
 }
 /// Request for the `CreateScanConfig` method.
 #[allow(clippy::derive_partial_eq_without_eq)]

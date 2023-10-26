@@ -1,5 +1,5 @@
 /// Request message for
-/// \[KeyDashboardService.ListCryptoKeys][google.cloud.kms.inventory.v1.KeyDashboardService.ListCryptoKeys\].
+/// [KeyDashboardService.ListCryptoKeys][google.cloud.kms.inventory.v1.KeyDashboardService.ListCryptoKeys].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListCryptoKeysRequest {
@@ -18,11 +18,11 @@ pub struct ListCryptoKeysRequest {
     pub page_token: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[KeyDashboardService.ListCryptoKeys][google.cloud.kms.inventory.v1.KeyDashboardService.ListCryptoKeys\].
+/// [KeyDashboardService.ListCryptoKeys][google.cloud.kms.inventory.v1.KeyDashboardService.ListCryptoKeys].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListCryptoKeysResponse {
-    /// The list of \[CryptoKeys][google.cloud.kms.v1.CryptoKey\].
+    /// The list of [CryptoKeys][google.cloud.kms.v1.CryptoKey].
     #[prost(message, repeated, tag = "1")]
     pub crypto_keys: ::prost::alloc::vec::Vec<super::super::v1::CryptoKey>,
     /// The page token returned from the previous response if the next page is
@@ -141,12 +141,12 @@ pub mod key_dashboard_service_client {
     }
 }
 /// Request message for
-/// \[KeyTrackingService.GetProtectedResourcesSummary][google.cloud.kms.inventory.v1.KeyTrackingService.GetProtectedResourcesSummary\].
+/// [KeyTrackingService.GetProtectedResourcesSummary][google.cloud.kms.inventory.v1.KeyTrackingService.GetProtectedResourcesSummary].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetProtectedResourcesSummaryRequest {
     /// Required. The resource name of the
-    /// \[CryptoKey][google.cloud.kms.v1.CryptoKey\].
+    /// [CryptoKey][google.cloud.kms.v1.CryptoKey].
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -188,7 +188,7 @@ pub struct ProtectedResourcesSummary {
     >,
 }
 /// Request message for
-/// \[KeyTrackingService.SearchProtectedResources][google.cloud.kms.inventory.v1.KeyTrackingService.SearchProtectedResources\].
+/// [KeyTrackingService.SearchProtectedResources][google.cloud.kms.inventory.v1.KeyTrackingService.SearchProtectedResources].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SearchProtectedResourcesRequest {
@@ -197,7 +197,7 @@ pub struct SearchProtectedResourcesRequest {
     #[prost(string, tag = "2")]
     pub scope: ::prost::alloc::string::String,
     /// Required. The resource name of the
-    /// \[CryptoKey][google.cloud.kms.v1.CryptoKey\].
+    /// [CryptoKey][google.cloud.kms.v1.CryptoKey].
     #[prost(string, tag = "1")]
     pub crypto_key: ::prost::alloc::string::String,
     /// The maximum number of resources to return. The service may return fewer
@@ -207,11 +207,11 @@ pub struct SearchProtectedResourcesRequest {
     #[prost(int32, tag = "3")]
     pub page_size: i32,
     /// A page token, received from a previous
-    /// \[KeyTrackingService.SearchProtectedResources][google.cloud.kms.inventory.v1.KeyTrackingService.SearchProtectedResources\]
+    /// [KeyTrackingService.SearchProtectedResources][google.cloud.kms.inventory.v1.KeyTrackingService.SearchProtectedResources]
     /// call. Provide this to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to
-    /// \[KeyTrackingService.SearchProtectedResources][google.cloud.kms.inventory.v1.KeyTrackingService.SearchProtectedResources\]
+    /// [KeyTrackingService.SearchProtectedResources][google.cloud.kms.inventory.v1.KeyTrackingService.SearchProtectedResources]
     /// must match the call that provided the page token.
     #[prost(string, tag = "4")]
     pub page_token: ::prost::alloc::string::String,
@@ -226,14 +226,14 @@ pub struct SearchProtectedResourcesRequest {
     /// * `.*Image` snapshots resources whose type ends with `Image`.
     /// * `.*Image.*` snapshots resources whose type contains `Image`.
     ///
-    /// See \[RE2\](<https://github.com/google/re2/wiki/Syntax>) for all supported
+    /// See [RE2](<https://github.com/google/re2/wiki/Syntax>) for all supported
     /// regular expression syntax. If the regular expression does not match any
     /// supported resource type, an INVALID_ARGUMENT error will be returned.
     #[prost(string, repeated, tag = "5")]
     pub resource_types: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// Response message for
-/// \[KeyTrackingService.SearchProtectedResources][google.cloud.kms.inventory.v1.KeyTrackingService.SearchProtectedResources\].
+/// [KeyTrackingService.SearchProtectedResources][google.cloud.kms.inventory.v1.KeyTrackingService.SearchProtectedResources].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SearchProtectedResourcesResponse {
@@ -278,7 +278,7 @@ pub struct ProtectedResource {
         ::prost::alloc::string::String,
     >,
     /// The name of the Cloud KMS
-    /// \[CryptoKeyVersion\](<https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions?hl=en>)
+    /// [CryptoKeyVersion](<https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions?hl=en>)
     /// used to protect this resource via CMEK. This field is empty if the
     /// Google Cloud product owning the resource does not provide key version data
     /// to Asset Inventory. If there are multiple key versions protecting the
@@ -287,7 +287,7 @@ pub struct ProtectedResource {
     #[prost(string, tag = "6")]
     pub crypto_key_version: ::prost::alloc::string::String,
     /// The names of the Cloud KMS
-    /// \[CryptoKeyVersion\](<https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions?hl=en>)
+    /// [CryptoKeyVersion](<https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions?hl=en>)
     /// used to protect this resource via CMEK. This field is empty if the
     /// Google Cloud product owning the resource does not provide key versions data
     /// to Asset Inventory. The first element of this field is stored in

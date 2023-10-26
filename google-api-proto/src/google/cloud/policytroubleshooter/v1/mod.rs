@@ -29,7 +29,7 @@ pub struct AccessTuple {
     #[prost(string, tag = "3")]
     pub permission: ::prost::alloc::string::String,
 }
-/// Details about how a specific IAM \[Policy][google.iam.v1.Policy\] contributed
+/// Details about how a specific IAM [Policy][google.iam.v1.Policy] contributed
 /// to the access check.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -41,7 +41,7 @@ pub struct ExplainedPolicy {
     /// permission for the resource. There might be another policy that overrides
     /// this policy. To determine whether the principal actually has the
     /// permission, use the `access` field in the
-    /// \[TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse].
     #[prost(enumeration = "AccessState", tag = "1")]
     pub access: i32,
     /// The full resource name that identifies the resource. For example,
@@ -68,7 +68,7 @@ pub struct ExplainedPolicy {
     #[prost(message, repeated, tag = "4")]
     pub binding_explanations: ::prost::alloc::vec::Vec<BindingExplanation>,
     /// The relevance of this policy to the overall determination in the
-    /// \[TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse].
     ///
     /// If the sender of the request does not have access to the policy, this field
     /// is omitted.
@@ -87,7 +87,7 @@ pub struct BindingExplanation {
     /// permission for the resource. There might be another binding that overrides
     /// this binding. To determine whether the principal actually has the
     /// permission, use the `access` field in the
-    /// \[TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse].
     #[prost(enumeration = "AccessState", tag = "1")]
     pub access: i32,
     /// The role that this binding grants. For example,
@@ -345,7 +345,7 @@ impl HeuristicRelevance {
     }
 }
 /// Request for
-/// \[TroubleshootIamPolicy][google.cloud.policytroubleshooter.v1.IamChecker.TroubleshootIamPolicy\].
+/// [TroubleshootIamPolicy][google.cloud.policytroubleshooter.v1.IamChecker.TroubleshootIamPolicy].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct TroubleshootIamPolicyRequest {
@@ -355,7 +355,7 @@ pub struct TroubleshootIamPolicyRequest {
     pub access_tuple: ::core::option::Option<AccessTuple>,
 }
 /// Response for
-/// \[TroubleshootIamPolicy][google.cloud.policytroubleshooter.v1.IamChecker.TroubleshootIamPolicy\].
+/// [TroubleshootIamPolicy][google.cloud.policytroubleshooter.v1.IamChecker.TroubleshootIamPolicy].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct TroubleshootIamPolicyResponse {

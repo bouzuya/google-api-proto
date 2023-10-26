@@ -459,10 +459,10 @@ pub mod attribute_propagation_settings {
         /// Propagate attributes in the headers with "x-goog-iap-attr-" prefix.
         Header = 1,
         /// Propagate attributes in the JWT of the form: `"additional_claims": {
-        /// "my_attribute": ["value1", "value2"] }`
+        /// "my_attribute": \["value1", "value2"\] }`
         Jwt = 2,
         /// Propagate attributes in the RCToken of the form: `"additional_claims": {
-        /// "my_attribute": ["value1", "value2"] }`
+        /// "my_attribute": \["value1", "value2"\] }`
         Rctoken = 3,
     }
     impl OutputCredentials {

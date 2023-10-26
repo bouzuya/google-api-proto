@@ -118,7 +118,7 @@ pub mod conversation {
             #[prost(message, repeated, tag = "3")]
             pub words: ::prost::alloc::vec::Vec<transcript_segment::WordInfo>,
             /// The language code of this segment as a
-            /// \[BCP-47\](<https://www.rfc-editor.org/rfc/bcp/bcp47.txt>) language tag.
+            /// [BCP-47](<https://www.rfc-editor.org/rfc/bcp/bcp47.txt>) language tag.
             /// Example: "en-US".
             #[prost(string, tag = "4")]
             pub language_code: ::prost::alloc::string::String,
@@ -506,7 +506,7 @@ pub struct Entity {
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
-    /// The salience score associated with the entity in the [0, 1.0] range.
+    /// The salience score associated with the entity in the \[0, 1.0\] range.
     ///
     /// The salience score for an entity provides information about the
     /// importance or centrality of that entity to the entire document text.
@@ -1264,11 +1264,11 @@ pub mod settings {
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct AnalysisConfig {
         /// Percentage of conversations created using Dialogflow runtime integration
-        /// to analyze automatically, between [0, 100].
+        /// to analyze automatically, between \[0, 100\].
         #[prost(double, tag = "1")]
         pub runtime_integration_analysis_percentage: f64,
         /// Percentage of conversations created using the UploadConversation endpoint
-        /// to analyze automatically, between [0, 100].
+        /// to analyze automatically, between \[0, 100\].
         #[prost(double, tag = "6")]
         pub upload_conversation_analysis_percentage: f64,
         /// To select the annotators to run and the phrase matchers to use
@@ -1935,7 +1935,7 @@ pub struct CreateConversationRequest {
     /// server-generated ID will be used.
     ///
     /// This value should be 4-64 characters and must match the regular
-    /// expression `^\[a-z0-9-\]{4,64}$`. Valid characters are `\[a-z][0-9\]-`
+    /// expression `^\[a-z0-9-\]{4,64}$`. Valid characters are `[a-z][0-9]-`
     #[prost(string, tag = "3")]
     pub conversation_id: ::prost::alloc::string::String,
 }
@@ -1954,7 +1954,7 @@ pub struct UploadConversationRequest {
     /// a server-generated ID will be used.
     ///
     /// This value should be 4-64 characters and must match the regular
-    /// expression `^\[a-z0-9-\]{4,64}$`. Valid characters are `\[a-z][0-9\]-`
+    /// expression `^\[a-z0-9-\]{4,64}$`. Valid characters are `[a-z][0-9]-`
     #[prost(string, tag = "3")]
     pub conversation_id: ::prost::alloc::string::String,
     /// Optional. DLP settings for transcript redaction. Optional, will default to
@@ -2252,7 +2252,7 @@ pub struct BulkAnalyzeConversationsRequest {
     #[prost(string, tag = "2")]
     pub filter: ::prost::alloc::string::String,
     /// Required. Percentage of selected conversation to analyze, between
-    /// [0, 100].
+    /// \[0, 100\].
     #[prost(float, tag = "3")]
     pub analysis_percentage: f32,
     /// To select the annotators to run and the phrase matchers to use

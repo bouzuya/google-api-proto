@@ -1,4 +1,4 @@
-/// Request for \[CreateCluster][CloudRedis.CreateCluster\].
+/// Request for [CreateCluster][CloudRedis.CreateCluster].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateClusterRequest {
@@ -24,7 +24,7 @@ pub struct CreateClusterRequest {
     #[prost(string, tag = "4")]
     pub request_id: ::prost::alloc::string::String,
 }
-/// Request for \[ListClusters][CloudRedis.ListClusters\].
+/// Request for [ListClusters][CloudRedis.ListClusters].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListClustersRequest {
@@ -38,16 +38,16 @@ pub struct ListClustersRequest {
     /// If not specified, a default value of 1000 will be used by the service.
     /// Regardless of the page_size value, the response may include a partial list
     /// and a caller should only rely on response's
-    /// \[`next_page_token`][google.cloud.redis.cluster.v1.ListClustersResponse.next_page_token\]
+    /// [`next_page_token`][google.cloud.redis.cluster.v1.ListClustersResponse.next_page_token]
     /// to determine if there are more clusters left to be queried.
     #[prost(int32, tag = "2")]
     pub page_size: i32,
     /// The `next_page_token` value returned from a previous
-    /// \[ListClusters][CloudRedis.ListClusters\] request, if any.
+    /// [ListClusters][CloudRedis.ListClusters] request, if any.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
 }
-/// Response for \[ListClusters][CloudRedis.ListClusters\].
+/// Response for [ListClusters][CloudRedis.ListClusters].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListClustersResponse {
@@ -72,13 +72,13 @@ pub struct ListClustersResponse {
     #[prost(string, repeated, tag = "3")]
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-/// Request for \[UpdateCluster][CloudRedis.UpdateCluster\].
+/// Request for [UpdateCluster][CloudRedis.UpdateCluster].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateClusterRequest {
     /// Required. Mask of fields to update. At least one path must be supplied in
     /// this field. The elements of the repeated paths field may only include these
-    /// fields from \[Cluster][google.cloud.redis.cluster.v1.Cluster\]:
+    /// fields from [Cluster][google.cloud.redis.cluster.v1.Cluster]:
     ///
     ///   *   `size_gb`
     ///   *   `replica_count`
@@ -92,7 +92,7 @@ pub struct UpdateClusterRequest {
     #[prost(string, tag = "3")]
     pub request_id: ::prost::alloc::string::String,
 }
-/// Request for \[GetCluster][CloudRedis.GetCluster\].
+/// Request for [GetCluster][CloudRedis.GetCluster].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetClusterRequest {
@@ -102,7 +102,7 @@ pub struct GetClusterRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Request for \[DeleteCluster][CloudRedis.DeleteCluster\].
+/// Request for [DeleteCluster][CloudRedis.DeleteCluster].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteClusterRequest {
@@ -114,17 +114,6 @@ pub struct DeleteClusterRequest {
     /// Idempotent request UUID.
     #[prost(string, tag = "2")]
     pub request_id: ::prost::alloc::string::String,
-}
-/// Request for
-/// \[GetClusterCertificateAuthorityRequest][CloudRedis.GetClusterCertificateAuthorityRequest\].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetClusterCertificateAuthorityRequest {
-    /// Required. Redis cluster certificate authority resource name using the form:
-    ///      `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}/certificateAuthority`
-    /// where `location_id` refers to a GCP region.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
 }
 /// A cluster instance.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -333,55 +322,14 @@ pub struct OperationMetadata {
     pub status_message: ::prost::alloc::string::String,
     /// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     #[prost(bool, tag = "6")]
     pub requested_cancellation: bool,
     /// Output only. API version used to start the operation.
     #[prost(string, tag = "7")]
     pub api_version: ::prost::alloc::string::String,
-}
-/// Redis cluster certificate authority
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CertificateAuthority {
-    /// Identifier. Unique name of the resource in this scope including project,
-    /// location and cluster using the form:
-    ///      `projects/{project}/locations/{location}/clusters/{cluster}/certificateAuthority`
-    #[prost(string, tag = "2")]
-    pub name: ::prost::alloc::string::String,
-    /// server ca information
-    #[prost(oneof = "certificate_authority::ServerCa", tags = "1")]
-    pub server_ca: ::core::option::Option<certificate_authority::ServerCa>,
-}
-/// Nested message and enum types in `CertificateAuthority`.
-pub mod certificate_authority {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ManagedCertificateAuthority {
-        /// The PEM encoded CA certificate chains for redis managed
-        /// server authentication
-        #[prost(message, repeated, tag = "1")]
-        pub ca_certs: ::prost::alloc::vec::Vec<managed_certificate_authority::CertChain>,
-    }
-    /// Nested message and enum types in `ManagedCertificateAuthority`.
-    pub mod managed_certificate_authority {
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct CertChain {
-            /// The certificates that form the CA chain, from leaf to root order.
-            #[prost(string, repeated, tag = "1")]
-            pub certificates: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-        }
-    }
-    /// server ca information
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum ServerCa {
-        #[prost(message, tag = "1")]
-        ManagedServerCa(ManagedCertificateAuthority),
-    }
 }
 /// Available authorization mode of a Redis cluster.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
@@ -716,39 +664,6 @@ pub mod cloud_redis_cluster_client {
                     GrpcMethod::new(
                         "google.cloud.redis.cluster.v1.CloudRedisCluster",
                         "CreateCluster",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets the details of certificate authority information for Redis cluster.
-        pub async fn get_cluster_certificate_authority(
-            &mut self,
-            request: impl tonic::IntoRequest<
-                super::GetClusterCertificateAuthorityRequest,
-            >,
-        ) -> std::result::Result<
-            tonic::Response<super::CertificateAuthority>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.redis.cluster.v1.CloudRedisCluster/GetClusterCertificateAuthority",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.redis.cluster.v1.CloudRedisCluster",
-                        "GetClusterCertificateAuthority",
                     ),
                 );
             self.inner.unary(req, path, codec).await

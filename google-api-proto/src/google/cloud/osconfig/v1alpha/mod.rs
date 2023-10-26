@@ -1,3 +1,27 @@
+/// Message encapsulating a value that can be either absolute ("fixed") or
+/// relative ("percent") to a value.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FixedOrPercent {
+    /// Type of the value.
+    #[prost(oneof = "fixed_or_percent::Mode", tags = "1, 2")]
+    pub mode: ::core::option::Option<fixed_or_percent::Mode>,
+}
+/// Nested message and enum types in `FixedOrPercent`.
+pub mod fixed_or_percent {
+    /// Type of the value.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Mode {
+        /// Specifies a fixed value.
+        #[prost(int32, tag = "1")]
+        Fixed(i32),
+        /// Specifies the relative value defined as a percentage, which will be
+        /// multiplied by a reference value.
+        #[prost(int32, tag = "2")]
+        Percent(i32),
+    }
+}
 /// Step performed by the OS Config agent for configuring an `OSPolicyResource`
 /// to its desired state.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2015,30 +2039,6 @@ pub mod os_policy {
                 _ => None,
             }
         }
-    }
-}
-/// Message encapsulating a value that can be either absolute ("fixed") or
-/// relative ("percent") to a value.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FixedOrPercent {
-    /// Type of the value.
-    #[prost(oneof = "fixed_or_percent::Mode", tags = "1, 2")]
-    pub mode: ::core::option::Option<fixed_or_percent::Mode>,
-}
-/// Nested message and enum types in `FixedOrPercent`.
-pub mod fixed_or_percent {
-    /// Type of the value.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Mode {
-        /// Specifies a fixed value.
-        #[prost(int32, tag = "1")]
-        Fixed(i32),
-        /// Specifies the relative value defined as a percentage, which will be
-        /// multiplied by a reference value.
-        #[prost(int32, tag = "2")]
-        Percent(i32),
     }
 }
 /// OS policy assignment is an API resource that is used to

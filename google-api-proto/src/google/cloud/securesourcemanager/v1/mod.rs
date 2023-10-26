@@ -472,8 +472,8 @@ pub struct OperationMetadata {
     pub status_message: ::prost::alloc::string::String,
     /// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     #[prost(bool, tag = "6")]
     pub requested_cancellation: bool,
@@ -532,7 +532,7 @@ pub struct CreateRepositoryRequest {
     pub repository: ::core::option::Option<Repository>,
     /// Required. The ID to use for the repository, which will become the final
     /// component of the repository's resource name. This value should be 4-63
-    /// characters, and valid characters are /\[a-z][0-9\]-/.
+    /// characters, and valid characters are /[a-z][0-9]-/.
     #[prost(string, tag = "3")]
     pub repository_id: ::prost::alloc::string::String,
 }

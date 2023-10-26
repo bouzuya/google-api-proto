@@ -843,7 +843,7 @@ pub mod queued_resource_state {
         SuspendedData(SuspendedData),
     }
 }
-/// Request for \[ListNodes][google.cloud.tpu.v2alpha1.Tpu.ListNodes\].
+/// Request for [ListNodes][google.cloud.tpu.v2alpha1.Tpu.ListNodes].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListNodesRequest {
@@ -857,7 +857,7 @@ pub struct ListNodesRequest {
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
 }
-/// Response for \[ListNodes][google.cloud.tpu.v2alpha1.Tpu.ListNodes\].
+/// Response for [ListNodes][google.cloud.tpu.v2alpha1.Tpu.ListNodes].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListNodesResponse {
@@ -871,7 +871,7 @@ pub struct ListNodesResponse {
     #[prost(string, repeated, tag = "3")]
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-/// Request for \[GetNode][google.cloud.tpu.v2alpha1.Tpu.GetNode\].
+/// Request for [GetNode][google.cloud.tpu.v2alpha1.Tpu.GetNode].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetNodeRequest {
@@ -879,7 +879,7 @@ pub struct GetNodeRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Request for \[CreateNode][google.cloud.tpu.v2alpha1.Tpu.CreateNode\].
+/// Request for [CreateNode][google.cloud.tpu.v2alpha1.Tpu.CreateNode].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateNodeRequest {
@@ -896,7 +896,7 @@ pub struct CreateNodeRequest {
     #[prost(string, tag = "6")]
     pub request_id: ::prost::alloc::string::String,
 }
-/// Request for \[DeleteNode][google.cloud.tpu.v2alpha1.Tpu.DeleteNode\].
+/// Request for [DeleteNode][google.cloud.tpu.v2alpha1.Tpu.DeleteNode].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteNodeRequest {
@@ -907,7 +907,7 @@ pub struct DeleteNodeRequest {
     #[prost(string, tag = "3")]
     pub request_id: ::prost::alloc::string::String,
 }
-/// Request for \[StopNode][google.cloud.tpu.v2alpha1.Tpu.StopNode\].
+/// Request for [StopNode][google.cloud.tpu.v2alpha1.Tpu.StopNode].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct StopNodeRequest {
@@ -915,7 +915,7 @@ pub struct StopNodeRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Request for \[StartNode][google.cloud.tpu.v2alpha1.Tpu.StartNode\].
+/// Request for [StartNode][google.cloud.tpu.v2alpha1.Tpu.StartNode].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct StartNodeRequest {
@@ -923,11 +923,11 @@ pub struct StartNodeRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Request for \[UpdateNode][google.cloud.tpu.v2alpha1.Tpu.UpdateNode\].
+/// Request for [UpdateNode][google.cloud.tpu.v2alpha1.Tpu.UpdateNode].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateNodeRequest {
-    /// Required. Mask of fields from \[Node][Tpu.Node\] to update.
+    /// Required. Mask of fields from [Node][Tpu.Node] to update.
     /// Supported fields: [description, tags, labels, metadata,
     /// network_config.enable_external_ips].
     #[prost(message, optional, tag = "1")]
@@ -937,7 +937,7 @@ pub struct UpdateNodeRequest {
     pub node: ::core::option::Option<Node>,
 }
 /// Request for
-/// \[ListQueuedResources][google.cloud.tpu.v2alpha1.Tpu.ListQueuedResources\].
+/// [ListQueuedResources][google.cloud.tpu.v2alpha1.Tpu.ListQueuedResources].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListQueuedResourcesRequest {
@@ -952,7 +952,7 @@ pub struct ListQueuedResourcesRequest {
     pub page_token: ::prost::alloc::string::String,
 }
 /// Response for
-/// \[ListQueuedResources][google.cloud.tpu.v2alpha1.Tpu.ListQueuedResources\].
+/// [ListQueuedResources][google.cloud.tpu.v2alpha1.Tpu.ListQueuedResources].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListQueuedResourcesResponse {
@@ -967,7 +967,7 @@ pub struct ListQueuedResourcesResponse {
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// Request for
-/// \[GetQueuedResource][google.cloud.tpu.v2alpha1.Tpu.GetQueuedResource\]
+/// [GetQueuedResource][google.cloud.tpu.v2alpha1.Tpu.GetQueuedResource]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetQueuedResourceRequest {
@@ -976,7 +976,7 @@ pub struct GetQueuedResourceRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request for
-/// \[CreateQueuedResource][google.cloud.tpu.v2alpha1.Tpu.CreateQueuedResource\].
+/// [CreateQueuedResource][google.cloud.tpu.v2alpha1.Tpu.CreateQueuedResource].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateQueuedResourceRequest {
@@ -995,7 +995,7 @@ pub struct CreateQueuedResourceRequest {
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request for
-/// \[DeleteQueuedResource][google.cloud.tpu.v2alpha1.Tpu.DeleteQueuedResource\].
+/// [DeleteQueuedResource][google.cloud.tpu.v2alpha1.Tpu.DeleteQueuedResource].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteQueuedResourceRequest {
@@ -1014,7 +1014,7 @@ pub struct DeleteQueuedResourceRequest {
     pub force: bool,
 }
 /// Request for
-/// \[ResetQueuedResource][google.cloud.tpu.v2alpha1.Tpu.ResetQueuedResource\].
+/// [ResetQueuedResource][google.cloud.tpu.v2alpha1.Tpu.ResetQueuedResource].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ResetQueuedResourceRequest {
@@ -1031,7 +1031,7 @@ pub struct ServiceIdentity {
     pub email: ::prost::alloc::string::String,
 }
 /// Request for
-/// \[GenerateServiceIdentity][google.cloud.tpu.v2alpha1.Tpu.GenerateServiceIdentity\].
+/// [GenerateServiceIdentity][google.cloud.tpu.v2alpha1.Tpu.GenerateServiceIdentity].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GenerateServiceIdentityRequest {
@@ -1040,7 +1040,7 @@ pub struct GenerateServiceIdentityRequest {
     pub parent: ::prost::alloc::string::String,
 }
 /// Response for
-/// \[GenerateServiceIdentity][google.cloud.tpu.v2alpha1.Tpu.GenerateServiceIdentity\].
+/// [GenerateServiceIdentity][google.cloud.tpu.v2alpha1.Tpu.GenerateServiceIdentity].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GenerateServiceIdentityResponse {
@@ -1063,7 +1063,7 @@ pub struct AcceleratorType {
     pub accelerator_configs: ::prost::alloc::vec::Vec<AcceleratorConfig>,
 }
 /// Request for
-/// \[GetAcceleratorType][google.cloud.tpu.v2alpha1.Tpu.GetAcceleratorType\].
+/// [GetAcceleratorType][google.cloud.tpu.v2alpha1.Tpu.GetAcceleratorType].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetAcceleratorTypeRequest {
@@ -1072,7 +1072,7 @@ pub struct GetAcceleratorTypeRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request for
-/// \[ListAcceleratorTypes][google.cloud.tpu.v2alpha1.Tpu.ListAcceleratorTypes\].
+/// [ListAcceleratorTypes][google.cloud.tpu.v2alpha1.Tpu.ListAcceleratorTypes].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListAcceleratorTypesRequest {
@@ -1093,7 +1093,7 @@ pub struct ListAcceleratorTypesRequest {
     pub order_by: ::prost::alloc::string::String,
 }
 /// Response for
-/// \[ListAcceleratorTypes][google.cloud.tpu.v2alpha1.Tpu.ListAcceleratorTypes\].
+/// [ListAcceleratorTypes][google.cloud.tpu.v2alpha1.Tpu.ListAcceleratorTypes].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListAcceleratorTypesResponse {
@@ -1119,7 +1119,7 @@ pub struct RuntimeVersion {
     pub version: ::prost::alloc::string::String,
 }
 /// Request for
-/// \[GetRuntimeVersion][google.cloud.tpu.v2alpha1.Tpu.GetRuntimeVersion\].
+/// [GetRuntimeVersion][google.cloud.tpu.v2alpha1.Tpu.GetRuntimeVersion].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetRuntimeVersionRequest {
@@ -1128,7 +1128,7 @@ pub struct GetRuntimeVersionRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request for
-/// \[ListRuntimeVersions][google.cloud.tpu.v2alpha1.Tpu.ListRuntimeVersions\].
+/// [ListRuntimeVersions][google.cloud.tpu.v2alpha1.Tpu.ListRuntimeVersions].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListRuntimeVersionsRequest {
@@ -1149,7 +1149,7 @@ pub struct ListRuntimeVersionsRequest {
     pub order_by: ::prost::alloc::string::String,
 }
 /// Response for
-/// \[ListRuntimeVersions][google.cloud.tpu.v2alpha1.Tpu.ListRuntimeVersions\].
+/// [ListRuntimeVersions][google.cloud.tpu.v2alpha1.Tpu.ListRuntimeVersions].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListRuntimeVersionsResponse {
@@ -1163,7 +1163,7 @@ pub struct ListRuntimeVersionsResponse {
     #[prost(string, repeated, tag = "3")]
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-/// Metadata describing an \[Operation][google.longrunning.Operation\]
+/// Metadata describing an [Operation][google.longrunning.Operation]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct OperationMetadata {
@@ -1272,7 +1272,7 @@ pub mod symptom {
     }
 }
 /// Request for
-/// \[GetGuestAttributes][google.cloud.tpu.v2alpha1.Tpu.GetGuestAttributes\].
+/// [GetGuestAttributes][google.cloud.tpu.v2alpha1.Tpu.GetGuestAttributes].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetGuestAttributesRequest {
@@ -1288,7 +1288,7 @@ pub struct GetGuestAttributesRequest {
     pub worker_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// Response for
-/// \[GetGuestAttributes][google.cloud.tpu.v2alpha1.Tpu.GetGuestAttributes\].
+/// [GetGuestAttributes][google.cloud.tpu.v2alpha1.Tpu.GetGuestAttributes].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetGuestAttributesResponse {
@@ -1297,7 +1297,7 @@ pub struct GetGuestAttributesResponse {
     pub guest_attributes: ::prost::alloc::vec::Vec<GuestAttributes>,
 }
 /// Request for
-/// \[SimulateMaintenanceEvent][google.cloud.tpu.v2alpha1.Tpu.SimulateMaintenanceEvent\].
+/// [SimulateMaintenanceEvent][google.cloud.tpu.v2alpha1.Tpu.SimulateMaintenanceEvent].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SimulateMaintenanceEventRequest {

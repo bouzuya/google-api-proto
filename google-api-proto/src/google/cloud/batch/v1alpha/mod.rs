@@ -38,7 +38,7 @@ pub mod volume {
         Gcs(super::Gcs),
         /// Device name of an attached disk volume, which should align with a
         /// device_name specified by
-        /// job.allocation_policy.instances\[0].policy.disks[i\].device_name or
+        /// job.allocation_policy.instances\[0\].policy.disks\[i\].device_name or
         /// defined by the given instance template in
         /// job.allocation_policy.instances\[0\].instance_template.
         #[prost(string, tag = "6")]
@@ -88,7 +88,7 @@ pub struct Gcs {
 /// ComputeResource defines the amount of resources required for each task.
 /// Make sure your tasks have enough resources to successfully run.
 /// If you also define the types of resources for a job to use with the
-/// \[InstancePolicyOrTemplate\](<https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate>)
+/// [InstancePolicyOrTemplate](<https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate>)
 /// field, make sure both fields are compatible with each other.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -100,9 +100,9 @@ pub struct ComputeResource {
     /// default value is `2000`.
     ///
     /// If you also define the VM's machine type using the `machineType` in
-    /// \[InstancePolicy\](<https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy>)
+    /// [InstancePolicy](<https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy>)
     /// field or inside the `instanceTemplate` in the
-    /// \[InstancePolicyOrTemplate\](<https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate>)
+    /// [InstancePolicyOrTemplate](<https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate>)
     /// field, make sure the CPU resources for both fields are compatible with each
     /// other and with how many tasks you want to allow to run on the same VM at
     /// the same time.
@@ -118,9 +118,9 @@ pub struct ComputeResource {
     /// `memoryMib` defines the amount of memory per task in MiB units.
     /// If undefined, the default value is `2000`.
     /// If you also define the VM's machine type using the `machineType` in
-    /// \[InstancePolicy\](<https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy>)
+    /// [InstancePolicy](<https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy>)
     /// field or inside the `instanceTemplate` in the
-    /// \[InstancePolicyOrTemplate\](<https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate>)
+    /// [InstancePolicyOrTemplate](<https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate>)
     /// field, make sure the memory resources for both fields are compatible with
     /// each other and with how many tasks you want to allow to run on the same VM
     /// at the same time.
@@ -447,7 +447,7 @@ pub struct TaskSpec {
     pub max_run_duration: ::core::option::Option<::prost_types::Duration>,
     /// Maximum number of retries on failures.
     /// The default, 0, which means never retry.
-    /// The valid value range is [0, 10].
+    /// The valid value range is \[0, 10\].
     #[prost(int32, tag = "5")]
     pub max_retry_count: i32,
     /// Lifecycle management schema when any task in a task group is failed.
@@ -1114,7 +1114,7 @@ pub mod allocation_policy {
         /// Only one region or multiple zones in one region is supported now.
         /// For example,
         /// \["regions/us-central1"\] allow VMs in any zones in region us-central1.
-        /// ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+        /// \["zones/us-central1-a", "zones/us-central1-c"\] only allow VMs
         /// in zones us-central1-a and us-central1-c.
         ///
         /// All locations end up in different regions would cause errors.
@@ -1756,8 +1756,8 @@ pub struct OperationMetadata {
     pub status_message: ::prost::alloc::string::String,
     /// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     #[prost(bool, tag = "6")]
     pub requested_cancellation: bool,

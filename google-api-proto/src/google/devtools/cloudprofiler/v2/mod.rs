@@ -83,7 +83,7 @@ pub struct Profile {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Deployment {
     /// Project ID is the ID of a cloud project.
-    /// Validation regex: `^\[a-z][-a-z0-9:.]{4,61}[a-z0-9\]$`.
+    /// Validation regex: `^[a-z][-a-z0-9:.]{4,61}\[a-z0-9\]$`.
     #[prost(string, tag = "1")]
     pub project_id: ::prost::alloc::string::String,
     /// Target is the service name used to group related deployments:
@@ -91,11 +91,11 @@ pub struct Deployment {
     /// * Cluster and container name for GKE.
     /// * User-specified string for direct Compute Engine profiling (e.g. Java).
     /// * Job name for Dataflow.
-    /// Validation regex: `^\[a-z0-9]([-a-z0-9_.]{0,253}[a-z0-9\])?$`.
+    /// Validation regex: `^[a-z0-9](\[-a-z0-9_.\]{0,253}\[a-z0-9\])?$`.
     #[prost(string, tag = "2")]
     pub target: ::prost::alloc::string::String,
     /// Labels identify the deployment within the user universe and same target.
-    /// Validation regex for label names: `^\[a-z0-9]([a-z0-9-]{0,61}[a-z0-9\])?$`.
+    /// Validation regex for label names: `^[a-z0-9](\[a-z0-9-\]{0,61}\[a-z0-9\])?$`.
     /// Value for an individual label must be <= 512 bytes, the total
     /// size of all label names and values must be <= 1024 bytes.
     ///

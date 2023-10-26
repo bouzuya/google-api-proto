@@ -1,5 +1,5 @@
 /// An individual endpoint that provides a
-/// \[service][google.cloud.servicedirectory.v1.Service\]. The service must
+/// [service][google.cloud.servicedirectory.v1.Service]. The service must
 /// already exist to create an endpoint.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -20,7 +20,7 @@ pub struct Endpoint {
     /// Limited to 45 characters.
     #[prost(string, tag = "2")]
     pub address: ::prost::alloc::string::String,
-    /// Optional. Service Directory rejects values outside of `[0, 65535]`.
+    /// Optional. Service Directory rejects values outside of `\[0, 65535\]`.
     #[prost(int32, tag = "3")]
     pub port: i32,
     /// Optional. Annotations for the endpoint. This data can be consumed by
@@ -62,9 +62,32 @@ pub struct Endpoint {
     #[prost(string, tag = "9")]
     pub uid: ::prost::alloc::string::String,
 }
+/// A container for [services][google.cloud.servicedirectory.v1.Service].
+/// Namespaces allow administrators to group services together and define
+/// permissions for a collection of services.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Namespace {
+    /// Immutable. The resource name for the namespace in the format
+    /// `projects/*/locations/*/namespaces/*`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. Resource labels associated with this namespace.
+    /// No more than 64 user labels can be associated with a given resource. Label
+    /// keys and values can be no longer than 63 characters.
+    #[prost(btree_map = "string, string", tag = "2")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. The globally unique identifier of the namespace in the UUID4
+    /// format.
+    #[prost(string, tag = "5")]
+    pub uid: ::prost::alloc::string::String,
+}
 /// An individual service. A service contains a name and optional metadata.
 /// A service must exist before
-/// \[endpoints][google.cloud.servicedirectory.v1.Endpoint\] can be
+/// [endpoints][google.cloud.servicedirectory.v1.Endpoint] can be
 /// added to it.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -99,9 +122,9 @@ pub struct Service {
         ::prost::alloc::string::String,
     >,
     /// Output only. Endpoints associated with this service. Returned on
-    /// \[LookupService.ResolveService][google.cloud.servicedirectory.v1.LookupService.ResolveService\].
+    /// [LookupService.ResolveService][google.cloud.servicedirectory.v1.LookupService.ResolveService].
     /// Control plane clients should use
-    /// \[RegistrationService.ListEndpoints][google.cloud.servicedirectory.v1.RegistrationService.ListEndpoints\].
+    /// [RegistrationService.ListEndpoints][google.cloud.servicedirectory.v1.RegistrationService.ListEndpoints].
     #[prost(message, repeated, tag = "3")]
     pub endpoints: ::prost::alloc::vec::Vec<Endpoint>,
     /// Output only. The globally unique identifier of the service in the UUID4
@@ -109,31 +132,8 @@ pub struct Service {
     #[prost(string, tag = "7")]
     pub uid: ::prost::alloc::string::String,
 }
-/// A container for \[services][google.cloud.servicedirectory.v1.Service\].
-/// Namespaces allow administrators to group services together and define
-/// permissions for a collection of services.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Namespace {
-    /// Immutable. The resource name for the namespace in the format
-    /// `projects/*/locations/*/namespaces/*`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. Resource labels associated with this namespace.
-    /// No more than 64 user labels can be associated with a given resource. Label
-    /// keys and values can be no longer than 63 characters.
-    #[prost(btree_map = "string, string", tag = "2")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. The globally unique identifier of the namespace in the UUID4
-    /// format.
-    #[prost(string, tag = "5")]
-    pub uid: ::prost::alloc::string::String,
-}
 /// The request message for
-/// \[RegistrationService.CreateNamespace][google.cloud.servicedirectory.v1.RegistrationService.CreateNamespace\].
+/// [RegistrationService.CreateNamespace][google.cloud.servicedirectory.v1.RegistrationService.CreateNamespace].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateNamespaceRequest {
@@ -144,7 +144,7 @@ pub struct CreateNamespaceRequest {
     /// Required. The Resource ID must be 1-63 characters long, and comply with
     /// <a href="<https://www.ietf.org/rfc/rfc1035.txt"> target="_blank">RFC1035</a>.
     /// Specifically, the name must be 1-63 characters long and match the regular
-    /// expression `\[a-z](?:[-a-z0-9]{0,61}[a-z0-9\])?` which means the first
+    /// expression `[a-z](?:\[-a-z0-9\]{0,61}\[a-z0-9\])?` which means the first
     /// character must be a lowercase letter, and all following characters must
     /// be a dash, lowercase letter, or digit, except the last character, which
     /// cannot be a dash.
@@ -155,7 +155,7 @@ pub struct CreateNamespaceRequest {
     pub namespace: ::core::option::Option<Namespace>,
 }
 /// The request message for
-/// \[RegistrationService.ListNamespaces][google.cloud.servicedirectory.v1.RegistrationService.ListNamespaces\].
+/// [RegistrationService.ListNamespaces][google.cloud.servicedirectory.v1.RegistrationService.ListNamespaces].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListNamespacesRequest {
@@ -214,7 +214,7 @@ pub struct ListNamespacesRequest {
     pub order_by: ::prost::alloc::string::String,
 }
 /// The response message for
-/// \[RegistrationService.ListNamespaces][google.cloud.servicedirectory.v1.RegistrationService.ListNamespaces\].
+/// [RegistrationService.ListNamespaces][google.cloud.servicedirectory.v1.RegistrationService.ListNamespaces].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListNamespacesResponse {
@@ -227,7 +227,7 @@ pub struct ListNamespacesResponse {
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// The request message for
-/// \[RegistrationService.GetNamespace][google.cloud.servicedirectory.v1.RegistrationService.GetNamespace\].
+/// [RegistrationService.GetNamespace][google.cloud.servicedirectory.v1.RegistrationService.GetNamespace].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetNamespaceRequest {
@@ -236,7 +236,7 @@ pub struct GetNamespaceRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// The request message for
-/// \[RegistrationService.UpdateNamespace][google.cloud.servicedirectory.v1.RegistrationService.UpdateNamespace\].
+/// [RegistrationService.UpdateNamespace][google.cloud.servicedirectory.v1.RegistrationService.UpdateNamespace].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateNamespaceRequest {
@@ -248,7 +248,7 @@ pub struct UpdateNamespaceRequest {
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
 /// The request message for
-/// \[RegistrationService.DeleteNamespace][google.cloud.servicedirectory.v1.RegistrationService.DeleteNamespace\].
+/// [RegistrationService.DeleteNamespace][google.cloud.servicedirectory.v1.RegistrationService.DeleteNamespace].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteNamespaceRequest {
@@ -257,7 +257,7 @@ pub struct DeleteNamespaceRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// The request message for
-/// \[RegistrationService.CreateService][google.cloud.servicedirectory.v1.RegistrationService.CreateService\].
+/// [RegistrationService.CreateService][google.cloud.servicedirectory.v1.RegistrationService.CreateService].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateServiceRequest {
@@ -267,7 +267,7 @@ pub struct CreateServiceRequest {
     /// Required. The Resource ID must be 1-63 characters long, and comply with
     /// <a href="<https://www.ietf.org/rfc/rfc1035.txt"> target="_blank">RFC1035</a>.
     /// Specifically, the name must be 1-63 characters long and match the regular
-    /// expression `\[a-z](?:[-a-z0-9]{0,61}[a-z0-9\])?` which means the first
+    /// expression `[a-z](?:\[-a-z0-9\]{0,61}\[a-z0-9\])?` which means the first
     /// character must be a lowercase letter, and all following characters must
     /// be a dash, lowercase letter, or digit, except the last character, which
     /// cannot be a dash.
@@ -278,7 +278,7 @@ pub struct CreateServiceRequest {
     pub service: ::core::option::Option<Service>,
 }
 /// The request message for
-/// \[RegistrationService.ListServices][google.cloud.servicedirectory.v1.RegistrationService.ListServices\].
+/// [RegistrationService.ListServices][google.cloud.servicedirectory.v1.RegistrationService.ListServices].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListServicesRequest {
@@ -339,7 +339,7 @@ pub struct ListServicesRequest {
     pub order_by: ::prost::alloc::string::String,
 }
 /// The response message for
-/// \[RegistrationService.ListServices][google.cloud.servicedirectory.v1.RegistrationService.ListServices\].
+/// [RegistrationService.ListServices][google.cloud.servicedirectory.v1.RegistrationService.ListServices].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListServicesResponse {
@@ -352,7 +352,7 @@ pub struct ListServicesResponse {
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// The request message for
-/// \[RegistrationService.GetService][google.cloud.servicedirectory.v1.RegistrationService.GetService\].
+/// [RegistrationService.GetService][google.cloud.servicedirectory.v1.RegistrationService.GetService].
 /// This should not be used for looking up a service. Instead, use the `resolve`
 /// method as it contains all endpoints and associated annotations.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -363,7 +363,7 @@ pub struct GetServiceRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// The request message for
-/// \[RegistrationService.UpdateService][google.cloud.servicedirectory.v1.RegistrationService.UpdateService\].
+/// [RegistrationService.UpdateService][google.cloud.servicedirectory.v1.RegistrationService.UpdateService].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateServiceRequest {
@@ -375,7 +375,7 @@ pub struct UpdateServiceRequest {
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
 /// The request message for
-/// \[RegistrationService.DeleteService][google.cloud.servicedirectory.v1.RegistrationService.DeleteService\].
+/// [RegistrationService.DeleteService][google.cloud.servicedirectory.v1.RegistrationService.DeleteService].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteServiceRequest {
@@ -384,7 +384,7 @@ pub struct DeleteServiceRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// The request message for
-/// \[RegistrationService.CreateEndpoint][google.cloud.servicedirectory.v1.RegistrationService.CreateEndpoint\].
+/// [RegistrationService.CreateEndpoint][google.cloud.servicedirectory.v1.RegistrationService.CreateEndpoint].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateEndpointRequest {
@@ -394,7 +394,7 @@ pub struct CreateEndpointRequest {
     /// Required. The Resource ID must be 1-63 characters long, and comply with
     /// <a href="<https://www.ietf.org/rfc/rfc1035.txt"> target="_blank">RFC1035</a>.
     /// Specifically, the name must be 1-63 characters long and match the regular
-    /// expression `\[a-z](?:[-a-z0-9]{0,61}[a-z0-9\])?` which means the first
+    /// expression `[a-z](?:\[-a-z0-9\]{0,61}\[a-z0-9\])?` which means the first
     /// character must be a lowercase letter, and all following characters must
     /// be a dash, lowercase letter, or digit, except the last character, which
     /// cannot be a dash.
@@ -405,7 +405,7 @@ pub struct CreateEndpointRequest {
     pub endpoint: ::core::option::Option<Endpoint>,
 }
 /// The request message for
-/// \[RegistrationService.ListEndpoints][google.cloud.servicedirectory.v1.RegistrationService.ListEndpoints\].
+/// [RegistrationService.ListEndpoints][google.cloud.servicedirectory.v1.RegistrationService.ListEndpoints].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListEndpointsRequest {
@@ -469,7 +469,7 @@ pub struct ListEndpointsRequest {
     pub order_by: ::prost::alloc::string::String,
 }
 /// The response message for
-/// \[RegistrationService.ListEndpoints][google.cloud.servicedirectory.v1.RegistrationService.ListEndpoints\].
+/// [RegistrationService.ListEndpoints][google.cloud.servicedirectory.v1.RegistrationService.ListEndpoints].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListEndpointsResponse {
@@ -482,7 +482,7 @@ pub struct ListEndpointsResponse {
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// The request message for
-/// \[RegistrationService.GetEndpoint][google.cloud.servicedirectory.v1.RegistrationService.GetEndpoint\].
+/// [RegistrationService.GetEndpoint][google.cloud.servicedirectory.v1.RegistrationService.GetEndpoint].
 /// This should not be used to lookup endpoints at runtime. Instead, use
 /// the `resolve` method.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -493,7 +493,7 @@ pub struct GetEndpointRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// The request message for
-/// \[RegistrationService.UpdateEndpoint][google.cloud.servicedirectory.v1.RegistrationService.UpdateEndpoint\].
+/// [RegistrationService.UpdateEndpoint][google.cloud.servicedirectory.v1.RegistrationService.UpdateEndpoint].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateEndpointRequest {
@@ -505,7 +505,7 @@ pub struct UpdateEndpointRequest {
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
 /// The request message for
-/// \[RegistrationService.DeleteEndpoint][google.cloud.servicedirectory.v1.RegistrationService.DeleteEndpoint\].
+/// [RegistrationService.DeleteEndpoint][google.cloud.servicedirectory.v1.RegistrationService.DeleteEndpoint].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteEndpointRequest {
@@ -1137,7 +1137,7 @@ pub mod registration_service_client {
     }
 }
 /// The request message for
-/// \[LookupService.ResolveService][google.cloud.servicedirectory.v1.LookupService.ResolveService\].
+/// [LookupService.ResolveService][google.cloud.servicedirectory.v1.LookupService.ResolveService].
 /// Looks up a service by its name, returns the service and its endpoints.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1190,7 +1190,7 @@ pub struct ResolveServiceRequest {
     pub endpoint_filter: ::prost::alloc::string::String,
 }
 /// The response message for
-/// \[LookupService.ResolveService][google.cloud.servicedirectory.v1.LookupService.ResolveService\].
+/// [LookupService.ResolveService][google.cloud.servicedirectory.v1.LookupService.ResolveService].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ResolveServiceResponse {

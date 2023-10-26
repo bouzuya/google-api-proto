@@ -1,5 +1,5 @@
 /// A running instance of a
-/// \[Workflow\](/workflows/docs/reference/rest/v1/projects.locations.workflows).
+/// [Workflow](/workflows/docs/reference/rest/v1/projects.locations.workflows).
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Execution {
@@ -315,7 +315,7 @@ pub mod execution {
     }
 }
 /// Request for the
-/// \[ListExecutions][\]
+/// [ListExecutions][]
 /// method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -359,7 +359,7 @@ pub struct ListExecutionsRequest {
     pub order_by: ::prost::alloc::string::String,
 }
 /// Response for the
-/// \[ListExecutions][google.cloud.workflows.executions.v1.Executions.ListExecutions\]
+/// [ListExecutions][google.cloud.workflows.executions.v1.Executions.ListExecutions]
 /// method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -373,7 +373,7 @@ pub struct ListExecutionsResponse {
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// Request for the
-/// \[CreateExecution][google.cloud.workflows.executions.v1.Executions.CreateExecution\]
+/// [CreateExecution][google.cloud.workflows.executions.v1.Executions.CreateExecution]
 /// method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -388,7 +388,7 @@ pub struct CreateExecutionRequest {
     pub execution: ::core::option::Option<Execution>,
 }
 /// Request for the
-/// \[GetExecution][google.cloud.workflows.executions.v1.Executions.GetExecution\]
+/// [GetExecution][google.cloud.workflows.executions.v1.Executions.GetExecution]
 /// method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -404,7 +404,7 @@ pub struct GetExecutionRequest {
     pub view: i32,
 }
 /// Request for the
-/// \[CancelExecution][google.cloud.workflows.executions.v1.Executions.CancelExecution\]
+/// [CancelExecution][google.cloud.workflows.executions.v1.Executions.CancelExecution]
 /// method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]

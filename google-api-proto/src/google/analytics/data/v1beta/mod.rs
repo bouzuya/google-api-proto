@@ -1072,7 +1072,7 @@ pub struct QuotaStatus {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DimensionMetadata {
-    /// This dimension's name. Useable in \[Dimension\](#Dimension)'s `name`. For
+    /// This dimension's name. Useable in [Dimension](#Dimension)'s `name`. For
     /// example, `eventName`.
     #[prost(string, tag = "1")]
     pub api_name: ::prost::alloc::string::String,
@@ -1101,7 +1101,7 @@ pub struct DimensionMetadata {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MetricMetadata {
-    /// A metric name. Useable in \[Metric\](#Metric)'s `name`. For example,
+    /// A metric name. Useable in [Metric](#Metric)'s `name`. For example,
     /// `eventCount`.
     #[prost(string, tag = "1")]
     pub api_name: ::prost::alloc::string::String,
@@ -1122,7 +1122,7 @@ pub struct MetricMetadata {
     #[prost(enumeration = "MetricType", tag = "5")]
     pub r#type: i32,
     /// The mathematical expression for this derived metric. Can be used in
-    /// \[Metric\](#Metric)'s `expression` field for equivalent reports. Most metrics
+    /// [Metric](#Metric)'s `expression` field for equivalent reports. Most metrics
     /// are not expressions, and for non-expressions, this field is empty.
     #[prost(string, tag = "6")]
     pub expression: ::prost::alloc::string::String,
@@ -1510,7 +1510,7 @@ pub struct RunReportRequest {
     /// request returns the second `limit` of rows.
     ///
     /// To learn more about this pagination parameter, see
-    /// \[Pagination\](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
+    /// [Pagination](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
     #[prost(int64, tag = "7")]
     pub offset: i64,
     /// The number of rows to return. If unspecified, 10,000 rows are returned. The
@@ -1524,7 +1524,7 @@ pub struct RunReportRequest {
     /// set `limit` to a higher value.
     ///
     /// To learn more about this pagination parameter, see
-    /// \[Pagination\](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
+    /// [Pagination](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
     #[prost(int64, tag = "8")]
     pub limit: i64,
     /// Aggregation of metrics. Aggregated metric values will be shown in rows
@@ -1555,7 +1555,7 @@ pub struct RunReportRequest {
     #[prost(bool, tag = "13")]
     pub keep_empty_rows: bool,
     /// Toggles whether to return the current state of this Analytics Property's
-    /// quota. Quota is returned in \[PropertyQuota\](#PropertyQuota).
+    /// quota. Quota is returned in [PropertyQuota](#PropertyQuota).
     #[prost(bool, tag = "14")]
     pub return_property_quota: bool,
 }
@@ -1590,7 +1590,7 @@ pub struct RunReportResponse {
     /// response will contain `rowCount` of 175 but only 50 rows.
     ///
     /// To learn more about this pagination parameter, see
-    /// \[Pagination\](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
+    /// [Pagination](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
     #[prost(int32, tag = "7")]
     pub row_count: i32,
     /// Metadata for the report.
@@ -1671,7 +1671,7 @@ pub struct RunPivotReportRequest {
     #[prost(bool, tag = "10")]
     pub keep_empty_rows: bool,
     /// Toggles whether to return the current state of this Analytics Property's
-    /// quota. Quota is returned in \[PropertyQuota\](#PropertyQuota).
+    /// quota. Quota is returned in [PropertyQuota](#PropertyQuota).
     #[prost(bool, tag = "11")]
     pub return_property_quota: bool,
 }
@@ -1709,10 +1709,10 @@ pub struct RunPivotReportResponse {
     ///      },
     ///      {
     ///        "dimensionHeaders": [{
-    ///          "dimensionValues": [{ "value": "session_start" }]
+    ///          "dimensionValues": \[{ "value": "session_start" }\]
     ///        },
     ///        {
-    ///          "dimensionValues": [{ "value": "scroll" }]
+    ///          "dimensionValues": \[{ "value": "scroll" }\]
     ///        }]
     ///      }]
     #[prost(message, repeated, tag = "1")]
@@ -1874,7 +1874,7 @@ pub struct RunRealtimeReportRequest {
     #[prost(message, repeated, tag = "8")]
     pub order_bys: ::prost::alloc::vec::Vec<OrderBy>,
     /// Toggles whether to return the current state of this Analytics Property's
-    /// Realtime quota. Quota is returned in \[PropertyQuota\](#PropertyQuota).
+    /// Realtime quota. Quota is returned in [PropertyQuota](#PropertyQuota).
     #[prost(bool, tag = "9")]
     pub return_property_quota: bool,
     /// The minute ranges of event data to read. If unspecified, one minute range

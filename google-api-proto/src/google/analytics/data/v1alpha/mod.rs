@@ -1127,7 +1127,7 @@ pub mod segment_parameter_filter {
         /// from an EventFilter either event or item parameters should be used.
         ///
         /// Item parameters are only available in ecommerce events. To learn more
-        /// about ecommerce events, see the [Measure ecommerce]
+        /// about ecommerce events, see the \[Measure ecommerce\]
         /// (<https://developers.google.com/analytics/devguides/collection/ga4/ecommerce>)
         /// guide.
         #[prost(string, tag = "2")]
@@ -1352,7 +1352,7 @@ pub mod funnel_parameter_filter {
         /// from an EventFilter either event or item parameters should be used.
         ///
         /// Item parameters are only available in ecommerce events. To learn more
-        /// about ecommerce events, see the [Measure ecommerce]
+        /// about ecommerce events, see the \[Measure ecommerce\]
         /// (<https://developers.google.com/analytics/devguides/collection/ga4/ecommerce>)
         /// guide.
         #[prost(string, tag = "2")]
@@ -1382,7 +1382,7 @@ pub mod funnel_parameter_filter {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct FunnelResponseMetadata {
     /// If funnel report results are
-    /// \[sampled\](<https://support.google.com/analytics/answer/2637192>), this
+    /// [sampled](<https://support.google.com/analytics/answer/2637192>), this
     /// describes what percentage of events were used in this funnel report. One
     /// `samplingMetadatas` is populated for each date range. Each
     /// `samplingMetadatas` corresponds to a date range in order that date ranges
@@ -1393,7 +1393,7 @@ pub struct FunnelResponseMetadata {
     pub sampling_metadatas: ::prost::alloc::vec::Vec<SamplingMetadata>,
 }
 /// If funnel report results are
-/// \[sampled\](<https://support.google.com/analytics/answer/2637192>), this
+/// [sampled](<https://support.google.com/analytics/answer/2637192>), this
 /// metadata describes what percentage of events were used in this funnel
 /// report for a date range. Sampling is the practice of analyzing a subset of
 /// all data in order to uncover the meaningful information in the larger data
@@ -1893,7 +1893,7 @@ pub struct QueryAudienceListRequest {
     /// request returns the second `limit` of rows.
     ///
     /// To learn more about this pagination parameter, see
-    /// \[Pagination\](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
+    /// [Pagination](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
     #[prost(int64, tag = "2")]
     pub offset: i64,
     /// The number of rows to return. If unspecified, 10,000 rows are returned. The
@@ -1904,7 +1904,7 @@ pub struct QueryAudienceListRequest {
     /// aren't as many dimension values as the `limit`.
     ///
     /// To learn more about this pagination parameter, see
-    /// \[Pagination\](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
+    /// [Pagination](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
     #[prost(int64, tag = "3")]
     pub limit: i64,
 }
@@ -1928,7 +1928,7 @@ pub struct QueryAudienceListResponse {
     /// response will contain `rowCount` of 175 but only 50 rows.
     ///
     /// To learn more about this pagination parameter, see
-    /// \[Pagination\](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
+    /// [Pagination](<https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination>).
     #[prost(int32, optional, tag = "3")]
     pub row_count: ::core::option::Option<i32>,
 }
@@ -2045,7 +2045,7 @@ pub struct RunFunnelReportRequest {
     #[prost(message, optional, tag = "10")]
     pub dimension_filter: ::core::option::Option<FilterExpression>,
     /// Toggles whether to return the current state of this Analytics Property's
-    /// quota. Quota is returned in \[PropertyQuota\](#PropertyQuota).
+    /// quota. Quota is returned in [PropertyQuota](#PropertyQuota).
     #[prost(bool, tag = "12")]
     pub return_property_quota: bool,
 }

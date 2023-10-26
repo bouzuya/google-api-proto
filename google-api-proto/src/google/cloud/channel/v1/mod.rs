@@ -1,259 +1,3 @@
-/// Configuration for how a reseller will reprice a Customer.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomerRepricingConfig {
-    /// Output only. Resource name of the CustomerRepricingConfig.
-    /// Format:
-    /// accounts/{account_id}/customers/{customer_id}/customerRepricingConfigs/{id}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The configuration for bill modifications made by a reseller
-    /// before sending it to customers.
-    #[prost(message, optional, tag = "2")]
-    pub repricing_config: ::core::option::Option<RepricingConfig>,
-    /// Output only. Timestamp of an update to the repricing rule. If `update_time`
-    /// is after
-    /// \[RepricingConfig.effective_invoice_month][google.cloud.channel.v1.RepricingConfig.effective_invoice_month\]
-    /// then it indicates this was set mid-month.
-    #[prost(message, optional, tag = "3")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Configuration for how a distributor will rebill a channel partner
-/// (also known as a distributor-authorized reseller).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ChannelPartnerRepricingConfig {
-    /// Output only. Resource name of the ChannelPartnerRepricingConfig.
-    /// Format:
-    /// accounts/{account_id}/channelPartnerLinks/{channel_partner_id}/channelPartnerRepricingConfigs/{id}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The configuration for bill modifications made by a reseller
-    /// before sending it to ChannelPartner.
-    #[prost(message, optional, tag = "2")]
-    pub repricing_config: ::core::option::Option<RepricingConfig>,
-    /// Output only. Timestamp of an update to the repricing rule. If `update_time`
-    /// is after
-    /// \[RepricingConfig.effective_invoice_month][google.cloud.channel.v1.RepricingConfig.effective_invoice_month\]
-    /// then it indicates this was set mid-month.
-    #[prost(message, optional, tag = "3")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Configuration for repricing a Google bill over a period of time.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RepricingConfig {
-    /// Required. The YearMonth when these adjustments activate. The Day field
-    /// needs to be "0" since we only accept YearMonth repricing boundaries.
-    #[prost(message, optional, tag = "1")]
-    pub effective_invoice_month: ::core::option::Option<
-        super::super::super::r#type::Date,
-    >,
-    /// Required. Information about the adjustment.
-    #[prost(message, optional, tag = "2")]
-    pub adjustment: ::core::option::Option<RepricingAdjustment>,
-    /// Required. The \[RebillingBasis][google.cloud.channel.v1.RebillingBasis\] to
-    /// use for this bill. Specifies the relative cost based on repricing costs you
-    /// will apply.
-    #[prost(enumeration = "RebillingBasis", tag = "3")]
-    pub rebilling_basis: i32,
-    /// The conditional overrides to apply for this configuration. If you list
-    /// multiple overrides, only the first valid override is used.  If you don't
-    /// list any overrides, the API uses the normal adjustment and rebilling basis.
-    #[prost(message, repeated, tag = "6")]
-    pub conditional_overrides: ::prost::alloc::vec::Vec<ConditionalOverride>,
-    /// Required. Defines the granularity for repricing.
-    #[prost(oneof = "repricing_config::Granularity", tags = "4, 5")]
-    pub granularity: ::core::option::Option<repricing_config::Granularity>,
-}
-/// Nested message and enum types in `RepricingConfig`.
-pub mod repricing_config {
-    /// Applies the repricing configuration at the entitlement level.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct EntitlementGranularity {
-        /// Resource name of the entitlement.
-        /// Format:
-        /// accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
-        #[prost(string, tag = "1")]
-        pub entitlement: ::prost::alloc::string::String,
-    }
-    /// Applies the repricing configuration at the channel partner level.
-    /// The channel partner value is derived from the resource name. Takes an
-    /// empty json object.
-    /// Deprecated: This is no longer supported. Use
-    /// \[RepricingConfig.EntitlementGranularity][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity\]
-    /// instead.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ChannelPartnerGranularity {}
-    /// Required. Defines the granularity for repricing.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Granularity {
-        /// Applies the repricing configuration at the entitlement level.
-        ///
-        /// Note: If a
-        /// \[ChannelPartnerRepricingConfig][google.cloud.channel.v1.ChannelPartnerRepricingConfig\]
-        /// using
-        /// \[RepricingConfig.EntitlementGranularity][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity\]
-        /// becomes effective, then no existing or future
-        /// \[RepricingConfig.ChannelPartnerGranularity][google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity\]
-        /// will apply to the
-        /// \[RepricingConfig.EntitlementGranularity.entitlement][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.entitlement\].
-        /// This is the recommended value for both
-        /// \[CustomerRepricingConfig][google.cloud.channel.v1.CustomerRepricingConfig\]
-        /// and
-        /// \[ChannelPartnerRepricingConfig][google.cloud.channel.v1.ChannelPartnerRepricingConfig\].
-        #[prost(message, tag = "4")]
-        EntitlementGranularity(EntitlementGranularity),
-        /// Applies the repricing configuration at the channel partner level.
-        /// Only
-        /// \[ChannelPartnerRepricingConfig][google.cloud.channel.v1.ChannelPartnerRepricingConfig\]
-        /// supports this value. Deprecated: This is no longer supported. Use
-        /// \[RepricingConfig.entitlement_granularity][google.cloud.channel.v1.RepricingConfig.entitlement_granularity\]
-        /// instead.
-        #[prost(message, tag = "5")]
-        ChannelPartnerGranularity(ChannelPartnerGranularity),
-    }
-}
-/// A type that represents the various adjustments you can apply to a bill.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RepricingAdjustment {
-    /// A oneof that represents the different types for this adjustment.
-    #[prost(oneof = "repricing_adjustment::Adjustment", tags = "2")]
-    pub adjustment: ::core::option::Option<repricing_adjustment::Adjustment>,
-}
-/// Nested message and enum types in `RepricingAdjustment`.
-pub mod repricing_adjustment {
-    /// A oneof that represents the different types for this adjustment.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Adjustment {
-        /// Flat markup or markdown on an entire bill.
-        #[prost(message, tag = "2")]
-        PercentageAdjustment(super::PercentageAdjustment),
-    }
-}
-/// An adjustment that applies a flat markup or markdown to an entire bill.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PercentageAdjustment {
-    /// The percentage of the bill to adjust.
-    /// For example:
-    /// Mark down by 1% => "-1.00"
-    /// Mark up by 1%   => "1.00"
-    /// Pass-Through    => "0.00"
-    #[prost(message, optional, tag = "2")]
-    pub percentage: ::core::option::Option<super::super::super::r#type::Decimal>,
-}
-/// Specifies the override to conditionally apply.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ConditionalOverride {
-    /// Required. Information about the applied override's adjustment.
-    #[prost(message, optional, tag = "1")]
-    pub adjustment: ::core::option::Option<RepricingAdjustment>,
-    /// Required. The \[RebillingBasis][google.cloud.channel.v1.RebillingBasis\] to
-    /// use for the applied override. Shows the relative cost based on your
-    /// repricing costs.
-    #[prost(enumeration = "RebillingBasis", tag = "2")]
-    pub rebilling_basis: i32,
-    /// Required. Specifies the condition which, if met, will apply the override.
-    #[prost(message, optional, tag = "3")]
-    pub repricing_condition: ::core::option::Option<RepricingCondition>,
-}
-/// Represents the various repricing conditions you can use for a conditional
-/// override.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RepricingCondition {
-    /// Represents the types of existing conditional statements.
-    #[prost(oneof = "repricing_condition::Condition", tags = "1")]
-    pub condition: ::core::option::Option<repricing_condition::Condition>,
-}
-/// Nested message and enum types in `RepricingCondition`.
-pub mod repricing_condition {
-    /// Represents the types of existing conditional statements.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Condition {
-        /// SKU Group condition for override.
-        #[prost(message, tag = "1")]
-        SkuGroupCondition(super::SkuGroupCondition),
-    }
-}
-/// A condition that applies the override if a line item SKU is found in the SKU
-/// group.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SkuGroupCondition {
-    /// Specifies a SKU group (<https://cloud.google.com/skus/sku-groups>).
-    /// Resource name of SKU group. Format:
-    /// accounts/{account}/skuGroups/{sku_group}.
-    /// Example:
-    /// "accounts/C01234/skuGroups/3d50fd57-3157-4577-a5a9-a219b8490041".
-    #[prost(string, tag = "1")]
-    pub sku_group: ::prost::alloc::string::String,
-}
-/// Specifies the different costs that the modified bill can be based on.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum RebillingBasis {
-    /// Not used.
-    Unspecified = 0,
-    /// Use the list cost, also known as the MSRP.
-    CostAtList = 1,
-    /// Pass through all discounts except the Reseller Program Discount. If this is
-    /// the default cost base and no adjustments are specified, the output cost
-    /// will be exactly what the customer would see if they viewed the bill in the
-    /// Google Cloud Console.
-    DirectCustomerCost = 2,
-}
-impl RebillingBasis {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            RebillingBasis::Unspecified => "REBILLING_BASIS_UNSPECIFIED",
-            RebillingBasis::CostAtList => "COST_AT_LIST",
-            RebillingBasis::DirectCustomerCost => "DIRECT_CUSTOMER_COST",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "REBILLING_BASIS_UNSPECIFIED" => Some(Self::Unspecified),
-            "COST_AT_LIST" => Some(Self::CostAtList),
-            "DIRECT_CUSTOMER_COST" => Some(Self::DirectCustomerCost),
-            _ => None,
-        }
-    }
-}
-/// Represents a billing account.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BillingAccount {
-    /// Output only. Resource name of the billing account.
-    /// Format: accounts/{account_id}/billingAccounts/{billing_account_id}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Display name of the billing account.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Output only. The time when this billing account was created.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The 3-letter currency code defined in ISO 4217.
-    #[prost(string, tag = "4")]
-    pub currency_code: ::prost::alloc::string::String,
-    /// Output only. The CLDR region code.
-    #[prost(string, tag = "5")]
-    pub region_code: ::prost::alloc::string::String,
-}
 /// Required Edu Attributes
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -501,206 +245,6 @@ pub struct AdminUser {
     #[prost(string, tag = "3")]
     pub family_name: ::prost::alloc::string::String,
 }
-/// Entity representing a link between distributors and their indirect
-/// resellers in an n-tier resale channel.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ChannelPartnerLink {
-    /// Output only. Resource name for the channel partner link, in the format
-    /// accounts/{account_id}/channelPartnerLinks/{id}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Cloud Identity ID of the linked reseller.
-    #[prost(string, tag = "2")]
-    pub reseller_cloud_identity_id: ::prost::alloc::string::String,
-    /// Required. State of the channel partner link.
-    #[prost(enumeration = "ChannelPartnerLinkState", tag = "3")]
-    pub link_state: i32,
-    /// Output only. URI of the web page where partner accepts the link invitation.
-    #[prost(string, tag = "4")]
-    pub invite_link_uri: ::prost::alloc::string::String,
-    /// Output only. Timestamp of when the channel partner link is created.
-    #[prost(message, optional, tag = "5")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Timestamp of when the channel partner link is updated.
-    #[prost(message, optional, tag = "6")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Public identifier that a customer must use to generate a
-    /// transfer token to move to this distributor-reseller combination.
-    #[prost(string, tag = "7")]
-    pub public_id: ::prost::alloc::string::String,
-    /// Output only. Cloud Identity info of the channel partner (IR).
-    #[prost(message, optional, tag = "8")]
-    pub channel_partner_cloud_identity_info: ::core::option::Option<CloudIdentityInfo>,
-}
-/// The level of granularity the
-/// \[ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink\] will
-/// display.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum ChannelPartnerLinkView {
-    /// The default / unset value.
-    /// The API will default to the BASIC view.
-    Unspecified = 0,
-    /// Includes all fields except the
-    /// \[ChannelPartnerLink.channel_partner_cloud_identity_info][google.cloud.channel.v1.ChannelPartnerLink.channel_partner_cloud_identity_info\].
-    Basic = 1,
-    /// Includes all fields.
-    Full = 2,
-}
-impl ChannelPartnerLinkView {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            ChannelPartnerLinkView::Unspecified => "UNSPECIFIED",
-            ChannelPartnerLinkView::Basic => "BASIC",
-            ChannelPartnerLinkView::Full => "FULL",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "UNSPECIFIED" => Some(Self::Unspecified),
-            "BASIC" => Some(Self::Basic),
-            "FULL" => Some(Self::Full),
-            _ => None,
-        }
-    }
-}
-/// ChannelPartnerLinkState represents state of a channel partner link.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum ChannelPartnerLinkState {
-    /// Not used.
-    Unspecified = 0,
-    /// An invitation has been sent to the reseller to create a channel partner
-    /// link.
-    Invited = 1,
-    /// Status when the reseller is active.
-    Active = 2,
-    /// Status when the reseller has been revoked by the distributor.
-    Revoked = 3,
-    /// Status when the reseller is suspended by Google or distributor.
-    Suspended = 4,
-}
-impl ChannelPartnerLinkState {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            ChannelPartnerLinkState::Unspecified => {
-                "CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED"
-            }
-            ChannelPartnerLinkState::Invited => "INVITED",
-            ChannelPartnerLinkState::Active => "ACTIVE",
-            ChannelPartnerLinkState::Revoked => "REVOKED",
-            ChannelPartnerLinkState::Suspended => "SUSPENDED",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-            "INVITED" => Some(Self::Invited),
-            "ACTIVE" => Some(Self::Active),
-            "REVOKED" => Some(Self::Revoked),
-            "SUSPENDED" => Some(Self::Suspended),
-            _ => None,
-        }
-    }
-}
-/// Entity representing a customer of a reseller or distributor.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Customer {
-    /// Output only. Resource name of the customer.
-    /// Format: accounts/{account_id}/customers/{customer_id}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Name of the organization that the customer entity represents.
-    #[prost(string, tag = "2")]
-    pub org_display_name: ::prost::alloc::string::String,
-    /// Required. The organization address for the customer. To enforce US laws and
-    /// embargoes, we require a region, postal code, and address lines. You must
-    /// provide valid addresses for every customer. To set the customer's
-    /// language, use the Customer-level language code.
-    #[prost(message, optional, tag = "3")]
-    pub org_postal_address: ::core::option::Option<
-        super::super::super::r#type::PostalAddress,
-    >,
-    /// Primary contact info.
-    #[prost(message, optional, tag = "4")]
-    pub primary_contact_info: ::core::option::Option<ContactInfo>,
-    /// Secondary contact email. You need to provide an alternate email to create
-    /// different domains if a primary contact email already exists. Users will
-    /// receive a notification with credentials when you create an admin.google.com
-    /// account. Secondary emails are also recovery email addresses. Alternate
-    /// emails are optional when you create Team customers.
-    #[prost(string, tag = "5")]
-    pub alternate_email: ::prost::alloc::string::String,
-    /// Required. The customer's primary domain. Must match the primary contact
-    /// email's domain.
-    #[prost(string, tag = "6")]
-    pub domain: ::prost::alloc::string::String,
-    /// Output only. Time when the customer was created.
-    #[prost(message, optional, tag = "7")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Time when the customer was updated.
-    #[prost(message, optional, tag = "8")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The customer's Cloud Identity ID if the customer has a Cloud
-    /// Identity resource.
-    #[prost(string, tag = "9")]
-    pub cloud_identity_id: ::prost::alloc::string::String,
-    /// Optional. The BCP-47 language code, such as "en-US" or "sr-Latn". For more
-    /// information, see
-    /// <https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.>
-    #[prost(string, tag = "10")]
-    pub language_code: ::prost::alloc::string::String,
-    /// Output only. Cloud Identity information for the customer.
-    /// Populated only if a Cloud Identity account exists for this customer.
-    #[prost(message, optional, tag = "12")]
-    pub cloud_identity_info: ::core::option::Option<CloudIdentityInfo>,
-    /// Cloud Identity ID of the customer's channel partner.
-    /// Populated only if a channel partner exists for this customer.
-    #[prost(string, tag = "13")]
-    pub channel_partner_id: ::prost::alloc::string::String,
-    /// Optional. External CRM ID for the customer.
-    /// Populated only if a CRM ID exists for this customer.
-    #[prost(string, tag = "14")]
-    pub correlation_id: ::prost::alloc::string::String,
-}
-/// Contact information for a customer account.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ContactInfo {
-    /// The customer account contact's first name. Optional for Team customers.
-    #[prost(string, tag = "1")]
-    pub first_name: ::prost::alloc::string::String,
-    /// The customer account contact's last name. Optional for Team customers.
-    #[prost(string, tag = "2")]
-    pub last_name: ::prost::alloc::string::String,
-    /// Output only. The customer account contact's display name, formatted as a
-    /// combination of the customer's first and last name.
-    #[prost(string, tag = "4")]
-    pub display_name: ::prost::alloc::string::String,
-    /// The customer account's contact email. Required for entitlements that create
-    /// admin.google.com accounts, and serves as the customer's username for those
-    /// accounts. Use this email to invite Team customers.
-    #[prost(string, tag = "5")]
-    pub email: ::prost::alloc::string::String,
-    /// Optional. The customer account contact's job title.
-    #[prost(string, tag = "6")]
-    pub title: ::prost::alloc::string::String,
-    /// The customer account's contact phone number.
-    #[prost(string, tag = "7")]
-    pub phone: ::prost::alloc::string::String,
-}
 /// A Product is the entity a customer uses when placing an order. For example,
 /// Google Workspace, Google Voice, etc.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -790,7 +334,7 @@ impl MediaType {
     }
 }
 /// Represents an offer made to resellers for purchase.
-/// An offer is associated with a \[Sku][google.cloud.channel.v1.Sku\], has a plan
+/// An offer is associated with a [Sku][google.cloud.channel.v1.Sku], has a plan
 /// for payment, a price, and defines the constraints for buying.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -850,7 +394,7 @@ pub struct ParameterDefinition {
     #[prost(message, optional, tag = "4")]
     pub max_value: ::core::option::Option<Value>,
     /// If not empty, parameter values must be drawn from this list.
-    /// For example, [us-west1, us-west2, ...]
+    /// For example, \[us-west1, us-west2, ...\]
     /// Applicable to STRING parameter type.
     #[prost(message, repeated, tag = "5")]
     pub allowed_values: ::prost::alloc::vec::Vec<Value>,
@@ -1311,7 +855,7 @@ pub struct Entitlement {
     pub association_info: ::core::option::Option<AssociationInfo>,
     /// Extended entitlement parameters. When creating an entitlement, valid
     /// parameter names and values are defined in the
-    /// \[Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions\].
+    /// [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions].
     ///
     /// For Google Workspace, the following Parameters may be accepted as input:
     ///
@@ -1382,7 +926,7 @@ pub mod entitlement {
         }
     }
     /// Suspension reason for an entitlement if
-    /// \[provisioning_state][google.cloud.channel.v1.Entitlement.provisioning_state\]
+    /// [provisioning_state][google.cloud.channel.v1.Entitlement.provisioning_state]
     /// = SUSPENDED.
     #[derive(
         Clone,
@@ -1620,6 +1164,646 @@ pub mod transfer_eligibility {
             }
         }
     }
+}
+/// Represents Pub/Sub message content describing customer update.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomerEvent {
+    /// Resource name of the customer.
+    /// Format: accounts/{account_id}/customers/{customer_id}
+    #[prost(string, tag = "1")]
+    pub customer: ::prost::alloc::string::String,
+    /// Type of event which happened on the customer.
+    #[prost(enumeration = "customer_event::Type", tag = "2")]
+    pub event_type: i32,
+}
+/// Nested message and enum types in `CustomerEvent`.
+pub mod customer_event {
+    /// Type of customer event.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Type {
+        /// Not used.
+        Unspecified = 0,
+        /// Primary domain for customer was changed.
+        PrimaryDomainChanged = 1,
+        /// Primary domain of the customer has been verified.
+        PrimaryDomainVerified = 2,
+    }
+    impl Type {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Type::Unspecified => "TYPE_UNSPECIFIED",
+                Type::PrimaryDomainChanged => "PRIMARY_DOMAIN_CHANGED",
+                Type::PrimaryDomainVerified => "PRIMARY_DOMAIN_VERIFIED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "PRIMARY_DOMAIN_CHANGED" => Some(Self::PrimaryDomainChanged),
+                "PRIMARY_DOMAIN_VERIFIED" => Some(Self::PrimaryDomainVerified),
+                _ => None,
+            }
+        }
+    }
+}
+/// Represents Pub/Sub message content describing entitlement update.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EntitlementEvent {
+    /// Resource name of an entitlement of the form:
+    /// accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
+    #[prost(string, tag = "1")]
+    pub entitlement: ::prost::alloc::string::String,
+    /// Type of event which happened on the entitlement.
+    #[prost(enumeration = "entitlement_event::Type", tag = "2")]
+    pub event_type: i32,
+}
+/// Nested message and enum types in `EntitlementEvent`.
+pub mod entitlement_event {
+    /// Type of entitlement event.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Type {
+        /// Not used.
+        Unspecified = 0,
+        /// A new entitlement was created.
+        Created = 1,
+        /// The offer type associated with an entitlement was changed.
+        /// This is not triggered if an entitlement converts from a commit offer to a
+        /// flexible offer as part of a renewal.
+        PricePlanSwitched = 3,
+        /// Annual commitment for a commit plan was changed.
+        CommitmentChanged = 4,
+        /// An annual entitlement was renewed.
+        Renewed = 5,
+        /// Entitlement was suspended.
+        Suspended = 6,
+        /// Entitlement was unsuspended.
+        Activated = 7,
+        /// Entitlement was cancelled.
+        Cancelled = 8,
+        /// Entitlement was upgraded or downgraded (e.g. from Google Workspace
+        /// Business Standard to Google Workspace Business Plus).
+        SkuChanged = 9,
+        /// The renewal settings of an entitlement has changed.
+        RenewalSettingChanged = 10,
+        /// Paid service has started on trial entitlement.
+        PaidServiceStarted = 11,
+        /// License was assigned to or revoked from a user.
+        LicenseAssignmentChanged = 12,
+        /// License cap was changed for the entitlement.
+        LicenseCapChanged = 13,
+    }
+    impl Type {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Type::Unspecified => "TYPE_UNSPECIFIED",
+                Type::Created => "CREATED",
+                Type::PricePlanSwitched => "PRICE_PLAN_SWITCHED",
+                Type::CommitmentChanged => "COMMITMENT_CHANGED",
+                Type::Renewed => "RENEWED",
+                Type::Suspended => "SUSPENDED",
+                Type::Activated => "ACTIVATED",
+                Type::Cancelled => "CANCELLED",
+                Type::SkuChanged => "SKU_CHANGED",
+                Type::RenewalSettingChanged => "RENEWAL_SETTING_CHANGED",
+                Type::PaidServiceStarted => "PAID_SERVICE_STARTED",
+                Type::LicenseAssignmentChanged => "LICENSE_ASSIGNMENT_CHANGED",
+                Type::LicenseCapChanged => "LICENSE_CAP_CHANGED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATED" => Some(Self::Created),
+                "PRICE_PLAN_SWITCHED" => Some(Self::PricePlanSwitched),
+                "COMMITMENT_CHANGED" => Some(Self::CommitmentChanged),
+                "RENEWED" => Some(Self::Renewed),
+                "SUSPENDED" => Some(Self::Suspended),
+                "ACTIVATED" => Some(Self::Activated),
+                "CANCELLED" => Some(Self::Cancelled),
+                "SKU_CHANGED" => Some(Self::SkuChanged),
+                "RENEWAL_SETTING_CHANGED" => Some(Self::RenewalSettingChanged),
+                "PAID_SERVICE_STARTED" => Some(Self::PaidServiceStarted),
+                "LICENSE_ASSIGNMENT_CHANGED" => Some(Self::LicenseAssignmentChanged),
+                "LICENSE_CAP_CHANGED" => Some(Self::LicenseCapChanged),
+                _ => None,
+            }
+        }
+    }
+}
+/// Represents information which resellers will get as part of notification from
+/// Pub/Sub.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SubscriberEvent {
+    /// Specifies the Pub/Sub event provided to the partners.
+    /// This is a required field.
+    #[prost(oneof = "subscriber_event::Event", tags = "1, 2")]
+    pub event: ::core::option::Option<subscriber_event::Event>,
+}
+/// Nested message and enum types in `SubscriberEvent`.
+pub mod subscriber_event {
+    /// Specifies the Pub/Sub event provided to the partners.
+    /// This is a required field.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Event {
+        /// Customer event sent as part of Pub/Sub event to partners.
+        #[prost(message, tag = "1")]
+        CustomerEvent(super::CustomerEvent),
+        /// Entitlement event sent as part of Pub/Sub event to partners.
+        #[prost(message, tag = "2")]
+        EntitlementEvent(super::EntitlementEvent),
+    }
+}
+/// Configuration for how a reseller will reprice a Customer.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomerRepricingConfig {
+    /// Output only. Resource name of the CustomerRepricingConfig.
+    /// Format:
+    /// accounts/{account_id}/customers/{customer_id}/customerRepricingConfigs/{id}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The configuration for bill modifications made by a reseller
+    /// before sending it to customers.
+    #[prost(message, optional, tag = "2")]
+    pub repricing_config: ::core::option::Option<RepricingConfig>,
+    /// Output only. Timestamp of an update to the repricing rule. If `update_time`
+    /// is after
+    /// [RepricingConfig.effective_invoice_month][google.cloud.channel.v1.RepricingConfig.effective_invoice_month]
+    /// then it indicates this was set mid-month.
+    #[prost(message, optional, tag = "3")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Configuration for how a distributor will rebill a channel partner
+/// (also known as a distributor-authorized reseller).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ChannelPartnerRepricingConfig {
+    /// Output only. Resource name of the ChannelPartnerRepricingConfig.
+    /// Format:
+    /// accounts/{account_id}/channelPartnerLinks/{channel_partner_id}/channelPartnerRepricingConfigs/{id}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The configuration for bill modifications made by a reseller
+    /// before sending it to ChannelPartner.
+    #[prost(message, optional, tag = "2")]
+    pub repricing_config: ::core::option::Option<RepricingConfig>,
+    /// Output only. Timestamp of an update to the repricing rule. If `update_time`
+    /// is after
+    /// [RepricingConfig.effective_invoice_month][google.cloud.channel.v1.RepricingConfig.effective_invoice_month]
+    /// then it indicates this was set mid-month.
+    #[prost(message, optional, tag = "3")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Configuration for repricing a Google bill over a period of time.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RepricingConfig {
+    /// Required. The YearMonth when these adjustments activate. The Day field
+    /// needs to be "0" since we only accept YearMonth repricing boundaries.
+    #[prost(message, optional, tag = "1")]
+    pub effective_invoice_month: ::core::option::Option<
+        super::super::super::r#type::Date,
+    >,
+    /// Required. Information about the adjustment.
+    #[prost(message, optional, tag = "2")]
+    pub adjustment: ::core::option::Option<RepricingAdjustment>,
+    /// Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to
+    /// use for this bill. Specifies the relative cost based on repricing costs you
+    /// will apply.
+    #[prost(enumeration = "RebillingBasis", tag = "3")]
+    pub rebilling_basis: i32,
+    /// The conditional overrides to apply for this configuration. If you list
+    /// multiple overrides, only the first valid override is used.  If you don't
+    /// list any overrides, the API uses the normal adjustment and rebilling basis.
+    #[prost(message, repeated, tag = "6")]
+    pub conditional_overrides: ::prost::alloc::vec::Vec<ConditionalOverride>,
+    /// Required. Defines the granularity for repricing.
+    #[prost(oneof = "repricing_config::Granularity", tags = "4, 5")]
+    pub granularity: ::core::option::Option<repricing_config::Granularity>,
+}
+/// Nested message and enum types in `RepricingConfig`.
+pub mod repricing_config {
+    /// Applies the repricing configuration at the entitlement level.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct EntitlementGranularity {
+        /// Resource name of the entitlement.
+        /// Format:
+        /// accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
+        #[prost(string, tag = "1")]
+        pub entitlement: ::prost::alloc::string::String,
+    }
+    /// Applies the repricing configuration at the channel partner level.
+    /// The channel partner value is derived from the resource name. Takes an
+    /// empty json object.
+    /// Deprecated: This is no longer supported. Use
+    /// [RepricingConfig.EntitlementGranularity][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity]
+    /// instead.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ChannelPartnerGranularity {}
+    /// Required. Defines the granularity for repricing.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Granularity {
+        /// Applies the repricing configuration at the entitlement level.
+        ///
+        /// Note: If a
+        /// [ChannelPartnerRepricingConfig][google.cloud.channel.v1.ChannelPartnerRepricingConfig]
+        /// using
+        /// [RepricingConfig.EntitlementGranularity][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity]
+        /// becomes effective, then no existing or future
+        /// [RepricingConfig.ChannelPartnerGranularity][google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity]
+        /// will apply to the
+        /// [RepricingConfig.EntitlementGranularity.entitlement][google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.entitlement].
+        /// This is the recommended value for both
+        /// [CustomerRepricingConfig][google.cloud.channel.v1.CustomerRepricingConfig]
+        /// and
+        /// [ChannelPartnerRepricingConfig][google.cloud.channel.v1.ChannelPartnerRepricingConfig].
+        #[prost(message, tag = "4")]
+        EntitlementGranularity(EntitlementGranularity),
+        /// Applies the repricing configuration at the channel partner level.
+        /// Only
+        /// [ChannelPartnerRepricingConfig][google.cloud.channel.v1.ChannelPartnerRepricingConfig]
+        /// supports this value. Deprecated: This is no longer supported. Use
+        /// [RepricingConfig.entitlement_granularity][google.cloud.channel.v1.RepricingConfig.entitlement_granularity]
+        /// instead.
+        #[prost(message, tag = "5")]
+        ChannelPartnerGranularity(ChannelPartnerGranularity),
+    }
+}
+/// A type that represents the various adjustments you can apply to a bill.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RepricingAdjustment {
+    /// A oneof that represents the different types for this adjustment.
+    #[prost(oneof = "repricing_adjustment::Adjustment", tags = "2")]
+    pub adjustment: ::core::option::Option<repricing_adjustment::Adjustment>,
+}
+/// Nested message and enum types in `RepricingAdjustment`.
+pub mod repricing_adjustment {
+    /// A oneof that represents the different types for this adjustment.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Adjustment {
+        /// Flat markup or markdown on an entire bill.
+        #[prost(message, tag = "2")]
+        PercentageAdjustment(super::PercentageAdjustment),
+    }
+}
+/// An adjustment that applies a flat markup or markdown to an entire bill.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PercentageAdjustment {
+    /// The percentage of the bill to adjust.
+    /// For example:
+    /// Mark down by 1% => "-1.00"
+    /// Mark up by 1%   => "1.00"
+    /// Pass-Through    => "0.00"
+    #[prost(message, optional, tag = "2")]
+    pub percentage: ::core::option::Option<super::super::super::r#type::Decimal>,
+}
+/// Specifies the override to conditionally apply.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ConditionalOverride {
+    /// Required. Information about the applied override's adjustment.
+    #[prost(message, optional, tag = "1")]
+    pub adjustment: ::core::option::Option<RepricingAdjustment>,
+    /// Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to
+    /// use for the applied override. Shows the relative cost based on your
+    /// repricing costs.
+    #[prost(enumeration = "RebillingBasis", tag = "2")]
+    pub rebilling_basis: i32,
+    /// Required. Specifies the condition which, if met, will apply the override.
+    #[prost(message, optional, tag = "3")]
+    pub repricing_condition: ::core::option::Option<RepricingCondition>,
+}
+/// Represents the various repricing conditions you can use for a conditional
+/// override.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RepricingCondition {
+    /// Represents the types of existing conditional statements.
+    #[prost(oneof = "repricing_condition::Condition", tags = "1")]
+    pub condition: ::core::option::Option<repricing_condition::Condition>,
+}
+/// Nested message and enum types in `RepricingCondition`.
+pub mod repricing_condition {
+    /// Represents the types of existing conditional statements.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Condition {
+        /// SKU Group condition for override.
+        #[prost(message, tag = "1")]
+        SkuGroupCondition(super::SkuGroupCondition),
+    }
+}
+/// A condition that applies the override if a line item SKU is found in the SKU
+/// group.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SkuGroupCondition {
+    /// Specifies a SKU group (<https://cloud.google.com/skus/sku-groups>).
+    /// Resource name of SKU group. Format:
+    /// accounts/{account}/skuGroups/{sku_group}.
+    /// Example:
+    /// "accounts/C01234/skuGroups/3d50fd57-3157-4577-a5a9-a219b8490041".
+    #[prost(string, tag = "1")]
+    pub sku_group: ::prost::alloc::string::String,
+}
+/// Specifies the different costs that the modified bill can be based on.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum RebillingBasis {
+    /// Not used.
+    Unspecified = 0,
+    /// Use the list cost, also known as the MSRP.
+    CostAtList = 1,
+    /// Pass through all discounts except the Reseller Program Discount. If this is
+    /// the default cost base and no adjustments are specified, the output cost
+    /// will be exactly what the customer would see if they viewed the bill in the
+    /// Google Cloud Console.
+    DirectCustomerCost = 2,
+}
+impl RebillingBasis {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            RebillingBasis::Unspecified => "REBILLING_BASIS_UNSPECIFIED",
+            RebillingBasis::CostAtList => "COST_AT_LIST",
+            RebillingBasis::DirectCustomerCost => "DIRECT_CUSTOMER_COST",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "REBILLING_BASIS_UNSPECIFIED" => Some(Self::Unspecified),
+            "COST_AT_LIST" => Some(Self::CostAtList),
+            "DIRECT_CUSTOMER_COST" => Some(Self::DirectCustomerCost),
+            _ => None,
+        }
+    }
+}
+/// Represents a billing account.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BillingAccount {
+    /// Output only. Resource name of the billing account.
+    /// Format: accounts/{account_id}/billingAccounts/{billing_account_id}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Display name of the billing account.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Output only. The time when this billing account was created.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The 3-letter currency code defined in ISO 4217.
+    #[prost(string, tag = "4")]
+    pub currency_code: ::prost::alloc::string::String,
+    /// Output only. The CLDR region code.
+    #[prost(string, tag = "5")]
+    pub region_code: ::prost::alloc::string::String,
+}
+/// Entity representing a link between distributors and their indirect
+/// resellers in an n-tier resale channel.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ChannelPartnerLink {
+    /// Output only. Resource name for the channel partner link, in the format
+    /// accounts/{account_id}/channelPartnerLinks/{id}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Cloud Identity ID of the linked reseller.
+    #[prost(string, tag = "2")]
+    pub reseller_cloud_identity_id: ::prost::alloc::string::String,
+    /// Required. State of the channel partner link.
+    #[prost(enumeration = "ChannelPartnerLinkState", tag = "3")]
+    pub link_state: i32,
+    /// Output only. URI of the web page where partner accepts the link invitation.
+    #[prost(string, tag = "4")]
+    pub invite_link_uri: ::prost::alloc::string::String,
+    /// Output only. Timestamp of when the channel partner link is created.
+    #[prost(message, optional, tag = "5")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp of when the channel partner link is updated.
+    #[prost(message, optional, tag = "6")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Public identifier that a customer must use to generate a
+    /// transfer token to move to this distributor-reseller combination.
+    #[prost(string, tag = "7")]
+    pub public_id: ::prost::alloc::string::String,
+    /// Output only. Cloud Identity info of the channel partner (IR).
+    #[prost(message, optional, tag = "8")]
+    pub channel_partner_cloud_identity_info: ::core::option::Option<CloudIdentityInfo>,
+}
+/// The level of granularity the
+/// [ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink] will
+/// display.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum ChannelPartnerLinkView {
+    /// The default / unset value.
+    /// The API will default to the BASIC view.
+    Unspecified = 0,
+    /// Includes all fields except the
+    /// [ChannelPartnerLink.channel_partner_cloud_identity_info][google.cloud.channel.v1.ChannelPartnerLink.channel_partner_cloud_identity_info].
+    Basic = 1,
+    /// Includes all fields.
+    Full = 2,
+}
+impl ChannelPartnerLinkView {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            ChannelPartnerLinkView::Unspecified => "UNSPECIFIED",
+            ChannelPartnerLinkView::Basic => "BASIC",
+            ChannelPartnerLinkView::Full => "FULL",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "UNSPECIFIED" => Some(Self::Unspecified),
+            "BASIC" => Some(Self::Basic),
+            "FULL" => Some(Self::Full),
+            _ => None,
+        }
+    }
+}
+/// ChannelPartnerLinkState represents state of a channel partner link.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum ChannelPartnerLinkState {
+    /// Not used.
+    Unspecified = 0,
+    /// An invitation has been sent to the reseller to create a channel partner
+    /// link.
+    Invited = 1,
+    /// Status when the reseller is active.
+    Active = 2,
+    /// Status when the reseller has been revoked by the distributor.
+    Revoked = 3,
+    /// Status when the reseller is suspended by Google or distributor.
+    Suspended = 4,
+}
+impl ChannelPartnerLinkState {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            ChannelPartnerLinkState::Unspecified => {
+                "CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED"
+            }
+            ChannelPartnerLinkState::Invited => "INVITED",
+            ChannelPartnerLinkState::Active => "ACTIVE",
+            ChannelPartnerLinkState::Revoked => "REVOKED",
+            ChannelPartnerLinkState::Suspended => "SUSPENDED",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+            "INVITED" => Some(Self::Invited),
+            "ACTIVE" => Some(Self::Active),
+            "REVOKED" => Some(Self::Revoked),
+            "SUSPENDED" => Some(Self::Suspended),
+            _ => None,
+        }
+    }
+}
+/// Entity representing a customer of a reseller or distributor.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Customer {
+    /// Output only. Resource name of the customer.
+    /// Format: accounts/{account_id}/customers/{customer_id}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Name of the organization that the customer entity represents.
+    #[prost(string, tag = "2")]
+    pub org_display_name: ::prost::alloc::string::String,
+    /// Required. The organization address for the customer. To enforce US laws and
+    /// embargoes, we require a region, postal code, and address lines. You must
+    /// provide valid addresses for every customer. To set the customer's
+    /// language, use the Customer-level language code.
+    #[prost(message, optional, tag = "3")]
+    pub org_postal_address: ::core::option::Option<
+        super::super::super::r#type::PostalAddress,
+    >,
+    /// Primary contact info.
+    #[prost(message, optional, tag = "4")]
+    pub primary_contact_info: ::core::option::Option<ContactInfo>,
+    /// Secondary contact email. You need to provide an alternate email to create
+    /// different domains if a primary contact email already exists. Users will
+    /// receive a notification with credentials when you create an admin.google.com
+    /// account. Secondary emails are also recovery email addresses. Alternate
+    /// emails are optional when you create Team customers.
+    #[prost(string, tag = "5")]
+    pub alternate_email: ::prost::alloc::string::String,
+    /// Required. The customer's primary domain. Must match the primary contact
+    /// email's domain.
+    #[prost(string, tag = "6")]
+    pub domain: ::prost::alloc::string::String,
+    /// Output only. Time when the customer was created.
+    #[prost(message, optional, tag = "7")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Time when the customer was updated.
+    #[prost(message, optional, tag = "8")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The customer's Cloud Identity ID if the customer has a Cloud
+    /// Identity resource.
+    #[prost(string, tag = "9")]
+    pub cloud_identity_id: ::prost::alloc::string::String,
+    /// Optional. The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+    /// information, see
+    /// <https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.>
+    #[prost(string, tag = "10")]
+    pub language_code: ::prost::alloc::string::String,
+    /// Output only. Cloud Identity information for the customer.
+    /// Populated only if a Cloud Identity account exists for this customer.
+    #[prost(message, optional, tag = "12")]
+    pub cloud_identity_info: ::core::option::Option<CloudIdentityInfo>,
+    /// Cloud Identity ID of the customer's channel partner.
+    /// Populated only if a channel partner exists for this customer.
+    #[prost(string, tag = "13")]
+    pub channel_partner_id: ::prost::alloc::string::String,
+    /// Optional. External CRM ID for the customer.
+    /// Populated only if a CRM ID exists for this customer.
+    #[prost(string, tag = "14")]
+    pub correlation_id: ::prost::alloc::string::String,
+}
+/// Contact information for a customer account.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ContactInfo {
+    /// The customer account contact's first name. Optional for Team customers.
+    #[prost(string, tag = "1")]
+    pub first_name: ::prost::alloc::string::String,
+    /// The customer account contact's last name. Optional for Team customers.
+    #[prost(string, tag = "2")]
+    pub last_name: ::prost::alloc::string::String,
+    /// Output only. The customer account contact's display name, formatted as a
+    /// combination of the customer's first and last name.
+    #[prost(string, tag = "4")]
+    pub display_name: ::prost::alloc::string::String,
+    /// The customer account's contact email. Required for entitlements that create
+    /// admin.google.com accounts, and serves as the customer's username for those
+    /// accounts. Use this email to invite Team customers.
+    #[prost(string, tag = "5")]
+    pub email: ::prost::alloc::string::String,
+    /// Optional. The customer account contact's job title.
+    #[prost(string, tag = "6")]
+    pub title: ::prost::alloc::string::String,
+    /// The customer account's contact phone number.
+    #[prost(string, tag = "7")]
+    pub phone: ::prost::alloc::string::String,
 }
 /// Change event entry for Entitlement order history
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1937,7 +2121,7 @@ pub mod entitlement_change {
     }
 }
 /// Provides contextual information about a
-/// \[google.longrunning.Operation][google.longrunning.Operation\].
+/// [google.longrunning.Operation][google.longrunning.Operation].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct OperationMetadata {
@@ -2032,7 +2216,7 @@ pub mod operation_metadata {
     }
 }
 /// Request message for
-/// \[CloudChannelService.CheckCloudIdentityAccountsExist][google.cloud.channel.v1.CloudChannelService.CheckCloudIdentityAccountsExist\].
+/// [CloudChannelService.CheckCloudIdentityAccountsExist][google.cloud.channel.v1.CloudChannelService.CheckCloudIdentityAccountsExist].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CheckCloudIdentityAccountsExistRequest {
@@ -2067,7 +2251,7 @@ pub struct CloudIdentityCustomerAccount {
     pub customer_cloud_identity_id: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[CloudChannelService.CheckCloudIdentityAccountsExist][google.cloud.channel.v1.CloudChannelService.CheckCloudIdentityAccountsExist\].
+/// [CloudChannelService.CheckCloudIdentityAccountsExist][google.cloud.channel.v1.CloudChannelService.CheckCloudIdentityAccountsExist].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CheckCloudIdentityAccountsExistResponse {
@@ -2076,7 +2260,7 @@ pub struct CheckCloudIdentityAccountsExistResponse {
     pub cloud_identity_accounts: ::prost::alloc::vec::Vec<CloudIdentityCustomerAccount>,
 }
 /// Request message for
-/// \[CloudChannelService.ListCustomers][google.cloud.channel.v1.CloudChannelService.ListCustomers\]
+/// [CloudChannelService.ListCustomers][google.cloud.channel.v1.CloudChannelService.ListCustomers]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListCustomersRequest {
@@ -2091,9 +2275,9 @@ pub struct ListCustomersRequest {
     pub page_size: i32,
     /// Optional. A token identifying a page of results other than the first page.
     /// Obtained through
-    /// \[ListCustomersResponse.next_page_token][google.cloud.channel.v1.ListCustomersResponse.next_page_token\]
+    /// [ListCustomersResponse.next_page_token][google.cloud.channel.v1.ListCustomersResponse.next_page_token]
     /// of the previous
-    /// \[CloudChannelService.ListCustomers][google.cloud.channel.v1.CloudChannelService.ListCustomers\]
+    /// [CloudChannelService.ListCustomers][google.cloud.channel.v1.CloudChannelService.ListCustomers]
     /// call.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
@@ -2105,7 +2289,7 @@ pub struct ListCustomersRequest {
     pub filter: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[CloudChannelService.ListCustomers][google.cloud.channel.v1.CloudChannelService.ListCustomers\].
+/// [CloudChannelService.ListCustomers][google.cloud.channel.v1.CloudChannelService.ListCustomers].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListCustomersResponse {
@@ -2114,13 +2298,13 @@ pub struct ListCustomersResponse {
     pub customers: ::prost::alloc::vec::Vec<Customer>,
     /// A token to retrieve the next page of results.
     /// Pass to
-    /// \[ListCustomersRequest.page_token][google.cloud.channel.v1.ListCustomersRequest.page_token\]
+    /// [ListCustomersRequest.page_token][google.cloud.channel.v1.ListCustomersRequest.page_token]
     /// to obtain that page.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.GetCustomer][google.cloud.channel.v1.CloudChannelService.GetCustomer\].
+/// [CloudChannelService.GetCustomer][google.cloud.channel.v1.CloudChannelService.GetCustomer].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetCustomerRequest {
@@ -2130,7 +2314,7 @@ pub struct GetCustomerRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.CreateCustomer][google.cloud.channel.v1.CloudChannelService.CreateCustomer\]
+/// [CloudChannelService.CreateCustomer][google.cloud.channel.v1.CloudChannelService.CreateCustomer]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateCustomerRequest {
@@ -2143,7 +2327,7 @@ pub struct CreateCustomerRequest {
     pub customer: ::core::option::Option<Customer>,
 }
 /// Request message for
-/// \[CloudChannelService.UpdateCustomer][google.cloud.channel.v1.CloudChannelService.UpdateCustomer\].
+/// [CloudChannelService.UpdateCustomer][google.cloud.channel.v1.CloudChannelService.UpdateCustomer].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateCustomerRequest {
@@ -2156,7 +2340,7 @@ pub struct UpdateCustomerRequest {
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
 /// Request message for
-/// \[CloudChannelService.DeleteCustomer][google.cloud.channel.v1.CloudChannelService.DeleteCustomer\].
+/// [CloudChannelService.DeleteCustomer][google.cloud.channel.v1.CloudChannelService.DeleteCustomer].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteCustomerRequest {
@@ -2165,7 +2349,7 @@ pub struct DeleteCustomerRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.ImportCustomer][google.cloud.channel.v1.CloudChannelService.ImportCustomer\]
+/// [CloudChannelService.ImportCustomer][google.cloud.channel.v1.CloudChannelService.ImportCustomer]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ImportCustomerRequest {
@@ -2223,7 +2407,7 @@ pub mod import_customer_request {
     }
 }
 /// Request message for
-/// \[CloudChannelService.ProvisionCloudIdentity][google.cloud.channel.v1.CloudChannelService.ProvisionCloudIdentity\]
+/// [CloudChannelService.ProvisionCloudIdentity][google.cloud.channel.v1.CloudChannelService.ProvisionCloudIdentity]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ProvisionCloudIdentityRequest {
@@ -2242,7 +2426,7 @@ pub struct ProvisionCloudIdentityRequest {
     pub validate_only: bool,
 }
 /// Request message for
-/// \[CloudChannelService.ListEntitlements][google.cloud.channel.v1.CloudChannelService.ListEntitlements\]
+/// [CloudChannelService.ListEntitlements][google.cloud.channel.v1.CloudChannelService.ListEntitlements]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListEntitlementsRequest {
@@ -2258,15 +2442,15 @@ pub struct ListEntitlementsRequest {
     pub page_size: i32,
     /// Optional. A token for a page of results other than the first page.
     /// Obtained using
-    /// \[ListEntitlementsResponse.next_page_token][google.cloud.channel.v1.ListEntitlementsResponse.next_page_token\]
+    /// [ListEntitlementsResponse.next_page_token][google.cloud.channel.v1.ListEntitlementsResponse.next_page_token]
     /// of the previous
-    /// \[CloudChannelService.ListEntitlements][google.cloud.channel.v1.CloudChannelService.ListEntitlements\]
+    /// [CloudChannelService.ListEntitlements][google.cloud.channel.v1.CloudChannelService.ListEntitlements]
     /// call.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[CloudChannelService.ListEntitlements][google.cloud.channel.v1.CloudChannelService.ListEntitlements\].
+/// [CloudChannelService.ListEntitlements][google.cloud.channel.v1.CloudChannelService.ListEntitlements].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListEntitlementsResponse {
@@ -2275,13 +2459,13 @@ pub struct ListEntitlementsResponse {
     pub entitlements: ::prost::alloc::vec::Vec<Entitlement>,
     /// A token to list the next page of results.
     /// Pass to
-    /// \[ListEntitlementsRequest.page_token][google.cloud.channel.v1.ListEntitlementsRequest.page_token\]
+    /// [ListEntitlementsRequest.page_token][google.cloud.channel.v1.ListEntitlementsRequest.page_token]
     /// to obtain that page.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.ListTransferableSkus][google.cloud.channel.v1.CloudChannelService.ListTransferableSkus\]
+/// [CloudChannelService.ListTransferableSkus][google.cloud.channel.v1.CloudChannelService.ListTransferableSkus]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListTransferableSkusRequest {
@@ -2297,9 +2481,9 @@ pub struct ListTransferableSkusRequest {
     pub page_size: i32,
     /// A token for a page of results other than the first page.
     /// Obtained using
-    /// \[ListTransferableSkusResponse.next_page_token][google.cloud.channel.v1.ListTransferableSkusResponse.next_page_token\]
+    /// [ListTransferableSkusResponse.next_page_token][google.cloud.channel.v1.ListTransferableSkusResponse.next_page_token]
     /// of the previous
-    /// \[CloudChannelService.ListTransferableSkus][google.cloud.channel.v1.CloudChannelService.ListTransferableSkus\]
+    /// [CloudChannelService.ListTransferableSkus][google.cloud.channel.v1.CloudChannelService.ListTransferableSkus]
     /// call. Optional.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
@@ -2346,7 +2530,7 @@ pub mod list_transferable_skus_request {
     }
 }
 /// Response message for
-/// \[CloudChannelService.ListTransferableSkus][google.cloud.channel.v1.CloudChannelService.ListTransferableSkus\].
+/// [CloudChannelService.ListTransferableSkus][google.cloud.channel.v1.CloudChannelService.ListTransferableSkus].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListTransferableSkusResponse {
@@ -2355,13 +2539,13 @@ pub struct ListTransferableSkusResponse {
     pub transferable_skus: ::prost::alloc::vec::Vec<TransferableSku>,
     /// A token to retrieve the next page of results.
     /// Pass to
-    /// \[ListTransferableSkusRequest.page_token][google.cloud.channel.v1.ListTransferableSkusRequest.page_token\]
+    /// [ListTransferableSkusRequest.page_token][google.cloud.channel.v1.ListTransferableSkusRequest.page_token]
     /// to obtain that page.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers\]
+/// [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListTransferableOffersRequest {
@@ -2375,9 +2559,9 @@ pub struct ListTransferableOffersRequest {
     pub page_size: i32,
     /// A token for a page of results other than the first page.
     /// Obtained using
-    /// \[ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token\]
+    /// [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token]
     /// of the previous
-    /// \[CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers\]
+    /// [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers]
     /// call.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
@@ -2425,7 +2609,7 @@ pub mod list_transferable_offers_request {
     }
 }
 /// Response message for
-/// \[CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers\].
+/// [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListTransferableOffersResponse {
@@ -2435,7 +2619,7 @@ pub struct ListTransferableOffersResponse {
     pub transferable_offers: ::prost::alloc::vec::Vec<TransferableOffer>,
     /// A token to retrieve the next page of results.
     /// Pass to
-    /// \[ListTransferableOffersRequest.page_token][google.cloud.channel.v1.ListTransferableOffersRequest.page_token\]
+    /// [ListTransferableOffersRequest.page_token][google.cloud.channel.v1.ListTransferableOffersRequest.page_token]
     /// to obtain that page.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
@@ -2450,7 +2634,7 @@ pub struct TransferableOffer {
     pub offer: ::core::option::Option<Offer>,
 }
 /// Request message for
-/// \[CloudChannelService.GetEntitlement][google.cloud.channel.v1.CloudChannelService.GetEntitlement\].
+/// [CloudChannelService.GetEntitlement][google.cloud.channel.v1.CloudChannelService.GetEntitlement].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetEntitlementRequest {
@@ -2461,7 +2645,7 @@ pub struct GetEntitlementRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.ListChannelPartnerLinks][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerLinks\]
+/// [CloudChannelService.ListChannelPartnerLinks][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerLinks]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListChannelPartnerLinksRequest {
@@ -2476,9 +2660,9 @@ pub struct ListChannelPartnerLinksRequest {
     pub page_size: i32,
     /// Optional. A token for a page of results other than the first page.
     /// Obtained using
-    /// \[ListChannelPartnerLinksResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerLinksResponse.next_page_token\]
+    /// [ListChannelPartnerLinksResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerLinksResponse.next_page_token]
     /// of the previous
-    /// \[CloudChannelService.ListChannelPartnerLinks][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerLinks\]
+    /// [CloudChannelService.ListChannelPartnerLinks][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerLinks]
     /// call.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
@@ -2487,7 +2671,7 @@ pub struct ListChannelPartnerLinksRequest {
     pub view: i32,
 }
 /// Response message for
-/// \[CloudChannelService.ListChannelPartnerLinks][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerLinks\].
+/// [CloudChannelService.ListChannelPartnerLinks][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerLinks].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListChannelPartnerLinksResponse {
@@ -2496,13 +2680,13 @@ pub struct ListChannelPartnerLinksResponse {
     pub channel_partner_links: ::prost::alloc::vec::Vec<ChannelPartnerLink>,
     /// A token to retrieve the next page of results.
     /// Pass to
-    /// \[ListChannelPartnerLinksRequest.page_token][google.cloud.channel.v1.ListChannelPartnerLinksRequest.page_token\]
+    /// [ListChannelPartnerLinksRequest.page_token][google.cloud.channel.v1.ListChannelPartnerLinksRequest.page_token]
     /// to obtain that page.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.GetChannelPartnerLink][google.cloud.channel.v1.CloudChannelService.GetChannelPartnerLink\].
+/// [CloudChannelService.GetChannelPartnerLink][google.cloud.channel.v1.CloudChannelService.GetChannelPartnerLink].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetChannelPartnerLinkRequest {
@@ -2516,7 +2700,7 @@ pub struct GetChannelPartnerLinkRequest {
     pub view: i32,
 }
 /// Request message for
-/// \[CloudChannelService.CreateChannelPartnerLink][google.cloud.channel.v1.CloudChannelService.CreateChannelPartnerLink\]
+/// [CloudChannelService.CreateChannelPartnerLink][google.cloud.channel.v1.CloudChannelService.CreateChannelPartnerLink]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateChannelPartnerLinkRequest {
@@ -2532,7 +2716,7 @@ pub struct CreateChannelPartnerLinkRequest {
     pub channel_partner_link: ::core::option::Option<ChannelPartnerLink>,
 }
 /// Request message for
-/// \[CloudChannelService.UpdateChannelPartnerLink][google.cloud.channel.v1.CloudChannelService.UpdateChannelPartnerLink\]
+/// [CloudChannelService.UpdateChannelPartnerLink][google.cloud.channel.v1.CloudChannelService.UpdateChannelPartnerLink]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateChannelPartnerLinkRequest {
@@ -2552,7 +2736,7 @@ pub struct UpdateChannelPartnerLinkRequest {
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
 /// Request message for
-/// \[CloudChannelService.GetCustomerRepricingConfig][google.cloud.channel.v1.CloudChannelService.GetCustomerRepricingConfig\].
+/// [CloudChannelService.GetCustomerRepricingConfig][google.cloud.channel.v1.CloudChannelService.GetCustomerRepricingConfig].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetCustomerRepricingConfigRequest {
@@ -2563,7 +2747,7 @@ pub struct GetCustomerRepricingConfigRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.ListCustomerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListCustomerRepricingConfigs\].
+/// [CloudChannelService.ListCustomerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListCustomerRepricingConfigs].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListCustomerRepricingConfigsRequest {
@@ -2580,9 +2764,9 @@ pub struct ListCustomerRepricingConfigsRequest {
     pub page_size: i32,
     /// Optional. A token identifying a page of results beyond the first page.
     /// Obtained through
-    /// \[ListCustomerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListCustomerRepricingConfigsResponse.next_page_token\]
+    /// [ListCustomerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListCustomerRepricingConfigsResponse.next_page_token]
     /// of the previous
-    /// \[CloudChannelService.ListCustomerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListCustomerRepricingConfigs\]
+    /// [CloudChannelService.ListCustomerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListCustomerRepricingConfigs]
     /// call.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
@@ -2597,7 +2781,7 @@ pub struct ListCustomerRepricingConfigsRequest {
     pub filter: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[CloudChannelService.ListCustomerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListCustomerRepricingConfigs\].
+/// [CloudChannelService.ListCustomerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListCustomerRepricingConfigs].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListCustomerRepricingConfigsResponse {
@@ -2606,13 +2790,13 @@ pub struct ListCustomerRepricingConfigsResponse {
     pub customer_repricing_configs: ::prost::alloc::vec::Vec<CustomerRepricingConfig>,
     /// A token to retrieve the next page of results.
     /// Pass to
-    /// \[ListCustomerRepricingConfigsRequest.page_token][google.cloud.channel.v1.ListCustomerRepricingConfigsRequest.page_token\]
+    /// [ListCustomerRepricingConfigsRequest.page_token][google.cloud.channel.v1.ListCustomerRepricingConfigsRequest.page_token]
     /// to obtain that page.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.CreateCustomerRepricingConfig][google.cloud.channel.v1.CloudChannelService.CreateCustomerRepricingConfig\].
+/// [CloudChannelService.CreateCustomerRepricingConfig][google.cloud.channel.v1.CloudChannelService.CreateCustomerRepricingConfig].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateCustomerRepricingConfigRequest {
@@ -2626,7 +2810,7 @@ pub struct CreateCustomerRepricingConfigRequest {
     pub customer_repricing_config: ::core::option::Option<CustomerRepricingConfig>,
 }
 /// Request message for
-/// \[CloudChannelService.UpdateCustomerRepricingConfig][google.cloud.channel.v1.CloudChannelService.UpdateCustomerRepricingConfig\].
+/// [CloudChannelService.UpdateCustomerRepricingConfig][google.cloud.channel.v1.CloudChannelService.UpdateCustomerRepricingConfig].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateCustomerRepricingConfigRequest {
@@ -2635,7 +2819,7 @@ pub struct UpdateCustomerRepricingConfigRequest {
     pub customer_repricing_config: ::core::option::Option<CustomerRepricingConfig>,
 }
 /// Request message for
-/// \[CloudChannelService.DeleteCustomerRepricingConfig][google.cloud.channel.v1.CloudChannelService.DeleteCustomerRepricingConfig\].
+/// [CloudChannelService.DeleteCustomerRepricingConfig][google.cloud.channel.v1.CloudChannelService.DeleteCustomerRepricingConfig].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteCustomerRepricingConfigRequest {
@@ -2646,7 +2830,7 @@ pub struct DeleteCustomerRepricingConfigRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.GetChannelPartnerRepricingConfig][google.cloud.channel.v1.CloudChannelService.GetChannelPartnerRepricingConfig\]
+/// [CloudChannelService.GetChannelPartnerRepricingConfig][google.cloud.channel.v1.CloudChannelService.GetChannelPartnerRepricingConfig]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetChannelPartnerRepricingConfigRequest {
@@ -2657,12 +2841,12 @@ pub struct GetChannelPartnerRepricingConfigRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs\].
+/// [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListChannelPartnerRepricingConfigsRequest {
     /// Required. The resource name of the account's
-    /// \[ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink\]. Parent
+    /// [ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink]. Parent
     /// uses the format:
     /// accounts/{account_id}/channelPartnerLinks/{channel_partner_id}.
     /// Supports accounts/{account_id}/channelPartnerLinks/- to retrieve configs
@@ -2676,9 +2860,9 @@ pub struct ListChannelPartnerRepricingConfigsRequest {
     pub page_size: i32,
     /// Optional. A token identifying a page of results beyond the first page.
     /// Obtained through
-    /// \[ListChannelPartnerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsResponse.next_page_token\]
+    /// [ListChannelPartnerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsResponse.next_page_token]
     /// of the previous
-    /// \[CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs\]
+    /// [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs]
     /// call.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
@@ -2695,7 +2879,7 @@ pub struct ListChannelPartnerRepricingConfigsRequest {
     pub filter: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs\].
+/// [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListChannelPartnerRepricingConfigsResponse {
@@ -2706,13 +2890,13 @@ pub struct ListChannelPartnerRepricingConfigsResponse {
     >,
     /// A token to retrieve the next page of results.
     /// Pass to
-    /// \[ListChannelPartnerRepricingConfigsRequest.page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsRequest.page_token\]
+    /// [ListChannelPartnerRepricingConfigsRequest.page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsRequest.page_token]
     /// to obtain that page.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.CreateChannelPartnerRepricingConfig][google.cloud.channel.v1.CloudChannelService.CreateChannelPartnerRepricingConfig\].
+/// [CloudChannelService.CreateChannelPartnerRepricingConfig][google.cloud.channel.v1.CloudChannelService.CreateChannelPartnerRepricingConfig].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateChannelPartnerRepricingConfigRequest {
@@ -2728,7 +2912,7 @@ pub struct CreateChannelPartnerRepricingConfigRequest {
     >,
 }
 /// Request message for
-/// \[CloudChannelService.UpdateChannelPartnerRepricingConfig][google.cloud.channel.v1.CloudChannelService.UpdateChannelPartnerRepricingConfig\].
+/// [CloudChannelService.UpdateChannelPartnerRepricingConfig][google.cloud.channel.v1.CloudChannelService.UpdateChannelPartnerRepricingConfig].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateChannelPartnerRepricingConfigRequest {
@@ -2763,8 +2947,8 @@ pub struct ListSkuGroupsRequest {
     pub page_size: i32,
     /// Optional. A token identifying a page of results beyond the first page.
     /// Obtained through
-    /// \[ListSkuGroups.next_page_token][\] of the previous
-    /// \[CloudChannelService.ListSkuGroups][google.cloud.channel.v1.CloudChannelService.ListSkuGroups\]
+    /// [ListSkuGroups.next_page_token][] of the previous
+    /// [CloudChannelService.ListSkuGroups][google.cloud.channel.v1.CloudChannelService.ListSkuGroups]
     /// call.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
@@ -2784,8 +2968,8 @@ pub struct ListSkuGroupBillableSkusRequest {
     pub page_size: i32,
     /// Optional. A token identifying a page of results beyond the first page.
     /// Obtained through
-    /// \[ListSkuGroupBillableSkus.next_page_token][\] of the previous
-    /// \[CloudChannelService.ListSkuGroupBillableSkus][google.cloud.channel.v1.CloudChannelService.ListSkuGroupBillableSkus\]
+    /// [ListSkuGroupBillableSkus.next_page_token][] of the previous
+    /// [CloudChannelService.ListSkuGroupBillableSkus][google.cloud.channel.v1.CloudChannelService.ListSkuGroupBillableSkus]
     /// call.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
@@ -2798,7 +2982,7 @@ pub struct ListSkuGroupsResponse {
     #[prost(message, repeated, tag = "1")]
     pub sku_groups: ::prost::alloc::vec::Vec<SkuGroup>,
     /// A token to retrieve the next page of results.
-    /// Pass to \[ListSkuGroups.page_token][\] to obtain that
+    /// Pass to [ListSkuGroups.page_token][] to obtain that
     /// page.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
@@ -2811,7 +2995,7 @@ pub struct ListSkuGroupBillableSkusResponse {
     #[prost(message, repeated, tag = "1")]
     pub billable_skus: ::prost::alloc::vec::Vec<BillableSku>,
     /// A token to retrieve the next page of results.
-    /// Pass to \[ListSkuGroupBillableSkus.page_token][\] to obtain that
+    /// Pass to [ListSkuGroupBillableSkus.page_token][] to obtain that
     /// page.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
@@ -2854,7 +3038,7 @@ pub struct BillableSku {
     pub service_display_name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.CreateEntitlement][google.cloud.channel.v1.CloudChannelService.CreateEntitlement\]
+/// [CloudChannelService.CreateEntitlement][google.cloud.channel.v1.CloudChannelService.CreateEntitlement]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateEntitlementRequest {
@@ -2875,14 +3059,14 @@ pub struct CreateEntitlementRequest {
     /// it received the original operation with the same request ID. If it did, it
     /// will ignore the second request.
     ///
-    /// The request ID must be a valid \[UUID\](<https://tools.ietf.org/html/rfc4122>)
+    /// The request ID must be a valid [UUID](<https://tools.ietf.org/html/rfc4122>)
     /// with the exception that zero UUID is not supported
     /// (`00000000-0000-0000-0000-000000000000`).
     #[prost(string, tag = "5")]
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.TransferEntitlements][google.cloud.channel.v1.CloudChannelService.TransferEntitlements\].
+/// [CloudChannelService.TransferEntitlements][google.cloud.channel.v1.CloudChannelService.TransferEntitlements].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct TransferEntitlementsRequest {
@@ -2909,14 +3093,14 @@ pub struct TransferEntitlementsRequest {
     /// it received the original operation with the same request ID. If it did, it
     /// will ignore the second request.
     ///
-    /// The request ID must be a valid \[UUID\](<https://tools.ietf.org/html/rfc4122>)
+    /// The request ID must be a valid [UUID](<https://tools.ietf.org/html/rfc4122>)
     /// with the exception that zero UUID is not supported
     /// (`00000000-0000-0000-0000-000000000000`).
     #[prost(string, tag = "6")]
     pub request_id: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[CloudChannelService.TransferEntitlements][google.cloud.channel.v1.CloudChannelService.TransferEntitlements\].
+/// [CloudChannelService.TransferEntitlements][google.cloud.channel.v1.CloudChannelService.TransferEntitlements].
 /// This is put in the response field of google.longrunning.Operation.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2926,7 +3110,7 @@ pub struct TransferEntitlementsResponse {
     pub entitlements: ::prost::alloc::vec::Vec<Entitlement>,
 }
 /// Request message for
-/// \[CloudChannelService.TransferEntitlementsToGoogle][google.cloud.channel.v1.CloudChannelService.TransferEntitlementsToGoogle\].
+/// [CloudChannelService.TransferEntitlementsToGoogle][google.cloud.channel.v1.CloudChannelService.TransferEntitlementsToGoogle].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct TransferEntitlementsToGoogleRequest {
@@ -2947,13 +3131,13 @@ pub struct TransferEntitlementsToGoogleRequest {
     /// it received the original operation with the same request ID. If it did, it
     /// will ignore the second request.
     ///
-    /// The request ID must be a valid \[UUID\](<https://tools.ietf.org/html/rfc4122>)
+    /// The request ID must be a valid [UUID](<https://tools.ietf.org/html/rfc4122>)
     /// with the exception that zero UUID is not supported
     /// (`00000000-0000-0000-0000-000000000000`).
     #[prost(string, tag = "3")]
     pub request_id: ::prost::alloc::string::String,
 }
-/// Request message for \[CloudChannelService.ChangeParametersRequest][\].
+/// Request message for [CloudChannelService.ChangeParametersRequest][].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ChangeParametersRequest {
@@ -2966,7 +3150,7 @@ pub struct ChangeParametersRequest {
     /// parameters.
     ///
     /// To view the available Parameters for a request, refer to the
-    /// \[Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions\]
+    /// [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
     /// from the desired offer.
     #[prost(message, repeated, tag = "2")]
     pub parameters: ::prost::alloc::vec::Vec<Parameter>,
@@ -2979,7 +3163,7 @@ pub struct ChangeParametersRequest {
     /// it received the original operation with the same request ID. If it did, it
     /// will ignore the second request.
     ///
-    /// The request ID must be a valid \[UUID\](<https://tools.ietf.org/html/rfc4122>)
+    /// The request ID must be a valid [UUID](<https://tools.ietf.org/html/rfc4122>)
     /// with the exception that zero UUID is not supported
     /// (`00000000-0000-0000-0000-000000000000`).
     #[prost(string, tag = "4")]
@@ -2989,7 +3173,7 @@ pub struct ChangeParametersRequest {
     pub purchase_order_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.ChangeRenewalSettings][google.cloud.channel.v1.CloudChannelService.ChangeRenewalSettings\].
+/// [CloudChannelService.ChangeRenewalSettings][google.cloud.channel.v1.CloudChannelService.ChangeRenewalSettings].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ChangeRenewalSettingsRequest {
@@ -3010,14 +3194,14 @@ pub struct ChangeRenewalSettingsRequest {
     /// it received the original operation with the same request ID. If it did, it
     /// will ignore the second request.
     ///
-    /// The request ID must be a valid \[UUID\](<https://tools.ietf.org/html/rfc4122>)
+    /// The request ID must be a valid [UUID](<https://tools.ietf.org/html/rfc4122>)
     /// with the exception that zero UUID is not supported
     /// (`00000000-0000-0000-0000-000000000000`).
     #[prost(string, tag = "5")]
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.ChangeOffer][google.cloud.channel.v1.CloudChannelService.ChangeOffer\].
+/// [CloudChannelService.ChangeOffer][google.cloud.channel.v1.CloudChannelService.ChangeOffer].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ChangeOfferRequest {
@@ -3032,7 +3216,7 @@ pub struct ChangeOfferRequest {
     pub offer: ::prost::alloc::string::String,
     /// Optional. Parameters needed to purchase the Offer. To view the available
     /// Parameters refer to the
-    /// \[Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions\]
+    /// [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
     /// from the desired offer.
     #[prost(message, repeated, tag = "3")]
     pub parameters: ::prost::alloc::vec::Vec<Parameter>,
@@ -3048,7 +3232,7 @@ pub struct ChangeOfferRequest {
     /// it received the original operation with the same request ID. If it did, it
     /// will ignore the second request.
     ///
-    /// The request ID must be a valid \[UUID\](<https://tools.ietf.org/html/rfc4122>)
+    /// The request ID must be a valid [UUID](<https://tools.ietf.org/html/rfc4122>)
     /// with the exception that zero UUID is not supported
     /// (`00000000-0000-0000-0000-000000000000`).
     #[prost(string, tag = "6")]
@@ -3062,7 +3246,7 @@ pub struct ChangeOfferRequest {
     pub billing_account: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.StartPaidService][google.cloud.channel.v1.CloudChannelService.StartPaidService\].
+/// [CloudChannelService.StartPaidService][google.cloud.channel.v1.CloudChannelService.StartPaidService].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct StartPaidServiceRequest {
@@ -3080,14 +3264,14 @@ pub struct StartPaidServiceRequest {
     /// it received the original operation with the same request ID. If it did, it
     /// will ignore the second request.
     ///
-    /// The request ID must be a valid \[UUID\](<https://tools.ietf.org/html/rfc4122>)
+    /// The request ID must be a valid [UUID](<https://tools.ietf.org/html/rfc4122>)
     /// with the exception that zero UUID is not supported
     /// (`00000000-0000-0000-0000-000000000000`).
     #[prost(string, tag = "3")]
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.CancelEntitlement][google.cloud.channel.v1.CloudChannelService.CancelEntitlement\].
+/// [CloudChannelService.CancelEntitlement][google.cloud.channel.v1.CloudChannelService.CancelEntitlement].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CancelEntitlementRequest {
@@ -3105,14 +3289,14 @@ pub struct CancelEntitlementRequest {
     /// it received the original operation with the same request ID. If it did, it
     /// will ignore the second request.
     ///
-    /// The request ID must be a valid \[UUID\](<https://tools.ietf.org/html/rfc4122>)
+    /// The request ID must be a valid [UUID](<https://tools.ietf.org/html/rfc4122>)
     /// with the exception that zero UUID is not supported
     /// (`00000000-0000-0000-0000-000000000000`).
     #[prost(string, tag = "3")]
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.SuspendEntitlement][google.cloud.channel.v1.CloudChannelService.SuspendEntitlement\].
+/// [CloudChannelService.SuspendEntitlement][google.cloud.channel.v1.CloudChannelService.SuspendEntitlement].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SuspendEntitlementRequest {
@@ -3130,14 +3314,14 @@ pub struct SuspendEntitlementRequest {
     /// it received the original operation with the same request ID. If it did, it
     /// will ignore the second request.
     ///
-    /// The request ID must be a valid \[UUID\](<https://tools.ietf.org/html/rfc4122>)
+    /// The request ID must be a valid [UUID](<https://tools.ietf.org/html/rfc4122>)
     /// with the exception that zero UUID is not supported
     /// (`00000000-0000-0000-0000-000000000000`).
     #[prost(string, tag = "3")]
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.ActivateEntitlement][google.cloud.channel.v1.CloudChannelService.ActivateEntitlement\].
+/// [CloudChannelService.ActivateEntitlement][google.cloud.channel.v1.CloudChannelService.ActivateEntitlement].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ActivateEntitlementRequest {
@@ -3155,7 +3339,7 @@ pub struct ActivateEntitlementRequest {
     /// it received the original operation with the same request ID. If it did, it
     /// will ignore the second request.
     ///
-    /// The request ID must be a valid \[UUID\](<https://tools.ietf.org/html/rfc4122>)
+    /// The request ID must be a valid [UUID](<https://tools.ietf.org/html/rfc4122>)
     /// with the exception that zero UUID is not supported
     /// (`00000000-0000-0000-0000-000000000000`).
     #[prost(string, tag = "3")]
@@ -3319,7 +3503,7 @@ pub struct ListPurchasableSkusRequest {
 /// Nested message and enum types in `ListPurchasableSkusRequest`.
 pub mod list_purchasable_skus_request {
     /// List SKUs for a new entitlement. Make the purchase using
-    /// \[CloudChannelService.CreateEntitlement][google.cloud.channel.v1.CloudChannelService.CreateEntitlement\].
+    /// [CloudChannelService.CreateEntitlement][google.cloud.channel.v1.CloudChannelService.CreateEntitlement].
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct CreateEntitlementPurchase {
@@ -3331,7 +3515,7 @@ pub mod list_purchasable_skus_request {
     }
     /// List SKUs for upgrading or downgrading an entitlement. Make the purchase
     /// using
-    /// \[CloudChannelService.ChangeOffer][google.cloud.channel.v1.CloudChannelService.ChangeOffer\].
+    /// [CloudChannelService.ChangeOffer][google.cloud.channel.v1.CloudChannelService.ChangeOffer].
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct ChangeOfferPurchase {
@@ -3643,7 +3827,7 @@ pub struct ListSubscribersResponse {
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelService.ListEntitlementChanges][google.cloud.channel.v1.CloudChannelService.ListEntitlementChanges\]
+/// [CloudChannelService.ListEntitlementChanges][google.cloud.channel.v1.CloudChannelService.ListEntitlementChanges]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListEntitlementChangesRequest {
@@ -3662,11 +3846,11 @@ pub struct ListEntitlementChangesRequest {
     #[prost(int32, tag = "2")]
     pub page_size: i32,
     /// Optional. A page token, received from a previous
-    /// \[CloudChannelService.ListEntitlementChanges][google.cloud.channel.v1.CloudChannelService.ListEntitlementChanges\]
+    /// [CloudChannelService.ListEntitlementChanges][google.cloud.channel.v1.CloudChannelService.ListEntitlementChanges]
     /// call. Provide this to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to
-    /// \[CloudChannelService.ListEntitlementChanges][google.cloud.channel.v1.CloudChannelService.ListEntitlementChanges\]
+    /// [CloudChannelService.ListEntitlementChanges][google.cloud.channel.v1.CloudChannelService.ListEntitlementChanges]
     /// must match the call that provided the page token.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
@@ -3675,7 +3859,7 @@ pub struct ListEntitlementChangesRequest {
     pub filter: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[CloudChannelService.ListEntitlementChanges][google.cloud.channel.v1.CloudChannelService.ListEntitlementChanges\]
+/// [CloudChannelService.ListEntitlementChanges][google.cloud.channel.v1.CloudChannelService.ListEntitlementChanges]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListEntitlementChangesResponse {
@@ -6197,192 +6381,8 @@ pub mod cloud_channel_service_client {
         }
     }
 }
-/// Represents Pub/Sub message content describing customer update.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomerEvent {
-    /// Resource name of the customer.
-    /// Format: accounts/{account_id}/customers/{customer_id}
-    #[prost(string, tag = "1")]
-    pub customer: ::prost::alloc::string::String,
-    /// Type of event which happened on the customer.
-    #[prost(enumeration = "customer_event::Type", tag = "2")]
-    pub event_type: i32,
-}
-/// Nested message and enum types in `CustomerEvent`.
-pub mod customer_event {
-    /// Type of customer event.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Type {
-        /// Not used.
-        Unspecified = 0,
-        /// Primary domain for customer was changed.
-        PrimaryDomainChanged = 1,
-        /// Primary domain of the customer has been verified.
-        PrimaryDomainVerified = 2,
-    }
-    impl Type {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Type::Unspecified => "TYPE_UNSPECIFIED",
-                Type::PrimaryDomainChanged => "PRIMARY_DOMAIN_CHANGED",
-                Type::PrimaryDomainVerified => "PRIMARY_DOMAIN_VERIFIED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "PRIMARY_DOMAIN_CHANGED" => Some(Self::PrimaryDomainChanged),
-                "PRIMARY_DOMAIN_VERIFIED" => Some(Self::PrimaryDomainVerified),
-                _ => None,
-            }
-        }
-    }
-}
-/// Represents Pub/Sub message content describing entitlement update.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EntitlementEvent {
-    /// Resource name of an entitlement of the form:
-    /// accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
-    #[prost(string, tag = "1")]
-    pub entitlement: ::prost::alloc::string::String,
-    /// Type of event which happened on the entitlement.
-    #[prost(enumeration = "entitlement_event::Type", tag = "2")]
-    pub event_type: i32,
-}
-/// Nested message and enum types in `EntitlementEvent`.
-pub mod entitlement_event {
-    /// Type of entitlement event.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Type {
-        /// Not used.
-        Unspecified = 0,
-        /// A new entitlement was created.
-        Created = 1,
-        /// The offer type associated with an entitlement was changed.
-        /// This is not triggered if an entitlement converts from a commit offer to a
-        /// flexible offer as part of a renewal.
-        PricePlanSwitched = 3,
-        /// Annual commitment for a commit plan was changed.
-        CommitmentChanged = 4,
-        /// An annual entitlement was renewed.
-        Renewed = 5,
-        /// Entitlement was suspended.
-        Suspended = 6,
-        /// Entitlement was unsuspended.
-        Activated = 7,
-        /// Entitlement was cancelled.
-        Cancelled = 8,
-        /// Entitlement was upgraded or downgraded (e.g. from Google Workspace
-        /// Business Standard to Google Workspace Business Plus).
-        SkuChanged = 9,
-        /// The renewal settings of an entitlement has changed.
-        RenewalSettingChanged = 10,
-        /// Paid service has started on trial entitlement.
-        PaidServiceStarted = 11,
-        /// License was assigned to or revoked from a user.
-        LicenseAssignmentChanged = 12,
-        /// License cap was changed for the entitlement.
-        LicenseCapChanged = 13,
-    }
-    impl Type {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Type::Unspecified => "TYPE_UNSPECIFIED",
-                Type::Created => "CREATED",
-                Type::PricePlanSwitched => "PRICE_PLAN_SWITCHED",
-                Type::CommitmentChanged => "COMMITMENT_CHANGED",
-                Type::Renewed => "RENEWED",
-                Type::Suspended => "SUSPENDED",
-                Type::Activated => "ACTIVATED",
-                Type::Cancelled => "CANCELLED",
-                Type::SkuChanged => "SKU_CHANGED",
-                Type::RenewalSettingChanged => "RENEWAL_SETTING_CHANGED",
-                Type::PaidServiceStarted => "PAID_SERVICE_STARTED",
-                Type::LicenseAssignmentChanged => "LICENSE_ASSIGNMENT_CHANGED",
-                Type::LicenseCapChanged => "LICENSE_CAP_CHANGED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATED" => Some(Self::Created),
-                "PRICE_PLAN_SWITCHED" => Some(Self::PricePlanSwitched),
-                "COMMITMENT_CHANGED" => Some(Self::CommitmentChanged),
-                "RENEWED" => Some(Self::Renewed),
-                "SUSPENDED" => Some(Self::Suspended),
-                "ACTIVATED" => Some(Self::Activated),
-                "CANCELLED" => Some(Self::Cancelled),
-                "SKU_CHANGED" => Some(Self::SkuChanged),
-                "RENEWAL_SETTING_CHANGED" => Some(Self::RenewalSettingChanged),
-                "PAID_SERVICE_STARTED" => Some(Self::PaidServiceStarted),
-                "LICENSE_ASSIGNMENT_CHANGED" => Some(Self::LicenseAssignmentChanged),
-                "LICENSE_CAP_CHANGED" => Some(Self::LicenseCapChanged),
-                _ => None,
-            }
-        }
-    }
-}
-/// Represents information which resellers will get as part of notification from
-/// Pub/Sub.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SubscriberEvent {
-    /// Specifies the Pub/Sub event provided to the partners.
-    /// This is a required field.
-    #[prost(oneof = "subscriber_event::Event", tags = "1, 2")]
-    pub event: ::core::option::Option<subscriber_event::Event>,
-}
-/// Nested message and enum types in `SubscriberEvent`.
-pub mod subscriber_event {
-    /// Specifies the Pub/Sub event provided to the partners.
-    /// This is a required field.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Event {
-        /// Customer event sent as part of Pub/Sub event to partners.
-        #[prost(message, tag = "1")]
-        CustomerEvent(super::CustomerEvent),
-        /// Entitlement event sent as part of Pub/Sub event to partners.
-        #[prost(message, tag = "2")]
-        EntitlementEvent(super::EntitlementEvent),
-    }
-}
 /// Request message for
-/// \[CloudChannelReportsService.RunReportJob][google.cloud.channel.v1.CloudChannelReportsService.RunReportJob\].
+/// [CloudChannelReportsService.RunReportJob][google.cloud.channel.v1.CloudChannelReportsService.RunReportJob].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct RunReportJobRequest {
@@ -6416,12 +6416,12 @@ pub struct RunReportJobRequest {
     pub language_code: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[CloudChannelReportsService.RunReportJob][google.cloud.channel.v1.CloudChannelReportsService.RunReportJob\].
+/// [CloudChannelReportsService.RunReportJob][google.cloud.channel.v1.CloudChannelReportsService.RunReportJob].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct RunReportJobResponse {
     /// Pass `report_job.name` to
-    /// \[FetchReportResultsRequest.report_job][google.cloud.channel.v1.FetchReportResultsRequest.report_job\]
+    /// [FetchReportResultsRequest.report_job][google.cloud.channel.v1.FetchReportResultsRequest.report_job]
     /// to retrieve the report's results.
     #[prost(message, optional, tag = "1")]
     pub report_job: ::core::option::Option<ReportJob>,
@@ -6432,12 +6432,12 @@ pub struct RunReportJobResponse {
     pub report_metadata: ::core::option::Option<ReportResultsMetadata>,
 }
 /// Request message for
-/// \[CloudChannelReportsService.FetchReportResults][google.cloud.channel.v1.CloudChannelReportsService.FetchReportResults\].
+/// [CloudChannelReportsService.FetchReportResults][google.cloud.channel.v1.CloudChannelReportsService.FetchReportResults].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct FetchReportResultsRequest {
     /// Required. The report job created by
-    /// \[CloudChannelReportsService.RunReportJob][google.cloud.channel.v1.CloudChannelReportsService.RunReportJob\].
+    /// [CloudChannelReportsService.RunReportJob][google.cloud.channel.v1.CloudChannelReportsService.RunReportJob].
     /// Report_job uses the format:
     /// accounts/{account_id}/reportJobs/{report_job_id}
     #[prost(string, tag = "1")]
@@ -6452,9 +6452,9 @@ pub struct FetchReportResultsRequest {
     pub page_size: i32,
     /// Optional. A token that specifies a page of results beyond the first page.
     /// Obtained through
-    /// \[FetchReportResultsResponse.next_page_token][google.cloud.channel.v1.FetchReportResultsResponse.next_page_token\]
+    /// [FetchReportResultsResponse.next_page_token][google.cloud.channel.v1.FetchReportResultsResponse.next_page_token]
     /// of the previous
-    /// \[CloudChannelReportsService.FetchReportResults][google.cloud.channel.v1.CloudChannelReportsService.FetchReportResults\]
+    /// [CloudChannelReportsService.FetchReportResults][google.cloud.channel.v1.CloudChannelReportsService.FetchReportResults]
     /// call.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
@@ -6464,7 +6464,7 @@ pub struct FetchReportResultsRequest {
     pub partition_keys: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// Response message for
-/// \[CloudChannelReportsService.FetchReportResults][google.cloud.channel.v1.CloudChannelReportsService.FetchReportResults\].
+/// [CloudChannelReportsService.FetchReportResults][google.cloud.channel.v1.CloudChannelReportsService.FetchReportResults].
 /// Contains a tabular representation of the report results.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -6478,13 +6478,13 @@ pub struct FetchReportResultsResponse {
     #[prost(message, repeated, tag = "2")]
     pub rows: ::prost::alloc::vec::Vec<Row>,
     /// Pass this token to
-    /// \[FetchReportResultsRequest.page_token][google.cloud.channel.v1.FetchReportResultsRequest.page_token\]
+    /// [FetchReportResultsRequest.page_token][google.cloud.channel.v1.FetchReportResultsRequest.page_token]
     /// to retrieve the next page of results.
     #[prost(string, tag = "3")]
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[CloudChannelReportsService.ListReports][google.cloud.channel.v1.CloudChannelReportsService.ListReports\].
+/// [CloudChannelReportsService.ListReports][google.cloud.channel.v1.CloudChannelReportsService.ListReports].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListReportsRequest {
@@ -6499,9 +6499,9 @@ pub struct ListReportsRequest {
     pub page_size: i32,
     /// Optional. A token that specifies a page of results beyond the first page.
     /// Obtained through
-    /// \[ListReportsResponse.next_page_token][google.cloud.channel.v1.ListReportsResponse.next_page_token\]
+    /// [ListReportsResponse.next_page_token][google.cloud.channel.v1.ListReportsResponse.next_page_token]
     /// of the previous
-    /// \[CloudChannelReportsService.ListReports][google.cloud.channel.v1.CloudChannelReportsService.ListReports\]
+    /// [CloudChannelReportsService.ListReports][google.cloud.channel.v1.CloudChannelReportsService.ListReports]
     /// call.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
@@ -6513,7 +6513,7 @@ pub struct ListReportsRequest {
     pub language_code: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[CloudChannelReportsService.ListReports][google.cloud.channel.v1.CloudChannelReportsService.ListReports\].
+/// [CloudChannelReportsService.ListReports][google.cloud.channel.v1.CloudChannelReportsService.ListReports].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListReportsResponse {
@@ -6521,13 +6521,13 @@ pub struct ListReportsResponse {
     #[prost(message, repeated, tag = "1")]
     pub reports: ::prost::alloc::vec::Vec<Report>,
     /// Pass this token to
-    /// \[FetchReportResultsRequest.page_token][google.cloud.channel.v1.FetchReportResultsRequest.page_token\]
+    /// [FetchReportResultsRequest.page_token][google.cloud.channel.v1.FetchReportResultsRequest.page_token]
     /// to retrieve the next page of results.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
-/// The result of a \[RunReportJob][\] operation. Contains the name to use in
-/// \[FetchReportResultsRequest.report_job][google.cloud.channel.v1.FetchReportResultsRequest.report_job\]
+/// The result of a [RunReportJob][] operation. Contains the name to use in
+/// [FetchReportResultsRequest.report_job][google.cloud.channel.v1.FetchReportResultsRequest.report_job]
 /// and the status of the operation.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -6542,9 +6542,9 @@ pub struct ReportJob {
     pub report_status: ::core::option::Option<ReportStatus>,
 }
 /// The features describing the data. Returned by
-/// \[CloudChannelReportsService.RunReportJob][google.cloud.channel.v1.CloudChannelReportsService.RunReportJob\]
+/// [CloudChannelReportsService.RunReportJob][google.cloud.channel.v1.CloudChannelReportsService.RunReportJob]
 /// and
-/// \[CloudChannelReportsService.FetchReportResults][google.cloud.channel.v1.CloudChannelReportsService.FetchReportResults\].
+/// [CloudChannelReportsService.FetchReportResults][google.cloud.channel.v1.CloudChannelReportsService.FetchReportResults].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ReportResultsMetadata {
@@ -6573,9 +6573,9 @@ pub struct ReportResultsMetadata {
 pub struct Column {
     /// The unique name of the column (for example, customer_domain,
     /// channel_partner, customer_cost). You can use column IDs in
-    /// \[RunReportJobRequest.filter][google.cloud.channel.v1.RunReportJobRequest.filter\].
+    /// [RunReportJobRequest.filter][google.cloud.channel.v1.RunReportJobRequest.filter].
     /// To see all reports and their columns, call
-    /// \[CloudChannelReportsService.ListReports][google.cloud.channel.v1.CloudChannelReportsService.ListReports\].
+    /// [CloudChannelReportsService.ListReports][google.cloud.channel.v1.CloudChannelReportsService.ListReports].
     #[prost(string, tag = "1")]
     pub column_id: ::prost::alloc::string::String,
     /// The column's display name.

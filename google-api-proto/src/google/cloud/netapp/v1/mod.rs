@@ -1,443 +1,3 @@
-/// TransferStats reports all statistics related to replication transfer.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TransferStats {
-    /// bytes trasferred so far in current transfer.
-    #[prost(int64, optional, tag = "1")]
-    pub transfer_bytes: ::core::option::Option<i64>,
-    /// Total time taken during transfer.
-    #[prost(message, optional, tag = "2")]
-    pub total_transfer_duration: ::core::option::Option<::prost_types::Duration>,
-    /// Last transfer size in bytes.
-    #[prost(int64, optional, tag = "3")]
-    pub last_transfer_bytes: ::core::option::Option<i64>,
-    /// Time taken during last transfer.
-    #[prost(message, optional, tag = "4")]
-    pub last_transfer_duration: ::core::option::Option<::prost_types::Duration>,
-    /// Lag duration indicates the duration by which Destination region volume
-    /// content lags behind the primary region volume content.
-    #[prost(message, optional, tag = "5")]
-    pub lag_duration: ::core::option::Option<::prost_types::Duration>,
-    /// Time when progress was updated last.
-    #[prost(message, optional, tag = "6")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Time when last transfer completed.
-    #[prost(message, optional, tag = "7")]
-    pub last_transfer_end_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// A message describing the cause of the last transfer failure.
-    #[prost(string, optional, tag = "8")]
-    pub last_transfer_error: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// Replication is a nested resource under Volume, that describes a
-/// cross-region replication relationship between 2 volumes in different
-/// regions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Replication {
-    /// Output only. The resource name of the Replication.
-    /// Format:
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/replications/{replication_id}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. State of the replication.
-    #[prost(enumeration = "replication::State", tag = "2")]
-    pub state: i32,
-    /// Output only. State details of the replication.
-    #[prost(string, tag = "3")]
-    pub state_details: ::prost::alloc::string::String,
-    /// Output only. Indicates whether this points to source or destination.
-    #[prost(enumeration = "replication::ReplicationRole", tag = "4")]
-    pub role: i32,
-    /// Required. Indicates the schedule for replication.
-    #[prost(enumeration = "replication::ReplicationSchedule", tag = "5")]
-    pub replication_schedule: i32,
-    /// Output only. Indicates the state of mirroring.
-    #[prost(enumeration = "replication::MirrorState", tag = "6")]
-    pub mirror_state: i32,
-    /// Output only. Condition of the relationship. Can be one of the following:
-    /// - true: The replication relationship is healthy. It has not missed the most
-    /// recent scheduled transfer.
-    /// - false: The replication relationship is not healthy. It has missed the
-    /// most recent scheduled transfer.
-    #[prost(bool, optional, tag = "8")]
-    pub healthy: ::core::option::Option<bool>,
-    /// Output only. Replication create time.
-    #[prost(message, optional, tag = "9")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Full name of destination volume resource.
-    /// Example : "projects/{project}/locations/{location}/volumes/{volume_id}"
-    #[prost(string, tag = "10")]
-    pub destination_volume: ::prost::alloc::string::String,
-    /// Output only. Replication transfer statistics.
-    #[prost(message, optional, tag = "11")]
-    pub transfer_stats: ::core::option::Option<TransferStats>,
-    /// Resource labels to represent user provided metadata.
-    #[prost(btree_map = "string, string", tag = "12")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// A description about this replication relationship.
-    #[prost(string, optional, tag = "13")]
-    pub description: ::core::option::Option<::prost::alloc::string::String>,
-    /// Required. Input only. Destination volume parameters
-    #[prost(message, optional, tag = "14")]
-    pub destination_volume_parameters: ::core::option::Option<
-        DestinationVolumeParameters,
-    >,
-    /// Output only. Full name of source volume resource.
-    /// Example : "projects/{project}/locations/{location}/volumes/{volume_id}"
-    #[prost(string, tag = "15")]
-    pub source_volume: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `Replication`.
-pub mod replication {
-    /// The replication states
-    /// New enum values may be added in future to indicate possible new states.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified replication State
-        Unspecified = 0,
-        /// Replication is creating.
-        Creating = 1,
-        /// Replication is ready.
-        Ready = 2,
-        /// Replication is updating.
-        Updating = 3,
-        /// Replication is deleting.
-        Deleting = 5,
-        /// Replication is in error state.
-        Error = 6,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::Ready => "READY",
-                State::Updating => "UPDATING",
-                State::Deleting => "DELETING",
-                State::Error => "ERROR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "READY" => Some(Self::Ready),
-                "UPDATING" => Some(Self::Updating),
-                "DELETING" => Some(Self::Deleting),
-                "ERROR" => Some(Self::Error),
-                _ => None,
-            }
-        }
-    }
-    /// New enum values may be added in future to support different replication
-    /// topology.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ReplicationRole {
-        /// Unspecified replication role
-        Unspecified = 0,
-        /// Indicates Source volume.
-        Source = 1,
-        /// Indicates Destination volume.
-        Destination = 2,
-    }
-    impl ReplicationRole {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ReplicationRole::Unspecified => "REPLICATION_ROLE_UNSPECIFIED",
-                ReplicationRole::Source => "SOURCE",
-                ReplicationRole::Destination => "DESTINATION",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "REPLICATION_ROLE_UNSPECIFIED" => Some(Self::Unspecified),
-                "SOURCE" => Some(Self::Source),
-                "DESTINATION" => Some(Self::Destination),
-                _ => None,
-            }
-        }
-    }
-    /// Schedule for Replication.
-    /// New enum values may be added in future to support different frequency of
-    /// replication.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ReplicationSchedule {
-        /// Unspecified ReplicationSchedule
-        Unspecified = 0,
-        /// Replication happens once every 10 minutes.
-        Every10Minutes = 1,
-        /// Replication happens once every hour.
-        Hourly = 2,
-        /// Replication happens once every day.
-        Daily = 3,
-    }
-    impl ReplicationSchedule {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ReplicationSchedule::Unspecified => "REPLICATION_SCHEDULE_UNSPECIFIED",
-                ReplicationSchedule::Every10Minutes => "EVERY_10_MINUTES",
-                ReplicationSchedule::Hourly => "HOURLY",
-                ReplicationSchedule::Daily => "DAILY",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "REPLICATION_SCHEDULE_UNSPECIFIED" => Some(Self::Unspecified),
-                "EVERY_10_MINUTES" => Some(Self::Every10Minutes),
-                "HOURLY" => Some(Self::Hourly),
-                "DAILY" => Some(Self::Daily),
-                _ => None,
-            }
-        }
-    }
-    /// Mirroring states.
-    /// No new value is expected to be added in future.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum MirrorState {
-        /// Unspecified MirrorState
-        Unspecified = 0,
-        /// Destination volume is being prepared.
-        Preparing = 1,
-        /// Destination volume has been initialized and is ready to receive
-        /// replication transfers.
-        Mirrored = 2,
-        /// Destination volume is not receiving replication transfers.
-        Stopped = 3,
-        /// Replication is in progress.
-        Transferring = 4,
-    }
-    impl MirrorState {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                MirrorState::Unspecified => "MIRROR_STATE_UNSPECIFIED",
-                MirrorState::Preparing => "PREPARING",
-                MirrorState::Mirrored => "MIRRORED",
-                MirrorState::Stopped => "STOPPED",
-                MirrorState::Transferring => "TRANSFERRING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "MIRROR_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "PREPARING" => Some(Self::Preparing),
-                "MIRRORED" => Some(Self::Mirrored),
-                "STOPPED" => Some(Self::Stopped),
-                "TRANSFERRING" => Some(Self::Transferring),
-                _ => None,
-            }
-        }
-    }
-}
-/// ListReplications lists replications.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListReplicationsRequest {
-    /// Required. The volume for which to retrieve replication information,
-    /// in the format
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}`.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The maximum number of items to return.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// The next_page_token value to use if there are additional
-    /// results to retrieve for this list request.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Sort results. Supported values are "name", "name desc" or "" (unsorted).
-    #[prost(string, tag = "4")]
-    pub order_by: ::prost::alloc::string::String,
-    /// List filter.
-    #[prost(string, tag = "5")]
-    pub filter: ::prost::alloc::string::String,
-}
-/// ListReplicationsResponse is the result of ListReplicationsRequest.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListReplicationsResponse {
-    /// A list of replications in the project for the specified volume.
-    #[prost(message, repeated, tag = "1")]
-    pub replications: ::prost::alloc::vec::Vec<Replication>,
-    /// The token you can use to retrieve the next page of results. Not returned
-    /// if there are no more results in the list.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// GetReplicationRequest gets the state of a replication.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetReplicationRequest {
-    /// Required. The replication resource name, in the format
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/replications/{replication_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// DestinationVolumeParameters specify input parameters used for creating
-/// destination volume.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DestinationVolumeParameters {
-    /// Required. Existing destination StoragePool name.
-    #[prost(string, tag = "1")]
-    pub storage_pool: ::prost::alloc::string::String,
-    /// Desired destination volume resource id. If not specified, source volume's
-    /// resource id will be used.
-    /// This value must start with a lowercase letter followed by up to 62
-    /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
-    #[prost(string, tag = "2")]
-    pub volume_id: ::prost::alloc::string::String,
-    /// Destination volume's share name. If not specified, source volume's share
-    /// name will be used.
-    #[prost(string, tag = "3")]
-    pub share_name: ::prost::alloc::string::String,
-    /// Description for the destination volume.
-    #[prost(string, optional, tag = "4")]
-    pub description: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// CreateReplicationRequest creates a replication.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateReplicationRequest {
-    /// Required. The NetApp volume to create the replications of, in the format
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. A replication resource
-    #[prost(message, optional, tag = "2")]
-    pub replication: ::core::option::Option<Replication>,
-    /// Required. ID of the replication to create.
-    /// This value must start with a lowercase letter followed by up to 62
-    /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
-    #[prost(string, tag = "3")]
-    pub replication_id: ::prost::alloc::string::String,
-}
-/// DeleteReplicationRequest deletes a replication.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteReplicationRequest {
-    /// Required. The replication resource name, in the format
-    /// `projects/*/locations/*/volumes/*/replications/{replication_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// UpdateReplicationRequest updates description and/or labels for a replication.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateReplicationRequest {
-    /// Required. Mask of fields to update.  At least one path must be supplied in
-    /// this field.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. A replication resource
-    #[prost(message, optional, tag = "2")]
-    pub replication: ::core::option::Option<Replication>,
-}
-/// StopReplicationRequest stops a replication until resumed.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StopReplicationRequest {
-    /// Required. The resource name of the replication, in the format of
-    /// projects/{project_id}/locations/{location}/volumes/{volume_id}/replications/{replication_id}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Indicates whether to stop replication forcefully while data transfer is in
-    /// progress.
-    /// Warning! if force is true, this will abort any current transfers
-    /// and can lead to data loss due to partial transfer.
-    /// If force is false, stop replication will fail while data transfer is in
-    /// progress and you will need to retry later.
-    #[prost(bool, tag = "2")]
-    pub force: bool,
-}
-/// ResumeReplicationRequest resumes a stopped replication.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ResumeReplicationRequest {
-    /// Required. The resource name of the replication, in the format of
-    /// projects/{project_id}/locations/{location}/volumes/{volume_id}/replications/{replication_id}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// ReverseReplicationDirectionRequest reverses direction of replication. Source
-/// becomes destination and destination becomes source.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ReverseReplicationDirectionRequest {
-    /// Required. The resource name of the replication, in the format of
-    /// projects/{project_id}/locations/{location}/volumes/{volume_id}/replications/{replication_id}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
 /// The service levels - Storage Pool, Volumes
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -502,438 +62,6 @@ impl EncryptionType {
             "SERVICE_MANAGED" => Some(Self::ServiceManaged),
             "CLOUD_KMS" => Some(Self::CloudKms),
             _ => None,
-        }
-    }
-}
-/// GetStoragePoolRequest gets a Storage Pool.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetStoragePoolRequest {
-    /// Required. Name of the storage pool
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// ListStoragePoolsRequest lists Storage Pools.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListStoragePoolsRequest {
-    /// Required. Parent value
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The maximum number of items to return.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// The next_page_token value to use if there are additional
-    /// results to retrieve for this list request.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Sort results. Supported values are "name", "name desc" or "" (unsorted).
-    #[prost(string, tag = "4")]
-    pub order_by: ::prost::alloc::string::String,
-    /// List filter.
-    #[prost(string, tag = "5")]
-    pub filter: ::prost::alloc::string::String,
-}
-/// ListStoragePoolsResponse is the response to a ListStoragePoolsRequest.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListStoragePoolsResponse {
-    /// The list of StoragePools
-    #[prost(message, repeated, tag = "1")]
-    pub storage_pools: ::prost::alloc::vec::Vec<StoragePool>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// CreateStoragePoolRequest creates a Storage Pool.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateStoragePoolRequest {
-    /// Required. Value for parent.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Id of the requesting storage pool
-    /// If auto-generating Id server-side, remove this field and
-    /// id from the method_signature of Create RPC
-    #[prost(string, tag = "2")]
-    pub storage_pool_id: ::prost::alloc::string::String,
-    /// Required. The required parameters to create a new storage pool.
-    #[prost(message, optional, tag = "3")]
-    pub storage_pool: ::core::option::Option<StoragePool>,
-}
-/// UpdateStoragePoolRequest updates a Storage Pool.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateStoragePoolRequest {
-    /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// StoragePool resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The pool being updated
-    #[prost(message, optional, tag = "2")]
-    pub storage_pool: ::core::option::Option<StoragePool>,
-}
-/// DeleteStoragePoolRequest deletes a Storage Pool.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteStoragePoolRequest {
-    /// Required. Name of the storage pool
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// StoragePool is a container for volumes with a service level and capacity.
-/// Volumes can be created in a pool of sufficient available capacity.
-/// StoragePool capacity is what you are billed for.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StoragePool {
-    /// Output only. Name of the storage pool
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Service level of the storage pool
-    #[prost(enumeration = "ServiceLevel", tag = "2")]
-    pub service_level: i32,
-    /// Required. Capacity in GIB of the pool
-    #[prost(int64, tag = "3")]
-    pub capacity_gib: i64,
-    /// Output only. Allocated size of all volumes in GIB in the storage pool
-    #[prost(int64, tag = "4")]
-    pub volume_capacity_gib: i64,
-    /// Output only. Volume count of the storage pool
-    #[prost(int32, tag = "5")]
-    pub volume_count: i32,
-    /// Output only. State of the storage pool
-    #[prost(enumeration = "storage_pool::State", tag = "6")]
-    pub state: i32,
-    /// Output only. State details of the storage pool
-    #[prost(string, tag = "7")]
-    pub state_details: ::prost::alloc::string::String,
-    /// Output only. Create time of the storage pool
-    #[prost(message, optional, tag = "8")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Description of the storage pool
-    #[prost(string, tag = "9")]
-    pub description: ::prost::alloc::string::String,
-    /// Labels as key value pairs
-    #[prost(btree_map = "string, string", tag = "10")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Required. VPC Network name.
-    /// Format: projects/{project}/global/networks/{network}
-    #[prost(string, tag = "11")]
-    pub network: ::prost::alloc::string::String,
-    /// Specifies the Active Directory to be used for creating a SMB volume.
-    #[prost(string, tag = "12")]
-    pub active_directory: ::prost::alloc::string::String,
-    /// Specifies the KMS config to be used for volume encryption.
-    #[prost(string, tag = "13")]
-    pub kms_config: ::prost::alloc::string::String,
-    /// Flag indicating if the pool is NFS LDAP enabled or not.
-    #[prost(bool, tag = "14")]
-    pub ldap_enabled: bool,
-    /// Name of the Private Service Access allocated range. If
-    /// not provided, any available range will be chosen.
-    #[prost(string, tag = "15")]
-    pub psa_range: ::prost::alloc::string::String,
-    /// Output only. Specifies the current pool encryption key source.
-    #[prost(enumeration = "EncryptionType", tag = "16")]
-    pub encryption_type: i32,
-    /// Optional. Allows SO pool to access AD or DNS server from other regions.
-    #[prost(bool, optional, tag = "17")]
-    pub global_access_allowed: ::core::option::Option<bool>,
-}
-/// Nested message and enum types in `StoragePool`.
-pub mod storage_pool {
-    /// The Storage Pool States
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified Storage Pool State
-        Unspecified = 0,
-        /// Storage Pool State is Ready
-        Ready = 1,
-        /// Storage Pool State is Creating
-        Creating = 2,
-        /// Storage Pool State is Deleting
-        Deleting = 3,
-        /// Storage Pool State is Updating
-        Updating = 4,
-        /// Storage Pool State is Restoring
-        Restoring = 5,
-        /// Storage Pool State is Disabled
-        Disabled = 6,
-        /// Storage Pool State is Error
-        Error = 7,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Ready => "READY",
-                State::Creating => "CREATING",
-                State::Deleting => "DELETING",
-                State::Updating => "UPDATING",
-                State::Restoring => "RESTORING",
-                State::Disabled => "DISABLED",
-                State::Error => "ERROR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "READY" => Some(Self::Ready),
-                "CREATING" => Some(Self::Creating),
-                "DELETING" => Some(Self::Deleting),
-                "UPDATING" => Some(Self::Updating),
-                "RESTORING" => Some(Self::Restoring),
-                "DISABLED" => Some(Self::Disabled),
-                "ERROR" => Some(Self::Error),
-                _ => None,
-            }
-        }
-    }
-}
-/// ListActiveDirectoriesRequest for requesting multiple active directories.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListActiveDirectoriesRequest {
-    /// Required. Parent value for ListActiveDirectoriesRequest
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Requested page size. Server may return fewer items than requested.
-    /// If unspecified, the server will pick an appropriate default.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Filtering results
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Hint for how to order the results
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// ListActiveDirectoriesResponse contains all the active directories requested.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListActiveDirectoriesResponse {
-    /// The list of active directories.
-    #[prost(message, repeated, tag = "1")]
-    pub active_directories: ::prost::alloc::vec::Vec<ActiveDirectory>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// GetActiveDirectory for getting a single active directory.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetActiveDirectoryRequest {
-    /// Required. Name of the active directory.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// CreateActiveDirectoryRequest for creating an active directory.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateActiveDirectoryRequest {
-    /// Required. Value for parent.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Fields of the to be created active directory.
-    #[prost(message, optional, tag = "2")]
-    pub active_directory: ::core::option::Option<ActiveDirectory>,
-    /// Required. ID of the active directory to create.
-    #[prost(string, tag = "3")]
-    pub active_directory_id: ::prost::alloc::string::String,
-}
-/// UpdateActiveDirectoryRequest for updating an active directory.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateActiveDirectoryRequest {
-    /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// Active Directory resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The volume being updated
-    #[prost(message, optional, tag = "2")]
-    pub active_directory: ::core::option::Option<ActiveDirectory>,
-}
-/// DeleteActiveDirectoryRequest for deleting a single active directory.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteActiveDirectoryRequest {
-    /// Required. Name of the active directory.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// ActiveDirectory is the public representation of the active directory config.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ActiveDirectory {
-    /// Output only. The resource name of the active directory.
-    /// Format:
-    /// `projects/{project_number}/locations/{location_id}/activeDirectories/{active_directory_id}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Create time of the active directory.
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The state of the AD.
-    #[prost(enumeration = "active_directory::State", tag = "3")]
-    pub state: i32,
-    /// Required. Name of the Active Directory domain
-    #[prost(string, tag = "4")]
-    pub domain: ::prost::alloc::string::String,
-    /// The Active Directory site the service will limit Domain Controller
-    /// discovery too.
-    #[prost(string, tag = "5")]
-    pub site: ::prost::alloc::string::String,
-    /// Required. Comma separated list of DNS server IP addresses for the Active
-    /// Directory domain.
-    #[prost(string, tag = "6")]
-    pub dns: ::prost::alloc::string::String,
-    /// Required. NetBIOSPrefix is used as a prefix for SMB server name.
-    #[prost(string, tag = "7")]
-    pub net_bios_prefix: ::prost::alloc::string::String,
-    /// The Organizational Unit (OU) within the Windows Active Directory the user
-    /// belongs to.
-    #[prost(string, tag = "8")]
-    pub organizational_unit: ::prost::alloc::string::String,
-    /// If enabled, AES encryption will be enabled for SMB communication.
-    #[prost(bool, tag = "9")]
-    pub aes_encryption: bool,
-    /// Required. Username of the Active Directory domain administrator.
-    #[prost(string, tag = "10")]
-    pub username: ::prost::alloc::string::String,
-    /// Required. Password of the Active Directory domain administrator.
-    #[prost(string, tag = "11")]
-    pub password: ::prost::alloc::string::String,
-    /// Users to be added to the Built-in Backup Operator active directory group.
-    #[prost(string, repeated, tag = "12")]
-    pub backup_operators: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Domain users to be given the SeSecurityPrivilege.
-    #[prost(string, repeated, tag = "13")]
-    pub security_operators: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Name of the active directory machine. This optional parameter is used only
-    /// while creating kerberos volume
-    #[prost(string, tag = "14")]
-    pub kdc_hostname: ::prost::alloc::string::String,
-    /// KDC server IP address for the active directory machine.
-    #[prost(string, tag = "15")]
-    pub kdc_ip: ::prost::alloc::string::String,
-    /// If enabled, will allow access to local users and LDAP users. If access is
-    /// needed for only LDAP users, it has to be disabled.
-    #[prost(bool, tag = "16")]
-    pub nfs_users_with_ldap: bool,
-    /// Description of the active directory.
-    #[prost(string, tag = "17")]
-    pub description: ::prost::alloc::string::String,
-    /// Specifies whether or not the LDAP traffic needs to be signed.
-    #[prost(bool, tag = "18")]
-    pub ldap_signing: bool,
-    /// If enabled, traffic between the SMB server to Domain Controller (DC) will
-    /// be encrypted.
-    #[prost(bool, tag = "19")]
-    pub encrypt_dc_connections: bool,
-    /// Labels for the active directory.
-    #[prost(btree_map = "string, string", tag = "20")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. The state details of the Active Directory.
-    #[prost(string, tag = "21")]
-    pub state_details: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `ActiveDirectory`.
-pub mod active_directory {
-    /// The Active Directory States
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified Active Directory State
-        Unspecified = 0,
-        /// Active Directory State is Creating
-        Creating = 1,
-        /// Active Directory State is Ready
-        Ready = 2,
-        /// Active Directory State is Updating
-        Updating = 3,
-        /// Active Directory State is In use
-        InUse = 4,
-        /// Active Directory State is Deleting
-        Deleting = 5,
-        /// Active Directory State is Error
-        Error = 6,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::Ready => "READY",
-                State::Updating => "UPDATING",
-                State::InUse => "IN_USE",
-                State::Deleting => "DELETING",
-                State::Error => "ERROR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "READY" => Some(Self::Ready),
-                "UPDATING" => Some(Self::Updating),
-                "IN_USE" => Some(Self::InUse),
-                "DELETING" => Some(Self::Deleting),
-                "ERROR" => Some(Self::Error),
-                _ => None,
-            }
         }
     }
 }
@@ -1593,6 +721,227 @@ impl RestrictedAction {
         }
     }
 }
+/// ListActiveDirectoriesRequest for requesting multiple active directories.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListActiveDirectoriesRequest {
+    /// Required. Parent value for ListActiveDirectoriesRequest
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Requested page size. Server may return fewer items than requested.
+    /// If unspecified, the server will pick an appropriate default.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Filtering results
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Hint for how to order the results
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// ListActiveDirectoriesResponse contains all the active directories requested.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListActiveDirectoriesResponse {
+    /// The list of active directories.
+    #[prost(message, repeated, tag = "1")]
+    pub active_directories: ::prost::alloc::vec::Vec<ActiveDirectory>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// GetActiveDirectory for getting a single active directory.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetActiveDirectoryRequest {
+    /// Required. Name of the active directory.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// CreateActiveDirectoryRequest for creating an active directory.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateActiveDirectoryRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Fields of the to be created active directory.
+    #[prost(message, optional, tag = "2")]
+    pub active_directory: ::core::option::Option<ActiveDirectory>,
+    /// Required. ID of the active directory to create.
+    #[prost(string, tag = "3")]
+    pub active_directory_id: ::prost::alloc::string::String,
+}
+/// UpdateActiveDirectoryRequest for updating an active directory.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateActiveDirectoryRequest {
+    /// Required. Field mask is used to specify the fields to be overwritten in the
+    /// Active Directory resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The volume being updated
+    #[prost(message, optional, tag = "2")]
+    pub active_directory: ::core::option::Option<ActiveDirectory>,
+}
+/// DeleteActiveDirectoryRequest for deleting a single active directory.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteActiveDirectoryRequest {
+    /// Required. Name of the active directory.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// ActiveDirectory is the public representation of the active directory config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ActiveDirectory {
+    /// Output only. The resource name of the active directory.
+    /// Format:
+    /// `projects/{project_number}/locations/{location_id}/activeDirectories/{active_directory_id}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Create time of the active directory.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The state of the AD.
+    #[prost(enumeration = "active_directory::State", tag = "3")]
+    pub state: i32,
+    /// Required. Name of the Active Directory domain
+    #[prost(string, tag = "4")]
+    pub domain: ::prost::alloc::string::String,
+    /// The Active Directory site the service will limit Domain Controller
+    /// discovery too.
+    #[prost(string, tag = "5")]
+    pub site: ::prost::alloc::string::String,
+    /// Required. Comma separated list of DNS server IP addresses for the Active
+    /// Directory domain.
+    #[prost(string, tag = "6")]
+    pub dns: ::prost::alloc::string::String,
+    /// Required. NetBIOSPrefix is used as a prefix for SMB server name.
+    #[prost(string, tag = "7")]
+    pub net_bios_prefix: ::prost::alloc::string::String,
+    /// The Organizational Unit (OU) within the Windows Active Directory the user
+    /// belongs to.
+    #[prost(string, tag = "8")]
+    pub organizational_unit: ::prost::alloc::string::String,
+    /// If enabled, AES encryption will be enabled for SMB communication.
+    #[prost(bool, tag = "9")]
+    pub aes_encryption: bool,
+    /// Required. Username of the Active Directory domain administrator.
+    #[prost(string, tag = "10")]
+    pub username: ::prost::alloc::string::String,
+    /// Required. Password of the Active Directory domain administrator.
+    #[prost(string, tag = "11")]
+    pub password: ::prost::alloc::string::String,
+    /// Users to be added to the Built-in Backup Operator active directory group.
+    #[prost(string, repeated, tag = "12")]
+    pub backup_operators: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Domain users to be given the SeSecurityPrivilege.
+    #[prost(string, repeated, tag = "13")]
+    pub security_operators: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Name of the active directory machine. This optional parameter is used only
+    /// while creating kerberos volume
+    #[prost(string, tag = "14")]
+    pub kdc_hostname: ::prost::alloc::string::String,
+    /// KDC server IP address for the active directory machine.
+    #[prost(string, tag = "15")]
+    pub kdc_ip: ::prost::alloc::string::String,
+    /// If enabled, will allow access to local users and LDAP users. If access is
+    /// needed for only LDAP users, it has to be disabled.
+    #[prost(bool, tag = "16")]
+    pub nfs_users_with_ldap: bool,
+    /// Description of the active directory.
+    #[prost(string, tag = "17")]
+    pub description: ::prost::alloc::string::String,
+    /// Specifies whether or not the LDAP traffic needs to be signed.
+    #[prost(bool, tag = "18")]
+    pub ldap_signing: bool,
+    /// If enabled, traffic between the SMB server to Domain Controller (DC) will
+    /// be encrypted.
+    #[prost(bool, tag = "19")]
+    pub encrypt_dc_connections: bool,
+    /// Labels for the active directory.
+    #[prost(btree_map = "string, string", tag = "20")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. The state details of the Active Directory.
+    #[prost(string, tag = "21")]
+    pub state_details: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `ActiveDirectory`.
+pub mod active_directory {
+    /// The Active Directory States
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified Active Directory State
+        Unspecified = 0,
+        /// Active Directory State is Creating
+        Creating = 1,
+        /// Active Directory State is Ready
+        Ready = 2,
+        /// Active Directory State is Updating
+        Updating = 3,
+        /// Active Directory State is In use
+        InUse = 4,
+        /// Active Directory State is Deleting
+        Deleting = 5,
+        /// Active Directory State is Error
+        Error = 6,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::Ready => "READY",
+                State::Updating => "UPDATING",
+                State::InUse => "IN_USE",
+                State::Deleting => "DELETING",
+                State::Error => "ERROR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "READY" => Some(Self::Ready),
+                "UPDATING" => Some(Self::Updating),
+                "IN_USE" => Some(Self::InUse),
+                "DELETING" => Some(Self::Deleting),
+                "ERROR" => Some(Self::Error),
+                _ => None,
+            }
+        }
+    }
+}
 /// GetKmsConfigRequest gets a KMS Config.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1830,6 +1179,446 @@ pub mod kms_config {
         }
     }
 }
+/// TransferStats reports all statistics related to replication transfer.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TransferStats {
+    /// bytes trasferred so far in current transfer.
+    #[prost(int64, optional, tag = "1")]
+    pub transfer_bytes: ::core::option::Option<i64>,
+    /// Total time taken during transfer.
+    #[prost(message, optional, tag = "2")]
+    pub total_transfer_duration: ::core::option::Option<::prost_types::Duration>,
+    /// Last transfer size in bytes.
+    #[prost(int64, optional, tag = "3")]
+    pub last_transfer_bytes: ::core::option::Option<i64>,
+    /// Time taken during last transfer.
+    #[prost(message, optional, tag = "4")]
+    pub last_transfer_duration: ::core::option::Option<::prost_types::Duration>,
+    /// Lag duration indicates the duration by which Destination region volume
+    /// content lags behind the primary region volume content.
+    #[prost(message, optional, tag = "5")]
+    pub lag_duration: ::core::option::Option<::prost_types::Duration>,
+    /// Time when progress was updated last.
+    #[prost(message, optional, tag = "6")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Time when last transfer completed.
+    #[prost(message, optional, tag = "7")]
+    pub last_transfer_end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// A message describing the cause of the last transfer failure.
+    #[prost(string, optional, tag = "8")]
+    pub last_transfer_error: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Replication is a nested resource under Volume, that describes a
+/// cross-region replication relationship between 2 volumes in different
+/// regions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Replication {
+    /// Output only. The resource name of the Replication.
+    /// Format:
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/replications/{replication_id}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. State of the replication.
+    #[prost(enumeration = "replication::State", tag = "2")]
+    pub state: i32,
+    /// Output only. State details of the replication.
+    #[prost(string, tag = "3")]
+    pub state_details: ::prost::alloc::string::String,
+    /// Output only. Indicates whether this points to source or destination.
+    #[prost(enumeration = "replication::ReplicationRole", tag = "4")]
+    pub role: i32,
+    /// Required. Indicates the schedule for replication.
+    #[prost(enumeration = "replication::ReplicationSchedule", tag = "5")]
+    pub replication_schedule: i32,
+    /// Output only. Indicates the state of mirroring.
+    #[prost(enumeration = "replication::MirrorState", tag = "6")]
+    pub mirror_state: i32,
+    /// Output only. Condition of the relationship. Can be one of the following:
+    /// - true: The replication relationship is healthy. It has not missed the most
+    /// recent scheduled transfer.
+    /// - false: The replication relationship is not healthy. It has missed the
+    /// most recent scheduled transfer.
+    #[prost(bool, optional, tag = "8")]
+    pub healthy: ::core::option::Option<bool>,
+    /// Output only. Replication create time.
+    #[prost(message, optional, tag = "9")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Full name of destination volume resource.
+    /// Example : "projects/{project}/locations/{location}/volumes/{volume_id}"
+    #[prost(string, tag = "10")]
+    pub destination_volume: ::prost::alloc::string::String,
+    /// Output only. Replication transfer statistics.
+    #[prost(message, optional, tag = "11")]
+    pub transfer_stats: ::core::option::Option<TransferStats>,
+    /// Resource labels to represent user provided metadata.
+    #[prost(btree_map = "string, string", tag = "12")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// A description about this replication relationship.
+    #[prost(string, optional, tag = "13")]
+    pub description: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Input only. Destination volume parameters
+    #[prost(message, optional, tag = "14")]
+    pub destination_volume_parameters: ::core::option::Option<
+        DestinationVolumeParameters,
+    >,
+    /// Output only. Full name of source volume resource.
+    /// Example : "projects/{project}/locations/{location}/volumes/{volume_id}"
+    #[prost(string, tag = "15")]
+    pub source_volume: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Replication`.
+pub mod replication {
+    /// The replication states
+    /// New enum values may be added in future to indicate possible new states.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified replication State
+        Unspecified = 0,
+        /// Replication is creating.
+        Creating = 1,
+        /// Replication is ready.
+        Ready = 2,
+        /// Replication is updating.
+        Updating = 3,
+        /// Replication is deleting.
+        Deleting = 5,
+        /// Replication is in error state.
+        Error = 6,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::Ready => "READY",
+                State::Updating => "UPDATING",
+                State::Deleting => "DELETING",
+                State::Error => "ERROR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "READY" => Some(Self::Ready),
+                "UPDATING" => Some(Self::Updating),
+                "DELETING" => Some(Self::Deleting),
+                "ERROR" => Some(Self::Error),
+                _ => None,
+            }
+        }
+    }
+    /// New enum values may be added in future to support different replication
+    /// topology.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ReplicationRole {
+        /// Unspecified replication role
+        Unspecified = 0,
+        /// Indicates Source volume.
+        Source = 1,
+        /// Indicates Destination volume.
+        Destination = 2,
+    }
+    impl ReplicationRole {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ReplicationRole::Unspecified => "REPLICATION_ROLE_UNSPECIFIED",
+                ReplicationRole::Source => "SOURCE",
+                ReplicationRole::Destination => "DESTINATION",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "REPLICATION_ROLE_UNSPECIFIED" => Some(Self::Unspecified),
+                "SOURCE" => Some(Self::Source),
+                "DESTINATION" => Some(Self::Destination),
+                _ => None,
+            }
+        }
+    }
+    /// Schedule for Replication.
+    /// New enum values may be added in future to support different frequency of
+    /// replication.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ReplicationSchedule {
+        /// Unspecified ReplicationSchedule
+        Unspecified = 0,
+        /// Replication happens once every 10 minutes.
+        Every10Minutes = 1,
+        /// Replication happens once every hour.
+        Hourly = 2,
+        /// Replication happens once every day.
+        Daily = 3,
+    }
+    impl ReplicationSchedule {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ReplicationSchedule::Unspecified => "REPLICATION_SCHEDULE_UNSPECIFIED",
+                ReplicationSchedule::Every10Minutes => "EVERY_10_MINUTES",
+                ReplicationSchedule::Hourly => "HOURLY",
+                ReplicationSchedule::Daily => "DAILY",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "REPLICATION_SCHEDULE_UNSPECIFIED" => Some(Self::Unspecified),
+                "EVERY_10_MINUTES" => Some(Self::Every10Minutes),
+                "HOURLY" => Some(Self::Hourly),
+                "DAILY" => Some(Self::Daily),
+                _ => None,
+            }
+        }
+    }
+    /// Mirroring states.
+    /// No new value is expected to be added in future.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum MirrorState {
+        /// Unspecified MirrorState
+        Unspecified = 0,
+        /// Destination volume is being prepared.
+        Preparing = 1,
+        /// Destination volume has been initialized and is ready to receive
+        /// replication transfers.
+        Mirrored = 2,
+        /// Destination volume is not receiving replication transfers.
+        Stopped = 3,
+        /// Replication is in progress.
+        Transferring = 4,
+    }
+    impl MirrorState {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                MirrorState::Unspecified => "MIRROR_STATE_UNSPECIFIED",
+                MirrorState::Preparing => "PREPARING",
+                MirrorState::Mirrored => "MIRRORED",
+                MirrorState::Stopped => "STOPPED",
+                MirrorState::Transferring => "TRANSFERRING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "MIRROR_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "PREPARING" => Some(Self::Preparing),
+                "MIRRORED" => Some(Self::Mirrored),
+                "STOPPED" => Some(Self::Stopped),
+                "TRANSFERRING" => Some(Self::Transferring),
+                _ => None,
+            }
+        }
+    }
+}
+/// ListReplications lists replications.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListReplicationsRequest {
+    /// Required. The volume for which to retrieve replication information,
+    /// in the format
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The maximum number of items to return.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// The next_page_token value to use if there are additional
+    /// results to retrieve for this list request.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Sort results. Supported values are "name", "name desc" or "" (unsorted).
+    #[prost(string, tag = "4")]
+    pub order_by: ::prost::alloc::string::String,
+    /// List filter.
+    #[prost(string, tag = "5")]
+    pub filter: ::prost::alloc::string::String,
+}
+/// ListReplicationsResponse is the result of ListReplicationsRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListReplicationsResponse {
+    /// A list of replications in the project for the specified volume.
+    #[prost(message, repeated, tag = "1")]
+    pub replications: ::prost::alloc::vec::Vec<Replication>,
+    /// The token you can use to retrieve the next page of results. Not returned
+    /// if there are no more results in the list.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// GetReplicationRequest gets the state of a replication.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetReplicationRequest {
+    /// Required. The replication resource name, in the format
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/replications/{replication_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// DestinationVolumeParameters specify input parameters used for creating
+/// destination volume.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DestinationVolumeParameters {
+    /// Required. Existing destination StoragePool name.
+    #[prost(string, tag = "1")]
+    pub storage_pool: ::prost::alloc::string::String,
+    /// Desired destination volume resource id. If not specified, source volume's
+    /// resource id will be used.
+    /// This value must start with a lowercase letter followed by up to 62
+    /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
+    #[prost(string, tag = "2")]
+    pub volume_id: ::prost::alloc::string::String,
+    /// Destination volume's share name. If not specified, source volume's share
+    /// name will be used.
+    #[prost(string, tag = "3")]
+    pub share_name: ::prost::alloc::string::String,
+    /// Description for the destination volume.
+    #[prost(string, optional, tag = "4")]
+    pub description: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// CreateReplicationRequest creates a replication.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateReplicationRequest {
+    /// Required. The NetApp volume to create the replications of, in the format
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. A replication resource
+    #[prost(message, optional, tag = "2")]
+    pub replication: ::core::option::Option<Replication>,
+    /// Required. ID of the replication to create.
+    /// This value must start with a lowercase letter followed by up to 62
+    /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
+    #[prost(string, tag = "3")]
+    pub replication_id: ::prost::alloc::string::String,
+}
+/// DeleteReplicationRequest deletes a replication.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteReplicationRequest {
+    /// Required. The replication resource name, in the format
+    /// `projects/*/locations/*/volumes/*/replications/{replication_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// UpdateReplicationRequest updates description and/or labels for a replication.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateReplicationRequest {
+    /// Required. Mask of fields to update.  At least one path must be supplied in
+    /// this field.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. A replication resource
+    #[prost(message, optional, tag = "2")]
+    pub replication: ::core::option::Option<Replication>,
+}
+/// StopReplicationRequest stops a replication until resumed.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StopReplicationRequest {
+    /// Required. The resource name of the replication, in the format of
+    /// projects/{project_id}/locations/{location}/volumes/{volume_id}/replications/{replication_id}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Indicates whether to stop replication forcefully while data transfer is in
+    /// progress.
+    /// Warning! if force is true, this will abort any current transfers
+    /// and can lead to data loss due to partial transfer.
+    /// If force is false, stop replication will fail while data transfer is in
+    /// progress and you will need to retry later.
+    #[prost(bool, tag = "2")]
+    pub force: bool,
+}
+/// ResumeReplicationRequest resumes a stopped replication.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResumeReplicationRequest {
+    /// Required. The resource name of the replication, in the format of
+    /// projects/{project_id}/locations/{location}/volumes/{volume_id}/replications/{replication_id}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// ReverseReplicationDirectionRequest reverses direction of replication. Source
+/// becomes destination and destination becomes source.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ReverseReplicationDirectionRequest {
+    /// Required. The resource name of the replication, in the format of
+    /// projects/{project_id}/locations/{location}/volumes/{volume_id}/replications/{replication_id}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
 /// ListSnapshotsRequest lists snapshots.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2009,6 +1798,217 @@ pub mod snapshot {
         }
     }
 }
+/// GetStoragePoolRequest gets a Storage Pool.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetStoragePoolRequest {
+    /// Required. Name of the storage pool
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// ListStoragePoolsRequest lists Storage Pools.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListStoragePoolsRequest {
+    /// Required. Parent value
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The maximum number of items to return.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// The next_page_token value to use if there are additional
+    /// results to retrieve for this list request.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Sort results. Supported values are "name", "name desc" or "" (unsorted).
+    #[prost(string, tag = "4")]
+    pub order_by: ::prost::alloc::string::String,
+    /// List filter.
+    #[prost(string, tag = "5")]
+    pub filter: ::prost::alloc::string::String,
+}
+/// ListStoragePoolsResponse is the response to a ListStoragePoolsRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListStoragePoolsResponse {
+    /// The list of StoragePools
+    #[prost(message, repeated, tag = "1")]
+    pub storage_pools: ::prost::alloc::vec::Vec<StoragePool>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// CreateStoragePoolRequest creates a Storage Pool.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateStoragePoolRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Id of the requesting storage pool
+    /// If auto-generating Id server-side, remove this field and
+    /// id from the method_signature of Create RPC
+    #[prost(string, tag = "2")]
+    pub storage_pool_id: ::prost::alloc::string::String,
+    /// Required. The required parameters to create a new storage pool.
+    #[prost(message, optional, tag = "3")]
+    pub storage_pool: ::core::option::Option<StoragePool>,
+}
+/// UpdateStoragePoolRequest updates a Storage Pool.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateStoragePoolRequest {
+    /// Required. Field mask is used to specify the fields to be overwritten in the
+    /// StoragePool resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The pool being updated
+    #[prost(message, optional, tag = "2")]
+    pub storage_pool: ::core::option::Option<StoragePool>,
+}
+/// DeleteStoragePoolRequest deletes a Storage Pool.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteStoragePoolRequest {
+    /// Required. Name of the storage pool
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// StoragePool is a container for volumes with a service level and capacity.
+/// Volumes can be created in a pool of sufficient available capacity.
+/// StoragePool capacity is what you are billed for.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StoragePool {
+    /// Output only. Name of the storage pool
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Service level of the storage pool
+    #[prost(enumeration = "ServiceLevel", tag = "2")]
+    pub service_level: i32,
+    /// Required. Capacity in GIB of the pool
+    #[prost(int64, tag = "3")]
+    pub capacity_gib: i64,
+    /// Output only. Allocated size of all volumes in GIB in the storage pool
+    #[prost(int64, tag = "4")]
+    pub volume_capacity_gib: i64,
+    /// Output only. Volume count of the storage pool
+    #[prost(int32, tag = "5")]
+    pub volume_count: i32,
+    /// Output only. State of the storage pool
+    #[prost(enumeration = "storage_pool::State", tag = "6")]
+    pub state: i32,
+    /// Output only. State details of the storage pool
+    #[prost(string, tag = "7")]
+    pub state_details: ::prost::alloc::string::String,
+    /// Output only. Create time of the storage pool
+    #[prost(message, optional, tag = "8")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Description of the storage pool
+    #[prost(string, tag = "9")]
+    pub description: ::prost::alloc::string::String,
+    /// Labels as key value pairs
+    #[prost(btree_map = "string, string", tag = "10")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Required. VPC Network name.
+    /// Format: projects/{project}/global/networks/{network}
+    #[prost(string, tag = "11")]
+    pub network: ::prost::alloc::string::String,
+    /// Specifies the Active Directory to be used for creating a SMB volume.
+    #[prost(string, tag = "12")]
+    pub active_directory: ::prost::alloc::string::String,
+    /// Specifies the KMS config to be used for volume encryption.
+    #[prost(string, tag = "13")]
+    pub kms_config: ::prost::alloc::string::String,
+    /// Flag indicating if the pool is NFS LDAP enabled or not.
+    #[prost(bool, tag = "14")]
+    pub ldap_enabled: bool,
+    /// Name of the Private Service Access allocated range. If
+    /// not provided, any available range will be chosen.
+    #[prost(string, tag = "15")]
+    pub psa_range: ::prost::alloc::string::String,
+    /// Output only. Specifies the current pool encryption key source.
+    #[prost(enumeration = "EncryptionType", tag = "16")]
+    pub encryption_type: i32,
+    /// Optional. Allows SO pool to access AD or DNS server from other regions.
+    #[prost(bool, optional, tag = "17")]
+    pub global_access_allowed: ::core::option::Option<bool>,
+}
+/// Nested message and enum types in `StoragePool`.
+pub mod storage_pool {
+    /// The Storage Pool States
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified Storage Pool State
+        Unspecified = 0,
+        /// Storage Pool State is Ready
+        Ready = 1,
+        /// Storage Pool State is Creating
+        Creating = 2,
+        /// Storage Pool State is Deleting
+        Deleting = 3,
+        /// Storage Pool State is Updating
+        Updating = 4,
+        /// Storage Pool State is Restoring
+        Restoring = 5,
+        /// Storage Pool State is Disabled
+        Disabled = 6,
+        /// Storage Pool State is Error
+        Error = 7,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Ready => "READY",
+                State::Creating => "CREATING",
+                State::Deleting => "DELETING",
+                State::Updating => "UPDATING",
+                State::Restoring => "RESTORING",
+                State::Disabled => "DISABLED",
+                State::Error => "ERROR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "READY" => Some(Self::Ready),
+                "CREATING" => Some(Self::Creating),
+                "DELETING" => Some(Self::Deleting),
+                "UPDATING" => Some(Self::Updating),
+                "RESTORING" => Some(Self::Restoring),
+                "DISABLED" => Some(Self::Disabled),
+                "ERROR" => Some(Self::Error),
+                _ => None,
+            }
+        }
+    }
+}
 /// Represents the metadata of the long-running operation.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2030,8 +2030,8 @@ pub struct OperationMetadata {
     pub status_message: ::prost::alloc::string::String,
     /// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have been canceled successfully
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     #[prost(bool, tag = "6")]
     pub requested_cancellation: bool,

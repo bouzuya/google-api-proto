@@ -126,7 +126,7 @@ pub struct UpdateSshPublicKeyRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SecurityKey {
     /// Public key text in SSH format, defined by
-    /// \[RFC4253\]("<https://www.ietf.org/rfc/rfc4253.txt">) section 6.6.
+    /// [RFC4253]("<https://www.ietf.org/rfc/rfc4253.txt">) section 6.6.
     #[prost(string, tag = "1")]
     pub public_key: ::prost::alloc::string::String,
     /// Hardware-backed private key text in SSH format.

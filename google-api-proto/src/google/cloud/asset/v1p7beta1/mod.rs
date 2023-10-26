@@ -25,7 +25,7 @@ pub struct ExportAssetsRequest {
     /// * ".*Instance" snapshots resources whose asset type ends with "Instance".
     /// * ".*Instance.*" snapshots resources whose asset type contains "Instance".
     ///
-    /// See \[RE2\](<https://github.com/google/re2/wiki/Syntax>) for all supported
+    /// See [RE2](<https://github.com/google/re2/wiki/Syntax>) for all supported
     /// regular expression syntax. If the regular expression does not match any
     /// supported asset type, an INVALID_ARGUMENT error will be returned.
     ///
@@ -57,9 +57,9 @@ pub struct ExportAssetsRequest {
     pub relationship_types: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// The export asset response. This message is returned by the
-/// \[google.longrunning.Operations.GetOperation][google.longrunning.Operations.GetOperation\]
+/// [google.longrunning.Operations.GetOperation][google.longrunning.Operations.GetOperation]
 /// method in the returned
-/// \[google.longrunning.Operation.response][google.longrunning.Operation.response\]
+/// [google.longrunning.Operation.response][google.longrunning.Operation.response]
 /// field.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -522,7 +522,7 @@ pub struct Asset {
     /// is a project, folder, or organization, the ancestry path starts from the
     /// asset itself.
     ///
-    /// Example: `["projects/123456789", "folders/5432", "organizations/1234"]`
+    /// Example: `\["projects/123456789", "folders/5432", "organizations/1234"\]`
     #[prost(string, repeated, tag = "10")]
     pub ancestors: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     /// A representation of an [access
@@ -670,7 +670,7 @@ pub struct RelatedAsset {
     /// represented as a list of relative resource names. An ancestry path starts
     /// with the closest ancestor in the hierarchy and ends at root.
     ///
-    /// Example: `["projects/123456789", "folders/5432", "organizations/1234"]`
+    /// Example: `\["projects/123456789", "folders/5432", "organizations/1234"\]`
     #[prost(string, repeated, tag = "3")]
     pub ancestors: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }

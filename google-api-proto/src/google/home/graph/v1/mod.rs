@@ -20,7 +20,7 @@ pub struct Device {
     pub name: ::core::option::Option<DeviceNames>,
     /// Indicates whether your smart home Action will report state of this device
     /// to Google via
-    /// \[ReportStateAndNotification][google.home.graph.v1.HomeGraphApiService.ReportStateAndNotification\].
+    /// [ReportStateAndNotification][google.home.graph.v1.HomeGraphApiService.ReportStateAndNotification].
     #[prost(bool, tag = "5")]
     pub will_report_state: bool,
     /// Suggested name for the room where this device is installed.
@@ -39,9 +39,9 @@ pub struct Device {
     pub attributes: ::core::option::Option<::prost_types::Struct>,
     /// Custom device attributes stored in Home Graph and provided to your
     /// smart home Action in each
-    /// \[QUERY\](<https://developers.home.google.com/cloud-to-cloud/intents/query>)
+    /// [QUERY](<https://developers.home.google.com/cloud-to-cloud/intents/query>)
     /// and
-    /// \[EXECUTE\](<https://developers.home.google.com/cloud-to-cloud/intents/execute>)
+    /// [EXECUTE](<https://developers.home.google.com/cloud-to-cloud/intents/execute>)
     /// intent.
     /// Data in this object has a few constraints: No sensitive information,
     /// including but not limited to Personally Identifiable Information.
@@ -54,11 +54,11 @@ pub struct Device {
     pub other_device_ids: ::prost::alloc::vec::Vec<AgentOtherDeviceId>,
     /// Indicates whether your smart home Action will report notifications
     /// to Google for this device via
-    /// \[ReportStateAndNotification][google.home.graph.v1.HomeGraphApiService.ReportStateAndNotification\].
+    /// [ReportStateAndNotification][google.home.graph.v1.HomeGraphApiService.ReportStateAndNotification].
     ///
     /// If your smart home Action enables users to control device notifications,
     /// you should update this field and call
-    /// \[RequestSyncDevices][google.home.graph.v1.HomeGraphApiService.RequestSyncDevices\].
+    /// [RequestSyncDevices][google.home.graph.v1.HomeGraphApiService.RequestSyncDevices].
     #[prost(bool, tag = "12")]
     pub notification_supported_by_agent: bool,
 }
@@ -106,7 +106,7 @@ pub struct AgentOtherDeviceId {
     pub device_id: ::prost::alloc::string::String,
 }
 /// Request type for the
-/// \[`RequestSyncDevices`\](#google.home.graph.v1.HomeGraphApiService.RequestSyncDevices)
+/// [`RequestSyncDevices`](#google.home.graph.v1.HomeGraphApiService.RequestSyncDevices)
 /// call.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -121,7 +121,7 @@ pub struct RequestSyncDevicesRequest {
     pub r#async: bool,
 }
 /// Response type for the
-/// \[`RequestSyncDevices`\](#google.home.graph.v1.HomeGraphApiService.RequestSyncDevices)
+/// [`RequestSyncDevices`](#google.home.graph.v1.HomeGraphApiService.RequestSyncDevices)
 /// call.
 ///
 /// Intentionally empty upon success. An HTTP response code is returned
@@ -130,7 +130,7 @@ pub struct RequestSyncDevicesRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct RequestSyncDevicesResponse {}
 /// Request type for the
-/// \[`ReportStateAndNotification`\](#google.home.graph.v1.HomeGraphApiService.ReportStateAndNotification)
+/// [`ReportStateAndNotification`](#google.home.graph.v1.HomeGraphApiService.ReportStateAndNotification)
 /// call. It may include states, notifications, or both. States and notifications
 /// are defined per `device_id` (for example, "123" and "456" in the following
 /// example).
@@ -177,13 +177,13 @@ pub struct ReportStateAndNotificationRequest {
     pub payload: ::core::option::Option<StateAndNotificationPayload>,
 }
 /// Response type for the
-/// \[`ReportStateAndNotification`\](#google.home.graph.v1.HomeGraphApiService.ReportStateAndNotification)
+/// [`ReportStateAndNotification`](#google.home.graph.v1.HomeGraphApiService.ReportStateAndNotification)
 /// call.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ReportStateAndNotificationResponse {
     /// Request ID copied from
-    /// \[ReportStateAndNotificationRequest][google.home.graph.v1.ReportStateAndNotificationRequest\].
+    /// [ReportStateAndNotificationRequest][google.home.graph.v1.ReportStateAndNotificationRequest].
     #[prost(string, tag = "1")]
     pub request_id: ::prost::alloc::string::String,
 }
@@ -211,7 +211,7 @@ pub struct ReportStateAndNotificationDevice {
     pub notifications: ::core::option::Option<::prost_types::Struct>,
 }
 /// Request type for the
-/// \[`DeleteAgentUser`\](#google.home.graph.v1.HomeGraphApiService.DeleteAgentUser)
+/// [`DeleteAgentUser`](#google.home.graph.v1.HomeGraphApiService.DeleteAgentUser)
 /// call.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -224,7 +224,7 @@ pub struct DeleteAgentUserRequest {
     pub agent_user_id: ::prost::alloc::string::String,
 }
 /// Request type for the
-/// \[`Query`\](#google.home.graph.v1.HomeGraphApiService.Query) call.
+/// [`Query`](#google.home.graph.v1.HomeGraphApiService.Query) call.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct QueryRequest {
@@ -239,7 +239,7 @@ pub struct QueryRequest {
     #[prost(message, repeated, tag = "3")]
     pub inputs: ::prost::alloc::vec::Vec<QueryRequestInput>,
 }
-/// Device ID inputs to \[QueryRequest][google.home.graph.v1.QueryRequest\].
+/// Device ID inputs to [QueryRequest][google.home.graph.v1.QueryRequest].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct QueryRequestInput {
@@ -264,10 +264,10 @@ pub struct AgentDeviceId {
     pub id: ::prost::alloc::string::String,
 }
 /// Response type for the
-/// \[`Query`\](#google.home.graph.v1.HomeGraphApiService.Query) call.
+/// [`Query`](#google.home.graph.v1.HomeGraphApiService.Query) call.
 /// This should follow the same format as the Google smart home
 /// `action.devices.QUERY`
-/// \[response\](<https://developers.home.google.com/cloud-to-cloud/intents/query>).
+/// [response](<https://developers.home.google.com/cloud-to-cloud/intents/query>).
 ///
 /// Example:
 ///
@@ -315,7 +315,7 @@ pub struct QueryResponsePayload {
         ::prost_types::Struct,
     >,
 }
-/// Request type for the \[`Sync`\](#google.home.graph.v1.HomeGraphApiService.Sync)
+/// Request type for the [`Sync`](#google.home.graph.v1.HomeGraphApiService.Sync)
 /// call.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -328,10 +328,10 @@ pub struct SyncRequest {
     pub agent_user_id: ::prost::alloc::string::String,
 }
 /// Response type for the
-/// \[`Sync`\](#google.home.graph.v1.HomeGraphApiService.Sync) call.
+/// [`Sync`](#google.home.graph.v1.HomeGraphApiService.Sync) call.
 /// This should follow the same format as the Google smart home
 /// `action.devices.SYNC`
-/// \[response\](<https://developers.home.google.com/cloud-to-cloud/intents/sync>).
+/// [response](<https://developers.home.google.com/cloud-to-cloud/intents/sync>).
 ///
 /// Example:
 ///
@@ -347,9 +347,9 @@ pub struct SyncRequest {
 ///          "action.devices.traits.OnOff"
 ///        ],
 ///        "name": {
-///          "defaultNames": ["My Outlet 1234"],
+///          "defaultNames": \["My Outlet 1234"\],
 ///          "name": "Night light",
-///          "nicknames": ["wall plug"]
+///          "nicknames": \["wall plug"\]
 ///        },
 ///        "willReportState": false,
 ///        "deviceInfo": {

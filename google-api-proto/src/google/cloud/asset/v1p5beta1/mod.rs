@@ -51,7 +51,7 @@ pub struct Asset {
     /// is a project, folder, or organization, the ancestry path starts from the
     /// asset itself.
     ///
-    /// Example: `["projects/123456789", "folders/5432", "organizations/1234"]`
+    /// Example: `\["projects/123456789", "folders/5432", "organizations/1234"\]`
     #[prost(string, repeated, tag = "10")]
     pub ancestors: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     /// A representation of an [access
@@ -161,7 +161,7 @@ pub struct ListAssetsRequest {
     /// * ".*Instance" snapshots resources whose asset type ends with "Instance".
     /// * ".*Instance.*" snapshots resources whose asset type contains "Instance".
     ///
-    /// See \[RE2\](<https://github.com/google/re2/wiki/Syntax>) for all supported
+    /// See [RE2](<https://github.com/google/re2/wiki/Syntax>) for all supported
     /// regular expression syntax. If the regular expression does not match any
     /// supported asset type, an INVALID_ARGUMENT error will be returned.
     ///

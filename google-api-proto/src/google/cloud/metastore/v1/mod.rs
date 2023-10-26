@@ -346,7 +346,7 @@ pub struct HiveMetastoreConfig {
     /// configuration. When specified, a secondary Hive metastore service is
     /// created along with the primary service. All auxiliary versions must be less
     /// than the service's primary version. The key is the auxiliary service name
-    /// and it must match the regular expression \[a-z]([-a-z0-9]*[a-z0-9\])?. This
+    /// and it must match the regular expression [a-z](\[-a-z0-9\]*[a-z0-9])?. This
     /// means that the first character must be a lowercase letter, and all the
     /// following characters must be hyphens, lowercase letters, or digits, except
     /// the last character, which cannot be a hyphen.
@@ -1117,7 +1117,7 @@ pub mod scaling_config {
     }
 }
 /// Request message for
-/// \[DataprocMetastore.ListServices][google.cloud.metastore.v1.DataprocMetastore.ListServices\].
+/// [DataprocMetastore.ListServices][google.cloud.metastore.v1.DataprocMetastore.ListServices].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListServicesRequest {
@@ -1134,13 +1134,13 @@ pub struct ListServicesRequest {
     #[prost(int32, tag = "2")]
     pub page_size: i32,
     /// Optional. A page token, received from a previous
-    /// \[DataprocMetastore.ListServices][google.cloud.metastore.v1.DataprocMetastore.ListServices\]
+    /// [DataprocMetastore.ListServices][google.cloud.metastore.v1.DataprocMetastore.ListServices]
     /// call. Provide this token to retrieve the subsequent page.
     ///
     /// To retrieve the first page, supply an empty page token.
     ///
     /// When paginating, other parameters provided to
-    /// \[DataprocMetastore.ListServices][google.cloud.metastore.v1.DataprocMetastore.ListServices\]
+    /// [DataprocMetastore.ListServices][google.cloud.metastore.v1.DataprocMetastore.ListServices]
     /// must match the call that provided the page token.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
@@ -1154,7 +1154,7 @@ pub struct ListServicesRequest {
     pub order_by: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[DataprocMetastore.ListServices][google.cloud.metastore.v1.DataprocMetastore.ListServices\].
+/// [DataprocMetastore.ListServices][google.cloud.metastore.v1.DataprocMetastore.ListServices].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListServicesResponse {
@@ -1170,7 +1170,7 @@ pub struct ListServicesResponse {
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// Request message for
-/// \[DataprocMetastore.GetService][google.cloud.metastore.v1.DataprocMetastore.GetService\].
+/// [DataprocMetastore.GetService][google.cloud.metastore.v1.DataprocMetastore.GetService].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetServiceRequest {
@@ -1182,7 +1182,7 @@ pub struct GetServiceRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[DataprocMetastore.CreateService][google.cloud.metastore.v1.DataprocMetastore.CreateService\].
+/// [DataprocMetastore.CreateService][google.cloud.metastore.v1.DataprocMetastore.CreateService].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateServiceRequest {
@@ -1215,13 +1215,13 @@ pub struct CreateServiceRequest {
     /// the creation of duplicate commitments.
     ///
     /// The request ID must be a valid
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
+    /// [UUID](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
     #[prost(string, tag = "4")]
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[DataprocMetastore.UpdateService][google.cloud.metastore.v1.DataprocMetastore.UpdateService\].
+/// [DataprocMetastore.UpdateService][google.cloud.metastore.v1.DataprocMetastore.UpdateService].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateServiceRequest {
@@ -1248,13 +1248,13 @@ pub struct UpdateServiceRequest {
     /// the creation of duplicate commitments.
     ///
     /// The request ID must be a valid
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
+    /// [UUID](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
     #[prost(string, tag = "3")]
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[DataprocMetastore.DeleteService][google.cloud.metastore.v1.DataprocMetastore.DeleteService\].
+/// [DataprocMetastore.DeleteService][google.cloud.metastore.v1.DataprocMetastore.DeleteService].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteServiceRequest {
@@ -1274,13 +1274,13 @@ pub struct DeleteServiceRequest {
     /// the creation of duplicate commitments.
     ///
     /// The request ID must be a valid
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
+    /// [UUID](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
     #[prost(string, tag = "2")]
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[DataprocMetastore.ListMetadataImports][google.cloud.metastore.v1.DataprocMetastore.ListMetadataImports\].
+/// [DataprocMetastore.ListMetadataImports][google.cloud.metastore.v1.DataprocMetastore.ListMetadataImports].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListMetadataImportsRequest {
@@ -1296,13 +1296,13 @@ pub struct ListMetadataImportsRequest {
     #[prost(int32, tag = "2")]
     pub page_size: i32,
     /// Optional. A page token, received from a previous
-    /// \[DataprocMetastore.ListServices][google.cloud.metastore.v1.DataprocMetastore.ListServices\]
+    /// [DataprocMetastore.ListServices][google.cloud.metastore.v1.DataprocMetastore.ListServices]
     /// call. Provide this token to retrieve the subsequent page.
     ///
     /// To retrieve the first page, supply an empty page token.
     ///
     /// When paginating, other parameters provided to
-    /// \[DataprocMetastore.ListServices][google.cloud.metastore.v1.DataprocMetastore.ListServices\]
+    /// [DataprocMetastore.ListServices][google.cloud.metastore.v1.DataprocMetastore.ListServices]
     /// must match the call that provided the page token.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
@@ -1316,7 +1316,7 @@ pub struct ListMetadataImportsRequest {
     pub order_by: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[DataprocMetastore.ListMetadataImports][google.cloud.metastore.v1.DataprocMetastore.ListMetadataImports\].
+/// [DataprocMetastore.ListMetadataImports][google.cloud.metastore.v1.DataprocMetastore.ListMetadataImports].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListMetadataImportsResponse {
@@ -1332,7 +1332,7 @@ pub struct ListMetadataImportsResponse {
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// Request message for
-/// \[DataprocMetastore.GetMetadataImport][google.cloud.metastore.v1.DataprocMetastore.GetMetadataImport\].
+/// [DataprocMetastore.GetMetadataImport][google.cloud.metastore.v1.DataprocMetastore.GetMetadataImport].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetMetadataImportRequest {
@@ -1344,7 +1344,7 @@ pub struct GetMetadataImportRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[DataprocMetastore.CreateMetadataImport][google.cloud.metastore.v1.DataprocMetastore.CreateMetadataImport\].
+/// [DataprocMetastore.CreateMetadataImport][google.cloud.metastore.v1.DataprocMetastore.CreateMetadataImport].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateMetadataImportRequest {
@@ -1377,13 +1377,13 @@ pub struct CreateMetadataImportRequest {
     /// the creation of duplicate commitments.
     ///
     /// The request ID must be a valid
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
+    /// [UUID](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
     #[prost(string, tag = "4")]
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[DataprocMetastore.UpdateMetadataImport][google.cloud.metastore.v1.DataprocMetastore.UpdateMetadataImport\].
+/// [DataprocMetastore.UpdateMetadataImport][google.cloud.metastore.v1.DataprocMetastore.UpdateMetadataImport].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateMetadataImportRequest {
@@ -1410,13 +1410,13 @@ pub struct UpdateMetadataImportRequest {
     /// the creation of duplicate commitments.
     ///
     /// The request ID must be a valid
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
+    /// [UUID](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
     #[prost(string, tag = "3")]
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[DataprocMetastore.ListBackups][google.cloud.metastore.v1.DataprocMetastore.ListBackups\].
+/// [DataprocMetastore.ListBackups][google.cloud.metastore.v1.DataprocMetastore.ListBackups].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListBackupsRequest {
@@ -1432,13 +1432,13 @@ pub struct ListBackupsRequest {
     #[prost(int32, tag = "2")]
     pub page_size: i32,
     /// Optional. A page token, received from a previous
-    /// \[DataprocMetastore.ListBackups][google.cloud.metastore.v1.DataprocMetastore.ListBackups\]
+    /// [DataprocMetastore.ListBackups][google.cloud.metastore.v1.DataprocMetastore.ListBackups]
     /// call. Provide this token to retrieve the subsequent page.
     ///
     /// To retrieve the first page, supply an empty page token.
     ///
     /// When paginating, other parameters provided to
-    /// \[DataprocMetastore.ListBackups][google.cloud.metastore.v1.DataprocMetastore.ListBackups\]
+    /// [DataprocMetastore.ListBackups][google.cloud.metastore.v1.DataprocMetastore.ListBackups]
     /// must match the call that provided the page token.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
@@ -1452,7 +1452,7 @@ pub struct ListBackupsRequest {
     pub order_by: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[DataprocMetastore.ListBackups][google.cloud.metastore.v1.DataprocMetastore.ListBackups\].
+/// [DataprocMetastore.ListBackups][google.cloud.metastore.v1.DataprocMetastore.ListBackups].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListBackupsResponse {
@@ -1468,7 +1468,7 @@ pub struct ListBackupsResponse {
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// Request message for
-/// \[DataprocMetastore.GetBackup][google.cloud.metastore.v1.DataprocMetastore.GetBackup\].
+/// [DataprocMetastore.GetBackup][google.cloud.metastore.v1.DataprocMetastore.GetBackup].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetBackupRequest {
@@ -1480,7 +1480,7 @@ pub struct GetBackupRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[DataprocMetastore.CreateBackup][google.cloud.metastore.v1.DataprocMetastore.CreateBackup\].
+/// [DataprocMetastore.CreateBackup][google.cloud.metastore.v1.DataprocMetastore.CreateBackup].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateBackupRequest {
@@ -1512,13 +1512,13 @@ pub struct CreateBackupRequest {
     /// the creation of duplicate commitments.
     ///
     /// The request ID must be a valid
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
+    /// [UUID](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
     #[prost(string, tag = "4")]
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[DataprocMetastore.DeleteBackup][google.cloud.metastore.v1.DataprocMetastore.DeleteBackup\].
+/// [DataprocMetastore.DeleteBackup][google.cloud.metastore.v1.DataprocMetastore.DeleteBackup].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteBackupRequest {
@@ -1538,13 +1538,13 @@ pub struct DeleteBackupRequest {
     /// the creation of duplicate commitments.
     ///
     /// The request ID must be a valid
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
+    /// [UUID](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
     #[prost(string, tag = "2")]
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[DataprocMetastore.ExportMetadata][google.cloud.metastore.v1.DataprocMetastore.ExportMetadata\].
+/// [DataprocMetastore.ExportMetadata][google.cloud.metastore.v1.DataprocMetastore.ExportMetadata].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ExportMetadataRequest {
@@ -1564,7 +1564,7 @@ pub struct ExportMetadataRequest {
     /// the creation of duplicate commitments.
     ///
     /// The request ID must be a valid
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>).
+    /// [UUID](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>).
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
     #[prost(string, tag = "3")]
     pub request_id: ::prost::alloc::string::String,
@@ -1589,7 +1589,7 @@ pub mod export_metadata_request {
         DestinationGcsFolder(::prost::alloc::string::String),
     }
 }
-/// Request message for \[DataprocMetastore.Restore][\].
+/// Request message for [DataprocMetastore.Restore][].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct RestoreServiceRequest {
@@ -1618,7 +1618,7 @@ pub struct RestoreServiceRequest {
     /// the creation of duplicate commitments.
     ///
     /// The request ID must be a valid
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>).
+    /// [UUID](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>).
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
     #[prost(string, tag = "4")]
     pub request_id: ::prost::alloc::string::String,
@@ -1644,8 +1644,8 @@ pub struct OperationMetadata {
     pub status_message: ::prost::alloc::string::String,
     /// Output only. Identifies whether the caller has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     #[prost(bool, tag = "6")]
     pub requested_cancellation: bool,
@@ -1731,7 +1731,7 @@ pub mod database_dump_spec {
     }
 }
 /// Request message for
-/// \[DataprocMetastore.QueryMetadata][google.cloud.metastore.v1.DataprocMetastore.QueryMetadata\].
+/// [DataprocMetastore.QueryMetadata][google.cloud.metastore.v1.DataprocMetastore.QueryMetadata].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct QueryMetadataRequest {
@@ -1747,7 +1747,7 @@ pub struct QueryMetadataRequest {
     pub query: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[DataprocMetastore.QueryMetadata][google.cloud.metastore.v1.DataprocMetastore.QueryMetadata\].
+/// [DataprocMetastore.QueryMetadata][google.cloud.metastore.v1.DataprocMetastore.QueryMetadata].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct QueryMetadataResponse {
@@ -1759,7 +1759,7 @@ pub struct QueryMetadataResponse {
     pub result_manifest_uri: ::prost::alloc::string::String,
 }
 /// Error details in public error message for
-/// \[DataprocMetastore.QueryMetadata][google.cloud.metastore.v1.DataprocMetastore.QueryMetadata\].
+/// [DataprocMetastore.QueryMetadata][google.cloud.metastore.v1.DataprocMetastore.QueryMetadata].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ErrorDetails {
@@ -1774,7 +1774,7 @@ pub struct ErrorDetails {
     >,
 }
 /// Request message for
-/// \[DataprocMetastore.MoveTableToDatabase][google.cloud.metastore.v1.DataprocMetastore.MoveTableToDatabase\].
+/// [DataprocMetastore.MoveTableToDatabase][google.cloud.metastore.v1.DataprocMetastore.MoveTableToDatabase].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MoveTableToDatabaseRequest {
@@ -1795,12 +1795,12 @@ pub struct MoveTableToDatabaseRequest {
     pub destination_db_name: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[DataprocMetastore.MoveTableToDatabase][google.cloud.metastore.v1.DataprocMetastore.MoveTableToDatabase\].
+/// [DataprocMetastore.MoveTableToDatabase][google.cloud.metastore.v1.DataprocMetastore.MoveTableToDatabase].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MoveTableToDatabaseResponse {}
 /// Request message for
-/// \[DataprocMetastore.AlterMetadataResourceLocation][google.cloud.metastore.v1.DataprocMetastore.AlterMetadataResourceLocation\].
+/// [DataprocMetastore.AlterMetadataResourceLocation][google.cloud.metastore.v1.DataprocMetastore.AlterMetadataResourceLocation].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AlterMetadataResourceLocationRequest {
@@ -1824,7 +1824,7 @@ pub struct AlterMetadataResourceLocationRequest {
     pub location_uri: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[DataprocMetastore.AlterMetadataResourceLocation][google.cloud.metastore.v1.DataprocMetastore.AlterMetadataResourceLocation\].
+/// [DataprocMetastore.AlterMetadataResourceLocation][google.cloud.metastore.v1.DataprocMetastore.AlterMetadataResourceLocation].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AlterMetadataResourceLocationResponse {}
@@ -2739,7 +2739,7 @@ pub struct CreateFederationRequest {
     /// the creation of duplicate commitments.
     ///
     /// The request ID must be a valid
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
+    /// [UUID](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
     #[prost(string, tag = "4")]
     pub request_id: ::prost::alloc::string::String,
@@ -2771,7 +2771,7 @@ pub struct UpdateFederationRequest {
     /// the creation of duplicate commitments.
     ///
     /// The request ID must be a valid
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
+    /// [UUID](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
     #[prost(string, tag = "3")]
     pub request_id: ::prost::alloc::string::String,
@@ -2796,7 +2796,7 @@ pub struct DeleteFederationRequest {
     /// the creation of duplicate commitments.
     ///
     /// The request ID must be a valid
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
+    /// [UUID](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
     #[prost(string, tag = "2")]
     pub request_id: ::prost::alloc::string::String,

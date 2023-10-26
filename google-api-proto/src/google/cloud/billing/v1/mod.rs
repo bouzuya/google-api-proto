@@ -108,8 +108,8 @@ pub struct PricingInfo {
 ///
 /// `usage_unit: GBy`
 /// `tiered_rates:`
-///     `[start_usage_amount: 20, unit_price: $10]`
-///     `[start_usage_amount: 100, unit_price: $5]`
+///     `\[start_usage_amount: 20, unit_price: $10\]`
+///     `\[start_usage_amount: 100, unit_price: $5\]`
 ///
 /// The above expresses a pricing formula where the first 20GB is free, the
 /// next 80GB is priced at $10 per GB followed by $5 per GB for additional
@@ -578,7 +578,7 @@ pub struct BillingAccount {
     #[prost(string, tag = "3")]
     pub display_name: ::prost::alloc::string::String,
     /// If this account is a
-    /// \[subaccount\](<https://cloud.google.com/billing/docs/concepts>), then this
+    /// [subaccount](<https://cloud.google.com/billing/docs/concepts>), then this
     /// will be the resource name of the parent billing account that it is being
     /// resold through.
     /// Otherwise this will be empty.
@@ -637,7 +637,7 @@ pub struct ListBillingAccountsRequest {
     pub page_token: ::prost::alloc::string::String,
     /// Options for how to filter the returned billing accounts.
     /// This only supports filtering for
-    /// \[subaccounts\](<https://cloud.google.com/billing/docs/concepts>) under a
+    /// [subaccounts](<https://cloud.google.com/billing/docs/concepts>) under a
     /// single provided parent billing account.
     /// (e.g. "master_billing_account=billingAccounts/012345-678901-ABCDEF").
     /// Boolean algebra and other fields are not currently supported.

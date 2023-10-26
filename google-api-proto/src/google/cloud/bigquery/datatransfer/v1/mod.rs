@@ -92,7 +92,7 @@ pub struct TransferConfig {
     pub schedule_options: ::core::option::Option<ScheduleOptions>,
     /// The number of days to look back to automatically refresh the data.
     /// For example, if `data_refresh_window_days = 10`, then every day
-    /// BigQuery reingests data for [today-10, today-1], rather than ingesting data
+    /// BigQuery reingests data for \[today-10, today-1\], rather than ingesting data
     /// for just \[today-1\].
     /// Only valid if the data source supports the feature. Set the value to  0
     /// to use the default value.

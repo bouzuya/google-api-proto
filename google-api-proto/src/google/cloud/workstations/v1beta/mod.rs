@@ -26,7 +26,7 @@ pub struct WorkstationCluster {
         ::prost::alloc::string::String,
     >,
     /// Optional.
-    /// \[Labels\](<https://cloud.google.com/workstations/docs/label-resources>) that
+    /// [Labels](<https://cloud.google.com/workstations/docs/label-resources>) that
     /// are applied to the workstation cluster and that are also propagated to the
     /// underlying Compute Engine resources.
     #[prost(btree_map = "string, string", tag = "15")]
@@ -71,7 +71,7 @@ pub struct WorkstationCluster {
     /// Output only. Whether this workstation cluster is in degraded mode, in which
     /// case it may require user action to restore full functionality. Details can
     /// be found in
-    /// \[conditions][google.cloud.workstations.v1beta.WorkstationCluster.conditions\].
+    /// [conditions][google.cloud.workstations.v1beta.WorkstationCluster.conditions].
     #[prost(bool, tag = "13")]
     pub degraded: bool,
     /// Output only. Status conditions describing the workstation cluster's current
@@ -142,7 +142,7 @@ pub struct WorkstationConfig {
         ::prost::alloc::string::String,
     >,
     /// Optional.
-    /// \[Labels\](<https://cloud.google.com/workstations/docs/label-resources>) that
+    /// [Labels](<https://cloud.google.com/workstations/docs/label-resources>) that
     /// are applied to the workstation configuration and that are also propagated
     /// to the underlying Compute Engine resources.
     #[prost(btree_map = "string, string", tag = "18")]
@@ -171,7 +171,7 @@ pub struct WorkstationConfig {
     /// A value of `"0s"` indicates that Cloud Workstations VMs created with this
     /// configuration should never time out due to idleness.
     /// Provide
-    /// \[duration\](<https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration>)
+    /// [duration](<https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration>)
     /// terminated by `s` for seconds—for example, `"7200s"` (2 hours).
     /// The default is `"1200s"` (20 minutes).
     #[prost(message, optional, tag = "10")]
@@ -180,18 +180,18 @@ pub struct WorkstationConfig {
     /// automatically shut down. We recommend that workstations be shut down daily
     /// to reduce costs and so that security updates can be applied upon restart.
     /// The
-    /// \[idle_timeout][google.cloud.workstations.v1beta.WorkstationConfig.idle_timeout\]
+    /// [idle_timeout][google.cloud.workstations.v1beta.WorkstationConfig.idle_timeout]
     /// and
-    /// \[running_timeout][google.cloud.workstations.v1beta.WorkstationConfig.running_timeout\]
+    /// [running_timeout][google.cloud.workstations.v1beta.WorkstationConfig.running_timeout]
     /// fields are independent of each other. Note that the
-    /// \[running_timeout][google.cloud.workstations.v1beta.WorkstationConfig.running_timeout\]
+    /// [running_timeout][google.cloud.workstations.v1beta.WorkstationConfig.running_timeout]
     /// field shuts down VMs after the specified time, regardless of whether or not
     /// the VMs are idle.
     ///
     /// Provide duration terminated by `s` for seconds—for example, `"54000s"`
     /// (15 hours). Defaults to `"43200s"` (12 hours). A value of `"0s"` indicates
     /// that workstations using this configuration should never time out. If
-    /// \[encryption_key][google.cloud.workstations.v1beta.WorkstationConfig.encryption_key\]
+    /// [encryption_key][google.cloud.workstations.v1beta.WorkstationConfig.encryption_key]
     /// is set, it must be greater than `"0s"` and less than
     /// `"86400s"` (24 hours).
     ///
@@ -248,7 +248,7 @@ pub struct WorkstationConfig {
     /// Optional. Immutable. Specifies the zones used to replicate the VM and disk
     /// resources within the region. If set, exactly two zones within the
     /// workstation cluster's region must be specified—for example,
-    /// `['us-central1-a', 'us-central1-f']`. If this field is empty, two default
+    /// `\['us-central1-a', 'us-central1-f'\]`. If this field is empty, two default
     /// zones within the region are used.
     ///
     /// Immutable after the workstation configuration is created.
@@ -256,7 +256,7 @@ pub struct WorkstationConfig {
     pub replica_zones: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     /// Output only. Whether this resource is degraded, in which case it may
     /// require user action to restore full functionality. See also the
-    /// \[conditions][google.cloud.workstations.v1beta.WorkstationConfig.conditions\]
+    /// [conditions][google.cloud.workstations.v1beta.WorkstationConfig.conditions]
     /// field.
     #[prost(bool, tag = "15")]
     pub degraded: bool,
@@ -314,7 +314,7 @@ pub mod workstation_config {
             #[prost(string, tag = "2")]
             pub service_account: ::prost::alloc::string::String,
             /// Optional. Scopes to grant to the
-            /// \[service_account][google.cloud.workstations.v1beta.WorkstationConfig.Host.GceInstance.service_account\].
+            /// [service_account][google.cloud.workstations.v1beta.WorkstationConfig.Host.GceInstance.service_account].
             /// Various scopes are automatically added based on feature usage. When
             /// specified, users of workstations under this configuration must have
             /// `iam.serviceAccounts.actAs` on the service account.
@@ -371,7 +371,7 @@ pub mod workstation_config {
             /// input/output bound.
             /// * **Machine Type**: nested virtualization can only be enabled on
             /// workstation configurations that specify a
-            /// \[machine_type][google.cloud.workstations.v1beta.WorkstationConfig.Host.GceInstance.machine_type\]
+            /// [machine_type][google.cloud.workstations.v1beta.WorkstationConfig.Host.GceInstance.machine_type]
             /// in the N1 or N2 machine series.
             /// * **GPUs**: nested virtualization may not be enabled on workstation
             /// configurations with accelerators.
@@ -466,7 +466,7 @@ pub mod workstation_config {
     pub mod persistent_directory {
         /// A PersistentDirectory backed by a Compute Engine regional persistent
         /// disk. The
-        /// \[persistent_directories][google.cloud.workstations.v1beta.WorkstationConfig.persistent_directories\]
+        /// [persistent_directories][google.cloud.workstations.v1beta.WorkstationConfig.persistent_directories]
         /// field is repeated, but it may contain only one entry. It creates a
         /// [persistent
         /// disk](<https://cloud.google.com/compute/docs/disks/persistent-disks>) that
@@ -479,12 +479,12 @@ pub mod workstation_config {
         pub struct GceRegionalPersistentDisk {
             /// Optional. The GB capacity of a persistent home directory for each
             /// workstation created with this configuration. Must be empty if
-            /// \[source_snapshot][google.cloud.workstations.v1beta.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.source_snapshot\]
+            /// [source_snapshot][google.cloud.workstations.v1beta.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.source_snapshot]
             /// is set.
             ///
             /// Valid values are `10`, `50`, `100`, `200`, `500`, or `1000`.
             /// Defaults to `200`. If less than `200` GB, the
-            /// \[disk_type][google.cloud.workstations.v1beta.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.disk_type\]
+            /// [disk_type][google.cloud.workstations.v1beta.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.disk_type]
             /// must be
             /// `"pd-balanced"` or `"pd-ssd"`.
             #[prost(int32, tag = "1")]
@@ -492,7 +492,7 @@ pub mod workstation_config {
             /// Optional. Type of file system that the disk should be formatted with.
             /// The workstation image must support this file system type. Must be empty
             /// if
-            /// \[source_snapshot][google.cloud.workstations.v1beta.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.source_snapshot\]
+            /// [source_snapshot][google.cloud.workstations.v1beta.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.source_snapshot]
             /// is set. Defaults to `"ext4"`.
             #[prost(string, tag = "2")]
             pub fs_type: ::prost::alloc::string::String,
@@ -503,9 +503,9 @@ pub mod workstation_config {
             pub disk_type: ::prost::alloc::string::String,
             /// Optional. Name of the snapshot to use as the source for the disk. If
             /// set,
-            /// \[size_gb][google.cloud.workstations.v1beta.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.size_gb\]
+            /// [size_gb][google.cloud.workstations.v1beta.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.size_gb]
             /// and
-            /// \[fs_type][google.cloud.workstations.v1beta.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.fs_type\]
+            /// [fs_type][google.cloud.workstations.v1beta.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.fs_type]
             /// must be empty.
             #[prost(string, tag = "5")]
             pub source_snapshot: ::prost::alloc::string::String,
@@ -598,25 +598,25 @@ pub mod workstation_config {
             pub disk_type: ::prost::alloc::string::String,
             /// Optional. Name of the snapshot to use as the source for the disk. Must
             /// be empty if
-            /// \[source_image][google.cloud.workstations.v1beta.WorkstationConfig.EphemeralDirectory.GcePersistentDisk.source_image\]
+            /// [source_image][google.cloud.workstations.v1beta.WorkstationConfig.EphemeralDirectory.GcePersistentDisk.source_image]
             /// is set. Updating
-            /// \[source_snapshot][google.cloud.workstations.v1beta.WorkstationConfig.EphemeralDirectory.GcePersistentDisk.source_snapshot\]
+            /// [source_snapshot][google.cloud.workstations.v1beta.WorkstationConfig.EphemeralDirectory.GcePersistentDisk.source_snapshot]
             /// will update content in the ephemeral directory after the workstation is
             /// restarted. This field is mutable.
             #[prost(string, tag = "2")]
             pub source_snapshot: ::prost::alloc::string::String,
             /// Optional. Name of the disk image to use as the source for the disk.
             /// Must be empty if
-            /// \[source_snapshot][google.cloud.workstations.v1beta.WorkstationConfig.EphemeralDirectory.GcePersistentDisk.source_snapshot\]
+            /// [source_snapshot][google.cloud.workstations.v1beta.WorkstationConfig.EphemeralDirectory.GcePersistentDisk.source_snapshot]
             /// is set. Updating
-            /// \[source_image][google.cloud.workstations.v1beta.WorkstationConfig.EphemeralDirectory.GcePersistentDisk.source_image\]
+            /// [source_image][google.cloud.workstations.v1beta.WorkstationConfig.EphemeralDirectory.GcePersistentDisk.source_image]
             /// will update content in the ephemeral directory after the workstation is
             /// restarted. This field is mutable.
             #[prost(string, tag = "3")]
             pub source_image: ::prost::alloc::string::String,
             /// Optional. Whether the disk is read only. If true, the disk may be
             /// shared by multiple VMs and
-            /// \[source_snapshot][google.cloud.workstations.v1beta.WorkstationConfig.EphemeralDirectory.GcePersistentDisk.source_snapshot\]
+            /// [source_snapshot][google.cloud.workstations.v1beta.WorkstationConfig.EphemeralDirectory.GcePersistentDisk.source_snapshot]
             /// must be set.
             #[prost(bool, tag = "4")]
             pub read_only: bool,
@@ -689,7 +689,7 @@ pub mod workstation_config {
         /// [Separation of
         /// duties](<https://cloud.google.com/kms/docs/separation-of-duties>) and
         /// `gcloud kms keys add-iam-policy-binding`
-        /// \[`--member`\](<https://cloud.google.com/sdk/gcloud/reference/kms/keys/add-iam-policy-binding#--member>).
+        /// [`--member`](<https://cloud.google.com/sdk/gcloud/reference/kms/keys/add-iam-policy-binding#--member>).
         #[prost(string, tag = "2")]
         pub kms_key_service_account: ::prost::alloc::string::String,
     }
@@ -729,7 +729,7 @@ pub struct Workstation {
         ::prost::alloc::string::String,
     >,
     /// Optional.
-    /// \[Labels\](<https://cloud.google.com/workstations/docs/label-resources>) that
+    /// [Labels](<https://cloud.google.com/workstations/docs/label-resources>) that
     /// are applied to the workstation and that are also propagated to the
     /// underlying Compute Engine resources.
     #[prost(btree_map = "string, string", tag = "13")]

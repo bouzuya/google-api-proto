@@ -25,9 +25,9 @@ pub struct Address {
     /// formatted mailing address but were not found in the input AND could
     /// not be inferred. Components of this type are not present in
     /// `formatted_address`, `postal_address`, or `address_components`. An
-    /// example might be `['street_number', 'route']` for an input like
+    /// example might be `\['street_number', 'route'\]` for an input like
     /// "Boulder, Colorado, 80301, USA". The list of possible types can be found
-    /// \[here\](<https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types>).
+    /// [here](<https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types>).
     #[prost(string, repeated, tag = "5")]
     pub missing_component_types: ::prost::alloc::vec::Vec<
         ::prost::alloc::string::String,
@@ -36,13 +36,13 @@ pub struct Address {
     /// but could not be confirmed to be correct. This field is provided for the
     /// sake of convenience: its contents are equivalent to iterating through the
     /// `address_components` to find the types of all the components where the
-    /// \[confirmation_level][google.maps.addressvalidation.v1.AddressComponent.confirmation_level\]
+    /// [confirmation_level][google.maps.addressvalidation.v1.AddressComponent.confirmation_level]
     /// is not
-    /// \[CONFIRMED][google.maps.addressvalidation.v1.AddressComponent.ConfirmationLevel.CONFIRMED\]
+    /// [CONFIRMED][google.maps.addressvalidation.v1.AddressComponent.ConfirmationLevel.CONFIRMED]
     /// or the
-    /// \[inferred][google.maps.addressvalidation.v1.AddressComponent.inferred\]
+    /// [inferred][google.maps.addressvalidation.v1.AddressComponent.inferred]
     /// flag is not set to `true`. The list of possible types can be found
-    /// \[here\](<https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types>).
+    /// [here](<https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types>).
     #[prost(string, repeated, tag = "6")]
     pub unconfirmed_component_types: ::prost::alloc::vec::Vec<
         ::prost::alloc::string::String,
@@ -193,12 +193,12 @@ pub struct Geocode {
     /// The PlaceID of the place this input geocodes to.
     ///
     /// For more information about Place IDs see
-    /// \[here\](<https://developers.google.com/maps/documentation/places/web-service/place-id>).
+    /// [here](<https://developers.google.com/maps/documentation/places/web-service/place-id>).
     #[prost(string, tag = "6")]
     pub place_id: ::prost::alloc::string::String,
     /// The type(s) of place that the input geocoded to. For example,
-    /// `['locality', 'political']`. The full list of types can be found
-    /// \[here\](<https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types>).
+    /// `\['locality', 'political'\]`. The full list of types can be found
+    /// [here](<https://developers.google.com/maps/documentation/geocoding/requests-geocoding#Types>).
     #[prost(string, repeated, tag = "7")]
     pub place_types: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
@@ -217,24 +217,6 @@ pub struct PlusCode {
     /// name of a reference entity.
     #[prost(string, tag = "2")]
     pub compound_code: ::prost::alloc::string::String,
-}
-/// The metadata for the address. `metadata` is not guaranteed to be fully
-/// populated for every address sent to the Address Validation API.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AddressMetadata {
-    /// Indicates that this is the address of a business.
-    /// If unset, indicates that the value is unknown.
-    #[prost(bool, optional, tag = "2")]
-    pub business: ::core::option::Option<bool>,
-    /// Indicates that the address of a PO box.
-    /// If unset, indicates that the value is unknown.
-    #[prost(bool, optional, tag = "3")]
-    pub po_box: ::core::option::Option<bool>,
-    /// Indicates that this is the address of a residence.
-    /// If unset, indicates that the value is unknown.
-    #[prost(bool, optional, tag = "6")]
-    pub residential: ::core::option::Option<bool>,
 }
 /// USPS representation of a US address.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -434,27 +416,45 @@ pub struct UspsData {
     #[prost(bool, tag = "28")]
     pub cass_processed: bool,
 }
+/// The metadata for the address. `metadata` is not guaranteed to be fully
+/// populated for every address sent to the Address Validation API.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AddressMetadata {
+    /// Indicates that this is the address of a business.
+    /// If unset, indicates that the value is unknown.
+    #[prost(bool, optional, tag = "2")]
+    pub business: ::core::option::Option<bool>,
+    /// Indicates that the address of a PO box.
+    /// If unset, indicates that the value is unknown.
+    #[prost(bool, optional, tag = "3")]
+    pub po_box: ::core::option::Option<bool>,
+    /// Indicates that this is the address of a residence.
+    /// If unset, indicates that the value is unknown.
+    #[prost(bool, optional, tag = "6")]
+    pub residential: ::core::option::Option<bool>,
+}
 /// The request for validating an address.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ValidateAddressRequest {
     /// Required. The address being validated. Unformatted addresses should be
-    /// submitted via \[`address_lines`][google.type.PostalAddress.address_lines\].
+    /// submitted via [`address_lines`][google.type.PostalAddress.address_lines].
     ///
     /// The total length of the fields in this input must not exceed 280
     /// characters.
     ///
     /// Supported regions can be found in the
-    /// \[FAQ\](<https://developers.google.com/maps/documentation/address-validation/faq#which_regions_are_currently_supported>).
+    /// [FAQ](<https://developers.google.com/maps/documentation/address-validation/faq#which_regions_are_currently_supported>).
     ///
-    /// The \[language_code][google.type.PostalAddress.language_code\] value in the
+    /// The [language_code][google.type.PostalAddress.language_code] value in the
     /// input address is reserved for future uses and is ignored today. The
     /// validated address result will be populated based on the preferred language
     /// for the given address, as identified by the system.
     ///
     /// The Address Validation API ignores the values in
-    /// \[recipients][google.type.PostalAddress.recipients\] and
-    /// \[organization][google.type.PostalAddress.organization\]. Any values in those
+    /// [recipients][google.type.PostalAddress.recipients] and
+    /// [organization][google.type.PostalAddress.organization]. Any values in those
     /// fields will be discarded and not returned. Please do not set them.
     #[prost(message, optional, tag = "1")]
     pub address: ::core::option::Option<super::super::super::r#type::PostalAddress>,
@@ -463,7 +463,7 @@ pub struct ValidateAddressRequest {
     /// example if the changes the user makes after the initial validation need to
     /// be re-validated), then each followup request must populate this field with
     /// the
-    /// \[response_id][google.maps.addressvalidation.v1.ValidateAddressResponse.response_id\]
+    /// [response_id][google.maps.addressvalidation.v1.ValidateAddressResponse.response_id]
     /// from the very first response in the validation sequence.
     #[prost(string, tag = "2")]
     pub previous_response_id: ::prost::alloc::string::String,
@@ -509,7 +509,7 @@ pub struct ProvideValidationFeedbackRequest {
     pub conclusion: i32,
     /// Required. The ID of the response that this feedback is for. This should be
     /// the
-    /// \[response_id][google.maps.addressvalidation.v1.ValidateAddressRequest.response_id\]
+    /// [response_id][google.maps.addressvalidation.v1.ValidateAddressRequest.response_id]
     /// from the first response in a series of address validation attempts.
     #[prost(string, tag = "2")]
     pub response_id: ::prost::alloc::string::String,
@@ -628,7 +628,7 @@ pub struct Verdict {
     #[prost(enumeration = "verdict::Granularity", tag = "2")]
     pub validation_granularity: i32,
     /// Information about the granularity of the
-    /// \[`geocode`][google.maps.addressvalidation.v1.ValidationResult.geocode\].
+    /// [`geocode`][google.maps.addressvalidation.v1.ValidationResult.geocode].
     /// This can be understood as the semantic meaning of how coarse or fine the
     /// geocoded location is.
     ///
@@ -641,10 +641,10 @@ pub struct Verdict {
     pub geocode_granularity: i32,
     /// The address is considered complete if there are no unresolved tokens, no
     /// unexpected or missing address components. See
-    /// \[`missing_component_types`][google.maps.addressvalidation.v1.Address.missing_component_types\],
-    /// \[`unresolved_tokens`][google.maps.addressvalidation.v1.Address.unresolved_tokens\]
+    /// [`missing_component_types`][google.maps.addressvalidation.v1.Address.missing_component_types],
+    /// [`unresolved_tokens`][google.maps.addressvalidation.v1.Address.unresolved_tokens]
     /// or
-    /// \[`unexpected`][google.maps.addressvalidation.v1.AddressComponent.unexpected\]
+    /// [`unexpected`][google.maps.addressvalidation.v1.AddressComponent.unexpected]
     /// fields for more details.
     #[prost(bool, tag = "4")]
     pub address_complete: bool,

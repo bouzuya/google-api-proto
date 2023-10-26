@@ -199,7 +199,7 @@ pub struct MigratingVm {
     pub current_sync_info: ::core::option::Option<ReplicationCycle>,
     /// Output only. The group this migrating vm is included in, if any. The group
     /// is represented by the full path of the appropriate
-    /// \[Group][google.cloud.vmmigration.v1.Group\] resource.
+    /// [Group][google.cloud.vmmigration.v1.Group] resource.
     #[prost(string, tag = "15")]
     pub group: ::prost::alloc::string::String,
     /// The labels of the migrating VM.
@@ -208,7 +208,7 @@ pub struct MigratingVm {
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
-    /// Output only. The recent [clone jobs]\[google.cloud.vmmigration.v1.CloneJob\]
+    /// Output only. The recent [clone jobs][google.cloud.vmmigration.v1.CloneJob]
     /// performed on the migrating VM. This field holds the vm's last completed
     /// clone job and the vm's running clone job, if one exists.
     /// Note: To have this field populated you need to explicitly request it via
@@ -340,7 +340,7 @@ pub mod migrating_vm {
     }
 }
 /// CloneJob describes the process of creating a clone of a
-/// \[MigratingVM][google.cloud.vmmigration.v1.MigratingVm\] to the
+/// [MigratingVM][google.cloud.vmmigration.v1.MigratingVm] to the
 /// requested target based on the latest successful uploaded snapshots.
 /// While the migration cycles of a MigratingVm take place, it is possible to
 /// verify the uploaded VM can be started in the cloud, by creating a clone. The
@@ -1274,7 +1274,7 @@ pub struct DeleteSourceRequest {
     pub request_id: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[fetchInventory][google.cloud.vmmigration.v1.VmMigration.FetchInventory\].
+/// [fetchInventory][google.cloud.vmmigration.v1.VmMigration.FetchInventory].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct FetchInventoryRequest {
@@ -1705,7 +1705,7 @@ pub struct AwsVmsDetails {
     pub details: ::prost::alloc::vec::Vec<AwsVmDetails>,
 }
 /// Response message for
-/// \[fetchInventory][google.cloud.vmmigration.v1.VmMigration.FetchInventory\].
+/// [fetchInventory][google.cloud.vmmigration.v1.VmMigration.FetchInventory].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct FetchInventoryResponse {
@@ -1996,7 +1996,7 @@ pub struct CreateUtilizationReportRequest {
     /// component of the reports's resource name.
     ///
     /// This value maximum length is 63 characters, and valid characters
-    /// are /\[a-z][0-9\]-/. It must start with an english letter and must not
+    /// are /[a-z][0-9]-/. It must start with an english letter and must not
     /// end with a hyphen.
     #[prost(string, tag = "3")]
     pub utilization_report_id: ::prost::alloc::string::String,
@@ -3202,8 +3202,8 @@ pub struct OperationMetadata {
     pub status_message: ::prost::alloc::string::String,
     /// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     #[prost(bool, tag = "6")]
     pub requested_cancellation: bool,

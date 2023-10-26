@@ -324,7 +324,7 @@ impl LineItemChangeStateReasonType {
     }
 }
 /// Request message for
-/// \[ConsumerProcurementService.PlaceOrder][google.cloud.commerce.consumer.procurement.v1alpha1.ConsumerProcurementService.PlaceOrder\].
+/// [ConsumerProcurementService.PlaceOrder][google.cloud.commerce.consumer.procurement.v1alpha1.ConsumerProcurementService.PlaceOrder].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct PlaceOrderRequest {
@@ -344,17 +344,17 @@ pub struct PlaceOrderRequest {
     /// ID for at least 120 minutes after the first request.
     ///
     /// The request ID must be a valid
-    /// \[UUID\](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>).
+    /// [UUID](<https://en.wikipedia.org/wiki/Universally_unique_identifier#Format>).
     #[prost(string, tag = "7")]
     pub request_id: ::prost::alloc::string::String,
 }
 /// Message stored in the metadata field of the Operation returned by
-/// \[ConsumerProcurementService.PlaceOrder][google.cloud.commerce.consumer.procurement.v1alpha1.ConsumerProcurementService.PlaceOrder\].
+/// [ConsumerProcurementService.PlaceOrder][google.cloud.commerce.consumer.procurement.v1alpha1.ConsumerProcurementService.PlaceOrder].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct PlaceOrderMetadata {}
 /// Request message for
-/// \[ConsumerProcurementService.GetOrder][google.cloud.commerce.consumer.procurement.v1alpha1.ConsumerProcurementService.GetOrder\]
+/// [ConsumerProcurementService.GetOrder][google.cloud.commerce.consumer.procurement.v1alpha1.ConsumerProcurementService.GetOrder]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetOrderRequest {
@@ -363,7 +363,7 @@ pub struct GetOrderRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[ConsumerProcurementService.ListOrders][google.cloud.commerce.consumer.procurement.v1alpha1.ConsumerProcurementService.ListOrders\].
+/// [ConsumerProcurementService.ListOrders][google.cloud.commerce.consumer.procurement.v1alpha1.ConsumerProcurementService.ListOrders].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListOrdersRequest {
@@ -398,7 +398,7 @@ pub struct ListOrdersRequest {
     pub filter: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[ConsumerProcurementService.ListOrders][google.cloud.commerce.consumer.procurement.v1alpha1.ConsumerProcurementService.ListOrders\].
+/// [ConsumerProcurementService.ListOrders][google.cloud.commerce.consumer.procurement.v1alpha1.ConsumerProcurementService.ListOrders].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListOrdersResponse {

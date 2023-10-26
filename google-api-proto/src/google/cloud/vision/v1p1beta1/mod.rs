@@ -34,13 +34,105 @@ pub struct Position {
     #[prost(float, tag = "3")]
     pub z: f32,
 }
+/// Relevant information for the image from the Internet.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WebDetection {
+    /// Deduced entities from similar images on the Internet.
+    #[prost(message, repeated, tag = "1")]
+    pub web_entities: ::prost::alloc::vec::Vec<web_detection::WebEntity>,
+    /// Fully matching images from the Internet.
+    /// Can include resized copies of the query image.
+    #[prost(message, repeated, tag = "2")]
+    pub full_matching_images: ::prost::alloc::vec::Vec<web_detection::WebImage>,
+    /// Partial matching images from the Internet.
+    /// Those images are similar enough to share some key-point features. For
+    /// example an original image will likely have partial matching for its crops.
+    #[prost(message, repeated, tag = "3")]
+    pub partial_matching_images: ::prost::alloc::vec::Vec<web_detection::WebImage>,
+    /// Web pages containing the matching images from the Internet.
+    #[prost(message, repeated, tag = "4")]
+    pub pages_with_matching_images: ::prost::alloc::vec::Vec<web_detection::WebPage>,
+    /// The visually similar image results.
+    #[prost(message, repeated, tag = "6")]
+    pub visually_similar_images: ::prost::alloc::vec::Vec<web_detection::WebImage>,
+    /// Best guess text labels for the request image.
+    #[prost(message, repeated, tag = "8")]
+    pub best_guess_labels: ::prost::alloc::vec::Vec<web_detection::WebLabel>,
+}
+/// Nested message and enum types in `WebDetection`.
+pub mod web_detection {
+    /// Entity deduced from similar images on the Internet.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct WebEntity {
+        /// Opaque entity ID.
+        #[prost(string, tag = "1")]
+        pub entity_id: ::prost::alloc::string::String,
+        /// Overall relevancy score for the entity.
+        /// Not normalized and not comparable across different image queries.
+        #[prost(float, tag = "2")]
+        pub score: f32,
+        /// Canonical description of the entity, in English.
+        #[prost(string, tag = "3")]
+        pub description: ::prost::alloc::string::String,
+    }
+    /// Metadata for online images.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct WebImage {
+        /// The result image URL.
+        #[prost(string, tag = "1")]
+        pub url: ::prost::alloc::string::String,
+        /// (Deprecated) Overall relevancy score for the image.
+        #[prost(float, tag = "2")]
+        pub score: f32,
+    }
+    /// Metadata for web pages.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct WebPage {
+        /// The result web page URL.
+        #[prost(string, tag = "1")]
+        pub url: ::prost::alloc::string::String,
+        /// (Deprecated) Overall relevancy score for the web page.
+        #[prost(float, tag = "2")]
+        pub score: f32,
+        /// Title for the web page, may contain HTML markups.
+        #[prost(string, tag = "3")]
+        pub page_title: ::prost::alloc::string::String,
+        /// Fully matching images on the page.
+        /// Can include resized copies of the query image.
+        #[prost(message, repeated, tag = "4")]
+        pub full_matching_images: ::prost::alloc::vec::Vec<WebImage>,
+        /// Partial matching images on the page.
+        /// Those images are similar enough to share some key-point features. For
+        /// example an original image will likely have partial matching for its
+        /// crops.
+        #[prost(message, repeated, tag = "5")]
+        pub partial_matching_images: ::prost::alloc::vec::Vec<WebImage>,
+    }
+    /// Label to provide extra metadata for the web detection.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct WebLabel {
+        /// Label for extra metadata.
+        #[prost(string, tag = "1")]
+        pub label: ::prost::alloc::string::String,
+        /// The BCP-47 language code for `label`, such as "en-US" or "sr-Latn".
+        /// For more information, see
+        /// <http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.>
+        #[prost(string, tag = "2")]
+        pub language_code: ::prost::alloc::string::String,
+    }
+}
 /// TextAnnotation contains a structured representation of OCR extracted text.
 /// The hierarchy of an OCR extracted text structure is like this:
 ///      TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol
 /// Each structural component, starting from Page, may further have their own
 /// properties. Properties describe detected languages, breaks etc.. Please refer
 /// to the
-/// \[TextAnnotation.TextProperty][google.cloud.vision.v1p1beta1.TextAnnotation.TextProperty\]
+/// [TextAnnotation.TextProperty][google.cloud.vision.v1p1beta1.TextAnnotation.TextProperty]
 /// message definition below for more detail.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -63,7 +155,7 @@ pub mod text_annotation {
         /// <http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.>
         #[prost(string, tag = "1")]
         pub language_code: ::prost::alloc::string::String,
-        /// Confidence of detected language. Range [0, 1].
+        /// Confidence of detected language. Range \[0, 1\].
         #[prost(float, tag = "2")]
         pub confidence: f32,
     }
@@ -165,7 +257,7 @@ pub struct Page {
     /// List of blocks of text, images etc on this page.
     #[prost(message, repeated, tag = "4")]
     pub blocks: ::prost::alloc::vec::Vec<Block>,
-    /// Confidence of the OCR results on the page. Range [0, 1].
+    /// Confidence of the OCR results on the page. Range \[0, 1\].
     #[prost(float, tag = "5")]
     pub confidence: f32,
 }
@@ -199,7 +291,7 @@ pub struct Block {
     /// Detected block type (text, image etc) for this block.
     #[prost(enumeration = "block::BlockType", tag = "4")]
     pub block_type: i32,
-    /// Confidence of the OCR results on the block. Range [0, 1].
+    /// Confidence of the OCR results on the block. Range \[0, 1\].
     #[prost(float, tag = "5")]
     pub confidence: f32,
 }
@@ -288,7 +380,7 @@ pub struct Paragraph {
     /// List of words in this paragraph.
     #[prost(message, repeated, tag = "3")]
     pub words: ::prost::alloc::vec::Vec<Word>,
-    /// Confidence of the OCR results for the paragraph. Range [0, 1].
+    /// Confidence of the OCR results for the paragraph. Range \[0, 1\].
     #[prost(float, tag = "4")]
     pub confidence: f32,
 }
@@ -320,7 +412,7 @@ pub struct Word {
     /// The order of the symbols follows the natural reading order.
     #[prost(message, repeated, tag = "3")]
     pub symbols: ::prost::alloc::vec::Vec<Symbol>,
-    /// Confidence of the OCR results for the word. Range [0, 1].
+    /// Confidence of the OCR results for the word. Range \[0, 1\].
     #[prost(float, tag = "4")]
     pub confidence: f32,
 }
@@ -351,101 +443,9 @@ pub struct Symbol {
     /// The actual UTF-8 representation of the symbol.
     #[prost(string, tag = "3")]
     pub text: ::prost::alloc::string::String,
-    /// Confidence of the OCR results for the symbol. Range [0, 1].
+    /// Confidence of the OCR results for the symbol. Range \[0, 1\].
     #[prost(float, tag = "4")]
     pub confidence: f32,
-}
-/// Relevant information for the image from the Internet.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WebDetection {
-    /// Deduced entities from similar images on the Internet.
-    #[prost(message, repeated, tag = "1")]
-    pub web_entities: ::prost::alloc::vec::Vec<web_detection::WebEntity>,
-    /// Fully matching images from the Internet.
-    /// Can include resized copies of the query image.
-    #[prost(message, repeated, tag = "2")]
-    pub full_matching_images: ::prost::alloc::vec::Vec<web_detection::WebImage>,
-    /// Partial matching images from the Internet.
-    /// Those images are similar enough to share some key-point features. For
-    /// example an original image will likely have partial matching for its crops.
-    #[prost(message, repeated, tag = "3")]
-    pub partial_matching_images: ::prost::alloc::vec::Vec<web_detection::WebImage>,
-    /// Web pages containing the matching images from the Internet.
-    #[prost(message, repeated, tag = "4")]
-    pub pages_with_matching_images: ::prost::alloc::vec::Vec<web_detection::WebPage>,
-    /// The visually similar image results.
-    #[prost(message, repeated, tag = "6")]
-    pub visually_similar_images: ::prost::alloc::vec::Vec<web_detection::WebImage>,
-    /// Best guess text labels for the request image.
-    #[prost(message, repeated, tag = "8")]
-    pub best_guess_labels: ::prost::alloc::vec::Vec<web_detection::WebLabel>,
-}
-/// Nested message and enum types in `WebDetection`.
-pub mod web_detection {
-    /// Entity deduced from similar images on the Internet.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct WebEntity {
-        /// Opaque entity ID.
-        #[prost(string, tag = "1")]
-        pub entity_id: ::prost::alloc::string::String,
-        /// Overall relevancy score for the entity.
-        /// Not normalized and not comparable across different image queries.
-        #[prost(float, tag = "2")]
-        pub score: f32,
-        /// Canonical description of the entity, in English.
-        #[prost(string, tag = "3")]
-        pub description: ::prost::alloc::string::String,
-    }
-    /// Metadata for online images.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct WebImage {
-        /// The result image URL.
-        #[prost(string, tag = "1")]
-        pub url: ::prost::alloc::string::String,
-        /// (Deprecated) Overall relevancy score for the image.
-        #[prost(float, tag = "2")]
-        pub score: f32,
-    }
-    /// Metadata for web pages.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct WebPage {
-        /// The result web page URL.
-        #[prost(string, tag = "1")]
-        pub url: ::prost::alloc::string::String,
-        /// (Deprecated) Overall relevancy score for the web page.
-        #[prost(float, tag = "2")]
-        pub score: f32,
-        /// Title for the web page, may contain HTML markups.
-        #[prost(string, tag = "3")]
-        pub page_title: ::prost::alloc::string::String,
-        /// Fully matching images on the page.
-        /// Can include resized copies of the query image.
-        #[prost(message, repeated, tag = "4")]
-        pub full_matching_images: ::prost::alloc::vec::Vec<WebImage>,
-        /// Partial matching images on the page.
-        /// Those images are similar enough to share some key-point features. For
-        /// example an original image will likely have partial matching for its
-        /// crops.
-        #[prost(message, repeated, tag = "5")]
-        pub partial_matching_images: ::prost::alloc::vec::Vec<WebImage>,
-    }
-    /// Label to provide extra metadata for the web detection.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct WebLabel {
-        /// Label for extra metadata.
-        #[prost(string, tag = "1")]
-        pub label: ::prost::alloc::string::String,
-        /// The BCP-47 language code for `label`, such as "en-US" or "sr-Latn".
-        /// For more information, see
-        /// <http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.>
-        #[prost(string, tag = "2")]
-        pub language_code: ::prost::alloc::string::String,
-    }
 }
 /// Users describe the type of Google Cloud Vision API tasks to perform over
 /// images by using *Feature*s. Each Feature indicates a type of image
@@ -624,10 +624,10 @@ pub struct FaceAnnotation {
     /// pointing relative to the image's horizontal plane. Range \[-180,180\].
     #[prost(float, tag = "6")]
     pub tilt_angle: f32,
-    /// Detection confidence. Range [0, 1].
+    /// Detection confidence. Range \[0, 1\].
     #[prost(float, tag = "7")]
     pub detection_confidence: f32,
-    /// Face landmarking confidence. Range [0, 1].
+    /// Face landmarking confidence. Range \[0, 1\].
     #[prost(float, tag = "8")]
     pub landmarking_confidence: f32,
     /// Joy likelihood.
@@ -883,20 +883,20 @@ pub struct EntityAnnotation {
     /// Entity textual description, expressed in its `locale` language.
     #[prost(string, tag = "3")]
     pub description: ::prost::alloc::string::String,
-    /// Overall score of the result. Range [0, 1].
+    /// Overall score of the result. Range \[0, 1\].
     #[prost(float, tag = "4")]
     pub score: f32,
     /// The accuracy of the entity detection in an image.
     /// For example, for an image in which the "Eiffel Tower" entity is detected,
     /// this field represents the confidence that there is a tower in the query
-    /// image. Range [0, 1].
+    /// image. Range \[0, 1\].
     #[prost(float, tag = "5")]
     pub confidence: f32,
     /// The relevancy of the ICA (Image Content Annotation) label to the
     /// image. For example, the relevancy of "tower" is likely higher to an image
     /// containing the detected "Eiffel Tower" than to an image containing a
     /// detected distant towering building, even though the confidence that
-    /// there is a tower in each image may be the same. Range [0, 1].
+    /// there is a tower in each image may be the same. Range \[0, 1\].
     #[prost(float, tag = "6")]
     pub topicality: f32,
     /// Image region to which this entity belongs. Not produced
@@ -963,11 +963,11 @@ pub struct ColorInfo {
     /// RGB components of the color.
     #[prost(message, optional, tag = "1")]
     pub color: ::core::option::Option<super::super::super::r#type::Color>,
-    /// Image-specific score for this color. Value in range [0, 1].
+    /// Image-specific score for this color. Value in range \[0, 1\].
     #[prost(float, tag = "2")]
     pub score: f32,
     /// The fraction of pixels the color occupies in the image.
-    /// Value in range [0, 1].
+    /// Value in range \[0, 1\].
     #[prost(float, tag = "3")]
     pub pixel_fraction: f32,
 }
@@ -995,7 +995,7 @@ pub struct CropHint {
     /// box are in the original image's scale, as returned in `ImageParams`.
     #[prost(message, optional, tag = "1")]
     pub bounding_poly: ::core::option::Option<BoundingPoly>,
-    /// Confidence of this being a salient region.  Range [0, 1].
+    /// Confidence of this being a salient region.  Range \[0, 1\].
     #[prost(float, tag = "2")]
     pub confidence: f32,
     /// Fraction of importance of this salient region with respect to the original

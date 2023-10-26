@@ -95,14 +95,14 @@ pub struct TranslateTextRequest {
 pub struct TranslateTextResponse {
     /// Text translation responses with no glossary applied.
     /// This field has the same length as
-    /// \[`contents`][google.cloud.translation.v3beta1.TranslateTextRequest.contents\].
+    /// [`contents`][google.cloud.translation.v3beta1.TranslateTextRequest.contents].
     #[prost(message, repeated, tag = "1")]
     pub translations: ::prost::alloc::vec::Vec<Translation>,
     /// Text translation responses if a glossary is provided in the request.
     /// This can be the same as
-    /// \[`translations`][google.cloud.translation.v3beta1.TranslateTextResponse.translations\]
+    /// [`translations`][google.cloud.translation.v3beta1.TranslateTextResponse.translations]
     /// if no terms apply. This field has the same length as
-    /// \[`contents`][google.cloud.translation.v3beta1.TranslateTextRequest.contents\].
+    /// [`contents`][google.cloud.translation.v3beta1.TranslateTextRequest.contents].
     #[prost(message, repeated, tag = "3")]
     pub glossary_translations: ::prost::alloc::vec::Vec<Translation>,
 }
@@ -526,7 +526,7 @@ pub mod document_output_config {
         /// already exists in the destination an error will be returned.
         ///
         /// For a DocumentInputConfig.contents provided document, the output file
-        /// will have the name "output_\[trg]_translations.[ext\]", where
+        /// will have the name "output_\[trg\]_translations.\[ext\]", where
         /// - \[trg\] corresponds to the translated file's language code,
         /// - \[ext\] corresponds to the translated file's extension according to its
         /// mime type.
@@ -536,7 +536,7 @@ pub mod document_output_config {
         /// have a name according to its URI. For example: an input file with URI:
         /// `gs://a/b/c.\[extension\]` stored in a gcs_destination bucket with name
         /// "my_bucket" will have an output URI:
-        /// `gs://my_bucket/a_b_c_\[trg]_translations.[ext\]`, where
+        /// `gs://my_bucket/a_b_c_\[trg\]_translations.\[ext\]`, where
         /// - \[trg\] corresponds to the translated file's language code,
         /// - \[ext\] corresponds to the translated file's extension according to its
         /// mime type.
@@ -544,7 +544,7 @@ pub mod document_output_config {
         ///
         /// If the document was directly provided through the request, then the
         /// output document will have the format:
-        /// `gs://my_bucket/translated_document_\[trg]_translations.[ext\]`, where
+        /// `gs://my_bucket/translated_document_\[trg\]_translations.\[ext\]`, where
         /// - \[trg\] corresponds to the translated file's language code,
         /// - \[ext\] corresponds to the translated file's extension according to its
         /// mime type.
@@ -553,7 +553,7 @@ pub mod document_output_config {
         /// translation will be equal to the default output URI but have
         /// `glossary_translations` instead of `translations`. For the previous
         /// example, its glossary URI would be:
-        /// `gs://my_bucket/a_b_c_\[trg]_glossary_translations.[ext\]`.
+        /// `gs://my_bucket/a_b_c_\[trg\]_glossary_translations.\[ext\]`.
         ///
         /// Thus the max number of output files will be 2 (Translated document,
         /// Glossary translated document).
@@ -864,7 +864,7 @@ pub mod batch_translate_metadata {
     }
 }
 /// Stored in the
-/// \[google.longrunning.Operation.response][google.longrunning.Operation.response\]
+/// [google.longrunning.Operation.response][google.longrunning.Operation.response]
 /// field returned by BatchTranslateText if at least one sentence is translated
 /// successfully.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -883,7 +883,7 @@ pub struct BatchTranslateResponse {
     #[prost(message, optional, tag = "4")]
     pub submit_time: ::core::option::Option<::prost_types::Timestamp>,
     /// The time when the operation is finished and
-    /// \[google.longrunning.Operation.done][google.longrunning.Operation.done\] is
+    /// [google.longrunning.Operation.done][google.longrunning.Operation.done] is
     /// set to true.
     #[prost(message, optional, tag = "5")]
     pub end_time: ::core::option::Option<::prost_types::Timestamp>,
@@ -922,7 +922,7 @@ pub mod glossary_input_config {
         ///
         /// - CSV (`.csv`): Multi-column CSV file defining equivalent glossary terms
         ///    in multiple languages. See documentation for more information -
-        ///    \[glossaries\](<https://cloud.google.com/translate/docs/advanced/glossary>).
+        ///    [glossaries](<https://cloud.google.com/translate/docs/advanced/glossary>).
         #[prost(message, tag = "1")]
         GcsSource(super::GcsSource),
     }
@@ -1066,7 +1066,7 @@ pub struct ListGlossariesResponse {
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// Stored in the
-/// \[google.longrunning.Operation.metadata][google.longrunning.Operation.metadata\]
+/// [google.longrunning.Operation.metadata][google.longrunning.Operation.metadata]
 /// field returned by CreateGlossary.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1141,7 +1141,7 @@ pub mod create_glossary_metadata {
     }
 }
 /// Stored in the
-/// \[google.longrunning.Operation.metadata][google.longrunning.Operation.metadata\]
+/// [google.longrunning.Operation.metadata][google.longrunning.Operation.metadata]
 /// field returned by DeleteGlossary.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1216,7 +1216,7 @@ pub mod delete_glossary_metadata {
     }
 }
 /// Stored in the
-/// \[google.longrunning.Operation.response][google.longrunning.Operation.response\]
+/// [google.longrunning.Operation.response][google.longrunning.Operation.response]
 /// field returned by DeleteGlossary.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1228,7 +1228,7 @@ pub struct DeleteGlossaryResponse {
     #[prost(message, optional, tag = "2")]
     pub submit_time: ::core::option::Option<::prost_types::Timestamp>,
     /// The time when the glossary deletion is finished and
-    /// \[google.longrunning.Operation.done][google.longrunning.Operation.done\] is
+    /// [google.longrunning.Operation.done][google.longrunning.Operation.done] is
     /// set to true.
     #[prost(message, optional, tag = "3")]
     pub end_time: ::core::option::Option<::prost_types::Timestamp>,
@@ -1413,9 +1413,9 @@ pub mod batch_document_output_config {
         ///
         /// The naming format of translation output files follows (for target
         /// language code \[trg\]): `translation_output`:
-        /// `gs://translation_output/a_b_c_\[trg]_translation.[extension\]`
+        /// `gs://translation_output/a_b_c_\[trg\]_translation.\[extension\]`
         /// `glossary_translation_output`:
-        /// `gs://translation_test/a_b_c_\[trg]_glossary_translation.[extension\]`. The
+        /// `gs://translation_test/a_b_c_\[trg\]_glossary_translation.\[extension\]`. The
         /// output document will maintain the same file format as the input document.
         ///
         /// The naming format of error output files follows (for target language code
@@ -1428,7 +1428,7 @@ pub mod batch_document_output_config {
     }
 }
 /// Stored in the
-/// \[google.longrunning.Operation.response][google.longrunning.Operation.response\]
+/// [google.longrunning.Operation.response][google.longrunning.Operation.response]
 /// field returned by BatchTranslateDocument if at least one document is
 /// translated successfully.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1469,7 +1469,7 @@ pub struct BatchTranslateDocumentResponse {
     #[prost(message, optional, tag = "9")]
     pub submit_time: ::core::option::Option<::prost_types::Timestamp>,
     /// The time when the operation is finished and
-    /// \[google.longrunning.Operation.done][google.longrunning.Operation.done\] is
+    /// [google.longrunning.Operation.done][google.longrunning.Operation.done] is
     /// set to true.
     #[prost(message, optional, tag = "10")]
     pub end_time: ::core::option::Option<::prost_types::Timestamp>,

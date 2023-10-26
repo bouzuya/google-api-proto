@@ -412,7 +412,7 @@ pub struct ListDeploymentsRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListDeploymentsResponse {
-    /// List of \[Deployment][google.cloud.config.v1.Deployment\]s.
+    /// List of [Deployment][google.cloud.config.v1.Deployment]s.
     #[prost(message, repeated, tag = "1")]
     pub deployments: ::prost::alloc::vec::Vec<Deployment>,
     /// Token to be supplied to the next ListDeployments request via `page_token`
@@ -480,7 +480,7 @@ pub struct ListRevisionsRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListRevisionsResponse {
-    /// List of \[Revision][google.cloud.config.v1.Revision\]s.
+    /// List of [Revision][google.cloud.config.v1.Revision]s.
     #[prost(message, repeated, tag = "1")]
     pub revisions: ::prost::alloc::vec::Vec<Revision>,
     /// A token to request the next page of resources from the 'ListRevisions'
@@ -511,7 +511,7 @@ pub struct CreateDeploymentRequest {
     /// Required. The Deployment ID.
     #[prost(string, tag = "2")]
     pub deployment_id: ::prost::alloc::string::String,
-    /// Required. \[Deployment][google.cloud.config.v1.Deployment\] resource to be
+    /// Required. [Deployment][google.cloud.config.v1.Deployment] resource to be
     /// created.
     #[prost(message, optional, tag = "3")]
     pub deployment: ::core::option::Option<Deployment>,
@@ -542,7 +542,7 @@ pub struct UpdateDeploymentRequest {
     /// user does not provide a mask then all fields will be overwritten.
     #[prost(message, optional, tag = "1")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. \[Deployment][google.cloud.config.v1.Deployment\] to update.
+    /// Required. [Deployment][google.cloud.config.v1.Deployment] to update.
     ///
     /// The deployment's `name` field is used to identify the resource to be
     /// updated. Format:
@@ -665,8 +665,8 @@ pub struct OperationMetadata {
     pub status_message: ::prost::alloc::string::String,
     /// Output only. Identifies whether the user has requested cancellation of the
     /// operation. Operations that have successfully been cancelled have
-    /// \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     #[prost(bool, tag = "6")]
     pub requested_cancellation: bool,
@@ -1263,7 +1263,7 @@ pub struct ListResourcesRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListResourcesResponse {
-    /// List of \[Resources][\]s.
+    /// List of [Resources][]s.
     #[prost(message, repeated, tag = "1")]
     pub resources: ::prost::alloc::vec::Vec<Resource>,
     /// A token to request the next page of resources from the 'ListResources'

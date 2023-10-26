@@ -5,7 +5,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GeneratePackagesSummaryRequest {
     /// Required. The name of the resource to get a packages summary for in the
-    /// form of `projects/\[PROJECT_ID]/resources/[RESOURCE_URL\]`.
+    /// form of `projects/\[PROJECT_ID\]/resources/\[RESOURCE_URL\]`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -44,7 +44,7 @@ pub mod packages_summary_response {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ExportSbomRequest {
     /// Required. The name of the resource in the form of
-    /// `projects/\[PROJECT_ID]/resources/[RESOURCE_URL\]`.
+    /// `projects/\[PROJECT_ID\]/resources/\[RESOURCE_URL\]`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }

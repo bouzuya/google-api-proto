@@ -1,4 +1,4 @@
-/// Metadata describing an \[Operation][google.longrunning.Operation\]
+/// Metadata describing an [Operation][google.longrunning.Operation]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct OperationMetadataV1 {
@@ -779,7 +779,7 @@ pub struct ListFunctionsResponse {
     pub functions: ::prost::alloc::vec::Vec<CloudFunction>,
     /// If not empty, indicates that there may be more functions that match
     /// the request; this value should be passed in a new
-    /// \[google.cloud.functions.v1.ListFunctionsRequest][google.cloud.functions.v1.ListFunctionsRequest\]
+    /// [google.cloud.functions.v1.ListFunctionsRequest][google.cloud.functions.v1.ListFunctionsRequest]
     /// to get more functions.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,

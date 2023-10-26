@@ -9,10 +9,10 @@ pub struct OrchestrationCluster {
     /// Management configuration of the underlying GKE cluster.
     #[prost(message, optional, tag = "5")]
     pub management_config: ::core::option::Option<ManagementConfig>,
-    /// Output only. [Output only] Create time stamp.
+    /// Output only. \[Output only\] Create time stamp.
     #[prost(message, optional, tag = "2")]
     pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. [Output only] Update time stamp.
+    /// Output only. \[Output only\] Update time stamp.
     #[prost(message, optional, tag = "3")]
     pub update_time: ::core::option::Option<::prost_types::Timestamp>,
     /// Labels as key value pairs.
@@ -97,10 +97,10 @@ pub struct EdgeSlm {
     /// projects/{project}/locations/{location}/orchestrationClusters/{orchestration_cluster}.
     #[prost(string, tag = "5")]
     pub orchestration_cluster: ::prost::alloc::string::String,
-    /// Output only. [Output only] Create time stamp.
+    /// Output only. \[Output only\] Create time stamp.
     #[prost(message, optional, tag = "2")]
     pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. [Output only] Update time stamp.
+    /// Output only. \[Output only\] Update time stamp.
     #[prost(message, optional, tag = "3")]
     pub update_time: ::core::option::Option<::prost_types::Timestamp>,
     /// Optional. Labels as key value pairs. The key and value should contain
@@ -355,7 +355,7 @@ pub struct PublicBlueprint {
     #[prost(string, tag = "3")]
     pub description: ::prost::alloc::string::String,
     /// DeploymentLevel of a blueprint signifies where the blueprint will be
-    /// applied. e.g. [HYDRATION, DEPLOYMENT]
+    /// applied. e.g. \[HYDRATION, DEPLOYMENT\]
     #[prost(enumeration = "public_blueprint::DeploymentLevel", tag = "4")]
     pub deployment_level: i32,
     /// Source provider is the author of a public blueprint. e.g. Google, vendors
@@ -1272,8 +1272,8 @@ pub struct OperationMetadata {
     pub status_message: ::prost::alloc::string::String,
     /// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have been cancelled successfully
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     #[prost(bool, tag = "6")]
     pub requested_cancellation: bool,

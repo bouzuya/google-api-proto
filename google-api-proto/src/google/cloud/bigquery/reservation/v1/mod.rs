@@ -73,7 +73,7 @@ pub mod reservation {
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct Autoscale {
         /// Output only. The slot capacity added to this reservation when autoscale
-        /// happens. Will be between [0, max_slots].
+        /// happens. Will be between \[0, max_slots\].
         #[prost(int64, tag = "1")]
         pub current_slots: i64,
         /// Number of slots to be scaled when needed.
@@ -287,7 +287,7 @@ pub mod capacity_commitment {
     }
 }
 /// The request for
-/// \[ReservationService.CreateReservation][google.cloud.bigquery.reservation.v1.ReservationService.CreateReservation\].
+/// [ReservationService.CreateReservation][google.cloud.bigquery.reservation.v1.ReservationService.CreateReservation].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateReservationRequest {
@@ -305,7 +305,7 @@ pub struct CreateReservationRequest {
     pub reservation: ::core::option::Option<Reservation>,
 }
 /// The request for
-/// \[ReservationService.ListReservations][google.cloud.bigquery.reservation.v1.ReservationService.ListReservations\].
+/// [ReservationService.ListReservations][google.cloud.bigquery.reservation.v1.ReservationService.ListReservations].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListReservationsRequest {
@@ -321,7 +321,7 @@ pub struct ListReservationsRequest {
     pub page_token: ::prost::alloc::string::String,
 }
 /// The response for
-/// \[ReservationService.ListReservations][google.cloud.bigquery.reservation.v1.ReservationService.ListReservations\].
+/// [ReservationService.ListReservations][google.cloud.bigquery.reservation.v1.ReservationService.ListReservations].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListReservationsResponse {
@@ -334,7 +334,7 @@ pub struct ListReservationsResponse {
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// The request for
-/// \[ReservationService.GetReservation][google.cloud.bigquery.reservation.v1.ReservationService.GetReservation\].
+/// [ReservationService.GetReservation][google.cloud.bigquery.reservation.v1.ReservationService.GetReservation].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetReservationRequest {
@@ -344,7 +344,7 @@ pub struct GetReservationRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// The request for
-/// \[ReservationService.DeleteReservation][google.cloud.bigquery.reservation.v1.ReservationService.DeleteReservation\].
+/// [ReservationService.DeleteReservation][google.cloud.bigquery.reservation.v1.ReservationService.DeleteReservation].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteReservationRequest {
@@ -354,7 +354,7 @@ pub struct DeleteReservationRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// The request for
-/// \[ReservationService.UpdateReservation][google.cloud.bigquery.reservation.v1.ReservationService.UpdateReservation\].
+/// [ReservationService.UpdateReservation][google.cloud.bigquery.reservation.v1.ReservationService.UpdateReservation].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateReservationRequest {
@@ -366,7 +366,7 @@ pub struct UpdateReservationRequest {
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
 /// The request for
-/// \[ReservationService.CreateCapacityCommitment][google.cloud.bigquery.reservation.v1.ReservationService.CreateCapacityCommitment\].
+/// [ReservationService.CreateCapacityCommitment][google.cloud.bigquery.reservation.v1.ReservationService.CreateCapacityCommitment].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateCapacityCommitmentRequest {
@@ -390,7 +390,7 @@ pub struct CreateCapacityCommitmentRequest {
     pub capacity_commitment_id: ::prost::alloc::string::String,
 }
 /// The request for
-/// \[ReservationService.ListCapacityCommitments][google.cloud.bigquery.reservation.v1.ReservationService.ListCapacityCommitments\].
+/// [ReservationService.ListCapacityCommitments][google.cloud.bigquery.reservation.v1.ReservationService.ListCapacityCommitments].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListCapacityCommitmentsRequest {
@@ -406,7 +406,7 @@ pub struct ListCapacityCommitmentsRequest {
     pub page_token: ::prost::alloc::string::String,
 }
 /// The response for
-/// \[ReservationService.ListCapacityCommitments][google.cloud.bigquery.reservation.v1.ReservationService.ListCapacityCommitments\].
+/// [ReservationService.ListCapacityCommitments][google.cloud.bigquery.reservation.v1.ReservationService.ListCapacityCommitments].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListCapacityCommitmentsResponse {
@@ -419,7 +419,7 @@ pub struct ListCapacityCommitmentsResponse {
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// The request for
-/// \[ReservationService.GetCapacityCommitment][google.cloud.bigquery.reservation.v1.ReservationService.GetCapacityCommitment\].
+/// [ReservationService.GetCapacityCommitment][google.cloud.bigquery.reservation.v1.ReservationService.GetCapacityCommitment].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetCapacityCommitmentRequest {
@@ -429,7 +429,7 @@ pub struct GetCapacityCommitmentRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// The request for
-/// \[ReservationService.DeleteCapacityCommitment][google.cloud.bigquery.reservation.v1.ReservationService.DeleteCapacityCommitment\].
+/// [ReservationService.DeleteCapacityCommitment][google.cloud.bigquery.reservation.v1.ReservationService.DeleteCapacityCommitment].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteCapacityCommitmentRequest {
@@ -444,7 +444,7 @@ pub struct DeleteCapacityCommitmentRequest {
     pub force: bool,
 }
 /// The request for
-/// \[ReservationService.UpdateCapacityCommitment][google.cloud.bigquery.reservation.v1.ReservationService.UpdateCapacityCommitment\].
+/// [ReservationService.UpdateCapacityCommitment][google.cloud.bigquery.reservation.v1.ReservationService.UpdateCapacityCommitment].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateCapacityCommitmentRequest {
@@ -456,7 +456,7 @@ pub struct UpdateCapacityCommitmentRequest {
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
 /// The request for
-/// \[ReservationService.SplitCapacityCommitment][google.cloud.bigquery.reservation.v1.ReservationService.SplitCapacityCommitment\].
+/// [ReservationService.SplitCapacityCommitment][google.cloud.bigquery.reservation.v1.ReservationService.SplitCapacityCommitment].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SplitCapacityCommitmentRequest {
@@ -469,7 +469,7 @@ pub struct SplitCapacityCommitmentRequest {
     pub slot_count: i64,
 }
 /// The response for
-/// \[ReservationService.SplitCapacityCommitment][google.cloud.bigquery.reservation.v1.ReservationService.SplitCapacityCommitment\].
+/// [ReservationService.SplitCapacityCommitment][google.cloud.bigquery.reservation.v1.ReservationService.SplitCapacityCommitment].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SplitCapacityCommitmentResponse {
@@ -481,7 +481,7 @@ pub struct SplitCapacityCommitmentResponse {
     pub second: ::core::option::Option<CapacityCommitment>,
 }
 /// The request for
-/// \[ReservationService.MergeCapacityCommitments][google.cloud.bigquery.reservation.v1.ReservationService.MergeCapacityCommitments\].
+/// [ReservationService.MergeCapacityCommitments][google.cloud.bigquery.reservation.v1.ReservationService.MergeCapacityCommitments].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MergeCapacityCommitmentsRequest {
@@ -624,7 +624,7 @@ pub mod assignment {
     }
 }
 /// The request for
-/// \[ReservationService.CreateAssignment][google.cloud.bigquery.reservation.v1.ReservationService.CreateAssignment\].
+/// [ReservationService.CreateAssignment][google.cloud.bigquery.reservation.v1.ReservationService.CreateAssignment].
 /// Note: "bigquery.reservationAssignments.create" permission is required on the
 /// related assignee.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -645,7 +645,7 @@ pub struct CreateAssignmentRequest {
     pub assignment_id: ::prost::alloc::string::String,
 }
 /// The request for
-/// \[ReservationService.ListAssignments][google.cloud.bigquery.reservation.v1.ReservationService.ListAssignments\].
+/// [ReservationService.ListAssignments][google.cloud.bigquery.reservation.v1.ReservationService.ListAssignments].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListAssignmentsRequest {
@@ -666,7 +666,7 @@ pub struct ListAssignmentsRequest {
     pub page_token: ::prost::alloc::string::String,
 }
 /// The response for
-/// \[ReservationService.ListAssignments][google.cloud.bigquery.reservation.v1.ReservationService.ListAssignments\].
+/// [ReservationService.ListAssignments][google.cloud.bigquery.reservation.v1.ReservationService.ListAssignments].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListAssignmentsResponse {
@@ -679,7 +679,7 @@ pub struct ListAssignmentsResponse {
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// The request for
-/// \[ReservationService.DeleteAssignment][google.cloud.bigquery.reservation.v1.ReservationService.DeleteAssignment\].
+/// [ReservationService.DeleteAssignment][google.cloud.bigquery.reservation.v1.ReservationService.DeleteAssignment].
 /// Note: "bigquery.reservationAssignments.delete" permission is required on the
 /// related assignee.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -691,7 +691,7 @@ pub struct DeleteAssignmentRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// The request for
-/// \[ReservationService.SearchAssignments][google.cloud.bigquery.reservation.v1.ReservationService.SearchAssignments\].
+/// [ReservationService.SearchAssignments][google.cloud.bigquery.reservation.v1.ReservationService.SearchAssignments].
 /// Note: "bigquery.reservationAssignments.search" permission is required on the
 /// related assignee.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -719,7 +719,7 @@ pub struct SearchAssignmentsRequest {
     pub page_token: ::prost::alloc::string::String,
 }
 /// The request for
-/// \[ReservationService.SearchAllAssignments][google.cloud.bigquery.reservation.v1.ReservationService.SearchAllAssignments\].
+/// [ReservationService.SearchAllAssignments][google.cloud.bigquery.reservation.v1.ReservationService.SearchAllAssignments].
 /// Note: "bigquery.reservationAssignments.search" permission is required on the
 /// related assignee.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -747,7 +747,7 @@ pub struct SearchAllAssignmentsRequest {
     pub page_token: ::prost::alloc::string::String,
 }
 /// The response for
-/// \[ReservationService.SearchAssignments][google.cloud.bigquery.reservation.v1.ReservationService.SearchAssignments\].
+/// [ReservationService.SearchAssignments][google.cloud.bigquery.reservation.v1.ReservationService.SearchAssignments].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SearchAssignmentsResponse {
@@ -760,7 +760,7 @@ pub struct SearchAssignmentsResponse {
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// The response for
-/// \[ReservationService.SearchAllAssignments][google.cloud.bigquery.reservation.v1.ReservationService.SearchAllAssignments\].
+/// [ReservationService.SearchAllAssignments][google.cloud.bigquery.reservation.v1.ReservationService.SearchAllAssignments].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SearchAllAssignmentsResponse {
@@ -773,7 +773,7 @@ pub struct SearchAllAssignmentsResponse {
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// The request for
-/// \[ReservationService.MoveAssignment][google.cloud.bigquery.reservation.v1.ReservationService.MoveAssignment\].
+/// [ReservationService.MoveAssignment][google.cloud.bigquery.reservation.v1.ReservationService.MoveAssignment].
 ///
 /// **Note**: "bigquery.reservationAssignments.create" permission is required on
 /// the destination_id.
@@ -802,7 +802,7 @@ pub struct MoveAssignmentRequest {
     pub assignment_id: ::prost::alloc::string::String,
 }
 /// The request for
-/// \[ReservationService.UpdateAssignment][google.cloud.bigquery.reservation.v1.ReservationService.UpdateAssignment\].
+/// [ReservationService.UpdateAssignment][google.cloud.bigquery.reservation.v1.ReservationService.UpdateAssignment].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateAssignmentRequest {

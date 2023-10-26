@@ -1,3 +1,94 @@
+/// Backup as stored in Platform log. It's used to log the details of
+/// a createBackup/updateBackup request, so only fields that can be taken
+/// from API calls are included here.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LoggedBackup {
+    /// A set of custom labels supplied by user.
+    #[prost(btree_map = "string, string", tag = "1")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// delete_lock_days specifies the number of days from the create_time of this
+    /// Backup before which deletion will be blocked.
+    #[prost(int32, tag = "2")]
+    pub delete_lock_days: i32,
+    /// retain_days specifies the desired number of days from the create_time of
+    /// this Backup after which it will be automatically deleted.
+    #[prost(int32, tag = "3")]
+    pub retain_days: i32,
+    /// User specified descriptive string for this Backup.
+    #[prost(string, tag = "4")]
+    pub description: ::prost::alloc::string::String,
+    /// Current state of the Backup
+    #[prost(enumeration = "logged_backup::State", tag = "5")]
+    pub state: i32,
+    /// Human-readable description of why the backup is in the current `state`.
+    #[prost(string, tag = "6")]
+    pub state_reason: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `LoggedBackup`.
+pub mod logged_backup {
+    /// State
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// The Backup resource is in the process of being created.
+        Unspecified = 0,
+        /// The Backup resource has been created and the associated BackupJob
+        /// Kubernetes resource has been injected into the source cluster.
+        Creating = 1,
+        /// The gkebackup agent in the cluster has begun executing the backup
+        /// operation.
+        InProgress = 2,
+        /// The backup operation has completed successfully.
+        Succeeded = 3,
+        /// The backup operation has failed.
+        Failed = 4,
+        /// This Backup resource (and its associated artifacts) is in the process
+        /// of being deleted.
+        Deleting = 5,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::InProgress => "IN_PROGRESS",
+                State::Succeeded => "SUCCEEDED",
+                State::Failed => "FAILED",
+                State::Deleting => "DELETING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "IN_PROGRESS" => Some(Self::InProgress),
+                "SUCCEEDED" => Some(Self::Succeeded),
+                "FAILED" => Some(Self::Failed),
+                "DELETING" => Some(Self::Deleting),
+                _ => None,
+            }
+        }
+    }
+}
 /// Namespaces, list of namespaces
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -225,97 +316,6 @@ pub mod logged_restore {
         }
     }
 }
-/// Backup as stored in Platform log. It's used to log the details of
-/// a createBackup/updateBackup request, so only fields that can be taken
-/// from API calls are included here.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LoggedBackup {
-    /// A set of custom labels supplied by user.
-    #[prost(btree_map = "string, string", tag = "1")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// delete_lock_days specifies the number of days from the create_time of this
-    /// Backup before which deletion will be blocked.
-    #[prost(int32, tag = "2")]
-    pub delete_lock_days: i32,
-    /// retain_days specifies the desired number of days from the create_time of
-    /// this Backup after which it will be automatically deleted.
-    #[prost(int32, tag = "3")]
-    pub retain_days: i32,
-    /// User specified descriptive string for this Backup.
-    #[prost(string, tag = "4")]
-    pub description: ::prost::alloc::string::String,
-    /// Current state of the Backup
-    #[prost(enumeration = "logged_backup::State", tag = "5")]
-    pub state: i32,
-    /// Human-readable description of why the backup is in the current `state`.
-    #[prost(string, tag = "6")]
-    pub state_reason: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `LoggedBackup`.
-pub mod logged_backup {
-    /// State
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// The Backup resource is in the process of being created.
-        Unspecified = 0,
-        /// The Backup resource has been created and the associated BackupJob
-        /// Kubernetes resource has been injected into the source cluster.
-        Creating = 1,
-        /// The gkebackup agent in the cluster has begun executing the backup
-        /// operation.
-        InProgress = 2,
-        /// The backup operation has completed successfully.
-        Succeeded = 3,
-        /// The backup operation has failed.
-        Failed = 4,
-        /// This Backup resource (and its associated artifacts) is in the process
-        /// of being deleted.
-        Deleting = 5,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::InProgress => "IN_PROGRESS",
-                State::Succeeded => "SUCCEEDED",
-                State::Failed => "FAILED",
-                State::Deleting => "DELETING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "IN_PROGRESS" => Some(Self::InProgress),
-                "SUCCEEDED" => Some(Self::Succeeded),
-                "FAILED" => Some(Self::Failed),
-                "DELETING" => Some(Self::Deleting),
-                _ => None,
-            }
-        }
-    }
-}
 /// RestorePlan as stored in Platform log. It's used to log the details of
 /// a createRestorePlan/updateRestorePlan request, so only fields that can be
 /// taken from user input are included here.
@@ -394,7 +394,7 @@ pub struct RestoreConfig {
 /// Nested message and enum types in `RestoreConfig`.
 pub mod restore_config {
     /// This is a direct map to the Kubernetes GroupKind type
-    /// \[GroupKind\](<https://godoc.org/k8s.io/apimachinery/pkg/runtime/schema#GroupKind>)
+    /// [GroupKind](<https://godoc.org/k8s.io/apimachinery/pkg/runtime/schema#GroupKind>)
     /// and is used for identifying specific "types" of resources to restore.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
@@ -451,7 +451,7 @@ pub mod restore_config {
         /// fields out of the candidate resources will be modified).
         #[prost(string, tag = "3")]
         pub target_json_path: ::prost::alloc::string::String,
-        /// (Filtering parameter) This is a [regular expression]
+        /// (Filtering parameter) This is a \[regular expression\]
         /// (<https://en.wikipedia.org/wiki/Regular_expression>)
         /// that is compared against the fields matched by the target_json_path
         /// expression (and must also have passed the previous filters).

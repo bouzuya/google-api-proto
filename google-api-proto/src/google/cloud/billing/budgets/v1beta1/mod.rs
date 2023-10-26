@@ -64,22 +64,22 @@ pub mod budget_amount {
         SpecifiedAmount(super::super::super::super::super::r#type::Money),
         /// Use the last period's actual spend as the budget for the present period.
         /// LastPeriodAmount can only be set when the budget's time period is a
-        /// \[Filter.calendar_period][google.cloud.billing.budgets.v1beta1.Filter.calendar_period\].
+        /// [Filter.calendar_period][google.cloud.billing.budgets.v1beta1.Filter.calendar_period].
         /// It cannot be set in combination with
-        /// \[Filter.custom_period][google.cloud.billing.budgets.v1beta1.Filter.custom_period\].
+        /// [Filter.custom_period][google.cloud.billing.budgets.v1beta1.Filter.custom_period].
         #[prost(message, tag = "2")]
         LastPeriodAmount(super::LastPeriodAmount),
     }
 }
 /// Describes a budget amount targeted to the last
-/// \[Filter.calendar_period][google.cloud.billing.budgets.v1beta1.Filter.calendar_period\]
+/// [Filter.calendar_period][google.cloud.billing.budgets.v1beta1.Filter.calendar_period]
 /// spend. At this time, the amount is automatically 100% of the last calendar
 /// period's spend; that is, there are no other options yet.
 /// Future configuration options will be described here (for example, configuring
 /// a percentage of last period's spend).
 /// LastPeriodAmount cannot be set for a budget configured with
 /// a
-/// \[Filter.custom_period][google.cloud.billing.budgets.v1beta1.Filter.custom_period\].
+/// [Filter.custom_period][google.cloud.billing.budgets.v1beta1.Filter.custom_period].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct LastPeriodAmount {}
@@ -88,7 +88,7 @@ pub struct LastPeriodAmount {}
 /// threshold is crossed (spend exceeds the specified percentages of the
 /// budget), budget alert emails are sent to the email recipients you specify
 /// in the
-/// \[NotificationsRule\](#notificationsrule).
+/// [NotificationsRule](#notificationsrule).
 ///
 /// Threshold rules also affect the fields included in the
 /// [JSON data
@@ -141,9 +141,9 @@ pub mod threshold_rule {
         /// Use forecasted spend for the period as the basis for comparison against
         /// the threshold.
         /// FORECASTED_SPEND can only be set when the budget's time period is a
-        /// \[Filter.calendar_period][google.cloud.billing.budgets.v1beta1.Filter.calendar_period\].
+        /// [Filter.calendar_period][google.cloud.billing.budgets.v1beta1.Filter.calendar_period].
         /// It cannot be set in combination with
-        /// \[Filter.custom_period][google.cloud.billing.budgets.v1beta1.Filter.custom_period\].
+        /// [Filter.custom_period][google.cloud.billing.budgets.v1beta1.Filter.custom_period].
         ForecastedSpend = 2,
     }
     impl Basis {
@@ -188,9 +188,9 @@ pub struct AllUpdatesRule {
     #[prost(string, tag = "1")]
     pub pubsub_topic: ::prost::alloc::string::String,
     /// Optional. Required when
-    /// \[AllUpdatesRule.pubsub_topic][google.cloud.billing.budgets.v1beta1.AllUpdatesRule.pubsub_topic\]
+    /// [AllUpdatesRule.pubsub_topic][google.cloud.billing.budgets.v1beta1.AllUpdatesRule.pubsub_topic]
     /// is set. The schema version of the notification sent to
-    /// \[AllUpdatesRule.pubsub_topic][google.cloud.billing.budgets.v1beta1.AllUpdatesRule.pubsub_topic\].
+    /// [AllUpdatesRule.pubsub_topic][google.cloud.billing.budgets.v1beta1.AllUpdatesRule.pubsub_topic].
     /// Only "1.0" is accepted. It represents the JSON schema as defined in
     /// <https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications#notification_format.>
     #[prost(string, tag = "2")]
@@ -243,14 +243,14 @@ pub struct Filter {
     #[prost(string, repeated, tag = "2")]
     pub resource_ancestors: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     /// Optional. If
-    /// \[Filter.credit_types_treatment][google.cloud.billing.budgets.v1beta1.Filter.credit_types_treatment\]
+    /// [Filter.credit_types_treatment][google.cloud.billing.budgets.v1beta1.Filter.credit_types_treatment]
     /// is INCLUDE_SPECIFIED_CREDITS, this is a list of credit types to be
     /// subtracted from gross cost to determine the spend for threshold
     /// calculations. See [a list of acceptable credit type
     /// values](<https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables#credits-type>).
     ///
     /// If
-    /// \[Filter.credit_types_treatment][google.cloud.billing.budgets.v1beta1.Filter.credit_types_treatment\]
+    /// [Filter.credit_types_treatment][google.cloud.billing.budgets.v1beta1.Filter.credit_types_treatment]
     /// is **not** INCLUDE_SPECIFIED_CREDITS, this field must be empty.
     #[prost(string, repeated, tag = "7")]
     pub credit_types: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,

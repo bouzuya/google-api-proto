@@ -44,7 +44,7 @@ pub struct MuxStream {
     #[prost(string, tag = "3")]
     pub container: ::prost::alloc::string::String,
     /// List of `ElementaryStream`
-    /// \[key][google.cloud.video.livestream.v1.ElementaryStream.key\]s multiplexed
+    /// [key][google.cloud.video.livestream.v1.ElementaryStream.key]s multiplexed
     /// in this stream.
     ///
     /// - For `fmp4` container, must contain either one video or one audio stream.
@@ -66,7 +66,7 @@ pub struct MuxStream {
 pub struct Manifest {
     /// The name of the generated file. The default is `manifest` with the
     /// extension suffix corresponding to the `Manifest`
-    /// \[type][google.cloud.video.livestream.v1.Manifest.type\]. If multiple
+    /// [type][google.cloud.video.livestream.v1.Manifest.type]. If multiple
     /// manifests are added to the channel, each must have a unique file name.
     #[prost(string, tag = "1")]
     pub file_name: ::prost::alloc::string::String,
@@ -74,7 +74,7 @@ pub struct Manifest {
     #[prost(enumeration = "manifest::ManifestType", tag = "2")]
     pub r#type: i32,
     /// Required. List of `MuxStream`
-    /// \[key][google.cloud.video.livestream.v1.MuxStream.key\]s that should appear
+    /// [key][google.cloud.video.livestream.v1.MuxStream.key]s that should appear
     /// in this manifest.
     ///
     /// - For HLS, either `fmp4` or `ts` mux streams can be specified but not
@@ -177,15 +177,15 @@ pub struct SpriteSheet {
     #[prost(int32, tag = "4")]
     pub sprite_height_pixels: i32,
     /// The maximum number of sprites per row in a sprite sheet. Valid range is
-    /// [1, 10] and the default value is 1.
+    /// \[1, 10\] and the default value is 1.
     #[prost(int32, tag = "5")]
     pub column_count: i32,
     /// The maximum number of rows per sprite sheet. When the sprite sheet is full,
-    /// a new sprite sheet is created. Valid range is [1, 10] and the default value
+    /// a new sprite sheet is created. Valid range is \[1, 10\] and the default value
     /// is 1.
     #[prost(int32, tag = "6")]
     pub row_count: i32,
-    /// Create sprites at regular intervals. Valid range is [1 second, 1 hour] and
+    /// Create sprites at regular intervals. Valid range is \[1 second, 1 hour\] and
     /// the default value is `10s`.
     #[prost(message, optional, tag = "7")]
     pub interval: ::core::option::Option<::prost_types::Duration>,
@@ -282,11 +282,11 @@ pub mod video_stream {
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct H264CodecSettings {
         /// Required. The width of the video in pixels. Must be an even integer.
-        /// Valid range is [320, 1920].
+        /// Valid range is \[320, 1920\].
         #[prost(int32, tag = "1")]
         pub width_pixels: i32,
         /// Required. The height of the video in pixels. Must be an even integer.
-        /// Valid range is [180, 1080].
+        /// Valid range is \[180, 1080\].
         #[prost(int32, tag = "2")]
         pub height_pixels: i32,
         /// Required. The target video frame rate in frames per second (FPS). Must be
@@ -310,12 +310,12 @@ pub mod video_stream {
         pub allow_open_gop: bool,
         /// Size of the Video Buffering Verifier (VBV) buffer in bits. Must be
         /// greater than zero. The default is equal to
-        /// \[bitrate_bps][google.cloud.video.livestream.v1.VideoStream.H264CodecSettings.bitrate_bps\].
+        /// [bitrate_bps][google.cloud.video.livestream.v1.VideoStream.H264CodecSettings.bitrate_bps].
         #[prost(int32, tag = "9")]
         pub vbv_size_bits: i32,
         /// Initial fullness of the Video Buffering Verifier (VBV) buffer in bits.
         /// Must be greater than zero. The default is equal to 90% of
-        /// \[vbv_size_bits][google.cloud.video.livestream.v1.VideoStream.H264CodecSettings.vbv_size_bits\].
+        /// [vbv_size_bits][google.cloud.video.livestream.v1.VideoStream.H264CodecSettings.vbv_size_bits].
         #[prost(int32, tag = "10")]
         pub vbv_fullness_bits: i32,
         /// The entropy coder to use. The default is `cabac`.
@@ -332,7 +332,7 @@ pub mod video_stream {
         pub b_pyramid: bool,
         /// The number of consecutive B-frames. Must be greater than or equal to
         /// zero. Must be less than
-        /// \[gop_frame_count][google.cloud.video.livestream.v1.VideoStream.H264CodecSettings.gop_frame_count\]
+        /// [gop_frame_count][google.cloud.video.livestream.v1.VideoStream.H264CodecSettings.gop_frame_count]
         /// if set. The default is 0.
         #[prost(int32, tag = "13")]
         pub b_frame_count: i32,
@@ -352,7 +352,7 @@ pub mod video_stream {
         /// Options](<https://trac.ffmpeg.org/wiki/Encode/H.264#Profile>).
         /// Note that certain values for this field may cause the
         /// transcoder to override other fields you set in the
-        /// \[H264CodecSettings][google.cloud.video.livestream.v1.VideoStream.H264CodecSettings\]
+        /// [H264CodecSettings][google.cloud.video.livestream.v1.VideoStream.H264CodecSettings]
         /// message.
         #[prost(string, tag = "15")]
         pub profile: ::prost::alloc::string::String,
@@ -361,7 +361,7 @@ pub mod video_stream {
         /// Options](<https://trac.ffmpeg.org/wiki/Encode/H.264#Tune>)
         /// Note that certain values for this field may cause the transcoder to
         /// override other fields you set in the
-        /// \[H264CodecSettings][google.cloud.video.livestream.v1.VideoStream.H264CodecSettings\]
+        /// [H264CodecSettings][google.cloud.video.livestream.v1.VideoStream.H264CodecSettings]
         /// message.
         #[prost(string, tag = "16")]
         pub tune: ::prost::alloc::string::String,
@@ -379,15 +379,15 @@ pub mod video_stream {
             /// If GOP frame count is set instead of GOP duration, GOP duration will be
             /// calculated by `gopFrameCount`/`frameRate`. The calculated GOP duration
             /// must satisfy the limitations on `gopDuration` as well.
-            /// Valid range is [60, 600].
+            /// Valid range is \[60, 600\].
             #[prost(int32, tag = "7")]
             GopFrameCount(i32),
             /// Select the GOP size based on the specified duration. The default is
             /// `2s`. Note that `gopDuration` must be less than or equal to
-            /// \[segment_duration][google.cloud.video.livestream.v1.SegmentSettings.segment_duration\],
+            /// [segment_duration][google.cloud.video.livestream.v1.SegmentSettings.segment_duration],
             /// and
-            /// \[segment_duration][google.cloud.video.livestream.v1.SegmentSettings.segment_duration\]
-            /// must be divisible by `gopDuration`. Valid range is [2s, 20s].
+            /// [segment_duration][google.cloud.video.livestream.v1.SegmentSettings.segment_duration]
+            /// must be divisible by `gopDuration`. Valid range is \[2s, 20s\].
             ///
             /// All video streams in the same channel must have the same GOP size.
             #[prost(message, tag = "8")]
@@ -428,7 +428,7 @@ pub struct AudioStream {
     pub channel_count: i32,
     /// A list of channel names specifying layout of the audio channels.
     /// This only affects the metadata embedded in the container headers, if
-    /// supported by the specified format. The default is `[fl, fr]`.
+    /// supported by the specified format. The default is `\[fl, fr\]`.
     ///
     /// Supported channel names:
     ///
@@ -454,15 +454,15 @@ pub mod audio_stream {
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct AudioMapping {
         /// Required. The `Channel`
-        /// \[InputAttachment.key][google.cloud.video.livestream.v1.InputAttachment.key\]
+        /// [InputAttachment.key][google.cloud.video.livestream.v1.InputAttachment.key]
         /// that identifies the input that this audio mapping applies to. If an
         /// active input doesn't have an audio mapping, the primary audio track in
         /// the input stream will be selected.
         #[prost(string, tag = "6")]
         pub input_key: ::prost::alloc::string::String,
         /// Required. The zero-based index of the track in the input stream.
-        /// All \[mapping][google.cloud.video.livestream.v1.AudioStream.mapping\]s in
-        /// the same \[AudioStream][google.cloud.video.livestream.v1.AudioStream\] must
+        /// All [mapping][google.cloud.video.livestream.v1.AudioStream.mapping]s in
+        /// the same [AudioStream][google.cloud.video.livestream.v1.AudioStream] must
         /// have the same input track.
         #[prost(int32, tag = "2")]
         pub input_track: i32,
@@ -471,7 +471,7 @@ pub mod audio_stream {
         pub input_channel: i32,
         /// Required. The zero-based index of the channel in the output audio stream.
         /// Must be consistent with the
-        /// \[input_channel][google.cloud.video.livestream.v1.AudioStream.AudioMapping.input_channel\].
+        /// [input_channel][google.cloud.video.livestream.v1.AudioStream.AudioMapping.input_channel].
         #[prost(int32, tag = "4")]
         pub output_channel: i32,
         /// Audio volume control in dB. Negative values decrease volume,
@@ -499,12 +499,12 @@ pub struct TextStream {
 pub struct SegmentSettings {
     /// Duration of the segments in seconds. The default is `6s`. Note that
     /// `segmentDuration` must be greater than or equal to
-    /// \[gop_duration][google.cloud.video.livestream.v1.VideoStream.H264CodecSettings.gop_duration\],
+    /// [gop_duration][google.cloud.video.livestream.v1.VideoStream.H264CodecSettings.gop_duration],
     /// and `segmentDuration` must be divisible by
-    /// \[gop_duration][google.cloud.video.livestream.v1.VideoStream.H264CodecSettings.gop_duration\].
-    /// Valid range is [2s, 20s].
+    /// [gop_duration][google.cloud.video.livestream.v1.VideoStream.H264CodecSettings.gop_duration].
+    /// Valid range is \[2s, 20s\].
     ///
-    /// All \[mux_streams][google.cloud.video.livestream.v1.Manifest.mux_streams\] in
+    /// All [mux_streams][google.cloud.video.livestream.v1.Manifest.mux_streams] in
     /// the same manifest must have the same segment duration.
     #[prost(message, optional, tag = "1")]
     pub segment_duration: ::core::option::Option<::prost_types::Duration>,
@@ -609,13 +609,13 @@ pub struct Input {
     pub r#type: i32,
     /// Tier defines the maximum input specification that is accepted by the
     /// video pipeline. The billing is charged based on the tier specified here.
-    /// See \[Pricing\](<https://cloud.google.com/livestream/pricing>) for more detail.
+    /// See [Pricing](<https://cloud.google.com/livestream/pricing>) for more detail.
     /// The default is `HD`.
     #[prost(enumeration = "input::Tier", tag = "14")]
     pub tier: i32,
     /// Output only. URI to push the input stream to.
     /// Its format depends on the input
-    /// \[type][google.cloud.video.livestream.v1.Input.type\], for example:
+    /// [type][google.cloud.video.livestream.v1.Input.type], for example:
     ///
     /// *  `RTMP_PUSH`: `rtmp://1.2.3.4/live/{STREAM-ID}`
     /// *  `SRT_PUSH`: `srt://1.2.3.4:4201?streamid={STREAM-ID}`
@@ -767,9 +767,9 @@ pub struct Channel {
     #[prost(message, repeated, tag = "16")]
     pub input_attachments: ::prost::alloc::vec::Vec<InputAttachment>,
     /// Output only. The
-    /// \[InputAttachment.key][google.cloud.video.livestream.v1.InputAttachment.key\]
+    /// [InputAttachment.key][google.cloud.video.livestream.v1.InputAttachment.key]
     /// that serves as the current input source. The first input in the
-    /// \[input_attachments][google.cloud.video.livestream.v1.Channel.input_attachments\]
+    /// [input_attachments][google.cloud.video.livestream.v1.Channel.input_attachments]
     /// is the initial input source.
     #[prost(string, tag = "6")]
     pub active_input: ::prost::alloc::string::String,
@@ -794,9 +794,9 @@ pub struct Channel {
     pub streaming_state: i32,
     /// Output only. A description of the reason for the streaming error. This
     /// property is always present when
-    /// \[streaming_state][google.cloud.video.livestream.v1.Channel.streaming_state\]
+    /// [streaming_state][google.cloud.video.livestream.v1.Channel.streaming_state]
     /// is
-    /// \[STREAMING_ERROR][google.cloud.video.livestream.v1.Channel.StreamingState.STREAMING_ERROR\].
+    /// [STREAMING_ERROR][google.cloud.video.livestream.v1.Channel.StreamingState.STREAMING_ERROR].
     #[prost(message, optional, tag = "18")]
     pub streaming_error: ::core::option::Option<super::super::super::super::rpc::Status>,
     /// Configuration of platform logs for this channel.
@@ -811,7 +811,7 @@ pub struct Channel {
     #[prost(message, repeated, tag = "24")]
     pub encryptions: ::prost::alloc::vec::Vec<Encryption>,
     /// The configuration for input sources defined in
-    /// \[input_attachments][google.cloud.video.livestream.v1.Channel.input_attachments\].
+    /// [input_attachments][google.cloud.video.livestream.v1.Channel.input_attachments].
     #[prost(message, optional, tag = "25")]
     pub input_config: ::core::option::Option<InputConfig>,
 }
@@ -922,14 +922,14 @@ pub mod input_config {
         Unspecified = 0,
         /// Automatic failover is enabled. The primary input stream is always
         /// preferred over its backup input streams configured using the
-        /// \[AutomaticFailover][google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover\]
+        /// [AutomaticFailover][google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover]
         /// field.
         FailoverPreferPrimary = 1,
         /// Automatic failover is disabled. You must use the
-        /// \[inputSwitch][google.cloud.video.livestream.v1.Event.input_switch\] event
+        /// [inputSwitch][google.cloud.video.livestream.v1.Event.input_switch] event
         /// to switch the active input source for the channel to stream from. When
         /// this mode is chosen, the
-        /// \[AutomaticFailover][google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover\]
+        /// [AutomaticFailover][google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover]
         /// field is ignored.
         Manual = 3,
     }
@@ -975,7 +975,7 @@ pub mod log_config {
     /// The severity level of a log is ranked as followed from low to high: DEBUG <
     /// INFO < NOTICE < WARNING < ERROR < CRITICAL < ALERT < EMERGENCY.
     /// See
-    /// \[LogSeverity\](<https://cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry#logseverity>)
+    /// [LogSeverity](<https://cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry#logseverity>)
     /// for more information.
     #[derive(
         Clone,
@@ -1122,7 +1122,7 @@ pub mod input_attachment {
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct AutomaticFailover {
         /// The
-        /// \[InputAttachment.key][google.cloud.video.livestream.v1.InputAttachment.key\]s
+        /// [InputAttachment.key][google.cloud.video.livestream.v1.InputAttachment.key]s
         /// of inputs to failover to when this input is disconnected. Currently, only
         /// up to one backup input is supported.
         #[prost(string, repeated, tag = "1")]
@@ -1152,16 +1152,16 @@ pub struct Event {
     >,
     /// When this field is set to true, the event will be executed at the earliest
     /// time that the server can schedule the event and
-    /// \[execution_time][google.cloud.video.livestream.v1.Event.execution_time\]
+    /// [execution_time][google.cloud.video.livestream.v1.Event.execution_time]
     /// will be populated with the time that the server actually schedules the
     /// event.
     #[prost(bool, tag = "9")]
     pub execute_now: bool,
     /// The time to execute the event. If you set
-    /// \[execute_now][google.cloud.video.livestream.v1.Event.execute_now\] to
+    /// [execute_now][google.cloud.video.livestream.v1.Event.execute_now] to
     /// `true`, then do not set this field in the `CreateEvent` request. In
     /// this case, the server schedules the event and populates this field. If you
-    /// set \[execute_now][google.cloud.video.livestream.v1.Event.execute_now\] to
+    /// set [execute_now][google.cloud.video.livestream.v1.Event.execute_now] to
     /// `false`, then you must set this field to at least 10 seconds in the future
     /// or else the event can't be created.
     #[prost(message, optional, tag = "10")]
@@ -1184,7 +1184,7 @@ pub mod event {
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct InputSwitchTask {
         /// The
-        /// \[InputAttachment.key][google.cloud.video.livestream.v1.InputAttachment.key\]
+        /// [InputAttachment.key][google.cloud.video.livestream.v1.InputAttachment.key]
         /// of the input to switch to.
         #[prost(string, tag = "1")]
         pub input_key: ::prost::alloc::string::String,
@@ -1732,7 +1732,7 @@ pub struct ListChannelsRequest {
     /// The maximum number of items to return. If unspecified, server
     /// will pick an appropriate default. Server may return fewer items than
     /// requested. A caller should only rely on response's
-    /// \[next_page_token][google.cloud.video.livestream.v1.ListChannelsResponse.next_page_token\]
+    /// [next_page_token][google.cloud.video.livestream.v1.ListChannelsResponse.next_page_token]
     /// to determine if there are more items left to be queried.
     #[prost(int32, tag = "2")]
     pub page_size: i32,
@@ -1808,16 +1808,16 @@ pub struct UpdateChannelRequest {
     /// Field mask is used to specify the fields to be overwritten in the Channel
     /// resource by the update. You can only update the following fields:
     ///
-    /// * \[`inputAttachments`\](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#inputattachment>)
-    /// * \[`inputConfig`\](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#inputconfig>)
-    /// * \[`output`\](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#output>)
-    /// * \[`elementaryStreams`\](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#elementarystream>)
-    /// * \[`muxStreams`\](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#muxstream>)
-    /// * \[`manifests`\](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#manifest>)
-    /// * \[`spriteSheets`\](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#spritesheet>)
-    /// * \[`logConfig`\](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#logconfig>)
-    /// * \[`timecodeConfig`\](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#timecodeconfig>)
-    /// * \[`encryptions`\](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#encryption>)
+    /// * [`inputAttachments`](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#inputattachment>)
+    /// * [`inputConfig`](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#inputconfig>)
+    /// * [`output`](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#output>)
+    /// * [`elementaryStreams`](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#elementarystream>)
+    /// * [`muxStreams`](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#muxstream>)
+    /// * [`manifests`](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#manifest>)
+    /// * [`spriteSheets`](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#spritesheet>)
+    /// * [`logConfig`](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#logconfig>)
+    /// * [`timecodeConfig`](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#timecodeconfig>)
+    /// * [`encryptions`](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.channels#encryption>)
     ///
     /// The fields specified in the update_mask are relative to the resource, not
     /// the full request. A field will be overwritten if it is in the mask.
@@ -1937,7 +1937,7 @@ pub struct ListInputsRequest {
     /// The maximum number of items to return. If unspecified, server
     /// will pick an appropriate default. Server may return fewer items than
     /// requested. A caller should only rely on response's
-    /// \[next_page_token][google.cloud.video.livestream.v1.ListInputsResponse.next_page_token\]
+    /// [next_page_token][google.cloud.video.livestream.v1.ListInputsResponse.next_page_token]
     /// to determine if there are more items left to be queried.
     #[prost(int32, tag = "2")]
     pub page_size: i32,
@@ -2007,8 +2007,8 @@ pub struct UpdateInputRequest {
     /// Field mask is used to specify the fields to be overwritten in the Input
     /// resource by the update. You can only update the following fields:
     ///
-    /// * \[`preprocessingConfig`\](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.inputs#PreprocessingConfig>)
-    /// * \[`securityRules`\](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.inputs#SecurityRule>)
+    /// * [`preprocessingConfig`](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.inputs#PreprocessingConfig>)
+    /// * [`securityRules`](<https://cloud.google.com/livestream/docs/reference/rest/v1/projects.locations.inputs#SecurityRule>)
     ///
     /// The fields specified in the update_mask are relative to the resource, not
     /// the full request. A field will be overwritten if it is in the mask.
@@ -2080,7 +2080,7 @@ pub struct ListEventsRequest {
     /// The maximum number of items to return. If unspecified, server
     /// will pick an appropriate default. Server may return fewer items than
     /// requested. A caller should only rely on response's
-    /// \[next_page_token][google.cloud.video.livestream.v1.ListEventsResponse.next_page_token\]
+    /// [next_page_token][google.cloud.video.livestream.v1.ListEventsResponse.next_page_token]
     /// to determine if there are more items left to be queried.
     #[prost(int32, tag = "2")]
     pub page_size: i32,
@@ -2165,8 +2165,8 @@ pub struct OperationMetadata {
     pub verb: ::prost::alloc::string::String,
     /// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
-    /// have \[Operation.error][\] value with a
-    /// \[google.rpc.Status.code][google.rpc.Status.code\] of 1, corresponding to
+    /// have [Operation.error][] value with a
+    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
     #[prost(bool, tag = "5")]
     pub requested_cancellation: bool,

@@ -29,7 +29,7 @@ pub struct AccessTuple {
     #[prost(string, tag = "3")]
     pub permission: ::prost::alloc::string::String,
 }
-/// Details about how a specific IAM \[Policy][google.iam.v1.Policy\] contributed
+/// Details about how a specific IAM [Policy][google.iam.v1.Policy] contributed
 /// to the access check.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -41,14 +41,14 @@ pub struct ExplainedPolicy {
     /// permission for the resource. There might be another policy that overrides
     /// this policy. To determine whether the principal actually has the
     /// permission, use the `access` field in the
-    /// \[TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse].
     #[prost(enumeration = "AccessState", tag = "1")]
     pub access: i32,
     /// The full resource name that identifies the resource. For example,
     /// `//compute.googleapis.com/projects/my-project/zones/us-central1-a/instances/my-instance`.
     ///
     /// If the user who created the
-    /// \[Replay][google.cloud.policysimulator.v1.Replay\] does not have
+    /// [Replay][google.cloud.policysimulator.v1.Replay] does not have
     /// access to the policy, this field is omitted.
     ///
     /// For examples of full resource names for Google Cloud services, see
@@ -58,7 +58,7 @@ pub struct ExplainedPolicy {
     /// The IAM policy attached to the resource.
     ///
     /// If the user who created the
-    /// \[Replay][google.cloud.policysimulator.v1.Replay\] does not have
+    /// [Replay][google.cloud.policysimulator.v1.Replay] does not have
     /// access to the policy, this field is empty.
     #[prost(message, optional, tag = "3")]
     pub policy: ::core::option::Option<super::super::super::iam::v1::Policy>,
@@ -66,15 +66,15 @@ pub struct ExplainedPolicy {
     /// ability, or inability, to use the permission for the resource.
     ///
     /// If the user who created the
-    /// \[Replay][google.cloud.policysimulator.v1.Replay\] does not have
+    /// [Replay][google.cloud.policysimulator.v1.Replay] does not have
     /// access to the policy, this field is omitted.
     #[prost(message, repeated, tag = "4")]
     pub binding_explanations: ::prost::alloc::vec::Vec<BindingExplanation>,
     /// The relevance of this policy to the overall determination in the
-    /// \[TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse].
     ///
     /// If the user who created the
-    /// \[Replay][google.cloud.policysimulator.v1.Replay\] does not have
+    /// [Replay][google.cloud.policysimulator.v1.Replay] does not have
     /// access to the policy, this field is omitted.
     #[prost(enumeration = "HeuristicRelevance", tag = "5")]
     pub relevance: i32,
@@ -91,7 +91,7 @@ pub struct BindingExplanation {
     /// permission for the resource. There might be another binding that overrides
     /// this binding. To determine whether the principal actually has the
     /// permission, use the `access` field in the
-    /// \[TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse\].
+    /// [TroubleshootIamPolicyResponse][IamChecker.TroubleshootIamPolicyResponse].
     #[prost(enumeration = "AccessState", tag = "1")]
     pub access: i32,
     /// The role that this binding grants. For example,
@@ -181,7 +181,7 @@ pub mod binding_explanation {
         /// The permission is not included in the role.
         NotIncluded = 2,
         /// The user who created the
-        /// \[Replay][google.cloud.policysimulator.v1.Replay\] is not
+        /// [Replay][google.cloud.policysimulator.v1.Replay] is not
         /// allowed to access the binding.
         UnknownInfoDenied = 3,
     }
@@ -238,7 +238,7 @@ pub mod binding_explanation {
         /// The binding does not include the principal.
         NotIncluded = 2,
         /// The user who created the
-        /// \[Replay][google.cloud.policysimulator.v1.Replay\] is not
+        /// [Replay][google.cloud.policysimulator.v1.Replay] is not
         /// allowed to access the binding.
         UnknownInfoDenied = 3,
         /// The principal is an unsupported type. Only Google Accounts and service
@@ -286,7 +286,7 @@ pub enum AccessState {
     /// to `true`.
     UnknownConditional = 3,
     /// The user who created the
-    /// \[Replay][google.cloud.policysimulator.v1.Replay\] does not have
+    /// [Replay][google.cloud.policysimulator.v1.Replay] does not have
     /// access to all of the policies that Policy Simulator needs to evaluate.
     UnknownInfoDenied = 4,
 }
@@ -409,7 +409,7 @@ pub mod replay {
             super::super::super::super::r#type::Date,
         >,
     }
-    /// The current state of the \[Replay][google.cloud.policysimulator.v1.Replay\].
+    /// The current state of the [Replay][google.cloud.policysimulator.v1.Replay].
     #[derive(
         Clone,
         Copy,
@@ -469,13 +469,13 @@ pub struct ReplayResult {
     ///
     /// `{projects|folders|organizations}/{resource-id}/locations/global/replays/{replay-id}/results/{replay-result-id}`,
     /// where `{resource-id}` is the ID of the project, folder, or organization
-    /// that owns the \[Replay][google.cloud.policysimulator.v1.Replay\].
+    /// that owns the [Replay][google.cloud.policysimulator.v1.Replay].
     ///
     /// Example:
     /// `projects/my-example-project/locations/global/replays/506a5f7f-38ce-4d7d-8e03-479ce1833c36/results/1234`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// The \[Replay][google.cloud.policysimulator.v1.Replay\] that the access tuple
+    /// The [Replay][google.cloud.policysimulator.v1.Replay] that the access tuple
     /// was included in.
     #[prost(string, tag = "2")]
     pub parent: ::prost::alloc::string::String,
@@ -515,18 +515,18 @@ pub mod replay_result {
     }
 }
 /// Request message for
-/// \[Simulator.CreateReplay][google.cloud.policysimulator.v1.Simulator.CreateReplay\].
+/// [Simulator.CreateReplay][google.cloud.policysimulator.v1.Simulator.CreateReplay].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateReplayRequest {
     /// Required. The parent resource where this
-    /// \[Replay][google.cloud.policysimulator.v1.Replay\] will be created. This
+    /// [Replay][google.cloud.policysimulator.v1.Replay] will be created. This
     /// resource must be a project, folder, or organization with a location.
     ///
     /// Example: `projects/my-example-project/locations/global`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Required. The \[Replay][google.cloud.policysimulator.v1.Replay\] to create.
+    /// Required. The [Replay][google.cloud.policysimulator.v1.Replay] to create.
     /// Set `Replay.ReplayConfig` to configure the replay.
     #[prost(message, optional, tag = "2")]
     pub replay: ::core::option::Option<Replay>,
@@ -540,11 +540,11 @@ pub struct ReplayOperationMetadata {
     pub start_time: ::core::option::Option<::prost_types::Timestamp>,
 }
 /// Request message for
-/// \[Simulator.GetReplay][google.cloud.policysimulator.v1.Simulator.GetReplay\].
+/// [Simulator.GetReplay][google.cloud.policysimulator.v1.Simulator.GetReplay].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetReplayRequest {
-    /// Required. The name of the \[Replay][google.cloud.policysimulator.v1.Replay\]
+    /// Required. The name of the [Replay][google.cloud.policysimulator.v1.Replay]
     /// to retrieve, in the following format:
     ///
     /// `{projects|folders|organizations}/{resource-id}/locations/global/replays/{replay-id}`,
@@ -557,11 +557,11 @@ pub struct GetReplayRequest {
     pub name: ::prost::alloc::string::String,
 }
 /// Request message for
-/// \[Simulator.ListReplayResults][google.cloud.policysimulator.v1.Simulator.ListReplayResults\].
+/// [Simulator.ListReplayResults][google.cloud.policysimulator.v1.Simulator.ListReplayResults].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListReplayResultsRequest {
-    /// Required. The \[Replay][google.cloud.policysimulator.v1.Replay\] whose
+    /// Required. The [Replay][google.cloud.policysimulator.v1.Replay] whose
     /// results are listed, in the following format:
     ///
     /// `{projects|folders|organizations}/{resource-id}/locations/global/replays/{replay-id}`
@@ -571,14 +571,14 @@ pub struct ListReplayResultsRequest {
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// The maximum number of
-    /// \[ReplayResult][google.cloud.policysimulator.v1.ReplayResult\] objects to
+    /// [ReplayResult][google.cloud.policysimulator.v1.ReplayResult] objects to
     /// return. Defaults to 5000.
     ///
     /// The maximum value is 5000; values above 5000 are rounded down to 5000.
     #[prost(int32, tag = "2")]
     pub page_size: i32,
     /// A page token, received from a previous
-    /// \[Simulator.ListReplayResults][google.cloud.policysimulator.v1.Simulator.ListReplayResults\]
+    /// [Simulator.ListReplayResults][google.cloud.policysimulator.v1.Simulator.ListReplayResults]
     /// call. Provide this token to retrieve the next page of results.
     ///
     /// When paginating, all other parameters provided to
@@ -588,21 +588,21 @@ pub struct ListReplayResultsRequest {
     pub page_token: ::prost::alloc::string::String,
 }
 /// Response message for
-/// \[Simulator.ListReplayResults][google.cloud.policysimulator.v1.Simulator.ListReplayResults\].
+/// [Simulator.ListReplayResults][google.cloud.policysimulator.v1.Simulator.ListReplayResults].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListReplayResultsResponse {
-    /// The results of running a \[Replay][google.cloud.policysimulator.v1.Replay\].
+    /// The results of running a [Replay][google.cloud.policysimulator.v1.Replay].
     #[prost(message, repeated, tag = "1")]
     pub replay_results: ::prost::alloc::vec::Vec<ReplayResult>,
     /// A token that you can use to retrieve the next page of
-    /// \[ReplayResult][google.cloud.policysimulator.v1.ReplayResult\] objects. If
+    /// [ReplayResult][google.cloud.policysimulator.v1.ReplayResult] objects. If
     /// this field is omitted, there are no subsequent pages.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
 /// The configuration used for a
-/// \[Replay][google.cloud.policysimulator.v1.Replay\].
+/// [Replay][google.cloud.policysimulator.v1.Replay].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ReplayConfig {
@@ -614,7 +614,7 @@ pub struct ReplayConfig {
     /// For examples of full resource names for Google Cloud services, see
     /// <https://cloud.google.com/iam/help/troubleshooter/full-resource-names.>
     ///
-    /// Values are \[Policy][google.iam.v1.Policy\] objects representing the policies
+    /// Values are [Policy][google.iam.v1.Policy] objects representing the policies
     /// that you want to simulate.
     ///
     /// Replays automatically take into account any IAM policies inherited through
@@ -626,14 +626,14 @@ pub struct ReplayConfig {
         super::super::super::iam::v1::Policy,
     >,
     /// The logs to use as input for the
-    /// \[Replay][google.cloud.policysimulator.v1.Replay\].
+    /// [Replay][google.cloud.policysimulator.v1.Replay].
     #[prost(enumeration = "replay_config::LogSource", tag = "2")]
     pub log_source: i32,
 }
 /// Nested message and enum types in `ReplayConfig`.
 pub mod replay_config {
     /// The source of the logs to use for a
-    /// \[Replay][google.cloud.policysimulator.v1.Replay\].
+    /// [Replay][google.cloud.policysimulator.v1.Replay].
     #[derive(
         Clone,
         Copy,
@@ -649,7 +649,7 @@ pub mod replay_config {
     pub enum LogSource {
         /// An unspecified log source.
         /// If the log source is unspecified, the
-        /// \[Replay][google.cloud.policysimulator.v1.Replay\] defaults to using
+        /// [Replay][google.cloud.policysimulator.v1.Replay] defaults to using
         /// `RECENT_ACCESSES`.
         Unspecified = 0,
         /// All access logs from the last 90 days. These logs may not include logs
@@ -689,7 +689,7 @@ pub struct ReplayDiff {
     /// access tuple.
     ///
     /// The evaluation of the principal's access is reported in the
-    /// \[AccessState][google.cloud.policysimulator.v1.AccessState\] field.
+    /// [AccessState][google.cloud.policysimulator.v1.AccessState] field.
     #[prost(message, optional, tag = "2")]
     pub access_diff: ::core::option::Option<AccessStateDiff>,
 }
@@ -702,7 +702,7 @@ pub struct AccessStateDiff {
     /// The results of evaluating the access tuple under the current (baseline)
     /// policies.
     ///
-    /// If the \[AccessState][google.cloud.policysimulator.v1.AccessState\] couldn't
+    /// If the [AccessState][google.cloud.policysimulator.v1.AccessState] couldn't
     /// be fully evaluated, this field explains why.
     #[prost(message, optional, tag = "1")]
     pub baseline: ::core::option::Option<ExplainedAccess>,
@@ -801,8 +801,8 @@ pub mod access_state_diff {
     }
 }
 /// Details about how a set of policies, listed in
-/// \[ExplainedPolicy][google.cloud.policysimulator.v1.ExplainedPolicy\], resulted
-/// in a certain \[AccessState][google.cloud.policysimulator.v1.AccessState\] when
+/// [ExplainedPolicy][google.cloud.policysimulator.v1.ExplainedPolicy], resulted
+/// in a certain [AccessState][google.cloud.policysimulator.v1.AccessState] when
 /// replaying an access tuple.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -811,14 +811,14 @@ pub struct ExplainedAccess {
     /// resource in the access tuple under the given policies.
     #[prost(enumeration = "AccessState", tag = "1")]
     pub access_state: i32,
-    /// If the \[AccessState][google.cloud.policysimulator.v1.AccessState\] is
+    /// If the [AccessState][google.cloud.policysimulator.v1.AccessState] is
     /// `UNKNOWN`, this field contains the policies that led to that result.
     ///
     /// If the `AccessState` is `GRANTED` or `NOT_GRANTED`, this field is
     /// omitted.
     #[prost(message, repeated, tag = "2")]
     pub policies: ::prost::alloc::vec::Vec<ExplainedPolicy>,
-    /// If the \[AccessState][google.cloud.policysimulator.v1.AccessState\] is
+    /// If the [AccessState][google.cloud.policysimulator.v1.AccessState] is
     /// `UNKNOWN`, this field contains a list of errors explaining why the result
     /// is `UNKNOWN`.
     ///

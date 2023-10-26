@@ -1,18 +1,3 @@
-/// Response metadata proto
-/// This is an experimental feature that will be used to get zone_id and
-/// cluster_id from response trailers to tag the metrics. This should not be
-/// used by customers directly
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ResponseParams {
-    /// The cloud bigtable zone associated with the cluster.
-    #[prost(string, optional, tag = "1")]
-    pub zone_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Identifier for a cluster that represents set of
-    /// bigtable resources.
-    #[prost(string, optional, tag = "2")]
-    pub cluster_id: ::core::option::Option<::prost::alloc::string::String>,
-}
 /// Specifies the complete (requested) contents of a single row of a table.
 /// Rows which exceed 256MiB in size cannot be read in full.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -78,7 +63,7 @@ pub struct Cell {
     /// length.
     #[prost(bytes = "bytes", tag = "2")]
     pub value: ::prost::bytes::Bytes,
-    /// Labels applied to the cell by a \[RowFilter][google.bigtable.v2.RowFilter\].
+    /// Labels applied to the cell by a [RowFilter][google.bigtable.v2.RowFilter].
     #[prost(string, repeated, tag = "3")]
     pub labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
@@ -416,7 +401,7 @@ pub mod row_filter {
         /// Despite being excluded by the qualifier filter, a copy of every cell
         /// that reaches the sink is present in the final result.
         ///
-        /// As with an \[Interleave][google.bigtable.v2.RowFilter.Interleave\],
+        /// As with an [Interleave][google.bigtable.v2.RowFilter.Interleave],
         /// duplicate cells are possible, and appear in an unspecified mutual order.
         /// In this case we have a duplicate with column "A:B" and timestamp 2,
         /// because one copy passed through the all filter while the other was
@@ -424,7 +409,7 @@ pub mod row_filter {
         /// while the other does not.
         ///
         /// Cannot be used within the `predicate_filter`, `true_filter`, or
-        /// `false_filter` of a \[Condition][google.bigtable.v2.RowFilter.Condition\].
+        /// `false_filter` of a [Condition][google.bigtable.v2.RowFilter.Condition].
         #[prost(bool, tag = "16")]
         Sink(bool),
         /// Matches all cells, regardless of input. Functionally equivalent to
@@ -883,12 +868,12 @@ pub struct ReadRowsResponse {
     ///          chunks and request_stats filled.
     ///
     /// Visually, response messages will stream as follows:
-    ///     ... -> {chunks: \[...\]} -> {chunks: [], request_stats: {...}}
+    ///     ... -> {chunks: \[...\]} -> {chunks: \[\], request_stats: {...}}
     ///    \______________________/  \________________________________/
     ///        Primary response         Trailer of RequestStats info
     ///
     /// Or if the read did not return any values:
-    ///    {chunks: [], request_stats: {...}}
+    ///    {chunks: \[\], request_stats: {...}}
     ///    \________________________________/
     ///       Trailer of RequestStats info
     #[prost(message, optional, tag = "3")]
@@ -933,7 +918,7 @@ pub mod read_rows_response {
         #[prost(int64, tag = "4")]
         pub timestamp_micros: i64,
         /// Labels applied to the cell by a
-        /// \[RowFilter][google.bigtable.v2.RowFilter\].  Labels are only set
+        /// [RowFilter][google.bigtable.v2.RowFilter].  Labels are only set
         /// on the first CellChunk per cell.
         #[prost(string, repeated, tag = "5")]
         pub labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
@@ -1872,6 +1857,21 @@ pub mod bigtable_client {
             self.inner.server_streaming(req, path, codec).await
         }
     }
+}
+/// Response metadata proto
+/// This is an experimental feature that will be used to get zone_id and
+/// cluster_id from response trailers to tag the metrics. This should not be
+/// used by customers directly
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResponseParams {
+    /// The cloud bigtable zone associated with the cluster.
+    #[prost(string, optional, tag = "1")]
+    pub zone_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Identifier for a cluster that represents set of
+    /// bigtable resources.
+    #[prost(string, optional, tag = "2")]
+    pub cluster_id: ::core::option::Option<::prost::alloc::string::String>,
 }
 /// Feature flags supported or enabled by a client.
 /// This is intended to be sent as part of request metadata to assure the server
